@@ -1,0 +1,122 @@
+{
+    "start_events": {
+        "sid-578B23D9-B175-46B0-985F-DED1E1AC0A80": {
+            "name": "Regression\nReport",
+            "outgoing": [
+                "sid-EB0F9BF1-EE22-4A52-8A27-EFF1CC1DBB0D"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-A42017B3-28AE-46DA-BC64-BD541AA49387": {
+            "name": "Check regression case",
+            "incoming": [
+                "sid-EB0F9BF1-EE22-4A52-8A27-EFF1CC1DBB0D"
+            ],
+            "outgoing": [
+                "sid-138B5203-2187-423E-9806-85B6A4D28BA7"
+            ]
+        },
+        "sid-2404FB2A-3023-4D64-89B3-866E6F887B76": {
+            "name": "Send payment request",
+            "incoming": [
+                "sid-6315BBDD-5348-4239-BA52-81AF59503E23"
+            ],
+            "outgoing": [
+                "sid-B8523D45-1197-4219-BB45-E56C065AE026"
+            ]
+        },
+        "sid-6A0B9B5B-E93E-449D-87B0-F9F003DCDC9A": {
+            "name": "Close",
+            "incoming": [
+                "sid-6CF79FC8-714F-4885-9C72-AA84A6205CDF"
+            ],
+            "outgoing": [
+                "sid-F63D0466-25AE-4A2C-832A-914AFF4C483E"
+            ]
+        },
+        "sid-6735A469-98F3-4BA8-8974-CCDD1DC5CC28": {
+            "name": "Dispense process to Inkasso-DL",
+            "incoming": [
+                "sid-68CDA0D4-44A6-4C8F-BC4B-1BE3F8958407"
+            ],
+            "outgoing": [
+                "sid-992B1C55-8F17-40D9-BC4A-459DF573D134"
+            ]
+        },
+        "sid-F3BDA301-3245-45E6-A642-FCC012DA1059": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-051A3922-8404-46BD-AF27-73EFA4D638A7"
+            ],
+            "outgoing": [
+                "sid-14B1A621-F29B-40C0-B1EB-27F928F71EBF"
+            ]
+        },
+        "sid-51622E0F-E104-4D8D-A3AC-22D90CA378ED": {
+            "name": "Book payment receipt",
+            "incoming": [
+                "sid-7C3AEA91-688A-4402-A0B3-15C943C4DA58"
+            ],
+            "outgoing": [
+                "sid-CDC9CEB2-956F-4A78-9B75-4A8591428E91"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-C7965C83-A576-44B1-926C-07F7361AE05C": {
+            "name": "Regress possible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-138B5203-2187-423E-9806-85B6A4D28BA7"
+            ],
+            "outgoing": [
+                "sid-6315BBDD-5348-4239-BA52-81AF59503E23",
+                "sid-215CC732-D76B-45E6-8C1A-5CEBCB8693F8"
+            ]
+        },
+        "sid-E80DF823-6733-4B45-B675-1B357739C7A4": {
+            "name": "Opposition\njustified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-14B1A621-F29B-40C0-B1EB-27F928F71EBF"
+            ],
+            "outgoing": [
+                "sid-0AF4173A-ABB8-4904-89F7-D7AECEFA6030",
+                "sid-6411CCB4-9191-4677-9FDA-D840C071FDD3"
+            ]
+        },
+        "sid-34AAFD40-8C84-47C8-BF0F-A3CE54BA88ED": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-0AF4173A-ABB8-4904-89F7-D7AECEFA6030",
+                "sid-CDC9CEB2-956F-4A78-9B75-4A8591428E91",
+                "sid-992B1C55-8F17-40D9-BC4A-459DF573D134",
+                "sid-215CC732-D76B-45E6-8C1A-5CEBCB8693F8"
+            ],
+            "outgoing": [
+                "sid-6CF79FC8-714F-4885-9C72-AA84A6205CDF"
+            ]
+        },
+        "sid-672ACD30-108E-4971-AB93-ABCE45CFE204": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-15E75312-9A69-451F-919F-5B561BE0E874",
+                "sid-6411CCB4-9191-4677-9FDA-D840C071FDD3"
+            ],
+            "outgoing": [
+                "sid-68CDA0D4-44A6-4C8F-BC4B-1BE3F8958407"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-ECD40746-874C-438B-B9D7-7E0134A5EB07": {
+            "name": "Regression\ncompleted",
+            "incoming": [
+                "sid-F63D0466-25AE-4A2C-832A-914AFF4C483E"
+            ]
+        }
+    }
+}

@@ -1,0 +1,80 @@
+{
+    "start_events": {
+        "sid-A396D623-A947-494D-80F2-5C79D214A07E": {
+            "name": "",
+            "outgoing": [
+                "sid-56259279-84FF-41C3-B376-03B143FD9463"
+            ]
+        },
+        "sid-D5DB7EED-3C1D-4649-AC1F-CF5DF4FC1A18": {
+            "name": "",
+            "outgoing": [
+                "sid-33EAB604-BF0C-43AF-B54D-02A2E8F26BA5"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-AD882848-8E5E-4F91-89F3-6595B4AECB2A": {
+            "name": "Start scoring request",
+            "incoming": [
+                "sid-56259279-84FF-41C3-B376-03B143FD9463"
+            ],
+            "outgoing": [
+                "sid-428B51CC-ED7F-466B-AC1D-CD14A09EAF11"
+            ]
+        },
+        "sid-85449FD5-EC99-4E03-AADA-D4EDDBA6BCA9": {
+            "name": "forward scoring results",
+            "incoming": [
+                "sid-206A41BC-F1F7-4C70-A80C-5AA218B0D714"
+            ],
+            "outgoing": [
+                "sid-C794661E-FAF1-4532-873D-028BEB5D4C4F"
+            ]
+        },
+        "sid-07CD0A72-42A0-431C-AAD1-BA011AAA1CAC": {
+            "name": "Report delay",
+            "incoming": [
+                "sid-B8124FCE-E7CE-4632-8C70-FE5895A18083"
+            ],
+            "outgoing": []
+        },
+        "sid-A443D67A-7F3E-4113-A4F4-3CCAF8DEA3A5": {
+            "name": "1. perform scoring",
+            "incoming": [
+                "sid-33EAB604-BF0C-43AF-B54D-02A2E8F26BA5"
+            ],
+            "outgoing": [
+                "sid-25F8A4E7-1BA2-49FF-A0AB-3044C8AC7FF9"
+            ]
+        },
+        "sid-5E8ED0E1-AE0E-44BE-BC89-71D197155C42": {
+            "name": "Scoring result sent",
+            "incoming": [
+                "sid-31501A29-CA8F-4F3A-B3D6-01A0B3FA2BEC"
+            ],
+            "outgoing": []
+        },
+        "sid-D5F2135D-07B6-4D70-B862-B75E518187A3": {
+            "name": "Send delay message",
+            "incoming": [
+                "sid-F683AE06-F921-4A93-965B-901FC8E40217"
+            ],
+            "outgoing": []
+        }
+    },
+    "gateways": {
+        "sid-306BE6C0-15E6-4433-BC19-F86A873700BB": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-25F8A4E7-1BA2-49FF-A0AB-3044C8AC7FF9"
+            ],
+            "outgoing": [
+                "sid-31501A29-CA8F-4F3A-B3D6-01A0B3FA2BEC",
+                "sid-F683AE06-F921-4A93-965B-901FC8E40217"
+            ]
+        }
+    },
+    "end_events": {}
+}

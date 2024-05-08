@@ -1,0 +1,121 @@
+{
+    "start_events": {
+        "sid-C7DA673A-973A-4C36-B8F8-16DF239DE195": {
+            "name": "Regression report\n",
+            "outgoing": [
+                "sid-03F6A0C4-8CF5-459D-8CD1-9AEB9844AFA8"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-0A95DD70-BAD6-479D-8F97-12DF1F0C0076": {
+            "name": "Set process for resubmission",
+            "incoming": [
+                "sid-D83DEF22-0D5E-4AC9-BF63-D0EDE25751F7"
+            ],
+            "outgoing": [
+                "sid-A7DBE59B-D1E7-42F8-970F-9B43CD0B5603"
+            ]
+        },
+        "sid-49B97E01-276B-4E95-A392-D523553DA92C": {
+            "name": "Check regression\n",
+            "incoming": [
+                "sid-03F6A0C4-8CF5-459D-8CD1-9AEB9844AFA8"
+            ],
+            "outgoing": [
+                "sid-57EBA4CA-D5EA-4D16-96D0-98488D61986A"
+            ]
+        },
+        "sid-3AB265AC-9E87-4A87-8A28-6118B014E9AC": {
+            "name": "VN receives payment request",
+            "incoming": [
+                "sid-0C956BE0-92F8-4747-A2B7-F34BDAD04285"
+            ],
+            "outgoing": [
+                "sid-E302F540-4572-4305-9E79-E99785E6B95A"
+            ]
+        },
+        "sid-8A93C9E5-702D-4DA8-92A1-8CF6D9660BD7": {
+            "name": "Book money",
+            "incoming": [
+                "sid-E26090AC-1BF0-4B58-98DD-301D75D1DF4D"
+            ],
+            "outgoing": [
+                "sid-2DADD12A-B178-42A1-8CC3-8589BFBD6F76"
+            ]
+        },
+        "sid-66AA3A48-5D14-4B87-9F52-E4B5D14325BE": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-E594F85F-9E00-484C-8D2B-D9D55BD386FC"
+            ],
+            "outgoing": [
+                "sid-A9F79E19-4B75-4440-B452-116A31B96F1B"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-92ADA4E4-DEED-4C9B-BA98-B930B75FD828": {
+            "name": "Possibility available?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-57EBA4CA-D5EA-4D16-96D0-98488D61986A"
+            ],
+            "outgoing": [
+                "sid-38E2379D-570E-4802-B7B2-5788DE373F33",
+                "sid-6624DD71-6A10-4138-BB12-EAFFEF253870"
+            ]
+        },
+        "sid-E7049F91-0FD6-4C6F-86CA-1A50B893B0ED": {
+            "name": "Money received?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-E686FF35-B4AC-4836-9BED-3FDF9D335C68"
+            ],
+            "outgoing": [
+                "sid-E26090AC-1BF0-4B58-98DD-301D75D1DF4D",
+                "sid-E594F85F-9E00-484C-8D2B-D9D55BD386FC"
+            ]
+        },
+        "sid-F16788C1-E782-4C02-9216-C5D5B6EFDCBB": {
+            "name": "justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-A9F79E19-4B75-4440-B452-116A31B96F1B"
+            ],
+            "outgoing": [
+                "sid-EF2850A7-8403-482A-82DF-1932768A4AF6",
+                "sid-193C52C1-21A7-4A73-9F15-E87D64848EEA"
+            ]
+        },
+        "sid-4BD5860C-FDA1-4F7C-A4C8-EDCC6562E735": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-06519F0E-D7CD-4682-879E-2E72E3A70CB4",
+                "sid-2DADD12A-B178-42A1-8CC3-8589BFBD6F76"
+            ],
+            "outgoing": [
+                "sid-38ED6201-45C3-41EA-8996-19AEB05E6FDC"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-DA2D2BF6-3876-4219-BAEE-7DE91C96A4E5": {
+            "name": "Close\n",
+            "incoming": [
+                "sid-EF2850A7-8403-482A-82DF-1932768A4AF6"
+            ]
+        },
+        "sid-8371A5AD-FD31-495C-97F5-98B6083561D3": {
+            "name": "Close",
+            "incoming": [
+                "sid-6624DD71-6A10-4138-BB12-EAFFEF253870"
+            ]
+        },
+        "sid-7BC8750D-CC6A-4D9B-8635-E468C6FCA3A4": {
+            "name": "Close",
+            "incoming": []
+        }
+    }
+}

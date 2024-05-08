@@ -1,0 +1,89 @@
+{
+    "start_events": {
+        "sid-C1B12113-5A6A-4EA4-A611-C10F4B7BE691": {
+            "name": "Goods are to be shipped",
+            "outgoing": [
+                "sid-298E19D7-DE8F-4416-AD85-739486E60469"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-4890BAAC-D691-427D-8C5B-A67DD48D404E": {
+            "name": "Pick up offers",
+            "incoming": [
+                "sid-996951F0-C535-4755-9BAD-811B94969A71"
+            ],
+            "outgoing": [
+                "sid-5D8827EE-87C6-43BC-8D27-21630E0323E4"
+            ]
+        },
+        "sid-DB039444-67E9-487A-8F0A-007D1E0940B3": {
+            "name": "Filling the package note",
+            "incoming": [
+                "sid-FDE399A9-3025-47CC-A862-F5216B2236D7"
+            ],
+            "outgoing": [
+                "sid-9D9266ED-ACBB-4B14-BDFF-6E9A7D8583E5"
+            ]
+        },
+        "sid-E3CC88F6-AE79-41D3-BB44-C407EFF2EEC7": {
+            "name": "Specialist",
+            "incoming": [
+                "sid-A16AAFB4-3FA0-4CDB-9F7A-55B949D9A3CF"
+            ],
+            "outgoing": [
+                "sid-1181BFC2-9730-40EF-969C-AB918466B31F",
+                "sid-575D65AA-466A-41B8-8312-90CE9BE250C7"
+            ]
+        },
+        "sid-62A16194-08BC-48E4-8A76-B1F58EC0223D": {
+            "name": "Pick up goods",
+            "incoming": [],
+            "outgoing": []
+        },
+        "sid-C5A09CD6-0850-4421-A717-8EF009502F89": {
+            "name": "Complete insurance",
+            "incoming": [
+                "sid-7FD6041E-CF0B-4464-8D31-707747FADD84"
+            ],
+            "outgoing": []
+        }
+    },
+    "gateways": {
+        "sid-2DE10603-153A-4784-B13F-3042088E7898": {
+            "name": "Is special shipment necessary?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-298E19D7-DE8F-4416-AD85-739486E60469"
+            ],
+            "outgoing": [
+                "sid-FDE399A9-3025-47CC-A862-F5216B2236D7",
+                "sid-996951F0-C535-4755-9BAD-811B94969A71"
+            ]
+        },
+        "sid-E60E4441-F939-498C-AFB3-F3B99F836386": {
+            "name": "Insurance required?",
+            "direction": "Unspecified",
+            "incoming": [],
+            "outgoing": [
+                "sid-7FD6041E-CF0B-4464-8D31-707747FADD84"
+            ]
+        },
+        "sid-85EED3D2-3CAD-400E-A822-6F04D1E57531": {
+            "name": "",
+            "direction": "Unspecified",
+            "incoming": [
+                "sid-575D65AA-466A-41B8-8312-90CE9BE250C7"
+            ],
+            "outgoing": []
+        }
+    },
+    "end_events": {
+        "sid-EA4236B1-C39C-4865-8699-A04F4FA022DD": {
+            "name": "Goods ready for dispatch",
+            "incoming": [
+                "sid-1181BFC2-9730-40EF-969C-AB918466B31F"
+            ]
+        }
+    }
+}

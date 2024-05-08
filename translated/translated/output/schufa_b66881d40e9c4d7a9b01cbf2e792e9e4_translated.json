@@ -1,0 +1,130 @@
+{
+    "start_events": {
+        "sid-B852ADBB-6991-40EA-8CFE-44511D486506": {
+            "name": "Request\nCredit",
+            "outgoing": [
+                "sid-26A870B2-C8E1-435A-8B3D-B590883E4D98"
+            ]
+        },
+        "sid-019C95FD-EF57-403B-B32B-802124352E36": {
+            "name": "Sufa\nRequest",
+            "outgoing": [
+                "sid-C91BB1F7-36A1-4A2A-8E09-EC12B7CC95F3"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-684708C3-168E-4BA4-A683-5F2074FBA1E4": {
+            "name": "Level 1 Scoring",
+            "incoming": [
+                "sid-26A870B2-C8E1-435A-8B3D-B590883E4D98"
+            ],
+            "outgoing": [
+                "sid-51B4FAA6-3EB8-4CCC-AD32-01E3C548756F"
+            ]
+        },
+        "sid-F6E081A7-6F04-405F-9D6F-4CB2D145F91A": {
+            "name": "Report level 1",
+            "incoming": [
+                "sid-8436D21A-FDC6-4C7D-B7A7-891100F50C5C"
+            ],
+            "outgoing": [
+                "sid-F9FA785F-640C-4D20-B678-0B0893D1F828"
+            ]
+        },
+        "sid-A3F2D9BE-7EAE-4BB2-9D35-B86CA4CCFB18": {
+            "name": "Report level 2",
+            "incoming": [
+                "sid-8FC4444A-4AE0-41AA-88E3-0AE243FF6B14"
+            ],
+            "outgoing": [
+                "sid-A171E233-C07C-4325-B0FB-982E81503524"
+            ]
+        },
+        "sid-634305AB-CB19-4375-A856-63E2031252D5": {
+            "name": "Report that Level 1 is not yet available",
+            "incoming": [
+                "sid-7B232156-1DE4-46DD-B289-585B4F7E019D"
+            ],
+            "outgoing": [
+                "sid-2C3852BC-C058-47D1-B540-0E342BA1CEE5"
+            ]
+        },
+        "sid-BC564756-9130-4A4A-AEA1-7C20AA970DD1": {
+            "name": "Check if Level 1 scoring is present",
+            "incoming": [
+                "sid-C91BB1F7-36A1-4A2A-8E09-EC12B7CC95F3"
+            ],
+            "outgoing": [
+                "sid-AB9437FD-BF38-4F7A-8337-86864E3DEDCF"
+            ]
+        },
+        "sid-0864EE2E-62EC-42F7-BE36-28EE8A18E073": {
+            "name": "Level 1 Scoring Return",
+            "incoming": [
+                "sid-66BCC206-85FF-4B69-9651-23E67C9077BE"
+            ],
+            "outgoing": [
+                "sid-3E7E0EC0-463D-4008-9541-FED4F848454E"
+            ]
+        },
+        "sid-4DB609EC-B5C1-4318-9E98-6423FEFD2064": {
+            "name": "Report that Level 1 is not present",
+            "incoming": [
+                "sid-4C7904F6-6DB1-441E-8847-691A58F2E303"
+            ],
+            "outgoing": [
+                "sid-790801CC-E7A4-43F0-A2BE-583D4053E3F4"
+            ]
+        },
+        "sid-0EF99EBF-0F4E-410D-BC05-DF3D7071BCA4": {
+            "name": "Level 2 scoring\ncalculate and\nReport back",
+            "incoming": [
+                "sid-790801CC-E7A4-43F0-A2BE-583D4053E3F4"
+            ],
+            "outgoing": [
+                "sid-3C9F6BE0-62B2-4321-B56B-F53CEE07FC07"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-EE715A26-E593-4B51-974D-DCD04F857B31": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-51B4FAA6-3EB8-4CCC-AD32-01E3C548756F"
+            ],
+            "outgoing": [
+                "sid-7B232156-1DE4-46DD-B289-585B4F7E019D",
+                "sid-8436D21A-FDC6-4C7D-B7A7-891100F50C5C"
+            ]
+        },
+        "sid-3564E0B6-FAB3-44AF-B698-76FC3F5292F9": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-AB9437FD-BF38-4F7A-8337-86864E3DEDCF"
+            ],
+            "outgoing": [
+                "sid-66BCC206-85FF-4B69-9651-23E67C9077BE",
+                "sid-4C7904F6-6DB1-441E-8847-691A58F2E303"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-1B9F35BA-5D30-4EC1-B28D-04304003F951": {
+            "name": "",
+            "incoming": [
+                "sid-F9FA785F-640C-4D20-B678-0B0893D1F828",
+                "sid-A171E233-C07C-4325-B0FB-982E81503524"
+            ]
+        },
+        "sid-A383F0A3-9388-40DF-9D76-E46AC05811B2": {
+            "name": "",
+            "incoming": [
+                "sid-3C9F6BE0-62B2-4321-B56B-F53CEE07FC07",
+                "sid-3E7E0EC0-463D-4008-9541-FED4F848454E"
+            ]
+        }
+    }
+}

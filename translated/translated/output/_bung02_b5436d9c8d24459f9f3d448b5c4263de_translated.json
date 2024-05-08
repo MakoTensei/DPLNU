@@ -1,0 +1,139 @@
+{
+    "start_events": {
+        "sid-FF32B03B-E168-48F8-9E83-49A858299CC8": {
+            "name": "Report",
+            "outgoing": [
+                "sid-52B8D25B-A4A9-4A31-9C81-D379B91BFF36"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-C007DDA5-6D00-4EFD-BCD6-A8B7075E23DF": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-52B8D25B-A4A9-4A31-9C81-D379B91BFF36"
+            ],
+            "outgoing": [
+                "sid-828A4344-6D69-4C14-9308-B613B7D0F253"
+            ]
+        },
+        "sid-7B8E401F-9C06-4AF4-AFFF-5E006F6E87C8": {
+            "name": "Send a message",
+            "incoming": [
+                "sid-50426AF6-9A05-4E17-B82E-76B0318BB27F"
+            ],
+            "outgoing": [
+                "sid-355D5E31-6565-4F7C-BF1E-3225E0394618"
+            ]
+        },
+        "sid-82D605C5-35F6-4EC0-9A2A-D7D0CAC08E8A": {
+            "name": "Set process for resubmission",
+            "incoming": [
+                "sid-355D5E31-6565-4F7C-BF1E-3225E0394618"
+            ],
+            "outgoing": [
+                "sid-F4FC62ED-9578-423D-9F11-971F788FEFDC"
+            ]
+        },
+        "sid-918FC3F3-66CF-4107-AB56-2A94BF24E546": {
+            "name": "Book the entrance",
+            "incoming": [
+                "sid-2185DA8E-F577-418D-A4A9-4E22BE77CEE6"
+            ],
+            "outgoing": [
+                "sid-9D675465-568C-4B56-A9EF-D4BDAA8C2AA8"
+            ]
+        },
+        "sid-B58EECF2-2379-4DC0-8EEE-41ADD7E523A7": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-6380211A-0C3C-4D76-BDFB-EAB0ECB1FB7B"
+            ],
+            "outgoing": [
+                "sid-95303C29-0D57-44A3-9E47-20506509EBAD"
+            ]
+        },
+        "sid-ED3A5A64-8E5B-4353-B090-38783DDED794": {
+            "name": "forwarding to Inkasso service providers",
+            "incoming": [
+                "sid-96A20BC5-2288-4287-8517-3E28DF5E5D97",
+                "sid-34E13941-5D12-4B69-8615-B5F5F1979384"
+            ],
+            "outgoing": [
+                "sid-2B4A5E91-40F6-4EF5-93B0-8997F2904E62"
+            ]
+        },
+        "sid-0D81E6DF-BBEC-401F-81C0-8852C5CF5109": {
+            "name": "Check cash receipt and objection",
+            "incoming": [
+                "sid-DC259109-64D1-4351-B5DD-4D14B3B77DBB"
+            ],
+            "outgoing": [
+                "sid-94A24B4D-2225-49B1-91B8-6FACC7CFC810"
+            ]
+        },
+        "sid-22394CFE-FB9B-46E9-A6A4-157A044E0498": {
+            "name": "Close",
+            "incoming": [
+                "sid-86AE1728-C825-4426-8E92-F58AB5D11933"
+            ],
+            "outgoing": [
+                "sid-62F8DB6C-FDBC-419C-9F54-F50AA54D1FE1"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-F4D89BC3-0BA5-4FEA-AAFE-2D9AC7FB91DF": {
+            "name": "Regress necessary",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-828A4344-6D69-4C14-9308-B613B7D0F253"
+            ],
+            "outgoing": [
+                "sid-50426AF6-9A05-4E17-B82E-76B0318BB27F",
+                "sid-49C8B0EE-D8C7-4B52-83D1-735704327C26"
+            ]
+        },
+        "sid-AE6281AC-B65D-4E87-A81B-D7D79C291D87": {
+            "name": "Justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-95303C29-0D57-44A3-9E47-20506509EBAD"
+            ],
+            "outgoing": [
+                "sid-96A20BC5-2288-4287-8517-3E28DF5E5D97",
+                "sid-CBB5D4CB-CC80-4CBF-98ED-34BD3CB27AC6"
+            ]
+        },
+        "sid-EBECC5C4-4209-4B95-82E9-1A05B163F0F0": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-49C8B0EE-D8C7-4B52-83D1-735704327C26",
+                "sid-0320C638-F4B8-42E2-9C78-759BF18FAFF7"
+            ],
+            "outgoing": [
+                "sid-86AE1728-C825-4426-8E92-F58AB5D11933"
+            ]
+        },
+        "sid-057E9153-B802-434A-8B06-B3771AFD2EF4": {
+            "name": "Inacceptable?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-94A24B4D-2225-49B1-91B8-6FACC7CFC810"
+            ],
+            "outgoing": [
+                "sid-34E13941-5D12-4B69-8615-B5F5F1979384",
+                "sid-6E617882-DA32-41DB-BEC1-7AD752A3766B"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-ED6E7978-F310-4DA0-8D88-3D59DC983D25": {
+            "name": "Closed",
+            "incoming": [
+                "sid-62F8DB6C-FDBC-419C-9F54-F50AA54D1FE1"
+            ]
+        }
+    }
+}

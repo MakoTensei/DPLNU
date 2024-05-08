@@ -1,0 +1,98 @@
+{
+    "start_events": {
+        "sid-571E74CB-D5B7-4F08-8AE9-616FA1EACDE7": {
+            "name": "possible regression is reported",
+            "outgoing": [
+                "sid-5677AA70-8308-402D-9D91-8FCAFB2DEBF5"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-80A40453-8FC7-4957-80C8-AB4688A65620": {
+            "name": "Send VN payment request",
+            "incoming": [
+                "sid-01DF60FF-A3D3-4D96-AD72-E2CCBB0DF045"
+            ],
+            "outgoing": [
+                "sid-3AFC749C-FD4A-495F-8E9D-9AACDD626654"
+            ]
+        },
+        "sid-7BEE0CBE-F702-487C-BBEF-780E2DDDF3CC": {
+            "name": "Opposition\nCheck",
+            "incoming": [
+                "sid-1BE9E539-6B61-487E-8E08-05F0DED6465C"
+            ],
+            "outgoing": [
+                "sid-9E630403-AA68-4C93-A42D-4AF66A125986"
+            ]
+        },
+        "sid-D9419A70-951A-4D01-9415-AE0FD730251E": {
+            "name": "Objection\nnot entitled",
+            "incoming": [
+                "sid-3DBCB5F3-3016-4EA4-9D74-96E45A396380"
+            ],
+            "outgoing": [
+                "sid-AA743B7E-D573-41DB-8E1E-3EFBD4F70511"
+            ]
+        },
+        "sid-D21A1808-F6A9-4DE1-9141-606F3D79CEF0": {
+            "name": "debt collection service\ncontinue",
+            "incoming": [
+                "sid-AA743B7E-D573-41DB-8E1E-3EFBD4F70511",
+                "sid-DFD4067F-BED7-4913-8A24-654D34205BE6"
+            ],
+            "outgoing": [
+                "sid-2D30859D-65B0-4096-A1AA-EC4CAD2FBD04"
+            ]
+        },
+        "sid-2A704044-83E7-45DB-9340-6EE0C0261B79": {
+            "name": "Book money",
+            "incoming": [
+                "sid-FE3A5CCD-A0DF-4B7B-B8F6-4B13D4BCE001"
+            ],
+            "outgoing": [
+                "sid-8900DC4E-DCC8-45D7-9F4C-6560F7D95B14"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-57C2CD2E-846E-4EF4-A789-49700AD03FE3": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-5677AA70-8308-402D-9D91-8FCAFB2DEBF5"
+            ],
+            "outgoing": [
+                "sid-01DF60FF-A3D3-4D96-AD72-E2CCBB0DF045",
+                "sid-B65C000E-E4C1-4046-BD19-F9243F8281C6"
+            ]
+        },
+        "sid-DB5F2741-9116-46D5-A502-58792DD07B88": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-9E630403-AA68-4C93-A42D-4AF66A125986"
+            ],
+            "outgoing": [
+                "sid-3DBCB5F3-3016-4EA4-9D74-96E45A396380",
+                "sid-F594BDE7-DBB0-48D8-B834-90CDBF70B9EA"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-ACA192A9-2891-4BC9-ADDB-0675873BA2D0": {
+            "name": "Process without regression\nclosed",
+            "incoming": [
+                "sid-B65C000E-E4C1-4046-BD19-F9243F8281C6",
+                "sid-F594BDE7-DBB0-48D8-B834-90CDBF70B9EA"
+            ]
+        },
+        "sid-A788E757-3014-4D37-B54E-C7DD06370C24": {
+            "name": "Process with regress input\nclosed",
+            "incoming": [
+                "sid-2D30859D-65B0-4096-A1AA-EC4CAD2FBD04",
+                "sid-8900DC4E-DCC8-45D7-9F4C-6560F7D95B14"
+            ]
+        }
+    }
+}

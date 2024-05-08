@@ -1,0 +1,75 @@
+{
+    "start_events": {
+        "sid-626C36FA-0E21-43F0-BF1D-B31F898A041D": {
+            "name": "Scoring\nenroll",
+            "outgoing": [
+                "sid-9BB0ECCC-0B75-4DA2-B726-274EB1A4F0C4"
+            ]
+        },
+        "sid-17F259D5-1DB0-43AE-8C18-8C3D7890EEED": {
+            "name": "Request\nReport",
+            "outgoing": [
+                "sid-398FC097-6B37-4393-9E2A-E850F4470E2F"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-9ECA59BA-2E17-439C-AA93-CEEBC50A87C1": {
+            "name": "Level 1 Scoring",
+            "incoming": [
+                "sid-398FC097-6B37-4393-9E2A-E850F4470E2F"
+            ],
+            "outgoing": [
+                "sid-0395372A-5005-4DFA-9771-B23B2E1E5BAF"
+            ]
+        },
+        "sid-D7B01841-42E7-4986-9318-C007F8363D28": {
+            "name": "Level 2 Scoring",
+            "incoming": [
+                "sid-5F6CF3F6-D7A1-4696-85BC-446B98C7C665"
+            ],
+            "outgoing": [
+                "sid-20320627-4191-46E3-8EBD-B4ED595A899E"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-56AAAF60-3406-44BE-9C08-6D2F14C52E93": {
+            "name": "Result?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-0395372A-5005-4DFA-9771-B23B2E1E5BAF"
+            ],
+            "outgoing": [
+                "sid-0A05DEB3-11AC-43BF-B6ED-6A45B40215CB",
+                "sid-B3096F68-850B-4612-B806-993C3CF64486"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-79CAFACD-8737-4517-A248-39BF333E1CF8": {
+            "name": "Results Level 1\nforward",
+            "incoming": [
+                "sid-EA624785-7214-4FD0-9C64-787C84BAD59F"
+            ]
+        },
+        "sid-A8F1E0A9-1B7B-46F3-96C7-4990A4CF8944": {
+            "name": "Results Level 2\nforward",
+            "incoming": [
+                "sid-EC4CE542-78F9-4A52-9559-547FE8C75C17"
+            ]
+        },
+        "sid-FD371316-4281-4D1F-B487-6D93348CE337": {
+            "name": "Level 1\nResult\nsend",
+            "incoming": [
+                "sid-B3096F68-850B-4612-B806-993C3CF64486"
+            ]
+        },
+        "sid-3FB78D1E-B34B-4872-9056-20CDD51BF1D4": {
+            "name": "Level 2\nResult\nsend",
+            "incoming": [
+                "sid-20320627-4191-46E3-8EBD-B4ED595A899E"
+            ]
+        }
+    }
+}

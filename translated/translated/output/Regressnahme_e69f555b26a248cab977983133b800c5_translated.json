@@ -1,0 +1,113 @@
+{
+    "start_events": {
+        "sid-62F1CDD7-DB9C-4FD3-84AF-E624D03477BE": {
+            "name": "Regression report received",
+            "outgoing": [
+                "sid-17C65752-3F86-4FBF-B291-7E66ADBBDCCB"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-4639E04D-DDC1-4902-B02A-CDDF16C729D4": {
+            "name": "Regress insurance case",
+            "incoming": [
+                "sid-17C65752-3F86-4FBF-B291-7E66ADBBDCCB"
+            ],
+            "outgoing": [
+                "sid-522ACFBD-03E3-4046-A65D-CB4AEE2C6491"
+            ]
+        },
+        "sid-2100A489-C9D3-4347-B641-97A8DB817201": {
+            "name": "Close",
+            "incoming": [
+                "sid-8941A9A3-D365-40B5-B3B6-E14D57CF6252",
+                "sid-C264D53B-1392-4385-9643-F6FDC84C692B"
+            ],
+            "outgoing": [
+                "sid-0BBAFD88-6CEB-494E-9F4E-A97914C3BA5F"
+            ]
+        },
+        "sid-00A32223-94F2-480B-A65A-8EDDD6425D39": {
+            "name": "Send payment request to VN",
+            "incoming": [
+                "sid-0154133F-074E-4945-A64E-5AC5195C742E"
+            ],
+            "outgoing": [
+                "sid-253763F4-33D2-4ED2-BD0E-F1275BC026C1"
+            ]
+        },
+        "sid-E21964FD-BE92-4025-9BC2-7263CB5B2BF7": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-A364D96A-DFF9-43E2-8D05-DED70A61DDEA"
+            ],
+            "outgoing": [
+                "sid-AD71F50B-8BC0-41AC-81D0-6BDE96E79CF9"
+            ]
+        },
+        "sid-A522D302-5D11-4372-BB72-DB0DFBD6783E": {
+            "name": "Process delivered to debt collection service provider",
+            "incoming": [
+                "sid-C2D9AC3B-7A2F-46E8-A461-89D68DF3C422",
+                "sid-2B6DC4C2-8E9A-4F0D-A4BD-7D498590CCDB"
+            ],
+            "outgoing": [
+                "sid-B6AB7A19-C199-4EE0-A8DC-811102667A3A"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-6F9879DB-264C-4388-9AF1-CB9FAAFDE2EE": {
+            "name": "Is Regress authorized?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-522ACFBD-03E3-4046-A65D-CB4AEE2C6491"
+            ],
+            "outgoing": [
+                "sid-0154133F-074E-4945-A64E-5AC5195C742E",
+                "sid-F23A7489-BB72-4DC0-9B99-59E640098B15"
+            ]
+        },
+        "sid-E047BCAC-A37D-4852-9649-54851EA0EE45": {
+            "name": "Is opposition justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-AD71F50B-8BC0-41AC-81D0-6BDE96E79CF9"
+            ],
+            "outgoing": [
+                "sid-C2D9AC3B-7A2F-46E8-A461-89D68DF3C422",
+                "sid-20D90B6A-CF29-4FFA-B5E0-4CF4F93851F8"
+            ]
+        },
+        "sid-1240131F-894D-4504-8518-A350DB98B43A": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-F23A7489-BB72-4DC0-9B99-59E640098B15",
+                "sid-077F6905-D73D-4BF7-9602-DA5384C857F0"
+            ],
+            "outgoing": [
+                "sid-8941A9A3-D365-40B5-B3B6-E14D57CF6252"
+            ]
+        },
+        "sid-99AAC7E5-EDC8-422A-8E4F-048CB3703CF3": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-20D90B6A-CF29-4FFA-B5E0-4CF4F93851F8",
+                "sid-EC31D55A-5E83-4441-9B14-4BAFBB0E0433"
+            ],
+            "outgoing": [
+                "sid-C264D53B-1392-4385-9643-F6FDC84C692B"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-C2B078F8-193E-44C9-8DB9-58AA662AFE41": {
+            "name": "Regression case completed",
+            "incoming": [
+                "sid-0BBAFD88-6CEB-494E-9F4E-A97914C3BA5F"
+            ]
+        }
+    }
+}

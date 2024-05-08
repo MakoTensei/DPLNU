@@ -1,0 +1,130 @@
+{
+    "start_events": {
+        "sid-6056B7AD-F28D-4C02-9C14-107252DAF817": {
+            "name": "Information\nApplication",
+            "outgoing": [
+                "sid-2B388CEC-6922-4E5F-BEF4-E186DD119E35"
+            ]
+        },
+        "sid-81980049-2DA4-4E92-A476-699EFFA9794D": {
+            "name": "Request\narrived",
+            "outgoing": [
+                "sid-94EB9FD9-2B03-438F-B2F5-8EB645FBA821"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-649F42E6-405A-4EC4-8343-6D1B38520C38": {
+            "name": "Schufa Scoring\nenroll",
+            "incoming": [
+                "sid-2B388CEC-6922-4E5F-BEF4-E186DD119E35"
+            ],
+            "outgoing": [
+                "sid-3381035E-AE63-4F26-BD44-5DE98A613CD6"
+            ]
+        },
+        "sid-D542DFF9-C579-441A-89C8-EF15B4CBF5DF": {
+            "name": "Scoring",
+            "incoming": [
+                "sid-FBCEFBDA-9202-41B5-BBB3-FBC36A5F0EB4"
+            ],
+            "outgoing": [
+                "sid-02A2A0B7-3F3C-416E-8E22-B457B5F96B5E"
+            ]
+        },
+        "sid-9CFA52D3-C2FE-49C0-BB74-C1CE78A3E949": {
+            "name": "Delay sales\ndisplaying",
+            "incoming": [
+                "sid-53D87281-A326-46E7-912D-81D3D9B22C91"
+            ],
+            "outgoing": [
+                "sid-323CC03D-BE83-43B8-8D11-6CD2A8249F37"
+            ]
+        },
+        "sid-93B86F1E-333C-432B-B66F-3666701B1204": {
+            "name": "perform scoring 1",
+            "incoming": [
+                "sid-94EB9FD9-2B03-438F-B2F5-8EB645FBA821"
+            ],
+            "outgoing": [
+                "sid-4CAA7642-20E9-4D61-B9DE-6223C69F5C02"
+            ]
+        },
+        "sid-C0371AAB-C8AE-4DC8-8B71-1C011E3D4949": {
+            "name": "Report Scoring",
+            "incoming": [
+                "sid-8216E0BE-803E-429D-A67F-5C83437BB710"
+            ],
+            "outgoing": [
+                "sid-B06356E9-4F13-4340-A24B-B7F581FBC18A"
+            ]
+        },
+        "sid-A013F9EC-ED9B-4CC7-85A0-DC41C1C47176": {
+            "name": "Report delay",
+            "incoming": [
+                "sid-16B792B0-B370-442D-B843-9A71465AC10A"
+            ],
+            "outgoing": [
+                "sid-491E36A0-4994-4F9A-A08B-488BB1306DE5"
+            ]
+        },
+        "sid-34115928-DCFE-42C2-94CD-69BFAC4558F3": {
+            "name": "perform scoring 2",
+            "incoming": [
+                "sid-491E36A0-4994-4F9A-A08B-488BB1306DE5"
+            ],
+            "outgoing": [
+                "sid-7EB9AEC0-A8E7-4184-BD24-8D3359B38558"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-76441EB1-4749-47A7-86C6-087256AF318A": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-45961EA1-767A-49F7-B6DB-651606E26653",
+                "sid-323CC03D-BE83-43B8-8D11-6CD2A8249F37"
+            ],
+            "outgoing": [
+                "sid-F023BEEE-561B-4782-AAD8-0F8624194D4A"
+            ]
+        },
+        "sid-CE276B54-C6EA-4305-87D1-D4D1A0F55E71": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-4CAA7642-20E9-4D61-B9DE-6223C69F5C02"
+            ],
+            "outgoing": [
+                "sid-2391F205-F5EE-42E0-9F9D-E18E757093C4",
+                "sid-16B792B0-B370-442D-B843-9A71465AC10A"
+            ]
+        },
+        "sid-D7F63DB9-F1C3-43BE-9539-FBAD2FDF654C": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-2391F205-F5EE-42E0-9F9D-E18E757093C4",
+                "sid-7EB9AEC0-A8E7-4184-BD24-8D3359B38558"
+            ],
+            "outgoing": [
+                "sid-8216E0BE-803E-429D-A67F-5C83437BB710"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-26A26EAE-5B11-4CBC-8DDF-C86C47236A42": {
+            "name": "",
+            "incoming": [
+                "sid-02A2A0B7-3F3C-416E-8E22-B457B5F96B5E"
+            ]
+        },
+        "sid-52E14470-A662-4FE5-BFAA-E214CB65B64A": {
+            "name": "",
+            "incoming": [
+                "sid-B06356E9-4F13-4340-A24B-B7F581FBC18A"
+            ]
+        }
+    }
+}

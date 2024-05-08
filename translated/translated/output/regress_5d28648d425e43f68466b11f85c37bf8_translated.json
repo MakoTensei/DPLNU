@@ -1,0 +1,127 @@
+{
+    "start_events": {
+        "sid-9769DABA-6AD2-4438-836B-18A8D19C13C7": {
+            "name": "Regression report\nReport",
+            "outgoing": [
+                "sid-09AE517D-BC9B-4C5B-8A91-68970CFE442A"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-6A6CA17C-5F1D-4BE3-9CBC-8D8698103BE7": {
+            "name": "Check regression case",
+            "incoming": [
+                "sid-09AE517D-BC9B-4C5B-8A91-68970CFE442A"
+            ],
+            "outgoing": [
+                "sid-840AF6AB-FE9D-467F-B377-5A87A27A041D"
+            ]
+        },
+        "sid-AA9F4D9B-957F-42CA-96C7-967520B59A14": {
+            "name": "send payment request to VN and\nReimbursement",
+            "incoming": [
+                "sid-ABBF7CC3-03FC-450E-BA01-B628A1490B16"
+            ],
+            "outgoing": [
+                "sid-3C0E9484-E297-48F0-BF15-CB2ED6951CB0"
+            ]
+        },
+        "sid-2AA45DE6-5747-4999-A553-B2E5D1964EC5": {
+            "name": "Close",
+            "incoming": [
+                "sid-D7E0FB6B-C2E6-4EEE-BDEF-4B1C44484DE2"
+            ],
+            "outgoing": [
+                "sid-CC7ABFDB-2C5F-4240-B3F8-D43E84150CA7"
+            ]
+        },
+        "sid-C533AC70-A768-4A01-BF31-C8A34EC62204": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-AC00B842-246E-4A9A-A360-C893268B89CF"
+            ],
+            "outgoing": [
+                "sid-5AEBB317-5EA8-4DE8-9D4E-A4EB1109E036"
+            ]
+        },
+        "sid-78877129-5935-4803-A099-8CFBD67114CB": {
+            "name": "Dispense process to debt collection service providers",
+            "incoming": [
+                "sid-83AB811E-F845-4493-A2AD-15CECCA5CDE2"
+            ],
+            "outgoing": [
+                "sid-F37542FB-9B5E-4881-B0BB-39550A52C97E"
+            ]
+        },
+        "sid-0E0F7A0D-5C90-4084-A3FA-1075D5ECD547": {
+            "name": "Book money receipt",
+            "incoming": [
+                "sid-4A3FA863-FD81-430A-BE34-45FDB549F488"
+            ],
+            "outgoing": [
+                "sid-03C89E4F-106C-450D-BDA5-0E98507F5577"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-423C8A82-7747-4AD4-A4FF-A8AEF28F7016": {
+            "name": "Regress?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-840AF6AB-FE9D-467F-B377-5A87A27A041D"
+            ],
+            "outgoing": [
+                "sid-ABBF7CC3-03FC-450E-BA01-B628A1490B16",
+                "sid-3EBDE2DF-F3C9-43AA-9325-65C2DBE8C495"
+            ]
+        },
+        "sid-274B8FD1-A054-4EB5-AEC5-61F3D6801B91": {
+            "name": "Opposition\njustified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-5AEBB317-5EA8-4DE8-9D4E-A4EB1109E036"
+            ],
+            "outgoing": [
+                "sid-887A7A38-A01F-4589-812E-552364823F44",
+                "sid-0AAD483A-2373-4272-89B1-8387CF59550E"
+            ]
+        },
+        "sid-9B9C8EDD-6E65-4BF2-97CA-43B989C5735C": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-887A7A38-A01F-4589-812E-552364823F44",
+                "sid-C4080DB1-B62A-4796-ADD4-CC6C316F931E"
+            ],
+            "outgoing": [
+                "sid-83AB811E-F845-4493-A2AD-15CECCA5CDE2"
+            ]
+        },
+        "sid-8F3A12CE-0A61-4B50-8108-61EA4CFCE4EE": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-3EBDE2DF-F3C9-43AA-9325-65C2DBE8C495",
+                "sid-03C89E4F-106C-450D-BDA5-0E98507F5577",
+                "sid-0AAD483A-2373-4272-89B1-8387CF59550E"
+            ],
+            "outgoing": [
+                "sid-D7E0FB6B-C2E6-4EEE-BDEF-4B1C44484DE2"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-89F288EE-3C6C-4CB1-BB8D-E6C463DC90CA": {
+            "name": "Process\nclosed",
+            "incoming": [
+                "sid-CC7ABFDB-2C5F-4240-B3F8-D43E84150CA7"
+            ]
+        },
+        "sid-67C22F7F-17E8-4E1B-A644-3AD0D2028E9F": {
+            "name": "Open",
+            "incoming": [
+                "sid-F37542FB-9B5E-4881-B0BB-39550A52C97E"
+            ]
+        }
+    }
+}

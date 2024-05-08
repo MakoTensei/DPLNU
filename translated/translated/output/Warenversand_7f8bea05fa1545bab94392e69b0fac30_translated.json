@@ -1,0 +1,100 @@
+{
+    "start_events": {
+        "sid-347D2A10-FD44-477D-9D6A-515041E50462": {
+            "name": "",
+            "outgoing": [
+                "sid-0E4A9A33-F160-4EDE-AF73-2DC9300D3E1F"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-3E087778-C481-4F3B-A46B-C975983070A6": {
+            "name": "Filling the package note",
+            "incoming": [
+                "sid-6750D535-B8F2-48E4-B3D3-1B54CA7F1A08"
+            ],
+            "outgoing": [
+                "sid-FECC9354-9D41-4C5B-B44C-E8249DC0AA8F"
+            ]
+        },
+        "sid-E17E9509-99EA-4EA4-93A0-66B4E078F884": {
+            "name": "Pick up offers from spediteure",
+            "incoming": [
+                "sid-89190CDB-4DA1-48A3-ADD0-331F6B665F9B"
+            ],
+            "outgoing": [
+                "sid-221A69AF-FAEB-4F0D-AB82-D3C4C141E94D"
+            ]
+        },
+        "sid-9B840B13-4251-424E-B460-07DB1D8202C1": {
+            "name": "Control and select offers",
+            "incoming": [
+                "sid-221A69AF-FAEB-4F0D-AB82-D3C4C141E94D"
+            ],
+            "outgoing": [
+                "sid-815741CF-1952-44F8-923F-6FD2A16AB9D8"
+            ]
+        },
+        "sid-00318E76-BFC3-4608-A43B-2C576FC8F714": {
+            "name": "Order to forwarders",
+            "incoming": [
+                "sid-815741CF-1952-44F8-923F-6FD2A16AB9D8"
+            ],
+            "outgoing": [
+                "sid-48A6ED22-CBDC-4A9F-A560-41C10266853F"
+            ]
+        },
+        "sid-9EBD7AAB-E142-4043-9857-CFFBC6D2CEA1": {
+            "name": "Create insurance",
+            "incoming": [
+                "sid-CA7751ED-51BC-42F6-86B7-AF8A9B0F3AD3"
+            ],
+            "outgoing": [
+                "sid-FB6AC099-856D-48AB-89B1-8585239A1D26"
+            ]
+        },
+        "sid-72F863F5-1218-4DD7-9CF7-3B5F35B6A389": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-4BF1DD0A-A86F-48C5-B300-76FED87939F2"
+            ],
+            "outgoing": [
+                "sid-7CB7FDA1-441E-4919-A863-E71EFC28B54F"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-A7B5258F-B372-4C2C-B1C5-92FA32256A67": {
+            "name": "Special shipment?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-0E4A9A33-F160-4EDE-AF73-2DC9300D3E1F"
+            ],
+            "outgoing": [
+                "sid-6750D535-B8F2-48E4-B3D3-1B54CA7F1A08",
+                "sid-89190CDB-4DA1-48A3-ADD0-331F6B665F9B"
+            ]
+        },
+        "sid-3177112F-2364-4C31-BCBC-F58BC616D383": {
+            "name": "Insurance?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-FECC9354-9D41-4C5B-B44C-E8249DC0AA8F"
+            ],
+            "outgoing": [
+                "sid-A25E6854-5418-4A62-9FFD-0128150927DC",
+                "sid-7B0606AC-9638-4ECC-B063-48F441357C73"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-8F4970E2-DCA1-4104-8747-1D05707F3B85": {
+            "name": "Package shipped",
+            "incoming": [
+                "sid-A25E6854-5418-4A62-9FFD-0128150927DC",
+                "sid-48A6ED22-CBDC-4A9F-A560-41C10266853F",
+                "sid-B4EC00AD-678A-4DDF-9B0C-2906AEA2C1D9"
+            ]
+        }
+    }
+}

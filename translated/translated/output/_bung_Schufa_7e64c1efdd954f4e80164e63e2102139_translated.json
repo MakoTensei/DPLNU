@@ -1,0 +1,126 @@
+{
+    "start_events": {
+        "sid-00B97997-4DB8-4D1D-A27B-82BBEA853202": {
+            "name": "Customer request",
+            "outgoing": [
+                "sid-7265DE12-4B21-438C-9635-003C0A863872"
+            ]
+        },
+        "sid-56A880C3-3C28-4F7E-B6F3-3479D0AF2AF3": {
+            "name": "Start\nScoring\nRequest",
+            "outgoing": [
+                "sid-9DC45EEF-6BB8-4267-BA77-82D5CF6BDBFB"
+            ]
+        },
+        "sid-1F8DE8D4-9E21-4E87-982F-D4543280C61C": {
+            "name": "",
+            "outgoing": [
+                "sid-1D1D6317-3851-452E-88EF-F43B5C20401D"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-E0138AC9-BF53-4A75-BD41-68372B089E55": {
+            "name": "Start Schufa Request",
+            "incoming": [
+                "sid-7265DE12-4B21-438C-9635-003C0A863872"
+            ],
+            "outgoing": [
+                "sid-233808E6-875E-49E5-BF70-229FA25A58A1"
+            ]
+        },
+        "sid-2D20A0D1-DEF4-4B57-BB72-1B707E209D37": {
+            "name": "Level 1 -\nScoring\nperform",
+            "incoming": [
+                "sid-9DC45EEF-6BB8-4267-BA77-82D5CF6BDBFB"
+            ],
+            "outgoing": [
+                "sid-F63B9BC3-F4C1-468B-9E9C-8E80254E23A8"
+            ]
+        },
+        "sid-10CE3294-1B68-4CD4-A68D-302FECA9BC6B": {
+            "name": "Level 2 -\nScoring\nperform",
+            "incoming": [
+                "sid-D6DD338B-FB26-45AE-9BC0-E926D8DD53D2"
+            ],
+            "outgoing": [
+                "sid-99E84D71-CCD9-4209-981D-7C7B15BEB87F"
+            ]
+        },
+        "sid-87906CD8-C4A8-4907-ACD3-CFDC4038EBAC": {
+            "name": "Transfer to Bank",
+            "incoming": [
+                "sid-99E84D71-CCD9-4209-981D-7C7B15BEB87F"
+            ],
+            "outgoing": []
+        },
+        "sid-BBC8EA8E-A16A-426A-B339-C655F761678C": {
+            "name": "Schufa customer request",
+            "incoming": [
+                "sid-1D1D6317-3851-452E-88EF-F43B5C20401D"
+            ],
+            "outgoing": [
+                "sid-2B0F93E5-08FF-4014-A221-ADB5BE36ACCF"
+            ]
+        },
+        "sid-11E5079A-A074-4D4C-9AFB-5AD74E3BF5AC": {
+            "name": "Credit lending frontend:\nDisplaying scoring results",
+            "incoming": [
+                "sid-02448E7F-B156-491C-AF9F-45C1000C97E1",
+                "sid-3405CE30-31D3-4251-B0CC-98134630176B"
+            ],
+            "outgoing": [
+                "sid-01D6FF81-A445-4C46-868E-A6594FA69006"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-3711F7A4-A1E0-4ACE-A625-59207846BA1C": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-233808E6-875E-49E5-BF70-229FA25A58A1"
+            ],
+            "outgoing": [
+                "sid-57474CA1-C8D5-4B57-8482-BFE85D96A089",
+                "sid-1ABD749F-9505-4E15-BCF9-EC29CA0ABFAA"
+            ]
+        },
+        "sid-8D9F2F8F-2183-47AD-9FC8-0763FDBBE726": {
+            "name": "",
+            "direction": "Unspecified",
+            "incoming": [
+                "sid-F63B9BC3-F4C1-468B-9E9C-8E80254E23A8"
+            ],
+            "outgoing": [
+                "sid-90F4645E-D9D7-492E-89FF-DDD85E7FE531"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-AF7D8CA2-FADA-478E-8193-C3C7406FD386": {
+            "name": "",
+            "incoming": [
+                "sid-CE6F7C31-EA2B-4068-BDD3-179039496A81"
+            ]
+        },
+        "sid-DDA2C058-0E7D-479E-8139-74F7E43F77EB": {
+            "name": "",
+            "incoming": [
+                "sid-D560C162-F459-43BD-8A0E-5CF9430AE46F"
+            ]
+        },
+        "sid-04F4CFEE-E63E-48EE-AF57-B326A7519648": {
+            "name": "",
+            "incoming": [
+                "sid-9152840C-E2CD-42C7-BE4F-DF7073C3B701"
+            ]
+        },
+        "sid-30DD714A-0C01-4FDF-99D9-635E35EBE1B5": {
+            "name": "",
+            "incoming": [
+                "sid-01D6FF81-A445-4C46-868E-A6594FA69006"
+            ]
+        }
+    }
+}

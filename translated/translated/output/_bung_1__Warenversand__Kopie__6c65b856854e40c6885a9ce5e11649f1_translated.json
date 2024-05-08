@@ -1,0 +1,120 @@
+{
+    "start_events": {
+        "sid-383B6515-B680-4B8D-9D1E-7D8EAD29E467": {
+            "name": "Goods are ready for shipping",
+            "outgoing": [
+                "sid-5F477D2A-C992-4531-8E0D-A9033D6B3C6A"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-98E39A40-FDEF-448B-994A-B591B9952F46": {
+            "name": "Filling the package note",
+            "incoming": [
+                "sid-4274C883-EDB7-4AEC-9C54-10D9F8C36FE1"
+            ],
+            "outgoing": [
+                "sid-706055DB-3604-451C-8778-03A904924A0D"
+            ]
+        },
+        "sid-704DC2D2-016E-4866-B4BD-7C93D6332F42": {
+            "name": "Request a quote",
+            "incoming": [
+                "sid-DD263100-AEBD-43B3-A718-FA05F62E201B"
+            ],
+            "outgoing": [
+                "sid-6B7747A1-C85F-4361-9CD6-053E7FECE625"
+            ]
+        },
+        "sid-FB4D0C9E-2678-46FF-8B59-B0C1C3FCBC3F": {
+            "name": "Insurance close",
+            "incoming": [
+                "sid-619872D7-A64E-4E6D-9764-9E470F0BE7A2"
+            ],
+            "outgoing": [
+                "sid-737E7447-D17D-4D13-B33B-6554A92BED71"
+            ]
+        },
+        "sid-9EAA52CB-F243-459A-AF18-FF39BA72989C": {
+            "name": "Provide packaged goods for collection",
+            "incoming": [
+                "sid-2D8941BB-7D47-4BE7-BDE2-D47FC7038FD9"
+            ],
+            "outgoing": [
+                "sid-053FA87E-CBFD-4DD2-887A-FDD10E6C1491"
+            ]
+        },
+        "sid-2D30DA5C-62F2-46C3-A7E0-2F1416C011B5": {
+            "name": "Ordering forwarding of choice",
+            "incoming": [
+                "sid-6B7747A1-C85F-4361-9CD6-053E7FECE625"
+            ],
+            "outgoing": [
+                "sid-0A4FD8FB-0AE7-47A2-9B30-307503B60BD7"
+            ]
+        },
+        "sid-B60534AB-F8E7-41D7-A662-5E34F67F8982": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-2348407C-E696-41AE-AA3B-516FDBADC1FE"
+            ],
+            "outgoing": [
+                "sid-3630D24E-5C59-434D-A887-17EB36938DBA"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-09DAF914-5D22-4A05-B3A3-74D49F590AA3": {
+            "name": "Type of shipping?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-12DFF70A-BDD0-4C72-B1AA-A0E38AC15478"
+            ],
+            "outgoing": [
+                "sid-4274C883-EDB7-4AEC-9C54-10D9F8C36FE1",
+                "sid-DD263100-AEBD-43B3-A718-FA05F62E201B"
+            ]
+        },
+        "sid-279AE0A5-FBC5-4762-9A7F-44F8F979C028": {
+            "name": "Insurance required?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-706055DB-3604-451C-8778-03A904924A0D"
+            ],
+            "outgoing": [
+                "sid-619872D7-A64E-4E6D-9764-9E470F0BE7A2",
+                "sid-571A9AA3-7714-45CD-B854-B8E578BDB3D1"
+            ]
+        },
+        "sid-664BCA1A-C641-4B5A-B791-A4680F1CF64A": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-737E7447-D17D-4D13-B33B-6554A92BED71",
+                "sid-571A9AA3-7714-45CD-B854-B8E578BDB3D1"
+            ],
+            "outgoing": [
+                "sid-A3293E07-5C04-44A0-8D09-38D6501FD4CA"
+            ]
+        },
+        "sid-F2F1026F-F58A-49A8-B06E-B3F891951362": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-A3293E07-5C04-44A0-8D09-38D6501FD4CA",
+                "sid-0A4FD8FB-0AE7-47A2-9B30-307503B60BD7"
+            ],
+            "outgoing": [
+                "sid-0FB1465C-8410-490A-8A0F-BE3EBC55991C"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-20A95736-0B83-46B7-AF27-8EFE71002A11": {
+            "name": "Packed goods are ready for collection",
+            "incoming": [
+                "sid-053FA87E-CBFD-4DD2-887A-FDD10E6C1491"
+            ]
+        }
+    }
+}

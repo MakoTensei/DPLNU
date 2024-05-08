@@ -1,0 +1,178 @@
+{
+    "start_events": {},
+    "tasks": {
+        "sid-604AB04F-C198-4E47-93C8-7397FE0A52D3": {
+            "name": "Check Regress Claim",
+            "incoming": [
+                "sid-AF3982BD-AAC0-4D08-8EE0-03C281617F09"
+            ],
+            "outgoing": [
+                "sid-45B7324E-02C2-4B19-A625-98CC2EE828EA"
+            ]
+        },
+        "sid-E0132168-06FA-4E59-B23F-C5FA77B3E7DC": {
+            "name": "Send payment request to VN",
+            "incoming": [
+                "sid-80A97E8E-5242-4731-A9E1-678BCD578252"
+            ],
+            "outgoing": [
+                "sid-A46F2C03-233A-4C8B-85F8-DBB3E9371DD0"
+            ]
+        },
+        "sid-1A134E73-56AC-43F6-BBFF-C71716D4866A": {
+            "name": "Set process to WV",
+            "incoming": [
+                "sid-A46F2C03-233A-4C8B-85F8-DBB3E9371DD0"
+            ],
+            "outgoing": [
+                "sid-4C98CB70-177E-4EA6-9C17-524FB1AD99AF"
+            ]
+        },
+        "sid-D0D9AE12-DD9E-4FC1-851B-5119236120DC": {
+            "name": "Book the entrance",
+            "incoming": [
+                "sid-B9733E6D-C3F5-4CD0-A291-A504F23C9B87"
+            ],
+            "outgoing": [
+                "sid-593E58C6-A148-48CD-964B-D8F364ACE849"
+            ]
+        },
+        "sid-EAEE49AF-03FB-4569-969B-C15576FB814C": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-43014901-4F92-46D8-9EC0-3C987E9FA6D0"
+            ],
+            "outgoing": [
+                "sid-04AC08C6-FC4C-4C1A-8835-790DD46E4F02"
+            ]
+        },
+        "sid-F56EEF04-B129-428C-88E9-FF7EC8ADE77B": {
+            "name": "Give process to Inkasso-DL",
+            "incoming": [
+                "sid-08AA08DE-F9D5-4877-8104-CE661E2E59F9",
+                "sid-241F83FE-FD6E-4A56-B406-1AF72FEE6B01"
+            ],
+            "outgoing": [
+                "sid-97A821F9-8DF2-4DB7-A978-064550C6888B"
+            ]
+        },
+        "sid-28B0E149-723A-4CFE-B649-DBF1C9829F25": {
+            "name": "Check the receipt of funds",
+            "incoming": [
+                "sid-0664E5F1-F9F6-4633-AD57-BD9DC261DB71"
+            ],
+            "outgoing": [
+                "sid-F7C19DF9-D955-4410-B099-9D41EDBCD08B"
+            ]
+        },
+        "sid-83C1AB0D-360C-4098-A007-7E2AA3158E52": {
+            "name": "Check WV",
+            "incoming": [
+                "sid-6DD98093-2740-4C51-9996-B789E6CB3FA4"
+            ],
+            "outgoing": [
+                "sid-4DD98AE9-4473-407D-A134-E631DBAC6200"
+            ]
+        },
+        "sid-DCE0DB7D-B1AA-4FD3-A7E7-36D619FB5EBC": {
+            "name": "Close",
+            "incoming": [
+                "sid-1A440857-FD3B-47DA-A1B4-D46F2B029971"
+            ],
+            "outgoing": [
+                "sid-A9E73A35-0EFB-4B33-961E-B1562E3B03A2"
+            ]
+        },
+        "sid-D718F176-02E5-4D17-8B4B-6804F50A64AA": {
+            "name": "Check the opposition",
+            "incoming": [
+                "sid-4325DAF8-F1AB-450B-8FD8-02C6313B295F"
+            ],
+            "outgoing": [
+                "sid-D1C4BFDA-35FF-4A52-9F21-D6AE66A51E6B"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-82C9E9F1-C704-4565-97E1-C9B80F20A165": {
+            "name": "Claimed?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-45B7324E-02C2-4B19-A625-98CC2EE828EA"
+            ],
+            "outgoing": [
+                "sid-80A97E8E-5242-4731-A9E1-678BCD578252",
+                "sid-CC7258DC-7F56-4985-8143-36128C5972CC"
+            ]
+        },
+        "sid-30D2E36C-66EB-4A8E-ADBA-FADE06C4CB79": {
+            "name": "Money received?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-F7C19DF9-D955-4410-B099-9D41EDBCD08B"
+            ],
+            "outgoing": [
+                "sid-B9733E6D-C3F5-4CD0-A291-A504F23C9B87",
+                "sid-4325DAF8-F1AB-450B-8FD8-02C6313B295F"
+            ]
+        },
+        "sid-A28B7848-674A-432D-B4CC-99C765B01803": {
+            "name": "Opposition\njustified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-04AC08C6-FC4C-4C1A-8835-790DD46E4F02"
+            ],
+            "outgoing": [
+                "sid-08AA08DE-F9D5-4877-8104-CE661E2E59F9",
+                "sid-CC29F8CC-013A-47DA-AC64-F45F27864A09"
+            ]
+        },
+        "sid-9F47436C-EB94-45A2-80DF-618FF4A86451": {
+            "name": "WV expired?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-4DD98AE9-4473-407D-A134-E631DBAC6200"
+            ],
+            "outgoing": [
+                "sid-0664E5F1-F9F6-4633-AD57-BD9DC261DB71",
+                "sid-0492738B-1415-4C08-AB87-C98ED08C1442"
+            ]
+        },
+        "sid-19AE1026-B467-4D22-A283-7B1C0026A22E": {
+            "name": "Opposition\nwhat?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-D1C4BFDA-35FF-4A52-9F21-D6AE66A51E6B"
+            ],
+            "outgoing": [
+                "sid-43014901-4F92-46D8-9EC0-3C987E9FA6D0",
+                "sid-241F83FE-FD6E-4A56-B406-1AF72FEE6B01"
+            ]
+        },
+        "sid-18CA6BCF-E618-48CF-AE3E-CC388674665B": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-593E58C6-A148-48CD-964B-D8F364ACE849",
+                "sid-CC29F8CC-013A-47DA-AC64-F45F27864A09"
+            ],
+            "outgoing": [
+                "sid-1A440857-FD3B-47DA-A1B4-D46F2B029971"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-A5DA7989-F730-49CB-AAA6-6286557EB041": {
+            "name": "Closed",
+            "incoming": [
+                "sid-A9E73A35-0EFB-4B33-961E-B1562E3B03A2"
+            ]
+        },
+        "sid-349F441B-ABAE-4347-8097-A923FF68E2FF": {
+            "name": "",
+            "incoming": [
+                "sid-97A821F9-8DF2-4DB7-A978-064550C6888B"
+            ]
+        }
+    }
+}

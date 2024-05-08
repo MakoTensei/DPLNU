@@ -1,0 +1,103 @@
+{
+    "start_events": {
+        "sid-64F48A8A-203B-4949-8053-9D5932E85E8E": {
+            "name": "VN can be taken in regress",
+            "outgoing": [
+                "sid-6A12E58F-17DE-4722-BAB7-E4C8926E050F"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-E7559065-7141-47C5-B1B0-E18728FE78D3": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-6A12E58F-17DE-4722-BAB7-E4C8926E050F"
+            ],
+            "outgoing": [
+                "sid-DFE058E0-2A8E-4C49-B037-CF7B6F340729"
+            ]
+        },
+        "sid-C89B146B-20F6-4466-AB7B-6A89DC748D40": {
+            "name": "Set process for resubmission",
+            "incoming": [
+                "sid-60889D0B-1C8F-4675-A276-7822C8C182C8"
+            ],
+            "outgoing": [
+                "sid-254AB08C-6F9D-4DBB-806D-4EABC60991CF"
+            ]
+        },
+        "sid-24B411D5-7635-46FF-B398-9B4F5D8294F8": {
+            "name": "Book incoming payment",
+            "incoming": [
+                "sid-6AD0DC17-A60D-47D8-8C89-D72A14CBED2E"
+            ],
+            "outgoing": [
+                "sid-E29E6D95-3DF7-4D3F-8481-16D3A8482905",
+                "sid-A68AFAB9-A9EB-4B88-BEAC-8688F3918900"
+            ]
+        },
+        "sid-CB1CEA91-6BCF-48E0-8AB7-5F9BFB8D217F": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-071E51D9-5289-4C43-B3F4-271ADF033E64"
+            ],
+            "outgoing": [
+                "sid-A4FD6D4E-4C3B-490B-B1EB-F4BE2F8466F1"
+            ]
+        },
+        "sid-283D5EB3-D9E4-4B6C-A215-A692216A06D3": {
+            "name": "Close",
+            "incoming": [
+                "sid-170AAABB-7C91-4C7F-A8D7-DBFDBA5813F9"
+            ],
+            "outgoing": [
+                "sid-795DBE21-1016-4E07-9BEF-20B1024CC283"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-66C82C77-EDFE-4A2E-A88A-4A4ED9116514": {
+            "name": "Regress possibility exists?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-DFE058E0-2A8E-4C49-B037-CF7B6F340729"
+            ],
+            "outgoing": [
+                "sid-880F8B0B-2A9A-4DBB-8C58-13D043D54525",
+                "sid-A945D083-A42E-4FFA-81FE-85019D9C6AAE"
+            ]
+        },
+        "sid-31853E5D-7865-4E2C-AE14-F39C1582867D": {
+            "name": "Rejection of payment justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-A4FD6D4E-4C3B-490B-B1EB-F4BE2F8466F1"
+            ],
+            "outgoing": [
+                "sid-B5F39C25-30C0-4EB3-82EB-E20EF722AAA6",
+                "sid-C0D304C6-71D2-44CE-B641-EC3FF5FB7186"
+            ]
+        },
+        "sid-A42B3855-CFED-4871-8A97-6017CAC099E4": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-E29E6D95-3DF7-4D3F-8481-16D3A8482905",
+                "sid-A68AFAB9-A9EB-4B88-BEAC-8688F3918900",
+                "sid-402F7F5A-DDBC-41DA-8A26-8FF6D3921CB1",
+                "sid-A945D083-A42E-4FFA-81FE-85019D9C6AAE"
+            ],
+            "outgoing": [
+                "sid-170AAABB-7C91-4C7F-A8D7-DBFDBA5813F9"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-82C2EBC6-B4DB-4CE0-AE24-738297282631": {
+            "name": "Case edited",
+            "incoming": [
+                "sid-795DBE21-1016-4E07-9BEF-20B1024CC283"
+            ]
+        }
+    }
+}

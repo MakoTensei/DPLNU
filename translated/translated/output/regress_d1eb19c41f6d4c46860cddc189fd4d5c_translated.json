@@ -1,0 +1,126 @@
+{
+    "start_events": {
+        "sid-5026D49F-BE96-41E0-9F66-EBAA0FE239CD": {
+            "name": "Take VN in Regress",
+            "outgoing": [
+                "sid-285DE747-CC61-4F28-BED8-8DCA7A5103C8"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-CC107209-3CB1-4B86-8D41-F2B8BCFDFC75": {
+            "name": "Check the procedure",
+            "incoming": [
+                "sid-285DE747-CC61-4F28-BED8-8DCA7A5103C8"
+            ],
+            "outgoing": [
+                "sid-F6C7FE39-7F36-452A-9694-9D22F291CFD3"
+            ]
+        },
+        "sid-CAC73313-3C2F-49A4-B09A-304630E9AD38": {
+            "name": "VN payment request",
+            "incoming": [
+                "sid-63440672-D4D2-4866-98CE-3FE48533BFB5"
+            ],
+            "outgoing": [
+                "sid-D1166353-8867-43B7-A90C-1B72CDAF6926"
+            ]
+        },
+        "sid-36ED08FA-15A5-40E0-933D-5F839248AAAE": {
+            "name": "Check the receipt of funds",
+            "incoming": [
+                "sid-D23F46B6-F969-446B-9BCD-E74ED9A541C0"
+            ],
+            "outgoing": [
+                "sid-B5EB8293-3244-4029-80EF-DE00AF4742CF"
+            ]
+        },
+        "sid-06D6DD4B-D880-41AA-80C2-0745EDA6D642": {
+            "name": "Book",
+            "incoming": [
+                "sid-34326E69-1B62-412B-A0B0-4EDF1324F78D"
+            ],
+            "outgoing": [
+                "sid-2CEC32AB-78E4-4BF2-94A4-A1FC9B6A1F4A"
+            ]
+        },
+        "sid-6FFC5EAA-1259-40CA-8848-AFA1978E1062": {
+            "name": "Close the process",
+            "incoming": [
+                "sid-6824F736-4933-43BF-8AF0-BD8217CE45FA",
+                "sid-0FB8A9D6-6E53-44C5-B892-522121DAE7A4"
+            ],
+            "outgoing": [
+                "sid-3723584A-5BC4-483B-837F-20AB5D47503D"
+            ]
+        },
+        "sid-91B11542-CFDE-4699-9F89-BAB530590C33": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-EECC3F9A-0877-4952-A3BE-5B38DFE315B7"
+            ],
+            "outgoing": [
+                "sid-5DC846F3-C2B1-4A66-956E-2CCD08ADDA56"
+            ]
+        },
+        "sid-326E17E4-131B-4105-8B1F-67BB85C4678B": {
+            "name": "Debt collection",
+            "incoming": [
+                "sid-BBF131F6-A5BB-4476-B081-BD0A8ED15882",
+                "sid-9A8925B1-89C8-40C9-8841-5CB2810F4EF9"
+            ],
+            "outgoing": [
+                "sid-233C6133-B102-4071-87B1-155C076C0BC9"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-FE6E373D-2EAE-44D0-B9CB-8F9F54F75712": {
+            "name": "in Regress?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-F6C7FE39-7F36-452A-9694-9D22F291CFD3"
+            ],
+            "outgoing": [
+                "sid-63440672-D4D2-4866-98CE-3FE48533BFB5",
+                "sid-6824F736-4933-43BF-8AF0-BD8217CE45FA"
+            ]
+        },
+        "sid-E921D819-F00C-4193-892D-6E9CC97268B8": {
+            "name": "Money received?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B5EB8293-3244-4029-80EF-DE00AF4742CF"
+            ],
+            "outgoing": [
+                "sid-34326E69-1B62-412B-A0B0-4EDF1324F78D",
+                "sid-BBF131F6-A5BB-4476-B081-BD0A8ED15882"
+            ]
+        },
+        "sid-1BF9F19F-E262-4142-A226-05BDE818CEC2": {
+            "name": "justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-5DC846F3-C2B1-4A66-956E-2CCD08ADDA56"
+            ],
+            "outgoing": [
+                "sid-0FB8A9D6-6E53-44C5-B892-522121DAE7A4",
+                "sid-9A8925B1-89C8-40C9-8841-5CB2810F4EF9"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-D2D6C10C-897D-4DEB-BF95-6579269C51E6": {
+            "name": "",
+            "incoming": [
+                "sid-3723584A-5BC4-483B-837F-20AB5D47503D"
+            ]
+        },
+        "sid-B541803F-8DD7-46FE-9DAD-AA70C4872460": {
+            "name": "",
+            "incoming": [
+                "sid-233C6133-B102-4071-87B1-155C076C0BC9"
+            ]
+        }
+    }
+}

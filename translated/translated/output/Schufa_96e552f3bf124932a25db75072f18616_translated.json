@@ -1,0 +1,109 @@
+{
+    "start_events": {
+        "sid-568D7604-C1FA-4167-9881-664B0C9648F9": {
+            "name": "Schufascoring requested",
+            "outgoing": [
+                "sid-F0A6AA58-E527-440A-AC3E-056C3B3F60CA"
+            ]
+        },
+        "sid-A143A352-5A1C-4443-B87B-42B914321450": {
+            "name": "Schufascoring request has been received",
+            "outgoing": [
+                "sid-7CD1A267-70E2-4027-AB88-FE442D27122E"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-C6AEB601-F929-4D67-8173-DFE44B997AE5": {
+            "name": "Send scoring inquiry to Schufa",
+            "incoming": [
+                "sid-F0A6AA58-E527-440A-AC3E-056C3B3F60CA"
+            ],
+            "outgoing": [
+                "sid-735AB8BD-4698-456A-9C0C-D0F7B1B43195"
+            ]
+        },
+        "sid-A2C0B687-A0F6-4961-99E9-ACCC83EF4FC4": {
+            "name": "forwarding result to credit award Frontend",
+            "incoming": [
+                "sid-F660346E-82A5-4F3F-9927-14A9AB10C9EE"
+            ],
+            "outgoing": [
+                "sid-4731C9D3-39DD-445B-83D9-67C9A5273B8C"
+            ]
+        },
+        "sid-151ED6CA-D473-4B79-9829-1F3E83B65137": {
+            "name": "Report delay",
+            "incoming": [
+                "sid-13C13C5B-1D2E-4607-A9B7-FD962AE62FE3"
+            ],
+            "outgoing": [
+                "sid-D3A3346E-2827-4F80-BB22-7F8C10F01B11"
+            ]
+        },
+        "sid-2655371A-7546-4ABA-A110-044F86447AD8": {
+            "name": "Determining scoring (level 1)",
+            "incoming": [
+                "sid-7CD1A267-70E2-4027-AB88-FE442D27122E"
+            ],
+            "outgoing": [
+                "sid-D2ABCC27-A32B-4A95-93CF-0295424524B2"
+            ]
+        },
+        "sid-20FDB34F-26FF-4719-A961-C83966B6D6F8": {
+            "name": "Send a reply",
+            "incoming": [
+                "sid-684F8A73-E3EF-4623-AF70-FC1DE863FDE3"
+            ],
+            "outgoing": [
+                "sid-550CA641-D9AD-4785-81ED-84DF4E005490"
+            ]
+        },
+        "sid-3B4A1A15-0A02-4BD7-908C-43422EC6A610": {
+            "name": "Report delay",
+            "incoming": [
+                "sid-87212E12-E086-4764-9491-350C28FC8FDC"
+            ],
+            "outgoing": [
+                "sid-75BA1042-E0E5-483B-9DBF-2C0C5E07726C"
+            ]
+        },
+        "sid-1E4A0413-F5BD-4432-A717-25D1D9B7FDEA": {
+            "name": "Determining scoring (level 2)",
+            "incoming": [
+                "sid-75BA1042-E0E5-483B-9DBF-2C0C5E07726C"
+            ],
+            "outgoing": [
+                "sid-9DA812E4-C227-4AB0-8F75-93C53869F80C"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-0024ED42-E189-4D29-A6FC-2DC6C9245D55": {
+            "name": "Value determined?",
+            "direction": "Mixed",
+            "incoming": [
+                "sid-D2ABCC27-A32B-4A95-93CF-0295424524B2",
+                "sid-9DA812E4-C227-4AB0-8F75-93C53869F80C"
+            ],
+            "outgoing": [
+                "sid-684F8A73-E3EF-4623-AF70-FC1DE863FDE3",
+                "sid-87212E12-E086-4764-9491-350C28FC8FDC"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-B27613C1-0A49-4666-8169-584AEBB55FE5": {
+            "name": "Request edited",
+            "incoming": [
+                "sid-4731C9D3-39DD-445B-83D9-67C9A5273B8C"
+            ]
+        },
+        "sid-4A51818F-1CB6-4A2C-8C29-F6686E2C8427": {
+            "name": "",
+            "incoming": [
+                "sid-550CA641-D9AD-4785-81ED-84DF4E005490"
+            ]
+        }
+    }
+}

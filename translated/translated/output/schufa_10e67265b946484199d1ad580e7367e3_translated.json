@@ -1,0 +1,109 @@
+{
+    "start_events": {
+        "sid-3C6871A7-43CD-4A91-AE81-5DF3C92EB6B9": {
+            "name": "Request Scoring Order",
+            "outgoing": [
+                "sid-9EAC9A04-2DD0-4351-88B8-322F998C5C4D"
+            ]
+        },
+        "sid-AB1FE670-8716-4840-AFE8-717A898AEC32": {
+            "name": "Enquiry",
+            "outgoing": [
+                "sid-205E5EE9-2B8E-402D-9710-7A703BCFB501"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-4C696403-EB18-44CB-8801-5B0D179C5AA8": {
+            "name": "sufascoring send",
+            "incoming": [
+                "sid-9EAC9A04-2DD0-4351-88B8-322F998C5C4D"
+            ],
+            "outgoing": [
+                "sid-CFE1EB89-4983-4BD3-AE6F-1409E7BF7BA3"
+            ]
+        },
+        "sid-143813B9-107A-4631-A831-6D9158044989": {
+            "name": "forwarding results",
+            "incoming": [
+                "sid-5FF667D9-9078-4622-A875-B13A13025552"
+            ],
+            "outgoing": [
+                "sid-34FCD4FA-FCAA-47C5-BC4F-CFFB4FDB81FF"
+            ]
+        },
+        "sid-2C27425B-F97A-4D34-99FF-5F7FAF98DE86": {
+            "name": "1. perform scoring",
+            "incoming": [
+                "sid-205E5EE9-2B8E-402D-9710-7A703BCFB501"
+            ],
+            "outgoing": [
+                "sid-6F54BB84-1FF5-4945-A096-D3488151AF2A"
+            ]
+        },
+        "sid-2C791C13-36AE-4EDF-A534-8994CCC58C02": {
+            "name": "give result to the bank",
+            "incoming": [
+                "sid-7DA25991-A402-406A-B6AD-D1351731A05B",
+                "sid-5677CDD4-9121-4705-B223-40E3F35ED9E9"
+            ],
+            "outgoing": [
+                "sid-D1F9B726-CBED-44C0-808E-971FB41D0696"
+            ]
+        },
+        "sid-99A34C05-2EEE-4B1F-AEE4-1F8AE29EF731": {
+            "name": "Return to the bank",
+            "incoming": [
+                "sid-76994D07-D7AF-4D44-9A1A-DA2E899DF898"
+            ],
+            "outgoing": [
+                "sid-8D1D8994-3BDF-49E4-B43C-6663FB88E344"
+            ]
+        },
+        "sid-683DD7C1-AAD4-4C62-B11A-1EFFBFAF7F57": {
+            "name": "Two. Run scoring",
+            "incoming": [
+                "sid-8D1D8994-3BDF-49E4-B43C-6663FB88E344"
+            ],
+            "outgoing": [
+                "sid-5C35F957-D346-484E-8F09-39CF21DD0BF2"
+            ]
+        },
+        "sid-CB727FE3-AAFB-493F-9371-1BC433B837EB": {
+            "name": "give result to the bank",
+            "incoming": [
+                "sid-5C35F957-D346-484E-8F09-39CF21DD0BF2"
+            ],
+            "outgoing": [
+                "sid-5677CDD4-9121-4705-B223-40E3F35ED9E9"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-EF9B8104-D604-44C5-B04F-1CC7ADECCBF3": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-6F54BB84-1FF5-4945-A096-D3488151AF2A"
+            ],
+            "outgoing": [
+                "sid-7DA25991-A402-406A-B6AD-D1351731A05B",
+                "sid-76994D07-D7AF-4D44-9A1A-DA2E899DF898"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-3B6F39D9-6C63-49E0-A50F-D868F06E469F": {
+            "name": "",
+            "incoming": [
+                "sid-34FCD4FA-FCAA-47C5-BC4F-CFFB4FDB81FF"
+            ]
+        },
+        "sid-6F2C563D-65CA-4F44-9D18-067553335259": {
+            "name": "Result delivered",
+            "incoming": [
+                "sid-D1F9B726-CBED-44C0-808E-971FB41D0696"
+            ]
+        }
+    }
+}

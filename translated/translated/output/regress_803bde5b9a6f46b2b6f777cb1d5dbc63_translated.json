@@ -1,0 +1,132 @@
+{
+    "start_events": {
+        "sid-36B45B36-7786-4284-B5B4-5005A783AE3D": {
+            "name": "Regression\nReport",
+            "outgoing": [
+                "sid-5CADEE64-2F6C-4B7B-875C-E37933BC820B"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-2066F56B-DF7B-4CB5-A850-0225DD315753": {
+            "name": "Regression claim\nCheck",
+            "incoming": [
+                "sid-5CADEE64-2F6C-4B7B-875C-E37933BC820B"
+            ],
+            "outgoing": [
+                "sid-1E6049D4-0035-47AF-9E3B-930B41333206"
+            ]
+        },
+        "sid-C6D2CAB9-55A2-456F-8686-D381AAED3FE3": {
+            "name": "VN payment request\nShip",
+            "incoming": [
+                "sid-36D57DB9-1FEC-49AC-BFC6-CDEB4E725121"
+            ],
+            "outgoing": [
+                "sid-5D1AE215-E797-41B8-821E-285E8FCB78EF"
+            ]
+        },
+        "sid-39889240-C242-4030-A38D-EDBB81DC0B77": {
+            "name": "Cash receipt\nbook",
+            "incoming": [
+                "sid-38EC31E7-7A8B-498C-ACD6-BBF8DAB3C0B7"
+            ],
+            "outgoing": [
+                "sid-829DA037-FA43-40FC-B74E-A19826684B4C"
+            ]
+        },
+        "sid-00972F07-7418-42E0-954B-5EBEAD210D1B": {
+            "name": "Process\nclose",
+            "incoming": [
+                "sid-CA7A36FC-2B22-485F-BFBD-4D829800FDFF"
+            ],
+            "outgoing": [
+                "sid-769E6128-E7F2-4B99-B0E7-2F404FE4C378"
+            ]
+        },
+        "sid-F65B607D-C197-4D57-8E2A-B027F797D218": {
+            "name": "Process transferred to debt collection service",
+            "incoming": [
+                "sid-BFB32826-840B-4A03-A3A8-3B43060B5527"
+            ],
+            "outgoing": [
+                "sid-978B6E64-2957-4776-B8EC-8AE81B5A95C6"
+            ]
+        },
+        "sid-F246DDF2-DB59-4995-AD65-6620130824EB": {
+            "name": "Reasons\nCheck",
+            "incoming": [
+                "sid-BD8EC2C7-D9E0-40D9-B84C-E75DB133A406"
+            ],
+            "outgoing": [
+                "sid-2A15CF15-D8DB-43F7-8A5F-6025077CEDFD"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-E75DD4AC-541E-4364-96F4-8415F4F499CC": {
+            "name": "Claim\njustified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-1E6049D4-0035-47AF-9E3B-930B41333206"
+            ],
+            "outgoing": [
+                "sid-C113D5C2-C3BD-4701-893F-F949B91B8737",
+                "sid-36D57DB9-1FEC-49AC-BFC6-CDEB4E725121"
+            ]
+        },
+        "sid-663CF2ED-5867-4E20-BDB1-DCE1AE733426": {
+            "name": "Reasons\njustified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-2A15CF15-D8DB-43F7-8A5F-6025077CEDFD"
+            ],
+            "outgoing": [
+                "sid-708936EB-E29C-44A1-8538-F43162020B2F",
+                "sid-FC48BBE7-CDC7-43AF-B5E4-8E73C1D72B1C"
+            ]
+        },
+        "sid-790D0BCD-AD25-4977-8672-104D5BF43766": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-829DA037-FA43-40FC-B74E-A19826684B4C",
+                "sid-C113D5C2-C3BD-4701-893F-F949B91B8737",
+                "sid-FC48BBE7-CDC7-43AF-B5E4-8E73C1D72B1C"
+            ],
+            "outgoing": [
+                "sid-CA7A36FC-2B22-485F-BFBD-4D829800FDFF"
+            ]
+        },
+        "sid-35BE3B68-4055-4D43-A3C8-A9A91625DE59": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-708936EB-E29C-44A1-8538-F43162020B2F",
+                "sid-F825AF81-E675-4F35-9D5A-B8700689E5C2"
+            ],
+            "outgoing": [
+                "sid-BFB32826-840B-4A03-A3A8-3B43060B5527"
+            ]
+        },
+        "sid-756EB2D3-6794-4F1A-B490-32FD7BF5DF5D": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-769E6128-E7F2-4B99-B0E7-2F404FE4C378",
+                "sid-978B6E64-2957-4776-B8EC-8AE81B5A95C6"
+            ],
+            "outgoing": [
+                "sid-E38FF861-3CB3-451A-A665-BD19B2D0AAE0"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-47F1A9D4-1B54-4B00-8108-FFA3C8A40BE8": {
+            "name": "Process\ncompleted",
+            "incoming": [
+                "sid-E38FF861-3CB3-451A-A665-BD19B2D0AAE0"
+            ]
+        }
+    }
+}

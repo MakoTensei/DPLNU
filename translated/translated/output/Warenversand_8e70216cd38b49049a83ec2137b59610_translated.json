@@ -1,0 +1,112 @@
+{
+    "start_events": {
+        "sid-7C8E7F70-AF3A-47A8-BF32-051C9BBC7B18": {
+            "name": "Goods are to be shipped",
+            "outgoing": [
+                "sid-4203784B-AE23-473D-B31F-79C223D996FF"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-E1C2F5BB-0383-4E8D-800E-5D0190AF1A92": {
+            "name": "Insurance close",
+            "incoming": [
+                "sid-EF309AC6-4451-4450-938C-D5989392DE34"
+            ],
+            "outgoing": []
+        },
+        "sid-B27B8C92-D4F0-4A42-B9DF-99E0C39ADC41": {
+            "name": "Check shipping mode",
+            "incoming": [
+                "sid-32E29FE1-FFD2-4B69-B75D-DCDC3D65658D"
+            ],
+            "outgoing": [
+                "sid-67D97A4D-5D03-4470-9A84-A52CD18222D1"
+            ]
+        },
+        "sid-A2BA151A-4A6E-4DE2-939C-BAE2549DD974": {
+            "name": "fill out standarized parcel certificate",
+            "incoming": [
+                "sid-3FA99595-2496-4FD1-B76F-9C35D7898EDB"
+            ],
+            "outgoing": [
+                "sid-50E3542A-9B68-46C2-BC4D-42A079D6379F"
+            ]
+        },
+        "sid-6F3C6872-9CD9-4208-9A49-24D8C1856A1C": {
+            "name": "Choose the cheapest offer",
+            "incoming": [
+                "sid-E5119B09-2031-414A-A377-8DD26A807A82"
+            ],
+            "outgoing": [
+                "sid-0887AF4A-5A79-47BD-840E-C08DAECC3BF4"
+            ]
+        },
+        "sid-63F5D667-DFEA-42F9-88AA-0184BF524496": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-5634B0CF-3C33-4FE3-91B0-68ABBD39CED0"
+            ],
+            "outgoing": []
+        },
+        "sid-032740B2-3BA3-4423-BB3C-A9FD6768D97D": {
+            "name": "Delivering goods",
+            "incoming": [
+                "sid-B97314F5-B3B6-4F09-A3E2-0919A3D14F0C"
+            ],
+            "outgoing": [
+                "sid-56E0706A-31BF-41C1-9C67-A1868F214907"
+            ]
+        },
+        "sid-0E7EF79B-704F-4FEC-9A84-9CDEEAF725EF": {
+            "name": "Pick up offers",
+            "incoming": [
+                "sid-ADA235A1-E75D-421F-8A6F-3C89F8E256B1"
+            ],
+            "outgoing": [
+                "sid-43DE052E-CAD4-47FF-B984-A8B7EF5BC4FC"
+            ]
+        },
+        "sid-60C08DDB-6A85-4F48-850D-FFDE32B2A5BA": {
+            "name": "Request a quote",
+            "incoming": [
+                "sid-804EB682-CEC3-43FD-945A-AEC4777F2B2D"
+            ],
+            "outgoing": [
+                "sid-BB14A5ED-7143-4A08-9D9C-AF0F4488DABA"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-BBDED886-3B03-41CC-B720-C906347DE359": {
+            "name": "Shipping is special shipping?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-67D97A4D-5D03-4470-9A84-A52CD18222D1"
+            ],
+            "outgoing": [
+                "sid-6A0BCFD3-1B64-4360-8639-4E84126E0392",
+                "sid-3FA99595-2496-4FD1-B76F-9C35D7898EDB"
+            ]
+        },
+        "sid-941FDC65-D06B-411D-91C4-494C195FC9BA": {
+            "name": "Insurance required?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-50E3542A-9B68-46C2-BC4D-42A079D6379F"
+            ],
+            "outgoing": [
+                "sid-EF309AC6-4451-4450-938C-D5989392DE34",
+                "sid-9E446E46-E3A5-4C3D-A6D3-22B91935F331"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-C68B40CD-0BD2-4B9D-BFC6-F77EE4D78D13": {
+            "name": "",
+            "incoming": [
+                "sid-56E0706A-31BF-41C1-9C67-A1868F214907"
+            ]
+        }
+    }
+}

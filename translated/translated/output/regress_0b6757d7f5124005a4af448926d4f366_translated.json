@@ -1,0 +1,135 @@
+{
+    "start_events": {
+        "sid-608FFA92-6777-44E4-B0CC-651DC719ABB7": {
+            "name": "Case",
+            "outgoing": [
+                "sid-9FB74596-D3B5-4FF2-BC0E-12B1F9DEFDF8"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-779787F2-45F1-43CA-917D-855C0A21DF74": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-9FB74596-D3B5-4FF2-BC0E-12B1F9DEFDF8"
+            ],
+            "outgoing": [
+                "sid-4126DA36-9EC2-4C9D-8C87-761C752B6028"
+            ]
+        },
+        "sid-BDD30DDE-E557-4694-8ABE-646147FDEB39": {
+            "name": "Send payment request",
+            "incoming": [
+                "sid-980A0ADD-CD93-480A-86D2-352CEF58754D"
+            ],
+            "outgoing": [
+                "sid-F5A6E6D6-139B-48F9-803A-6C205CB4EEBD"
+            ]
+        },
+        "sid-37961719-5EBB-44C0-B820-2BD57329BB73": {
+            "name": "put on VWL",
+            "incoming": [
+                "sid-F5A6E6D6-139B-48F9-803A-6C205CB4EEBD"
+            ],
+            "outgoing": [
+                "sid-D013747D-4B7E-433A-8459-5E6BC76AB301"
+            ]
+        },
+        "sid-146EC185-ABEA-470E-96E5-EE4319C4E8B8": {
+            "name": "Book money",
+            "incoming": [
+                "sid-1E2FD60E-7711-424A-86F0-CE2A15C7AE98"
+            ],
+            "outgoing": [
+                "sid-D7771F7E-5865-4452-AE2F-7AF1E037400B"
+            ]
+        },
+        "sid-62241575-BEF1-4135-89C1-D6E7C6465E28": {
+            "name": "Case handed over to debt collection office",
+            "incoming": [
+                "sid-9B475BD0-27AF-4744-A6CA-45FF908F7434",
+                "sid-7BBC5B18-51BC-4F98-A683-7992AC165436"
+            ],
+            "outgoing": [
+                "sid-900F73C4-7B07-4010-B5B2-3B1279E22EA1"
+            ]
+        },
+        "sid-FCC90328-6D3B-46C5-B073-B5C136A27D14": {
+            "name": "Close the case",
+            "incoming": [
+                "sid-B26A2246-CF95-4114-A0E0-0EEEF4F36A36"
+            ],
+            "outgoing": [
+                "sid-64E86411-FC34-4BB9-80D9-FEA1B65C73BD"
+            ]
+        },
+        "sid-BA469F5A-584B-4C2A-B20F-B81AD9F41807": {
+            "name": "Close the case",
+            "incoming": [
+                "sid-D7771F7E-5865-4452-AE2F-7AF1E037400B"
+            ],
+            "outgoing": [
+                "sid-32D2DD54-8A4F-4245-9A2F-17A99D5DF62C"
+            ]
+        },
+        "sid-F9B9F7FD-4D66-45B7-BC51-39AA5F103065": {
+            "name": "Close the case",
+            "incoming": [
+                "sid-52C89015-75A5-4B7A-911C-4D3746F76F56"
+            ],
+            "outgoing": [
+                "sid-39C52D50-C307-4F80-B426-D6A8217D8AE9"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-2601AEE9-DD76-403B-B874-88DDF7B01F33": {
+            "name": "Adopted\nRegression claim?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-4126DA36-9EC2-4C9D-8C87-761C752B6028"
+            ],
+            "outgoing": [
+                "sid-980A0ADD-CD93-480A-86D2-352CEF58754D",
+                "sid-B26A2246-CF95-4114-A0E0-0EEEF4F36A36"
+            ]
+        },
+        "sid-C59F0A48-B551-42FA-85A9-D72876798C1A": {
+            "name": "Objection justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-613E839C-207C-49D3-B458-6706940750EE"
+            ],
+            "outgoing": [
+                "sid-52C89015-75A5-4B7A-911C-4D3746F76F56",
+                "sid-7BBC5B18-51BC-4F98-A683-7992AC165436"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-A1C56AC6-D48B-4657-AEAB-5A325AFCC468": {
+            "name": "Case closed",
+            "incoming": [
+                "sid-64E86411-FC34-4BB9-80D9-FEA1B65C73BD"
+            ]
+        },
+        "sid-C7F8280D-49C0-4B93-8C10-B1607D2AF6A3": {
+            "name": "Case closed",
+            "incoming": [
+                "sid-32D2DD54-8A4F-4245-9A2F-17A99D5DF62C"
+            ]
+        },
+        "sid-CAA709D3-DC35-48EC-9037-F7E2561711F8": {
+            "name": "Case closed",
+            "incoming": [
+                "sid-39C52D50-C307-4F80-B426-D6A8217D8AE9"
+            ]
+        },
+        "sid-A31142CE-E897-47E1-90E3-5CD67D03750A": {
+            "name": "Case further open",
+            "incoming": [
+                "sid-900F73C4-7B07-4010-B5B2-3B1279E22EA1"
+            ]
+        }
+    }
+}

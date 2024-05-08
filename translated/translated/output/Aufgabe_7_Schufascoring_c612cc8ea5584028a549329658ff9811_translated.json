@@ -1,0 +1,138 @@
+{
+    "start_events": {
+        "sid-48E9145A-BBD3-40BE-8EA7-FEECC6061FEF": {
+            "name": "Scoring request to Bank\n",
+            "outgoing": [
+                "sid-D13CC9F1-81CD-4513-A5D8-E55256F4A23D"
+            ]
+        },
+        "sid-F2A2DB60-F2B0-4B36-AF11-ADCA306994CB": {
+            "name": "Scoring input\n",
+            "outgoing": [
+                "sid-BDF08484-F9AC-4960-99FF-892F587DA51F"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-6ADDDCB5-D7B0-4FC8-AAE4-7A79B83D3D8B": {
+            "name": "Scoring request to Schufa",
+            "incoming": [
+                "sid-D13CC9F1-81CD-4513-A5D8-E55256F4A23D"
+            ],
+            "outgoing": [
+                "sid-6A4F5BE0-08F1-4585-9718-9B425CB7F94B"
+            ]
+        },
+        "sid-59B6BB67-7EBE-495C-BC46-D78A0E94B8E3": {
+            "name": "Level 1 Leading result to frontend",
+            "incoming": [
+                "sid-6B8C0460-0FE4-4CC2-BB77-142D47DB1035"
+            ],
+            "outgoing": [
+                "sid-36778E8A-2BFA-412B-B2D4-B1FEE2A0771E"
+            ]
+        },
+        "sid-56E3378C-74ED-45FD-831A-B97AD2BF1C00": {
+            "name": "Report delay to Frontend\n",
+            "incoming": [
+                "sid-B3CC7E51-E364-41ED-B85B-2C0132035D1F"
+            ],
+            "outgoing": [
+                "sid-996C1953-D78A-425E-A9E3-73CBFF6F264E"
+            ]
+        },
+        "sid-ED5C9755-1D1A-45D3-B8A4-5A1C779BF592": {
+            "name": "Report Final Scoring L2 to FE",
+            "incoming": [
+                "sid-8516998C-18B3-4147-AAAC-CF7DBB244601"
+            ],
+            "outgoing": [
+                "sid-0F72A83E-6CFC-4583-9671-2880B4DC5C17"
+            ]
+        },
+        "sid-8299231A-8B7A-428E-8288-876B4D43D9EF": {
+            "name": "1. perform scoring",
+            "incoming": [
+                "sid-BDF08484-F9AC-4960-99FF-892F587DA51F"
+            ],
+            "outgoing": [
+                "sid-AB452CAF-291E-4C1A-A389-4635AA4A30BF"
+            ]
+        },
+        "sid-95F3A14F-6271-45E6-8196-FF159809B84B": {
+            "name": "Results L1 over",
+            "incoming": [
+                "sid-779E22E4-36DD-4125-8F14-EEA443799C9D"
+            ],
+            "outgoing": [
+                "sid-FACB03AD-C665-4446-A973-08D739DA2A97"
+            ]
+        },
+        "sid-4EA148CA-0467-4BD5-B8A8-99029F63EE3F": {
+            "name": "Scoring delays",
+            "incoming": [
+                "sid-D60AAAB6-85D7-463B-A49B-2F8129965A7A"
+            ],
+            "outgoing": [
+                "sid-ABB7F1B9-2130-4BAB-800F-2ABE37BE2D87"
+            ]
+        },
+        "sid-8F7B5140-76F1-47C3-B454-46E615873421": {
+            "name": "perform scoring L2",
+            "incoming": [
+                "sid-ABB7F1B9-2130-4BAB-800F-2ABE37BE2D87"
+            ],
+            "outgoing": [
+                "sid-B52F9AFB-7FCB-4E6A-872D-C30E1F787905"
+            ]
+        },
+        "sid-994DCBC9-A35C-4FE1-9F92-731B0F0DD566": {
+            "name": "Report Scoring L2\n",
+            "incoming": [
+                "sid-B52F9AFB-7FCB-4E6A-872D-C30E1F787905"
+            ],
+            "outgoing": [
+                "sid-8A108D12-39C6-445C-9FF5-33B6E0346C41"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-23D4DD64-7131-4010-9146-61264BA64499": {
+            "name": "Results available?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-AB452CAF-291E-4C1A-A389-4635AA4A30BF"
+            ],
+            "outgoing": [
+                "sid-779E22E4-36DD-4125-8F14-EEA443799C9D",
+                "sid-D60AAAB6-85D7-463B-A49B-2F8129965A7A"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-75BD0BDD-F02A-4FE4-9C37-222C12C7B678": {
+            "name": "",
+            "incoming": [
+                "sid-36778E8A-2BFA-412B-B2D4-B1FEE2A0771E"
+            ]
+        },
+        "sid-544D6A91-EFC0-4CCF-AEB2-0EE567590A4A": {
+            "name": "",
+            "incoming": [
+                "sid-0F72A83E-6CFC-4583-9671-2880B4DC5C17"
+            ]
+        },
+        "sid-F3D28576-352D-4CFC-ABF3-663DF91C89D3": {
+            "name": "Scoring L2 finished",
+            "incoming": [
+                "sid-8A108D12-39C6-445C-9FF5-33B6E0346C41"
+            ]
+        },
+        "sid-5FB4EB10-068C-4BCD-921A-7AC67342A486": {
+            "name": "Scoring L1 ends\n",
+            "incoming": [
+                "sid-FACB03AD-C665-4446-A973-08D739DA2A97"
+            ]
+        }
+    }
+}

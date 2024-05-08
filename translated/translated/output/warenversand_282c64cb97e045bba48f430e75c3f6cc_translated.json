@@ -1,0 +1,177 @@
+{
+    "start_events": {
+        "sid-CE0B1BF8-558C-4B35-8779-261058A58263": {
+            "name": "Goods should be shipped",
+            "outgoing": [
+                "sid-C9EA3FB1-1151-4DE1-A879-60A2FFC19CAB"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-8C276B67-1A84-43E0-B62C-8466ECBFFA48": {
+            "name": "Offer Spediteur 1",
+            "incoming": [
+                "sid-A27BC982-C5B1-41AC-8E94-1CED6BD9FD9A"
+            ],
+            "outgoing": [
+                "sid-340944D2-C2EB-4842-80C2-13D43B7506A1"
+            ]
+        },
+        "sid-2538DA30-F64B-4046-9283-EA52DF8911AA": {
+            "name": "Offer Spediteur 2",
+            "incoming": [
+                "sid-1C66BC6C-7F9E-4EE7-81E5-1EAFA11712E2"
+            ],
+            "outgoing": [
+                "sid-FF5D7ECE-A1DB-4120-8413-BD2923CA0CD8"
+            ]
+        },
+        "sid-D16CB55B-713B-488E-A81B-8DE4CAFDED54": {
+            "name": "Offer Spediteur 3",
+            "incoming": [
+                "sid-FDE45B2C-8782-46F2-B64D-DD09EA4B6A3B"
+            ],
+            "outgoing": [
+                "sid-F1C83848-66DE-42F8-8E64-222C49406BDA"
+            ]
+        },
+        "sid-59F7A951-2897-4400-91F7-3CC52422F2FC": {
+            "name": "decision who takes delivery",
+            "incoming": [
+                "sid-18311924-FA72-4D02-8F3E-244E02AEA2C7"
+            ],
+            "outgoing": [
+                "sid-3D346439-3B99-40C3-ADDE-5A18299E5040"
+            ]
+        },
+        "sid-CBA1FF6A-B15F-488D-98AE-3D35F8A7E898": {
+            "name": "Determining the shipment quantity",
+            "incoming": [
+                "sid-5397BEC6-43EB-45C8-A642-2909C9EBFE3F"
+            ],
+            "outgoing": [
+                "sid-FDC8750F-01FC-4FC7-B4D4-55FC1895488B"
+            ]
+        },
+        "sid-25CE164B-04E8-463A-B4C1-55D96DAECDC4": {
+            "name": "determine whether insurance is necessary",
+            "incoming": [
+                "sid-FDC8750F-01FC-4FC7-B4D4-55FC1895488B"
+            ],
+            "outgoing": [
+                "sid-18311924-FA72-4D02-8F3E-244E02AEA2C7"
+            ]
+        },
+        "sid-B879F198-658C-4509-8A5A-259EE8E8A436": {
+            "name": "Shipping via parcel voucher",
+            "incoming": [
+                "sid-F4C11B52-569E-4501-B115-C60B920CC987"
+            ],
+            "outgoing": [
+                "sid-5AC5FF6B-3CCC-4FA9-BB19-99827D0C8461"
+            ]
+        },
+        "sid-27AD5903-B3A6-4D62-8EA4-451DE056C7DA": {
+            "name": "Shipping as Package",
+            "incoming": [
+                "sid-D63BF337-7828-4A09-9F51-8A54AA99B40D"
+            ],
+            "outgoing": [
+                "sid-E4DDD9DE-AB23-408E-88E1-C8D38B0DBCCD"
+            ]
+        },
+        "sid-027D83E1-7337-4232-82C0-593878164F0D": {
+            "name": "Final insurance from the shipping manager",
+            "incoming": [
+                "sid-2BC3AFC0-0B70-4FC8-A250-5EB9F06A3905"
+            ],
+            "outgoing": [
+                "sid-84951323-ABD0-41BB-B99A-7DFE5943E7FF"
+            ]
+        },
+        "sid-8AFA9AD4-6255-4DDF-BFC3-0EB1BA9F2955": {
+            "name": "Packing",
+            "incoming": [
+                "sid-C2C2F00E-1E96-4BBA-9D2A-7B89026DA333"
+            ],
+            "outgoing": [
+                "sid-30EBF962-DCEE-493C-8086-63C70B6EF84E"
+            ]
+        },
+        "sid-E5D61B8E-0C63-4E31-8F01-91E403C24E5D": {
+            "name": "Sending",
+            "incoming": [
+                "sid-DAABB946-4204-4B99-A833-287328A41DC2"
+            ],
+            "outgoing": [
+                "sid-E2AF33BE-B5F1-426D-9B16-D1F294B9086E"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-BBF1B164-887E-4E6F-BB75-485AA1570FE2": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-340944D2-C2EB-4842-80C2-13D43B7506A1",
+                "sid-F1C83848-66DE-42F8-8E64-222C49406BDA",
+                "sid-FF5D7ECE-A1DB-4120-8413-BD2923CA0CD8"
+            ],
+            "outgoing": [
+                "sid-8D4B227A-21E1-41E5-B712-B9AF647FB725"
+            ]
+        },
+        "sid-77E34EEB-0E6A-4128-8608-92E3A1CA0D04": {
+            "name": "Small delivery quantity?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-8D4B227A-21E1-41E5-B712-B9AF647FB725"
+            ],
+            "outgoing": [
+                "sid-F4C11B52-569E-4501-B115-C60B920CC987",
+                "sid-D63BF337-7828-4A09-9F51-8A54AA99B40D"
+            ]
+        },
+        "sid-99AC0961-D757-4F11-9CB6-2546431647E6": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-5AC5FF6B-3CCC-4FA9-BB19-99827D0C8461",
+                "sid-E4DDD9DE-AB23-408E-88E1-C8D38B0DBCCD"
+            ],
+            "outgoing": [
+                "sid-CE61BAF5-E448-46D7-931B-8384F7A182AB"
+            ]
+        },
+        "sid-29F172C7-5BD0-496F-9A21-81D3E73326DC": {
+            "name": "Insurance?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-CE61BAF5-E448-46D7-931B-8384F7A182AB"
+            ],
+            "outgoing": [
+                "sid-2BC3AFC0-0B70-4FC8-A250-5EB9F06A3905",
+                "sid-A8AAAE41-50CD-4F78-8863-F05BE979A181"
+            ]
+        },
+        "sid-7E497010-1D5C-4B5F-9747-18D460B97020": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-84951323-ABD0-41BB-B99A-7DFE5943E7FF",
+                "sid-A8AAAE41-50CD-4F78-8863-F05BE979A181"
+            ],
+            "outgoing": [
+                "sid-EACC7573-4171-48F9-80A6-F8FE56E22CD8"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-681DF731-31B3-4F07-B3C5-3A0C4D3E1BF1": {
+            "name": "ware sent!",
+            "incoming": [
+                "sid-E2AF33BE-B5F1-426D-9B16-D1F294B9086E"
+            ]
+        }
+    }
+}

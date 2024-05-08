@@ -1,0 +1,148 @@
+{
+    "start_events": {
+        "sid-F02AEB34-E8D6-4547-B6BD-E4AD2BDE9C95": {
+            "name": "Shipment",
+            "outgoing": [
+                "sid-E5D05D5F-0104-40DB-AB4A-0DF0C23F4BA4"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-82FFF321-2D20-4FE9-A107-C2042893D512": {
+            "name": "Packing goods",
+            "incoming": [
+                "sid-844B9130-0D63-4C4B-AA14-1A10E6072E3B"
+            ],
+            "outgoing": [
+                "sid-6BB205F8-8D5D-479C-BEC0-0E657B464D93"
+            ]
+        },
+        "sid-37FB1133-C46A-43A2-BC89-6CC881FF081D": {
+            "name": "Provide goods for collection",
+            "incoming": [
+                "sid-6BB205F8-8D5D-479C-BEC0-0E657B464D93"
+            ],
+            "outgoing": [
+                "sid-44F92489-8C92-411E-BC91-2F50266D29B6"
+            ]
+        },
+        "sid-BEAE5DD8-D498-4E86-8082-79B9F80D3BF8": {
+            "name": "Select your offer",
+            "incoming": [
+                "sid-5F92FC23-75B2-4547-B053-07C4D8D3AF34"
+            ],
+            "outgoing": [
+                "sid-67762C23-9483-4CE5-A08B-8D0AD8370583"
+            ]
+        },
+        "sid-0DFA366E-27C8-4F06-939F-0A6320F12EF8": {
+            "name": "Select the Spediteur",
+            "incoming": [
+                "sid-67762C23-9483-4CE5-A08B-8D0AD8370583"
+            ],
+            "outgoing": [
+                "sid-2E27A9F6-0C39-47EA-B6C0-886DEB2A39A5"
+            ]
+        },
+        "sid-0514C881-F27B-45C7-861B-DBC026C8186C": {
+            "name": "Request offer of three spediteuers",
+            "incoming": [
+                "sid-A2B21A1C-C4D9-4C64-92E3-C312C8BB33C4"
+            ],
+            "outgoing": [
+                "sid-5F92FC23-75B2-4547-B053-07C4D8D3AF34"
+            ]
+        },
+        "sid-CC9A253B-1E3C-4C9D-A85D-4301BF41EFD6": {
+            "name": "Filling the package note",
+            "incoming": [
+                "sid-904E0E53-1ACC-42D9-95A6-9F9883584EDA"
+            ],
+            "outgoing": [
+                "sid-8535D2C4-1C09-49D5-9744-496D4A050D06"
+            ]
+        },
+        "sid-FECFF07C-FD36-4331-A0AF-8145E6594DD0": {
+            "name": "Determining the shipping mode",
+            "incoming": [
+                "sid-E5D05D5F-0104-40DB-AB4A-0DF0C23F4BA4"
+            ],
+            "outgoing": [
+                "sid-FDFA7C57-635A-464F-9303-6E177CA2BA7E"
+            ]
+        },
+        "sid-A2F78DE2-3250-431D-9B9A-9A503297DD4E": {
+            "name": "Need to check insurance",
+            "incoming": [
+                "sid-0AF7329E-F1B0-4EBA-B9E6-9807B5B06EC1"
+            ],
+            "outgoing": [
+                "sid-34A14EE6-CE9D-4733-970B-8191E09FAEBA"
+            ]
+        },
+        "sid-23212E2F-B25A-4578-8B78-ED2FAC9EC9C3": {
+            "name": "Complete insurance",
+            "incoming": [
+                "sid-A7D6089F-95F2-4133-A5B0-F984EEA45D95"
+            ],
+            "outgoing": [
+                "sid-DAA94911-568C-4A78-88C3-09D9D68F236E"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-29CA1310-B1F8-4DEA-9F17-325E6AF4E74D": {
+            "name": "What type of shipping?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-FDFA7C57-635A-464F-9303-6E177CA2BA7E"
+            ],
+            "outgoing": [
+                "sid-29236CE9-2F32-4CCD-9DE6-57EE609BF758",
+                "sid-311238A0-B4B5-481B-A573-58C78EEA9D56",
+                "sid-A2B21A1C-C4D9-4C64-92E3-C312C8BB33C4"
+            ]
+        },
+        "sid-D46256BA-69F3-4D6D-9867-D748C317E0CA": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-8535D2C4-1C09-49D5-9744-496D4A050D06",
+                "sid-C88D645F-AECD-4C84-8112-29AA93955E7F"
+            ],
+            "outgoing": [
+                "sid-C98A8D72-F662-459A-84BE-034D154C1FEB"
+            ]
+        },
+        "sid-1D76DAB9-8708-4B84-AE8E-8AE96A539A64": {
+            "name": "Is insurance necessary?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-34A14EE6-CE9D-4733-970B-8191E09FAEBA"
+            ],
+            "outgoing": [
+                "sid-A7D6089F-95F2-4133-A5B0-F984EEA45D95",
+                "sid-5BB48B6C-F279-459B-A71A-4A524365507E"
+            ]
+        },
+        "sid-6469DCF0-3CC2-44E7-AD27-2C5B37851362": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-DAA94911-568C-4A78-88C3-09D9D68F236E",
+                "sid-5BB48B6C-F279-459B-A71A-4A524365507E"
+            ],
+            "outgoing": [
+                "sid-C88D645F-AECD-4C84-8112-29AA93955E7F"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-BA1E44A8-16C0-43EB-B484-FF41461430FD": {
+            "name": "Goods sent",
+            "incoming": [
+                "sid-44F92489-8C92-411E-BC91-2F50266D29B6"
+            ]
+        }
+    }
+}

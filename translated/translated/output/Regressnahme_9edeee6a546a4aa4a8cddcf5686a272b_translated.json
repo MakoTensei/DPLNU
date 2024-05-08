@@ -1,0 +1,128 @@
+{
+    "start_events": {
+        "sid-412861E4-7441-4660-9DBC-4E9B551F6EF1": {
+            "name": "Take VN to Regress?",
+            "outgoing": [
+                "sid-6B06851E-530E-4CA6-9E23-B3A01B5421AD"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-2FA197E7-04AE-40C3-B016-BFC61E99E31B": {
+            "name": "Close the process",
+            "incoming": [
+                "sid-D0B91E1B-6CAB-4CBD-902B-88884784D2D0"
+            ],
+            "outgoing": [
+                "sid-FE238ED1-F578-468A-B7E1-E1A5A73DE0FE"
+            ]
+        },
+        "sid-8AFC98D1-9385-4DEC-965A-C76F82D15260": {
+            "name": "Send payment request",
+            "incoming": [
+                "sid-45F67701-A036-433F-A93C-73AB478AE7B4"
+            ],
+            "outgoing": [
+                "sid-384D5DE0-D78D-49EE-B4C1-3BE67E5F7B20"
+            ]
+        },
+        "sid-6314905A-027B-48E9-835F-822406ACBAC8": {
+            "name": "Book payment receipt",
+            "incoming": [
+                "sid-CCD63798-003F-45FB-8BE5-7BE98892769F"
+            ],
+            "outgoing": [
+                "sid-75098831-34D7-4B10-A555-267F25BA954E"
+            ]
+        },
+        "sid-EF9B5695-06F8-45A6-94DE-9D9FB3493679": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-8673A8FB-5A35-4764-9FC9-054FE7BA2FD3"
+            ],
+            "outgoing": [
+                "sid-81E1412D-4168-4E48-A56C-B18B9DF1635F"
+            ]
+        },
+        "sid-E4608771-A56D-4385-A10C-99269F6DA874": {
+            "name": "Define Re-Preparation Time",
+            "incoming": [
+                "sid-384D5DE0-D78D-49EE-B4C1-3BE67E5F7B20"
+            ],
+            "outgoing": [
+                "sid-A62144F6-002C-4D11-80E1-D6B7E9DABF3A"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-342EF550-CA69-4A76-9768-08F265CD50DB": {
+            "name": "Take VN to Regress?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-6B06851E-530E-4CA6-9E23-B3A01B5421AD"
+            ],
+            "outgoing": [
+                "sid-45F67701-A036-433F-A93C-73AB478AE7B4",
+                "sid-F5C2F290-639E-4C74-AD42-CD465B5E37F4"
+            ]
+        },
+        "sid-DAEEDB14-D8F7-4457-A266-8C2F04C79833": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-F5C2F290-639E-4C74-AD42-CD465B5E37F4",
+                "sid-75098831-34D7-4B10-A555-267F25BA954E"
+            ],
+            "outgoing": [
+                "sid-2C35774D-44E8-4769-AC1B-F814C7C6AEF3"
+            ]
+        },
+        "sid-7617A802-51E2-4306-9695-DDBEE73D8F07": {
+            "name": "Rejection of payment justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-81E1412D-4168-4E48-A56C-B18B9DF1635F"
+            ],
+            "outgoing": [
+                "sid-40D190F1-09E4-4671-B7FF-68F65371AD65",
+                "sid-A596DD02-17DC-4CB6-9F25-560C4D140B58"
+            ]
+        },
+        "sid-EBED36D2-959F-4847-AF57-E3B8C6669630": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-2C35774D-44E8-4769-AC1B-F814C7C6AEF3",
+                "sid-40D190F1-09E4-4671-B7FF-68F65371AD65"
+            ],
+            "outgoing": [
+                "sid-D0B91E1B-6CAB-4CBD-902B-88884784D2D0"
+            ]
+        },
+        "sid-BE8B9645-4514-4E5C-8322-7BCAA83D64C7": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-A596DD02-17DC-4CB6-9F25-560C4D140B58",
+                "sid-6186DB60-4F8A-4818-9DB3-3FFB38D19956"
+            ],
+            "outgoing": [
+                "sid-4AD89979-CF10-47E2-B6B1-1417A09A7305"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-F1927F21-4BD6-49A4-A929-A8BE71CB6289": {
+            "name": "Regress Requirement closed",
+            "incoming": [
+                "sid-FE238ED1-F578-468A-B7E1-E1A5A73DE0FE"
+            ]
+        },
+        "sid-1F3346FD-F9A6-47FD-9E09-CFAA2127FDD6": {
+            "name": "Inkasso Service Providers",
+            "incoming": [
+                "sid-4AD89979-CF10-47E2-B6B1-1417A09A7305"
+            ]
+        }
+    }
+}

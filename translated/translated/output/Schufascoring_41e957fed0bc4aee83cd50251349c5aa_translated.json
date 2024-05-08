@@ -1,0 +1,129 @@
+{
+    "start_events": {
+        "sid-0C2B0DC5-085A-4DFD-A6A5-555919E7ADD2": {
+            "name": "Schufa request\ndemand",
+            "outgoing": [
+                "sid-8B51CCCA-A91B-4B9B-A27A-BA88977268B0"
+            ]
+        },
+        "sid-D14268FB-6370-41C5-A1D1-526E707585C8": {
+            "name": "",
+            "outgoing": [
+                "sid-7B4CE64A-664A-42C5-BFC7-520D1F36A918"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-2098E889-4118-46CE-BFC2-4DDD89653233": {
+            "name": "Start your search",
+            "incoming": [
+                "sid-8B51CCCA-A91B-4B9B-A27A-BA88977268B0"
+            ],
+            "outgoing": [
+                "sid-51F2C9AE-C92B-4817-B1C5-E2A9588FB90A"
+            ]
+        },
+        "sid-1936C752-3F37-49A0-B562-0AF848D22E84": {
+            "name": "Send a reply to Frontend",
+            "incoming": [
+                "sid-58880329-9F1D-4A77-8E2C-68AC14A305E2"
+            ],
+            "outgoing": [
+                "sid-9EF59EEB-E333-4647-9193-6FF668BC625C"
+            ]
+        },
+        "sid-3CCC97CE-E34D-40C2-976F-0827C1F96322": {
+            "name": "Send delay message to Frontend",
+            "incoming": [
+                "sid-75B519AE-24DF-4E4C-B194-65EE0EF27CF9"
+            ],
+            "outgoing": [
+                "sid-80987608-19DE-4BEB-BC22-874BE8D252B0"
+            ]
+        },
+        "sid-A387B38E-183E-445A-A209-F541914B6C0A": {
+            "name": "Edit on Level 1",
+            "incoming": [
+                "sid-7B4CE64A-664A-42C5-BFC7-520D1F36A918"
+            ],
+            "outgoing": [
+                "sid-CEC6EC3F-35A7-4EAE-B030-81A7FA84ED40"
+            ]
+        },
+        "sid-A8AC88D2-EBF1-4576-9638-38F39E2F47DC": {
+            "name": "Return to Bank",
+            "incoming": [
+                "sid-CE3FF596-4C09-4DC3-80F6-1CC111F26A99"
+            ],
+            "outgoing": [
+                "sid-ECDE0B78-4401-480F-8DD9-E95AF232F0BC"
+            ]
+        },
+        "sid-5BCD2DB1-DA58-415F-93C4-F64F47AD41A8": {
+            "name": "Send delay message to Bank",
+            "incoming": [
+                "sid-8782CE87-D5E5-4680-BF8D-95EDA140E911"
+            ],
+            "outgoing": [
+                "sid-4D33C6C9-D277-4636-B63C-A95EE2C7F7B4"
+            ]
+        },
+        "sid-6E04FABE-51E2-47B0-811E-C80834224469": {
+            "name": "Edit on Level 2",
+            "incoming": [
+                "sid-4D33C6C9-D277-4636-B63C-A95EE2C7F7B4"
+            ],
+            "outgoing": [
+                "sid-5F449924-089B-483F-A362-FE64BB1938DC"
+            ]
+        },
+        "sid-1D0BDEBF-17CB-42E9-A4A6-7382439D2453": {
+            "name": "Return to Bank",
+            "incoming": [
+                "sid-5F449924-089B-483F-A362-FE64BB1938DC"
+            ],
+            "outgoing": [
+                "sid-65E88904-E55B-4D07-BE9C-FEE001840094"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-9756E2AE-62D3-4D6D-8280-38D7D3A65F32": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-E96E8E28-A510-435C-A7EF-7BE143FC38D4",
+                "sid-4CD6C2A2-89E1-4634-929C-021DB1C50320"
+            ],
+            "outgoing": [
+                "sid-58880329-9F1D-4A77-8E2C-68AC14A305E2"
+            ]
+        },
+        "sid-DAE9E366-7214-4FA6-8541-50BE252FB98D": {
+            "name": "Result\npresent?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-CEC6EC3F-35A7-4EAE-B030-81A7FA84ED40"
+            ],
+            "outgoing": [
+                "sid-CE3FF596-4C09-4DC3-80F6-1CC111F26A99",
+                "sid-8782CE87-D5E5-4680-BF8D-95EDA140E911"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-9CEED068-7D68-4DF6-9DAE-1B6A6B5D50C2": {
+            "name": "Schufa request\nFrontend answered",
+            "incoming": [
+                "sid-9EF59EEB-E333-4647-9193-6FF668BC625C"
+            ]
+        },
+        "sid-9C9767AA-42CA-4450-A94D-C4535C95647D": {
+            "name": "Schufa request\ndelivered to bank",
+            "incoming": [
+                "sid-ECDE0B78-4401-480F-8DD9-E95AF232F0BC",
+                "sid-65E88904-E55B-4D07-BE9C-FEE001840094"
+            ]
+        }
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "start_events": {
+        "sid-E4DF4E94-88D8-471A-B413-3194DBDF060F": {
+            "name": "VN in Regress\ntake?",
+            "outgoing": [
+                "sid-C55B1E0C-A45D-4DDE-9D07-A26C580F6D5E"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-9C7012D5-67CE-4B11-8EEB-5B179BCBFDB7": {
+            "name": "Reporting to processors",
+            "incoming": [
+                "sid-C55B1E0C-A45D-4DDE-9D07-A26C580F6D5E"
+            ],
+            "outgoing": [
+                "sid-812ECAB9-8C75-48F1-9BCD-1893FB7B2AB6"
+            ]
+        },
+        "sid-6C807403-AAB2-441C-837A-DB756A39C02C": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-812ECAB9-8C75-48F1-9BCD-1893FB7B2AB6"
+            ],
+            "outgoing": [
+                "sid-FFC69780-606C-4950-AFF3-3AF73C058A70"
+            ]
+        },
+        "sid-A2A3B736-BE7C-459A-B5F5-7C69F39F28A5": {
+            "name": "Send payment request",
+            "incoming": [
+                "sid-597AD1BB-4B23-4966-8AC0-714689844DD1"
+            ],
+            "outgoing": [
+                "sid-74A5A59D-64FF-47F6-BA47-8AE01288B122"
+            ]
+        },
+        "sid-4A86B52B-ED2D-496B-A4F3-F9A16BB2FEB9": {
+            "name": "Cash receipt\nbook",
+            "incoming": [
+                "sid-4C1E55E6-6222-4296-899D-AB22A555EC62"
+            ],
+            "outgoing": [
+                "sid-989858EE-A542-4819-8AB3-20DB4644E6B3"
+            ]
+        },
+        "sid-A9759070-5FED-498F-8CDE-C4A578FD46CD": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-4F2C6FC2-4D85-403E-8D71-692778E2C7CA"
+            ],
+            "outgoing": [
+                "sid-92C47037-E455-48F3-A097-3B7230E11739"
+            ]
+        },
+        "sid-279D14D4-52E5-4C4F-850B-0C99DA8FB26E": {
+            "name": "Close",
+            "incoming": [
+                "sid-989858EE-A542-4819-8AB3-20DB4644E6B3",
+                "sid-B141C66A-C7FF-4DD3-B474-633489D86AE2"
+            ],
+            "outgoing": [
+                "sid-26EBDC7C-1F66-49A6-85B7-4B53F3C7B01F"
+            ]
+        },
+        "sid-20D217C4-4AA8-49AB-8223-DACD2EC18967": {
+            "name": "Disclosure\nCollection",
+            "incoming": [
+                "sid-ECFD0C2F-F373-4A1C-BE84-A375EE39F4A0",
+                "sid-30C0BD83-F479-49F3-AB8A-4113BA8AE6D8"
+            ],
+            "outgoing": []
+        }
+    },
+    "gateways": {
+        "sid-78630A9A-D9AC-407A-8003-1F59A5F8E8D0": {
+            "name": "Opposition\njustified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-92C47037-E455-48F3-A097-3B7230E11739"
+            ],
+            "outgoing": [
+                "sid-ECFD0C2F-F373-4A1C-BE84-A375EE39F4A0",
+                "sid-B141C66A-C7FF-4DD3-B474-633489D86AE2"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-F4E25C14-8449-4E33-9D52-9C8185808F03": {
+            "name": "Case closed",
+            "incoming": [
+                "sid-6310A9EB-445B-43E4-A74B-33582E9DFCAF"
+            ]
+        },
+        "sid-69BE9CBB-09ED-486A-8E3B-7355302A8C64": {
+            "name": "Case closed",
+            "incoming": [
+                "sid-26EBDC7C-1F66-49A6-85B7-4B53F3C7B01F"
+            ]
+        }
+    }
+}

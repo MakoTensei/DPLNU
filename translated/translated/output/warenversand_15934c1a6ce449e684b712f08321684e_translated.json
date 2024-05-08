@@ -1,0 +1,128 @@
+{
+    "start_events": {
+        "sid-68D1772F-DF7A-427C-94EA-7EB47A2A8A52": {
+            "name": "Shipping goods\n",
+            "outgoing": [
+                "sid-69D9C5DD-67BB-4609-9E37-2F31F4E6906B"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-0E97DE9C-A475-4655-853E-0927F7F37C31": {
+            "name": "Secretariat brings offers to three freight forwarders\na\n",
+            "incoming": [
+                "sid-B503181C-6813-462A-9119-DA97608F5113"
+            ],
+            "outgoing": [
+                "sid-3BFEBC8E-4D8A-4E1E-844F-ACC46B3ECDFD"
+            ]
+        },
+        "sid-DD81D116-AA5D-430F-B1A6-F2BDCF524653": {
+            "name": "Secretariat fills standardised parcel note\n",
+            "incoming": [
+                "sid-62C66B46-E483-49C4-8DB4-5561B5D9E598"
+            ],
+            "outgoing": [
+                "sid-164B680B-ABC7-4B1B-AE9E-3D04B42C4509"
+            ]
+        },
+        "sid-AAF5F90A-9E90-41D6-8AC6-9192EA074A24": {
+            "name": "Select your offer\n",
+            "incoming": [
+                "sid-3BFEBC8E-4D8A-4E1E-844F-ACC46B3ECDFD"
+            ],
+            "outgoing": [
+                "sid-9DE565DA-B6F0-445C-9AF9-77E25C682DAA"
+            ]
+        },
+        "sid-310A77BF-8D34-4733-B6C1-B76146325673": {
+            "name": "Order service providers",
+            "incoming": [
+                "sid-9DE565DA-B6F0-445C-9AF9-77E25C682DAA"
+            ],
+            "outgoing": [
+                "sid-C44DB622-3DB6-43F1-914E-C488D271AF5B"
+            ]
+        },
+        "sid-6135C66F-6557-40CB-9180-B5060D1B4944": {
+            "name": "Check shipping mode\n",
+            "incoming": [
+                "sid-5839E5BD-2DD2-476C-B304-4634B2F1D5D7"
+            ],
+            "outgoing": [
+                "sid-E140A838-1040-428F-A19A-A28F8C91C671"
+            ]
+        },
+        "sid-42008C71-FFEA-4532-8A1A-2577B5F1A978": {
+            "name": "Logistics manager locks insurance",
+            "incoming": [
+                "sid-D6775184-CE8A-4426-8728-52FCF242099E"
+            ],
+            "outgoing": [
+                "sid-3E5C3183-B092-48D7-9B6B-261A43CD1A6E"
+            ]
+        },
+        "sid-C8888B6C-2D3D-466B-8630-F32F6CFB25A8": {
+            "name": "Warehouse workers packaged",
+            "incoming": [
+                "sid-E09DB1DE-0E1B-40B2-A7DC-086194A00879"
+            ],
+            "outgoing": [
+                "sid-1F405D8C-67DF-460D-B8AA-F0B122C31F8B"
+            ]
+        },
+        "sid-BBEE0B81-A0CE-4D24-9348-2959C670B11D": {
+            "name": "Warehouse workers provide goods for collection",
+            "incoming": [
+                "sid-C8D10821-E891-42A3-8262-EDE8B7DBD287"
+            ],
+            "outgoing": [
+                "sid-DFAA79DE-1C1D-4566-BD82-1FC6EA280396"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-52A28D0E-8E0A-4C44-B0A2-A182E5F66AB4": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-E140A838-1040-428F-A19A-A28F8C91C671"
+            ],
+            "outgoing": [
+                "sid-B503181C-6813-462A-9119-DA97608F5113",
+                "sid-62C66B46-E483-49C4-8DB4-5561B5D9E598"
+            ]
+        },
+        "sid-39168E6F-FC81-4640-86A2-D6594FA63FF6": {
+            "name": "Insurance necessary?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-164B680B-ABC7-4B1B-AE9E-3D04B42C4509"
+            ],
+            "outgoing": [
+                "sid-D6775184-CE8A-4426-8728-52FCF242099E",
+                "sid-4E8B33C0-EF80-4EE8-B4C7-B8E45E30FA7A"
+            ]
+        },
+        "sid-F9E219BE-370E-4834-9248-21D09F9269DE": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-C44DB622-3DB6-43F1-914E-C488D271AF5B",
+                "sid-3E5C3183-B092-48D7-9B6B-261A43CD1A6E",
+                "sid-4E8B33C0-EF80-4EE8-B4C7-B8E45E30FA7A"
+            ],
+            "outgoing": [
+                "sid-EE21F5D6-6F08-4853-9274-6BD434BB0DCA"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-4C809FDA-0BF7-4104-986E-BEB8D0C7E0DC": {
+            "name": "Goods ready for shipping",
+            "incoming": [
+                "sid-DFAA79DE-1C1D-4566-BD82-1FC6EA280396"
+            ]
+        }
+    }
+}

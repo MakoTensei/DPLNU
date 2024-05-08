@@ -1,0 +1,138 @@
+{
+    "start_events": {
+        "sid-8D4D8ED4-4990-4A3F-8A87-D86A2B825012": {
+            "name": "Schufascoring\nrequested",
+            "outgoing": [
+                "sid-6A766047-D92C-4083-9ED1-9681F23523E2"
+            ]
+        },
+        "sid-07CD1490-6854-45DF-BC05-93567F2F24C8": {
+            "name": "Schufa request\nobtained",
+            "outgoing": [
+                "sid-1B5C469E-6E2E-4035-AB0E-8EA97C858A4F"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-8B5A466D-D32C-49D6-9C86-6FAEB2CAF9C5": {
+            "name": "Send a request to Schufa",
+            "incoming": [
+                "sid-6A766047-D92C-4083-9ED1-9681F23523E2"
+            ],
+            "outgoing": [
+                "sid-2C379197-A442-42EA-A2AE-C1E8BFFB2F98"
+            ]
+        },
+        "sid-02546417-4E05-4522-886F-1522EF62A68D": {
+            "name": "Scoring",
+            "incoming": [
+                "sid-A1106E8C-46D6-44F5-A863-FD8DF6EB65D6"
+            ],
+            "outgoing": [
+                "sid-05581B8D-C87A-427D-943F-68A8DE26D7FF"
+            ]
+        },
+        "sid-F77B0FF0-0DCA-47D1-A1BD-1BC172F9BEC2": {
+            "name": "Share delay",
+            "incoming": [
+                "sid-B269DF99-E6C3-4C95-B7FD-44BB65A48700"
+            ],
+            "outgoing": [
+                "sid-4E3ED9DF-8614-4E34-B52F-14F721D26FC7"
+            ]
+        },
+        "sid-5AA7A933-403C-413A-B847-AC64CB0D90BB": {
+            "name": "Scoring",
+            "incoming": [
+                "sid-062C2BEA-1AA9-49DE-8F46-035C40EFA0FB"
+            ],
+            "outgoing": [
+                "sid-BEC6E8C1-6913-427B-9BE8-9F6F101B6BC7"
+            ]
+        },
+        "sid-48FCC583-244A-40F6-B641-FC83000F2823": {
+            "name": "Level 1 scoring\nDebt",
+            "incoming": [
+                "sid-1B5C469E-6E2E-4035-AB0E-8EA97C858A4F"
+            ],
+            "outgoing": [
+                "sid-1E5B58D0-35CE-439C-B1B3-812DB7515080"
+            ]
+        },
+        "sid-B5986D5B-85DD-4781-B7BD-38F9F6AF59FA": {
+            "name": "Send Schufascoring result",
+            "incoming": [
+                "sid-0B004F7E-00C1-4BB9-803D-45D373966857"
+            ],
+            "outgoing": [
+                "sid-57392563-4F79-4186-9543-CF8570BB3984"
+            ]
+        },
+        "sid-3E0F7CE8-9CD1-4180-8535-F0AB6E16D3F4": {
+            "name": "Share delay",
+            "incoming": [
+                "sid-9F780DD3-317C-4D76-A0ED-BE2F029E92B8"
+            ],
+            "outgoing": [
+                "sid-CFE18FFD-27F4-439E-9819-9C7D37E50043"
+            ]
+        },
+        "sid-E63BFAC0-F198-44C2-A635-5ABCD870B942": {
+            "name": "Level 2 scoring\nDebt",
+            "incoming": [
+                "sid-CFE18FFD-27F4-439E-9819-9C7D37E50043"
+            ],
+            "outgoing": [
+                "sid-B1C5D0DF-6597-460F-A10F-98FB6FF7642D"
+            ]
+        },
+        "sid-2C9A4BAC-9823-4AAE-AEA4-1960A5740EED": {
+            "name": "Send Schufascoring result",
+            "incoming": [
+                "sid-B1C5D0DF-6597-460F-A10F-98FB6FF7642D"
+            ],
+            "outgoing": [
+                "sid-631F0E4B-D19A-4445-9771-12606A985F75"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-7B77F9DC-4584-4562-BFC2-B752F098BEA4": {
+            "name": "Scoring\ndetermined?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-1E5B58D0-35CE-439C-B1B3-812DB7515080"
+            ],
+            "outgoing": [
+                "sid-0B004F7E-00C1-4BB9-803D-45D373966857",
+                "sid-9F780DD3-317C-4D76-A0ED-BE2F029E92B8"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-0567220E-8301-4650-90F8-3FE531FEE2CF": {
+            "name": "Level 1\nscoring determined",
+            "incoming": [
+                "sid-05581B8D-C87A-427D-943F-68A8DE26D7FF"
+            ]
+        },
+        "sid-AB029ADD-3011-47BA-8BAD-CA55A9E14D9A": {
+            "name": "Level 2\nscoring determined",
+            "incoming": [
+                "sid-BEC6E8C1-6913-427B-9BE8-9F6F101B6BC7"
+            ]
+        },
+        "sid-A9081B5A-0567-44BC-88AE-FFC222151BF9": {
+            "name": "Schufa request with\nLevel 1 edited",
+            "incoming": [
+                "sid-57392563-4F79-4186-9543-CF8570BB3984"
+            ]
+        },
+        "sid-B8B05D65-16A8-416D-A81F-22BF94CE4B62": {
+            "name": "Schufa request with\nLevel 2 edited",
+            "incoming": [
+                "sid-631F0E4B-D19A-4445-9771-12606A985F75"
+            ]
+        }
+    }
+}

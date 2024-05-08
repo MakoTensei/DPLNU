@@ -1,0 +1,140 @@
+{
+    "start_events": {
+        "sid-75BC3CC7-A492-4331-B1B4-A08015D8ACB4": {
+            "name": "Regression report\nReport",
+            "outgoing": [
+                "sid-D0F54C7E-1380-48B7-90EA-10E37BF3EBAF"
+            ]
+        },
+        "sid-3AFAEB56-D087-4AD3-A3FC-858DA684ECFE": {
+            "name": "",
+            "outgoing": [
+                "sid-5721BCA5-CC90-4DC4-99C9-D6A2652F124A",
+                "sid-5F89F163-5D89-4B92-B448-6853E9489FDA",
+                "sid-C7F6209F-A640-4890-B54E-97828C66DA8D"
+            ]
+        },
+        "sid-75A267D5-FBF0-46BE-B1A2-B2FAC2951B23": {
+            "name": "VN\nReport",
+            "outgoing": [
+                "sid-D92F85D7-094C-4C22-B020-E2D2681FD912"
+            ]
+        },
+        "sid-B5F74BAE-1140-48D0-9610-6CABB668C917": {
+            "name": "Reimbursement period\nExpired",
+            "outgoing": [
+                "sid-33BC5223-09D1-4AE1-895C-129808F7C267"
+            ]
+        },
+        "sid-3ECDFB63-C7F9-41C3-BE27-B774C040DA74": {
+            "name": "Payment\nReport",
+            "outgoing": [
+                "sid-6ABC0408-C55F-401E-82A7-E59D2FDF0BCA"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-39AF940C-8E6B-4601-AAC8-2901382469A7": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-D0F54C7E-1380-48B7-90EA-10E37BF3EBAF"
+            ],
+            "outgoing": [
+                "sid-841ACF03-3A78-4852-8FA3-54D5C4A1C665"
+            ]
+        },
+        "sid-20E058F5-21DC-4FCD-BD4F-1CE24B4ACBEB": {
+            "name": "Set up payment request",
+            "incoming": [
+                "sid-DBC25CCD-7E78-4E4C-93B0-DD29441BC2BE"
+            ],
+            "outgoing": [
+                "sid-FB3F05E4-E986-483A-A601-4A492BF9E9E1"
+            ]
+        },
+        "sid-6E826973-F1E7-4C31-B828-D48C56C2B2AF": {
+            "name": "Creating Pendence",
+            "incoming": [
+                "sid-FB3F05E4-E986-483A-A601-4A492BF9E9E1"
+            ],
+            "outgoing": [
+                "sid-207F60CD-437E-4256-8D57-9D2F0701B929"
+            ]
+        },
+        "sid-94F85984-E833-431F-BCF8-A609D004D2CE": {
+            "name": "Close the case",
+            "incoming": [
+                "sid-98FCDA74-51FE-4418-852B-4B5A8D771DC2",
+                "sid-0715A4CE-D921-47AA-9643-01153A1AF5BD",
+                "sid-0B64446C-20BE-42B3-AE05-E1C303218FE0"
+            ],
+            "outgoing": [
+                "sid-BBAEC296-21D4-4757-BA7E-26E66F52C919"
+            ]
+        },
+        "sid-C1DC742B-29B3-4507-9078-B1BF19CDC796": {
+            "name": "Book payment receipt",
+            "incoming": [
+                "sid-6ABC0408-C55F-401E-82A7-E59D2FDF0BCA"
+            ],
+            "outgoing": [
+                "sid-98FCDA74-51FE-4418-852B-4B5A8D771DC2"
+            ]
+        },
+        "sid-CB1FAC5D-8271-401D-9DB9-117D47FFBF14": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-D92F85D7-094C-4C22-B020-E2D2681FD912"
+            ],
+            "outgoing": [
+                "sid-E488E3EC-039B-4179-98DA-3DDD82954A50"
+            ]
+        },
+        "sid-DC1FDCBB-7538-4647-8AFD-8340F91BFA4D": {
+            "name": "Transfer to Inkasso-DL",
+            "incoming": [
+                "sid-33BC5223-09D1-4AE1-895C-129808F7C267",
+                "sid-49AC9373-561D-4229-BE1E-CEA4BD7BBF8C"
+            ],
+            "outgoing": [
+                "sid-1EFA16BF-EDE6-467C-94E0-025AD6F61D30"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-C7B307DD-2045-49FA-A464-9497E1EE0CA9": {
+            "name": "Regress?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-841ACF03-3A78-4852-8FA3-54D5C4A1C665"
+            ],
+            "outgoing": [
+                "sid-DBC25CCD-7E78-4E4C-93B0-DD29441BC2BE",
+                "sid-0B64446C-20BE-42B3-AE05-E1C303218FE0"
+            ]
+        },
+        "sid-0743302A-EFDF-4AC1-821E-A99E46831089": {
+            "name": "Opposition\njustified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-E488E3EC-039B-4179-98DA-3DDD82954A50"
+            ],
+            "outgoing": [
+                "sid-0715A4CE-D921-47AA-9643-01153A1AF5BD",
+                "sid-49AC9373-561D-4229-BE1E-CEA4BD7BBF8C"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-8B0AC06E-A92B-423C-9A36-1A547CA6239C": {
+            "name": "",
+            "incoming": [
+                "sid-BBAEC296-21D4-4757-BA7E-26E66F52C919"
+            ]
+        },
+        "sid-2F2F5F29-7C15-44BA-AB28-B3D7EECB1FA3": {
+            "name": "",
+            "incoming": []
+        }
+    }
+}

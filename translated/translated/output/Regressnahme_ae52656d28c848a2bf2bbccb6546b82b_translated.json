@@ -1,0 +1,152 @@
+{
+    "start_events": {
+        "sid-EA9054A1-E238-4606-A0CD-A3554CB34D4B": {
+            "name": "Regression case reported",
+            "outgoing": [
+                "sid-100F08AD-077E-4DAD-8A5D-4569CEE96EC8"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-82476080-11AA-4E26-AB50-9E450D879011": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-100F08AD-077E-4DAD-8A5D-4569CEE96EC8"
+            ],
+            "outgoing": [
+                "sid-491D3173-4972-4738-8EFC-34362D1EF224"
+            ]
+        },
+        "sid-6E612CD8-1E89-40FE-8800-F43FEF3AADB3": {
+            "name": "Process\nclose",
+            "incoming": [
+                "sid-37C6884D-5882-43E0-9145-8D4C208305BA",
+                "sid-1A9D26D4-CE8C-4EB1-B6CC-89958BD3E93C"
+            ],
+            "outgoing": [
+                "sid-F6857894-3EF4-4CC6-B457-BC9BD291825C"
+            ]
+        },
+        "sid-3661D3B6-F481-4AA2-B993-63A0CC1E882F": {
+            "name": "Send payment request to VN",
+            "incoming": [
+                "sid-FD034F56-F226-4233-B206-BC3F52075B56"
+            ],
+            "outgoing": [
+                "sid-42E9DC7D-2D84-4363-BB13-69A3666CE2F3"
+            ]
+        },
+        "sid-EBA75360-3E11-4CE1-B0DE-B475DC1CE146": {
+            "name": "Procedure for resubmission\nset",
+            "incoming": [
+                "sid-42E9DC7D-2D84-4363-BB13-69A3666CE2F3"
+            ],
+            "outgoing": [
+                "sid-1447A278-3329-42A0-8BD6-48FBDC1042A9"
+            ]
+        },
+        "sid-B41227C8-E2FF-48CE-AE5E-2EBFC25FE081": {
+            "name": "Opposition\nCheck",
+            "incoming": [
+                "sid-72322C32-3FB7-4D5C-9094-D9E2EBCAEFDB"
+            ],
+            "outgoing": [
+                "sid-E7627FDF-536A-4565-BAFE-AC954073F062"
+            ]
+        },
+        "sid-0E7BBDAC-45EC-4ACB-8800-AF525D24AA08": {
+            "name": "Debt collection service provider",
+            "incoming": [
+                "sid-E10735D7-E064-4428-8373-520C02408330"
+            ],
+            "outgoing": [
+                "sid-3EB78A75-C5F2-4564-850E-03D1FA839317"
+            ]
+        },
+        "sid-AD4433BE-FCE5-4511-92B3-9AC41871BBAB": {
+            "name": "Cash receipt\nCheck",
+            "incoming": [
+                "sid-C8A57FD2-9E86-4F02-8414-831CB1D98E9F"
+            ],
+            "outgoing": [
+                "sid-5C1A772E-095A-4909-8EEF-9987C54E1950"
+            ]
+        },
+        "sid-67BCE600-C06D-4AFD-8CD8-E1E0DA3D0B6B": {
+            "name": "Process\nclose",
+            "incoming": [
+                "sid-F7535AFF-5AF0-439D-8FE6-559EDDE56BCF"
+            ],
+            "outgoing": [
+                "sid-5E5C5D1E-8D58-4C40-8C68-60DBAC480BCA"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-9DAC7887-AAC1-42E9-9D30-8B4D3D67E1AA": {
+            "name": "VN in Regress\ntake possible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-491D3173-4972-4738-8EFC-34362D1EF224"
+            ],
+            "outgoing": [
+                "sid-F7535AFF-5AF0-439D-8FE6-559EDDE56BCF",
+                "sid-FD034F56-F226-4233-B206-BC3F52075B56"
+            ]
+        },
+        "sid-707E4B26-AA9B-4DF0-83D6-6D0DCA389C70": {
+            "name": "Opposition\nis justified",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-E7627FDF-536A-4565-BAFE-AC954073F062"
+            ],
+            "outgoing": [
+                "sid-056D7550-F5E6-4E5B-9058-0710D0F778F1",
+                "sid-1A9D26D4-CE8C-4EB1-B6CC-89958BD3E93C"
+            ]
+        },
+        "sid-2E94F752-3B23-4A45-B424-5F43CCE1B7AE": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-056D7550-F5E6-4E5B-9058-0710D0F778F1",
+                "sid-49A13954-8126-42CC-83A3-390777F44A78",
+                "sid-8F780DA7-05BA-41D8-B453-281B453B5B27"
+            ],
+            "outgoing": [
+                "sid-E10735D7-E064-4428-8373-520C02408330"
+            ]
+        },
+        "sid-9F1F142A-7EAC-4CFC-9CAB-F835E196DBB8": {
+            "name": "Get money",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-5C1A772E-095A-4909-8EEF-9987C54E1950"
+            ],
+            "outgoing": [
+                "sid-37C6884D-5882-43E0-9145-8D4C208305BA",
+                "sid-49A13954-8126-42CC-83A3-390777F44A78"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-5FCD7953-5383-4B0B-A2BE-586E61935665": {
+            "name": "",
+            "incoming": [
+                "sid-F6857894-3EF4-4CC6-B457-BC9BD291825C"
+            ]
+        },
+        "sid-8DB78FDA-2D19-4BE8-AED3-0E398F584928": {
+            "name": "",
+            "incoming": [
+                "sid-3EB78A75-C5F2-4564-850E-03D1FA839317"
+            ]
+        },
+        "sid-C2CD3F29-2E8B-44EE-A6BF-373B1A183F6C": {
+            "name": "",
+            "incoming": [
+                "sid-5E5C5D1E-8D58-4C40-8C68-60DBAC480BCA"
+            ]
+        }
+    }
+}

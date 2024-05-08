@@ -1,0 +1,125 @@
+{
+    "start_events": {
+        "sid-0E8DF730-3DD4-44F8-8523-639E66848F5C": {
+            "name": "Regress report arrived",
+            "outgoing": [
+                "sid-AD11941C-B6BE-41D5-B6A3-89783B7541AB"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-6DCED349-47EA-438C-A666-B0A5A605DE4A": {
+            "name": "Check notification",
+            "incoming": [
+                "sid-AD11941C-B6BE-41D5-B6A3-89783B7541AB"
+            ],
+            "outgoing": [
+                "sid-D3814B71-9DCD-4403-89C7-AF135D13D31C"
+            ]
+        },
+        "sid-0CA60EED-3784-4A43-96FE-CCB01C8955F0": {
+            "name": "Send a payment request",
+            "incoming": [
+                "sid-5D0F8E3B-BFA5-48FE-8F58-EBE0CF36CD88"
+            ],
+            "outgoing": [
+                "sid-FB120493-AAC2-4D85-9C9A-B1EFF8A1F429"
+            ]
+        },
+        "sid-1C6E50FC-F5C9-41EC-9E90-5D1F0B3CE170": {
+            "name": "Set process for resubmission",
+            "incoming": [
+                "sid-FB120493-AAC2-4D85-9C9A-B1EFF8A1F429"
+            ],
+            "outgoing": [
+                "sid-F0192738-ED5C-46FE-8953-79C47B007219"
+            ]
+        },
+        "sid-1229F3EB-E211-4C20-8C58-730400DA7968": {
+            "name": "Close the process",
+            "incoming": [
+                "sid-12BFD430-A4BF-4D5E-A332-6C125E123536"
+            ],
+            "outgoing": [
+                "sid-9928CCB0-2EC6-422A-AB43-90CBA882D91E"
+            ]
+        },
+        "sid-5712B12E-2839-48BC-96B9-4EC305F11720": {
+            "name": "Book the entrance",
+            "incoming": [
+                "sid-5880E4DB-34D8-4E34-8782-6C2388962DD0"
+            ],
+            "outgoing": [
+                "sid-DB583180-ACA7-415E-92FD-48F25CF869BE"
+            ]
+        },
+        "sid-7AAF81FB-00F8-4897-80AD-9C2766DF54AA": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-359B01C2-6639-48A0-9450-5567AD956C98"
+            ],
+            "outgoing": [
+                "sid-BB09A1CF-B103-46AC-89D7-6432B773FC3C"
+            ]
+        },
+        "sid-076577DB-18A8-4FE9-A4A2-78CCA87DCF07": {
+            "name": "to share in debt collection",
+            "incoming": [
+                "sid-B23FC2BD-5BE3-4362-BAF1-699A6AE25040",
+                "sid-0AF4DF7E-84D4-4B9F-8753-4C37B755B2C2"
+            ],
+            "outgoing": [
+                "sid-217D3FAE-A2B3-4E1D-9837-426EBF9B3322"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-1DFCA97A-79FE-408D-B44F-1C001017D5D5": {
+            "name": "Regression\npossible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-D3814B71-9DCD-4403-89C7-AF135D13D31C"
+            ],
+            "outgoing": [
+                "sid-5D0F8E3B-BFA5-48FE-8F58-EBE0CF36CD88",
+                "sid-9931FE7D-6251-4F27-A14F-36165623930A"
+            ]
+        },
+        "sid-A6BBECE6-EAB1-4CF7-82C4-FC98D974BAD2": {
+            "name": "justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-BB09A1CF-B103-46AC-89D7-6432B773FC3C"
+            ],
+            "outgoing": [
+                "sid-A2461A7D-FBF1-4E63-AF55-8AF987B21EAA",
+                "sid-0AF4DF7E-84D4-4B9F-8753-4C37B755B2C2"
+            ]
+        },
+        "sid-BFACB509-F6E0-4E1C-B92C-7FEF53EC9A8F": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-9931FE7D-6251-4F27-A14F-36165623930A",
+                "sid-DB583180-ACA7-415E-92FD-48F25CF869BE"
+            ],
+            "outgoing": [
+                "sid-12BFD430-A4BF-4D5E-A332-6C125E123536"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-C56A273E-4E75-4EEA-84D7-B410DB4754F6": {
+            "name": "Closed beforehand",
+            "incoming": [
+                "sid-9928CCB0-2EC6-422A-AB43-90CBA882D91E"
+            ]
+        },
+        "sid-1DF8EA71-DC62-4746-9D6E-AE263D016F2C": {
+            "name": "forwarded to collection",
+            "incoming": [
+                "sid-217D3FAE-A2B3-4E1D-9837-426EBF9B3322"
+            ]
+        }
+    }
+}

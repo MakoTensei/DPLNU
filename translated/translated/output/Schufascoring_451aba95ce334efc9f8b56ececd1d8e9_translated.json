@@ -1,0 +1,100 @@
+{
+    "start_events": {
+        "sid-E2DA481F-3BF0-41EB-B2F6-8810253127F9": {
+            "name": "Schufa request",
+            "outgoing": [
+                "sid-B90867E7-54B7-446C-9904-EB589FEA81B0"
+            ]
+        },
+        "sid-47CC0D16-638A-4FC7-946D-9F0381DFD283": {
+            "name": "Scoring request",
+            "outgoing": [
+                "sid-80F81ABF-8F1A-4C5E-A4A3-D769C8B16C99"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-16A8C7B9-9C1B-4E4D-AF9E-2956537BD91F": {
+            "name": "Scoring request",
+            "incoming": [
+                "sid-B90867E7-54B7-446C-9904-EB589FEA81B0"
+            ],
+            "outgoing": [
+                "sid-9D5F4E60-567B-4D4E-922B-A73A77FF3C97"
+            ]
+        },
+        "sid-2BE40A30-6860-49A2-B3BA-B0EABAD650B7": {
+            "name": "Share scoring results",
+            "incoming": [
+                "sid-14F06B9A-7F49-40F4-A43E-D88DAC7F5D45"
+            ],
+            "outgoing": [
+                "sid-4F8C9418-34D7-42D9-AFD4-31742659B7F7"
+            ]
+        },
+        "sid-605155AE-0F6F-4449-8714-DAF8C94D0042": {
+            "name": "Share delay",
+            "incoming": [
+                "sid-5F7D2950-8217-48CD-9DC8-53FF4901B447"
+            ],
+            "outgoing": [
+                "sid-8759563F-E7ED-4DB5-8ED2-731C4EDB9F0A"
+            ]
+        },
+        "sid-3798309B-707F-4F05-ADEB-B4E75FCB6945": {
+            "name": "Determining scoring",
+            "incoming": [
+                "sid-80F81ABF-8F1A-4C5E-A4A3-D769C8B16C99",
+                "sid-4BADE4B1-63FD-4A71-BE6A-ACBECDB5186C"
+            ],
+            "outgoing": [
+                "sid-DAD22762-3E68-4BE2-8FAD-E73C387407E4"
+            ]
+        },
+        "sid-D64C0EBF-85E0-4D66-BD4C-E9691BC42DFD": {
+            "name": "Send scoring results",
+            "incoming": [
+                "sid-6F7A58A2-AC8C-497E-B9C0-DEE27E3B21A7"
+            ],
+            "outgoing": [
+                "sid-578DF114-C06F-4E56-AAD0-9A4C22BB19B3"
+            ]
+        },
+        "sid-730FF3BB-6DE8-4426-979D-67BE6B2F4F59": {
+            "name": "Submitting delay",
+            "incoming": [
+                "sid-11BBF90A-FC59-41CA-8307-5ACDF7A5938B"
+            ],
+            "outgoing": [
+                "sid-81567CC6-93EA-44EA-8713-6C1328F20794"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-7B5037E0-3693-4099-A159-8D1147BAB8EB": {
+            "name": "Scoring possible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-DAD22762-3E68-4BE2-8FAD-E73C387407E4"
+            ],
+            "outgoing": [
+                "sid-6F7A58A2-AC8C-497E-B9C0-DEE27E3B21A7",
+                "sid-11BBF90A-FC59-41CA-8307-5ACDF7A5938B"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-F54A541C-3D07-445A-9C4D-8AF4A058D61B": {
+            "name": "Schufa request made",
+            "incoming": [
+                "sid-4F8C9418-34D7-42D9-AFD4-31742659B7F7"
+            ]
+        },
+        "sid-E5C2B7A6-EF3C-4895-9C97-7DA4102CE50A": {
+            "name": "Scoring was determined",
+            "incoming": [
+                "sid-578DF114-C06F-4E56-AAD0-9A4C22BB19B3"
+            ]
+        }
+    }
+}

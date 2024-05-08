@@ -1,0 +1,102 @@
+{
+    "start_events": {
+        "sid-A17D87DE-DDC0-498F-BC50-51C9DD10A400": {
+            "name": "",
+            "outgoing": []
+        },
+        "sid-7E86DC06-D96C-48DC-86C0-86F9CAC019BF": {
+            "name": "receive regression",
+            "outgoing": [
+                "sid-65FD5357-3473-44F0-90E1-6BE11DD439D1"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-CAE122C6-FC54-493F-A2F7-904A14D8115B": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-65FD5357-3473-44F0-90E1-6BE11DD439D1"
+            ],
+            "outgoing": [
+                "sid-B6C3D0D8-15E8-465C-B297-C1235EBB4463"
+            ]
+        },
+        "sid-1DAFC842-2D92-4966-AD95-E74F91C2BC56": {
+            "name": "Send a payment request",
+            "incoming": [
+                "sid-7A3578BE-655E-4260-94B2-5404693D79F7"
+            ],
+            "outgoing": [
+                "sid-93BD384F-FEBA-4FA9-90B0-F52DCE32FFE9"
+            ]
+        },
+        "sid-80A27EF6-6AA9-44A0-AD38-75B8AA751E54": {
+            "name": "Set process for resubmission",
+            "incoming": [
+                "sid-93BD384F-FEBA-4FA9-90B0-F52DCE32FFE9"
+            ],
+            "outgoing": [
+                "sid-CB11499C-EEB5-4183-8ED4-C851659F8B41"
+            ]
+        },
+        "sid-8E750690-3892-4949-BE23-2BB7470D9543": {
+            "name": "Close",
+            "incoming": [
+                "sid-57EF20C7-1173-4CE3-89D5-725DFE1044B6",
+                "sid-15CB6B72-1795-4B37-BEFC-AD3262AC1925",
+                "sid-2FC35513-3C07-4B2A-A8F3-1042C9A0052B"
+            ],
+            "outgoing": []
+        },
+        "sid-C083F3C0-D946-4FD5-80D8-981F800D0B19": {
+            "name": "Book money",
+            "incoming": [
+                "sid-DF8F358E-A653-43D3-BD51-FC8575037D36"
+            ],
+            "outgoing": [
+                "sid-15CB6B72-1795-4B37-BEFC-AD3262AC1925"
+            ]
+        },
+        "sid-FD05BA51-C7A7-43EB-A6AD-F2772969032E": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-0DF4FA92-400A-4285-A405-FCCE4CF6FA0F"
+            ],
+            "outgoing": [
+                "sid-B8F58ABD-17AD-4FC7-BB70-BC72E8A916AA"
+            ]
+        },
+        "sid-1695C628-572F-439B-8CD4-7E4A0007CE25": {
+            "name": "donate to debtor service provider",
+            "incoming": [
+                "sid-C894031A-07C3-4FD1-9BC4-7D2AB3905AC9"
+            ],
+            "outgoing": []
+        }
+    },
+    "gateways": {
+        "sid-EEF07066-931C-42E6-958F-ADEF30675061": {
+            "name": "Possibility",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B6C3D0D8-15E8-465C-B297-C1235EBB4463"
+            ],
+            "outgoing": [
+                "sid-57EF20C7-1173-4CE3-89D5-725DFE1044B6",
+                "sid-7A3578BE-655E-4260-94B2-5404693D79F7"
+            ]
+        },
+        "sid-F1F84195-516A-4D59-BCC6-AC8DEB6C8BAA": {
+            "name": "Not justified",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B8F58ABD-17AD-4FC7-BB70-BC72E8A916AA"
+            ],
+            "outgoing": [
+                "sid-2FC35513-3C07-4B2A-A8F3-1042C9A0052B",
+                "sid-C894031A-07C3-4FD1-9BC4-7D2AB3905AC9"
+            ]
+        }
+    },
+    "end_events": {}
+}

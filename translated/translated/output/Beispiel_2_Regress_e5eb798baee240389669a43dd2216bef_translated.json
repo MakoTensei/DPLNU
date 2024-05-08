@@ -1,0 +1,114 @@
+{
+    "start_events": {
+        "sid-7DFF92B9-B867-4C3E-A1CF-C5216867C944": {
+            "name": "in regression\nReport",
+            "outgoing": [
+                "sid-7089D3ED-230F-4D43-8D8C-C759D530CD4D"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-964D73D6-8873-47D5-B38E-92B904B7A1CA": {
+            "name": "Check the procedure",
+            "incoming": [
+                "sid-7089D3ED-230F-4D43-8D8C-C759D530CD4D"
+            ],
+            "outgoing": [
+                "sid-5A6AB9AD-2AC2-45F4-9991-C33C6555F403"
+            ]
+        },
+        "sid-CDE39853-1C0B-4B61-99D1-6086093AF626": {
+            "name": "Send payment request to VN",
+            "incoming": [
+                "sid-41799BE9-BE94-46D9-824D-B65636A2E239"
+            ],
+            "outgoing": [
+                "sid-29661D4E-ADE3-4F5C-90CA-9563DB6FE7D8"
+            ]
+        },
+        "sid-43D320E1-89EE-4FF1-A86E-F72A5204C497": {
+            "name": "set to reimbursement",
+            "incoming": [
+                "sid-29661D4E-ADE3-4F5C-90CA-9563DB6FE7D8"
+            ],
+            "outgoing": [
+                "sid-9438447C-DF06-49DD-ABE4-1BE4928D490D"
+            ]
+        },
+        "sid-3D94B938-7DC6-45DF-BD91-2A3744822DB0": {
+            "name": "Book money receipt",
+            "incoming": [
+                "sid-93B77ADE-FEE3-4441-A9A4-EA5314B7BE3E"
+            ],
+            "outgoing": [
+                "sid-1A18242F-FA53-45B4-AA41-95B922C72AD7",
+                "sid-70E0E04F-2DEE-409C-9CE6-F0E3E1DC9257"
+            ]
+        },
+        "sid-40FBBB6E-9756-4613-B231-5BEBB370247F": {
+            "name": "Close",
+            "incoming": [
+                "sid-F5574137-4A68-47D9-B2C7-E4EF394296D6",
+                "sid-3BDCCD94-7F43-4772-915C-7C795C8BDD13"
+            ],
+            "outgoing": [
+                "sid-39B0320A-9EA4-4D78-8EEC-19ED3C46587F"
+            ]
+        },
+        "sid-5B813754-E6DD-4F30-BCF9-B221DF424D9B": {
+            "name": "Debt collection service process\nleister give",
+            "incoming": [
+                "sid-BDAEA831-C2A2-43ED-BDAD-4843CA8AC0D6",
+                "sid-0E316785-2C98-4BAF-B762-299795760D9C"
+            ],
+            "outgoing": [
+                "sid-F5574137-4A68-47D9-B2C7-E4EF394296D6"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-C014701D-5442-45AD-99A3-11405960E737": {
+            "name": "Regression claim\nis there?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-5A6AB9AD-2AC2-45F4-9991-C33C6555F403"
+            ],
+            "outgoing": [
+                "sid-41799BE9-BE94-46D9-824D-B65636A2E239",
+                "sid-34479E1F-A7AB-4B42-A171-3A57F1F0CACE"
+            ]
+        },
+        "sid-A270C533-D0F9-499E-9422-5487A2D3C36B": {
+            "name": "Denial of payment\ni.O.?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-E26E3C70-7DFA-4F9C-BD15-D900EAE1124C"
+            ],
+            "outgoing": [
+                "sid-BDAEA831-C2A2-43ED-BDAD-4843CA8AC0D6",
+                "sid-D43C428C-13C6-4AFC-9244-0DB835A0AF93"
+            ]
+        },
+        "sid-361B84E2-8FE9-42E6-81FE-34A4F3739574": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-1A18242F-FA53-45B4-AA41-95B922C72AD7",
+                "sid-70E0E04F-2DEE-409C-9CE6-F0E3E1DC9257",
+                "sid-D43C428C-13C6-4AFC-9244-0DB835A0AF93",
+                "sid-34479E1F-A7AB-4B42-A171-3A57F1F0CACE"
+            ],
+            "outgoing": [
+                "sid-3BDCCD94-7F43-4772-915C-7C795C8BDD13"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-BB1F7D2A-1234-4624-A6D0-6AB8C62E11CE": {
+            "name": "Process\nclosed",
+            "incoming": [
+                "sid-39B0320A-9EA4-4D78-8EEC-19ED3C46587F"
+            ]
+        }
+    }
+}

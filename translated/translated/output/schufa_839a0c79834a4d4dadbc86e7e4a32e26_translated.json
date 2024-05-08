@@ -1,0 +1,123 @@
+{
+    "start_events": {
+        "sid-D50ADB69-D129-4051-823F-99D8F4B5F606": {
+            "name": "Scoring\nRequired",
+            "outgoing": [
+                "sid-F5122DB3-F140-4083-9D01-7711F1618EB8"
+            ]
+        },
+        "sid-F88DBA9F-03D6-495D-B50C-D3DEF05693D5": {
+            "name": "",
+            "outgoing": [
+                "sid-8C5BEFB7-59EC-44E3-AB44-69F1B8031F11"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-44A6B6DF-D7B4-43EE-BD55-F0F27F3EEB1D": {
+            "name": "Send Schufa request",
+            "incoming": [
+                "sid-F5122DB3-F140-4083-9D01-7711F1618EB8"
+            ],
+            "outgoing": [
+                "sid-1A6D949E-4DF0-43F5-933F-56971E25A1A1"
+            ]
+        },
+        "sid-03C7B1A4-9ABC-4DA2-92CD-941CE6666BD2": {
+            "name": "Report back the scoring",
+            "incoming": [
+                "sid-F0858D37-6BD2-43D4-B813-3249851C5F02",
+                "sid-D2509E05-1F77-4498-8CCA-55CAA4D4BFD1"
+            ],
+            "outgoing": []
+        },
+        "sid-9D3A7C4E-8547-4C1C-8CBB-FDAA7E8F94BD": {
+            "name": "Add a reply",
+            "incoming": [
+                "sid-3124FA22-3556-46E3-BC42-C513F40534BF"
+            ],
+            "outgoing": [
+                "sid-6C3AC04E-9490-4EF2-85F8-CA74E23673DB"
+            ]
+        },
+        "sid-F5287FF8-C812-4799-B192-6D59DCA9473E": {
+            "name": "Reporting the delay",
+            "incoming": [
+                "sid-FC8CA3D3-E09A-4AA2-A0EA-EDB7605D6674"
+            ],
+            "outgoing": [
+                "sid-0FA4515D-822B-4403-8EEA-F87E67AB3EF6"
+            ]
+        },
+        "sid-FDE44EC7-5C5B-4808-AA6B-798C910B15AC": {
+            "name": "perform scoring",
+            "incoming": [
+                "sid-8C5BEFB7-59EC-44E3-AB44-69F1B8031F11"
+            ],
+            "outgoing": [
+                "sid-ACBF7ADE-3D74-4B78-9750-325595ADDCC4"
+            ]
+        },
+        "sid-0AB9AD32-C289-4F1D-9FF6-51CFB8979EF7": {
+            "name": "Level 2 Report",
+            "incoming": [
+                "sid-CA79BEC9-A646-43A1-8691-CA5B0180E658"
+            ],
+            "outgoing": [
+                "sid-2A660F03-144D-490A-925F-BEC30D348368"
+            ]
+        },
+        "sid-3923D9E2-9872-4453-9BC4-9FD37E9F4EC7": {
+            "name": "perform scoring",
+            "incoming": [
+                "sid-D56F53A7-B875-49B3-8AB4-AAC69A5193C0"
+            ],
+            "outgoing": [
+                "sid-760E7C23-7AD7-455E-9890-D9AA8AAF7996"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-4146B2B0-F2F0-495B-824E-5925362ECA7B": {
+            "name": "Schufascore immediately determined?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-6C3AC04E-9490-4EF2-85F8-CA74E23673DB"
+            ],
+            "outgoing": [
+                "sid-F0858D37-6BD2-43D4-B813-3249851C5F02",
+                "sid-FC8CA3D3-E09A-4AA2-A0EA-EDB7605D6674"
+            ]
+        },
+        "sid-87B1B8EF-3076-480D-863D-3CC910F1AD45": {
+            "name": "Result?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-ACBF7ADE-3D74-4B78-9750-325595ADDCC4"
+            ],
+            "outgoing": [
+                "sid-F428C1F2-271D-46D3-A3AA-378D56B69DA9",
+                "sid-EF400405-9CB2-473F-9F1E-FBC047AF4AAB"
+            ]
+        },
+        "sid-BA88F9A1-FB64-4C4B-8F94-40D12A18A34D": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-729728B6-E7D6-496C-A23A-E28DE1059311",
+                "sid-F428C1F2-271D-46D3-A3AA-378D56B69DA9"
+            ],
+            "outgoing": [
+                "sid-6064EC00-91A1-4B39-827F-EEAD8950D615"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-7339CFFF-8888-4BB1-BECE-390C15FAE92A": {
+            "name": "",
+            "incoming": [
+                "sid-6064EC00-91A1-4B39-827F-EEAD8950D615"
+            ]
+        }
+    }
+}

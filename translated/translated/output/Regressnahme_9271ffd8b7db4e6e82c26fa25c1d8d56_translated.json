@@ -1,0 +1,130 @@
+{
+    "start_events": {
+        "sid-52EDBE81-02D7-4BA3-96D3-C5CE6F7F46FF": {
+            "name": "possible regress reported",
+            "outgoing": [
+                "sid-69D24AF6-1AF4-4975-B5C4-C3BAE745BC45"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-2F53A4E6-30DB-4F34-925F-CDCA029807C9": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-69D24AF6-1AF4-4975-B5C4-C3BAE745BC45"
+            ],
+            "outgoing": [
+                "sid-07B1C7A7-1F1D-4E11-BC5A-A5CF8F062223"
+            ]
+        },
+        "sid-E1CCC598-03C1-402B-845E-F06FADA5A37F": {
+            "name": "Send a message",
+            "incoming": [
+                "sid-E87BE1AC-447B-4953-BF16-F87707CA533C"
+            ],
+            "outgoing": [
+                "sid-607FBC2D-7AB7-4540-A537-146B04BF6944"
+            ]
+        },
+        "sid-18AB3C1C-67F2-43C0-84B8-BC7E2DD32D3D": {
+            "name": "Set case for resubmission",
+            "incoming": [
+                "sid-607FBC2D-7AB7-4540-A537-146B04BF6944"
+            ],
+            "outgoing": [
+                "sid-2CDC4723-B621-4D85-8E40-D9E2593FF75F"
+            ]
+        },
+        "sid-F8CCE9BC-DCDC-411B-B513-488D5301592E": {
+            "name": "Book money receipt",
+            "incoming": [
+                "sid-AAD54823-F62C-457C-8C94-A20A4C0CEA31"
+            ],
+            "outgoing": [
+                "sid-864DECA5-6D9A-42A8-A1D7-8F843280C7BC"
+            ]
+        },
+        "sid-8928FCC7-23AC-4000-A8EC-FA488BC33AA1": {
+            "name": "To close",
+            "incoming": [
+                "sid-864DECA5-6D9A-42A8-A1D7-8F843280C7BC"
+            ],
+            "outgoing": [
+                "sid-08DBCF83-7588-41B2-A88D-7B9734CEF2FE"
+            ]
+        },
+        "sid-B4153553-F506-47F7-B769-6C3B6ACE626D": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-A0CC3BBE-F827-498F-83D5-3E569C6CF144"
+            ],
+            "outgoing": [
+                "sid-2BFFEA75-A224-46D0-AFAD-4D01B61FF781"
+            ]
+        },
+        "sid-8B69D980-12A4-4548-86A4-8B1376030540": {
+            "name": "Close",
+            "incoming": [
+                "sid-81D8A682-D44C-4010-9BC5-1F6B5B7CE267",
+                "sid-C5DF3AAA-1AD0-4B42-920B-318F6AE0AE4F"
+            ],
+            "outgoing": [
+                "sid-A596D24D-5E8A-4E6E-B551-6639C0E1DE1B"
+            ]
+        },
+        "sid-6DE3ABA1-B888-45C5-BFE1-D8B86D7D4DA5": {
+            "name": "Debt collection",
+            "incoming": [
+                "sid-D3573C1F-3EE1-4E34-9DE5-3BF8B94C0F40",
+                "sid-8879E8E8-7547-441C-A93B-6AA98B7A963E"
+            ],
+            "outgoing": [
+                "sid-18647130-CAC9-4A2D-BBED-4A4B793D4D41"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-98B72A61-11C7-45AB-8251-1C5C236A9B0F": {
+            "name": "Regress possible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-07B1C7A7-1F1D-4E11-BC5A-A5CF8F062223"
+            ],
+            "outgoing": [
+                "sid-E87BE1AC-447B-4953-BF16-F87707CA533C",
+                "sid-C5DF3AAA-1AD0-4B42-920B-318F6AE0AE4F"
+            ]
+        },
+        "sid-C943D02E-16D4-469D-A306-8C2E3CC78C20": {
+            "name": "Objection justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-2BFFEA75-A224-46D0-AFAD-4D01B61FF781"
+            ],
+            "outgoing": [
+                "sid-81D8A682-D44C-4010-9BC5-1F6B5B7CE267",
+                "sid-8879E8E8-7547-441C-A93B-6AA98B7A963E"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-3248772B-C3FF-41EE-B878-B4F82DD72C6B": {
+            "name": "Process successfully closed",
+            "incoming": [
+                "sid-08DBCF83-7588-41B2-A88D-7B9734CEF2FE"
+            ]
+        },
+        "sid-C973CFD5-516C-442D-9FD0-1DD36A6F3D01": {
+            "name": "forwarded",
+            "incoming": [
+                "sid-18647130-CAC9-4A2D-BBED-4A4B793D4D41"
+            ]
+        },
+        "sid-FB92F371-5813-47CD-854E-ADC9E6C4997C": {
+            "name": "Process closed unsuccessfully",
+            "incoming": [
+                "sid-A596D24D-5E8A-4E6E-B551-6639C0E1DE1B"
+            ]
+        }
+    }
+}

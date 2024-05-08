@@ -1,0 +1,81 @@
+{
+    "start_events": {
+        "sid-8797E781-E5A4-45F0-88A0-CB4C6CB6E31B": {
+            "name": "Request request",
+            "outgoing": [
+                "sid-EA119E1E-9A3C-44A8-9063-9CDFBEFBC06C"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-40AE7541-BA8E-40D0-B2D2-F0A304B1A20B": {
+            "name": "Follow-up",
+            "incoming": [
+                "sid-4737CB82-01B8-442E-A11C-A93CAEAF6D50"
+            ],
+            "outgoing": []
+        },
+        "sid-7A8E29C1-E4E5-4B04-AFBB-8A86A277FDDD": {
+            "name": "Start request for Schufaservice",
+            "incoming": [],
+            "outgoing": []
+        },
+        "sid-B4FB9FF1-EF64-4BCC-BF0A-0D1C81F302F6": {
+            "name": "Level 1 Scoring",
+            "incoming": [],
+            "outgoing": []
+        },
+        "sid-B77E0701-C373-41FD-9167-CE1B8B912005": {
+            "name": "Sending result",
+            "incoming": [
+                "sid-434D5A25-6D48-4AAB-91D0-C4FA47F3F3DF",
+                "sid-5425ECEF-FAAB-40C9-94D9-DAEB96D43FFF"
+            ],
+            "outgoing": []
+        },
+        "sid-DA7E58E3-AFB9-4FB7-B704-D346B410578D": {
+            "name": "Report delay",
+            "incoming": [
+                "sid-20909AF8-B9A5-4F3B-B12F-40FED2681147",
+                "sid-6308B3BC-70D6-4163-B080-0F2F2DF31D7F"
+            ],
+            "outgoing": [
+                "sid-9A59EB81-28BB-47C1-A256-221F39C6E8FD"
+            ]
+        },
+        "sid-CDCAEEF3-19B2-414B-9A63-7B1D1E1D4610": {
+            "name": "Level 2 Scoring",
+            "incoming": [
+                "sid-9A59EB81-28BB-47C1-A256-221F39C6E8FD"
+            ],
+            "outgoing": [
+                "sid-82E80F47-F349-4935-B85E-DC947502BF4B"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-999DD380-8CDB-4416-BFD7-FC133EEC7A37": {
+            "name": "Exemption",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-6C88E8A2-9FA5-404A-9735-85D07E3C9199"
+            ],
+            "outgoing": [
+                "sid-434D5A25-6D48-4AAB-91D0-C4FA47F3F3DF",
+                "sid-20909AF8-B9A5-4F3B-B12F-40FED2681147"
+            ]
+        },
+        "sid-570136DE-7861-45C1-8128-BAA58684D52C": {
+            "name": "Delay",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-82E80F47-F349-4935-B85E-DC947502BF4B"
+            ],
+            "outgoing": [
+                "sid-5425ECEF-FAAB-40C9-94D9-DAEB96D43FFF",
+                "sid-6308B3BC-70D6-4163-B080-0F2F2DF31D7F"
+            ]
+        }
+    },
+    "end_events": {}
+}

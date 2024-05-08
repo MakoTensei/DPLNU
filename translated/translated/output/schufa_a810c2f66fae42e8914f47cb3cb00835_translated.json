@@ -1,0 +1,128 @@
+{
+    "start_events": {
+        "sid-9B5DDB69-A042-46DC-B07A-9350EACD5C96": {
+            "name": "Requests received",
+            "outgoing": [
+                "sid-2108F7CC-8978-4904-BF42-26C5EA304EE8"
+            ]
+        },
+        "sid-A90FC37E-4345-453B-A751-D6EAA9173C47": {
+            "name": "Scoring request",
+            "outgoing": [
+                "sid-CF816C1D-3CD7-4D29-8749-5658180BFF1E"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-0F789D94-2427-450E-9D76-18CD211F1EF6": {
+            "name": "Scoring request\nsend",
+            "incoming": [
+                "sid-2108F7CC-8978-4904-BF42-26C5EA304EE8"
+            ],
+            "outgoing": [
+                "sid-20204CC9-BA2D-4C67-9E18-E2473B888185"
+            ]
+        },
+        "sid-25291846-1B37-411A-BEDC-5F48DC5B4569": {
+            "name": "System notification",
+            "incoming": [
+                "sid-979A4163-BF56-4070-812D-8B22A951AF6F"
+            ],
+            "outgoing": [
+                "sid-D22E6CCC-EA19-4F5E-88C6-87B9D9AEBD30"
+            ]
+        },
+        "sid-51C093FD-8CFA-4AEA-A713-2518BFF47951": {
+            "name": "Report your score",
+            "incoming": [
+                "sid-04288B22-D800-4E27-868A-56AFB0E1B597"
+            ],
+            "outgoing": [
+                "sid-12EA4F39-6C8D-4CD4-8FAE-C585B5FFEE77"
+            ]
+        },
+        "sid-A6548DF2-50F6-4194-BFA6-F21AFDDCD5E3": {
+            "name": "perform scoring",
+            "incoming": [
+                "sid-CF816C1D-3CD7-4D29-8749-5658180BFF1E"
+            ],
+            "outgoing": [
+                "sid-582F393E-0863-4367-9483-A18C106266A5"
+            ]
+        },
+        "sid-61F69943-59C9-4588-877C-A96FEC2763E8": {
+            "name": "Report Score to Bank",
+            "incoming": [
+                "sid-002D53A0-A747-49C2-A1D4-C5971F54D3FD"
+            ],
+            "outgoing": [
+                "sid-4A288648-1DBA-401F-BE04-2EA7B47AF59B"
+            ]
+        },
+        "sid-A6D8F909-DFB4-4987-B001-A5D650EE5515": {
+            "name": "Report delay",
+            "incoming": [
+                "sid-FD134076-C622-4E8C-8E18-1500318EB10E"
+            ],
+            "outgoing": [
+                "sid-2D8AD1B7-73BF-4157-BC5E-73F28FD9AB15"
+            ]
+        },
+        "sid-8684682E-8A64-4A0B-B38B-00DE42428CF5": {
+            "name": "Score Level 2",
+            "incoming": [
+                "sid-2D8AD1B7-73BF-4157-BC5E-73F28FD9AB15"
+            ],
+            "outgoing": [
+                "sid-FAD588AD-F868-48BF-AF24-4F1961392B8F"
+            ]
+        },
+        "sid-BAE29CFF-8C33-4DB1-B591-4D70AC00D8D6": {
+            "name": "Report your score",
+            "incoming": [
+                "sid-FAD588AD-F868-48BF-AF24-4F1961392B8F"
+            ],
+            "outgoing": [
+                "sid-F328D5EA-8B1E-4D87-A168-B909CDD3FBE0"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-65731D67-6CC4-46EE-A3F0-F4D566E3BAA5": {
+            "name": "successful",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-582F393E-0863-4367-9483-A18C106266A5"
+            ],
+            "outgoing": [
+                "sid-002D53A0-A747-49C2-A1D4-C5971F54D3FD",
+                "sid-FD134076-C622-4E8C-8E18-1500318EB10E"
+            ]
+        },
+        "sid-3976EBEB-AE87-4E01-9CCF-AD2BFF928486": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-F328D5EA-8B1E-4D87-A168-B909CDD3FBE0",
+                "sid-4A288648-1DBA-401F-BE04-2EA7B47AF59B"
+            ],
+            "outgoing": [
+                "sid-22316720-A7C3-4400-B92D-DC64C72C74DA"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-C71F1AA5-AC2C-476C-B9BB-E3B834596A8D": {
+            "name": "Score completed",
+            "incoming": [
+                "sid-12EA4F39-6C8D-4CD4-8FAE-C585B5FFEE77"
+            ]
+        },
+        "sid-C05BD190-A9BE-47F0-AD00-5F3927583FBA": {
+            "name": "Score completed",
+            "incoming": [
+                "sid-22316720-A7C3-4400-B92D-DC64C72C74DA"
+            ]
+        }
+    }
+}

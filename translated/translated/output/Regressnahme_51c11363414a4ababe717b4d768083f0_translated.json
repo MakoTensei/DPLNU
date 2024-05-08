@@ -1,0 +1,122 @@
+{
+    "start_events": {
+        "sid-3EA8F578-971A-4374-8303-AEB11C6C0F99": {
+            "name": "News - Regress Case",
+            "outgoing": [
+                "sid-5E60AC89-416D-419F-9010-679285EAF83E"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-74937E50-CBEE-4F92-8B9B-7B09249B2C58": {
+            "name": "Test Regression Case",
+            "incoming": [
+                "sid-5E60AC89-416D-419F-9010-679285EAF83E"
+            ],
+            "outgoing": [
+                "sid-9F28E048-3BEF-4DE9-B093-5048631AB39D"
+            ]
+        },
+        "sid-E06A5959-A80A-4180-A592-0430DAF3451E": {
+            "name": "Send payment request",
+            "incoming": [
+                "sid-CA64CE36-297A-4DCE-9CAE-FAE7EE924863"
+            ],
+            "outgoing": [
+                "sid-FC54D5E3-F662-41CD-BDD4-58EEC256F440"
+            ]
+        },
+        "sid-A2516581-61E2-4DEB-BAF4-DD5924159B05": {
+            "name": "Book payment receipt",
+            "incoming": [
+                "sid-1C961B50-9ED1-400F-87A1-377D8DE267B2"
+            ],
+            "outgoing": [
+                "sid-38F7388A-5488-48D0-8630-F4874BE37591"
+            ]
+        },
+        "sid-83AD7C2A-59F1-4A77-8197-C0DA79855E7D": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-6E83D0EA-BCD6-48C8-B87C-CB1FB9BA47AF"
+            ],
+            "outgoing": [
+                "sid-63D37C37-D54E-4B22-A1D6-917FCCCC547C"
+            ]
+        },
+        "sid-5FBF7C9B-D392-43E1-9391-DEBDA04BA4F9": {
+            "name": "Debt collection service provider",
+            "incoming": [
+                "sid-34735C8F-A05A-45DF-8B68-0F319405FF35"
+            ],
+            "outgoing": [
+                "sid-D1D6B2C3-E407-462E-99B6-56192FF660FC"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-1AAFAEFC-C7AF-4AB4-AF15-F5F69EABCC68": {
+            "name": "Regress?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-9F28E048-3BEF-4DE9-B093-5048631AB39D"
+            ],
+            "outgoing": [
+                "sid-CA64CE36-297A-4DCE-9CAE-FAE7EE924863",
+                "sid-DD18E9ED-BA23-46CB-88FC-16CB09CCE5BA"
+            ]
+        },
+        "sid-9D0CABF1-C692-4A8D-81DC-73CFAF778A2A": {
+            "name": "Justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-63D37C37-D54E-4B22-A1D6-917FCCCC547C"
+            ],
+            "outgoing": [
+                "sid-CC72550F-3428-454A-BA13-71DBA10D4DD2",
+                "sid-D1242A0B-BE0F-4764-9A79-C7B71B3946FD"
+            ]
+        },
+        "sid-BD0E25AB-4B0E-4C7A-AA43-D33355031943": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-DD18E9ED-BA23-46CB-88FC-16CB09CCE5BA",
+                "sid-770C2116-858C-4B60-ABB0-6E34D78A36A2"
+            ],
+            "outgoing": [
+                "sid-B351DA5D-A7D4-43AF-A533-95F4961C7DE0"
+            ]
+        },
+        "sid-4E979AE0-FEFE-4372-803F-57C994CEB31A": {
+            "name": "",
+            "direction": "Unspecified",
+            "incoming": [
+                "sid-65A28EE8-2A8E-4CA4-BF49-4DAF09D9A1F6"
+            ],
+            "outgoing": [
+                "sid-34735C8F-A05A-45DF-8B68-0F319405FF35"
+            ]
+        },
+        "sid-05B38361-CAE6-4BA0-9525-2250558208A2": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-D1242A0B-BE0F-4764-9A79-C7B71B3946FD",
+                "sid-38F7388A-5488-48D0-8630-F4874BE37591"
+            ],
+            "outgoing": [
+                "sid-770C2116-858C-4B60-ABB0-6E34D78A36A2"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-B7A479BB-ECA7-4F6C-8293-2AC19E9800E5": {
+            "name": "Close",
+            "incoming": [
+                "sid-B351DA5D-A7D4-43AF-A533-95F4961C7DE0",
+                "sid-D1D6B2C3-E407-462E-99B6-56192FF660FC"
+            ]
+        }
+    }
+}

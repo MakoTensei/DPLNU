@@ -1,0 +1,116 @@
+{
+    "start_events": {
+        "sid-4C721B7A-F5A2-4886-9293-047E930FE7EC": {
+            "name": "Goods must be shipped",
+            "outgoing": [
+                "sid-B4B71564-9FA0-4586-91B8-CEE8A98683B4"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-3F3B6300-122E-4E27-8ABD-B3A9AB55D5F9": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-9F3D7E8B-F908-40DA-A48B-625CD6FB161E"
+            ],
+            "outgoing": [
+                "sid-17542A2F-7BD3-463F-97FD-6B055ACDBE4A"
+            ]
+        },
+        "sid-9C088340-ACCF-49B4-9719-7498709282C3": {
+            "name": "Provide goods for collection",
+            "incoming": [
+                "sid-E1D5E0DA-D15C-4089-8852-49DD0DCFD6BD"
+            ],
+            "outgoing": [
+                "sid-20C49712-EB85-4005-8915-A169A81C30EB"
+            ]
+        },
+        "sid-E4AD04CA-A6C5-45F6-A803-D2844C42EE65": {
+            "name": "Transport insurance",
+            "incoming": [
+                "sid-D5B6C79F-2BAB-465A-BEB4-EFCE7FFBE1F1"
+            ],
+            "outgoing": [
+                "sid-EA483AD0-A4A6-4BC0-BF5A-7D8A87E799D7"
+            ]
+        },
+        "sid-D51E248C-4552-4F54-9EA3-664F24D73B42": {
+            "name": "Order of dispatch",
+            "incoming": [
+                "sid-783BE03F-7689-447F-81E5-B4D2AA88F26D"
+            ],
+            "outgoing": [
+                "sid-A9DFD408-A134-44FD-AD4F-59B1BD62D7CD"
+            ]
+        },
+        "sid-F3997D96-0A7A-4D84-8129-845FD706FFCF": {
+            "name": "3 Spediteur offers to get",
+            "incoming": [
+                "sid-03217A8D-0DEA-4CF3-ADCC-4A90E09A1770"
+            ],
+            "outgoing": [
+                "sid-BFDF6CCE-F1F7-4FDF-BAD2-48FD009F91E5"
+            ]
+        },
+        "sid-4DC2846C-01EE-4F07-9422-215838EAD1F1": {
+            "name": "Check offer and commission forwarder",
+            "incoming": [
+                "sid-EB14884A-319E-4F28-91F4-BD0AA90DEFC8"
+            ],
+            "outgoing": [
+                "sid-CE0E5C9E-3832-4452-A64E-968AD7B82502"
+            ]
+        },
+        "sid-2B8BA822-598F-446C-9166-701CE3D70F8B": {
+            "name": "Filling the package note",
+            "incoming": [
+                "sid-4999B6EB-0AA4-479B-9446-8694B0143F31"
+            ],
+            "outgoing": [
+                "sid-FEA48A36-5A51-46BF-8567-BD14B81F8933"
+            ]
+        },
+        "sid-DAA12312-3867-4A55-9724-688EB5228CC2": {
+            "name": "Check whether transport insurance is required",
+            "incoming": [
+                "sid-FEA48A36-5A51-46BF-8567-BD14B81F8933"
+            ],
+            "outgoing": [
+                "sid-B8DA21E8-C75A-4B3A-8B85-02D9FA7402F9"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-D323BE3D-FDDC-48C7-9BE6-C8A4A785FFAD": {
+            "name": "Type of shipping?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-A9DFD408-A134-44FD-AD4F-59B1BD62D7CD"
+            ],
+            "outgoing": [
+                "sid-03217A8D-0DEA-4CF3-ADCC-4A90E09A1770",
+                "sid-4999B6EB-0AA4-479B-9446-8694B0143F31"
+            ]
+        },
+        "sid-EA88C41E-AA30-4BA3-9B73-10BFE5BF047A": {
+            "name": "Transport insurance?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B8DA21E8-C75A-4B3A-8B85-02D9FA7402F9"
+            ],
+            "outgoing": [
+                "sid-D5B6C79F-2BAB-465A-BEB4-EFCE7FFBE1F1",
+                "sid-F520308A-F6B9-4536-B245-989CD044D7C7"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-9BF1D407-9B24-44D2-B933-589591A83134": {
+            "name": "Goods ready for collection",
+            "incoming": [
+                "sid-20C49712-EB85-4005-8915-A169A81C30EB"
+            ]
+        }
+    }
+}

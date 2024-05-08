@@ -1,0 +1,119 @@
+{
+    "start_events": {
+        "sid-1AE5D3A0-D8E3-4883-9B1C-B36F410E2044": {
+            "name": "Ship request",
+            "outgoing": [
+                "sid-32F92F8D-7CC8-487D-BD69-E962AADE4E7C"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-406F8BC2-6EAD-4373-B3A4-CB25D55B91A2": {
+            "name": "Determining the quantity",
+            "incoming": [
+                "sid-32F92F8D-7CC8-487D-BD69-E962AADE4E7C"
+            ],
+            "outgoing": [
+                "sid-0782EB81-E77B-47CE-9461-4B683722464C"
+            ]
+        },
+        "sid-D5E1F291-BBDA-4648-A200-492C627DEB56": {
+            "name": "Pick up offers",
+            "incoming": [
+                "sid-C9D33FC1-0256-4A6D-BB27-39F2E8B7A0CC"
+            ],
+            "outgoing": [
+                "sid-10018482-4D02-41D8-9417-B2B1BD49F6D6"
+            ]
+        },
+        "sid-DD54405E-A507-4A7E-952E-EBEBD59501A1": {
+            "name": "Ordering the selected freight forwarder",
+            "incoming": [
+                "sid-10018482-4D02-41D8-9417-B2B1BD49F6D6"
+            ],
+            "outgoing": [
+                "sid-F981D840-7027-4C0C-AED6-4EA87FB5685A"
+            ]
+        },
+        "sid-A9E47BE8-BBE6-4E01-B7B4-AB10B0C26704": {
+            "name": "Filling standard package voucher",
+            "incoming": [
+                "sid-48DF544C-5239-4F14-93BF-89A3DF57FBCE"
+            ],
+            "outgoing": [
+                "sid-18DE2C20-8C9D-4FFD-8877-BF8D5EC80986"
+            ]
+        },
+        "sid-423A9ACD-C3C9-4259-8D6E-B9584D3976D0": {
+            "name": "Decision on insurance liability",
+            "incoming": [
+                "sid-18DE2C20-8C9D-4FFD-8877-BF8D5EC80986"
+            ],
+            "outgoing": [
+                "sid-A9CA1185-CAEF-468D-B586-8DE942F93C5B"
+            ]
+        },
+        "sid-A5D90F8B-D698-4A48-A2AA-1B1371454804": {
+            "name": "Complete insurance",
+            "incoming": [
+                "sid-092E72B7-A3C8-46EA-8598-227B66BB212B"
+            ],
+            "outgoing": [
+                "sid-116AC213-22F6-4D21-8E94-52040910723F"
+            ]
+        },
+        "sid-A9985C2C-8318-433E-903C-B8795DD61F25": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-1A3E6355-F738-49F9-89E0-4680DF48CDF8"
+            ],
+            "outgoing": [
+                "sid-9955AFEA-191A-4E73-B67C-9EFF084DFFB5"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-3C60EF1A-4C67-4B91-9BFD-B10A7A38B9F8": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-31F63DC2-FFBB-40CE-A98B-78002A576292"
+            ],
+            "outgoing": [
+                "sid-C9D33FC1-0256-4A6D-BB27-39F2E8B7A0CC",
+                "sid-48DF544C-5239-4F14-93BF-89A3DF57FBCE"
+            ]
+        },
+        "sid-0E127EB4-F1B4-47DB-B4CA-563000A8A1FC": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-A9CA1185-CAEF-468D-B586-8DE942F93C5B"
+            ],
+            "outgoing": [
+                "sid-092E72B7-A3C8-46EA-8598-227B66BB212B",
+                "sid-D2F8223E-AF4B-4689-975C-9E9DD0BEDA7C"
+            ]
+        },
+        "sid-9AB959A6-81DF-43B8-B9B5-FD8F4AC87F3F": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-F981D840-7027-4C0C-AED6-4EA87FB5685A",
+                "sid-116AC213-22F6-4D21-8E94-52040910723F",
+                "sid-D2F8223E-AF4B-4689-975C-9E9DD0BEDA7C"
+            ],
+            "outgoing": [
+                "sid-E8EB7D4D-24E2-4A67-87EC-250E70B6B7B0"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-C55A6503-58C5-468D-A40E-D527FEED6031": {
+            "name": "Provision for collection",
+            "incoming": [
+                "sid-B6313BE0-FDD7-43BA-BB0D-8E7C5ED845C9"
+            ]
+        }
+    }
+}

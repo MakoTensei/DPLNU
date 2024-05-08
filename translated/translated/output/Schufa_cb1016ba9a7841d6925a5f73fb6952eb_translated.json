@@ -1,0 +1,123 @@
+{
+    "start_events": {
+        "sid-F7BEDDA1-9529-4AFC-9FD8-3DE42FC87DB7": {
+            "name": "Request from\nVM obtained",
+            "outgoing": [
+                "sid-0896843B-316C-433D-A0C9-CD08DD152C1D"
+            ]
+        },
+        "sid-FA53E6FC-966A-469B-BF23-52EDAB22A1B9": {
+            "name": "Request request",
+            "outgoing": [
+                "sid-31A13C85-0532-4588-8011-25734310E3F1"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-C778D19A-D14C-41DB-BA8E-4390A303E29C": {
+            "name": "Preparing and performing the Schufa request",
+            "incoming": [
+                "sid-0896843B-316C-433D-A0C9-CD08DD152C1D"
+            ],
+            "outgoing": [
+                "sid-4C7BC784-52A2-4154-8BF6-FA94EBF73FA2"
+            ]
+        },
+        "sid-A984A5E5-9BC4-421B-8F6D-41789F68A088": {
+            "name": "Share Andwort to VM",
+            "incoming": [
+                "sid-67EC1DE2-72A1-48E5-BF29-DA637E56070A"
+            ],
+            "outgoing": [
+                "sid-61748D78-CD3C-4935-8B04-C022385D512D"
+            ]
+        },
+        "sid-E39B6A00-F941-47BC-BC0B-28647CB1A949": {
+            "name": "Report delay to VM",
+            "incoming": [
+                "sid-B8CE9C9D-2144-4D06-8121-8ACEF81B4E5B"
+            ],
+            "outgoing": [
+                "sid-646095D3-90E8-4C29-B347-A99E9A1C7B4C"
+            ]
+        },
+        "sid-0149598D-353C-4A0D-9176-4B8F96BE3FD6": {
+            "name": "perform scoring level 1",
+            "incoming": [
+                "sid-31A13C85-0532-4588-8011-25734310E3F1"
+            ],
+            "outgoing": [
+                "sid-9113A8B2-AB59-48F5-9378-194564ED61FC"
+            ]
+        },
+        "sid-B7BC8631-491C-4CCF-9ACE-C4B7565E54A5": {
+            "name": "Send a reply",
+            "incoming": [
+                "sid-E0E874F4-69AC-443F-ACAA-2EA1F1F7EF6C"
+            ],
+            "outgoing": [
+                "sid-31640D9E-3D7F-4057-9D8B-DD6238F677E3"
+            ]
+        },
+        "sid-35963936-B1DD-443A-AFF3-9BC87A86F136": {
+            "name": "perform scoring level 2",
+            "incoming": [
+                "sid-ACDF017C-621F-41D7-973D-AFA2EA497414"
+            ],
+            "outgoing": [
+                "sid-FFFA4AD9-9D12-4A2A-B995-BBE1347C8427"
+            ]
+        },
+        "sid-1E044BB2-5FD7-494F-A16F-0BDB32866F4B": {
+            "name": "Send a reply",
+            "incoming": [
+                "sid-093B23DD-764E-487C-AAA7-450B04B89D65"
+            ],
+            "outgoing": []
+        }
+    },
+    "gateways": {
+        "sid-DA1059FD-A056-4FA4-BA09-E380DEAF4AF7": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-663974CE-BBAD-4342-BE64-52D1BDE21061",
+                "sid-3577880C-3BBA-4923-BE2F-A4EDCAABA7D9"
+            ],
+            "outgoing": [
+                "sid-67EC1DE2-72A1-48E5-BF29-DA637E56070A"
+            ]
+        },
+        "sid-0F7F7C61-A6D5-4D51-A4BD-0E0B8304EDE6": {
+            "name": "Scoring was possible\nwill be determined?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-9113A8B2-AB59-48F5-9378-194564ED61FC"
+            ],
+            "outgoing": [
+                "sid-B2D9AAEA-35EE-4AB8-BCB9-A88535DC1828",
+                "sid-428977CB-B9AB-4388-9928-CD1D4961AA4A"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-C9817214-45A4-4DA8-813F-5D52BF511DC7": {
+            "name": "",
+            "incoming": [
+                "sid-61748D78-CD3C-4935-8B04-C022385D512D"
+            ]
+        },
+        "sid-391DD47E-DDE1-47B9-9659-CE9779893F9B": {
+            "name": "Scoring result sent",
+            "incoming": [
+                "sid-FFFA4AD9-9D12-4A2A-B995-BBE1347C8427"
+            ]
+        },
+        "sid-AF75D63E-E7F1-4703-9089-ECFF46EB1826": {
+            "name": "",
+            "incoming": [
+                "sid-31640D9E-3D7F-4057-9D8B-DD6238F677E3"
+            ]
+        }
+    }
+}

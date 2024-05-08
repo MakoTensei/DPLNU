@@ -1,0 +1,107 @@
+{
+    "start_events": {
+        "sid-13BF341B-EE5B-4B77-8C65-0D26FD0955DE": {
+            "name": "organize shipping\n",
+            "outgoing": [
+                "sid-F4EEE6BE-7A45-44F6-AC41-201985A24085"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-25874FD7-DC90-48D6-9C9C-5A901580219A": {
+            "name": "Clear shipping",
+            "incoming": [
+                "sid-F4EEE6BE-7A45-44F6-AC41-201985A24085"
+            ],
+            "outgoing": [
+                "sid-DCFBA685-CB51-4147-B740-06AA35C5FF50"
+            ]
+        },
+        "sid-443A04D8-90C4-4AF7-85C5-4CDB42718A24": {
+            "name": "Request\nSpediteur2",
+            "incoming": [
+                "sid-8321697D-534C-48F5-8C4C-29F2755005CC"
+            ],
+            "outgoing": [
+                "sid-45BF7DD9-AD9B-473E-B743-5EAAAC57780B"
+            ]
+        },
+        "sid-596385B8-D21B-49FA-B998-8C20347A9ADD": {
+            "name": "Request\nSpedituer3",
+            "incoming": [
+                "sid-C5A2065E-4788-4018-AA4D-E36C944B5CB7"
+            ],
+            "outgoing": [
+                "sid-4D0C17AA-C662-4540-8916-FE8ACD95AAFE"
+            ]
+        },
+        "sid-18A1AFDB-AAE5-4C8E-A889-054D979E891D": {
+            "name": "normal\nPostal mail\n",
+            "incoming": [
+                "sid-7717BD19-D19E-4781-BDC2-03341A960A35"
+            ],
+            "outgoing": [
+                "sid-E0C38608-1839-40CD-9D3C-3EAC3235F354"
+            ]
+        },
+        "sid-9F2606FF-F4C8-4240-B9EF-35B2AABE4948": {
+            "name": "freight forwarders",
+            "incoming": [
+                "sid-C957AB6E-32CA-4260-9F71-9DFAF78E3F2A"
+            ],
+            "outgoing": [
+                "sid-9074185C-6539-4319-8E13-0E24979C37AA"
+            ]
+        },
+        "sid-AC5E0DAD-B7CF-4DB0-A5CD-A4913BC620D5": {
+            "name": "Request\nSpediteur1",
+            "incoming": [
+                "sid-764AC8F6-6EA8-448F-BCB7-B0D89864A254"
+            ],
+            "outgoing": [
+                "sid-D84B2173-8E2E-4C14-9840-BAFF33EAC306"
+            ]
+        },
+        "sid-7DE9D6A3-A901-4815-BF00-BB691E64973B": {
+            "name": "Spediteur",
+            "incoming": [
+                "sid-4A2A4BB5-6ED5-4341-96B3-553544DFC0D4"
+            ],
+            "outgoing": [
+                "sid-41276EC6-2655-4081-8DA8-07C6EFBCB370"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-A1706591-BAB3-4BBD-BE9C-17DD08642C23": {
+            "name": "Spediteur or post\n",
+            "direction": "Diverging",
+            "incoming": [],
+            "outgoing": [
+                "sid-7717BD19-D19E-4781-BDC2-03341A960A35",
+                "sid-C957AB6E-32CA-4260-9F71-9DFAF78E3F2A"
+            ]
+        },
+        "sid-57BBC07D-9B00-4284-BABC-378C8FA99238": {
+            "name": "Selection of an offer",
+            "direction": "Converging",
+            "incoming": [
+                "sid-D84B2173-8E2E-4C14-9840-BAFF33EAC306",
+                "sid-45BF7DD9-AD9B-473E-B743-5EAAAC57780B",
+                "sid-4D0C17AA-C662-4540-8916-FE8ACD95AAFE"
+            ],
+            "outgoing": [
+                "sid-4A2A4BB5-6ED5-4341-96B3-553544DFC0D4"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-EAD0CBA5-4D4C-44E5-AB35-CAF10140BA1E": {
+            "name": "Shipping takes place",
+            "incoming": [
+                "sid-E0C38608-1839-40CD-9D3C-3EAC3235F354",
+                "sid-41276EC6-2655-4081-8DA8-07C6EFBCB370"
+            ]
+        }
+    }
+}

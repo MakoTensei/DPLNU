@@ -1,0 +1,139 @@
+{
+    "start_events": {
+        "sid-DA8A642B-B453-4F84-8DE9-C7160609810A": {
+            "name": "",
+            "outgoing": [
+                "sid-9E9BA853-E697-4E4A-B5D4-CA67E439C214"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-F36DB38C-84CA-432C-AD0C-49BF5D1FF807": {
+            "name": "Possibility to take VN into regression",
+            "incoming": [
+                "sid-9E9BA853-E697-4E4A-B5D4-CA67E439C214"
+            ],
+            "outgoing": [
+                "sid-07DA5E82-F75A-4BB0-A778-140609111CA7"
+            ]
+        },
+        "sid-4B8F12C1-7EE0-41A3-AEDB-0712668E53C3": {
+            "name": "Payment method",
+            "incoming": [
+                "sid-E8F17D98-5C5C-413C-8F21-7D24A89DB636"
+            ],
+            "outgoing": [
+                "sid-63A883C6-AC8D-4744-8D8F-8FD241DD23DF"
+            ]
+        },
+        "sid-089AB57E-6FD7-4A39-853B-7B3523866CC2": {
+            "name": "Reimbursement",
+            "incoming": [
+                "sid-63A883C6-AC8D-4744-8D8F-8FD241DD23DF"
+            ],
+            "outgoing": [
+                "sid-4B9A555C-5026-4371-86B4-6FB2EAC488D3"
+            ]
+        },
+        "sid-CA7A75A0-4CA5-4674-BDC3-5F7B59E5D15A": {
+            "name": "Check the receipt of funds",
+            "incoming": [
+                "sid-F8D7AB2B-6A15-4DCB-99D7-C65C30C369C3"
+            ],
+            "outgoing": [
+                "sid-E860F4F0-AAB8-49FE-A1E4-4DF496225DC2"
+            ]
+        },
+        "sid-289F3724-2ACB-49B4-ADF5-A7A7E1871E20": {
+            "name": "Check payment refusal",
+            "incoming": [
+                "sid-DDBE0B5B-5CE9-46A3-A45E-DD27A04A83DA"
+            ],
+            "outgoing": [
+                "sid-C56C6573-D943-4C75-8F65-686E6A354308"
+            ]
+        },
+        "sid-60F53879-D23D-4EF2-9898-04D53E4AEEDB": {
+            "name": "Process",
+            "incoming": [
+                "sid-EDDD2F90-422D-4B88-8013-5F61A76CA6F6",
+                "sid-FEE72DEF-F58D-407D-AABC-AAD5E9E920FE",
+                "sid-BF83625A-365E-4847-9AAE-84FEAA6A9ACE"
+            ],
+            "outgoing": [
+                "sid-DE7B7A38-6702-4383-AC3C-0C1B7D6B1CE3"
+            ]
+        },
+        "sid-29416569-5296-493B-AB3E-1A403E04438B": {
+            "name": "WV Check deadline",
+            "incoming": [
+                "sid-4B9A555C-5026-4371-86B4-6FB2EAC488D3"
+            ],
+            "outgoing": [
+                "sid-0A07AF69-4364-4799-92C7-6FF3AA6231B8"
+            ]
+        },
+        "sid-F01A4F2D-B9FA-478F-9A8A-8FCA862D1D0C": {
+            "name": "forward case to debt collection service provider",
+            "incoming": [
+                "sid-01AA9A66-088B-431F-8726-EFCC33F72C26",
+                "sid-CED6A8FB-9D81-40AD-81AE-90736C21E60D"
+            ],
+            "outgoing": []
+        }
+    },
+    "gateways": {
+        "sid-6D8A243E-3265-4A42-90AD-9DF132484E93": {
+            "name": "Take VN to Regress?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-07DA5E82-F75A-4BB0-A778-140609111CA7"
+            ],
+            "outgoing": [
+                "sid-E8F17D98-5C5C-413C-8F21-7D24A89DB636",
+                "sid-BF83625A-365E-4847-9AAE-84FEAA6A9ACE"
+            ]
+        },
+        "sid-DC64E86C-7372-4C69-BE18-4D35831298AA": {
+            "name": "Payment?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-E860F4F0-AAB8-49FE-A1E4-4DF496225DC2"
+            ],
+            "outgoing": [
+                "sid-FEE72DEF-F58D-407D-AABC-AAD5E9E920FE",
+                "sid-DDBE0B5B-5CE9-46A3-A45E-DD27A04A83DA"
+            ]
+        },
+        "sid-C18FABD2-AAAE-49FD-A7CC-BF0B85487046": {
+            "name": "justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-C56C6573-D943-4C75-8F65-686E6A354308"
+            ],
+            "outgoing": [
+                "sid-01AA9A66-088B-431F-8726-EFCC33F72C26",
+                "sid-EDDD2F90-422D-4B88-8013-5F61A76CA6F6"
+            ]
+        },
+        "sid-E24A1F98-BCB4-475F-A8DD-14F945316A5B": {
+            "name": "WV-Frist expired?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-0A07AF69-4364-4799-92C7-6FF3AA6231B8"
+            ],
+            "outgoing": [
+                "sid-F8D7AB2B-6A15-4DCB-99D7-C65C30C369C3",
+                "sid-CED6A8FB-9D81-40AD-81AE-90736C21E60D"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-E7D51225-3D0A-4D4A-AB8F-B9EBE11C676C": {
+            "name": "",
+            "incoming": [
+                "sid-DE7B7A38-6702-4383-AC3C-0C1B7D6B1CE3"
+            ]
+        }
+    }
+}

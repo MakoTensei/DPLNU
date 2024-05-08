@@ -1,0 +1,130 @@
+{
+    "start_events": {
+        "sid-8465593A-EB26-4279-9481-689892EAE2AC": {
+            "name": "",
+            "outgoing": [
+                "sid-4E79A178-9859-40A9-88E2-1C35EB0475CB"
+            ]
+        },
+        "sid-F1D3A1E8-E145-4A24-BD6E-CC846411CA84": {
+            "name": "",
+            "outgoing": [
+                "sid-5560AAAF-C423-47C5-9127-66212BA6DEB6",
+                "sid-10532926-D7CB-4792-8EA2-20D93B8F15E2"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-AFF15B03-C888-414B-A4A8-9F43ABE73114": {
+            "name": "Scoring request to the Schufa",
+            "incoming": [
+                "sid-4E79A178-9859-40A9-88E2-1C35EB0475CB"
+            ],
+            "outgoing": [
+                "sid-AE26CDE1-792D-4659-A5FA-8FE1D074F392"
+            ]
+        },
+        "sid-426E0475-563E-4ECD-806D-76C459E94504": {
+            "name": "forwarding to lending",
+            "incoming": [
+                "sid-054A855D-D445-486A-ACDB-5D1307C4FB41"
+            ],
+            "outgoing": [
+                "sid-12F538ED-52FA-4DC5-8DFD-5B29B1CB13AD"
+            ]
+        },
+        "sid-907BA866-A0CD-463D-9AFA-B3F0E799AD64": {
+            "name": "forwarding to lending",
+            "incoming": [
+                "sid-A5372757-1FD3-44EC-8639-DD33622C8774"
+            ],
+            "outgoing": [
+                "sid-F434E732-F976-4320-8C5C-3B3B7FF45EC0"
+            ]
+        },
+        "sid-F90E86F3-8794-4488-8C04-3809021170C0": {
+            "name": "Level 1 scoring",
+            "incoming": [
+                "sid-5560AAAF-C423-47C5-9127-66212BA6DEB6"
+            ],
+            "outgoing": [
+                "sid-6E49483B-2545-4B4D-9F09-12C4CE129103"
+            ]
+        },
+        "sid-2A464F88-D05D-4FE9-941B-26548461D124": {
+            "name": "Feedback to the bank",
+            "incoming": [
+                "sid-6E49483B-2545-4B4D-9F09-12C4CE129103"
+            ],
+            "outgoing": [
+                "sid-B65D2A1E-2736-4FB2-934B-12D90FE2A6AD"
+            ]
+        },
+        "sid-698F8BE1-7085-456E-AD15-F9948EE68DC1": {
+            "name": "Level 1 scoring",
+            "incoming": [
+                "sid-10532926-D7CB-4792-8EA2-20D93B8F15E2"
+            ],
+            "outgoing": []
+        },
+        "sid-E571F4B8-F461-49F1-9393-1254DBDA5491": {
+            "name": "Level 2 scoring",
+            "incoming": [
+                "sid-5C025A22-DD54-4E1E-905A-D95BA6248760"
+            ],
+            "outgoing": [
+                "sid-843A7B97-4DA0-4B70-B16C-960377A1E52B"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-6A210C4A-AD10-4848-AE5A-992FBE06E7AA": {
+            "name": "Delay",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B33BF3E7-07E4-4E4F-9DAE-B18EDD79DEEB"
+            ],
+            "outgoing": [
+                "sid-054A855D-D445-486A-ACDB-5D1307C4FB41",
+                "sid-A2F321EC-2606-4F5C-B5E7-79F45C1C1AAA"
+            ]
+        },
+        "sid-E6D6B691-B1B7-4D94-83A9-406849AC2AEC": {
+            "name": "successful",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B65D2A1E-2736-4FB2-934B-12D90FE2A6AD"
+            ],
+            "outgoing": [
+                "sid-4F0E9478-FE30-4D18-A4F0-16AD1EA2CE07",
+                "sid-5C025A22-DD54-4E1E-905A-D95BA6248760"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-20BEBBC5-DE2D-4B9E-B8E7-33152FC7783C": {
+            "name": "",
+            "incoming": [
+                "sid-12F538ED-52FA-4DC5-8DFD-5B29B1CB13AD"
+            ]
+        },
+        "sid-EAB76634-235F-499E-892B-A431FBE939F4": {
+            "name": "",
+            "incoming": [
+                "sid-F434E732-F976-4320-8C5C-3B3B7FF45EC0"
+            ]
+        },
+        "sid-4F9D2AFF-6F80-42C4-BDA9-2C2E50A25D74": {
+            "name": "",
+            "incoming": [
+                "sid-4F0E9478-FE30-4D18-A4F0-16AD1EA2CE07"
+            ]
+        },
+        "sid-24626EB5-8688-465C-8F5C-04019B484EE3": {
+            "name": "",
+            "incoming": [
+                "sid-14FADA77-76F2-44AD-822A-D07252893386"
+            ]
+        }
+    }
+}

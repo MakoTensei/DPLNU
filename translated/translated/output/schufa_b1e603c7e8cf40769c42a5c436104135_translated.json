@@ -1,0 +1,96 @@
+{
+    "start_events": {
+        "sid-139A3628-F380-4684-B7FB-651FBE7CEC12": {
+            "name": "",
+            "outgoing": [
+                "sid-225879BD-6442-4D98-8B12-0BC719B993E3"
+            ]
+        },
+        "sid-243D36B5-999F-493C-975C-A0F68CEFFC33": {
+            "name": "Order received",
+            "outgoing": [
+                "sid-790C1EE7-2C9D-4C07-A2E7-A8FD0A686A0C"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-CB8589BE-B288-493B-892B-BD632609CB39": {
+            "name": "inquiries to schufa",
+            "incoming": [
+                "sid-225879BD-6442-4D98-8B12-0BC719B993E3"
+            ],
+            "outgoing": [
+                "sid-DF2F5394-E05B-434A-B11E-F1B69A734D8F"
+            ]
+        },
+        "sid-4B25BABD-F85C-4A96-AF1F-8C01E2665C55": {
+            "name": "Level 1 scoring\nEdit\n",
+            "incoming": [
+                "sid-15F8E012-C165-4AE3-9ED2-1F36ADD735B4"
+            ],
+            "outgoing": []
+        },
+        "sid-2E122E79-8A21-4D5E-A877-58D6D58C7CCE": {
+            "name": "Scoring",
+            "incoming": [
+                "sid-790C1EE7-2C9D-4C07-A2E7-A8FD0A686A0C"
+            ],
+            "outgoing": [
+                "sid-F3EBB61E-B5B7-4FA7-8A72-4D8A77FD7EAA"
+            ]
+        },
+        "sid-CBEA760B-92B4-4B19-BCB5-BC86A9801FCD": {
+            "name": "Send Level 1 scoring result",
+            "incoming": [
+                "sid-E392F644-CA76-4BC7-995E-7A9610A239E1"
+            ],
+            "outgoing": [
+                "sid-928AF6AC-EE00-478C-B313-5DE860252A60"
+            ]
+        },
+        "sid-90CB985C-9922-41F8-8C9E-0736BB5E8452": {
+            "name": "Send a message\nIn\nProcessing\n\n",
+            "incoming": [
+                "sid-C215F42D-9051-4579-AEC3-16FCC5458C78"
+            ],
+            "outgoing": [
+                "sid-960D0087-3653-48AE-AB96-FE8B02639F1C",
+                "sid-3412CBE9-9836-4201-9ACD-FE48DA037C36"
+            ]
+        },
+        "sid-6D449527-6C2A-4A14-A671-570952FA1C78": {
+            "name": "Scoring Level 2",
+            "incoming": [
+                "sid-3412CBE9-9836-4201-9ACD-FE48DA037C36"
+            ],
+            "outgoing": [
+                "sid-A76E0916-05B3-42EC-A782-32D6F47DD11E"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-0495F648-E641-426A-80C5-42E73B2F9F2E": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-F3EBB61E-B5B7-4FA7-8A72-4D8A77FD7EAA"
+            ],
+            "outgoing": [
+                "sid-E392F644-CA76-4BC7-995E-7A9610A239E1",
+                "sid-8FE9361B-C5DD-430B-A25B-E65D1C2F2784"
+            ]
+        },
+        "sid-3C75F1E7-3CA5-410A-B258-DF6A71877EE6": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-928AF6AC-EE00-478C-B313-5DE860252A60",
+                "sid-960D0087-3653-48AE-AB96-FE8B02639F1C"
+            ],
+            "outgoing": [
+                "sid-70EA7FC8-237F-40B7-A9E7-1635FAD8F3A0"
+            ]
+        }
+    },
+    "end_events": {}
+}

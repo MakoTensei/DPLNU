@@ -1,0 +1,78 @@
+{
+    "start_events": {
+        "sid-447BD1F1-A159-4E62-B8A1-6106EC3FAC29": {
+            "name": "",
+            "outgoing": [
+                "sid-ED69A4EF-42DB-494B-9A83-2FDCB2EE7E56"
+            ]
+        },
+        "sid-9E754791-43AB-4EF6-9039-36BE661DAD9A": {
+            "name": "",
+            "outgoing": [
+                "sid-D693A572-1A2A-498F-B3C1-74AE4FAD0B31"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-B9F1826D-C764-4069-8A78-D7D2DD9D62EB": {
+            "name": "Send scoring request to the Schufa",
+            "incoming": [
+                "sid-ED69A4EF-42DB-494B-9A83-2FDCB2EE7E56"
+            ],
+            "outgoing": [
+                "sid-82CE8D20-7D3B-4C46-9499-D9685C0DD5D5"
+            ]
+        },
+        "sid-FCAABEA8-5F70-4363-AD78-332562D71DDA": {
+            "name": "perform scoring level 1",
+            "incoming": [
+                "sid-D693A572-1A2A-498F-B3C1-74AE4FAD0B31"
+            ],
+            "outgoing": [
+                "sid-5B7D5C8C-1FA1-4A89-941F-5DCDE98FAE85"
+            ]
+        },
+        "sid-E75A5184-4FB2-4E67-A6E2-24E8402696A5": {
+            "name": "perform scoring level 2",
+            "incoming": [
+                "sid-32D8FD0D-D84D-442C-9151-8084B8C43316"
+            ],
+            "outgoing": [
+                "sid-01775D2E-5970-449A-9465-CD300A5A6696"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-14773E8F-18BF-4B07-80CF-2BA7BC4537BE": {
+            "name": "Scoring results?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-0D00FCA6-598B-4609-ADFD-326BAFFE9716"
+            ],
+            "outgoing": [
+                "sid-0A2CC0DA-CD53-431A-8431-D3B87C53165F",
+                "sid-01019DF9-50BA-481C-BB87-D083CD323556"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-858F7974-2208-4B31-A31A-EAEF6C8BF35A": {
+            "name": "",
+            "incoming": [
+                "sid-01019DF9-50BA-481C-BB87-D083CD323556"
+            ]
+        },
+        "sid-0D10C613-A668-493E-B599-75A6B81F82BE": {
+            "name": "",
+            "incoming": [
+                "sid-C5D6B016-FF9D-4B50-B7D2-9B9BA9C22BA7"
+            ]
+        },
+        "sid-122E75D7-F8A1-4518-B3FA-6E7E2E186BA6": {
+            "name": "",
+            "incoming": [
+                "sid-01775D2E-5970-449A-9465-CD300A5A6696"
+            ]
+        }
+    }
+}

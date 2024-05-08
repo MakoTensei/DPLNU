@@ -1,0 +1,100 @@
+{
+    "start_events": {
+        "sid-5F5882B2-12BE-4CE7-A776-3DD290860185": {
+            "name": "",
+            "outgoing": [
+                "sid-6D18ECED-E50B-46AC-8FE0-44E9947FFC83"
+            ]
+        },
+        "sid-EC4E22DD-9D55-4534-A237-8249138BF6EE": {
+            "name": "",
+            "outgoing": [
+                "sid-4C79DEC8-563C-4DA2-975D-80586C627379"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-0FF3F851-19EC-465A-8224-2FB2D969ACBA": {
+            "name": "Scoring request to Schufa",
+            "incoming": [
+                "sid-6D18ECED-E50B-46AC-8FE0-44E9947FFC83"
+            ],
+            "outgoing": [
+                "sid-8F119689-A731-463F-B530-B790DFCDA99A"
+            ]
+        },
+        "sid-C53C9340-90B8-49D0-9C03-4B7672326EDE": {
+            "name": "Scoring Level 1",
+            "incoming": [
+                "sid-4C79DEC8-563C-4DA2-975D-80586C627379"
+            ],
+            "outgoing": [
+                "sid-FA588049-70B1-40DE-B809-E5120117A778"
+            ]
+        },
+        "sid-CBFA01AC-5F48-440F-B69C-C18AB445300E": {
+            "name": "Scoring Level 2",
+            "incoming": [
+                "sid-786D0CAC-CCC4-47A2-9A1C-1B3497AB28EF"
+            ],
+            "outgoing": [
+                "sid-CC2E83E6-71F2-463E-9E16-2FD2EA1E479C"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-0C1A2704-5822-42E2-9A72-8317BD5C6D21": {
+            "name": "Schufa result available?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-8F119689-A731-463F-B530-B790DFCDA99A"
+            ],
+            "outgoing": [
+                "sid-D54D486F-70EF-4862-98B3-11C04946946C",
+                "sid-B0CCE64A-C1F7-4772-BC93-C24298DDD506"
+            ]
+        },
+        "sid-86D36DDC-1893-49B5-B68C-136E8E45CBDA": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-D54D486F-70EF-4862-98B3-11C04946946C",
+                "sid-6262F9A4-EB53-40BB-9173-51747679F6AA"
+            ],
+            "outgoing": [
+                "sid-B6636523-C108-40F8-993E-759FBB905187"
+            ]
+        },
+        "sid-5DAE086A-B5A6-44E8-BC37-C6EBE029F049": {
+            "name": "Finished result?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-FA588049-70B1-40DE-B809-E5120117A778"
+            ],
+            "outgoing": [
+                "sid-8E15C4D9-77F4-4B49-AB3B-1D972BDDB2A2",
+                "sid-2286AD58-EB11-4D58-B7EA-AD4CBD0E5447"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-75FAFA79-146B-40DD-BFCD-E85D8A65C2C2": {
+            "name": "",
+            "incoming": [
+                "sid-B6636523-C108-40F8-993E-759FBB905187"
+            ]
+        },
+        "sid-644E1D5A-3DE0-4531-83D1-2586E22CBAB6": {
+            "name": "Return result",
+            "incoming": [
+                "sid-8E15C4D9-77F4-4B49-AB3B-1D972BDDB2A2"
+            ]
+        },
+        "sid-1DE4A540-F098-41EF-9589-6D8278563410": {
+            "name": "",
+            "incoming": [
+                "sid-CC2E83E6-71F2-463E-9E16-2FD2EA1E479C"
+            ]
+        }
+    }
+}

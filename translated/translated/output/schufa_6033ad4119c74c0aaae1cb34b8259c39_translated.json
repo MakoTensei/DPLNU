@@ -1,0 +1,79 @@
+{
+    "start_events": {
+        "sid-474D4D62-07C6-46AD-BE0E-B4B4AD5BA3D1": {
+            "name": "Scoring request\nReport",
+            "outgoing": [
+                "sid-64BB3B19-71CB-4803-B459-EBCCBCE17F00"
+            ]
+        },
+        "sid-1D898996-2739-410C-89EC-ABA5D36E8789": {
+            "name": "Bank request received",
+            "outgoing": [
+                "sid-D6C8BB7B-1184-45C5-90D2-2A47CE738EE8"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-6769EF53-94DB-4639-B91D-C5186C0F7FA4": {
+            "name": "forward request",
+            "incoming": [
+                "sid-64BB3B19-71CB-4803-B459-EBCCBCE17F00"
+            ],
+            "outgoing": []
+        },
+        "sid-5E444CCD-D6F8-441A-8EDD-E31F16068242": {
+            "name": "forward scoring",
+            "incoming": [],
+            "outgoing": []
+        },
+        "sid-1B601F5B-11CB-4B7F-BC5D-08E3F3FEFBA0": {
+            "name": "Share delay",
+            "incoming": [
+                "sid-DA637644-9C3A-4B10-B9FA-78F91C7888E0"
+            ],
+            "outgoing": []
+        },
+        "sid-7D2B8D01-8A3F-4012-9A1C-5B9E2614C86B": {
+            "name": "Level 1 scoring",
+            "incoming": [
+                "sid-D6C8BB7B-1184-45C5-90D2-2A47CE738EE8"
+            ],
+            "outgoing": []
+        },
+        "sid-D4A6AEE2-65EF-4152-98F1-B5AFAB1AAAD0": {
+            "name": "Initiate notification",
+            "incoming": [
+                "sid-DE849C30-5189-48B5-AFA2-9B55B380C3D7"
+            ],
+            "outgoing": [
+                "sid-42DA2C21-C59E-415C-BF9E-A3480FEBFBE1"
+            ]
+        },
+        "sid-63B70495-D42C-46A6-9F97-A0D4472523E0": {
+            "name": "Level 2 scoring",
+            "incoming": [],
+            "outgoing": [
+                "sid-9BE2C21A-248C-4BE0-9C55-B4889D6D3FA6"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-E09C1F74-3EDB-462C-A61F-C1A180D95B27": {
+            "name": "Scoring i.O.",
+            "direction": "Unspecified",
+            "incoming": [],
+            "outgoing": [
+                "sid-DE849C30-5189-48B5-AFA2-9B55B380C3D7"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-76E62EDA-2138-4D87-B78E-280502E7E34E": {
+            "name": "Result",
+            "incoming": [
+                "sid-9BE2C21A-248C-4BE0-9C55-B4889D6D3FA6",
+                "sid-C736C518-8F06-42B2-A320-042B4BD072FC"
+            ]
+        }
+    }
+}

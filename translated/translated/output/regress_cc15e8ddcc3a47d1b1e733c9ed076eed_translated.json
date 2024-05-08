@@ -1,0 +1,124 @@
+{
+    "start_events": {
+        "sid-D016AAC5-D325-41F8-8092-014961D00FC0": {
+            "name": "Regression",
+            "outgoing": [
+                "sid-ED8D7F6D-F4F0-42D4-A2D0-9C354F97B88C"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-E71625A7-9824-47CC-9850-E30A4914EFC7": {
+            "name": "Send payment request to VN",
+            "incoming": [
+                "sid-72E12F85-7A94-45BF-87A3-FC2DA57621E6"
+            ],
+            "outgoing": [
+                "sid-A1014717-72B0-4C32-962B-4200132DB87D"
+            ]
+        },
+        "sid-92CD9C4C-7BDE-4380-8129-E03F92AD5E0F": {
+            "name": "Payment of the VN",
+            "incoming": [
+                "sid-DF7C2BFD-57C0-425F-819E-805C41F5CB52",
+                "sid-C9F5DD7B-82B2-47F5-B1DB-FBEBA13FE965"
+            ],
+            "outgoing": [
+                "sid-EE733AC4-3E42-409B-BC80-B3F04F49A6D4"
+            ]
+        },
+        "sid-88B494A4-641F-46AD-B11A-DDF3210CEDCC": {
+            "name": "Examination of the objection",
+            "incoming": [
+                "sid-9BC1FFEB-C1A2-4699-A7C0-311EDFCB42C0"
+            ],
+            "outgoing": [
+                "sid-BADE1403-800C-422C-96B5-419FBC70B25F"
+            ]
+        },
+        "sid-2A4966E4-AF33-46E0-9785-6E2AEF35B2E7": {
+            "name": "Transfer of debt to debt collection",
+            "incoming": [
+                "sid-D75DC64C-6886-4731-A7B2-97DF544AE0E5",
+                "sid-4AD20953-260D-40B0-81B1-3C9A68AD1ECA"
+            ],
+            "outgoing": [
+                "sid-C9FF370E-EEB2-46E5-B137-B6346386DD97"
+            ]
+        },
+        "sid-E1160A69-F13B-4984-AAF4-76C823D12953": {
+            "name": "Check Regress Claims for VN",
+            "incoming": [
+                "sid-ED8D7F6D-F4F0-42D4-A2D0-9C354F97B88C"
+            ],
+            "outgoing": [
+                "sid-FE54BE2E-03AA-4B7B-90B8-4B15BECA22E6"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-5F87D54D-4CCB-4EAD-B251-244F0465A1F0": {
+            "name": "Regressability?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-FE54BE2E-03AA-4B7B-90B8-4B15BECA22E6"
+            ],
+            "outgoing": [
+                "sid-72E12F85-7A94-45BF-87A3-FC2DA57621E6",
+                "sid-C4A9762D-85A6-4643-8FA4-F6096DB87971"
+            ]
+        },
+        "sid-B4CCCC15-B8C2-42BB-B7FD-E9BDFB75F988": {
+            "name": "VN?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-A1014717-72B0-4C32-962B-4200132DB87D"
+            ],
+            "outgoing": [
+                "sid-1C2F1BD6-8A3F-412F-B6A0-5DCD170A66A7",
+                "sid-9BC1FFEB-C1A2-4699-A7C0-311EDFCB42C0"
+            ]
+        },
+        "sid-8E1A6567-AD00-4318-A262-84FF69011639": {
+            "name": "Justified?",
+            "direction": "Unspecified",
+            "incoming": [
+                "sid-BADE1403-800C-422C-96B5-419FBC70B25F"
+            ],
+            "outgoing": [
+                "sid-D75DC64C-6886-4731-A7B2-97DF544AE0E5"
+            ]
+        },
+        "sid-8AB1EDA3-F938-45F0-A694-2F7E0E2C80EA": {
+            "name": "Payment arrived?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-315899A3-C7AD-4213-89F8-403ACB476A91"
+            ],
+            "outgoing": [
+                "sid-4AD20953-260D-40B0-81B1-3C9A68AD1ECA",
+                "sid-C9F5DD7B-82B2-47F5-B1DB-FBEBA13FE965"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-2B05C899-9637-4E76-AAA8-E47F1B2B9626": {
+            "name": "Process closed!\n\nNo regression claims",
+            "incoming": [
+                "sid-C4A9762D-85A6-4643-8FA4-F6096DB87971"
+            ]
+        },
+        "sid-A273FA36-7005-47B8-A5F7-C92C57E5F9D1": {
+            "name": "Process closed!\n\nReturned to Inkasso-DL",
+            "incoming": [
+                "sid-C9FF370E-EEB2-46E5-B137-B6346386DD97"
+            ]
+        },
+        "sid-F6B3B3F3-6A5E-4FA8-B4ED-6C62E4BD3987": {
+            "name": "Process closed!\n\nPayment received",
+            "incoming": [
+                "sid-EE733AC4-3E42-409B-BC80-B3F04F49A6D4"
+            ]
+        }
+    }
+}

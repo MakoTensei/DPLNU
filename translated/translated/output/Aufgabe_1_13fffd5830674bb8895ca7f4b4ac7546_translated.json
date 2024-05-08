@@ -1,0 +1,147 @@
+{
+    "start_events": {
+        "sid-17F6A1C5-3639-4A15-91A4-F08B43BCCF60": {
+            "name": "Shipment",
+            "outgoing": [
+                "sid-F19DFC26-4B8A-4EA8-A1FF-EAC8AC568578"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-9A183385-5068-464E-A5A0-C9DF7C5D145D": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-0766D1DE-1E9F-465C-B3CD-459A56EFA0B2"
+            ],
+            "outgoing": [
+                "sid-993E2454-BC7D-4AC1-928E-DF663EE9E500"
+            ]
+        },
+        "sid-8F2741B6-6229-481E-8FA3-951889BEB147": {
+            "name": "Provide goods for collection",
+            "incoming": [
+                "sid-419E2042-159F-4FE0-BBE4-FD84E189895E"
+            ],
+            "outgoing": [
+                "sid-561BD4E6-5EE5-43E7-A25D-D98E9FA70767"
+            ]
+        },
+        "sid-1AB381CA-2492-411E-9E0C-F9063D0FD960": {
+            "name": "Special shipment necessary",
+            "incoming": [
+                "sid-8C2C72E3-EAFA-425A-86F7-0AE670CB0A68"
+            ],
+            "outgoing": [
+                "sid-248B0829-9449-4E72-AD32-FD88D66AD4E4"
+            ]
+        },
+        "sid-EDA8D0A7-920F-4BDA-8486-A122CE16C94C": {
+            "name": "3 offers to collect from forwarders",
+            "incoming": [
+                "sid-248B0829-9449-4E72-AD32-FD88D66AD4E4"
+            ],
+            "outgoing": [
+                "sid-23111E84-B8FB-4EBF-96B1-82EAB302A90D"
+            ]
+        },
+        "sid-CB722963-D07C-4FF0-8077-D574453BB5A6": {
+            "name": "Select your offer",
+            "incoming": [
+                "sid-23111E84-B8FB-4EBF-96B1-82EAB302A90D"
+            ],
+            "outgoing": [
+                "sid-BC6F1B95-B602-4170-A032-25F36DAB0959"
+            ]
+        },
+        "sid-A5451085-7190-4F51-8299-9A90FD0C6B7D": {
+            "name": "Specialist",
+            "incoming": [
+                "sid-BC6F1B95-B602-4170-A032-25F36DAB0959"
+            ],
+            "outgoing": [
+                "sid-6C30EF35-EB98-41FB-BDD2-E2130671AA6C"
+            ]
+        },
+        "sid-D0C428CA-0907-45F6-8268-EDF8C231F2F2": {
+            "name": "normal mail order",
+            "incoming": [
+                "sid-C7745936-3ADD-4A4C-8CBB-5653E99CD37C"
+            ],
+            "outgoing": [
+                "sid-F8553218-61C5-4CC3-9C2F-4F186758F006"
+            ]
+        },
+        "sid-8EC94529-5335-4237-AAAF-5E9D6B2213FC": {
+            "name": "fill out standard package tickets",
+            "incoming": [
+                "sid-F8553218-61C5-4CC3-9C2F-4F186758F006"
+            ],
+            "outgoing": [
+                "sid-625712C6-0531-4D22-829E-3C303B68F924"
+            ]
+        },
+        "sid-C645B129-F7B6-49D2-839C-FC14AFF36612": {
+            "name": "Complete insurance",
+            "incoming": [
+                "sid-C6546E08-A088-4549-9CF8-0A07CA4F396B"
+            ],
+            "outgoing": [
+                "sid-890EA7CD-BDE7-43FD-893B-234EF30440A6"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-FC7AD580-B7DD-4A6B-851B-785A48192086": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-DF2E5D70-68D7-4407-97E1-05A1C1550B48",
+                "sid-6C30EF35-EB98-41FB-BDD2-E2130671AA6C"
+            ],
+            "outgoing": [
+                "sid-2ED54D52-6D16-4064-99F0-CC9EA8936CFA"
+            ]
+        },
+        "sid-3ABE7341-2C7C-4713-9A6A-741841863731": {
+            "name": "Insurance?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-625712C6-0531-4D22-829E-3C303B68F924"
+            ],
+            "outgoing": [
+                "sid-3A07A833-48DB-42DA-B945-3937E963C613",
+                "sid-0A2C791F-CE2B-4272-B1B2-C2905BC1DDED"
+            ]
+        },
+        "sid-5445B5C6-762C-4CE9-AB13-8AF87D958D32": {
+            "name": "A lot?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-A46F3B7A-F029-42E1-B5E9-948F3D0FD195"
+            ],
+            "outgoing": [
+                "sid-8C2C72E3-EAFA-425A-86F7-0AE670CB0A68",
+                "sid-C7745936-3ADD-4A4C-8CBB-5653E99CD37C"
+            ]
+        },
+        "sid-4272DCC5-D884-4EAA-9CFE-8B95F273A8EE": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-890EA7CD-BDE7-43FD-893B-234EF30440A6",
+                "sid-0A2C791F-CE2B-4272-B1B2-C2905BC1DDED"
+            ],
+            "outgoing": [
+                "sid-DF2E5D70-68D7-4407-97E1-05A1C1550B48"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-E600F7AA-11AD-40FF-89C9-78CF89277594": {
+            "name": "",
+            "incoming": [
+                "sid-561BD4E6-5EE5-43E7-A25D-D98E9FA70767"
+            ]
+        }
+    }
+}

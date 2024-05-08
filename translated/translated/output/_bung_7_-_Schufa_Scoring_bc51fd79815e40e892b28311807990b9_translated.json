@@ -1,0 +1,76 @@
+{
+    "start_events": {
+        "sid-D50ADB69-D129-4051-823F-99D8F4B5F606": {
+            "name": "Scoring\nRequired",
+            "outgoing": [
+                "sid-C4F37C26-A90A-4F5C-B376-3D50144FE16C"
+            ]
+        },
+        "sid-CDE8F1E6-A039-41F1-8BF3-12F9B7816E0B": {
+            "name": "Scoring request\nobtained",
+            "outgoing": [
+                "sid-04FF6929-75AB-4BBD-8FAA-AA17B340C5D8"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-04FBCBE0-67D4-47EA-A3D3-3DE3B71CFD94": {
+            "name": "Scoreing Level 1",
+            "incoming": [
+                "sid-04FF6929-75AB-4BBD-8FAA-AA17B340C5D8"
+            ],
+            "outgoing": [
+                "sid-7206CDB8-4121-4828-A8F9-9B8AD0BC0BF6"
+            ]
+        },
+        "sid-EE066895-CCDD-4968-85CF-B3056CD5F39A": {
+            "name": "perform scoring level 2",
+            "incoming": [
+                "sid-1CF6653B-C73B-45B6-94F5-ECC1B10B8F0E"
+            ],
+            "outgoing": [
+                "sid-E8443E0A-1C5E-4C06-9E2B-6BFE0453F954"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-CDE20D89-0E3A-4BDE-A4E5-DD8853CA21C4": {
+            "name": "Scoring\nsuccessful?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-7206CDB8-4121-4828-A8F9-9B8AD0BC0BF6"
+            ],
+            "outgoing": [
+                "sid-7272EC4E-9345-433B-BCF0-CA1A93BF8621",
+                "sid-C40670AA-2802-4806-B760-D928B4CB0FB4",
+                "sid-23A09647-0356-46FE-956F-B2D197769EF6"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-8AEFB02A-2ACD-4846-8A5A-16F2EC6AE75C": {
+            "name": "Scoring result\nforward",
+            "incoming": [
+                "sid-3C2D9939-7851-434A-A77C-B51213558B72"
+            ]
+        },
+        "sid-0A6880B8-0051-43C8-9961-A2F482949507": {
+            "name": "Scoring result\nforward",
+            "incoming": [
+                "sid-ABE3C90C-8B9C-46E9-B3DF-335A09692BF5"
+            ]
+        },
+        "sid-3C48A7B5-9526-4EF6-9E47-5FE750CD44D8": {
+            "name": "Transfer scoring result 1",
+            "incoming": [
+                "sid-7272EC4E-9345-433B-BCF0-CA1A93BF8621"
+            ]
+        },
+        "sid-7DE26F10-481B-47B1-BB43-A59E3054AFE0": {
+            "name": "Scoring result\nTransfer Level 2",
+            "incoming": [
+                "sid-E8443E0A-1C5E-4C06-9E2B-6BFE0453F954"
+            ]
+        }
+    }
+}

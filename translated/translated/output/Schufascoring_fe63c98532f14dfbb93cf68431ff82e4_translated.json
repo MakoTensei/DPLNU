@@ -1,0 +1,124 @@
+{
+    "start_events": {
+        "sid-49514A92-9BA1-4DFB-B45A-31E08CEA30EB": {
+            "name": "Request\n",
+            "outgoing": [
+                "sid-D5593124-1571-4AEB-8BDC-7BE5D8F24ED5"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-2DBE46FD-20A6-4557-9F63-3CDEA8158533": {
+            "name": "Request to Schufa",
+            "incoming": [
+                "sid-D5593124-1571-4AEB-8BDC-7BE5D8F24ED5"
+            ],
+            "outgoing": [
+                "sid-48B916DB-B6BC-4BDC-8C8D-34075B3F02CF"
+            ]
+        },
+        "sid-0CF0820B-56B1-4F0D-BA31-486FE8CF09E3": {
+            "name": "Frontend query",
+            "incoming": [
+                "sid-48B916DB-B6BC-4BDC-8C8D-34075B3F02CF"
+            ],
+            "outgoing": [
+                "sid-7A902B6B-3027-4260-B9AF-E6EB3E0C9549"
+            ]
+        },
+        "sid-F7E716FC-4BA6-400C-9D59-853B2259965A": {
+            "name": "Editing credit request",
+            "incoming": [
+                "sid-2A6A2E65-4AE2-4787-842D-EB6FDBBA3427"
+            ],
+            "outgoing": [
+                "sid-8D0DF680-E40F-4637-979A-E8D47352BF27"
+            ]
+        },
+        "sid-4506D8A4-ABF9-4F0C-871C-68BA6EE6F3C0": {
+            "name": "perform other work",
+            "incoming": [
+                "sid-230D2CB0-30AD-44E0-88B7-B244B622C896"
+            ],
+            "outgoing": [
+                "sid-29A16324-0E96-4E47-88D7-60FA6F7EAA4A"
+            ]
+        },
+        "sid-088C7B8C-E1B3-4C01-ABBD-F59AC52E9DA3": {
+            "name": "Procurement",
+            "incoming": [
+                "sid-8D0DF680-E40F-4637-979A-E8D47352BF27"
+            ],
+            "outgoing": [
+                "sid-30F4655B-7897-478F-B836-96F49473A606"
+            ]
+        },
+        "sid-CB9ACDBB-CE03-477B-ADE8-DBD33AB72990": {
+            "name": "Edit request",
+            "incoming": [
+                "sid-F7D5F9F3-9926-42B4-BC52-F67EB5F3BB37",
+                "sid-4B3832FB-6253-4E90-959C-5D80B1D22F2A"
+            ],
+            "outgoing": [
+                "sid-7A2CDF20-856C-4500-AAFF-BBCBFB36BA5C"
+            ]
+        },
+        "sid-BEFFF696-F54E-4B1F-A74C-BB4BA60C4110": {
+            "name": "Provide information",
+            "incoming": [
+                "sid-7A2CDF20-856C-4500-AAFF-BBCBFB36BA5C"
+            ],
+            "outgoing": [
+                "sid-69DA5285-37FC-4179-A743-03B3A3824A11"
+            ]
+        },
+        "sid-9D1FCCFF-CEFA-418B-AC8E-B9CA24DF6F31": {
+            "name": "Reporting to Bank\n",
+            "incoming": [
+                "sid-0A7F6474-D1C4-44AA-AE70-0E9228E83B40"
+            ],
+            "outgoing": [
+                "sid-4B3832FB-6253-4E90-959C-5D80B1D22F2A"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-0C1B413A-C0A8-4A23-A101-A642D8E86C27": {
+            "name": "Information available?",
+            "direction": "Mixed",
+            "incoming": [
+                "sid-7A902B6B-3027-4260-B9AF-E6EB3E0C9549",
+                "sid-29A16324-0E96-4E47-88D7-60FA6F7EAA4A"
+            ],
+            "outgoing": [
+                "sid-230D2CB0-30AD-44E0-88B7-B244B622C896",
+                "sid-2A6A2E65-4AE2-4787-842D-EB6FDBBA3427"
+            ]
+        },
+        "sid-A4E294E7-3A9A-49FE-BAC3-8449D1F0BAF3": {
+            "name": "Immediate processing possible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-290B8679-1577-4FA0-8414-A9A6564539BA"
+            ],
+            "outgoing": [
+                "sid-F7D5F9F3-9926-42B4-BC52-F67EB5F3BB37",
+                "sid-0A7F6474-D1C4-44AA-AE70-0E9228E83B40"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-836CA222-8FBB-407D-BF17-F2CB8D1F02F5": {
+            "name": "Member State",
+            "incoming": [
+                "sid-30F4655B-7897-478F-B836-96F49473A606"
+            ]
+        },
+        "sid-E0C9FE0D-1B20-4D2C-9D0D-04E4845C5FD9": {
+            "name": "Request completed",
+            "incoming": [
+                "sid-69DA5285-37FC-4179-A743-03B3A3824A11"
+            ]
+        }
+    }
+}

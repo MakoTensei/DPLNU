@@ -1,0 +1,128 @@
+{
+    "start_events": {
+        "sid-DD748922-4B82-4C74-82B4-AFD985A180C6": {
+            "name": "Start regression check",
+            "outgoing": [
+                "sid-5BC18D74-3EF5-4A1C-ABDB-5AB48B96848E"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-8C662F69-B91F-4119-BB36-A262DA4BC6E5": {
+            "name": "Case study",
+            "incoming": [
+                "sid-5BC18D74-3EF5-4A1C-ABDB-5AB48B96848E"
+            ],
+            "outgoing": [
+                "sid-23B2E24F-2218-4D0B-9E30-2AA0B0D11560"
+            ]
+        },
+        "sid-C70E67C3-3964-4049-A245-1C081916A9C2": {
+            "name": "Send payment appropriation",
+            "incoming": [
+                "sid-EA350E31-D83E-4F12-9B0E-E0FB590F8451"
+            ],
+            "outgoing": [
+                "sid-29A86CD0-2096-478E-9ED3-F447734755F7"
+            ]
+        },
+        "sid-0544F1A8-B7D3-4D42-8BE0-5F981A6C8A6E": {
+            "name": "Check the receipt of funds",
+            "incoming": [
+                "sid-F27AD0E1-DF5F-45D3-99E8-C85BBA6C3007"
+            ],
+            "outgoing": [
+                "sid-4626F7FF-B770-4E36-A0F8-19370848177F"
+            ]
+        },
+        "sid-51C4062D-E717-423A-A63D-BE9AEF0D0C44": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-79F73E09-890D-4514-8A7D-6684CDCB0B9B"
+            ],
+            "outgoing": [
+                "sid-F146EF05-2716-49C3-9A34-8F1AB60B7ADA"
+            ]
+        },
+        "sid-E30FE2DB-93B1-474B-A88F-2AE546898DEB": {
+            "name": "Debt collection",
+            "incoming": [
+                "sid-BB8D9348-15D5-4AF6-9FE6-018828DAB34B"
+            ],
+            "outgoing": [
+                "sid-456A032B-D915-4FBD-A6CB-BFB77950C1CF"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-85799CA6-22AA-4142-BE74-9D599E457CB6": {
+            "name": "Claim?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-23B2E24F-2218-4D0B-9E30-2AA0B0D11560"
+            ],
+            "outgoing": [
+                "sid-DEF81B4D-50A7-4139-87C7-A055ECC70A48",
+                "sid-EA350E31-D83E-4F12-9B0E-E0FB590F8451"
+            ]
+        },
+        "sid-7D19B1C7-8323-4C84-A0DB-15E8BC21059F": {
+            "name": "Objection OK?",
+            "direction": "Unspecified",
+            "incoming": [
+                "sid-F146EF05-2716-49C3-9A34-8F1AB60B7ADA"
+            ],
+            "outgoing": [
+                "sid-E5386216-0A50-4FB8-9A0C-6D04257505D4"
+            ]
+        },
+        "sid-CA953185-B87E-4680-8C65-553C75B2B6B2": {
+            "name": "Cash?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-4626F7FF-B770-4E36-A0F8-19370848177F"
+            ],
+            "outgoing": [
+                "sid-3F7E1711-99FF-416E-AFF2-F888533A1884",
+                "sid-4369ACA8-E195-4F8F-8E55-3BA287C01272"
+            ]
+        },
+        "sid-08CEEA4F-8C13-41FF-A08F-7D7CAC8F2322": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-E5386216-0A50-4FB8-9A0C-6D04257505D4",
+                "sid-4369ACA8-E195-4F8F-8E55-3BA287C01272"
+            ],
+            "outgoing": [
+                "sid-BB8D9348-15D5-4AF6-9FE6-018828DAB34B"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-AE3EA978-3513-4DF4-AED9-31034F91E391": {
+            "name": "Close without demand",
+            "incoming": [
+                "sid-DEF81B4D-50A7-4139-87C7-A055ECC70A48"
+            ]
+        },
+        "sid-D0DF0F9F-54BC-48B4-9C09-2E50F2DBD02B": {
+            "name": "Close process with payment",
+            "incoming": [
+                "sid-3F7E1711-99FF-416E-AFF2-F888533A1884"
+            ]
+        },
+        "sid-79DB1E2A-AB05-4D69-91E2-E2F7C5171099": {
+            "name": "Close with collection",
+            "incoming": [
+                "sid-456A032B-D915-4FBD-A6CB-BFB77950C1CF"
+            ]
+        },
+        "sid-0C7D2B76-1F3B-4BD5-9BE1-0415208316A6": {
+            "name": "Close without collection",
+            "incoming": [
+                "sid-1D47F201-6D88-4D30-A96F-061E7D3B0E46"
+            ]
+        }
+    }
+}

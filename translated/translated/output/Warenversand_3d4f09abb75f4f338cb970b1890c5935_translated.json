@@ -1,0 +1,89 @@
+{
+    "start_events": {
+        "sid-F2C94C0C-4D0F-4339-B38A-B26F12E5E49E": {
+            "name": "Order comes in",
+            "outgoing": [
+                "sid-B59B54A7-D1DB-4576-8253-63EB78C95ABF"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-B877FDED-E4BA-4B98-8656-F0B82FD5D207": {
+            "name": "Type of transport",
+            "incoming": [
+                "sid-B59B54A7-D1DB-4576-8253-63EB78C95ABF"
+            ],
+            "outgoing": [
+                "sid-BEA1F569-D58A-42E4-B317-34CB6EF0DB02"
+            ]
+        },
+        "sid-BA45F006-DD75-42FB-8D76-3FAF477DF5AD": {
+            "name": "Etiketiere\n",
+            "incoming": [
+                "sid-4FBC4CE2-20AE-4409-99AD-54F66F8C3E3A"
+            ],
+            "outgoing": [
+                "sid-0E2C95AD-3DAA-419F-8B97-D54F4AEE6045"
+            ]
+        },
+        "sid-839CC9D8-4B6D-45EF-8B06-08B2242BC294": {
+            "name": "Provide for collection",
+            "incoming": [
+                "sid-3B730204-C319-4F78-8B90-D13791A59D91"
+            ],
+            "outgoing": [
+                "sid-54844CCF-B5F7-4DAD-B792-6CC533521EA3"
+            ]
+        },
+        "sid-D15790F8-E94C-4396-B428-79D83386D797": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-A114358B-8FE3-4701-8DE4-39F9872A78D4"
+            ],
+            "outgoing": [
+                "sid-094158A3-8C6C-4322-9F8D-A396B0C2F283"
+            ]
+        },
+        "sid-5AE73465-63F3-44A0-A3A6-897067CDD36C": {
+            "name": "Insurance close\n",
+            "incoming": [
+                "sid-C11406B2-A663-406F-B363-143B3E41697A"
+            ],
+            "outgoing": [
+                "sid-9443DCA1-55A9-48CC-9A19-480A0351DAF6"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-5AC1256A-FA66-444C-8FE8-9FAB5D6610A0": {
+            "name": "Is special delivery?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-5E6C0683-998D-4B18-98C1-EF84D4E70145"
+            ],
+            "outgoing": [
+                "sid-C9866564-79DE-4EFE-B01A-4B86BFA16852",
+                "sid-4FBC4CE2-20AE-4409-99AD-54F66F8C3E3A"
+            ]
+        },
+        "sid-6BC13B48-2313-489D-AB73-43CC60A1B8E0": {
+            "name": "Is insurance required?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-0E2C95AD-3DAA-419F-8B97-D54F4AEE6045"
+            ],
+            "outgoing": [
+                "sid-C11406B2-A663-406F-B363-143B3E41697A",
+                "sid-D4670686-2E37-4741-8E96-1FD7D1275052"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-B4D95914-AAD4-441B-8B3D-8C80BDC8DB80": {
+            "name": "",
+            "incoming": [
+                "sid-54844CCF-B5F7-4DAD-B792-6CC533521EA3"
+            ]
+        }
+    }
+}

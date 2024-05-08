@@ -1,0 +1,120 @@
+{
+    "start_events": {
+        "sid-01883EBE-784E-45FA-8417-578A4ADEA703": {
+            "name": "Regression report",
+            "outgoing": [
+                "sid-245B944B-DDE0-48E6-9F3D-AE2C128C5A4A"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-B1CC6AF7-D726-459B-B6F2-6834BC9C8E8D": {
+            "name": "Check regression",
+            "incoming": [
+                "sid-245B944B-DDE0-48E6-9F3D-AE2C128C5A4A"
+            ],
+            "outgoing": [
+                "sid-E3D5215C-31DC-4A35-B2E9-7211ED1A7B4D"
+            ]
+        },
+        "sid-5910BE6C-F78C-4E9A-A9CD-4ED89D2C7852": {
+            "name": "Close",
+            "incoming": [
+                "sid-6E527684-D4B9-4309-91DC-369AC88CD116"
+            ],
+            "outgoing": [
+                "sid-3403B774-4B4B-44DD-90E8-EB0CF33C40D8"
+            ]
+        },
+        "sid-30653D63-6786-451C-907F-5BF19F06B184": {
+            "name": "Payment request",
+            "incoming": [
+                "sid-F691CF9D-0BF5-4AA9-B0F7-AA28D5A6CCB8"
+            ],
+            "outgoing": [
+                "sid-C1197356-C8AF-4AA5-8C2C-F21DE283973F"
+            ]
+        },
+        "sid-DE3C8284-2C24-47D0-96C8-C7D948F571B8": {
+            "name": "Creating a recovery template",
+            "incoming": [
+                "sid-C1197356-C8AF-4AA5-8C2C-F21DE283973F"
+            ],
+            "outgoing": [
+                "sid-D87B137B-0C54-4ED1-92D3-2757F70C0B63"
+            ]
+        },
+        "sid-6A28DF27-71DC-48FA-966A-6AB061551293": {
+            "name": "Book money receipt",
+            "incoming": [
+                "sid-5DDF2013-BD98-49BA-9B71-23F8C317D594"
+            ],
+            "outgoing": [
+                "sid-44770658-6AE9-4DFB-B5D2-53FDE2E350D5"
+            ]
+        },
+        "sid-85C5D1EB-E641-4021-9A0B-D54F7D85641C": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-BB4A6DC8-D6BD-4438-8749-E7658995AC91"
+            ],
+            "outgoing": [
+                "sid-1FF5BF10-A90C-4993-AADD-58637520563B"
+            ]
+        },
+        "sid-78B0B31A-472F-440E-990A-51DE40843252": {
+            "name": "Debt collection office",
+            "incoming": [
+                "sid-8141534A-14C5-42CD-91A5-89F176A520B3",
+                "sid-D9068386-051D-4925-A008-8F91FC395879"
+            ],
+            "outgoing": [
+                "sid-F1AA0C45-22B6-4ADC-836C-2D74E45D95F4"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-96BE8E69-DECC-47AC-98FC-8E130D1632A3": {
+            "name": "Regress possible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-E3D5215C-31DC-4A35-B2E9-7211ED1A7B4D"
+            ],
+            "outgoing": [
+                "sid-F691CF9D-0BF5-4AA9-B0F7-AA28D5A6CCB8",
+                "sid-1D0F9C3C-5D03-4ED6-848B-D689DC106302"
+            ]
+        },
+        "sid-3004008F-8CD9-44E4-94C2-D28EF4E3BC6D": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-44770658-6AE9-4DFB-B5D2-53FDE2E350D5",
+                "sid-1D0F9C3C-5D03-4ED6-848B-D689DC106302",
+                "sid-4EF7BEFC-B4C5-46FB-9F92-586FC2C6CC6E"
+            ],
+            "outgoing": [
+                "sid-6E527684-D4B9-4309-91DC-369AC88CD116"
+            ]
+        },
+        "sid-FE220818-DB44-4DD9-9936-89FF87203A2A": {
+            "name": "Rejection of payment justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-1FF5BF10-A90C-4993-AADD-58637520563B"
+            ],
+            "outgoing": [
+                "sid-4EF7BEFC-B4C5-46FB-9F92-586FC2C6CC6E",
+                "sid-D9068386-051D-4925-A008-8F91FC395879"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-1E11F568-6F9E-486B-84C8-4902D580404C": {
+            "name": "Process",
+            "incoming": [
+                "sid-3403B774-4B4B-44DD-90E8-EB0CF33C40D8"
+            ]
+        }
+    }
+}

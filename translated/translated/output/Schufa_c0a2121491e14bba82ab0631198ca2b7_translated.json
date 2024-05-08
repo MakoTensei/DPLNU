@@ -1,0 +1,120 @@
+{
+    "start_events": {
+        "sid-489C9102-50C0-4AB7-A74B-A83C16A97300": {
+            "name": "",
+            "outgoing": [
+                "sid-43D433AB-0F63-4B5A-BAF4-B94321BFA9B6"
+            ]
+        },
+        "sid-E1EA63D2-2D8B-419A-BAFC-C06C7A4BADD9": {
+            "name": "Scoring request",
+            "outgoing": [
+                "sid-3254C774-DAAE-4DD6-BE8A-C972866217BC"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-D4CA9AE7-4956-4393-ACFF-59A88183DE57": {
+            "name": "Enter credit query\n",
+            "incoming": [
+                "sid-28761486-B773-4AAF-9C1B-9608AECFF6D0"
+            ],
+            "outgoing": [
+                "sid-264C4D8C-E7E0-4CD9-9B04-C5C967A331CA"
+            ]
+        },
+        "sid-B7EFD400-B617-44D0-80DA-463E69610C41": {
+            "name": "Start system",
+            "incoming": [
+                "sid-43D433AB-0F63-4B5A-BAF4-B94321BFA9B6"
+            ],
+            "outgoing": [
+                "sid-28761486-B773-4AAF-9C1B-9608AECFF6D0"
+            ]
+        },
+        "sid-78C1D969-95AA-446F-B362-0C6D94A03241": {
+            "name": "Get Scoring",
+            "incoming": [
+                "sid-264C4D8C-E7E0-4CD9-9B04-C5C967A331CA"
+            ],
+            "outgoing": [
+                "sid-4D54CBB9-7752-4259-A35C-9515DC25B171"
+            ]
+        },
+        "sid-78A5A6B6-1486-4C23-AE2D-6287CAD0FB8D": {
+            "name": "View result",
+            "incoming": [
+                "sid-7C487A4F-ADF6-4F32-BD32-C7687EA9D526"
+            ],
+            "outgoing": [
+                "sid-380E4238-3979-4F9B-AA2D-158A98324160"
+            ]
+        },
+        "sid-C9456CC3-15D9-4437-8CF2-7CA147D1FDDE": {
+            "name": "\"Please wait\"",
+            "incoming": [
+                "sid-F94CB0FF-0F21-4B5F-96C7-5161FDC769BC"
+            ],
+            "outgoing": [
+                "sid-CDCDC816-E845-4803-9A49-5C12FF3FB40D"
+            ]
+        },
+        "sid-3F873606-59B8-48E6-9605-BC5DAACEF4BF": {
+            "name": "Level 1 - query\n",
+            "incoming": [
+                "sid-3254C774-DAAE-4DD6-BE8A-C972866217BC"
+            ],
+            "outgoing": [
+                "sid-72876304-49D1-459B-8877-5E084ADE708D"
+            ]
+        },
+        "sid-C94EACC8-2765-49CF-AFFA-0E9B8CA901AA": {
+            "name": "Level 2 -\nQuestion",
+            "incoming": [
+                "sid-9A12519F-CFA5-4A70-8FCF-0DEF9AFB2D57"
+            ],
+            "outgoing": [
+                "sid-97030413-76FE-44A6-BE68-FCEA6C74A3C6"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-5CE5918C-0D7C-404F-9F5C-27E4A5FA9725": {
+            "name": "Finished result?\n",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-0C7B4B2D-1E28-46E9-A6A8-041320B2144D"
+            ],
+            "outgoing": [
+                "sid-F94CB0FF-0F21-4B5F-96C7-5161FDC769BC",
+                "sid-7C487A4F-ADF6-4F32-BD32-C7687EA9D526"
+            ]
+        },
+        "sid-8AEC9FD2-E2C5-4B5E-BC7A-8A6BF4FDFC38": {
+            "name": "Result is fixed ?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-72876304-49D1-459B-8877-5E084ADE708D"
+            ],
+            "outgoing": [
+                "sid-6B626144-72CC-4434-A0B1-848F0BC887BB",
+                "sid-DBBCA26E-4331-431F-8E0B-9C3F0A9CA3FB"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-DDB8331D-5EFE-4C8D-9C7D-8CAA0427E2AB": {
+            "name": "",
+            "incoming": [
+                "sid-380E4238-3979-4F9B-AA2D-158A98324160"
+            ]
+        },
+        "sid-234720E3-6AD2-408C-B07F-522EB841F690": {
+            "name": "",
+            "incoming": [
+                "sid-97030413-76FE-44A6-BE68-FCEA6C74A3C6",
+                "sid-DBBCA26E-4331-431F-8E0B-9C3F0A9CA3FB"
+            ]
+        }
+    }
+}

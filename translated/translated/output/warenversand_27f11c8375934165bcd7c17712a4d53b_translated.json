@@ -1,0 +1,180 @@
+{
+    "start_events": {
+        "sid-D6CFDC76-934E-4CD2-B955-FD4261330EDE": {
+            "name": "Start",
+            "outgoing": [
+                "sid-5089A9EF-7C2A-479D-8E8A-A549A7DCF3D6"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-3FB947FE-33FF-42DC-A0BB-EF66966215C1": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-4E2584DF-92D4-4640-AE5E-C582C8D6BB9C"
+            ],
+            "outgoing": [
+                "sid-7E9B17DF-C1E2-412B-86F3-94B927287B62"
+            ]
+        },
+        "sid-C0228933-6B87-49EB-8656-D6BB525A8CEB": {
+            "name": "Order packaged goods for collection",
+            "incoming": [
+                "sid-05E68717-D849-490E-8CDC-FBF35F69325E"
+            ],
+            "outgoing": [
+                "sid-448B8B86-0234-4C6C-849B-270FC475B9E8"
+            ]
+        },
+        "sid-EA1A4B9E-EB44-44DF-9449-90A757DCEEC9": {
+            "name": "Sped. 1 order",
+            "incoming": [
+                "sid-B0291443-918F-400B-9DB8-8C05426B19D8"
+            ],
+            "outgoing": [
+                "sid-9A97837D-DC16-49BE-8132-E63B374C5397"
+            ]
+        },
+        "sid-0B1F65F3-63E6-4760-B23E-580B18FD1356": {
+            "name": "Entering quantity",
+            "incoming": [
+                "sid-15F3ADCB-A70C-468D-A78D-6E94C4280D10"
+            ],
+            "outgoing": [
+                "sid-09A51D91-68B5-4D19-B857-0CC8BA10FBBE"
+            ]
+        },
+        "sid-8B581462-D3C9-4314-AC5D-D159A906951C": {
+            "name": "Fill in your mailbox",
+            "incoming": [
+                "sid-BC4D687F-38FF-4081-912D-DB4802B222B5"
+            ],
+            "outgoing": [
+                "sid-E87D71BB-5B86-44C8-935E-6AA019C27382"
+            ]
+        },
+        "sid-A53B38C0-31A0-4EFA-8D44-5638622A2430": {
+            "name": "Requesting quotes",
+            "incoming": [
+                "sid-396C0AD4-EC54-41A6-A39D-06759694D192"
+            ],
+            "outgoing": [
+                "sid-D428F072-3816-44F3-BB6F-85CB38022FD0"
+            ]
+        },
+        "sid-5E72896F-6116-4ED0-8F30-B1CE15240C10": {
+            "name": "Sped. 2 order",
+            "incoming": [
+                "sid-A0C5FCBF-ECCF-4B49-A286-087815BC8C19"
+            ],
+            "outgoing": [
+                "sid-3262636B-D446-46CE-A280-E3CF53542AA6"
+            ]
+        },
+        "sid-E7BBBC88-29DA-491E-A74C-9BFA14777E51": {
+            "name": "Sped. 3 commission",
+            "incoming": [
+                "sid-0C9C1D21-C950-481D-895C-479EAB34D906"
+            ],
+            "outgoing": [
+                "sid-54AFD733-2C26-4ABC-BEED-2BA0E95C9B71"
+            ]
+        },
+        "sid-131CA452-3820-478E-8184-16E1EDD28FE8": {
+            "name": "Order mail",
+            "incoming": [
+                "sid-DF6BC668-3C01-481C-93E0-271A13F19671"
+            ],
+            "outgoing": [
+                "sid-A1C4A714-6A50-4CA3-8295-A29B2CE0B8E8"
+            ]
+        },
+        "sid-56672D28-3BCD-42A3-922F-2F129C74A481": {
+            "name": "Complete insurance",
+            "incoming": [
+                "sid-47331C93-9815-413A-B02D-7271391E6974"
+            ],
+            "outgoing": [
+                "sid-BCE690D9-DF49-41D1-806C-2093854208D5"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-BC03686D-289D-48DB-9872-55FAFEAF6806": {
+            "name": "Quantity > x",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-09A51D91-68B5-4D19-B857-0CC8BA10FBBE"
+            ],
+            "outgoing": [
+                "sid-396C0AD4-EC54-41A6-A39D-06759694D192",
+                "sid-BC4D687F-38FF-4081-912D-DB4802B222B5"
+            ]
+        },
+        "sid-0EDC3870-BE71-4170-8992-6EF55897DD76": {
+            "name": "Insurance required?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-E87D71BB-5B86-44C8-935E-6AA019C27382"
+            ],
+            "outgoing": [
+                "sid-47331C93-9815-413A-B02D-7271391E6974",
+                "sid-2195C784-FDBB-45DB-9D55-5446A6B19260"
+            ]
+        },
+        "sid-D415919F-B9D4-4706-B531-FF3C5B84A7E7": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-BCE690D9-DF49-41D1-806C-2093854208D5",
+                "sid-2195C784-FDBB-45DB-9D55-5446A6B19260"
+            ],
+            "outgoing": [
+                "sid-DF6BC668-3C01-481C-93E0-271A13F19671"
+            ]
+        },
+        "sid-9CDA9DE2-210C-4094-92D4-C73F1060B20D": {
+            "name": "Cheapest offer?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-D428F072-3816-44F3-BB6F-85CB38022FD0"
+            ],
+            "outgoing": [
+                "sid-B0291443-918F-400B-9DB8-8C05426B19D8",
+                "sid-A0C5FCBF-ECCF-4B49-A286-087815BC8C19",
+                "sid-0C9C1D21-C950-481D-895C-479EAB34D906"
+            ]
+        },
+        "sid-19099A93-CD3A-467F-8F01-031C64A1DDEB": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-9A97837D-DC16-49BE-8132-E63B374C5397",
+                "sid-3262636B-D446-46CE-A280-E3CF53542AA6",
+                "sid-54AFD733-2C26-4ABC-BEED-2BA0E95C9B71"
+            ],
+            "outgoing": [
+                "sid-04097074-100D-417F-8E2F-EEA2F649F3DC"
+            ]
+        },
+        "sid-864E20E0-8C91-4491-B4EF-D50F46CB1128": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-04097074-100D-417F-8E2F-EEA2F649F3DC",
+                "sid-A1C4A714-6A50-4CA3-8295-A29B2CE0B8E8"
+            ],
+            "outgoing": [
+                "sid-7CDE350F-5351-40FB-9450-EFE3A7F150C1"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-E12BA2C7-6B15-4398-80C4-77BDBEA62103": {
+            "name": "",
+            "incoming": [
+                "sid-448B8B86-0234-4C6C-849B-270FC475B9E8"
+            ]
+        }
+    }
+}

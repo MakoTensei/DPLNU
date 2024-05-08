@@ -1,0 +1,83 @@
+{
+    "start_events": {
+        "sid-310118E8-ECFF-438C-92C6-57DD827E460C": {
+            "name": "Scoring request\nobtained",
+            "outgoing": [
+                "sid-635E9391-97A9-4D94-AC7D-5CA8016E92FF"
+            ]
+        },
+        "sid-34AD181E-F246-4533-85CD-36FF6B1D5812": {
+            "name": "Scoring request\nobtained",
+            "outgoing": [
+                "sid-213A6EA0-446F-4280-A0F6-962E7F995C0A"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-599D2561-8937-4DF0-B078-C16B96BD8FAE": {
+            "name": "Scoring\nSend an inquiry",
+            "incoming": [
+                "sid-635E9391-97A9-4D94-AC7D-5CA8016E92FF"
+            ],
+            "outgoing": [
+                "sid-1D9F3175-247D-4F87-A033-785AB5C3AAC4"
+            ]
+        },
+        "sid-0C27D470-748A-424F-80C9-B198DB091597": {
+            "name": "Scoring\nDebt\nLevel 1",
+            "incoming": [
+                "sid-14A224BC-2E39-4280-A8DE-3ED0078F260F"
+            ],
+            "outgoing": [
+                "sid-0E38A6EC-358A-4B21-9A35-F44A752DFF9E"
+            ]
+        },
+        "sid-F0685134-EABE-48D5-A4DD-E716702221E7": {
+            "name": "Determining scoring\nLevel 2",
+            "incoming": [
+                "sid-8FE4C9ED-6C85-46BD-8610-871559C39C96"
+            ],
+            "outgoing": [
+                "sid-7AEB658F-7EC8-40B0-A53D-8EBE8FC20A91"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-975E0AE8-C099-40A4-92EE-D99FAD3DAB1C": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-213A6EA0-446F-4280-A0F6-962E7F995C0A"
+            ],
+            "outgoing": [
+                "sid-14A224BC-2E39-4280-A8DE-3ED0078F260F",
+                "sid-7AAD8D9D-2B9D-4043-8608-8670AFFAF304"
+            ]
+        },
+        "sid-C667924D-7C0B-4382-B9BB-3390EE01CC2B": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-7AEB658F-7EC8-40B0-A53D-8EBE8FC20A91",
+                "sid-0E38A6EC-358A-4B21-9A35-F44A752DFF9E"
+            ],
+            "outgoing": [
+                "sid-9AFB9275-5939-44DC-9289-3F49D0D21C11"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-815EA083-F608-41B2-BDEA-07067297B1FB": {
+            "name": "",
+            "incoming": [
+                "sid-9F3833DA-07ED-4FAE-9633-80C758081D93"
+            ]
+        },
+        "sid-88BDF33A-F610-49F9-8C87-29C9264D7B0C": {
+            "name": "End Schufa process",
+            "incoming": [
+                "sid-B68D2565-C6A5-4A40-BA14-2031CF3D712C"
+            ]
+        }
+    }
+}

@@ -1,0 +1,110 @@
+{
+    "start_events": {
+        "sid-1B5D3EF1-D03E-4DA2-8F59-F8FCF9CA0C5D": {
+            "name": "Schufa requirement\nobtained",
+            "outgoing": [
+                "sid-9210542C-0199-4AB1-B3C3-0459735C5C57"
+            ]
+        },
+        "sid-4B1EBF84-B9AC-45BE-A10F-8489DEB80ED2": {
+            "name": "Scoring request\nobtained",
+            "outgoing": [
+                "sid-F08142C7-7D56-4ACA-A0F9-488AD1F68CEB"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-3E576D7E-DA21-4426-A98F-BF0675FD983D": {
+            "name": "Pick up Schufa scoring",
+            "incoming": [
+                "sid-9210542C-0199-4AB1-B3C3-0459735C5C57"
+            ],
+            "outgoing": [
+                "sid-092F1D2F-8A8E-4591-A799-D5CEF34414D0"
+            ]
+        },
+        "sid-26AC17C2-CF11-47AB-92C6-020E8E246B78": {
+            "name": "Schufa scoring\nShip",
+            "incoming": [
+                "sid-535C597D-E2B4-4E2A-A666-E95C43541242"
+            ],
+            "outgoing": [
+                "sid-C41CC2E3-048C-459A-A702-B28F30BA75E4"
+            ]
+        },
+        "sid-792FA02F-15E7-4EBD-AB5F-76C7AC707A23": {
+            "name": "Share Schufa Delay",
+            "incoming": [
+                "sid-2081ECEE-4FDB-4C92-ABE3-A8550E1482E2"
+            ],
+            "outgoing": [
+                "sid-0045A509-C941-4C9A-A22A-E5A5107FBC9F"
+            ]
+        },
+        "sid-4CDBC99E-E7A6-4400-9DE1-75E84C65A2F7": {
+            "name": "Scoring\nLevel 1\nperform",
+            "incoming": [
+                "sid-F08142C7-7D56-4ACA-A0F9-488AD1F68CEB"
+            ],
+            "outgoing": [
+                "sid-EB5C2F97-5797-415B-835E-628EB82667A0"
+            ]
+        },
+        "sid-61C5EBC3-40E6-4895-BBE2-F8DB6B192494": {
+            "name": "Scoring\nLevel 2\nperform",
+            "incoming": [
+                "sid-C841C9EF-BC60-4459-9183-070B55D6E54F"
+            ],
+            "outgoing": [
+                "sid-407071DB-CFC0-4F61-98A5-206E695F8E70"
+            ]
+        },
+        "sid-AB6FD6AE-8E95-4074-B0B0-7ECE565795CD": {
+            "name": "Scoring results\nShip",
+            "incoming": [
+                "sid-BFDBED25-9965-454C-AA1A-1465BFC745D4",
+                "sid-407071DB-CFC0-4F61-98A5-206E695F8E70"
+            ],
+            "outgoing": [
+                "sid-0F5C80BC-4190-4A3E-8FB0-4551BCCF2A47"
+            ]
+        },
+        "sid-A87A32CC-971A-48FC-9CDA-95904FED9E7E": {
+            "name": "Share Schufa Delay",
+            "incoming": [
+                "sid-6BB74F01-26EB-44B6-A371-EBEC67FB266C"
+            ],
+            "outgoing": [
+                "sid-C841C9EF-BC60-4459-9183-070B55D6E54F"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-4BD00022-8476-4245-8FA0-32FF5C8533EC": {
+            "name": "Scoring\nLevel 1\nsuccessful?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-EB5C2F97-5797-415B-835E-628EB82667A0"
+            ],
+            "outgoing": [
+                "sid-BFDBED25-9965-454C-AA1A-1465BFC745D4",
+                "sid-6BB74F01-26EB-44B6-A371-EBEC67FB266C"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-803EC155-3AD9-436B-8A76-F802A0390BAB": {
+            "name": "",
+            "incoming": [
+                "sid-C41CC2E3-048C-459A-A702-B28F30BA75E4",
+                "sid-0045A509-C941-4C9A-A22A-E5A5107FBC9F"
+            ]
+        },
+        "sid-F0C157EA-33E4-4066-8D22-FBF31B411B23": {
+            "name": "",
+            "incoming": [
+                "sid-0F5C80BC-4190-4A3E-8FB0-4551BCCF2A47"
+            ]
+        }
+    }
+}

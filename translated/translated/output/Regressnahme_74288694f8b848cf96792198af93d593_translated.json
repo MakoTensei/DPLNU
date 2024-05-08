@@ -1,0 +1,105 @@
+{
+    "start_events": {
+        "sid-72835595-049C-4B94-8F0A-01E5274DDFEF": {
+            "name": "VN possibly in Regress",
+            "outgoing": [
+                "sid-102FF62A-D0B6-4363-88D4-F187459799E8"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-01EDCCC1-0F5F-43F5-873D-99F3D5DC9CA8": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-102FF62A-D0B6-4363-88D4-F187459799E8"
+            ],
+            "outgoing": [
+                "sid-9A1D1B70-B16C-40DA-9C70-E232370AC01D"
+            ]
+        },
+        "sid-BCDF941D-263E-4E80-82CC-CA8021E665D0": {
+            "name": "Close the case",
+            "incoming": [
+                "sid-FC477055-B95B-4E56-A8BA-B7E8A2F0B29B"
+            ],
+            "outgoing": []
+        },
+        "sid-BA0249FE-004D-45C4-8ED4-5E9475E033E6": {
+            "name": "Send payment request to VN & set to reimbursement",
+            "incoming": [
+                "sid-F0D58922-4FC9-4665-B358-72B144D0F4A3"
+            ],
+            "outgoing": [
+                "sid-9B2A6E36-427A-4FA5-87A7-7E5F123D7267"
+            ]
+        },
+        "sid-8E575455-C0CC-42A6-BC82-83F3F083367F": {
+            "name": "Book entrance and close operation",
+            "incoming": [
+                "sid-5A1A0C5E-DA94-4D17-BB07-8ABC439EEF2F",
+                "sid-2472F7F0-E551-4A8B-929B-DCC23AB400C5",
+                "sid-07D2E5F2-D3FB-4944-8BCB-8B70FDE2D80F"
+            ],
+            "outgoing": [
+                "sid-F7E925AD-D9E7-4C52-9F13-04A0DC5CC114"
+            ]
+        },
+        "sid-2E54CCBA-E9B5-4BA3-ABBE-DD8A13D320E3": {
+            "name": "Info to Head of Debt Service",
+            "incoming": [
+                "sid-7C7B8AF5-9E67-4B49-A2E6-0A94E1914616"
+            ],
+            "outgoing": []
+        },
+        "sid-AD4085E6-90C1-48A0-A9F5-66BACCAED567": {
+            "name": "Info to Head of Debt Service",
+            "incoming": [
+                "sid-0F0FB7B0-0665-4527-A777-3E56423CB4B4"
+            ],
+            "outgoing": []
+        }
+    },
+    "gateways": {
+        "sid-07D4BDB6-EF6D-466D-8754-5F7B04959D9B": {
+            "name": "Regress exists?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-9A1D1B70-B16C-40DA-9C70-E232370AC01D"
+            ],
+            "outgoing": [
+                "sid-F0D58922-4FC9-4665-B358-72B144D0F4A3",
+                "sid-FC477055-B95B-4E56-A8BA-B7E8A2F0B29B"
+            ]
+        },
+        "sid-C6DE6C29-F811-4130-9F4B-F921A62DCB8F": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-BBFF4DD8-C5A7-41E3-8F9A-7724CF44A9CF"
+            ],
+            "outgoing": [
+                "sid-7C7B8AF5-9E67-4B49-A2E6-0A94E1914616",
+                "sid-2472F7F0-E551-4A8B-929B-DCC23AB400C5"
+            ]
+        },
+        "sid-15067DFD-25D2-4D74-9BA7-E703C198BC6A": {
+            "name": "Disclaimer of payment justifiable?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-E0A7BBDF-BDD7-4D0C-A0EF-29D1FB1702B8"
+            ],
+            "outgoing": [
+                "sid-0F0FB7B0-0665-4527-A777-3E56423CB4B4",
+                "sid-07D2E5F2-D3FB-4944-8BCB-8B70FDE2D80F"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-5E83CA42-8B65-4F77-8599-F0E397EC3FE0": {
+            "name": "Process",
+            "incoming": [
+                "sid-F7E925AD-D9E7-4C52-9F13-04A0DC5CC114"
+            ]
+        }
+    }
+}

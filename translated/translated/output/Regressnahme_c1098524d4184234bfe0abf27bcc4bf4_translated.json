@@ -1,0 +1,118 @@
+{
+    "start_events": {
+        "sid-1936C688-CF57-442B-AE9B-181CDDB079A5": {
+            "name": "VN regression test",
+            "outgoing": [
+                "sid-8DEC2F5D-9D40-4CE2-9565-B6F230888DEB"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-64FAACB4-70F7-47AD-9805-E9A91E5EC0F9": {
+            "name": "Check if VN can be taken into regression",
+            "incoming": [
+                "sid-8DEC2F5D-9D40-4CE2-9565-B6F230888DEB"
+            ],
+            "outgoing": [
+                "sid-E7A28E99-3211-4C9C-AF99-5324FD4EC345"
+            ]
+        },
+        "sid-6A5F2F1E-4AA7-4D18-856C-09A8001FD37B": {
+            "name": "Send payment request to VN",
+            "incoming": [
+                "sid-1A39B775-07E1-4107-A466-C37597AD38AE"
+            ],
+            "outgoing": [
+                "sid-D5CC9F00-7187-44A4-AE92-4108B1E926B5"
+            ]
+        },
+        "sid-0F61E2B6-F6AE-4FBE-B9B8-4811776E4A8F": {
+            "name": "Close",
+            "incoming": [
+                "sid-529B4B28-6995-4A37-9EAD-9F290A288D82"
+            ],
+            "outgoing": [
+                "sid-CB7865CA-AAC3-462B-98A3-6FBBB200DD6D"
+            ]
+        },
+        "sid-F7329EB1-A86A-4FAA-84BD-A7FAEA3F3151": {
+            "name": "Book money receipt",
+            "incoming": [
+                "sid-DDCD4BA0-8A75-43DC-B401-F21189EC315D"
+            ],
+            "outgoing": [
+                "sid-DD674C5B-7952-44D4-8B01-92D92A588037"
+            ]
+        },
+        "sid-C17C6E40-E392-43C7-A308-6113CDB660C6": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-F3004E2A-D395-425D-A40E-CC0538C87F3A"
+            ],
+            "outgoing": [
+                "sid-B26F61E1-216E-464B-87F2-F4C160BDE6B6"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-D29AE6D7-36B2-4A0C-9FE7-5E819732FD7C": {
+            "name": "Regress?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-E7A28E99-3211-4C9C-AF99-5324FD4EC345"
+            ],
+            "outgoing": [
+                "sid-1A39B775-07E1-4107-A466-C37597AD38AE",
+                "sid-BC3E523D-E63F-471A-A8DD-4DACA59BB06D"
+            ]
+        },
+        "sid-E6B6662B-42F6-4F16-8DB3-36208238E133": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-DD674C5B-7952-44D4-8B01-92D92A588037",
+                "sid-537B80DD-E50E-4F12-8804-F5DD86F484B8",
+                "sid-BC3E523D-E63F-471A-A8DD-4DACA59BB06D"
+            ],
+            "outgoing": [
+                "sid-529B4B28-6995-4A37-9EAD-9F290A288D82"
+            ]
+        },
+        "sid-9526FE15-2141-48CA-953A-B40D99CC9628": {
+            "name": "Opposition\njustified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B26F61E1-216E-464B-87F2-F4C160BDE6B6"
+            ],
+            "outgoing": [
+                "sid-537B80DD-E50E-4F12-8804-F5DD86F484B8",
+                "sid-86236891-C54E-40D2-BD48-3FC0FE108226"
+            ]
+        },
+        "sid-233E029F-038C-41E7-A9BF-764F77489100": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-86236891-C54E-40D2-BD48-3FC0FE108226",
+                "sid-988F1FE2-B3EC-440C-A5AC-F71569337859"
+            ],
+            "outgoing": [
+                "sid-C04A918A-1894-4258-8548-6236214FF717"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-B1C0D783-551D-47B6-9850-2AB3057F4F16": {
+            "name": "Closed",
+            "incoming": [
+                "sid-CB7865CA-AAC3-462B-98A3-6FBBB200DD6D"
+            ]
+        },
+        "sid-375F8824-C6C8-4A03-ABED-E40E0D8F20F0": {
+            "name": "Transfer to Inkasso-DL",
+            "incoming": [
+                "sid-C04A918A-1894-4258-8548-6236214FF717"
+            ]
+        }
+    }
+}

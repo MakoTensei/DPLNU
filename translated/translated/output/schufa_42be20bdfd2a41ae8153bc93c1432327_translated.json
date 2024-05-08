@@ -1,0 +1,74 @@
+{
+    "start_events": {
+        "sid-D0084C40-60A2-47E1-AAD9-C58DC3D19200": {
+            "name": "Button",
+            "outgoing": [
+                "sid-0470A567-D61D-4CC2-B88E-1A335793364F"
+            ]
+        },
+        "sid-71070F51-8141-472F-A895-2DF52CCF6DD8": {
+            "name": "Scoring\nstarted",
+            "outgoing": [
+                "sid-BB712AAE-C24D-4BBD-923F-6888BEAACE3E"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-B69B1227-DB53-40BD-8E39-2809447832DF": {
+            "name": "Level 1 scoring\nperform",
+            "incoming": [
+                "sid-BB712AAE-C24D-4BBD-923F-6888BEAACE3E"
+            ],
+            "outgoing": [
+                "sid-A73DB56D-0348-4924-824B-7E5812BAC936"
+            ]
+        },
+        "sid-8B47DDC2-319C-4582-AA99-41F54A331495": {
+            "name": "Level 2 scoring\nperform",
+            "incoming": [
+                "sid-E5D516CD-3318-4340-A232-CC2A30F6A07C"
+            ],
+            "outgoing": [
+                "sid-BE58681A-873F-4A17-A21F-B9CA2EDCF217"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-BC355092-C8BE-4C0D-8F5A-BD84FBCB8E9F": {
+            "name": "Level 1 scoring\navailable?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-A73DB56D-0348-4924-824B-7E5812BAC936"
+            ],
+            "outgoing": [
+                "sid-317ED814-4F9E-4D54-8E8E-AA3B14A71D83",
+                "sid-5036342E-D548-47E9-8E92-3C6C46329957"
+            ]
+        },
+        "sid-EE6645C1-8B50-4689-92B6-2A3F49BE6756": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-BE58681A-873F-4A17-A21F-B9CA2EDCF217",
+                "sid-5036342E-D548-47E9-8E92-3C6C46329957"
+            ],
+            "outgoing": [
+                "sid-B7C23C86-1A13-45D8-97E1-3E14D6BEA962"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-A9706AA0-810A-4722-969D-2FEFC4B93C64": {
+            "name": "Result\nobtained",
+            "incoming": [
+                "sid-3AB3E672-1CCC-4A5D-81BE-E1C8EA110CFD"
+            ]
+        },
+        "sid-BF6A293C-5F1E-4FA0-BDCD-A669E8188F9D": {
+            "name": "Result\nis fixed",
+            "incoming": [
+                "sid-B7C23C86-1A13-45D8-97E1-3E14D6BEA962"
+            ]
+        }
+    }
+}

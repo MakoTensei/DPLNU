@@ -1,0 +1,122 @@
+{
+    "start_events": {
+        "sid-B2A24D1D-8422-434C-9E56-EBF19195B210": {
+            "name": "",
+            "outgoing": [
+                "sid-A2996427-0951-44BB-BD33-7D111772C0E4"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-4CBF89DD-E2BF-4D89-9F07-9105FA49EB8D": {
+            "name": "Check the procedure",
+            "incoming": [
+                "sid-A2996427-0951-44BB-BD33-7D111772C0E4"
+            ],
+            "outgoing": [
+                "sid-26797D0E-C49C-43EB-AB8B-CFA2353AB07D"
+            ]
+        },
+        "sid-73106F5C-13AD-4A8B-B3CC-86C20EE0CF03": {
+            "name": "Close the process",
+            "incoming": [
+                "sid-AEA451CC-1EDC-4648-BBF0-44D627247ED3"
+            ],
+            "outgoing": [
+                "sid-E9C5AAA4-EEFC-4C35-B861-6FE3B8134E8A"
+            ]
+        },
+        "sid-8F872404-6380-429B-A832-40F246EEE913": {
+            "name": "Send a message",
+            "incoming": [
+                "sid-1D15EF66-4C39-4984-9847-096011E41B93"
+            ],
+            "outgoing": [
+                "sid-DDDCD7F8-9CB3-40B9-91A0-0C197F5F3BB5"
+            ]
+        },
+        "sid-D59B1013-381C-4BCD-8817-AFD9FC077536": {
+            "name": "Book incoming money",
+            "incoming": [
+                "sid-E6E75B4A-B783-4062-9AF0-94A5EFFC43A8"
+            ],
+            "outgoing": [
+                "sid-6101C97E-54A4-4C99-B906-7A59DEDC149B"
+            ]
+        },
+        "sid-DB41CC12-F67D-41B7-872B-47943D2446E2": {
+            "name": "Adding debt collection",
+            "incoming": [
+                "sid-EAA217FB-6816-484C-BBB7-545E4E74108A",
+                "sid-BF362D1C-118B-4657-8D2D-B73EAB486F89"
+            ],
+            "outgoing": [
+                "sid-63F929A0-DE7A-4193-8865-DF3849AB1CE9"
+            ]
+        },
+        "sid-6F46CFC0-2740-4686-A65A-684C74916899": {
+            "name": "Examination",
+            "incoming": [
+                "sid-00AA2200-F334-41B5-8A4D-BD1A02DD1EC5"
+            ],
+            "outgoing": [
+                "sid-019D2CDA-CE32-4651-934D-B046C9889EC7"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-619F762B-B90B-4B4F-A5EB-CCE887F0F173": {
+            "name": "Regress?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-26797D0E-C49C-43EB-AB8B-CFA2353AB07D"
+            ],
+            "outgoing": [
+                "sid-6CF28AB7-5BEE-481B-8885-A06C36CE26EA",
+                "sid-1D15EF66-4C39-4984-9847-096011E41B93"
+            ]
+        },
+        "sid-A00CA465-C9A0-4B61-8076-6E796A842333": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-6CF28AB7-5BEE-481B-8885-A06C36CE26EA",
+                "sid-C011A73C-BDAB-4E9A-8CFC-740530E689C0"
+            ],
+            "outgoing": [
+                "sid-AEA451CC-1EDC-4648-BBF0-44D627247ED3"
+            ]
+        },
+        "sid-21E048CD-595B-4E4D-9985-2BB0EB55B344": {
+            "name": "Justified revocation?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-019D2CDA-CE32-4651-934D-B046C9889EC7"
+            ],
+            "outgoing": [
+                "sid-BF362D1C-118B-4657-8D2D-B73EAB486F89",
+                "sid-C011A73C-BDAB-4E9A-8CFC-740530E689C0"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-397B2F36-3818-4CF3-8AB4-8D465D1BEC8C": {
+            "name": "Debt collection process",
+            "incoming": [
+                "sid-63F929A0-DE7A-4193-8865-DF3849AB1CE9"
+            ]
+        },
+        "sid-20B3E7DD-FD44-478F-B923-9AF5677F8646": {
+            "name": "Process End",
+            "incoming": [
+                "sid-E9C5AAA4-EEFC-4C35-B861-6FE3B8134E8A"
+            ]
+        },
+        "sid-73BCE371-6275-43D9-BACA-08678F058DC2": {
+            "name": "Get money",
+            "incoming": [
+                "sid-6101C97E-54A4-4C99-B906-7A59DEDC149B"
+            ]
+        }
+    }
+}

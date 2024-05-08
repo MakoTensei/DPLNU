@@ -1,0 +1,94 @@
+{
+    "start_events": {
+        "sid-6B9FA835-85CD-4EFB-B302-D82AE1A1AB16": {
+            "name": "Regression\nReport",
+            "outgoing": [
+                "sid-83448CA1-3CBF-45F4-BE11-95FBB534831E"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-3ADCCB4C-6FDD-455D-8294-15E306ACC411": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-83448CA1-3CBF-45F4-BE11-95FBB534831E"
+            ],
+            "outgoing": [
+                "sid-B9629DEA-F7C9-4B93-99B8-F9992241BAC6"
+            ]
+        },
+        "sid-FC770CD5-18C7-4E8A-A8BE-27A584DB2D4F": {
+            "name": "Send payment request to VN",
+            "incoming": [
+                "sid-DF1CE346-2317-4657-821F-D4C899205BA6"
+            ],
+            "outgoing": [
+                "sid-8A438391-0A14-47DA-82FE-44E471FF26EA"
+            ]
+        },
+        "sid-657C9CB5-B637-49DB-923B-EA030967217C": {
+            "name": "Complete the process",
+            "incoming": [
+                "sid-D80D1C95-77F8-434F-9010-D1C24407B7CB",
+                "sid-C3A5BD49-ED0E-4799-B477-78AC1C2DBC2A"
+            ],
+            "outgoing": [
+                "sid-3FD1EB40-84F7-4581-AB94-7D639C4B849A"
+            ]
+        },
+        "sid-7C6B1C1F-7129-498B-BB05-5066B067117F": {
+            "name": "Check the receipt of funds",
+            "incoming": [],
+            "outgoing": [
+                "sid-F83C91A6-EC0E-4B58-BB06-C62923C50C94"
+            ]
+        },
+        "sid-C3A20B47-C92D-45A9-B1CD-152A623AD9C3": {
+            "name": "Book money",
+            "incoming": [
+                "sid-0A690D9E-B77D-4D51-8BE4-F626B17FE3DD"
+            ],
+            "outgoing": [
+                "sid-C3A5BD49-ED0E-4799-B477-78AC1C2DBC2A"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-B4264683-8F93-470D-AEE5-61A561B887A6": {
+            "name": "Check regression\npossible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B9629DEA-F7C9-4B93-99B8-F9992241BAC6"
+            ],
+            "outgoing": [
+                "sid-DF1CE346-2317-4657-821F-D4C899205BA6",
+                "sid-D80D1C95-77F8-434F-9010-D1C24407B7CB"
+            ]
+        },
+        "sid-7778EDAF-359C-4D8A-AD12-A675F9D847D7": {
+            "name": "Money?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-F83C91A6-EC0E-4B58-BB06-C62923C50C94"
+            ],
+            "outgoing": [
+                "sid-0A690D9E-B77D-4D51-8BE4-F626B17FE3DD",
+                "sid-EAAC84A4-4EC3-4B7C-BBDC-BA9E93AF8472"
+            ]
+        },
+        "sid-3F9099CF-C359-4D35-9256-4C6405013DD2": {
+            "name": "V\ncontradictory?",
+            "direction": "Unspecified",
+            "incoming": [],
+            "outgoing": []
+        }
+    },
+    "end_events": {
+        "sid-47DCF8B2-13F9-46F7-B10A-7CF4F3D88958": {
+            "name": "Regress completed",
+            "incoming": [
+                "sid-3FD1EB40-84F7-4581-AB94-7D639C4B849A"
+            ]
+        }
+    }
+}

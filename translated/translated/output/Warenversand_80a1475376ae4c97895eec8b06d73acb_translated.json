@@ -1,0 +1,120 @@
+{
+    "start_events": {
+        "sid-57E4C314-EC92-4CCF-A861-39EF411FE02B": {
+            "name": "Start",
+            "outgoing": [
+                "sid-27C67AAB-3ECC-49B5-A419-6114C3569AB5"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-C5148421-AF99-4503-B0F4-355139335637": {
+            "name": "Explanation Shipping",
+            "incoming": [
+                "sid-27C67AAB-3ECC-49B5-A419-6114C3569AB5"
+            ],
+            "outgoing": [
+                "sid-2974D5C7-3593-483A-85C6-2985F948340C"
+            ]
+        },
+        "sid-5F2F75EF-E35D-4FBA-9D99-10BBCBFF4E8A": {
+            "name": "Collection of offers from different carriers",
+            "incoming": [
+                "sid-51F8CDAF-8889-4855-8400-C3ED16C2AF5A"
+            ],
+            "outgoing": [
+                "sid-18FDEDA5-00F8-4C30-B53D-6E0376C86542"
+            ]
+        },
+        "sid-A605C878-C6FC-4C71-B0AA-4267DC03BE68": {
+            "name": "Filling the package note",
+            "incoming": [
+                "sid-B757E4F2-36C6-40F4-8E75-89F2E802044B"
+            ],
+            "outgoing": [
+                "sid-9FAA67DD-7040-4787-AAFC-90B0A3E579E6"
+            ]
+        },
+        "sid-6B46D6BC-633C-4D96-A4D5-09C957E02CFF": {
+            "name": "Spediteur",
+            "incoming": [
+                "sid-18FDEDA5-00F8-4C30-B53D-6E0376C86542"
+            ],
+            "outgoing": [
+                "sid-8EC04894-090D-4368-AD46-4310DCAAB5DC"
+            ]
+        },
+        "sid-C7C8ECDF-6210-4434-B0D4-7932A52BC621": {
+            "name": "Insurance close",
+            "incoming": [
+                "sid-4C63045E-BE4C-440B-828A-5C75A4C4C1A6"
+            ],
+            "outgoing": [
+                "sid-E831E823-EC30-43EE-831A-5603E919CAEC"
+            ]
+        },
+        "sid-16FBE321-197D-4F3F-A38B-C11F3E924B5A": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-865F9CD8-B2F3-4F4F-A6D8-28FF7594ACA3"
+            ],
+            "outgoing": [
+                "sid-811A0792-2800-4F6C-9D90-59AEA1667851"
+            ]
+        },
+        "sid-14194568-C886-478D-8633-560AB1465060": {
+            "name": "Delivering goods",
+            "incoming": [
+                "sid-D5779BCD-4A45-4069-9E35-BBDFC2A2A7CD"
+            ],
+            "outgoing": []
+        }
+    },
+    "gateways": {
+        "sid-10089CAF-BF40-4013-B565-59E1640F50C9": {
+            "name": "Large quantity",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-2974D5C7-3593-483A-85C6-2985F948340C"
+            ],
+            "outgoing": [
+                "sid-51F8CDAF-8889-4855-8400-C3ED16C2AF5A",
+                "sid-B757E4F2-36C6-40F4-8E75-89F2E802044B"
+            ]
+        },
+        "sid-7FF05233-31A8-42EB-9A80-A2B3D63E75B4": {
+            "name": "Insurance necessary?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B9E90D5C-BCDE-4096-8E54-611FD10E3BEE"
+            ],
+            "outgoing": [
+                "sid-4C63045E-BE4C-440B-828A-5C75A4C4C1A6",
+                "sid-5CE974BF-76CE-4D2A-9EFE-D1501AD10627"
+            ]
+        },
+        "sid-381ED961-16AA-45BE-A50A-CD5242347BB6": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-5CE974BF-76CE-4D2A-9EFE-D1501AD10627",
+                "sid-E831E823-EC30-43EE-831A-5603E919CAEC"
+            ],
+            "outgoing": [
+                "sid-D80C4296-D1B9-455F-A0BA-D4383F446EB9"
+            ]
+        },
+        "sid-DF912F0F-101D-4112-BA9D-040A7DD56604": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-74B16C74-8884-4949-A32A-441787F50F0D",
+                "sid-8EC04894-090D-4368-AD46-4310DCAAB5DC"
+            ],
+            "outgoing": [
+                "sid-D5779BCD-4A45-4069-9E35-BBDFC2A2A7CD"
+            ]
+        }
+    },
+    "end_events": {}
+}

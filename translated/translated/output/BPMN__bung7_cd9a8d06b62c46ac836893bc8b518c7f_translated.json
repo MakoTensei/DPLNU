@@ -1,0 +1,130 @@
+{
+    "start_events": {
+        "sid-3421242E-6132-4749-ABE9-54A62CE36CC1": {
+            "name": "Scoring request",
+            "outgoing": [
+                "sid-168EE966-7D21-49FE-80FD-767F4EC60CA7"
+            ]
+        },
+        "sid-92CD7929-BA15-4E98-A677-CB403A568B67": {
+            "name": "Scoring request",
+            "outgoing": [
+                "sid-24296890-BC68-4198-ADA7-D143F6CCFC14"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-8F264E63-5974-4A5D-82C3-7C41FF3706AD": {
+            "name": "Scoring request",
+            "incoming": [
+                "sid-168EE966-7D21-49FE-80FD-767F4EC60CA7"
+            ],
+            "outgoing": [
+                "sid-AECB8D20-2988-48FC-A386-1DCF82C68F61"
+            ]
+        },
+        "sid-BD0A25A8-2911-4E86-9102-5477472806C8": {
+            "name": "forward scoring result 1",
+            "incoming": [
+                "sid-6229836D-5398-463B-84EF-E85F57C83883"
+            ],
+            "outgoing": [
+                "sid-05E6AC3F-6259-4867-BBCB-7CE70F3B7664"
+            ]
+        },
+        "sid-99EC32DB-E6DF-4468-BEEA-64AC8E43C2CA": {
+            "name": "forward delay message",
+            "incoming": [
+                "sid-96D9B703-BA7C-46A9-B3AC-861459525770"
+            ],
+            "outgoing": []
+        },
+        "sid-E50C7E4F-F49A-452F-BCA6-157E2C04C696": {
+            "name": "forward scoring result 2",
+            "incoming": [
+                "sid-2EB37D8D-0E07-44A7-AB97-8F1BFE8DD4A8"
+            ],
+            "outgoing": [
+                "sid-8827A837-35BC-4A4F-9E28-FC0B3187B423"
+            ]
+        },
+        "sid-E4121167-B0CC-4744-B435-FA5992F87765": {
+            "name": "Scoring (Level1)",
+            "incoming": [
+                "sid-24296890-BC68-4198-ADA7-D143F6CCFC14"
+            ],
+            "outgoing": [
+                "sid-5C032951-775B-4F56-9FB8-5B5CEBD9278F"
+            ]
+        },
+        "sid-0C5514D2-4A7F-4AB5-BDF1-331BC3BBF1F4": {
+            "name": "Report result to Bank",
+            "incoming": [
+                "sid-06E45B07-723E-48BA-899A-437A48968609"
+            ],
+            "outgoing": [
+                "sid-9B95E68F-3F9B-4D9E-BCE4-47D8A71051A1"
+            ]
+        },
+        "sid-268EFE41-E780-4065-9B7B-5AD23558A6C0": {
+            "name": "Report delay",
+            "incoming": [
+                "sid-FBFE9630-7EE7-4690-A589-D8F085F34136"
+            ],
+            "outgoing": [
+                "sid-B4A9DDB7-0F14-4B60-901C-8A31461B774D"
+            ]
+        },
+        "sid-FFACA3B5-B2DF-41BE-A566-54A003B59E9B": {
+            "name": "perform final scoring (level 2)",
+            "incoming": [
+                "sid-B4A9DDB7-0F14-4B60-901C-8A31461B774D"
+            ],
+            "outgoing": [
+                "sid-FF0B422B-3E5B-4C09-A616-0E6EE7E76E6F"
+            ]
+        },
+        "sid-7AFB8340-1192-42EF-836F-31D725FE47CB": {
+            "name": "Report scoring result 2 to Bank",
+            "incoming": [
+                "sid-CB1D098D-EFCD-4FD5-B343-1881C3118BD1"
+            ],
+            "outgoing": [
+                "sid-0CFAB8AA-6453-4A76-870E-906B35CFFC4E"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-CA187F08-E88D-4574-B302-216FA8CB04D0": {
+            "name": "Result there?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-5C032951-775B-4F56-9FB8-5B5CEBD9278F"
+            ],
+            "outgoing": [
+                "sid-06E45B07-723E-48BA-899A-437A48968609",
+                "sid-FBFE9630-7EE7-4690-A589-D8F085F34136"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-FF53FCCF-F69A-4940-B7EE-D355E596FDB5": {
+            "name": "Scoring request completed",
+            "incoming": [
+                "sid-8827A837-35BC-4A4F-9E28-FC0B3187B423"
+            ]
+        },
+        "sid-A8079855-1948-4E1D-96FF-A2FF688A6A3B": {
+            "name": "Scoring 2 finished",
+            "incoming": [
+                "sid-0CFAB8AA-6453-4A76-870E-906B35CFFC4E"
+            ]
+        },
+        "sid-F105DC5E-B317-4BD3-8723-CEA246F11075": {
+            "name": "Scoring 1 finished",
+            "incoming": [
+                "sid-9B95E68F-3F9B-4D9E-BCE4-47D8A71051A1"
+            ]
+        }
+    }
+}

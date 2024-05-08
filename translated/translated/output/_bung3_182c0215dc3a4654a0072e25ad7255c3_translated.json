@@ -1,0 +1,127 @@
+{
+    "start_events": {
+        "sid-13E76038-EFC0-45BF-ACC5-ABFEB5F9F82A": {
+            "name": "Take Vn in Regress",
+            "outgoing": [
+                "sid-6C3A95F9-8651-4CBB-BFD6-57FD01A64148"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-9D22588D-F541-40CC-B29F-E28D16A7F7B0": {
+            "name": "Check regression claim",
+            "incoming": [
+                "sid-6C3A95F9-8651-4CBB-BFD6-57FD01A64148"
+            ],
+            "outgoing": [
+                "sid-F22ADE28-E41E-4178-AF7C-89EBCBEF167D"
+            ]
+        },
+        "sid-C840958E-8057-4E24-B4C1-44B4C72DFF39": {
+            "name": "Close",
+            "incoming": [
+                "sid-47BAA9A1-E64D-4840-A1DD-E9369D39AB2D"
+            ],
+            "outgoing": [
+                "sid-28DC237B-93E1-42B6-8154-E5D40CDD3E61"
+            ]
+        },
+        "sid-48C7CA60-628A-4362-A1EC-77A2FE21F5F8": {
+            "name": "Send a message",
+            "incoming": [
+                "sid-02F9069F-23ED-4421-AF90-6AA9BB303FF4"
+            ],
+            "outgoing": [
+                "sid-9F7BEDA6-F4D5-4B3B-9BAD-376AB48CAD67"
+            ]
+        },
+        "sid-38B7E598-6642-4D09-8115-575676AF0A94": {
+            "name": "Book payment receipt",
+            "incoming": [
+                "sid-3564AA8C-92E3-4DE3-81FA-4260E38562D6"
+            ],
+            "outgoing": [
+                "sid-DAA3DDCD-8F65-4AFB-BBE5-0A125913E33E"
+            ]
+        },
+        "sid-61BE3B73-181A-410C-AC87-3C513F462C36": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-E79379B6-C401-45D2-908B-4864098486E6"
+            ],
+            "outgoing": [
+                "sid-B3E9E14A-0A09-4B2C-A59D-BDC6F094B543"
+            ]
+        },
+        "sid-436D30F2-2548-4D71-A67F-0D41EE8FB76E": {
+            "name": "Claim of payment to debtor service providers",
+            "incoming": [
+                "sid-69F07D2A-FDC9-4B70-9751-3DCE5C3E2EBD"
+            ],
+            "outgoing": [
+                "sid-601D86FF-BD4B-4EA8-8DC5-DBC875B88766"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-F7241DDA-821E-486F-A012-C079F39BD081": {
+            "name": "Regression right?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-F22ADE28-E41E-4178-AF7C-89EBCBEF167D"
+            ],
+            "outgoing": [
+                "sid-512B3E01-4B84-4820-9A26-6987CF52E2D2",
+                "sid-02F9069F-23ED-4421-AF90-6AA9BB303FF4"
+            ]
+        },
+        "sid-94078098-B572-456A-A4AE-32F92D4BD7AE": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-512B3E01-4B84-4820-9A26-6987CF52E2D2",
+                "sid-DAA3DDCD-8F65-4AFB-BBE5-0A125913E33E",
+                "sid-3B573376-6E83-4EA5-A74F-7D528DE5596E"
+            ],
+            "outgoing": [
+                "sid-47BAA9A1-E64D-4840-A1DD-E9369D39AB2D"
+            ]
+        },
+        "sid-8C31A446-EE5E-42A9-A16F-70FB43C30EE6": {
+            "name": "Objection justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B3E9E14A-0A09-4B2C-A59D-BDC6F094B543"
+            ],
+            "outgoing": [
+                "sid-3B573376-6E83-4EA5-A74F-7D528DE5596E",
+                "sid-1438802C-4786-4F8E-B135-5F5A60DB449B"
+            ]
+        },
+        "sid-4F2CEFD9-4BFE-457A-836E-0125A77A14B4": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-9B9DAD6D-4879-4520-92A5-86A311053548",
+                "sid-1438802C-4786-4F8E-B135-5F5A60DB449B"
+            ],
+            "outgoing": [
+                "sid-69F07D2A-FDC9-4B70-9751-3DCE5C3E2EBD"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-F1A5FA84-4E75-4EBE-8DD6-A8BE246FEEA8": {
+            "name": "Process",
+            "incoming": [
+                "sid-28DC237B-93E1-42B6-8154-E5D40CDD3E61"
+            ]
+        },
+        "sid-E908C09A-643B-4024-A972-5CFC94D2E3B8": {
+            "name": "process remains open",
+            "incoming": [
+                "sid-601D86FF-BD4B-4EA8-8DC5-DBC875B88766"
+            ]
+        }
+    }
+}

@@ -1,0 +1,86 @@
+{
+    "start_events": {
+        "sid-75C9E55E-4454-4626-870D-5FC50EF9EECE": {
+            "name": "Scoring request",
+            "outgoing": [
+                "sid-9176D68B-353F-4406-BAAB-2D735668E768"
+            ]
+        },
+        "sid-C254B3F5-ED60-49FF-9485-422989221457": {
+            "name": "Scoring request\nReport",
+            "outgoing": [
+                "sid-727C82E2-C5C8-4D63-8DA9-67B8209E0843"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-C4FF567D-EA4D-4F01-8A2D-44EAD9CF794C": {
+            "name": "Determining scoring\n(level 1)",
+            "incoming": [
+                "sid-9176D68B-353F-4406-BAAB-2D735668E768"
+            ],
+            "outgoing": [
+                "sid-727AAB09-6308-4D45-B3B2-1DF1B64BA2DA"
+            ]
+        },
+        "sid-1AFA9AFD-9EA5-4040-B420-E60A11BE1CAE": {
+            "name": "Determining scoring (level 2)",
+            "incoming": [
+                "sid-172A9DA6-4700-4E1A-B26D-14FA24D5991F"
+            ],
+            "outgoing": [
+                "sid-2E6AE5E2-D8E6-4BE9-8CB6-0BB3FB51ACF4"
+            ]
+        },
+        "sid-FFEA2454-39F9-46A2-BB18-EC6BDB0DB225": {
+            "name": "forward request",
+            "incoming": [
+                "sid-727C82E2-C5C8-4D63-8DA9-67B8209E0843"
+            ],
+            "outgoing": [
+                "sid-9F73D2D9-6C33-4D2C-AB59-B745AC74EE3A"
+            ]
+        },
+        "sid-FF089449-8F27-45E5-A37A-D4034927A250": {
+            "name": "SB inform",
+            "incoming": [
+                "sid-E390E0DC-554C-4475-88E7-B4AA4C09E2E1"
+            ],
+            "outgoing": []
+        }
+    },
+    "gateways": {
+        "sid-EE8410E3-F374-4C50-B4FB-DF10B4FBC986": {
+            "name": "Scoring Delayed?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-727AAB09-6308-4D45-B3B2-1DF1B64BA2DA"
+            ],
+            "outgoing": [
+                "sid-D3BF9BD5-BFC9-4BED-A328-A27A56292DD2",
+                "sid-831E17C6-5F2C-45F5-8BC7-6BA892F7C312"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-FF14B78D-B51E-4CB3-AC45-451CD902CB7A": {
+            "name": "Scoring",
+            "incoming": [
+                "sid-D3BF9BD5-BFC9-4BED-A328-A27A56292DD2"
+            ]
+        },
+        "sid-FEF610FC-8DAE-4F92-949D-685BC87062EC": {
+            "name": "Scoring",
+            "incoming": [
+                "sid-2E6AE5E2-D8E6-4BE9-8CB6-0BB3FB51ACF4"
+            ]
+        },
+        "sid-61B6731A-A578-4D20-A737-C470222F5637": {
+            "name": "Send Scoring",
+            "incoming": [
+                "sid-717EC3C7-7AE3-47C4-9EE6-4715AAB31554",
+                "sid-22706DCA-00BC-4CBD-BE3B-90FE4574CDBA"
+            ]
+        }
+    }
+}

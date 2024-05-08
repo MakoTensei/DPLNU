@@ -1,0 +1,129 @@
+{
+    "start_events": {
+        "sid-4C0EEA5C-3880-46D2-BE52-3E87E730B846": {
+            "name": "Goods are to be shipped",
+            "outgoing": [
+                "sid-2B23AC1A-9A6E-49CE-9EDB-0A53A44DF25C"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-5C4509E0-6E7E-4691-B9F7-A9878166C4BE": {
+            "name": "Insurance",
+            "incoming": [
+                "sid-1434FD4C-0983-4748-BD38-4101BF8A2AFB"
+            ],
+            "outgoing": [
+                "sid-98ACF719-06F3-46E9-A602-61CBBEA5D344"
+            ]
+        },
+        "sid-4790263B-F1E5-4973-8665-0C7C8C1999EF": {
+            "name": "clarification of who takes delivery",
+            "incoming": [
+                "sid-E9675784-F3C5-48B3-9D49-0E65BB6D3DCA"
+            ],
+            "outgoing": [
+                "sid-AF6B640A-FA0B-443A-97D5-70E32446F19F"
+            ]
+        },
+        "sid-58CB9E45-95F0-40B1-BE86-C608A97189A7": {
+            "name": "Filling the package note",
+            "incoming": [
+                "sid-CFFD91EB-5097-4984-A189-9EF17C1C946F"
+            ],
+            "outgoing": [
+                "sid-B11C73A1-D4A0-466C-AA6C-5AA03D10716C"
+            ]
+        },
+        "sid-DDCD4D58-05DB-4E8B-9395-6620DBCACDB2": {
+            "name": "Get a quote from Spedition",
+            "incoming": [
+                "sid-5FA82F6D-6E32-4D14-8366-FB8F74BAD67C"
+            ],
+            "outgoing": [
+                "sid-A9110191-9177-4311-BD38-8CC64CD515FA"
+            ]
+        },
+        "sid-6B3F3E86-F3CD-4981-BFFB-265229342205": {
+            "name": "order the best forwarding",
+            "incoming": [
+                "sid-A9110191-9177-4311-BD38-8CC64CD515FA"
+            ],
+            "outgoing": [
+                "sid-4832761A-8960-48C1-A0BC-4356996558FD"
+            ]
+        },
+        "sid-A0673E5A-C8DE-4C53-BC83-DD8395E90EE0": {
+            "name": "Provide shipping documents for goods",
+            "incoming": [
+                "sid-6E25D05A-B3F7-479C-93F0-9C209C94B4D2",
+                "sid-98ACF719-06F3-46E9-A602-61CBBEA5D344"
+            ],
+            "outgoing": [
+                "sid-A3E81946-3FD8-43DF-859A-9AB1FCF299C6"
+            ]
+        },
+        "sid-76B80381-1D06-4F20-A87D-7C66BB61A33C": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-9A4ABAC1-BDD3-4B16-B77F-687EDE9E70B3"
+            ],
+            "outgoing": [
+                "sid-FA902C13-6C1C-45C2-8584-24621E4D983E"
+            ]
+        },
+        "sid-E410CDBC-2674-4016-9780-483CED28D64C": {
+            "name": "Provide goods for collection",
+            "incoming": [
+                "sid-FA902C13-6C1C-45C2-8584-24621E4D983E",
+                "sid-A3E81946-3FD8-43DF-859A-9AB1FCF299C6"
+            ],
+            "outgoing": [
+                "sid-CC015CAD-0E11-42C5-817D-D8F3C3363CF5"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-48E5F786-B086-401F-A8EE-9FE430771AB5": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-AF6B640A-FA0B-443A-97D5-70E32446F19F"
+            ],
+            "outgoing": [
+                "sid-CFFD91EB-5097-4984-A189-9EF17C1C946F",
+                "sid-5FA82F6D-6E32-4D14-8366-FB8F74BAD67C"
+            ]
+        },
+        "sid-4025D7A5-5ABC-4E87-95E0-4C2020A4DF07": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-B11C73A1-D4A0-466C-AA6C-5AA03D10716C",
+                "sid-4832761A-8960-48C1-A0BC-4356996558FD"
+            ],
+            "outgoing": [
+                "sid-CA866703-C97D-4F9C-994A-A14EF1AEDFC6"
+            ]
+        },
+        "sid-F26A1105-2B0D-4945-B550-64A8165D8A2B": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-CA866703-C97D-4F9C-994A-A14EF1AEDFC6"
+            ],
+            "outgoing": [
+                "sid-1434FD4C-0983-4748-BD38-4101BF8A2AFB",
+                "sid-6E25D05A-B3F7-479C-93F0-9C209C94B4D2"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-442A3DC3-52D7-4C76-9F26-425A63AC376F": {
+            "name": "Goods are picked up by forwarding or mail",
+            "incoming": [
+                "sid-CC015CAD-0E11-42C5-817D-D8F3C3363CF5"
+            ]
+        }
+    }
+}

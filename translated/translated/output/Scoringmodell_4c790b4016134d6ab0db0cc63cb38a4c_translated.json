@@ -1,0 +1,123 @@
+{
+    "start_events": {
+        "sid-17D267D6-A9A5-4C66-B67E-7DB56A497FE1": {
+            "name": "Customer request",
+            "outgoing": [
+                "sid-45779466-F62B-4DE3-9BDF-ADC719DC4569"
+            ]
+        },
+        "sid-DC91C7E5-04C8-4A95-BB79-AD08077ED844": {
+            "name": "Scoring request",
+            "outgoing": [
+                "sid-F111D2E6-58CE-473D-B5B8-CB79F5FBABB9"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-F292C0DF-56BD-4753-B516-E443F657B247": {
+            "name": "Scoring request\n",
+            "incoming": [
+                "sid-45779466-F62B-4DE3-9BDF-ADC719DC4569"
+            ],
+            "outgoing": [
+                "sid-B38F74EB-52ED-425C-84A2-E6540FEB3B83"
+            ]
+        },
+        "sid-BB7ACC29-3F1B-4FF4-97F7-DA5C369EFCF9": {
+            "name": "forward scoring results",
+            "incoming": [
+                "sid-B46F688E-1FCC-4708-A108-F1F43BD45982"
+            ],
+            "outgoing": [
+                "sid-A66EFA71-0EEF-4E0F-8762-F4396656FA16"
+            ]
+        },
+        "sid-671080E3-0BEC-4F68-96DE-8F91E85E5FFE": {
+            "name": "perform other work",
+            "incoming": [
+                "sid-7B3A5B8C-9DFD-4FAB-B85B-3B377C14C12F"
+            ],
+            "outgoing": [
+                "sid-F60765D0-212C-492E-AA34-12A60BD862A3"
+            ]
+        },
+        "sid-1C3C496A-1EA5-43B9-AB71-1727CBAC28D1": {
+            "name": "Level 1 Scoring",
+            "incoming": [
+                "sid-F111D2E6-58CE-473D-B5B8-CB79F5FBABB9"
+            ],
+            "outgoing": [
+                "sid-6C4522D4-D083-4A67-B416-C9A8DEE64C61"
+            ]
+        },
+        "sid-4BC39B3E-9E05-4C75-8637-03BB686F112A": {
+            "name": "forward scoring results\n",
+            "incoming": [
+                "sid-83279428-D467-41EA-9B7E-8C57B10E499F"
+            ],
+            "outgoing": [
+                "sid-E6E883D8-DDB0-47C4-BBAD-E90664C15825"
+            ]
+        },
+        "sid-6C4B78EF-419F-48A2-93A4-2548BB1B0D01": {
+            "name": "Report delay\n",
+            "incoming": [
+                "sid-C639A02A-5422-495F-B0CB-B0E0F13EC45A"
+            ],
+            "outgoing": [
+                "sid-3E0268F3-1878-4FA0-BD17-99188A6983C2"
+            ]
+        },
+        "sid-06C8C81D-F057-40CC-8F82-86BE269CF7A4": {
+            "name": "Level 2 Scoring",
+            "incoming": [
+                "sid-3E0268F3-1878-4FA0-BD17-99188A6983C2"
+            ],
+            "outgoing": [
+                "sid-A619BD8E-29D4-4A0F-96F7-065201A282D7"
+            ]
+        },
+        "sid-99EDCF9C-5490-4FC9-97F9-DF6B160F7533": {
+            "name": "forward scoring results",
+            "incoming": [
+                "sid-A619BD8E-29D4-4A0F-96F7-065201A282D7"
+            ],
+            "outgoing": [
+                "sid-6383B048-861A-4B86-8148-5B77298CCE37"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-C55883C5-3AC0-4FCA-B8A2-7D13C9A9398D": {
+            "name": "Scoring result available?\n",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-6C4522D4-D083-4A67-B416-C9A8DEE64C61"
+            ],
+            "outgoing": [
+                "sid-83279428-D467-41EA-9B7E-8C57B10E499F",
+                "sid-C639A02A-5422-495F-B0CB-B0E0F13EC45A"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-AE50845C-03D9-4F95-BEE1-7978AD007E24": {
+            "name": "Scoring completed",
+            "incoming": [
+                "sid-A66EFA71-0EEF-4E0F-8762-F4396656FA16"
+            ]
+        },
+        "sid-646453DD-ABED-4C1B-B020-32E8EC59707D": {
+            "name": "Scoring ends",
+            "incoming": [
+                "sid-6383B048-861A-4B86-8148-5B77298CCE37"
+            ]
+        },
+        "sid-06A7134E-141D-4C7F-890C-BB6A2FBFF5D9": {
+            "name": "Scoring ends",
+            "incoming": [
+                "sid-E6E883D8-DDB0-47C4-BBAD-E90664C15825"
+            ]
+        }
+    }
+}

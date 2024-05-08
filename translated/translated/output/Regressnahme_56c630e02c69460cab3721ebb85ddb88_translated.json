@@ -1,0 +1,145 @@
+{
+    "start_events": {
+        "sid-B6B86CA3-62FD-46AA-B0C7-F3F837AC4479": {
+            "name": "Notification\npossible regression",
+            "outgoing": [
+                "sid-79270DEF-A6C6-4AAE-A269-9888C4E5D0D6"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-00BBFA95-5C71-47F9-9F44-CC8F780241C5": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-79270DEF-A6C6-4AAE-A269-9888C4E5D0D6"
+            ],
+            "outgoing": [
+                "sid-AB122EFD-5CB3-46C5-8E48-41E1E8D1A31D"
+            ]
+        },
+        "sid-B6072BEE-5A50-4EB6-8102-7D53E68946E1": {
+            "name": "Send payment request",
+            "incoming": [
+                "sid-808E6454-2443-4C61-9B12-4C957CFBFEA0"
+            ],
+            "outgoing": [
+                "sid-0EB4D058-DA2C-498E-9898-2185A476D84A"
+            ]
+        },
+        "sid-AABBCADB-D21D-401C-9601-7785BCAE5571": {
+            "name": "Book money",
+            "incoming": [
+                "sid-894D0F92-D512-4FA1-89B3-4451E41C8159"
+            ],
+            "outgoing": [
+                "sid-9C1232EF-9E07-42CE-A72E-EB9BEFF4E9B3"
+            ]
+        },
+        "sid-EB053AD6-744E-44BF-8705-59F88EDEE88A": {
+            "name": "Set process for resubmission",
+            "incoming": [
+                "sid-0EB4D058-DA2C-498E-9898-2185A476D84A"
+            ],
+            "outgoing": [
+                "sid-037A1210-E20C-44D9-99E8-0A7FACFACF57"
+            ]
+        },
+        "sid-8F1E32C8-4FD0-4C33-97E4-C97F19315BCB": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-771EEF8D-F63C-48F1-A55B-158F0BD179CF"
+            ],
+            "outgoing": [
+                "sid-0E949194-2C59-433D-A503-6DD0489B3649"
+            ]
+        },
+        "sid-3E648542-B9F7-41A0-8CA4-3FA7C654C1C7": {
+            "name": "Close",
+            "incoming": [
+                "sid-A0D4CB8B-A320-45CE-9E8D-BE1E68C92045"
+            ],
+            "outgoing": [
+                "sid-6AB9B8F5-2EBA-4F73-8631-2CA019556C8D"
+            ]
+        },
+        "sid-BA409A62-91BC-411A-BEE1-AB6966B32640": {
+            "name": "Case handed over",
+            "incoming": [
+                "sid-A16B32BA-8513-45F7-B03A-39C0DEBB38DE"
+            ],
+            "outgoing": [
+                "sid-727F3F08-A05D-45F9-A91E-6B228C9CFF4A"
+            ]
+        },
+        "sid-332C6184-9C86-47D5-8842-51CE59838836": {
+            "name": "Close",
+            "incoming": [
+                "sid-424F4FFA-721D-4312-B866-6B81B289F7DB"
+            ],
+            "outgoing": [
+                "sid-5E7404BD-79BB-41F5-9BE4-0EC6382B07EE"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-7A5A1561-E3ED-44A8-BF3B-12A3BD0B17E0": {
+            "name": "Opposition\njustified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-0E949194-2C59-433D-A503-6DD0489B3649"
+            ],
+            "outgoing": [
+                "sid-A0D4CB8B-A320-45CE-9E8D-BE1E68C92045",
+                "sid-9276A202-C291-444D-8358-4D19C025070C"
+            ]
+        },
+        "sid-7221AB36-A2C1-4A2F-8F11-D9CC3B11B435": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-9276A202-C291-444D-8358-4D19C025070C",
+                "sid-420A7015-4C9E-4364-8236-ED9EA29D5DB0"
+            ],
+            "outgoing": [
+                "sid-A16B32BA-8513-45F7-B03A-39C0DEBB38DE"
+            ]
+        },
+        "sid-5022BBAE-6EAF-44AA-ABC4-A5E23E0E0103": {
+            "name": "Is regression possible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-AB122EFD-5CB3-46C5-8E48-41E1E8D1A31D"
+            ],
+            "outgoing": [
+                "sid-424F4FFA-721D-4312-B866-6B81B289F7DB",
+                "sid-808E6454-2443-4C61-9B12-4C957CFBFEA0"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-F97709B4-F177-497E-9B36-187E6D3C9F61": {
+            "name": "Processed successfully",
+            "incoming": [
+                "sid-5E7404BD-79BB-41F5-9BE4-0EC6382B07EE"
+            ]
+        },
+        "sid-6235359D-11EE-4588-A723-0B5C81056532": {
+            "name": "Processed successfully",
+            "incoming": [
+                "sid-9C1232EF-9E07-42CE-A72E-EB9BEFF4E9B3"
+            ]
+        },
+        "sid-56D4E95C-11D6-46D5-8AB9-49F981ACE009": {
+            "name": "Processed successfully",
+            "incoming": [
+                "sid-6AB9B8F5-2EBA-4F73-8631-2CA019556C8D"
+            ]
+        },
+        "sid-627A36E3-0964-4479-BF8B-7DEABCF019EA": {
+            "name": "Successfully handed over",
+            "incoming": [
+                "sid-727F3F08-A05D-45F9-A91E-6B228C9CFF4A"
+            ]
+        }
+    }
+}

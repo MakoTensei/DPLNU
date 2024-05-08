@@ -1,0 +1,128 @@
+{
+    "start_events": {
+        "sid-D50ADB69-D129-4051-823F-99D8F4B5F606": {
+            "name": "Scoring\nRequired",
+            "outgoing": [
+                "sid-82902052-0204-44FC-BC28-86226C0ED2C8"
+            ]
+        },
+        "sid-A9D9D5C6-1E26-486F-B538-ACA74011A337": {
+            "name": "Scoring request\nmade available",
+            "outgoing": [
+                "sid-6BEC2FBE-5424-4278-B1BB-6831EB4CE241"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-38635A2C-CE11-4886-9779-366EDE67EFC9": {
+            "name": "Scoring request",
+            "incoming": [
+                "sid-82902052-0204-44FC-BC28-86226C0ED2C8"
+            ],
+            "outgoing": [
+                "sid-786AB838-2E82-41BA-8148-10A7E885D21A"
+            ]
+        },
+        "sid-B579C4A3-8F2F-4DCC-AD3D-97230FCE2746": {
+            "name": "Report delay to Frotnend",
+            "incoming": [
+                "sid-4E01931D-0CE7-4677-8B39-F5FB74753405"
+            ],
+            "outgoing": [
+                "sid-F7E1F2E9-B314-41A3-A27E-FE1F9C463CFA"
+            ]
+        },
+        "sid-0CE7387F-D16D-4138-A596-DA034E856C3A": {
+            "name": "Message to Frontend",
+            "incoming": [
+                "sid-44A4E99A-05A0-4C6C-AEFD-6611679B8F07"
+            ],
+            "outgoing": [
+                "sid-2B0D876D-90FF-46F9-8853-B179CA87B580"
+            ]
+        },
+        "sid-8C610B13-4864-4CCD-991D-47B179E6536A": {
+            "name": "perform scoring level 1",
+            "incoming": [
+                "sid-6BEC2FBE-5424-4278-B1BB-6831EB4CE241"
+            ],
+            "outgoing": [
+                "sid-91A66D82-4002-4E6A-8EB1-F9026D442427"
+            ]
+        },
+        "sid-BC664DD9-AB76-4E45-AEE8-FFE74E982B6F": {
+            "name": "Result Level 1 Report to Bank",
+            "incoming": [
+                "sid-5282E999-D30C-492F-879C-769949B264E6"
+            ],
+            "outgoing": [
+                "sid-2AAD6576-C2A0-4328-9615-A36D9B642362"
+            ]
+        },
+        "sid-611EC41D-5A31-4667-AA8E-2D93761833D9": {
+            "name": "Report delay to Bank",
+            "incoming": [
+                "sid-0379336F-676B-47E4-BED5-36F15ED16C81"
+            ],
+            "outgoing": [
+                "sid-A982326A-C603-45C1-947E-C2F967659338"
+            ]
+        },
+        "sid-8C63B0D1-3F23-4501-AA68-48DAB0286917": {
+            "name": "perform scoring level 2",
+            "incoming": [
+                "sid-A982326A-C603-45C1-947E-C2F967659338"
+            ],
+            "outgoing": [
+                "sid-99DED493-CAD4-483B-8E93-FAE26B26E423"
+            ]
+        },
+        "sid-C840AED5-9C60-498D-84DE-573406D341E6": {
+            "name": "Result Level 2 Report to Bank",
+            "incoming": [
+                "sid-99DED493-CAD4-483B-8E93-FAE26B26E423"
+            ],
+            "outgoing": [
+                "sid-3011D2E1-E3E2-4CCE-9381-0DE4D91529A1"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-5B463457-0E29-4FF4-8243-E2696A2750C5": {
+            "name": "Results Level 1\nis there?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-91A66D82-4002-4E6A-8EB1-F9026D442427"
+            ],
+            "outgoing": [
+                "sid-0379336F-676B-47E4-BED5-36F15ED16C81",
+                "sid-5282E999-D30C-492F-879C-769949B264E6"
+            ]
+        },
+        "sid-FC9EAFD3-6433-40DD-A560-BDF831FE0B9D": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-2AAD6576-C2A0-4328-9615-A36D9B642362",
+                "sid-3011D2E1-E3E2-4CCE-9381-0DE4D91529A1"
+            ],
+            "outgoing": [
+                "sid-6D5EA351-FDFB-4F89-B48F-86FCCA7A302F"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-89FF45EE-F36A-4E0F-A56D-194B8C63F6C9": {
+            "name": "Scoring result\nthe",
+            "incoming": [
+                "sid-2B0D876D-90FF-46F9-8853-B179CA87B580"
+            ]
+        },
+        "sid-B550A1EE-F80C-48EE-A552-9F1D541492EF": {
+            "name": "Scoring request\nFinished",
+            "incoming": [
+                "sid-6D5EA351-FDFB-4F89-B48F-86FCCA7A302F"
+            ]
+        }
+    }
+}

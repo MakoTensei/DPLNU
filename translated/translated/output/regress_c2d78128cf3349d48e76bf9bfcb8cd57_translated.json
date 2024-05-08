@@ -1,0 +1,93 @@
+{
+    "start_events": {
+        "sid-B0C5A5E3-3A27-438C-A396-EF9268B5E101": {
+            "name": "Report Regress",
+            "outgoing": [
+                "sid-1476624C-7B42-40E7-9487-5683B3B92458"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-F7FECF19-0FE8-4A82-8B89-F23DFADA7A39": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-1476624C-7B42-40E7-9487-5683B3B92458"
+            ],
+            "outgoing": [
+                "sid-6BF2AC47-03A1-4A4B-90E5-86FDD05980CC"
+            ]
+        },
+        "sid-ED417929-3621-4C88-A390-DFA943375F6D": {
+            "name": "Send payment request",
+            "incoming": [
+                "sid-850EA5AF-DED2-4D86-9F89-991C00C8A85D"
+            ],
+            "outgoing": [
+                "sid-C376C3AF-F21C-4397-A177-C24A9D9990AE"
+            ]
+        },
+        "sid-731C7B07-89FA-4E0F-99E3-8EF94F702AA3": {
+            "name": "Reimbursement process",
+            "incoming": [
+                "sid-C376C3AF-F21C-4397-A177-C24A9D9990AE"
+            ],
+            "outgoing": [
+                "sid-B9F6419B-4E23-4EDC-BD65-E01B4605B0F2"
+            ]
+        },
+        "sid-20048B5E-1B28-49A6-82BE-9735FCA32608": {
+            "name": "Examination",
+            "incoming": [
+                "sid-1DC3F2CB-0F48-4080-87F7-CBE9DDE34F69"
+            ],
+            "outgoing": [
+                "sid-96EBB964-F4A9-406F-BE8B-18A53944C7E8"
+            ]
+        },
+        "sid-F87E25FB-AE8B-42D7-8CF2-37130C5ED6B3": {
+            "name": "Dispense with debt collection service providers",
+            "incoming": [
+                "sid-062911B5-9FC0-42A6-90CF-4C4B59830C8F",
+                "sid-27B50C28-F02F-4DF1-A516-225A89BA16DA"
+            ],
+            "outgoing": [
+                "sid-98ED1887-9CE8-43BD-A35A-AEBE65CB7C6A"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-AC42B27A-F8CC-45D0-B24C-6619400EC4F2": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-6BF2AC47-03A1-4A4B-90E5-86FDD05980CC"
+            ],
+            "outgoing": [
+                "sid-F828DD2E-C7CB-4529-ADF0-B99478065FF6",
+                "sid-850EA5AF-DED2-4D86-9F89-991C00C8A85D"
+            ]
+        },
+        "sid-DD24B3F6-C0C7-4134-BC47-896AF39DB36F": {
+            "name": "Rejection of payment justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-96EBB964-F4A9-406F-BE8B-18A53944C7E8"
+            ],
+            "outgoing": [
+                "sid-062911B5-9FC0-42A6-90CF-4C4B59830C8F",
+                "sid-36FC45D1-2BE2-4A40-A1EE-1DC5B7ACD057"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-F0301404-6F68-4D44-8F66-004303AE7858": {
+            "name": "Process",
+            "incoming": [
+                "sid-F828DD2E-C7CB-4529-ADF0-B99478065FF6",
+                "sid-66F21391-7111-4D98-98BA-DF2529CD6A74",
+                "sid-36FC45D1-2BE2-4A40-A1EE-1DC5B7ACD057",
+                "sid-98ED1887-9CE8-43BD-A35A-AEBE65CB7C6A"
+            ]
+        }
+    }
+}

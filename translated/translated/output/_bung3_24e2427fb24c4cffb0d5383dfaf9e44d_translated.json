@@ -1,0 +1,147 @@
+{
+    "start_events": {
+        "sid-ED017909-4E45-47B0-9A0A-653B850052BA": {
+            "name": "VN may be taken into regression.",
+            "outgoing": [
+                "sid-2FC6CA17-4B3D-4BBB-AEAA-281967999759"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-DB0F89A4-A7D1-4003-A655-438C8C11553B": {
+            "name": "Send payment request to VN",
+            "incoming": [
+                "sid-4F527623-7159-41FA-97E5-EF8FCAFF498A"
+            ],
+            "outgoing": [
+                "sid-79258AFF-F9DC-46C4-9809-2189E8417292"
+            ]
+        },
+        "sid-A0E5F52A-2A51-49E5-8A46-56457BE74F43": {
+            "name": "Check the receipt of funds",
+            "incoming": [
+                "sid-307AE05E-17E1-4AFE-AF33-5A5A816A1DE9"
+            ],
+            "outgoing": [
+                "sid-E0E68EC0-E26B-4128-86F1-22AC8BEFE9C7"
+            ]
+        },
+        "sid-3823C88C-E7BD-4EAB-BE22-D34999A682A8": {
+            "name": "Book money receipt",
+            "incoming": [
+                "sid-7FC2728A-93B6-4E48-A73B-E8CBB95CC5F8"
+            ],
+            "outgoing": [
+                "sid-28E18D6A-4AE3-427A-80E1-B5C8159FC3EF",
+                "sid-2B49CC05-D342-471E-B94A-DEB5E1D4B5CA"
+            ]
+        },
+        "sid-3A080C27-83F2-46B8-944A-051944A79C01": {
+            "name": "Close",
+            "incoming": [
+                "sid-C8265DD1-AEF3-4731-9FD9-ADD680989170"
+            ],
+            "outgoing": [
+                "sid-7BE526A0-C22A-4A06-BF6D-18F249896BE3"
+            ]
+        },
+        "sid-B8C7A262-CA28-4D19-90A9-BD0386CD5A9E": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-D3D4190D-4E59-432F-870D-33517913BA45"
+            ],
+            "outgoing": [
+                "sid-43FD1FD3-DC85-481A-BA0D-7D0F89766547"
+            ]
+        },
+        "sid-DEF34C49-2127-4844-9B94-4203B10A20ED": {
+            "name": "Dispense process to collection service providers",
+            "incoming": [
+                "sid-C45B4D4C-E013-49ED-A07A-5740E1C38E7F"
+            ],
+            "outgoing": [
+                "sid-74344E55-A9D9-46EF-B494-2CA1EBA78C3F"
+            ]
+        },
+        "sid-11CDAD7E-C861-464A-9E1E-40BAC44F53F3": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-2FC6CA17-4B3D-4BBB-AEAA-281967999759"
+            ],
+            "outgoing": [
+                "sid-A82D091A-2C57-4C05-8998-3AC4B21ACD19"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-A222746A-BDEE-4DF9-AE10-37825566135C": {
+            "name": "Money received?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-E0E68EC0-E26B-4128-86F1-22AC8BEFE9C7"
+            ],
+            "outgoing": [
+                "sid-7FC2728A-93B6-4E48-A73B-E8CBB95CC5F8",
+                "sid-A9E1D3EC-CB67-4837-A4C7-8788A4AC1AD5"
+            ]
+        },
+        "sid-67367F4D-B4E5-4DD8-9C74-5B6C09C8D9EF": {
+            "name": "Objection justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-43FD1FD3-DC85-481A-BA0D-7D0F89766547"
+            ],
+            "outgoing": [
+                "sid-967C8A51-0B49-4F9E-9B2E-E5BC8EF56CCF",
+                "sid-76B63F73-695B-4F6B-B40C-8AAE825D8C9F"
+            ]
+        },
+        "sid-901D0A01-C955-43DC-9528-5EC0FB15905F": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-A9E1D3EC-CB67-4837-A4C7-8788A4AC1AD5",
+                "sid-967C8A51-0B49-4F9E-9B2E-E5BC8EF56CCF"
+            ],
+            "outgoing": [
+                "sid-C45B4D4C-E013-49ED-A07A-5740E1C38E7F"
+            ]
+        },
+        "sid-530C00CD-DBFE-4C47-8C14-D1470D9C58A2": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-28E18D6A-4AE3-427A-80E1-B5C8159FC3EF",
+                "sid-2B49CC05-D342-471E-B94A-DEB5E1D4B5CA",
+                "sid-76B63F73-695B-4F6B-B40C-8AAE825D8C9F"
+            ],
+            "outgoing": [
+                "sid-C8265DD1-AEF3-4731-9FD9-ADD680989170"
+            ]
+        },
+        "sid-F79F1370-807C-4E95-AA90-04D472EF8ED4": {
+            "name": "Is Regress possibility?",
+            "direction": "Unspecified",
+            "incoming": [
+                "sid-A82D091A-2C57-4C05-8998-3AC4B21ACD19"
+            ],
+            "outgoing": [
+                "sid-4F527623-7159-41FA-97E5-EF8FCAFF498A"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-D3B38C2B-2A64-4188-B2F7-37374CC0ED8E": {
+            "name": "Inkasso procedure started",
+            "incoming": [
+                "sid-74344E55-A9D9-46EF-B494-2CA1EBA78C3F"
+            ]
+        },
+        "sid-A203303B-EA6C-4B38-B9D0-D5FCFD351EBD": {
+            "name": "Closed",
+            "incoming": [
+                "sid-7BE526A0-C22A-4A06-BF6D-18F249896BE3"
+            ]
+        }
+    }
+}

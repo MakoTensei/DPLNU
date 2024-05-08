@@ -1,0 +1,136 @@
+{
+    "start_events": {
+        "sid-B271B244-C26B-438B-B3F4-F2AF1B521433": {
+            "name": "Possible\nRegression\nReport",
+            "outgoing": [
+                "sid-E3280995-6DEF-48F5-BF8F-A39F5EF0A7CC"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-D5F596B5-AF60-4C49-8333-5E89D8E77430": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-E3280995-6DEF-48F5-BF8F-A39F5EF0A7CC"
+            ],
+            "outgoing": [
+                "sid-9D3D2B62-9D6E-43A9-921A-7C07961122E8"
+            ]
+        },
+        "sid-A31D7D85-7E9C-45E9-94B4-1C22B129FDB1": {
+            "name": "Payment method\nsend a message",
+            "incoming": [
+                "sid-46529684-C9DA-4346-ABAF-98626551A1A7"
+            ],
+            "outgoing": [
+                "sid-6EEF2D42-748C-4D5A-BDCE-E36B02F12F3B"
+            ]
+        },
+        "sid-8061C9B6-8287-4E1D-8EBD-DA3809F91DD5": {
+            "name": "Book the entrance",
+            "incoming": [
+                "sid-70F92D34-EB81-4BBB-9629-EB78D01E0234"
+            ],
+            "outgoing": [
+                "sid-167F9173-C5E5-439C-8D3C-C00358761336"
+            ]
+        },
+        "sid-90E6D7A1-9D56-4A4F-BB20-B7F907B389A7": {
+            "name": "Close",
+            "incoming": [
+                "sid-9070235C-6BA1-4F10-9F0A-D753FB2B9B96"
+            ],
+            "outgoing": [
+                "sid-D552BB11-F8F8-42FF-AE57-7685C877EDE9"
+            ]
+        },
+        "sid-32C40BEA-B555-42B9-95CA-66D2575D8BCC": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-A030FED3-0207-479A-B087-00A671E44011"
+            ],
+            "outgoing": [
+                "sid-2916B3C1-7BF5-48EE-948F-752FA64627B7"
+            ]
+        },
+        "sid-E5A8D2D3-3DAD-4B37-97DE-D48353C7F69F": {
+            "name": "Dispense process to collection service providers",
+            "incoming": [
+                "sid-415DAE07-1872-41F9-9FC8-3262D9B8BECC"
+            ],
+            "outgoing": [
+                "sid-4893CD2B-3166-4214-BCC3-A19D1B71F3F3"
+            ]
+        },
+        "sid-009A0AC1-7E0F-4E9D-90C8-2CA02718C083": {
+            "name": "Reimbursement period",
+            "incoming": [
+                "sid-6EEF2D42-748C-4D5A-BDCE-E36B02F12F3B"
+            ],
+            "outgoing": [
+                "sid-04DA7940-461F-477B-9588-FB6E4DE1E7E0"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-DBEA0139-5771-4ED1-B55D-445EBDB61F9C": {
+            "name": "Regression\npossible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-9D3D2B62-9D6E-43A9-921A-7C07961122E8"
+            ],
+            "outgoing": [
+                "sid-46529684-C9DA-4346-ABAF-98626551A1A7",
+                "sid-581D9ABE-A40E-4086-8487-6F3FDA1061F5"
+            ]
+        },
+        "sid-BF0FA3E6-26DC-4252-AA09-727323091914": {
+            "name": "Opposition\nmade out?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-2916B3C1-7BF5-48EE-948F-752FA64627B7"
+            ],
+            "outgoing": [
+                "sid-A4A85B71-55C6-4C69-AA02-5E5ED1312CFE",
+                "sid-3F4D1C23-2CBE-4967-95ED-0CF816BC7172"
+            ]
+        },
+        "sid-00156269-422F-40D8-A59F-2892883AC359": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-167F9173-C5E5-439C-8D3C-C00358761336",
+                "sid-A4A85B71-55C6-4C69-AA02-5E5ED1312CFE",
+                "sid-581D9ABE-A40E-4086-8487-6F3FDA1061F5"
+            ],
+            "outgoing": [
+                "sid-9070235C-6BA1-4F10-9F0A-D753FB2B9B96"
+            ]
+        },
+        "sid-58D3E87E-B28B-45F7-BDE4-B77D8E92EEB0": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-521AF083-222A-4098-82E0-EDD51775A164",
+                "sid-3F4D1C23-2CBE-4967-95ED-0CF816BC7172"
+            ],
+            "outgoing": [
+                "sid-415DAE07-1872-41F9-9FC8-3262D9B8BECC"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-59DFCF90-3B16-43FF-B32D-F878F0FE1F4F": {
+            "name": "Closed",
+            "incoming": [
+                "sid-D552BB11-F8F8-42FF-AE57-7685C877EDE9"
+            ]
+        },
+        "sid-63815E5F-8F73-4954-8C2A-15BC4B17FC35": {
+            "name": "Process\nDebt service provider\ndelivered",
+            "incoming": [
+                "sid-4893CD2B-3166-4214-BCC3-A19D1B71F3F3"
+            ]
+        }
+    }
+}

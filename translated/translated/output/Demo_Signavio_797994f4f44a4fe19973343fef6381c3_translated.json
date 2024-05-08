@@ -1,0 +1,128 @@
+{
+    "start_events": {
+        "sid-A82D91EC-A030-4D1E-A97A-5CF4EAE07043": {
+            "name": "Goods are to be shipped",
+            "outgoing": [
+                "sid-C504FC34-3671-4C33-8B7E-9D3EDA84F0A7"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-6C3FBA04-916D-4FAE-B661-D80EEC8B617D": {
+            "name": "Check quantity",
+            "incoming": [
+                "sid-C504FC34-3671-4C33-8B7E-9D3EDA84F0A7"
+            ],
+            "outgoing": [
+                "sid-B4E7BED2-71B8-453F-85AC-A69FE18FF625"
+            ]
+        },
+        "sid-9B312DD2-1C56-4DF5-AA6B-C172A182CB45": {
+            "name": "Pick up offers",
+            "incoming": [
+                "sid-FBFF5F87-86A9-44EE-9DAC-9AA4454DB37D"
+            ],
+            "outgoing": [
+                "sid-883DFC06-C22A-42C4-9481-1ABABB0ECEE9"
+            ]
+        },
+        "sid-E65D0D33-14D8-4472-B3FE-EEDC2DA212AC": {
+            "name": "Spediteur 2",
+            "incoming": [
+                "sid-FB8DB5A4-DB2B-4BD8-9C22-B98692D72ACA"
+            ],
+            "outgoing": [
+                "sid-B88B6A14-9492-4EC3-9305-E915774DC313"
+            ]
+        },
+        "sid-82A855B2-69A4-4796-80AF-6C71637F8B3B": {
+            "name": "Spediteur 1",
+            "incoming": [
+                "sid-EDBD5D57-FAB0-4FE0-AA2B-BE85CD199A58"
+            ],
+            "outgoing": [
+                "sid-CE5672DC-6BF5-48E0-A563-D866D5770FBF"
+            ]
+        },
+        "sid-F7BB919F-E0EF-46A9-B97E-B27E351C7C18": {
+            "name": "Spediteur 3",
+            "incoming": [
+                "sid-8BDF7649-D6BB-4C9C-815F-F48DEE52AB1A"
+            ],
+            "outgoing": [
+                "sid-21D9CE1E-429E-4DDB-A691-A19EE0DBE352"
+            ]
+        },
+        "sid-FE47BD85-E49C-4AC9-804F-4C60615DBAC0": {
+            "name": "Postal mail",
+            "incoming": [
+                "sid-C795B27A-1783-4272-95A9-80B75EF42975"
+            ],
+            "outgoing": [
+                "sid-BE7DEF4D-B07E-4BCC-9D71-94D31A8DBB02"
+            ]
+        },
+        "sid-A65DE18D-C225-4AA6-B1BC-3F4B1D6C8A6A": {
+            "name": "Spediteur inquiries",
+            "incoming": [
+                "sid-9FF9F77F-C56F-49C3-9AC2-85AAE6BFA400"
+            ],
+            "outgoing": []
+        },
+        "sid-530AE561-68BC-4560-9F2F-800D1B20D52D": {
+            "name": "Insurance close",
+            "incoming": [
+                "sid-753FC276-3B46-40E0-AA2E-31DF8D68EA5C"
+            ],
+            "outgoing": []
+        }
+    },
+    "gateways": {
+        "sid-45835D3A-BE18-4BEE-9AE5-1E6AA32BC2D9": {
+            "name": "large amount?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B4E7BED2-71B8-453F-85AC-A69FE18FF625"
+            ],
+            "outgoing": [
+                "sid-C795B27A-1783-4272-95A9-80B75EF42975",
+                "sid-FBFF5F87-86A9-44EE-9DAC-9AA4454DB37D"
+            ]
+        },
+        "sid-C34A7D02-A16D-4E0A-B0AF-4DAD6E5955F1": {
+            "name": "best offer?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-883DFC06-C22A-42C4-9481-1ABABB0ECEE9"
+            ],
+            "outgoing": [
+                "sid-FB8DB5A4-DB2B-4BD8-9C22-B98692D72ACA",
+                "sid-8BDF7649-D6BB-4C9C-815F-F48DEE52AB1A",
+                "sid-EDBD5D57-FAB0-4FE0-AA2B-BE85CD199A58"
+            ]
+        },
+        "sid-B62C32F6-3567-4FC3-9026-A6D3F6038466": {
+            "name": "Desired forwarder",
+            "direction": "Converging",
+            "incoming": [
+                "sid-B88B6A14-9492-4EC3-9305-E915774DC313",
+                "sid-CE5672DC-6BF5-48E0-A563-D866D5770FBF",
+                "sid-21D9CE1E-429E-4DDB-A691-A19EE0DBE352"
+            ],
+            "outgoing": [
+                "sid-9FF9F77F-C56F-49C3-9AC2-85AAE6BFA400"
+            ]
+        },
+        "sid-A0AE68C3-ED4A-4771-9232-D79F56FFDF2D": {
+            "name": "",
+            "direction": "Unspecified",
+            "incoming": [
+                "sid-BE7DEF4D-B07E-4BCC-9D71-94D31A8DBB02"
+            ],
+            "outgoing": [
+                "sid-753FC276-3B46-40E0-AA2E-31DF8D68EA5C"
+            ]
+        }
+    },
+    "end_events": {}
+}

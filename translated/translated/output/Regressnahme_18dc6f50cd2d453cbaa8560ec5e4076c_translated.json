@@ -1,0 +1,154 @@
+{
+    "start_events": {
+        "sid-ABF72851-876A-411C-82BF-F9E817367F57": {
+            "name": "Regression claim reported",
+            "outgoing": [
+                "sid-3CDD2402-7A79-4971-BB5B-49B094567051"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-9C561EAF-C24E-4AA0-B298-F793B04DDE0F": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-3CDD2402-7A79-4971-BB5B-49B094567051"
+            ],
+            "outgoing": [
+                "sid-BF51C5BF-1915-485C-AB2B-9828E25709B8"
+            ]
+        },
+        "sid-2B81A8BE-90DC-4E62-93BC-C21BDAE637CB": {
+            "name": "Send payment request to VN",
+            "incoming": [
+                "sid-E47DD646-CC8A-44F7-B84F-B030611D5378"
+            ],
+            "outgoing": [
+                "sid-0840A895-E6B1-4D4A-B334-4000CCA829CA"
+            ]
+        },
+        "sid-D209CB9D-EB58-4ECA-A598-79C8FAEF2C0F": {
+            "name": "Close the case",
+            "incoming": [
+                "sid-795139A4-D582-4D3E-8A6E-194490A4E405"
+            ],
+            "outgoing": [
+                "sid-8244B8C7-6304-4950-B69E-8F969CAEA272"
+            ]
+        },
+        "sid-75AE9CE5-9DFE-4CED-912A-3FF109DE7CB9": {
+            "name": "Reimbursement",
+            "incoming": [
+                "sid-0840A895-E6B1-4D4A-B334-4000CCA829CA"
+            ],
+            "outgoing": [
+                "sid-B3BA4694-9F16-49BD-B6B8-56D6C3AE9DAD"
+            ]
+        },
+        "sid-B12FB85C-68AD-4397-83BB-EDDBF3DC3A00": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-A13330DD-7EF2-4BD5-931B-33D551EE059A"
+            ],
+            "outgoing": [
+                "sid-93747C78-947B-4CC4-9382-4138370429AE"
+            ]
+        },
+        "sid-0E79AE77-4A14-4C52-A48C-94D1FC45BD85": {
+            "name": "handed over case to debt collection",
+            "incoming": [
+                "sid-A67EABF8-BF0F-4145-B701-02B2E7755B9A"
+            ],
+            "outgoing": [
+                "sid-CCBD4268-CB4E-4258-A057-61D44403A336"
+            ]
+        },
+        "sid-A5421690-AA1A-472F-ACFC-08F5989E6F06": {
+            "name": "handed over case to debt collection",
+            "incoming": [
+                "sid-32FA3CB1-B572-4CF6-BA54-05FE54A70A11"
+            ],
+            "outgoing": [
+                "sid-0CAD0690-9184-48FF-824B-FA228DCAB13C"
+            ]
+        },
+        "sid-0D4C5694-9363-4CE2-935F-E32C978732D9": {
+            "name": "Book now",
+            "incoming": [
+                "sid-8C4C0409-BD21-41B9-9483-D29A9B59D633"
+            ],
+            "outgoing": [
+                "sid-AED1E4F3-6C85-4D37-A231-66FFE9FF1DEC"
+            ]
+        },
+        "sid-B4AC2EFA-0875-4AE2-A5C2-389E02F5D574": {
+            "name": "Close the case",
+            "incoming": [
+                "sid-A4BAD55A-3A70-473B-9F79-96603839E97D"
+            ],
+            "outgoing": [
+                "sid-4C0B41D3-A198-4033-BD2B-F4D894062AF4"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-4024CEC5-33F5-4C52-8F8D-40F7EAA39375": {
+            "name": "is Regress?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-BF51C5BF-1915-485C-AB2B-9828E25709B8"
+            ],
+            "outgoing": [
+                "sid-E47DD646-CC8A-44F7-B84F-B030611D5378",
+                "sid-795139A4-D582-4D3E-8A6E-194490A4E405"
+            ]
+        },
+        "sid-0E5170AD-C8FD-4252-B30A-376D03F9979B": {
+            "name": "justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-93747C78-947B-4CC4-9382-4138370429AE"
+            ],
+            "outgoing": [
+                "sid-32FA3CB1-B572-4CF6-BA54-05FE54A70A11",
+                "sid-3EC52EC8-E127-440E-AF0B-23089A9FA2E0"
+            ]
+        },
+        "sid-CC4E2CBE-3A24-4D44-8CD6-E085DD36CFF8": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-AED1E4F3-6C85-4D37-A231-66FFE9FF1DEC",
+                "sid-3EC52EC8-E127-440E-AF0B-23089A9FA2E0"
+            ],
+            "outgoing": [
+                "sid-A4BAD55A-3A70-473B-9F79-96603839E97D"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-75B8880C-186B-4A4D-AB8D-55287382A1AF": {
+            "name": "Closed",
+            "incoming": [
+                "sid-CCBD4268-CB4E-4258-A057-61D44403A336"
+            ]
+        },
+        "sid-880DE670-D117-4154-9425-EE0DA0F3CF00": {
+            "name": "Closed",
+            "incoming": [
+                "sid-8244B8C7-6304-4950-B69E-8F969CAEA272"
+            ]
+        },
+        "sid-DF36348F-7643-4B17-A207-082A5F84E618": {
+            "name": "Closed",
+            "incoming": [
+                "sid-0CAD0690-9184-48FF-824B-FA228DCAB13C"
+            ]
+        },
+        "sid-37CA39A5-5380-4D52-86EA-79B7B252D3D3": {
+            "name": "Closed",
+            "incoming": [
+                "sid-4C0B41D3-A198-4033-BD2B-F4D894062AF4"
+            ]
+        }
+    }
+}

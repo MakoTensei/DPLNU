@@ -1,0 +1,125 @@
+{
+    "start_events": {
+        "sid-49EF7E64-E13D-49DC-BFF0-E060F92D3793": {
+            "name": "Regress reported",
+            "outgoing": [
+                "sid-9DD112F9-FBF4-4B06-AE79-329123523834"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-611D95F3-17AB-4AE6-B02C-068D8AA3D081": {
+            "name": "Check regression",
+            "incoming": [
+                "sid-9DD112F9-FBF4-4B06-AE79-329123523834"
+            ],
+            "outgoing": [
+                "sid-B5515A7C-F854-458A-B5F5-4C39A824E31A"
+            ]
+        },
+        "sid-88356EF6-6B26-44A1-B279-F17226126BC7": {
+            "name": "Close",
+            "incoming": [
+                "sid-2D5F9142-B0F6-4E40-9F5D-123FFBF80A11"
+            ],
+            "outgoing": [
+                "sid-CC8514E5-159F-4891-8E56-78B9F4CC3BDB"
+            ]
+        },
+        "sid-640B62BF-2C5E-4730-B619-F0D1523EC780": {
+            "name": "Send payment request to VN",
+            "incoming": [
+                "sid-9C051A46-00FC-48FF-A628-4B433A53774B"
+            ],
+            "outgoing": [
+                "sid-28FDF07F-7E24-41C2-B5FB-11EC2D75380C"
+            ]
+        },
+        "sid-EF91B65D-2BE7-4EE3-A6E3-D323CF709021": {
+            "name": "check the counter template for payment receipt",
+            "incoming": [
+                "sid-38640AB6-7CE7-442A-8A8A-9A5E162E37AC"
+            ],
+            "outgoing": [
+                "sid-3684E8F9-A376-45DB-8BAD-A6976E4315C8"
+            ]
+        },
+        "sid-5CE9CFA9-B0A4-4C4A-AF04-FC09C22CA149": {
+            "name": "Tax payable by:",
+            "incoming": [
+                "sid-83F3AD01-22C5-42FA-8F24-8E461C76E961",
+                "sid-C0261A67-2D27-4C37-97F0-868FBE7BFA04"
+            ],
+            "outgoing": [
+                "sid-0C3D3728-1127-4C4D-8AD2-C3052F68D4F8"
+            ]
+        },
+        "sid-559AAFEE-ABA0-4CDA-A4D8-2959A5FD8BB3": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-ED4641B1-F65C-45B0-A5C8-3AA66F3C3C56"
+            ],
+            "outgoing": [
+                "sid-862ADC21-D3E7-4800-A49E-AD1540A9291F"
+            ]
+        },
+        "sid-CCAF5F57-C6ED-4C2F-B1C0-19A5D4992FA8": {
+            "name": "Book payment receipt",
+            "incoming": [
+                "sid-85CB2C4D-F5FA-43F5-8F43-9ED61507F0D1"
+            ],
+            "outgoing": [
+                "sid-AF46F622-93C1-489A-A755-096D61843F0B"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-24348C2F-AC26-443B-B6BF-9D793679C1FB": {
+            "name": "Regress justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B5515A7C-F854-458A-B5F5-4C39A824E31A"
+            ],
+            "outgoing": [
+                "sid-9C051A46-00FC-48FF-A628-4B433A53774B",
+                "sid-2D5F9142-B0F6-4E40-9F5D-123FFBF80A11"
+            ]
+        },
+        "sid-8796EE0D-93C7-42D6-BFF6-6DF957B9AAB5": {
+            "name": "Payment receipt?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-3684E8F9-A376-45DB-8BAD-A6976E4315C8"
+            ],
+            "outgoing": [
+                "sid-83F3AD01-22C5-42FA-8F24-8E461C76E961",
+                "sid-7049910F-9D1C-4C43-8E2A-5D426F951204"
+            ]
+        },
+        "sid-BED4794B-A574-43BC-BE95-F84BD3BD8D7D": {
+            "name": "Objection justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-862ADC21-D3E7-4800-A49E-AD1540A9291F"
+            ],
+            "outgoing": [
+                "sid-C0261A67-2D27-4C37-97F0-868FBE7BFA04",
+                "sid-80507F73-9639-4DAF-A841-5C7962C160AF"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-C2CBEC74-D774-42E2-BA7F-7745F89062B3": {
+            "name": "Process\nclosed",
+            "incoming": [
+                "sid-CC8514E5-159F-4891-8E56-78B9F4CC3BDB"
+            ]
+        },
+        "sid-9576F9FF-03CB-4E43-96BD-268039705E60": {
+            "name": "Process\nforwarded",
+            "incoming": [
+                "sid-0C3D3728-1127-4C4D-8AD2-C3052F68D4F8"
+            ]
+        }
+    }
+}

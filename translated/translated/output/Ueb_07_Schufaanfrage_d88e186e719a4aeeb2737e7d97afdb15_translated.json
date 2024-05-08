@@ -1,0 +1,97 @@
+{
+    "start_events": {
+        "sid-AF7043F8-30A2-4982-AF19-E90EFB463F3B": {
+            "name": "Start Frontend",
+            "outgoing": [
+                "sid-23EB2647-117B-4D22-B09F-B30293E6F3E1"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-94D2A04D-F129-4CBE-B091-741A40A276F1": {
+            "name": "Create Schufa request",
+            "incoming": [
+                "sid-23EB2647-117B-4D22-B09F-B30293E6F3E1"
+            ],
+            "outgoing": [
+                "sid-01351AEC-974D-4368-8DB5-9EAD316D6440"
+            ]
+        },
+        "sid-232E6D41-D60F-402D-AE79-42ECBA726495": {
+            "name": "Creating scoring anthrush",
+            "incoming": [
+                "sid-E2847A26-7ABD-43A8-A8C2-55556CBAD4A8",
+                "sid-B9C53747-8CD5-4E1F-A5C3-E8FD2905C0C9"
+            ],
+            "outgoing": [
+                "sid-8737E765-2587-41DF-BC79-D7EE2E56826D"
+            ]
+        },
+        "sid-7384E142-6718-4815-BC59-23E422182F39": {
+            "name": "Create delay message",
+            "incoming": [
+                "sid-BBF59632-7AAB-4B2F-988D-B1BDB5B94310"
+            ],
+            "outgoing": [
+                "sid-DEBE90A2-274A-47BD-ADB9-4E8C2A34A833"
+            ]
+        },
+        "sid-D941A73A-519A-440F-BD8E-388DE4DFBF45": {
+            "name": "Scoring (Level1)",
+            "incoming": [],
+            "outgoing": [
+                "sid-824DCE6B-594C-4463-8E65-B5F525593954"
+            ]
+        },
+        "sid-414E457E-0B55-49BA-9C1C-97F7C5F8E463": {
+            "name": "Send Scoring Result",
+            "incoming": [
+                "sid-E40432EA-85E5-448D-97C8-C9A40D815FEC"
+            ],
+            "outgoing": []
+        },
+        "sid-0DE49F6E-72B5-4128-9327-8914617915F3": {
+            "name": "Share delay",
+            "incoming": [
+                "sid-2CAFF3A5-42E6-4C4E-914E-7ACDC04EBDA5"
+            ],
+            "outgoing": []
+        },
+        "sid-F8A3EC84-A52F-4E51-9F53-1705C3A7D1E3": {
+            "name": "Scoring (Level2)",
+            "incoming": [
+                "sid-6592F1AB-F092-454A-A5B7-0F1A04BBF520"
+            ],
+            "outgoing": [
+                "sid-34FA01E2-64E6-4C46-A21F-572E1254765F"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-2489A14D-D0FE-49F9-AA2E-80DD6C685101": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-824DCE6B-594C-4463-8E65-B5F525593954"
+            ],
+            "outgoing": [
+                "sid-E40432EA-85E5-448D-97C8-C9A40D815FEC",
+                "sid-3EEC0D7E-9156-4A88-BDAF-32871FA20D0C"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-8CD55F55-5CAD-47F1-B7CD-07551162D125": {
+            "name": "",
+            "incoming": [
+                "sid-8737E765-2587-41DF-BC79-D7EE2E56826D"
+            ]
+        },
+        "sid-103B966C-F4FC-402E-B171-380BC498A8C3": {
+            "name": "Scoring ends",
+            "incoming": [
+                "sid-34FA01E2-64E6-4C46-A21F-572E1254765F"
+            ]
+        }
+    }
+}

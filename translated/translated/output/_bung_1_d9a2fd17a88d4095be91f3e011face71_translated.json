@@ -1,0 +1,136 @@
+{
+    "start_events": {
+        "sid-6722DE90-FEAF-4559-96C2-DE1C587B334C": {
+            "name": "Goods\nShip",
+            "outgoing": [
+                "sid-80F80E78-7D00-4820-99DF-60F1A6E4D449"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-B2461D48-A078-49D3-A993-D1C5F36CCE38": {
+            "name": "Insurance close",
+            "incoming": [
+                "sid-BEE48474-E733-4306-8207-4D95819D86AF"
+            ],
+            "outgoing": [
+                "sid-2BCD9C76-E14B-4644-9115-F55D80542CAD"
+            ]
+        },
+        "sid-26AE1231-EDB8-4A53-8C52-455624E6B7E6": {
+            "name": "Determining the shipping mode",
+            "incoming": [
+                "sid-85BE5A44-BBC0-4561-A13E-19140396D39A"
+            ],
+            "outgoing": [
+                "sid-D136D860-2525-4641-9218-DE08E7943FBC"
+            ]
+        },
+        "sid-F919E8F7-831E-4346-AE89-AA131FC3533E": {
+            "name": "Pick up offers",
+            "incoming": [
+                "sid-5CEA496B-1407-4C58-8864-EE54245B29D3"
+            ],
+            "outgoing": [
+                "sid-22A650AE-DFF8-400F-8845-6E5F96AF6FF7"
+            ]
+        },
+        "sid-F96FA0AD-B8D8-4281-A02F-E247B63DD970": {
+            "name": "Fill in packaging paper",
+            "incoming": [
+                "sid-CCE919CB-5B81-435F-83CF-C8EE4996F4D9"
+            ],
+            "outgoing": [
+                "sid-FF20A6A4-CD34-405C-A4C6-52F79F88AB3D"
+            ]
+        },
+        "sid-EB4E3A95-E0D2-4C61-A2BF-6CC86C5237DD": {
+            "name": "Select your offer",
+            "incoming": [
+                "sid-22A650AE-DFF8-400F-8845-6E5F96AF6FF7"
+            ],
+            "outgoing": [
+                "sid-C769191B-FA58-41D7-B1EA-656634076873"
+            ]
+        },
+        "sid-965E5317-A2EA-4A49-821D-6F54AD77E7D8": {
+            "name": "Specialist",
+            "incoming": [
+                "sid-C769191B-FA58-41D7-B1EA-656634076873"
+            ],
+            "outgoing": [
+                "sid-4F6398F9-6838-4803-BD1D-5D4B6AE89CDF"
+            ]
+        },
+        "sid-3615ADBF-881A-4A2A-B125-A586D8C314EB": {
+            "name": "Determine whether insurance is required",
+            "incoming": [
+                "sid-FF20A6A4-CD34-405C-A4C6-52F79F88AB3D"
+            ],
+            "outgoing": [
+                "sid-94A27025-EEBD-4E83-BDE2-216C8ADF8D3C"
+            ]
+        },
+        "sid-64DF75AA-2BFC-4D63-8E7F-BE01674F7D9E": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-6970950D-2A8B-4EDA-B404-9B1DE703304A"
+            ],
+            "outgoing": [
+                "sid-277F6E41-8C3D-40AE-ADE1-2CA56BCF23F2"
+            ]
+        },
+        "sid-3BA72549-FA34-42A0-83B2-249AA6DDE1D9": {
+            "name": "Provide goods for collection",
+            "incoming": [
+                "sid-8CE2657B-D3E5-4606-9138-6C0DF105AA6C"
+            ],
+            "outgoing": [
+                "sid-DA21F454-B9FB-4BCE-8416-B86ABDEEE663"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-7039BB72-31A6-4F6F-8DFE-D05E8480D8D5": {
+            "name": "Special delivery\nnecessary?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-D136D860-2525-4641-9218-DE08E7943FBC"
+            ],
+            "outgoing": [
+                "sid-5CEA496B-1407-4C58-8864-EE54245B29D3",
+                "sid-CCE919CB-5B81-435F-83CF-C8EE4996F4D9"
+            ]
+        },
+        "sid-51FC2B96-AE63-4A22-901E-79C89FB7BC38": {
+            "name": "Insurance\nnecessary?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-94A27025-EEBD-4E83-BDE2-216C8ADF8D3C"
+            ],
+            "outgoing": [
+                "sid-BEE48474-E733-4306-8207-4D95819D86AF",
+                "sid-53935306-E7CD-4AE6-B33D-BBE275EEF40A"
+            ]
+        },
+        "sid-4C69696D-D1FB-4565-BFF1-94097C9E63B0": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-53935306-E7CD-4AE6-B33D-BBE275EEF40A",
+                "sid-2BCD9C76-E14B-4644-9115-F55D80542CAD"
+            ],
+            "outgoing": [
+                "sid-8F8F1757-0BC9-4CE2-BB75-42ECB9EEB05D"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-4AC47956-52F4-438E-ACC2-5069EA0EE300": {
+            "name": "Goods\nmade available",
+            "incoming": [
+                "sid-DA21F454-B9FB-4BCE-8416-B86ABDEEE663"
+            ]
+        }
+    }
+}

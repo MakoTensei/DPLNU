@@ -1,0 +1,156 @@
+{
+    "start_events": {
+        "sid-C80D388A-C7F5-410C-8746-90289261CF25": {
+            "name": "Goods\ndispatched\nthey are",
+            "outgoing": [
+                "sid-3B80D95B-D638-4C1B-95F0-28A8738DC486"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-6294E68F-94E0-44AD-9546-FAE252F6B89D": {
+            "name": "Pick the offer of Speditur 2",
+            "incoming": [
+                "sid-27F2B660-4574-4EB7-B0CD-0B531181BAFC"
+            ],
+            "outgoing": [
+                "sid-93619823-6F84-4562-B565-4ADD794B1A80"
+            ]
+        },
+        "sid-7280DAF2-773D-4121-86D3-5ACFBB3E7704": {
+            "name": "Get the offer of Speditur 3",
+            "incoming": [
+                "sid-05B5673A-A4A2-41AC-BB91-6BDD53BF3398"
+            ],
+            "outgoing": [
+                "sid-C59AFCAD-DD5D-4B1C-BAED-09590751EDE3"
+            ]
+        },
+        "sid-2FE73311-7030-45F0-B9DB-C4CC8ECFB30A": {
+            "name": "Choose the cheapest offer",
+            "incoming": [
+                "sid-9B3D54D5-F1A9-4E56-9430-1FC100F9DB5D"
+            ],
+            "outgoing": [
+                "sid-6A7DE26F-15CE-47B8-B255-1BAA253469BA"
+            ]
+        },
+        "sid-D5C9A617-F63B-48E4-B1BF-C3704AB9D2B2": {
+            "name": "speditur commission",
+            "incoming": [
+                "sid-6A7DE26F-15CE-47B8-B255-1BAA253469BA"
+            ],
+            "outgoing": [
+                "sid-A159B4F8-4576-465D-A3E6-2C5710945E66"
+            ]
+        },
+        "sid-59CFFDB6-A6D0-41E2-83CF-27BA84CAF607": {
+            "name": "Send a normal mail",
+            "incoming": [
+                "sid-A89549F2-CA7B-4726-AE43-5BE509184753"
+            ],
+            "outgoing": [
+                "sid-1CD325B0-9DA0-44E3-837B-FE28C67A6D42"
+            ]
+        },
+        "sid-A3F81817-8F78-4B6C-8736-024EB9269990": {
+            "name": "fill out standard package voucher",
+            "incoming": [
+                "sid-CC85D5EF-3540-48C5-9EB5-9B0AFC066320"
+            ],
+            "outgoing": [
+                "sid-C0B148E6-CC0C-4B51-8457-3BBF443C8BC6"
+            ]
+        },
+        "sid-37C8F860-3C87-4A72-B6F1-0FF3B3F1FE8F": {
+            "name": "Pick a quote from Speditur 1",
+            "incoming": [
+                "sid-881C16C5-0409-4D30-9430-DFA491D0EDCA"
+            ],
+            "outgoing": [
+                "sid-56F0D464-7417-4725-B990-2AB46334A286"
+            ]
+        },
+        "sid-1503748D-6D57-45F7-AB57-354B7DC040B5": {
+            "name": "Complete insurance",
+            "incoming": [
+                "sid-F438A4A5-DDAF-4C37-ADAC-C47BACEB92DB"
+            ],
+            "outgoing": [
+                "sid-EFC3F60F-5686-4E2E-806A-E1415D3EBB2E"
+            ]
+        },
+        "sid-E91DD507-69ED-47CA-9B70-FF8B54DF07BD": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-1B96DAA4-5463-4014-9BD0-91BCCA3CA0F4"
+            ],
+            "outgoing": [
+                "sid-F2619F59-C206-407A-A098-A6D432A96382"
+            ]
+        },
+        "sid-CAFB64FD-24D0-4529-AD73-5BA7FF199F81": {
+            "name": "Delivering goods",
+            "incoming": [
+                "sid-F2619F59-C206-407A-A098-A6D432A96382"
+            ],
+            "outgoing": [
+                "sid-1661139A-FF68-4AC8-AE9F-AD8DDFDFD2F0"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-1F5B11BF-9DC6-49D6-9534-CAFF1F6DC49C": {
+            "name": "I\nSpecial delivery\nnecessary?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-1BB76A81-DB0A-4B0E-8E61-03F72ADCAA65"
+            ],
+            "outgoing": [
+                "sid-FE0C902D-E57E-4522-A883-205513489F1D",
+                "sid-CC85D5EF-3540-48C5-9EB5-9B0AFC066320"
+            ]
+        },
+        "sid-05FEBB8A-127B-4BE4-8F21-A282E05F4F94": {
+            "name": "is\nInsurance\nnecessary?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-C0B148E6-CC0C-4B51-8457-3BBF443C8BC6"
+            ],
+            "outgoing": [
+                "sid-F5679295-59C6-410D-B26D-0CC01DB0F247",
+                "sid-F438A4A5-DDAF-4C37-ADAC-C47BACEB92DB"
+            ]
+        },
+        "sid-3E29D599-A542-48DA-835C-49C39027D916": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-F5679295-59C6-410D-B26D-0CC01DB0F247",
+                "sid-EFC3F60F-5686-4E2E-806A-E1415D3EBB2E"
+            ],
+            "outgoing": [
+                "sid-A89549F2-CA7B-4726-AE43-5BE509184753"
+            ]
+        },
+        "sid-B17244C3-D96F-47C9-9AB0-CC6987BEFC01": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-1CD325B0-9DA0-44E3-837B-FE28C67A6D42",
+                "sid-A159B4F8-4576-465D-A3E6-2C5710945E66"
+            ],
+            "outgoing": [
+                "sid-77919486-C490-48AD-996D-01F1AD521158"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-389D2A3B-7279-48AF-ADAB-C67E2DB96DAB": {
+            "name": "Goods are ready for collection",
+            "incoming": [
+                "sid-8DCC5CAF-7C6E-4054-ADCD-91A6F686E18A"
+            ]
+        }
+    }
+}

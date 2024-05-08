@@ -1,0 +1,138 @@
+{
+    "start_events": {
+        "sid-FD9A9AC4-D7C0-454A-9DAC-328C55A58710": {
+            "name": "Goods are to be shipped",
+            "outgoing": [
+                "sid-B38B5AC5-571B-4FE6-ACD0-56DA1C305561"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-26529AE2-892D-4EC4-9F5D-8ABE9BD19D80": {
+            "name": "clearing who is shipping",
+            "incoming": [
+                "sid-E739922F-499D-4951-9DA6-FDA1CD02806D"
+            ],
+            "outgoing": [
+                "sid-A08EB30E-D87B-4585-9E03-7A90927388EB"
+            ]
+        },
+        "sid-5753314A-7469-4B66-8FE0-588CC995CC69": {
+            "name": "Pick up offers (special delivery)",
+            "incoming": [
+                "sid-F1655437-012E-4CAC-A555-905D5B058600"
+            ],
+            "outgoing": [
+                "sid-538878AD-149A-4F2A-AAA4-EEA81D3713BC"
+            ]
+        },
+        "sid-88AD7388-6463-4D53-B7F1-2680C28A619D": {
+            "name": "Filled parcel note (normal mail)",
+            "incoming": [
+                "sid-9B9EC457-D208-43FC-BA95-F880D540DA19"
+            ],
+            "outgoing": [
+                "sid-88C5E764-96F1-4F37-893D-30AB16C6388D"
+            ]
+        },
+        "sid-E0B4E1C2-292B-4162-ABAA-E1B0ABD86189": {
+            "name": "Select 3 offers",
+            "incoming": [
+                "sid-538878AD-149A-4F2A-AAA4-EEA81D3713BC"
+            ],
+            "outgoing": [
+                "sid-7296513B-BBE0-42F2-B69A-EA3CFA5587FC"
+            ]
+        },
+        "sid-C5C8C36C-1353-4653-ADF8-9DD133483E82": {
+            "name": "Specialist",
+            "incoming": [
+                "sid-7296513B-BBE0-42F2-B69A-EA3CFA5587FC"
+            ],
+            "outgoing": [
+                "sid-DD990CD1-9FB8-4FB1-9C7B-8DA8B34416BC"
+            ]
+        },
+        "sid-51F25D1C-C474-4E68-824E-01E8C824A4B5": {
+            "name": "Insurance close",
+            "incoming": [
+                "sid-D7B9E0D8-5E17-451C-B129-B1142D79F973"
+            ],
+            "outgoing": [
+                "sid-1ABAC04D-672E-4356-AD8A-F4C37E08EC19"
+            ]
+        },
+        "sid-22994979-146F-4D8B-A0CE-1DD5A4529FBB": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-B9A151C7-FAD9-4811-8DFA-012B162F3C80"
+            ],
+            "outgoing": [
+                "sid-0401B1DB-F4B7-4253-9ABF-A068A4C5791F"
+            ]
+        },
+        "sid-8B4CD516-5798-49A7-A0CD-6C47BA92CA39": {
+            "name": "Provide goods for collection",
+            "incoming": [
+                "sid-3D3AD01E-38E6-42E4-9FC1-DF0FF3C87611"
+            ],
+            "outgoing": [
+                "sid-CB3053E7-67D4-4983-86B8-BF7E34E62A95"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-50A15E8F-0157-426B-AD13-55D40BC2E3E1": {
+            "name": "Lot?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-A08EB30E-D87B-4585-9E03-7A90927388EB"
+            ],
+            "outgoing": [
+                "sid-F1655437-012E-4CAC-A555-905D5B058600",
+                "sid-9B9EC457-D208-43FC-BA95-F880D540DA19"
+            ]
+        },
+        "sid-88AE43D9-1150-492D-B732-B5FD6B810BFA": {
+            "name": "Insurance necessary?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-88C5E764-96F1-4F37-893D-30AB16C6388D"
+            ],
+            "outgoing": [
+                "sid-D7B9E0D8-5E17-451C-B129-B1142D79F973",
+                "sid-AEA7C2D7-B041-4423-A1EE-D91D987D40D0"
+            ]
+        },
+        "sid-02A90EBA-8463-4367-A09E-0D5960981BA6": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-1ABAC04D-672E-4356-AD8A-F4C37E08EC19",
+                "sid-AEA7C2D7-B041-4423-A1EE-D91D987D40D0"
+            ],
+            "outgoing": [
+                "sid-B8F13951-284B-41AB-A6EA-DE7E254A8457"
+            ]
+        },
+        "sid-23947CDA-AA20-4624-AFB7-9DEAEB230A56": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-DD990CD1-9FB8-4FB1-9C7B-8DA8B34416BC",
+                "sid-B8F13951-284B-41AB-A6EA-DE7E254A8457"
+            ],
+            "outgoing": [
+                "sid-4829AF56-5D15-4827-B60F-396AC3D35A87"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-3624CDA0-6B8F-42F8-935D-186A45DCA20A": {
+            "name": "Goods provided for collection",
+            "incoming": [
+                "sid-CB3053E7-67D4-4983-86B8-BF7E34E62A95"
+            ]
+        }
+    }
+}

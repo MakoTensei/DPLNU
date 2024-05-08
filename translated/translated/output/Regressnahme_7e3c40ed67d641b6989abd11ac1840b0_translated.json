@@ -1,0 +1,97 @@
+{
+    "start_events": {
+        "sid-857BFAD6-62AE-4343-B492-1F09D218C225": {
+            "name": "Notification - possible.Regress Case",
+            "outgoing": [
+                "sid-5C6C16BC-4F01-4928-BDF2-D9F72339949F"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-25164D6E-6AD5-4A10-A78C-4CEB7FCCC429": {
+            "name": "Check regression",
+            "incoming": [
+                "sid-5C6C16BC-4F01-4928-BDF2-D9F72339949F"
+            ],
+            "outgoing": [
+                "sid-B2807F24-D04C-42A9-BF37-D09F91064B03"
+            ]
+        },
+        "sid-91773E10-77EB-473A-AEC2-524559D89098": {
+            "name": "Close",
+            "incoming": [
+                "sid-D231AD21-765F-4780-9DAA-7DBEBC137EF7"
+            ],
+            "outgoing": [
+                "sid-93523E85-A08F-4715-8C2F-FE525F0BE849"
+            ]
+        },
+        "sid-3C3C45C1-0D44-49A6-8FF9-DB962BE88CD5": {
+            "name": "Replace the process with re-submission",
+            "incoming": [
+                "sid-4D0B93CD-AF9E-4F48-90A1-E51762FB5DB8"
+            ],
+            "outgoing": [
+                "sid-570F0995-61ED-4D60-ACE1-AF02E8CE2B84"
+            ]
+        },
+        "sid-E6B5757C-3995-4A6A-8849-25FA4C845AAF": {
+            "name": "Inkassen",
+            "incoming": [
+                "sid-54318CC7-1B57-4A28-9FC1-C7DE257A3AEB",
+                "sid-E6BE7445-A9F2-47B9-8162-B531F7C093A2"
+            ],
+            "outgoing": [
+                "sid-5F0DC7A5-3351-46EB-BEDB-B0A660B3A3CF"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-AFC733B3-8DCF-4B00-B116-9F6ABFE3D82B": {
+            "name": "Regress possible",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B2807F24-D04C-42A9-BF37-D09F91064B03"
+            ],
+            "outgoing": [
+                "sid-D19F314B-A756-4F3C-B2E2-0FD72395BE0C",
+                "sid-5DC45256-E17F-42FA-861C-D62F0AD682D4"
+            ]
+        },
+        "sid-980D979B-F1E8-4350-A5E0-94AB26B9AEFA": {
+            "name": "justified",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-D20EBE3B-664E-4E24-9767-F2C3176AF556"
+            ],
+            "outgoing": [
+                "sid-E6BE7445-A9F2-47B9-8162-B531F7C093A2",
+                "sid-2EFEBECD-EF10-41FC-922F-65312259B656"
+            ]
+        },
+        "sid-FD4ECDC1-259F-41DF-BC5D-CA5451ED3CF6": {
+            "name": "",
+            "direction": "Unspecified",
+            "incoming": [
+                "sid-F0A415FC-79EA-4814-912E-3173084888F3"
+            ],
+            "outgoing": [
+                "sid-D231AD21-765F-4780-9DAA-7DBEBC137EF7"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-01727822-DEA6-4C74-96E5-869E2CC64553": {
+            "name": "Process",
+            "incoming": [
+                "sid-93523E85-A08F-4715-8C2F-FE525F0BE849"
+            ]
+        },
+        "sid-9C2BC0A4-73C9-4434-87D0-57C8D3267C9C": {
+            "name": "Debt collection process",
+            "incoming": [
+                "sid-5F0DC7A5-3351-46EB-BEDB-B0A660B3A3CF"
+            ]
+        }
+    }
+}

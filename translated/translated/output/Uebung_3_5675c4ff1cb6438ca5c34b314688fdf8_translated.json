@@ -1,0 +1,126 @@
+{
+    "start_events": {
+        "sid-B186B691-DBD4-4843-9171-21090FFC4EC5": {
+            "name": "Regression check",
+            "outgoing": [
+                "sid-FC34418D-32E4-4F1F-8C7D-A3F302CB1E48"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-7BB28C30-2242-4657-A0AF-A0D5C9AF8D41": {
+            "name": "Check regression case",
+            "incoming": [
+                "sid-FC34418D-32E4-4F1F-8C7D-A3F302CB1E48"
+            ],
+            "outgoing": [
+                "sid-F85DFE59-9D0A-44DC-9D37-8C16ABE233EB"
+            ]
+        },
+        "sid-F13EA1D2-BB23-4061-B975-563A7154EEF6": {
+            "name": "Send payment request to VN",
+            "incoming": [
+                "sid-27FE5FD3-1C40-4186-9BA2-19ACA48730C9"
+            ],
+            "outgoing": [
+                "sid-4546669E-C169-4E19-A943-3815163AD7BC"
+            ]
+        },
+        "sid-C943A69B-75E3-4324-AD0A-A95235DFDCC4": {
+            "name": "Set up a new template",
+            "incoming": [
+                "sid-4546669E-C169-4E19-A943-3815163AD7BC"
+            ],
+            "outgoing": [
+                "sid-8D8A0723-5F95-48C3-9123-783B6ADC1276"
+            ]
+        },
+        "sid-EA676FE5-2C1E-469A-BBD3-318E99FB256D": {
+            "name": "Close",
+            "incoming": [
+                "sid-86607A09-3396-4C73-9AFD-BBEF97D537EB"
+            ],
+            "outgoing": [
+                "sid-6B445A1E-A8E8-4915-82E4-43EB8A1A7DA1"
+            ]
+        },
+        "sid-D671168B-CBC9-4432-AA45-9CE027E803F7": {
+            "name": "Book money",
+            "incoming": [
+                "sid-3C418736-7E46-445D-883D-2999FA3BD00E"
+            ],
+            "outgoing": [
+                "sid-0AAB206C-2B97-4C79-A583-7093C3A6B88B"
+            ]
+        },
+        "sid-32674649-1538-42D2-9793-B7859B362A2E": {
+            "name": "Examination",
+            "incoming": [
+                "sid-CEC808B1-DD41-454B-9E76-190B747DCF13"
+            ],
+            "outgoing": [
+                "sid-A062B6F7-F464-4824-9306-6BF4A199B0F9"
+            ]
+        },
+        "sid-05D32331-EF68-497D-B989-0819BEA012A1": {
+            "name": "Dispense payment request for debt collection",
+            "incoming": [
+                "sid-2D5F4144-271F-41A8-8114-1D43BC4B70F4",
+                "sid-AF226071-0324-42FC-A4FC-7468CA35005C"
+            ],
+            "outgoing": [
+                "sid-F6402FD3-F3E3-4400-85A3-9A8E8E5CF72C"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-3FB29A5C-A8B2-462B-AF55-B4305E574F37": {
+            "name": "Regression condition fulfilled",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-F85DFE59-9D0A-44DC-9D37-8C16ABE233EB"
+            ],
+            "outgoing": [
+                "sid-27FE5FD3-1C40-4186-9BA2-19ACA48730C9",
+                "sid-893005CB-86DF-4906-93CD-624E27E111AA"
+            ]
+        },
+        "sid-DCC2BBE8-228E-4A57-B59F-5FE02E7EFCAB": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-893005CB-86DF-4906-93CD-624E27E111AA",
+                "sid-C3F1AC1E-4219-4ECA-A89C-9CFB43C6E1EC",
+                "sid-0AAB206C-2B97-4C79-A583-7093C3A6B88B"
+            ],
+            "outgoing": [
+                "sid-86607A09-3396-4C73-9AFD-BBEF97D537EB"
+            ]
+        },
+        "sid-6C229F25-CB36-429F-B9BE-C09F31B0FE9F": {
+            "name": "Objection justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-A062B6F7-F464-4824-9306-6BF4A199B0F9"
+            ],
+            "outgoing": [
+                "sid-2D5F4144-271F-41A8-8114-1D43BC4B70F4",
+                "sid-C3F1AC1E-4219-4ECA-A89C-9CFB43C6E1EC"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-CE4BB933-FC4F-4D8E-9E78-2F80C4ECB240": {
+            "name": "Closed",
+            "incoming": [
+                "sid-6B445A1E-A8E8-4915-82E4-43EB8A1A7DA1"
+            ]
+        },
+        "sid-4F1C45B4-E612-4B26-BED8-BEAA1EABCC34": {
+            "name": "Process for waiting position",
+            "incoming": [
+                "sid-F6402FD3-F3E3-4400-85A3-9A8E8E5CF72C"
+            ]
+        }
+    }
+}

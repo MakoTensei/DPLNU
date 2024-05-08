@@ -1,0 +1,117 @@
+{
+    "start_events": {
+        "sid-BF364614-C2E9-4DB1-862C-5A4ADB859FAE": {
+            "name": "",
+            "outgoing": [
+                "sid-A8D3DBE4-275D-4E99-B0D6-0B0E9A40485F"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-B34CE04E-9EFC-4219-92C0-C2F3372C5E0E": {
+            "name": "Check regressability\n",
+            "incoming": [
+                "sid-A8D3DBE4-275D-4E99-B0D6-0B0E9A40485F"
+            ],
+            "outgoing": [
+                "sid-C2F7F629-BC1E-4F24-9798-2699754C7923"
+            ]
+        },
+        "sid-4EF8C08C-C56B-4F67-B8CD-3B6507509BB3": {
+            "name": "Send payment request to VN",
+            "incoming": [
+                "sid-F8ED5F32-CB13-4BCB-8B6E-FB97FBAA6977"
+            ],
+            "outgoing": [
+                "sid-671DEC14-26BA-4DC2-95F7-73E91456D3BC"
+            ]
+        },
+        "sid-F6EC043A-1898-4B90-AD31-D2F3EDD280C3": {
+            "name": "Checking the objection",
+            "incoming": [
+                "sid-6F2E63C9-DE36-4DA3-A2F5-B8FAEFF9AE2B"
+            ],
+            "outgoing": [
+                "sid-BA167B42-7E47-4020-B189-F002298B282A"
+            ]
+        },
+        "sid-805F971C-BE7B-475B-9555-9A1CA93B0F13": {
+            "name": "Debt collection",
+            "incoming": [
+                "sid-0E118802-9522-4914-9E33-ED168876A7BA",
+                "sid-4D74876D-E7F9-4935-A06C-2158C41B4792"
+            ],
+            "outgoing": [
+                "sid-EFCE1616-18A1-4314-8A07-B19C224B9FFB"
+            ]
+        },
+        "sid-E11AF856-5129-48F5-B9EE-AC412AC74DBA": {
+            "name": "Book incoming payment",
+            "incoming": [
+                "sid-8B2850D7-D2EE-4157-BC1A-76FFF5B4D095"
+            ],
+            "outgoing": [
+                "sid-2B310986-C4F7-4DF4-984D-26FC8C251E87"
+            ]
+        },
+        "sid-94B9BBE7-854D-4C2C-BB36-53D784548750": {
+            "name": "Close",
+            "incoming": [
+                "sid-C0A2C1A0-F757-405D-92CE-919946BBF641",
+                "sid-1BBC539B-3D95-493B-A333-87FA96D63A86"
+            ],
+            "outgoing": [
+                "sid-E6B015EB-F5C4-442B-B1C4-1849460DCE1D"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-E42AD60B-60E1-496F-BAFD-1B78298736D8": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-C2F7F629-BC1E-4F24-9798-2699754C7923"
+            ],
+            "outgoing": [
+                "sid-F8ED5F32-CB13-4BCB-8B6E-FB97FBAA6977",
+                "sid-1BBC539B-3D95-493B-A333-87FA96D63A86"
+            ]
+        },
+        "sid-883B1E08-AB5C-48BB-9EAD-414D52C65F35": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-BA167B42-7E47-4020-B189-F002298B282A"
+            ],
+            "outgoing": [
+                "sid-0E118802-9522-4914-9E33-ED168876A7BA",
+                "sid-ECD0F1C1-E5F0-4D82-B6D1-1D932B7340F4"
+            ]
+        },
+        "sid-A3470DB8-AE80-427B-9C48-3F545A7DC267": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-2B310986-C4F7-4DF4-984D-26FC8C251E87",
+                "sid-ECD0F1C1-E5F0-4D82-B6D1-1D932B7340F4"
+            ],
+            "outgoing": [
+                "sid-C0A2C1A0-F757-405D-92CE-919946BBF641"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-16ECF2D3-DFB6-4120-8B11-DFD3967AF563": {
+            "name": "Closed",
+            "incoming": [
+                "sid-E6B015EB-F5C4-442B-B1C4-1849460DCE1D"
+            ]
+        },
+        "sid-128996F4-000C-4CF5-B809-25A06D1BA2EA": {
+            "name": "process remains open",
+            "incoming": [
+                "sid-EFCE1616-18A1-4314-8A07-B19C224B9FFB"
+            ]
+        }
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "start_events": {
+        "sid-0F39560B-5DED-4273-9CFA-3743BE336647": {
+            "name": "Claim\nReport",
+            "outgoing": [
+                "sid-5F86DD61-8B09-4A1C-A146-95AD31B49649"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-B4D14BD2-840A-4A76-9066-1973FCC82AD5": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-5F86DD61-8B09-4A1C-A146-95AD31B49649"
+            ],
+            "outgoing": [
+                "sid-40DE147C-DB4F-443F-8BD1-599096C80472"
+            ]
+        },
+        "sid-A78041B0-4F29-4CC5-A2C3-E7BA43D72696": {
+            "name": "Payment\non request\nsend",
+            "incoming": [
+                "sid-42665515-C8F5-4013-A414-CB2510C087EB"
+            ],
+            "outgoing": [
+                "sid-4C8F992A-1503-4AB6-9C6E-C2840266E83A"
+            ]
+        },
+        "sid-4A59B552-D07D-44D8-B477-509BB04410EB": {
+            "name": "Entrance\nbook",
+            "incoming": [
+                "sid-46491D4E-CB95-4945-8BE7-7D2EC1F2E977"
+            ],
+            "outgoing": [
+                "sid-8662B7EC-D516-4F01-9554-600B1441E01F"
+            ]
+        },
+        "sid-0501842D-8515-4BFB-9B84-FE2542353D0D": {
+            "name": "Opposition\nCheck",
+            "incoming": [
+                "sid-32D4A120-F3B9-4590-95BA-9489006C7370"
+            ],
+            "outgoing": [
+                "sid-F7DA8A2A-5D84-489A-9DA2-AC9B5C4DDC7A"
+            ]
+        },
+        "sid-AD65534E-0157-4819-8340-4727118C62B4": {
+            "name": "Process transferred to collection",
+            "incoming": [
+                "sid-87BAE9A0-3163-4105-923A-8A2B5F22DD3A",
+                "sid-A2630290-C76C-463C-9FF5-91BA8127279D"
+            ],
+            "outgoing": [
+                "sid-E4843E6B-B647-4E16-B5CA-EAB3BD06A2E5"
+            ]
+        },
+        "sid-C70A2852-5C3C-4F68-9091-6B4EDDE3672C": {
+            "name": "Process\nclose",
+            "incoming": [
+                "sid-1D3C39C6-2078-444A-9A74-CDDC0D0A3042"
+            ],
+            "outgoing": [
+                "sid-1E93E0EF-40FE-44CD-AB3D-B648C9AD6123"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-1484226E-1D3C-4F71-9687-BF702B2691A1": {
+            "name": "Claim\njust-\nfinished?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-40DE147C-DB4F-443F-8BD1-599096C80472"
+            ],
+            "outgoing": [
+                "sid-42665515-C8F5-4013-A414-CB2510C087EB",
+                "sid-B2440A91-9520-4DAA-9C46-D8CBAB51C0DD"
+            ]
+        },
+        "sid-9D7F6B1D-5164-479C-94BF-040DD450DE0D": {
+            "name": "Opposition\njustified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-F7DA8A2A-5D84-489A-9DA2-AC9B5C4DDC7A"
+            ],
+            "outgoing": [
+                "sid-A2630290-C76C-463C-9FF5-91BA8127279D",
+                "sid-1D3C39C6-2078-444A-9A74-CDDC0D0A3042"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-4C70A9E3-FA2D-4543-9A6F-960B55176D29": {
+            "name": "",
+            "incoming": [
+                "sid-1E93E0EF-40FE-44CD-AB3D-B648C9AD6123",
+                "sid-E4843E6B-B647-4E16-B5CA-EAB3BD06A2E5",
+                "sid-8662B7EC-D516-4F01-9554-600B1441E01F",
+                "sid-B2440A91-9520-4DAA-9C46-D8CBAB51C0DD"
+            ]
+        }
+    }
+}

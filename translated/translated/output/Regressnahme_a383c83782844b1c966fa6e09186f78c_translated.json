@@ -1,0 +1,93 @@
+{
+    "start_events": {
+        "sid-6AD29DBF-974B-4E99-ACAD-A22C99829917": {
+            "name": "Notification\nRegression requirement",
+            "outgoing": [
+                "sid-7865A9AB-9B85-4B8F-A185-BF956F8CBA05"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-45A3AA04-5888-4020-99BD-16D04E7CA18B": {
+            "name": "Claim\nCheck",
+            "incoming": [
+                "sid-7865A9AB-9B85-4B8F-A185-BF956F8CBA05"
+            ],
+            "outgoing": [
+                "sid-8B50792F-8C0C-492F-A667-13845D33351E"
+            ]
+        },
+        "sid-CDBC20BA-6EC2-4627-BF64-862C0631E655": {
+            "name": "Payment\non request\nto VN\nsend a message",
+            "incoming": [
+                "sid-773BC61D-DA08-4FEF-B4FB-AF2D51403D9E"
+            ],
+            "outgoing": [
+                "sid-71F3AF4E-706F-4436-BE9F-C6DE65376AEE"
+            ]
+        },
+        "sid-932EB92C-A76C-467C-B2BA-D01CBFF2FD8E": {
+            "name": "Entrance\nbook",
+            "incoming": [
+                "sid-90F50FB1-4087-4242-87ED-CFC92009F01C"
+            ],
+            "outgoing": [
+                "sid-E13F2882-38F7-4F3E-9BE4-82578C44C860"
+            ]
+        },
+        "sid-4713CD65-4ED9-4277-81AD-54EFB970821C": {
+            "name": "Opposition\nCheck",
+            "incoming": [
+                "sid-34FF309D-947E-400D-89CD-0AA6AEEE47CA"
+            ],
+            "outgoing": [
+                "sid-BFF792EE-63D2-4B8C-B6CC-2722A1DFE54C"
+            ]
+        },
+        "sid-67EC12B1-C864-48A5-8CFF-6CFD31BC411D": {
+            "name": "Debt collection service\nturn on",
+            "incoming": [
+                "sid-F38CD63D-93FA-4C80-92D9-F5E3C4C277DF",
+                "sid-E7344179-D435-4D78-9091-89F47870BEFF"
+            ],
+            "outgoing": [
+                "sid-D97B1E1C-6658-4534-943B-FEDA53E0CA9E"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-349D85C8-136C-4429-9850-E9D50C8E7E1A": {
+            "name": "Claim\njustified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-8B50792F-8C0C-492F-A667-13845D33351E"
+            ],
+            "outgoing": [
+                "sid-773BC61D-DA08-4FEF-B4FB-AF2D51403D9E",
+                "sid-1EAD4EDE-D38E-4B7C-86F8-F06AB7E82B25"
+            ]
+        },
+        "sid-879843FD-F29D-4AA3-9258-A38279246F32": {
+            "name": "Opposition\nRight?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-BFF792EE-63D2-4B8C-B6CC-2722A1DFE54C"
+            ],
+            "outgoing": [
+                "sid-E4D05892-2FD8-4034-A4DF-1FF4C7E31258",
+                "sid-F38CD63D-93FA-4C80-92D9-F5E3C4C277DF"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-D6474514-3E3D-432D-8967-A222DF891FCD": {
+            "name": "Process\nclosed",
+            "incoming": [
+                "sid-E4D05892-2FD8-4034-A4DF-1FF4C7E31258",
+                "sid-E13F2882-38F7-4F3E-9BE4-82578C44C860",
+                "sid-D97B1E1C-6658-4534-943B-FEDA53E0CA9E",
+                "sid-1EAD4EDE-D38E-4B7C-86F8-F06AB7E82B25"
+            ]
+        }
+    }
+}

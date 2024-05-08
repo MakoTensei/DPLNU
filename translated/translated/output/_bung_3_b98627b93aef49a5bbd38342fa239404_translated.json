@@ -1,0 +1,136 @@
+{
+    "start_events": {
+        "sid-C750CF9D-2443-4BD4-BA8A-D6C6D69E551A": {
+            "name": "Regress\nexamination\nReport",
+            "outgoing": [
+                "sid-1A396110-F416-4C55-9314-0B6205418253"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-26E0B1BD-683B-4CFD-9475-316B9C8F6D30": {
+            "name": "Check whether VN is regressive",
+            "incoming": [
+                "sid-1A396110-F416-4C55-9314-0B6205418253"
+            ],
+            "outgoing": [
+                "sid-3EA94AC7-633B-4D62-8879-E88008B2BE5C"
+            ]
+        },
+        "sid-1646C409-FAE2-43BC-B246-8D5D28F4137B": {
+            "name": "Close the process",
+            "incoming": [
+                "sid-CBA69A30-443B-4DF9-841E-C24567EF1CCF"
+            ],
+            "outgoing": [
+                "sid-11AEFA8D-9DE4-461F-ADFE-86A5FCBD56C6"
+            ]
+        },
+        "sid-82D38A8B-4B23-4D85-90A1-652605D24495": {
+            "name": "Send payment request",
+            "incoming": [
+                "sid-7929B1F2-F20F-4F1C-9341-3EB066249C38"
+            ],
+            "outgoing": [
+                "sid-5FFBC537-79FB-468C-9F9D-9FFFEAEE1EAE"
+            ]
+        },
+        "sid-D08508D2-710D-4D80-9252-2582B09F58BC": {
+            "name": "Set process for resubmission",
+            "incoming": [
+                "sid-BF159CA6-91F5-4FDF-B610-8A37A32DC223"
+            ],
+            "outgoing": [
+                "sid-B3468ACA-EB91-4792-8DA7-E05B3761E5CB"
+            ]
+        },
+        "sid-5582BA85-002B-4B37-A251-460EB5B8C41D": {
+            "name": "Cash receipt\nbook",
+            "incoming": [
+                "sid-F130EF47-39DA-4B32-89CE-46FB3F602E05"
+            ],
+            "outgoing": [
+                "sid-F3F55447-5AE3-4EAA-9B9A-64A1F22CAFED"
+            ]
+        },
+        "sid-9722F55C-BD3A-4B16-A0A4-1A2306F49A10": {
+            "name": "Opposition\nCheck",
+            "incoming": [
+                "sid-1FA7FD38-8C83-45AA-926D-311118F49CCF"
+            ],
+            "outgoing": [
+                "sid-821F20F0-FA9F-4893-A483-B7B98055865F"
+            ]
+        },
+        "sid-3C664EC9-9A9E-4992-8D4C-76D565C3BD85": {
+            "name": "Tax payable on:\nDebt collection office",
+            "incoming": [
+                "sid-345DA734-2FC7-4DDD-B797-786DBE5440ED"
+            ],
+            "outgoing": [
+                "sid-A40C9160-311B-4493-BA16-5794053D0344"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-D97E9484-5796-456C-AAE7-F95ACB1C89F6": {
+            "name": "regressive?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-3EA94AC7-633B-4D62-8879-E88008B2BE5C"
+            ],
+            "outgoing": [
+                "sid-7B39F15F-80FD-441E-BDB5-6D5C7CBE3780",
+                "sid-BD527A69-9163-4053-B674-F9006243B67A"
+            ]
+        },
+        "sid-2B8DBD0D-920E-4D72-9085-2FD82D293047": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-BD527A69-9163-4053-B674-F9006243B67A",
+                "sid-F3F55447-5AE3-4EAA-9B9A-64A1F22CAFED",
+                "sid-E6B5BC90-EEBA-4649-A661-AD0D56EEC5B5"
+            ],
+            "outgoing": [
+                "sid-CBA69A30-443B-4DF9-841E-C24567EF1CCF"
+            ]
+        },
+        "sid-286E80F5-DE8F-4FBB-8475-0C5245309013": {
+            "name": "Opposition\nRight?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-821F20F0-FA9F-4893-A483-B7B98055865F"
+            ],
+            "outgoing": [
+                "sid-E6B5BC90-EEBA-4649-A661-AD0D56EEC5B5",
+                "sid-98600F8E-D30F-4F71-A13F-07D5F9662DCA"
+            ]
+        },
+        "sid-D57DE482-E6BC-41F4-ACA4-785E01F961D9": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-98600F8E-D30F-4F71-A13F-07D5F9662DCA",
+                "sid-3C7519A4-9AB4-4A42-8003-2FF715D0762E"
+            ],
+            "outgoing": [
+                "sid-345DA734-2FC7-4DDD-B797-786DBE5440ED"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-DC25DE6B-FF3D-4472-9201-B6DDD36E52F4": {
+            "name": "Process\ncompleted",
+            "incoming": [
+                "sid-11AEFA8D-9DE4-461F-ADFE-86A5FCBD56C6"
+            ]
+        },
+        "sid-D2313F3E-342F-4A48-A28B-D4CC0C4241F5": {
+            "name": "Process\ndelivered",
+            "incoming": [
+                "sid-A40C9160-311B-4493-BA16-5794053D0344"
+            ]
+        }
+    }
+}

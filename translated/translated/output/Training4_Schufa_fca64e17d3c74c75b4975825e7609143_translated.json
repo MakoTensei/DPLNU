@@ -1,0 +1,148 @@
+{
+    "start_events": {
+        "sid-9FC9B203-D2AE-45BE-9FE1-0145B003757F": {
+            "name": "Scoring is essential",
+            "outgoing": [
+                "sid-6C2EE30C-7410-4DCE-BE21-9EBDA5414ED4"
+            ]
+        },
+        "sid-AFAD1B6B-8C92-4F9C-A977-1B9E7D364C07": {
+            "name": "Scoring request\nReport",
+            "outgoing": [
+                "sid-4C7F081C-E157-4BB0-B67E-3B91D5FE2DB4"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-CF8CEE61-4D0F-4BC5-AF54-E4E9DA954288": {
+            "name": "Scoring\nQuestion\nsend",
+            "incoming": [
+                "sid-6C2EE30C-7410-4DCE-BE21-9EBDA5414ED4"
+            ],
+            "outgoing": [
+                "sid-54A67A04-8E15-48B0-9EE6-34BD259D281F"
+            ]
+        },
+        "sid-CFCF74D0-49E3-4FC1-9367-9917AC29A382": {
+            "name": "Report result to Frontend",
+            "incoming": [
+                "sid-3382BC24-7B56-4FA9-9914-2C8BDC0FE1B7"
+            ],
+            "outgoing": [
+                "sid-51C036E7-C837-4DE2-81CD-32B5FB85D5E6"
+            ]
+        },
+        "sid-A4E18488-B431-4611-B8D7-038CD05D0197": {
+            "name": "Report delay to Frontend",
+            "incoming": [
+                "sid-D3DA5280-395F-4188-817A-12E6952F228A"
+            ],
+            "outgoing": [
+                "sid-9CC2B2A4-4329-4D32-9B03-AA04A28AE1AA"
+            ]
+        },
+        "sid-595E0858-E509-4B55-9D0A-1775C40935CF": {
+            "name": "Report Final Results at Frontend",
+            "incoming": [
+                "sid-EB44CA22-2271-4511-B86C-D92795C14FA6"
+            ],
+            "outgoing": [
+                "sid-5C50960B-9729-4B1F-AA49-AF8EE6D9DD46"
+            ]
+        },
+        "sid-1F1F7D11-450B-4E19-B76F-80F732FFB5A8": {
+            "name": "1. perform scoring",
+            "incoming": [
+                "sid-4C7F081C-E157-4BB0-B67E-3B91D5FE2DB4"
+            ],
+            "outgoing": [
+                "sid-459D25B1-BE85-408F-9FA6-F2BAA22B2E78"
+            ]
+        },
+        "sid-CE2851E0-1550-463B-9176-2A0E4F48DC9A": {
+            "name": "Send a reply\n",
+            "incoming": [
+                "sid-AB4E3E63-0806-487F-A64F-9C14F72A7762"
+            ],
+            "outgoing": [
+                "sid-1B11FB08-6C23-4AD1-86AF-30520250EC59"
+            ]
+        },
+        "sid-F193F3F1-C3F9-4DAA-84E1-E9383BD73AF7": {
+            "name": "Two. perform scoring",
+            "incoming": [
+                "sid-575937BB-74A3-4535-87C2-3F05F405F5F8"
+            ],
+            "outgoing": [
+                "sid-CBF41C99-C6BC-469D-8C72-D5FF3CE69F07"
+            ]
+        },
+        "sid-3F0025D7-1515-44D4-8D0C-5E397F5DDDA4": {
+            "name": "Send delay",
+            "incoming": [
+                "sid-8674E436-3449-4EB8-A54D-379ABC098D75"
+            ],
+            "outgoing": [
+                "sid-575937BB-74A3-4535-87C2-3F05F405F5F8"
+            ]
+        },
+        "sid-93755AB6-3DDE-4AB2-9DD2-7D76C86B92A9": {
+            "name": "Two. Send a reply",
+            "incoming": [
+                "sid-CBF41C99-C6BC-469D-8C72-D5FF3CE69F07"
+            ],
+            "outgoing": [
+                "sid-C2532454-A62E-4EDD-8186-CF012C003DA7"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-0ABD7F5F-D1E0-4D6D-998A-DA471E942413": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-51C036E7-C837-4DE2-81CD-32B5FB85D5E6",
+                "sid-5C50960B-9729-4B1F-AA49-AF8EE6D9DD46"
+            ],
+            "outgoing": [
+                "sid-656C262A-18FE-4BB9-AEDC-050856A62E45"
+            ]
+        },
+        "sid-52ED4D2B-C371-46B2-B2A0-A471B5A1D068": {
+            "name": "Scoring measurable?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-459D25B1-BE85-408F-9FA6-F2BAA22B2E78"
+            ],
+            "outgoing": [
+                "sid-AB4E3E63-0806-487F-A64F-9C14F72A7762",
+                "sid-8674E436-3449-4EB8-A54D-379ABC098D75"
+            ]
+        },
+        "sid-A3A1D6F6-E87B-41D4-A1C9-1E9236DE6541": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-1B11FB08-6C23-4AD1-86AF-30520250EC59",
+                "sid-C2532454-A62E-4EDD-8186-CF012C003DA7"
+            ],
+            "outgoing": [
+                "sid-31ECB70E-EFC2-436F-92F8-298A3D32FE5C"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-C74EAEDE-FC53-444E-95A6-CB1E0180BF14": {
+            "name": "Scoring result sent\n",
+            "incoming": [
+                "sid-656C262A-18FE-4BB9-AEDC-050856A62E45"
+            ]
+        },
+        "sid-8E19B4AE-B191-4432-914D-01AF959902C4": {
+            "name": "Schufaservice performed",
+            "incoming": [
+                "sid-31ECB70E-EFC2-436F-92F8-298A3D32FE5C"
+            ]
+        }
+    }
+}

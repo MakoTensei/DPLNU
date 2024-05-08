@@ -1,0 +1,125 @@
+{
+    "start_events": {
+        "sid-579A7BB0-BE2B-4B7C-B696-E7EAFF9A087B": {
+            "name": "Shipment",
+            "outgoing": [
+                "sid-93F7AC51-6078-448F-9018-DA6E50053F27"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-C589CE39-4954-4631-800A-5E8C59AA83BA": {
+            "name": "Check quantity",
+            "incoming": [
+                "sid-93F7AC51-6078-448F-9018-DA6E50053F27"
+            ],
+            "outgoing": [
+                "sid-E17AEAEE-C26E-431C-B42F-0E418F47F289"
+            ]
+        },
+        "sid-F5A5E37F-3F34-41AB-A90C-206D6DAF4B75": {
+            "name": "Pick up offers (3) of forwarders",
+            "incoming": [
+                "sid-F3913270-15CB-4DCF-B195-BFA4A346B65B"
+            ],
+            "outgoing": [
+                "sid-E70D86FC-44C5-42D9-93D5-5D83AD3657D4"
+            ]
+        },
+        "sid-5DF41975-F0BB-4880-A6C2-071461333D36": {
+            "name": "Special offers (3)\n",
+            "incoming": [
+                "sid-7B7A818A-D586-4120-95C3-7A28584E4AEB"
+            ],
+            "outgoing": [
+                "sid-0157BA37-45E7-4E7D-AC9C-F943B6004B9C"
+            ]
+        },
+        "sid-F1F998F5-1F46-41FF-86D0-503AB6359F02": {
+            "name": "Select your offer",
+            "incoming": [
+                "sid-0157BA37-45E7-4E7D-AC9C-F943B6004B9C"
+            ],
+            "outgoing": [
+                "sid-DB0B6225-6F0F-42AC-A87E-3730CCDDCC55"
+            ]
+        },
+        "sid-F81CB557-126A-45DF-8D05-9509EB672F95": {
+            "name": "Appoint forwarding",
+            "incoming": [
+                "sid-DB0B6225-6F0F-42AC-A87E-3730CCDDCC55"
+            ],
+            "outgoing": [
+                "sid-06D402FC-F3D9-43E9-9817-B45C0F5B42D0"
+            ]
+        },
+        "sid-DCDCB7C5-8C17-4216-BC79-D3C8214255A8": {
+            "name": "Fill in package form for normal mail",
+            "incoming": [
+                "sid-B81529F1-EB87-4CEF-86D9-112332731DBD"
+            ],
+            "outgoing": [
+                "sid-11D1B723-6EE3-488C-8AFC-1B930394BEF0"
+            ]
+        },
+        "sid-0A6BCF89-62E5-4EC1-898A-437031D2F739": {
+            "name": "Taxation",
+            "incoming": [
+                "sid-15AF2F7B-9D71-4015-A7D1-424BCD4CE2E0"
+            ],
+            "outgoing": [
+                "sid-0404ECE3-DDA9-4C6F-99FE-8A5CE5FCFC0C"
+            ]
+        },
+        "sid-2B984D6C-1EC5-48AA-AB51-6AD80CD22CCD": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-86E72CBC-A119-451E-A0AF-EC353605859D"
+            ],
+            "outgoing": [
+                "sid-75A57D98-DC23-40CA-B9D6-6B204DC5E9D1"
+            ]
+        },
+        "sid-959F4F2E-5FE2-4E5A-80A1-C4D6E2AE9DD7": {
+            "name": "provide packaged goods",
+            "incoming": [
+                "sid-EF9BF7A2-A073-4DA8-953E-3BBC8BFE3620"
+            ],
+            "outgoing": [
+                "sid-FEB92412-3F31-438F-9D71-C2AD4EE74ABB"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-8A9F9998-1C4C-47C6-A36B-466E970B7995": {
+            "name": "big crowd?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-E17AEAEE-C26E-431C-B42F-0E418F47F289"
+            ],
+            "outgoing": [
+                "sid-B81529F1-EB87-4CEF-86D9-112332731DBD",
+                "sid-F3913270-15CB-4DCF-B195-BFA4A346B65B"
+            ]
+        },
+        "sid-A78D313B-3F6F-40E8-BE5A-7097C4609D1F": {
+            "name": "Commodity insurance?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-CAB10B83-1F7A-457B-9F46-F1B285CAEB13"
+            ],
+            "outgoing": [
+                "sid-15AF2F7B-9D71-4015-A7D1-424BCD4CE2E0",
+                "sid-A994D22E-DAF6-4F5F-98A4-CC68F38E6118"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-5F920BB3-1407-4073-9007-F1FCEDFA2438": {
+            "name": "Shipment\nprepared",
+            "incoming": [
+                "sid-FEB92412-3F31-438F-9D71-C2AD4EE74ABB"
+            ]
+        }
+    }
+}

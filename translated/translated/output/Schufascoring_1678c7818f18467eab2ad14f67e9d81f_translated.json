@@ -1,0 +1,77 @@
+{
+    "start_events": {
+        "sid-D527247B-2973-4A7F-9113-85FF7F0936D1": {
+            "name": "",
+            "outgoing": [
+                "sid-EF565192-597C-47E3-95B7-76775B540645"
+            ]
+        },
+        "sid-E8BB8617-EB7F-4BF1-B548-B1A9C1524A05": {
+            "name": "",
+            "outgoing": [
+                "sid-8CF2ECCE-7A3C-4EB2-9B4A-09FA334C276A"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-C8016585-453D-4033-A5A5-1C6131B8C4A0": {
+            "name": "Call Schufa-scoring",
+            "incoming": [
+                "sid-EF565192-597C-47E3-95B7-76775B540645"
+            ],
+            "outgoing": [
+                "sid-1B01C3D0-2623-4823-94FE-9174C5461605"
+            ]
+        },
+        "sid-D4CC4E23-3E22-4E6E-A92C-784D015F7FE9": {
+            "name": "View scoring results",
+            "incoming": [
+                "sid-1B01C3D0-2623-4823-94FE-9174C5461605"
+            ],
+            "outgoing": []
+        },
+        "sid-F10DEB82-DAC3-4D46-8A1C-DE95BAE09072": {
+            "name": "perform scoring level1",
+            "incoming": [
+                "sid-8CF2ECCE-7A3C-4EB2-9B4A-09FA334C276A"
+            ],
+            "outgoing": [
+                "sid-F99B89E9-A93F-4C18-A3AF-B6C529176693"
+            ]
+        },
+        "sid-9831C47A-4DED-435C-8174-7C1570617A08": {
+            "name": "perform scoring level2",
+            "incoming": [
+                "sid-0EB4A54C-A5D8-4115-970E-63F3CC426E8B"
+            ],
+            "outgoing": []
+        },
+        "sid-6C1D4051-5CAF-466A-B434-37300A1FB51A": {
+            "name": "Start scoring request",
+            "incoming": [],
+            "outgoing": [
+                "sid-FC76D7DA-E555-448F-BC19-F702DA3E1C9C"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-5BF56ACD-9049-4D05-8D20-218D168E706C": {
+            "name": "",
+            "direction": "Unspecified",
+            "incoming": [
+                "sid-F99B89E9-A93F-4C18-A3AF-B6C529176693"
+            ],
+            "outgoing": [
+                "sid-0EB4A54C-A5D8-4115-970E-63F3CC426E8B"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-B8A287D7-1BE8-4350-900D-5573E823D2A4": {
+            "name": "",
+            "incoming": [
+                "sid-9414FFB2-37CB-4EF5-9AD1-B1F397C59C99"
+            ]
+        }
+    }
+}

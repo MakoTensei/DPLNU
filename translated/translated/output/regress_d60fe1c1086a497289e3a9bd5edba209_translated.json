@@ -1,0 +1,114 @@
+{
+    "start_events": {
+        "sid-CB02740E-CC0A-4D5C-8C12-116377CFC62F": {
+            "name": "Possible\nRegression",
+            "outgoing": [
+                "sid-6E8E3262-4357-4E08-8751-87A63608574E"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-D972B27A-9144-471F-BCF9-EF2FC9D97078": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-6E8E3262-4357-4E08-8751-87A63608574E"
+            ],
+            "outgoing": [
+                "sid-787C187D-FA75-470A-9BB3-2794B4597962"
+            ]
+        },
+        "sid-B81B484D-5568-4625-9A13-6A8F7D0A09CE": {
+            "name": "Send payment request",
+            "incoming": [
+                "sid-0FF36547-5823-4902-AB2B-FCA33E2E5F0F"
+            ],
+            "outgoing": [
+                "sid-56B2C05C-F4CE-49C1-9AA2-07E0E628353A"
+            ]
+        },
+        "sid-2556522F-0FE8-4D0C-913F-8B273894C9E8": {
+            "name": "Book the entrance",
+            "incoming": [
+                "sid-80AA668E-A827-4346-9A34-4D8BBE5CC08C"
+            ],
+            "outgoing": [
+                "sid-7E4C2F3C-EA75-4E9C-B22D-6EB5214EFF61"
+            ]
+        },
+        "sid-C230A9F9-6E71-4E74-9A73-0E7BC4EEDB83": {
+            "name": "Examination",
+            "incoming": [
+                "sid-2197EEEC-6B70-4B2B-A7D4-48EF2FA49A6B"
+            ],
+            "outgoing": [
+                "sid-BDBD5FF6-37DF-46F1-824A-61B660872787"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-F5B9E030-8F02-4133-9B86-5259B0B1F06A": {
+            "name": "Regress possible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-787C187D-FA75-470A-9BB3-2794B4597962"
+            ],
+            "outgoing": [
+                "sid-0FF36547-5823-4902-AB2B-FCA33E2E5F0F",
+                "sid-FF0C9E13-787E-4CC8-9A50-E0DA5BD98AC0"
+            ]
+        },
+        "sid-0775057C-84A3-48D4-A4A9-7D41AE1A3AA1": {
+            "name": "Objection justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-BDBD5FF6-37DF-46F1-824A-61B660872787"
+            ],
+            "outgoing": [
+                "sid-F6728C53-6DE5-4090-B1AF-89671F15322A",
+                "sid-760E0888-72F0-4E7F-BBF7-D97297BF3A65"
+            ]
+        },
+        "sid-37415956-FDA2-42D7-8AED-39879FDB792A": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-7E4C2F3C-EA75-4E9C-B22D-6EB5214EFF61",
+                "sid-F6728C53-6DE5-4090-B1AF-89671F15322A"
+            ],
+            "outgoing": [
+                "sid-E3E514F9-8EDC-4BBC-8E48-D650B71C7435"
+            ]
+        },
+        "sid-3287B0D4-3D8F-448A-AD9C-2A75EA2E13EB": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-60510731-D1E0-4C33-AF0E-43B7572F1D00",
+                "sid-760E0888-72F0-4E7F-BBF7-D97297BF3A65"
+            ],
+            "outgoing": [
+                "sid-B0BB6CB4-543D-4BB6-835C-E4EB415CEFFD"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-2C164F9D-7089-474A-A2A1-C228C244428E": {
+            "name": "Process\nclosed",
+            "incoming": [
+                "sid-FF0C9E13-787E-4CC8-9A50-E0DA5BD98AC0"
+            ]
+        },
+        "sid-52184751-3923-4B58-8C42-3E0BD7924B0A": {
+            "name": "Process\nclosed",
+            "incoming": [
+                "sid-E3E514F9-8EDC-4BBC-8E48-D650B71C7435"
+            ]
+        },
+        "sid-8873EA04-3868-4D79-8539-C0E09E93BB54": {
+            "name": "Debt collection\npassed",
+            "incoming": [
+                "sid-B0BB6CB4-543D-4BB6-835C-E4EB415CEFFD"
+            ]
+        }
+    }
+}

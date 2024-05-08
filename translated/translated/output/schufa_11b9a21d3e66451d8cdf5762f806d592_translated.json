@@ -1,0 +1,130 @@
+{
+    "start_events": {
+        "sid-86A22245-8596-45C5-ACA4-B35A8BACCA55": {
+            "name": "Schufascoring requested",
+            "outgoing": [
+                "sid-3EB845D5-65B2-4AFF-A09D-8CE7BF882DAF"
+            ]
+        },
+        "sid-595FB591-4B6A-4C1B-86FB-D91601A95017": {
+            "name": "Scoring request",
+            "outgoing": [
+                "sid-791B2DEB-7BC3-4C7A-B46A-EE0E8C39571A"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-0D459CD7-2F1E-45E2-9556-2C0AFBB0044F": {
+            "name": "forward request to Schufaservice",
+            "incoming": [
+                "sid-3EB845D5-65B2-4AFF-A09D-8CE7BF882DAF"
+            ],
+            "outgoing": [
+                "sid-A1D76130-2D6F-46E3-8B35-BC0DBAA15F42"
+            ]
+        },
+        "sid-4D6ECF0D-2A93-4ADF-A574-E7533F868A88": {
+            "name": "Sending results to Frontend",
+            "incoming": [
+                "sid-14F2E165-CD79-4D4D-9F2D-2380B25E9551"
+            ],
+            "outgoing": [
+                "sid-C4B1C2FB-9980-47D3-A536-EB9B36D4DF49"
+            ]
+        },
+        "sid-6D46DF5F-E2F8-41A3-9F03-6A3D07D373E2": {
+            "name": "Send information about delay to Frontend",
+            "incoming": [
+                "sid-4D7FA887-C1D3-4960-8533-CEA4925B19CA"
+            ],
+            "outgoing": [
+                "sid-FA62096E-716B-405D-9830-58426A92D6FA"
+            ]
+        },
+        "sid-44183D0C-BC5D-4F54-BD82-8CB4F54E5211": {
+            "name": "1. perform level scoring",
+            "incoming": [
+                "sid-791B2DEB-7BC3-4C7A-B46A-EE0E8C39571A"
+            ],
+            "outgoing": [
+                "sid-7ABA9326-99CA-4DCE-8961-75D0A4D03A86"
+            ]
+        },
+        "sid-EF765726-8A77-4018-9722-276BB315A27F": {
+            "name": "Report delay to banking system",
+            "incoming": [
+                "sid-1FE5FE7C-1E8C-461E-BF42-78A631173E07"
+            ],
+            "outgoing": [
+                "sid-BCDF3B97-4124-4356-B9F0-092045E5FE7F"
+            ]
+        },
+        "sid-E9A2F10F-6FAD-4605-AE3E-00469469789B": {
+            "name": "Two. perform level scoring",
+            "incoming": [
+                "sid-BCDF3B97-4124-4356-B9F0-092045E5FE7F"
+            ],
+            "outgoing": [
+                "sid-E00FDA63-39BD-419F-84EA-CFBF278202D3"
+            ]
+        },
+        "sid-DB22DAEA-CA5F-4423-A6C3-E332A69B32AB": {
+            "name": "forward result to bank system",
+            "incoming": [
+                "sid-E00FDA63-39BD-419F-84EA-CFBF278202D3"
+            ],
+            "outgoing": [
+                "sid-22A65305-D680-4A4B-A71C-26FB2F8B01A8"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-B2C99E04-8511-4513-8A97-747BA7541DD5": {
+            "name": "",
+            "direction": "Unspecified",
+            "incoming": [
+                "sid-9AC83113-733D-42EF-A185-D67D677A1659"
+            ],
+            "outgoing": [
+                "sid-14F2E165-CD79-4D4D-9F2D-2380B25E9551"
+            ]
+        },
+        "sid-EDDDC080-0105-4EC5-9EA7-462C0713ECCC": {
+            "name": "Scoring successful?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-7ABA9326-99CA-4DCE-8961-75D0A4D03A86"
+            ],
+            "outgoing": [
+                "sid-1FE5FE7C-1E8C-461E-BF42-78A631173E07",
+                "sid-201F2674-4832-4213-AE72-E3D30A2912C5"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-2E66BE7C-9774-4EAA-8C7D-CFF6810B8105": {
+            "name": "Schufa request completed\n",
+            "incoming": [
+                "sid-C4B1C2FB-9980-47D3-A536-EB9B36D4DF49"
+            ]
+        },
+        "sid-AAD98351-2314-4565-B9DA-6EA91B334A56": {
+            "name": "Schufa request completed",
+            "incoming": [
+                "sid-7990651A-018D-41A0-9E4E-837311A771C0"
+            ]
+        },
+        "sid-B7334044-98F2-4DF0-93E1-6025CF4055DB": {
+            "name": "Scoring request completed",
+            "incoming": [
+                "sid-22A65305-D680-4A4B-A71C-26FB2F8B01A8"
+            ]
+        },
+        "sid-08BAF06F-92BA-4456-B29A-FF4CF2F82132": {
+            "name": "Scoring request\nBank forward",
+            "incoming": [
+                "sid-201F2674-4832-4213-AE72-E3D30A2912C5"
+            ]
+        }
+    }
+}

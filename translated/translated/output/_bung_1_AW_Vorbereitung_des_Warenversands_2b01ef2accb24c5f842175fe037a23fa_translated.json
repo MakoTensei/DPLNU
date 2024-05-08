@@ -1,0 +1,145 @@
+{
+    "start_events": {
+        "sid-04F21CC0-0A09-40ED-A480-C2E54EFBC8D6": {
+            "name": "Goods are to be shipped",
+            "outgoing": [
+                "sid-2AA46247-9DFA-49F5-8DB0-7BF14F5FCDBF"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-4D9EA152-5BBF-4983-96D5-2415A75A601F": {
+            "name": "Pick up offer at Spediteur 2.",
+            "incoming": [
+                "sid-506B9B83-936F-4FE3-A791-7D7E5B5EA7DD"
+            ],
+            "outgoing": [
+                "sid-57416C23-0C66-433E-A781-964CEFE4ECB5"
+            ]
+        },
+        "sid-DFD8C059-8095-4377-B17E-E503B85C3DA4": {
+            "name": "Pick up offer at Spediteur 3.",
+            "incoming": [
+                "sid-78CD9B78-163A-4B00-8A3A-E623975FCE6B"
+            ],
+            "outgoing": [
+                "sid-4A7CB108-D286-43A9-B267-478FF712FC04"
+            ]
+        },
+        "sid-4F6F6793-6A21-434B-A786-9F7E52531411": {
+            "name": "Select and order freight forwarders",
+            "incoming": [
+                "sid-FA47346F-878D-4C2A-825A-390A653AE945"
+            ],
+            "outgoing": [
+                "sid-4A88E616-E4D2-42E9-A711-186F273F94E1"
+            ]
+        },
+        "sid-827D267B-EC0A-4705-9410-741ED397F923": {
+            "name": "select standard parcel delivery and fill in parcel note",
+            "incoming": [
+                "sid-9F736254-FBFF-4002-97E4-14FCD35B2BB4"
+            ],
+            "outgoing": [
+                "sid-FA4BBF7F-5D81-4228-9636-D5D0D493A30B"
+            ]
+        },
+        "sid-C6728A9D-1DF0-4BB2-938C-9F4401C03B0C": {
+            "name": "Determine the quantity",
+            "incoming": [
+                "sid-F30802D2-969E-40BD-8811-43629182C650"
+            ],
+            "outgoing": [
+                "sid-C2E0FB88-3DFF-4F77-9433-C6F7ED81023B"
+            ]
+        },
+        "sid-4B610E98-3082-44CC-B668-1227820E3F54": {
+            "name": "Pick up the offer at Spediteur 1.",
+            "incoming": [
+                "sid-0D0E6DA5-9FFA-41F7-B1D5-27C20C0CCA5C"
+            ],
+            "outgoing": [
+                "sid-EFCA580A-B4C5-4DF2-8F79-BD5BB4553950"
+            ]
+        },
+        "sid-70D837CE-E3CF-4D5F-9C7E-7FBC09AF9ED1": {
+            "name": "Complete insurance",
+            "incoming": [],
+            "outgoing": [
+                "sid-58D80D42-29DD-4711-8CD8-40CB4635AF18"
+            ]
+        },
+        "sid-9C732EA7-7E8E-45E9-B212-F926878A3FCA": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-6C8916C1-6CEB-48D0-AE40-87AD99DFAE20"
+            ],
+            "outgoing": [
+                "sid-9952F725-DAB0-4159-876C-6BFCEED32D41"
+            ]
+        },
+        "sid-4ED42A57-01A2-493E-8C26-2555C1525B23": {
+            "name": "Delivering goods",
+            "incoming": [
+                "sid-AEB61769-0264-4194-8554-A8AEA909DE44"
+            ],
+            "outgoing": [
+                "sid-CA6FAF50-248B-45DB-A506-AE4B37D141D7"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-8AB67BA3-160E-47CC-AF73-5ABA249CBAF3": {
+            "name": "Volume of goods?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-C2E0FB88-3DFF-4F77-9433-C6F7ED81023B"
+            ],
+            "outgoing": [
+                "sid-29EC7F0A-3943-4CBA-B11F-6D28E08B412A",
+                "sid-BB311E66-EED8-49F6-8EE9-B0A41D91F6D9"
+            ]
+        },
+        "sid-66F0A368-FE30-4783-B232-9147A35F85FC": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-4A88E616-E4D2-42E9-A711-186F273F94E1",
+                "sid-ED56B5E7-14F7-4BCF-BAEE-A009E888BEED"
+            ],
+            "outgoing": [
+                "sid-DD327E61-0D67-4A94-91B2-3CCA846EB1DA"
+            ]
+        },
+        "sid-ED8F4D61-3C1B-4B52-8633-69919082561C": {
+            "name": "Insurance required",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-6634F5AD-D1A4-4A0C-B099-BE71E1BCB835"
+            ],
+            "outgoing": [
+                "sid-7B4EEF27-F6C9-4B8C-B599-B966CD041B62",
+                "sid-C93BDAB5-4E26-42C7-A6FF-BE64788C3D91"
+            ]
+        },
+        "sid-8F6EA588-64A5-4C0F-A9DF-DFDE6010CAE4": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-58D80D42-29DD-4711-8CD8-40CB4635AF18",
+                "sid-C93BDAB5-4E26-42C7-A6FF-BE64788C3D91"
+            ],
+            "outgoing": [
+                "sid-790BC7DB-D5C4-46A1-81DB-E49B8436AD30"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-3F5872C2-8307-4EB2-904C-5CFB40292AED": {
+            "name": "Goods delivered",
+            "incoming": [
+                "sid-CA6FAF50-248B-45DB-A506-AE4B37D141D7"
+            ]
+        }
+    }
+}

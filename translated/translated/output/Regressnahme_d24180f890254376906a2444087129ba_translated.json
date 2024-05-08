@@ -1,0 +1,150 @@
+{
+    "start_events": {
+        "sid-AE9AED7C-566F-422D-A759-2571949D81F2": {
+            "name": "Regression reported",
+            "outgoing": [
+                "sid-9370A2CF-776D-4B80-AF0F-5F1EC4D40B02"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-381BCA77-BCEC-4689-BCD0-F88FF599A991": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-9370A2CF-776D-4B80-AF0F-5F1EC4D40B02"
+            ],
+            "outgoing": [
+                "sid-5C39F9AB-AE6D-4E64-8FC9-8A83C626FB2E"
+            ]
+        },
+        "sid-F932C5C4-CD2C-4D1A-8C8E-6D03C4EBD517": {
+            "name": "Close the process",
+            "incoming": [
+                "sid-7C797B53-298C-41FD-90EA-E2391F99B7FD"
+            ],
+            "outgoing": [
+                "sid-60F94C02-89FD-43A2-9CF6-537839AACEBC"
+            ]
+        },
+        "sid-34ED8DA6-CEF4-4F04-938A-38E5D689F00F": {
+            "name": "Send a message",
+            "incoming": [
+                "sid-CC58BA5E-7E71-40C9-945C-CE793E184CCF"
+            ],
+            "outgoing": [
+                "sid-62EAA9D4-E1C3-45A8-BC48-7DA379B7C429"
+            ]
+        },
+        "sid-069FD508-088A-4351-B71A-2463EB5195C8": {
+            "name": "Check in cash",
+            "incoming": [
+                "sid-75750994-C214-4942-9130-11E0938D3E4C"
+            ],
+            "outgoing": [
+                "sid-9091173C-3D5C-45DF-B201-BBD22E58D0A9"
+            ]
+        },
+        "sid-42B4DF46-A407-4F73-9919-F5873A07E81C": {
+            "name": "Book incoming money",
+            "incoming": [
+                "sid-10BC767D-35F4-4BDE-97B2-91B89DF73043"
+            ],
+            "outgoing": [
+                "sid-E07EA152-7E96-4BC2-8E71-20D407C97735"
+            ]
+        },
+        "sid-3ACC5335-0553-4AFA-8E70-285BEB0A6665": {
+            "name": "Close the process",
+            "incoming": [
+                "sid-E07EA152-7E96-4BC2-8E71-20D407C97735",
+                "sid-C8BB8CD9-031A-4581-A10D-089DC5189991"
+            ],
+            "outgoing": [
+                "sid-3D2EAE56-45E8-40F9-A801-D2DB5D6864E4"
+            ]
+        },
+        "sid-D2AA0FA9-D4D2-4E29-A082-6B35450777CA": {
+            "name": "Dispense service providers",
+            "incoming": [
+                "sid-AA634D14-9A57-4A47-8831-0664364FA68A",
+                "sid-A2BC4456-8385-4676-9C1A-07899EED626B"
+            ],
+            "outgoing": [
+                "sid-C8BB8CD9-031A-4581-A10D-089DC5189991"
+            ]
+        },
+        "sid-6E585E75-70DE-42C9-A4E5-026824475FA4": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-EB616AF3-7995-4924-8352-2B2A69B0EB8A"
+            ],
+            "outgoing": [
+                "sid-9A0B11D0-5A8C-4843-ADC2-1C82735CA30F"
+            ]
+        },
+        "sid-C3E7FEE4-DDCE-4514-9182-DC63AB9EDE16": {
+            "name": "Close the process",
+            "incoming": [
+                "sid-4AE933B5-0279-4A1F-AE61-3C880FB17A97"
+            ],
+            "outgoing": [
+                "sid-8199E229-6990-44FF-9BA6-7AE6E6A2AC43"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-C5A4748A-F6C2-477D-BFAE-4BB2C8626772": {
+            "name": "Is there a mogility?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-5C39F9AB-AE6D-4E64-8FC9-8A83C626FB2E"
+            ],
+            "outgoing": [
+                "sid-7C797B53-298C-41FD-90EA-E2391F99B7FD",
+                "sid-CC58BA5E-7E71-40C9-945C-CE793E184CCF"
+            ]
+        },
+        "sid-FE14AC1C-EA47-4AAB-8A03-9BA07E229930": {
+            "name": "Money received?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-9091173C-3D5C-45DF-B201-BBD22E58D0A9"
+            ],
+            "outgoing": [
+                "sid-10BC767D-35F4-4BDE-97B2-91B89DF73043",
+                "sid-A9831CF7-9087-4F8E-AC4A-5BC0C5AD7EB1"
+            ]
+        },
+        "sid-30237D89-4403-4853-A109-4CCB944265F3": {
+            "name": "Disclaimer of payment justifiable?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-9A0B11D0-5A8C-4843-ADC2-1C82735CA30F"
+            ],
+            "outgoing": [
+                "sid-A2BC4456-8385-4676-9C1A-07899EED626B",
+                "sid-4AE933B5-0279-4A1F-AE61-3C880FB17A97"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-15AED391-371D-4BA2-A976-39C6F2D836CF": {
+            "name": "Closed",
+            "incoming": [
+                "sid-60F94C02-89FD-43A2-9CF6-537839AACEBC"
+            ]
+        },
+        "sid-71B8C639-D078-475E-B0F3-BB55A82F11E4": {
+            "name": "Closed",
+            "incoming": [
+                "sid-3D2EAE56-45E8-40F9-A801-D2DB5D6864E4"
+            ]
+        },
+        "sid-E3EFAE93-2834-4DC5-8B09-94F2A16D8620": {
+            "name": "Closed",
+            "incoming": [
+                "sid-8199E229-6990-44FF-9BA6-7AE6E6A2AC43"
+            ]
+        }
+    }
+}

@@ -1,0 +1,86 @@
+{
+    "start_events": {
+        "sid-C94248BF-B3C7-48C0-AC22-96509DC92695": {
+            "name": "Schufascoring request\nReport",
+            "outgoing": [
+                "sid-1C3F07B1-FDA4-4B9A-BBC7-8F46C0A8C916"
+            ]
+        },
+        "sid-FF3FA62D-E21B-4228-B901-E73C7C77AB4D": {
+            "name": "Scoring request\nobtained",
+            "outgoing": [
+                "sid-229BCFB3-86E7-461C-ABC6-271255078509"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-1E76D075-38EF-489A-98F8-F05869EE712A": {
+            "name": "Level 1 Scoring",
+            "incoming": [
+                "sid-229BCFB3-86E7-461C-ABC6-271255078509"
+            ],
+            "outgoing": [
+                "sid-47604F52-0B4D-4D14-BFAC-25F22E072899"
+            ]
+        },
+        "sid-C8BB97E2-EE41-4458-8EA1-9F06AA8C1E2C": {
+            "name": "Level 2 Scoring",
+            "incoming": [
+                "sid-C428F963-10A0-42BF-ACEE-34B72A91B86E"
+            ],
+            "outgoing": [
+                "sid-0954D0FB-DEF0-45F5-9BC5-E0226639BAE8"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-2BAFD041-5185-485C-8BC4-EFACCC8659B0": {
+            "name": "Level 1 scoring\nwith result?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-3FEEC96C-3E18-443B-B4B0-EA91BCCEDAF5"
+            ],
+            "outgoing": [
+                "sid-992F3E0E-011C-4B98-BE4A-A7DC6DD0390A",
+                "sid-C129F9A4-1EFD-4835-974C-A1C720F0AF7A"
+            ]
+        },
+        "sid-B071F746-D839-440F-8BE3-376C2793D65B": {
+            "name": "Level 1\nsuccessful?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-25612BFB-4589-4C9F-9FE6-078F64238ABE"
+            ],
+            "outgoing": [
+                "sid-C428F963-10A0-42BF-ACEE-34B72A91B86E",
+                "sid-88F39F4B-CE1F-49CA-AD84-FAC437F35377"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-3D675543-C7AE-4CD5-83E5-285ABB270525": {
+            "name": "End of query",
+            "incoming": [
+                "sid-C129F9A4-1EFD-4835-974C-A1C720F0AF7A"
+            ]
+        },
+        "sid-1B1E009D-F268-4FD7-90A0-01839C6ADBE3": {
+            "name": "End of query",
+            "incoming": [
+                "sid-DFAC360D-8095-4787-9392-96809C5CEE55"
+            ]
+        },
+        "sid-0B6FAAC2-38D7-402D-AECE-679B0E002A2A": {
+            "name": "Examination completed",
+            "incoming": [
+                "sid-88F39F4B-CE1F-49CA-AD84-FAC437F35377"
+            ]
+        },
+        "sid-1399EC3E-B4E2-400D-AC01-35123A90F811": {
+            "name": "Examination completed",
+            "incoming": [
+                "sid-3955A593-CF6E-41AD-9369-46BAC390D89E"
+            ]
+        }
+    }
+}

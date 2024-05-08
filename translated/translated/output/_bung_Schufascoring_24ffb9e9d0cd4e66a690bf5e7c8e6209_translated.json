@@ -1,0 +1,66 @@
+{
+    "start_events": {
+        "sid-389AD0E4-7AC8-4D68-8B83-DEE47E48AD91": {
+            "name": "",
+            "outgoing": [
+                "sid-9A237F3E-7250-4022-963E-DF6F2C498E2A"
+            ]
+        },
+        "sid-FC78EA0F-8C4F-4DBC-82D1-77EEDDC6EF48": {
+            "name": "",
+            "outgoing": [
+                "sid-577F9F3E-86F9-4B1B-850D-28B100D272CA"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-33A2F601-8C01-43FA-9ABC-070C92C9F259": {
+            "name": "Scoring request\nsend to the Schufa",
+            "incoming": [
+                "sid-9A237F3E-7250-4022-963E-DF6F2C498E2A"
+            ],
+            "outgoing": [
+                "sid-E7FCB6AE-7ECC-47AC-B63C-3EADCC4CC847"
+            ]
+        },
+        "sid-09D29820-212C-4D0A-94B1-A57049C739A8": {
+            "name": "perform scoring\n(level 1)",
+            "incoming": [
+                "sid-577F9F3E-86F9-4B1B-850D-28B100D272CA"
+            ],
+            "outgoing": [
+                "sid-A0C4CAB3-D053-4225-AB54-E8CD34596DC6"
+            ]
+        },
+        "sid-2AE7C019-5B2C-499B-921F-6C8E36F4A242": {
+            "name": "Conduct scoring (level 2)",
+            "incoming": [
+                "sid-CBFFA71D-E5F2-45DE-8097-DA47C8571AC8"
+            ],
+            "outgoing": [
+                "sid-43419C7F-47AC-4AB0-B927-7AB983E3B8FD"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-45DD9359-D282-4595-945D-F25A7BE0D1F9": {
+            "name": "Scoring\ndetermined?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-A0C4CAB3-D053-4225-AB54-E8CD34596DC6"
+            ],
+            "outgoing": [
+                "sid-154D80AF-5302-4729-91D6-52C3FE70E465",
+                "sid-A304889E-8212-46E7-9578-B07A1A27D66F"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-A9F2C138-F201-484F-82DC-3FEC1B1D53CF": {
+            "name": "",
+            "incoming": [
+                "sid-2419E91E-6D7B-4018-8C90-847501745107"
+            ]
+        }
+    }
+}

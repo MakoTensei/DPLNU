@@ -1,0 +1,75 @@
+{
+    "start_events": {
+        "sid-C2F18F39-A4BA-478B-A844-D10F98F79D61": {
+            "name": "Schufa scoring\nenroll",
+            "outgoing": [
+                "sid-F43A8DBC-55AC-46A5-82DD-C253A274F6C8"
+            ]
+        },
+        "sid-4FE30982-E6C4-4CA6-A144-9AF161CA8731": {
+            "name": "Scoring request",
+            "outgoing": [
+                "sid-F6447E45-8998-4711-B6B4-6F3CAFCA98D4"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-6543E694-A481-42A6-88D1-62E1E915CAD7": {
+            "name": "1. Determining scoring",
+            "incoming": [
+                "sid-F6447E45-8998-4711-B6B4-6F3CAFCA98D4"
+            ],
+            "outgoing": [
+                "sid-9E7DC737-E48C-45DB-9D0B-B7C849991F13"
+            ]
+        },
+        "sid-EA264C37-0F7F-48F1-AD73-3C57DC43EE99": {
+            "name": "2.Determine scorring",
+            "incoming": [
+                "sid-161F3E48-AC27-4242-AFDB-A36C89C0ED29"
+            ],
+            "outgoing": [
+                "sid-4A93E398-A532-48AD-81E0-40352E55D554"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-1DBBC628-7B0C-40ED-B30A-CC7E0895FAEE": {
+            "name": "1. Scoring determined",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-9E7DC737-E48C-45DB-9D0B-B7C849991F13"
+            ],
+            "outgoing": [
+                "sid-923DC6E2-7CA6-4AA1-8838-FCC0047E6248",
+                "sid-F49BA917-AD84-4B39-9BDC-09AF0EB1C9BE"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-8ACFBD49-240C-403E-BAEB-036D342BCFB7": {
+            "name": "Schufa scoring\nFinished",
+            "incoming": [
+                "sid-5569D65C-ED2D-4DAB-AE2A-285A6317D678"
+            ]
+        },
+        "sid-18B4768C-7101-4D20-BE64-1124AA6F549C": {
+            "name": "Schufa scoring\nFinished",
+            "incoming": [
+                "sid-0374D30D-C3BC-40DA-89EA-E389221D6B59"
+            ]
+        },
+        "sid-83700E41-01C7-4F70-ADDB-65B67C7DED2D": {
+            "name": "Scoring request\nFinished",
+            "incoming": [
+                "sid-94C390D0-894F-4C19-9DC0-CEE57FADA0F8"
+            ]
+        },
+        "sid-E21BF751-B0BF-4C01-8F6A-A0F597F50788": {
+            "name": "Scoring request\nFinished",
+            "incoming": [
+                "sid-DBAC4D7D-9F9D-4CBD-975C-993BD64676E7"
+            ]
+        }
+    }
+}

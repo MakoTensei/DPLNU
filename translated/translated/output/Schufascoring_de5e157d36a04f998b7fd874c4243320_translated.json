@@ -1,0 +1,130 @@
+{
+    "start_events": {
+        "sid-BD74AB87-F443-4D6D-BBE6-25C67D12666E": {
+            "name": "Start\nSchufascoring",
+            "outgoing": [
+                "sid-9AE1C5F8-CE4D-42F5-8BD1-B268C97BF631"
+            ]
+        },
+        "sid-3599F30F-9BA5-4CCE-A311-1338C18FC5F8": {
+            "name": "Start Scoring",
+            "outgoing": [
+                "sid-1A38B07B-0161-4096-95D6-1261ACE8031B"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-C87591ED-17E0-4611-9A83-6786A9A242F0": {
+            "name": "Scoring\nSend an inquiry to Shufa",
+            "incoming": [
+                "sid-9AE1C5F8-CE4D-42F5-8BD1-B268C97BF631"
+            ],
+            "outgoing": [
+                "sid-10F94CC6-2E18-4C7C-B06C-52403D3669C0"
+            ]
+        },
+        "sid-8840C07E-0C08-40D2-A008-DE7587B9F20F": {
+            "name": "Follow-up",
+            "incoming": [
+                "sid-B167E4D0-9DF9-4927-95F0-AF1E49FB539A"
+            ],
+            "outgoing": [
+                "sid-ED4E449A-88AA-432D-AC7A-22642E795064"
+            ]
+        },
+        "sid-E9919726-C892-4B41-B98F-13E56B2D3FEF": {
+            "name": "forwarding information",
+            "incoming": [
+                "sid-B16369C9-EAE8-465F-B112-F7624423FD91"
+            ],
+            "outgoing": [
+                "sid-C4E89C09-41F9-4D4F-B172-BBBCDED70CBF"
+            ]
+        },
+        "sid-8A67D2D9-051B-4006-BF68-F42BD55FC79A": {
+            "name": "Level 1 Scoring",
+            "incoming": [
+                "sid-1A38B07B-0161-4096-95D6-1261ACE8031B"
+            ],
+            "outgoing": [
+                "sid-75C61F27-E356-4357-BCB9-74EA185B2EC3"
+            ]
+        },
+        "sid-47F2B8CE-93BC-46B9-82DF-F2490A8C3B65": {
+            "name": "Transfer scoring results",
+            "incoming": [
+                "sid-C7A96E06-F869-4728-B240-59DC9FD9119C"
+            ],
+            "outgoing": [
+                "sid-F37A032C-A03F-43B9-B678-B3EEDA8051A5"
+            ]
+        },
+        "sid-5C22E192-D4CE-41CA-BF60-1D8E18512B6C": {
+            "name": "Level 2 Scoring",
+            "incoming": [
+                "sid-20D5BD4A-CC95-4BFC-BCDE-585FE321B072"
+            ],
+            "outgoing": [
+                "sid-C0E3E68E-1DBA-4DDB-998A-02C09954E121"
+            ]
+        },
+        "sid-F2818EDD-2859-401E-9DCA-C24AC8C25180": {
+            "name": "Information about delayed scoring",
+            "incoming": [
+                "sid-BA9F71E0-25E5-4C0C-B31B-41D917B4418B"
+            ],
+            "outgoing": [
+                "sid-20D5BD4A-CC95-4BFC-BCDE-585FE321B072"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-330CA51B-2D3D-4694-A35D-BA4940A5A62A": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-10F94CC6-2E18-4C7C-B06C-52403D3669C0",
+                "sid-C4E89C09-41F9-4D4F-B172-BBBCDED70CBF"
+            ],
+            "outgoing": [
+                "sid-091FEFEE-CC03-4BE1-BA9D-346144F5B257"
+            ]
+        },
+        "sid-52FA7B01-95B6-4B43-931F-25880532A3CA": {
+            "name": "Scoring\ncan be determined immediately\nthey are",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-75C61F27-E356-4357-BCB9-74EA185B2EC3"
+            ],
+            "outgoing": [
+                "sid-556CF9C2-FCC6-48BF-890E-4535EBED377D",
+                "sid-BA9F71E0-25E5-4C0C-B31B-41D917B4418B"
+            ]
+        },
+        "sid-184C6D9D-F225-4BA0-A4B6-466D834B5014": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-556CF9C2-FCC6-48BF-890E-4535EBED377D",
+                "sid-C0E3E68E-1DBA-4DDB-998A-02C09954E121"
+            ],
+            "outgoing": [
+                "sid-C7A96E06-F869-4728-B240-59DC9FD9119C"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-109869F9-4C56-4764-A29A-98EB5EFBB29E": {
+            "name": "End\nScore determination",
+            "incoming": [
+                "sid-ED4E449A-88AA-432D-AC7A-22642E795064"
+            ]
+        },
+        "sid-E956EAF8-F407-4AB5-9C2E-42AF13A687BB": {
+            "name": "End of scoring",
+            "incoming": [
+                "sid-F37A032C-A03F-43B9-B678-B3EEDA8051A5"
+            ]
+        }
+    }
+}

@@ -1,0 +1,109 @@
+{
+    "start_events": {
+        "sid-3105A11C-22D6-4B79-B4DC-5DB99917C5FE": {
+            "name": "Scoring request",
+            "outgoing": [
+                "sid-F024E073-C01B-4E92-B17F-A30309720DA3"
+            ]
+        },
+        "sid-E3C6BA1D-B66C-45A5-8C91-B7D4DECD9CE6": {
+            "name": "Scoring request",
+            "outgoing": [
+                "sid-3B1A635E-BD25-43A1-BAE9-FF8B7417FE10"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-E3918F39-1072-4B31-8412-34271ED974D7": {
+            "name": "Conduct scoring Level 1",
+            "incoming": [
+                "sid-F024E073-C01B-4E92-B17F-A30309720DA3"
+            ],
+            "outgoing": [
+                "sid-EFFA7749-E0C8-487B-98FF-47EE48D66D39"
+            ]
+        },
+        "sid-A21896C4-755E-4F6B-8708-3D700242DA6E": {
+            "name": "Report the result to the bank",
+            "incoming": [
+                "sid-1B2A5A39-45AE-4D26-854D-D7DFF8934C02",
+                "sid-267659C3-61B8-45E8-B2FC-54095CF84E94"
+            ],
+            "outgoing": [
+                "sid-1D7A4AF1-6D73-446C-9703-A0FE74DE7E5A"
+            ]
+        },
+        "sid-D544A2E8-0762-479C-9A66-339FC97ABB70": {
+            "name": "Report delay of the bank",
+            "incoming": [
+                "sid-F258237A-E6FD-40CE-983C-5F2FCEA12638"
+            ],
+            "outgoing": [
+                "sid-D433C8AB-8CB3-4A7E-9A17-EBE39DA08DCA"
+            ]
+        },
+        "sid-0EBB2B7D-C3EE-4A4D-A299-41C67ED09587": {
+            "name": "Scoring Level 2",
+            "incoming": [
+                "sid-D433C8AB-8CB3-4A7E-9A17-EBE39DA08DCA"
+            ],
+            "outgoing": [
+                "sid-267659C3-61B8-45E8-B2FC-54095CF84E94"
+            ]
+        },
+        "sid-BD3B126C-FCF7-4E1F-8860-99366271B74C": {
+            "name": "Start communication with the Schufa",
+            "incoming": [
+                "sid-3B1A635E-BD25-43A1-BAE9-FF8B7417FE10"
+            ],
+            "outgoing": [
+                "sid-FF71D803-A40F-4094-9BA4-1333FA950442"
+            ]
+        },
+        "sid-D4227913-0D93-4239-A598-EB83EDC1F2F7": {
+            "name": "Send Schufascoring to the front end",
+            "incoming": [
+                "sid-35B1FD5D-D6A6-4A41-BAFD-73CBDB82A8AB"
+            ],
+            "outgoing": [
+                "sid-80176330-4757-4559-B37A-4CF4919BE89F"
+            ]
+        },
+        "sid-CE381B4F-184B-4A31-AA08-481C47ACCEFA": {
+            "name": "Share delay",
+            "incoming": [
+                "sid-FF902D4F-49B4-46D1-9D2A-4F16D7490D0A"
+            ],
+            "outgoing": [
+                "sid-8062CB23-9FD5-46E1-BE00-23D669AD0483"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-29A2B610-8C23-4ADC-A977-AD49F17919CC": {
+            "name": "Is the result fixed?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-EFFA7749-E0C8-487B-98FF-47EE48D66D39"
+            ],
+            "outgoing": [
+                "sid-1B2A5A39-45AE-4D26-854D-D7DFF8934C02",
+                "sid-F258237A-E6FD-40CE-983C-5F2FCEA12638"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-A9977DC2-32AE-4870-AF4C-4B0531A47FFC": {
+            "name": "Scoring ends",
+            "incoming": [
+                "sid-1D7A4AF1-6D73-446C-9703-A0FE74DE7E5A"
+            ]
+        },
+        "sid-54557F86-1275-4278-B374-E41E1498CA89": {
+            "name": "Process completed",
+            "incoming": [
+                "sid-80176330-4757-4559-B37A-4CF4919BE89F"
+            ]
+        }
+    }
+}

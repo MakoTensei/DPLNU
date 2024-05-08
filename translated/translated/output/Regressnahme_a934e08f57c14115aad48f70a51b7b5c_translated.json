@@ -1,0 +1,108 @@
+{
+    "start_events": {
+        "sid-3A2BAAE3-D90F-4D3E-9D4E-A3EDD5B8D916": {
+            "name": "",
+            "outgoing": [
+                "sid-55640100-3856-4D65-911A-10941D1C03D9"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-4FA9EBDF-333A-4E42-9B1D-5BD6913C4AD6": {
+            "name": "Check case for regress",
+            "incoming": [
+                "sid-55640100-3856-4D65-911A-10941D1C03D9"
+            ],
+            "outgoing": [
+                "sid-84AFD242-87C3-4E51-83D6-598ED3C27F67"
+            ]
+        },
+        "sid-116C573E-769A-4AC8-8BA1-FE4AF3E41BFA": {
+            "name": "Send payment request to insurance companies",
+            "incoming": [
+                "sid-920ACCB8-A91A-4F83-80A4-9FF3F53A5436"
+            ],
+            "outgoing": [
+                "sid-7D286DD9-A9B2-4852-BBA8-7A806EA6660C"
+            ]
+        },
+        "sid-BF144F7D-4A2A-4403-840B-6EC14517C0C6": {
+            "name": "Set process for resubmission",
+            "incoming": [
+                "sid-7D286DD9-A9B2-4852-BBA8-7A806EA6660C"
+            ],
+            "outgoing": [
+                "sid-4FE46CA8-4954-4BC7-A2A5-43A00C3A2D00"
+            ]
+        },
+        "sid-DD3D5C13-99F7-4845-906D-6E232FFE43B1": {
+            "name": "Book the entrance",
+            "incoming": [
+                "sid-3CCC350A-07D9-4B40-B244-1227CD89C5D3"
+            ],
+            "outgoing": [
+                "sid-57D75DAC-9D90-4EAC-9D6A-1B59C0EA3351"
+            ]
+        },
+        "sid-30D4A84F-5506-4985-9986-50BCEE42BC8F": {
+            "name": "Examination",
+            "incoming": [
+                "sid-ED23E40D-5A5F-4D72-A57B-14211284445E"
+            ],
+            "outgoing": [
+                "sid-8EA6CAC9-1271-47B7-BF1C-256BF3527D21"
+            ]
+        },
+        "sid-B1812CEA-996D-49D9-8788-ABFF87BE4C58": {
+            "name": "forward payment request to debt collection",
+            "incoming": [
+                "sid-44554564-691A-43F8-9E15-B5C6599484C8",
+                "sid-51115DF1-DA9E-4233-B70E-64406424E5F3"
+            ],
+            "outgoing": []
+        },
+        "sid-3F354C05-BD13-41C4-8DC2-FA199E2B5FAE": {
+            "name": "Complete the process",
+            "incoming": [
+                "sid-74D40E0F-585A-49E3-9971-46930C8911C3",
+                "sid-50E8AC27-3440-412F-8E1E-7E9AE84E400F",
+                "sid-57D75DAC-9D90-4EAC-9D6A-1B59C0EA3351"
+            ],
+            "outgoing": [
+                "sid-4B5E5BD2-A20B-4CAA-AD9F-1867618DD7E3"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-86AE793D-1BBE-4D4D-85B6-512DDEEA5123": {
+            "name": "Regress\nsituation",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-84AFD242-87C3-4E51-83D6-598ED3C27F67"
+            ],
+            "outgoing": [
+                "sid-920ACCB8-A91A-4F83-80A4-9FF3F53A5436",
+                "sid-74D40E0F-585A-49E3-9971-46930C8911C3"
+            ]
+        },
+        "sid-25305B01-B316-4BA4-A5D1-757EF6190407": {
+            "name": "Denial of payment\nRight?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-8EA6CAC9-1271-47B7-BF1C-256BF3527D21"
+            ],
+            "outgoing": [
+                "sid-44554564-691A-43F8-9E15-B5C6599484C8",
+                "sid-50E8AC27-3440-412F-8E1E-7E9AE84E400F"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-A9A13581-AB86-4C49-8899-B4A883B63C73": {
+            "name": "",
+            "incoming": [
+                "sid-4B5E5BD2-A20B-4CAA-AD9F-1867618DD7E3"
+            ]
+        }
+    }
+}

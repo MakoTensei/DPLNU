@@ -1,0 +1,150 @@
+{
+    "start_events": {
+        "sid-CC3BB404-94F3-47C0-A408-A058A17711F1": {
+            "name": "Regression possibility\nReport",
+            "outgoing": [
+                "sid-A10C8F1B-376B-4C48-B934-91846E4F537F"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-6237D7A1-C99C-4829-8D45-B10F8AF51839": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-A10C8F1B-376B-4C48-B934-91846E4F537F"
+            ],
+            "outgoing": [
+                "sid-363B7C3D-A6E7-41E5-88CA-5AA282F26913"
+            ]
+        },
+        "sid-E3FF42F8-FD59-43E4-BC78-9D4CCA6FF9A2": {
+            "name": "Send payment prompt",
+            "incoming": [
+                "sid-63645F39-B28C-41F8-A2E1-E77F47FC8CFF"
+            ],
+            "outgoing": [
+                "sid-49906903-9BEB-4C6B-944E-473DAD3D6FFB"
+            ]
+        },
+        "sid-294BD61F-19F8-492E-912C-BC190BF165C0": {
+            "name": "Close",
+            "incoming": [
+                "sid-4F49D462-EB7B-4A33-9C13-1512A1A0A9DF"
+            ],
+            "outgoing": [
+                "sid-853CD9E0-D547-43D2-9753-5BC81CF60180"
+            ]
+        },
+        "sid-8098A154-C2FD-457B-AB3C-FC862EE11C2E": {
+            "name": "Set case on WV",
+            "incoming": [
+                "sid-49906903-9BEB-4C6B-944E-473DAD3D6FFB"
+            ],
+            "outgoing": [
+                "sid-605FF58B-A68E-41EB-8563-AA2FB03905C1"
+            ]
+        },
+        "sid-F491F681-9477-4370-BF4C-CCC27C12CD94": {
+            "name": "Book money",
+            "incoming": [
+                "sid-C0C827A3-E512-4147-A846-90ABE7AE83E3"
+            ],
+            "outgoing": [
+                "sid-1F7BAB1F-031C-4A2E-8C01-E81AD54C7102"
+            ]
+        },
+        "sid-E2584226-6043-4948-B78E-4AC943F41453": {
+            "name": "Close",
+            "incoming": [
+                "sid-1F7BAB1F-031C-4A2E-8C01-E81AD54C7102"
+            ],
+            "outgoing": [
+                "sid-CFE3F731-996A-4E64-90C0-45984C2DFAB7"
+            ]
+        },
+        "sid-15C6B9D6-FD18-41E7-9554-C3E60E5262EC": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-2A5210AD-68A9-4E48-B85C-C6BEEC58F751"
+            ],
+            "outgoing": [
+                "sid-C142268A-39EA-4193-8D17-B3CDC3AD5D37"
+            ]
+        },
+        "sid-BC7B788F-E7DD-4E08-BE6B-F616F68BB6AE": {
+            "name": "forward case to debt collection",
+            "incoming": [
+                "sid-13D786CC-5DFC-4A82-91D9-23B45BDBC46C"
+            ],
+            "outgoing": [
+                "sid-2E9D2CBC-9D7E-432F-B047-6EB0497FC052"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-45FB16FB-01C8-425C-93E8-B0C631C88D8B": {
+            "name": "Possibility?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-363B7C3D-A6E7-41E5-88CA-5AA282F26913"
+            ],
+            "outgoing": [
+                "sid-09387BE2-1644-4913-8521-0523AD6390AE",
+                "sid-63645F39-B28C-41F8-A2E1-E77F47FC8CFF"
+            ]
+        },
+        "sid-E733D851-B958-4EB5-94E3-A7449C86119A": {
+            "name": "Justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-C142268A-39EA-4193-8D17-B3CDC3AD5D37"
+            ],
+            "outgoing": [
+                "sid-47954DE4-1A3A-4F23-9097-99BC02892994",
+                "sid-C66B59ED-A44E-4EDE-9FCB-8AF6ABE96050"
+            ]
+        },
+        "sid-8968CFA4-2980-45A7-B7E3-05B84CD1CCAD": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-47954DE4-1A3A-4F23-9097-99BC02892994",
+                "sid-C4B2E1C6-323E-4300-9E47-8899B2614A44"
+            ],
+            "outgoing": [
+                "sid-13D786CC-5DFC-4A82-91D9-23B45BDBC46C"
+            ]
+        },
+        "sid-C8E022C7-7E5F-49F6-A16F-214893CD4A56": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-09387BE2-1644-4913-8521-0523AD6390AE",
+                "sid-C66B59ED-A44E-4EDE-9FCB-8AF6ABE96050"
+            ],
+            "outgoing": [
+                "sid-4F49D462-EB7B-4A33-9C13-1512A1A0A9DF"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-27442AB3-EB8D-4AB3-8394-BC8B87E32A01": {
+            "name": "Case processed without cash receipt",
+            "incoming": [
+                "sid-853CD9E0-D547-43D2-9753-5BC81CF60180"
+            ]
+        },
+        "sid-85112DBF-7C19-4B20-A408-B493A11927E6": {
+            "name": "Case edited with cash receipt",
+            "incoming": [
+                "sid-CFE3F731-996A-4E64-90C0-45984C2DFAB7"
+            ]
+        },
+        "sid-CE7E76CE-C404-4E99-900A-643FC6EA2C43": {
+            "name": "Case further",
+            "incoming": [
+                "sid-2E9D2CBC-9D7E-432F-B047-6EB0497FC052"
+            ]
+        }
+    }
+}

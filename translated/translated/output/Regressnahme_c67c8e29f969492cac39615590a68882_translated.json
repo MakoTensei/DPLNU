@@ -1,0 +1,100 @@
+{
+    "start_events": {
+        "sid-CD940A23-0B6A-44D3-93A0-A3241BC05A22": {
+            "name": "Check regression",
+            "outgoing": [
+                "sid-6658B2BE-7DA7-4420-ADCC-F31216697989"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-12B45CDC-55B1-44E4-B2CE-77ADD125D3DF": {
+            "name": "Examination of the facts",
+            "incoming": [
+                "sid-6658B2BE-7DA7-4420-ADCC-F31216697989"
+            ],
+            "outgoing": [
+                "sid-3E9CFA50-0BFE-4ABA-8AAD-7DF007BB1AD3"
+            ]
+        },
+        "sid-706BFFFD-4F02-4951-8B77-196FB5217BD2": {
+            "name": "Book payment receipt",
+            "incoming": [
+                "sid-EB0DFDC2-2D3C-4ECB-AB77-3A4082B6DDC8"
+            ],
+            "outgoing": [
+                "sid-3C4C51F2-24DB-414D-9E38-FF95CB0248AA"
+            ]
+        },
+        "sid-0233ACA8-558A-4513-A09A-72E15198E3E2": {
+            "name": "Examination of the objection",
+            "incoming": [
+                "sid-881D2ACE-DCAB-4C38-B6E8-87E3CAB1B031"
+            ],
+            "outgoing": [
+                "sid-E4029516-B301-4C57-96BF-BF96E5AFDE40"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-9FD71D71-30C9-4EE5-A0D4-E9F3BCFAC014": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-3E9CFA50-0BFE-4ABA-8AAD-7DF007BB1AD3"
+            ],
+            "outgoing": [
+                "sid-71E85F30-5C0D-4926-8731-B4F5E1211CB1",
+                "sid-8135EA8B-CD5E-4DAC-B791-0F0D552A956F"
+            ]
+        },
+        "sid-655D3F5D-97AA-4D71-81F3-04A37682C78B": {
+            "name": "Opposition\nmade out?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-E4029516-B301-4C57-96BF-BF96E5AFDE40"
+            ],
+            "outgoing": [
+                "sid-9AB89984-4209-49BA-B5B2-14053E5E8C39",
+                "sid-BEFEFB22-9DFA-4A05-9708-22ED35FD00E7"
+            ]
+        },
+        "sid-BE047ABE-79AB-4EDF-B8A2-97806F18AE1C": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-C258DC2F-9A59-4CCA-8C01-2C818CAC1889",
+                "sid-BEFEFB22-9DFA-4A05-9708-22ED35FD00E7"
+            ],
+            "outgoing": [
+                "sid-E8F5715D-C122-4015-B24E-BAD58D70E342"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-36819E26-B2E9-4ACA-81D5-04322F45F831": {
+            "name": "Closed",
+            "incoming": [
+                "sid-8135EA8B-CD5E-4DAC-B791-0F0D552A956F"
+            ]
+        },
+        "sid-E38096C0-ECAA-4B26-82FA-F639E81D328E": {
+            "name": "Closed\nwith payment receipt",
+            "incoming": [
+                "sid-3C4C51F2-24DB-414D-9E38-FF95CB0248AA"
+            ]
+        },
+        "sid-E1AD0CF2-17FF-4CA4-94FC-A360D8119297": {
+            "name": "Not accepted",
+            "incoming": [
+                "sid-9AB89984-4209-49BA-B5B2-14053E5E8C39"
+            ]
+        },
+        "sid-99EEED8E-3BC3-40D3-9A22-92132B84AE03": {
+            "name": "Transfer to debt collection",
+            "incoming": [
+                "sid-E8F5715D-C122-4015-B24E-BAD58D70E342"
+            ]
+        }
+    }
+}

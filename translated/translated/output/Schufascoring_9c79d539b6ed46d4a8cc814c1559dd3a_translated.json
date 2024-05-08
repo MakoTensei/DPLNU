@@ -1,0 +1,130 @@
+{
+    "start_events": {
+        "sid-59CE29E3-1FB5-41C7-A2D2-5E21F3BC794A": {
+            "name": "Schufascoring\nRequest\nReport",
+            "outgoing": [
+                "sid-CDD98AD7-E139-4BBD-9301-9A980FC140C2"
+            ]
+        },
+        "sid-307423E8-15E9-4C20-A427-65819C74B688": {
+            "name": "Scoring\nQuestion\nReport",
+            "outgoing": [
+                "sid-18FD7590-D8BF-495B-AB9B-F5E600854A01"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-7034A1E5-0533-418F-9600-D368B35A1B35": {
+            "name": "Scoring",
+            "incoming": [
+                "sid-CDD98AD7-E139-4BBD-9301-9A980FC140C2"
+            ],
+            "outgoing": [
+                "sid-B4B3A5A4-A4FA-440B-9369-D434D82EA406"
+            ]
+        },
+        "sid-12EABF79-2ECC-459B-8C30-1B7669B1CA1A": {
+            "name": "forward scoring results",
+            "incoming": [
+                "sid-5C497BA6-B55D-40D2-B965-61802783A49B"
+            ],
+            "outgoing": [
+                "sid-B05BD3E7-33BE-4A8F-B44B-FA4500C9F991"
+            ]
+        },
+        "sid-DE880305-3CBE-481D-AEE3-799C940F5CE8": {
+            "name": "Report delay",
+            "incoming": [
+                "sid-05E6AA60-1A85-4588-9618-C03193DC9708"
+            ],
+            "outgoing": [
+                "sid-4E10109C-7738-44D1-AF59-EB90C9DA447A"
+            ]
+        },
+        "sid-9A8EBC16-2520-408D-A0D8-15BDEFE43930": {
+            "name": "Report Results Level 2",
+            "incoming": [
+                "sid-5E0425DB-FF3F-4A0E-B4BE-D26EFAB915AC"
+            ],
+            "outgoing": [
+                "sid-52F331B2-9308-416D-8241-BCB1FA182EB9"
+            ]
+        },
+        "sid-D23D3F92-6C87-48E1-A0F9-DC4E13671ED0": {
+            "name": "perform scoring level 1",
+            "incoming": [
+                "sid-C2B8221E-2610-4FA5-8A7D-2FFA1D17A51B"
+            ],
+            "outgoing": [
+                "sid-39072C2E-3FFC-401B-AD94-AA768EA71BFF",
+                "sid-88DB5D06-367C-4A69-8920-A141C01A9F2C"
+            ]
+        },
+        "sid-33076E68-7153-4A3A-9450-38494FC15612": {
+            "name": "perform scoring level 2",
+            "incoming": [
+                "sid-9D391FA1-E9AA-4DF7-9E82-23275D281E82"
+            ],
+            "outgoing": [
+                "sid-DA4BA705-1DA6-42E2-AB36-1C522B40E633"
+            ]
+        },
+        "sid-E27EB55B-B8D0-41D8-8A06-C5F3C60A36A1": {
+            "name": "Report default",
+            "incoming": [
+                "sid-DA4BA705-1DA6-42E2-AB36-1C522B40E633"
+            ],
+            "outgoing": [
+                "sid-DB45A3B5-66A4-43DB-BB95-F6D13195A494"
+            ]
+        },
+        "sid-02336BE3-287B-458A-93A4-C17004E8871B": {
+            "name": "Report Scoring Level 2",
+            "incoming": [
+                "sid-DB45A3B5-66A4-43DB-BB95-F6D13195A494"
+            ],
+            "outgoing": [
+                "sid-D9ADB8FB-443E-4889-B2BC-1ED72504D196"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-5CBA18D2-AE03-480D-8730-079E28C523FF": {
+            "name": "Test\nLevel 1\npossible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-18FD7590-D8BF-495B-AB9B-F5E600854A01"
+            ],
+            "outgoing": [
+                "sid-9D391FA1-E9AA-4DF7-9E82-23275D281E82",
+                "sid-C2B8221E-2610-4FA5-8A7D-2FFA1D17A51B"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-73DCDFA4-16CD-43A2-B61E-F7329324DA13": {
+            "name": "Schufascoring\nLeve 1 is finished",
+            "incoming": [
+                "sid-B05BD3E7-33BE-4A8F-B44B-FA4500C9F991"
+            ]
+        },
+        "sid-4F2B534F-E2D0-4F64-8055-0D17F4E5217A": {
+            "name": "grease\nLEvel 2\nis finished",
+            "incoming": [
+                "sid-52F331B2-9308-416D-8241-BCB1FA182EB9"
+            ]
+        },
+        "sid-C649A029-399C-46E6-8FD7-0161E10110D1": {
+            "name": "Scoring\nLevel 1\nReported back",
+            "incoming": [
+                "sid-88DB5D06-367C-4A69-8920-A141C01A9F2C"
+            ]
+        },
+        "sid-4FDFF46B-98C9-4248-9C71-636B18CE8098": {
+            "name": "Level 2 result\nReported back",
+            "incoming": [
+                "sid-D9ADB8FB-443E-4889-B2BC-1ED72504D196"
+            ]
+        }
+    }
+}

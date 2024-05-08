@@ -1,0 +1,134 @@
+{
+    "start_events": {
+        "sid-C0B8F63A-8D7B-492E-84D2-FA137B1A08C0": {
+            "name": "Regression\nReport",
+            "outgoing": [
+                "sid-D4A500FC-F9FA-40E4-B626-E798D61E3019"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-57FD6491-FF19-43CB-A683-E80274DE53AE": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-D4A500FC-F9FA-40E4-B626-E798D61E3019"
+            ],
+            "outgoing": [
+                "sid-CCDF224D-A1FF-44A7-8598-2962989FE504"
+            ]
+        },
+        "sid-7390E901-7FB3-4EC9-8301-3243DA8A1E36": {
+            "name": "Send payment request to the VN",
+            "incoming": [],
+            "outgoing": [
+                "sid-8C6F7536-C718-4BB6-9F25-D776128EF610"
+            ]
+        },
+        "sid-5E865E81-65A9-43BD-A125-2A54A4E34122": {
+            "name": "Reimbursement",
+            "incoming": [
+                "sid-8C6F7536-C718-4BB6-9F25-D776128EF610"
+            ],
+            "outgoing": [
+                "sid-A81280F6-8A2C-4F32-8F2C-688C23C7CFA4"
+            ]
+        },
+        "sid-D4353171-3532-4EE4-A1F1-050EA2B4AFFA": {
+            "name": "Close",
+            "incoming": [
+                "sid-562AC80E-E9E9-4C95-AA8E-2347D92F2E2B"
+            ],
+            "outgoing": [
+                "sid-C833B520-32BF-4CCF-8CA5-3EE91711F68E"
+            ]
+        },
+        "sid-CC6B1BD3-10C0-4897-80E4-E9F9C9071252": {
+            "name": "Book money receipt",
+            "incoming": [
+                "sid-BECBF527-3AB7-4E62-ACAA-98E379362476"
+            ],
+            "outgoing": [
+                "sid-0C60FD20-DD2F-4B91-915F-EA44DC6F735A"
+            ]
+        },
+        "sid-27EB0BEB-10C8-43EC-B34F-9E47737ACF78": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-39B47092-D3BD-44AA-A93A-543C76964C3C"
+            ],
+            "outgoing": [
+                "sid-2C914FCF-21B0-436F-8F1E-236954F781F6"
+            ]
+        },
+        "sid-21275A5F-BC7C-4D01-918F-14B50C56E78D": {
+            "name": "Dispense process to Ikasso service providers",
+            "incoming": [
+                "sid-88AF0AE5-35AB-4D7B-BA76-57C3AB54B964"
+            ],
+            "outgoing": [
+                "sid-373A30FF-12CD-4289-8B4C-D223D1EB2413"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-2DC5E702-1536-48C4-8388-8F78E15FC6F3": {
+            "name": "Regression\npossible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-CCDF224D-A1FF-44A7-8598-2962989FE504"
+            ],
+            "outgoing": [
+                "sid-9BF0456F-5D2B-4B8D-8532-1F6D4F43873B",
+                "sid-C7F1C090-BD91-4EA6-AB84-19D055FE6B51"
+            ]
+        },
+        "sid-EFFB0710-5026-4065-B426-90901437C606": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-0C60FD20-DD2F-4B91-915F-EA44DC6F735A",
+                "sid-7DD94002-D35F-4E15-829A-765D70724F49",
+                "sid-9BF0456F-5D2B-4B8D-8532-1F6D4F43873B"
+            ],
+            "outgoing": [
+                "sid-562AC80E-E9E9-4C95-AA8E-2347D92F2E2B"
+            ]
+        },
+        "sid-5FF51A8D-B439-4061-B213-B1B54249DAB4": {
+            "name": "Denial of payment\njustified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-2C914FCF-21B0-436F-8F1E-236954F781F6"
+            ],
+            "outgoing": [
+                "sid-7DD94002-D35F-4E15-829A-765D70724F49",
+                "sid-9918526E-0EE2-44C4-AFA2-47BE82A0E7F1"
+            ]
+        },
+        "sid-EB5B8024-B3A7-4507-8158-8D4E94DA7737": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-E26703F4-0FE7-43B1-B741-9A1434A83768",
+                "sid-9918526E-0EE2-44C4-AFA2-47BE82A0E7F1"
+            ],
+            "outgoing": [
+                "sid-88AF0AE5-35AB-4D7B-BA76-57C3AB54B964"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-415077E7-CF91-415A-959A-95112F1D5C60": {
+            "name": "Process\ncompleted",
+            "incoming": [
+                "sid-C833B520-32BF-4CCF-8CA5-3EE91711F68E"
+            ]
+        },
+        "sid-4DAD443B-7B6A-4AB5-A18E-672A95DE9B62": {
+            "name": "Process\ndelivered",
+            "incoming": [
+                "sid-373A30FF-12CD-4289-8B4C-D223D1EB2413"
+            ]
+        }
+    }
+}

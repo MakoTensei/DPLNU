@@ -1,0 +1,137 @@
+{
+    "start_events": {
+        "sid-88904C57-42E5-4FE7-83BD-485B1942E7D1": {
+            "name": "Shipment",
+            "outgoing": [
+                "sid-66099C0F-9708-409B-934C-FBBD8B0FA3A4"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-CA1A2278-A660-47ED-B52A-BF26366F2838": {
+            "name": "Request a quote",
+            "incoming": [
+                "sid-9D56E1F7-43F7-4831-AD08-4FF0F83AC085"
+            ],
+            "outgoing": [
+                "sid-AB0CD3AC-F1E7-45AA-ADA8-212AF4C8384D"
+            ]
+        },
+        "sid-C601BED8-728C-4B19-92B3-0C10C0644A5B": {
+            "name": "fill out standard package tickets",
+            "incoming": [
+                "sid-4C6C0578-4487-40F3-9EAF-E690E1F897DB"
+            ],
+            "outgoing": [
+                "sid-12C33F60-6D09-4E6F-92B6-B4CDF70EC0B4"
+            ]
+        },
+        "sid-A599FF5D-B0E8-4EB2-B638-59F7327A6444": {
+            "name": "Offer 1",
+            "incoming": [
+                "sid-176AE58C-427A-4C63-B7C4-D582D725D0FB"
+            ],
+            "outgoing": [
+                "sid-12DD71AC-6B3D-453B-91B5-B51177B458BC"
+            ]
+        },
+        "sid-D144CB67-3227-449C-B06F-1FF3358368B2": {
+            "name": "Offer 2",
+            "incoming": [
+                "sid-C4B31734-AB52-417C-99E9-7210BB4E13E6"
+            ],
+            "outgoing": [
+                "sid-F9B42A15-801C-4253-8EC2-C1B88B5D6475"
+            ]
+        },
+        "sid-AAC62F45-1B5E-4B00-AECA-E3D0289284F7": {
+            "name": "Offer 3",
+            "incoming": [
+                "sid-5B2C2D5A-E463-4324-A6B2-054F5843285D"
+            ],
+            "outgoing": [
+                "sid-C5619BCB-7BFD-4492-93D3-3603CE2B10A6"
+            ]
+        },
+        "sid-BB2DDF34-1F1C-43D8-B17B-02CEE98D5CEA": {
+            "name": "Choose the cheapest offer",
+            "incoming": [
+                "sid-6A661BAD-D59C-4703-9FF1-B20B05ED5AF9"
+            ],
+            "outgoing": [
+                "sid-FFD1BBB6-F0B3-4C59-AB57-67C0EFCE70D7"
+            ]
+        },
+        "sid-B0ED4A04-387A-4254-9625-9ACF0051EAF3": {
+            "name": "Pick up a signature",
+            "incoming": [
+                "sid-975C21CA-3A51-4810-A86D-67E4EE04F560"
+            ],
+            "outgoing": [
+                "sid-5E75B291-6139-433A-AAAD-D639367785C5"
+            ]
+        },
+        "sid-88CAEAA0-8AD2-4B2D-8A20-1CD05BB10718": {
+            "name": "Provide goods for collection",
+            "incoming": [
+                "sid-928121B3-1144-4F1E-8759-4FCD7DB5B1DD"
+            ],
+            "outgoing": [
+                "sid-01EC3E7F-38F9-4523-8FE4-DA6CA1290A14"
+            ]
+        },
+        "sid-A041D525-D5B2-44AB-ADAD-F829A3A4DFD3": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-C62C3A1F-9756-4E89-B530-66A03926DD22"
+            ],
+            "outgoing": [
+                "sid-7227B90C-1F5D-4090-B087-B6B6DE25C61C"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-6CE3FE83-E7F2-4C47-9B9B-2E8D2DB02331": {
+            "name": "Is special shipment necessary?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-F86D6C7E-FEAE-4CD7-AAD8-00A1539AFD96"
+            ],
+            "outgoing": [
+                "sid-9D56E1F7-43F7-4831-AD08-4FF0F83AC085",
+                "sid-4C6C0578-4487-40F3-9EAF-E690E1F897DB"
+            ]
+        },
+        "sid-3671FB60-6C78-46ED-9F84-6DDEDF31FA7C": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-FFD1BBB6-F0B3-4C59-AB57-67C0EFCE70D7",
+                "sid-5E75B291-6139-433A-AAAD-D639367785C5",
+                "sid-EB1A318E-BF8B-4227-984A-0AE9DD45001F"
+            ],
+            "outgoing": [
+                "sid-620F9384-6589-4922-8C42-F0ACD9327A7B"
+            ]
+        },
+        "sid-39367263-962B-4F10-BE4D-30B19893E446": {
+            "name": "Is insurance necessary?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-12C33F60-6D09-4E6F-92B6-B4CDF70EC0B4"
+            ],
+            "outgoing": [
+                "sid-975C21CA-3A51-4810-A86D-67E4EE04F560",
+                "sid-EB1A318E-BF8B-4227-984A-0AE9DD45001F"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-96A573B8-6389-4BCB-AA23-5F4A21E7AE62": {
+            "name": "",
+            "incoming": [
+                "sid-01EC3E7F-38F9-4523-8FE4-DA6CA1290A14"
+            ]
+        }
+    }
+}

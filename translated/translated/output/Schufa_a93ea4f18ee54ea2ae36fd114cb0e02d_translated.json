@@ -1,0 +1,73 @@
+{
+    "start_events": {
+        "sid-C1AE3DC7-3F11-4002-9862-798FCF4788D0": {
+            "name": "",
+            "outgoing": [
+                "sid-E0ECB036-9FD1-4C35-A3AD-B506BDDAB860"
+            ]
+        },
+        "sid-C5CE4143-E956-4129-BD5B-C7580932B3EB": {
+            "name": "",
+            "outgoing": [
+                "sid-C19C2753-ACCA-4C87-A06F-2EC23460DF60"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-0BA46C9A-3230-4E69-B93E-6DCB09C267C2": {
+            "name": "Schufa request",
+            "incoming": [
+                "sid-E0ECB036-9FD1-4C35-A3AD-B506BDDAB860"
+            ],
+            "outgoing": [
+                "sid-EFE7B207-CB26-4258-BFCC-D6DEC989FA58"
+            ]
+        },
+        "sid-DAD5C5E0-9C5A-4F7A-AB68-2E6DD758D209": {
+            "name": "Scoring Level 1",
+            "incoming": [
+                "sid-C19C2753-ACCA-4C87-A06F-2EC23460DF60"
+            ],
+            "outgoing": [
+                "sid-5ACAC49E-8206-4676-8BD4-95BAD0BC03AF"
+            ]
+        },
+        "sid-C52AEFB0-727B-4599-AF0E-E1A190BEF0D5": {
+            "name": "perform scoring level 2",
+            "incoming": [
+                "sid-56756E10-EC84-4C26-9B43-410607D240EA"
+            ],
+            "outgoing": [
+                "sid-81D839D5-E555-4565-88BB-21F529E6B74D"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-63AADBB4-4F00-428A-80FC-975627642EC9": {
+            "name": "Result",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-5ACAC49E-8206-4676-8BD4-95BAD0BC03AF"
+            ],
+            "outgoing": [
+                "sid-1B6DC258-D330-4032-9B87-38896F634DB9",
+                "sid-085506DB-F2FE-49E8-A681-82FD056AF3A2"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-7CFB409D-D50D-4C6E-AA11-7CB5F0CBF32B": {
+            "name": "Final result",
+            "incoming": [
+                "sid-38BEE061-156C-4074-B41B-145AEE4E88AC"
+            ]
+        },
+        "sid-9E20119F-3C49-4FBA-87D1-2A5FC9730FD5": {
+            "name": "Calculation completed",
+            "incoming": [
+                "sid-1B6DC258-D330-4032-9B87-38896F634DB9",
+                "sid-81D839D5-E555-4565-88BB-21F529E6B74D"
+            ]
+        }
+    }
+}

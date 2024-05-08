@@ -1,0 +1,96 @@
+{
+    "start_events": {
+        "sid-5E3CC0F9-71C2-46AB-8DFC-A286118279E4": {
+            "name": "Request Schufascoring",
+            "outgoing": [
+                "sid-B1FDB972-8517-458B-BAEA-A27EE66B2388"
+            ]
+        },
+        "sid-B99B83AD-E92E-46FB-BA51-A197D1FE7832": {
+            "name": "Scoring request",
+            "outgoing": [
+                "sid-661EECEC-B076-4E91-A03F-86BC9FEBE657"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-B7166F7E-0AEA-4814-836A-B4484D2B48B8": {
+            "name": "Schufa request",
+            "incoming": [
+                "sid-B1FDB972-8517-458B-BAEA-A27EE66B2388"
+            ],
+            "outgoing": [
+                "sid-54687AF2-A57B-4446-A98A-94CBFD35D5AC"
+            ]
+        },
+        "sid-03D6AC38-73D7-4836-93A5-A528F059B40F": {
+            "name": "Scoring Level 1",
+            "incoming": [
+                "sid-661EECEC-B076-4E91-A03F-86BC9FEBE657"
+            ],
+            "outgoing": [
+                "sid-21D485A7-E59F-4809-BE67-28317F33E858"
+            ]
+        },
+        "sid-7AC7A2C3-5916-4B82-9B21-86C70F5B1BF1": {
+            "name": "Start scoring level 2",
+            "incoming": [],
+            "outgoing": [
+                "sid-5714AA54-D563-4B1A-964F-DA5D274F3934"
+            ]
+        },
+        "sid-B5236105-64FC-4B22-BB8A-3440243D351D": {
+            "name": "Delay message",
+            "incoming": [],
+            "outgoing": []
+        }
+    },
+    "gateways": {
+        "sid-91CE497E-FDD2-4BEF-B49C-5C2269F78561": {
+            "name": "",
+            "direction": "Unspecified",
+            "incoming": [
+                "sid-21D485A7-E59F-4809-BE67-28317F33E858"
+            ],
+            "outgoing": [
+                "sid-22201AE9-E021-406E-AC0E-9E512014FCD7"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-A371C8FB-EE0F-4033-A4D7-4058623386FD": {
+            "name": "Scoring 1",
+            "incoming": [
+                "sid-A501677C-8B46-4E1B-9849-BECA8A7C5AA0"
+            ]
+        },
+        "sid-A2A81E81-3D75-4D35-B58B-4AF5A6DD592B": {
+            "name": "Scoring delays",
+            "incoming": [
+                "sid-92E8215E-810E-4F6F-90AC-9C7955DDAEEB"
+            ]
+        },
+        "sid-50EB330C-6F2C-4A10-8776-338AE8EEE287": {
+            "name": "Scoring Level 2",
+            "incoming": [
+                "sid-887DDC5D-97F8-45D0-91B3-251C177B179A"
+            ]
+        },
+        "sid-70B877EB-E9F5-42F4-8469-D12DFE52C2C3": {
+            "name": "Schufaergenis Level 1",
+            "incoming": [
+                "sid-22201AE9-E021-406E-AC0E-9E512014FCD7"
+            ]
+        },
+        "sid-DA2E60D7-B2EE-4276-81F3-D6BD7035E7C4": {
+            "name": "Scoring delays",
+            "incoming": []
+        },
+        "sid-1B5A2C51-03C7-43DD-B696-B3937213F5E1": {
+            "name": "Result Scoring Level 2",
+            "incoming": [
+                "sid-5714AA54-D563-4B1A-964F-DA5D274F3934"
+            ]
+        }
+    }
+}

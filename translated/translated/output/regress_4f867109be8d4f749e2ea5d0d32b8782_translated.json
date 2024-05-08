@@ -1,0 +1,108 @@
+{
+    "start_events": {
+        "sid-BBD00856-F453-494D-AFF1-FFAF8F2BC2F3": {
+            "name": "New case",
+            "outgoing": [
+                "sid-FA800145-A58F-48EF-B8B5-91837E94B277"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-42ACD832-822D-4E3D-8B62-68DFB858AB0E": {
+            "name": "Check the case",
+            "incoming": [
+                "sid-FA800145-A58F-48EF-B8B5-91837E94B277"
+            ],
+            "outgoing": [
+                "sid-1F08E85C-3F3D-446B-B997-9BF8D7D0E4C6"
+            ]
+        },
+        "sid-21C05F9C-2419-47A9-9AFE-61818FDE1E28": {
+            "name": "Reimbursement\nlay down",
+            "incoming": [
+                "sid-974EE8E7-ADF9-4CD9-8C57-36C396DF24FD"
+            ],
+            "outgoing": [
+                "sid-CD0F73DB-AD83-4014-8E1C-BE963ABEE5EC"
+            ]
+        },
+        "sid-3A8F8520-BA70-4740-AB68-3876618E2A5D": {
+            "name": "Debt collection",
+            "incoming": [
+                "sid-45A73DAD-8357-4ED6-B3E4-DA7753D1C0E7",
+                "sid-64C1FFEA-19D2-4EF2-A974-AC4C6A8EDC4F"
+            ],
+            "outgoing": [
+                "sid-79F52525-A389-4E49-878E-037C28197740"
+            ]
+        },
+        "sid-C1AB03D7-C5B8-47BC-B594-BFBD39F168C7": {
+            "name": "Book the entrance",
+            "incoming": [
+                "sid-570FF626-76FC-4A95-9947-932C3D98149D"
+            ],
+            "outgoing": [
+                "sid-3C125661-AF73-4AE5-AF96-D15B7AB43096"
+            ]
+        },
+        "sid-F3B4D9FA-C774-4BF1-9A99-F20642516721": {
+            "name": "Examination",
+            "incoming": [
+                "sid-240F519A-DA6D-4CB4-9949-42AC9AF793FE"
+            ],
+            "outgoing": [
+                "sid-2A1BC68D-66CC-4D08-BCF1-26B4C52F0991"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-6794CF81-9443-40FC-8F7C-57B9D16CB1BD": {
+            "name": "Regress possible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-1F08E85C-3F3D-446B-B997-9BF8D7D0E4C6"
+            ],
+            "outgoing": [
+                "sid-80253672-DF57-4244-B89E-534E2893B563",
+                "sid-07A06F0B-94E9-48E9-8D1B-B65331F7DBEC"
+            ]
+        },
+        "sid-E4D42EF4-088D-47C8-9CBE-977B73AB27CF": {
+            "name": "Revocation justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-2A1BC68D-66CC-4D08-BCF1-26B4C52F0991"
+            ],
+            "outgoing": [
+                "sid-64C1FFEA-19D2-4EF2-A974-AC4C6A8EDC4F",
+                "sid-892ECF57-A144-41E4-A5F4-80D74C100962"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-E6356F4A-76C6-4764-BEAB-E151BAA8E012": {
+            "name": "Condensation",
+            "incoming": [
+                "sid-3C125661-AF73-4AE5-AF96-D15B7AB43096"
+            ]
+        },
+        "sid-621B3C5C-FFDB-4DC8-8FDF-EEE0000570E8": {
+            "name": "Reasons",
+            "incoming": [
+                "sid-892ECF57-A144-41E4-A5F4-80D74C100962"
+            ]
+        },
+        "sid-3280DD99-3629-4650-ABC2-EEA39F68AC24": {
+            "name": "Collection",
+            "incoming": [
+                "sid-79F52525-A389-4E49-878E-037C28197740"
+            ]
+        },
+        "sid-AD172EC3-A309-4C05-85BE-4A323C22141E": {
+            "name": "Not possible",
+            "incoming": [
+                "sid-07A06F0B-94E9-48E9-8D1B-B65331F7DBEC"
+            ]
+        }
+    }
+}

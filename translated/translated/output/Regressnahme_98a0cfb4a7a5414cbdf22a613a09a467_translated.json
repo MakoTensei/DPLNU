@@ -1,0 +1,103 @@
+{
+    "start_events": {
+        "sid-3960FA5A-E815-46C0-AE1D-33013CCCE70A": {
+            "name": "if necessary Regressive",
+            "outgoing": [
+                "sid-4794FC2D-55DF-49D9-A089-D49343806BE4"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-21F43FE2-8323-4AA2-9B20-76AD67CA7994": {
+            "name": "Check regression",
+            "incoming": [
+                "sid-4794FC2D-55DF-49D9-A089-D49343806BE4"
+            ],
+            "outgoing": [
+                "sid-5720D30B-FF7B-46D9-9D7E-85250B2B450F"
+            ]
+        },
+        "sid-BCD27D90-B55B-48F0-A6F7-0BDFCAD518C2": {
+            "name": "Send payment request and reimburse",
+            "incoming": [
+                "sid-F30CED81-2B09-4ACA-BABC-0BF97281456F"
+            ],
+            "outgoing": [
+                "sid-26BE0BED-065E-4577-BC32-EA62906BCED6"
+            ]
+        },
+        "sid-ACD34510-3B06-4132-B473-98081EBD1435": {
+            "name": "donate to debtor",
+            "incoming": [
+                "sid-CC32B847-2B46-4C1E-923A-75987448EF3E",
+                "sid-C94D1A5A-21E2-4083-AC8D-513296CDABE3"
+            ],
+            "outgoing": [
+                "sid-6E7FC35A-CD27-4D6F-8A10-A6EC0A2F982E"
+            ]
+        },
+        "sid-3EE8BE74-0572-49F2-9BD4-F8812628EFED": {
+            "name": "Examination",
+            "incoming": [
+                "sid-DA0F5FB0-1C92-45D8-99E5-9D5279581C70"
+            ],
+            "outgoing": [
+                "sid-08E92033-ECFD-471E-8998-152EDA535C26"
+            ]
+        },
+        "sid-C2B24B34-3BE9-41D1-A447-6FA7CC7F672A": {
+            "name": "Book incoming money",
+            "incoming": [
+                "sid-BD3FD7CD-1916-440E-B8F5-637CB025A4A5"
+            ],
+            "outgoing": [
+                "sid-27C4314C-E81C-4F89-B00A-5B6A9BE9AEC7"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-E886FE10-839D-4269-9625-110FC131584A": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-5720D30B-FF7B-46D9-9D7E-85250B2B450F"
+            ],
+            "outgoing": [
+                "sid-952E805D-7449-4F5A-B75D-A28AD2A56F70",
+                "sid-F30CED81-2B09-4ACA-BABC-0BF97281456F"
+            ]
+        },
+        "sid-6CCD8F63-BCAF-4349-8743-7DDF3C95793D": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-08E92033-ECFD-471E-8998-152EDA535C26"
+            ],
+            "outgoing": [
+                "sid-C94D1A5A-21E2-4083-AC8D-513296CDABE3",
+                "sid-2709DFD5-CDAE-4ADA-9B8C-350AEC8D295C"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-7AB6D919-684F-4EFB-A3C4-6C1452C80133": {
+            "name": "No regression",
+            "incoming": [
+                "sid-952E805D-7449-4F5A-B75D-A28AD2A56F70",
+                "sid-2709DFD5-CDAE-4ADA-9B8C-350AEC8D295C"
+            ]
+        },
+        "sid-A3AC546D-A9BC-4C85-8403-19DF3FF67EDC": {
+            "name": "delivered to debt collection",
+            "incoming": [
+                "sid-6E7FC35A-CD27-4D6F-8A10-A6EC0A2F982E"
+            ]
+        },
+        "sid-B4E7A87B-52C4-4FB5-BCDF-4F505E059E7E": {
+            "name": "Regression billed",
+            "incoming": [
+                "sid-27C4314C-E81C-4F89-B00A-5B6A9BE9AEC7"
+            ]
+        }
+    }
+}

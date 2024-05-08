@@ -1,0 +1,144 @@
+{
+    "start_events": {
+        "sid-D9D90FBF-7360-4440-9B13-6E0453144353": {
+            "name": "Get notification of VN regression",
+            "outgoing": [
+                "sid-9D53EFC6-DFD2-4358-9E91-57782DBC4D79"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-7A3A936F-21E5-4FC1-B630-AA2700E00121": {
+            "name": "Check Regress Case",
+            "incoming": [
+                "sid-9D53EFC6-DFD2-4358-9E91-57782DBC4D79"
+            ],
+            "outgoing": [
+                "sid-B53DA126-4E1E-453E-A62B-82BCA33C8A84"
+            ]
+        },
+        "sid-BA7BC1E4-9342-4451-B189-8B5D0D37A25C": {
+            "name": "Send payment request to the VN",
+            "incoming": [
+                "sid-488FE6A3-7A2E-435A-B066-076C29BA99E2"
+            ],
+            "outgoing": [
+                "sid-0005836B-6A63-4DFC-AD65-831B603B4B71"
+            ]
+        },
+        "sid-CE535C27-F310-453E-A690-C9D6FB01A69A": {
+            "name": "Close the process",
+            "incoming": [
+                "sid-A2D162AD-DFD2-4FEA-8F39-587605C71900"
+            ],
+            "outgoing": [
+                "sid-5E39DBA9-9E7B-45BD-9951-86E0DDC8588D"
+            ]
+        },
+        "sid-C31424D1-9DEE-4C9B-A697-7BFBEA0AC87B": {
+            "name": "Book the entrance",
+            "incoming": [
+                "sid-018A93C7-642F-4477-A1BC-AA99788FC45F"
+            ],
+            "outgoing": [
+                "sid-19612027-4547-42D8-B105-D312900155ED"
+            ]
+        },
+        "sid-79407CD1-B192-4BB4-A1A9-98989D82DE68": {
+            "name": "Close the process",
+            "incoming": [
+                "sid-19612027-4547-42D8-B105-D312900155ED"
+            ],
+            "outgoing": [
+                "sid-BACD62E4-60D6-4D1E-815D-5D1645E73175"
+            ]
+        },
+        "sid-D20C0FD3-9E71-4C9D-83E5-509B36464EBC": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-25C69D3A-C513-4629-A39B-2FDFD85294CF"
+            ],
+            "outgoing": [
+                "sid-EB3F4AC2-2EBA-4023-8A59-6FBB884BE2B4"
+            ]
+        },
+        "sid-CCCC519E-D561-4D04-BC22-61011DF0924A": {
+            "name": "Close the process",
+            "incoming": [
+                "sid-2DA79FCC-CB2B-468D-8FEF-380122904BF6"
+            ],
+            "outgoing": [
+                "sid-30CF1B0F-2973-4FA9-8E93-D7437663D73D"
+            ]
+        },
+        "sid-DB44DB26-EA16-4A1D-8E94-B0D75EAF17C5": {
+            "name": "Delivering VN to debt collection",
+            "incoming": [
+                "sid-B32701FC-233F-42D7-9627-C281CB844097",
+                "sid-12BF9F9E-E0CC-4A0B-B2B0-44D6B3E84497"
+            ],
+            "outgoing": [
+                "sid-6EE10167-8FB5-4161-B01F-FCB882FA07AA"
+            ]
+        },
+        "sid-4A62592A-E42D-469D-BA81-E7CAFABD5335": {
+            "name": "Set process for resubmission",
+            "incoming": [
+                "sid-0005836B-6A63-4DFC-AD65-831B603B4B71"
+            ],
+            "outgoing": [
+                "sid-A956C4AB-4739-4942-B36F-C50650F3644B"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-5A5A5397-39EF-445F-8CAC-5F955ED35CD6": {
+            "name": "Is there a possibility of regression?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B53DA126-4E1E-453E-A62B-82BCA33C8A84"
+            ],
+            "outgoing": [
+                "sid-488FE6A3-7A2E-435A-B066-076C29BA99E2",
+                "sid-A2D162AD-DFD2-4FEA-8F39-587605C71900"
+            ]
+        },
+        "sid-67CB372F-0EF4-4335-80D3-C1A48AC1AC9F": {
+            "name": "Rejection of payment justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-EB3F4AC2-2EBA-4023-8A59-6FBB884BE2B4"
+            ],
+            "outgoing": [
+                "sid-2DA79FCC-CB2B-468D-8FEF-380122904BF6",
+                "sid-B32701FC-233F-42D7-9627-C281CB844097"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-3168EA38-1AD3-4087-8819-D17755B3A82E": {
+            "name": "Process",
+            "incoming": [
+                "sid-5E39DBA9-9E7B-45BD-9951-86E0DDC8588D"
+            ]
+        },
+        "sid-195D08BA-D0C8-4696-971C-75533251D10C": {
+            "name": "Process successfully completed",
+            "incoming": [
+                "sid-BACD62E4-60D6-4D1E-815D-5D1645E73175"
+            ]
+        },
+        "sid-5921658C-6D07-41F5-8DE9-46B1A7B61BE0": {
+            "name": "Payment to VN",
+            "incoming": [
+                "sid-30CF1B0F-2973-4FA9-8E93-D7437663D73D"
+            ]
+        },
+        "sid-573CA3B3-E61F-4303-B1CC-60223B5DA1D9": {
+            "name": "VN to debt collection",
+            "incoming": [
+                "sid-6EE10167-8FB5-4161-B01F-FCB882FA07AA"
+            ]
+        }
+    }
+}

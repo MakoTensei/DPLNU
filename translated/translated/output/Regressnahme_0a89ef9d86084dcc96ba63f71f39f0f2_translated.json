@@ -1,0 +1,98 @@
+{
+    "start_events": {
+        "sid-555B3361-C5DF-4676-8D12-4BE5A00B4FD4": {
+            "name": "Report on regression",
+            "outgoing": [
+                "sid-721EA5E2-8B34-45EE-A68C-86FDDD791E94"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-5B2BF1ED-4275-4A44-AB44-985D89B7C49E": {
+            "name": "Check regression",
+            "incoming": [
+                "sid-721EA5E2-8B34-45EE-A68C-86FDDD791E94"
+            ],
+            "outgoing": [
+                "sid-C6FCF472-0949-4357-809A-4811A64BC8A5"
+            ]
+        },
+        "sid-BDFDC438-EDD6-4DD3-8A2E-57E654DE82EC": {
+            "name": "Send a message",
+            "incoming": [
+                "sid-12D2F253-36E8-4D89-86BB-D529F1571D13"
+            ],
+            "outgoing": [
+                "sid-580AF78A-33D7-4974-A805-A5C0883EFCBC"
+            ]
+        },
+        "sid-4096F10A-B1E9-4C34-B0AB-4D79A6A4B861": {
+            "name": "Reimbursement",
+            "incoming": [
+                "sid-580AF78A-33D7-4974-A805-A5C0883EFCBC"
+            ],
+            "outgoing": [
+                "sid-84A180B0-02BB-4425-B969-8C91495CBA14"
+            ]
+        },
+        "sid-F6B2124F-E67D-4B75-8BD9-722AC4F24352": {
+            "name": "Book money receipt",
+            "incoming": [
+                "sid-C6B7B5A4-22C9-4436-A6EC-3CA96003A922"
+            ],
+            "outgoing": [
+                "sid-0DF0A4AF-7AFD-46A9-B82F-D01D172B0DCD"
+            ]
+        },
+        "sid-2B26149D-177E-47DB-9F04-060B66501F58": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-3FF405CF-64BA-4D91-954E-FA1CF464D0DF"
+            ],
+            "outgoing": [
+                "sid-57A8B352-C892-4FA3-B7CE-124B2B039F81"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-8550957D-8616-4E93-BD7B-2CF548A0FC4E": {
+            "name": "Regress possible?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-C6FCF472-0949-4357-809A-4811A64BC8A5"
+            ],
+            "outgoing": [
+                "sid-12D2F253-36E8-4D89-86BB-D529F1571D13",
+                "sid-CFEB928E-DE58-4FF8-BC69-94A811B22C20"
+            ]
+        },
+        "sid-6F9FDC60-8043-40E5-B5A8-AB4E6FDA54B8": {
+            "name": "Objection justified?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-57A8B352-C892-4FA3-B7CE-124B2B039F81"
+            ],
+            "outgoing": [
+                "sid-B4847490-3286-4F8F-AF0C-BD858464AF0D",
+                "sid-827CEE5E-CFDC-411C-ADDC-006E61831E40"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-695FE697-596B-4106-9DDC-8CE15CD86F61": {
+            "name": "Message to Inkasso service provider",
+            "incoming": [
+                "sid-827CEE5E-CFDC-411C-ADDC-006E61831E40",
+                "sid-F78DE44A-6C87-4DC8-9666-49BBE9F6812A"
+            ]
+        },
+        "sid-4F0D8A73-6F6C-4FAF-9329-FA03343FDD05": {
+            "name": "Process",
+            "incoming": [
+                "sid-B4847490-3286-4F8F-AF0C-BD858464AF0D",
+                "sid-0DF0A4AF-7AFD-46A9-B82F-D01D172B0DCD",
+                "sid-CFEB928E-DE58-4FF8-BC69-94A811B22C20"
+            ]
+        }
+    }
+}

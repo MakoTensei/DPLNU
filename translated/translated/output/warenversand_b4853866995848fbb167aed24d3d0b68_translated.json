@@ -1,0 +1,113 @@
+{
+    "start_events": {
+        "sid-DA00EA7A-50F7-42FB-8A76-6B9D2F55BD29": {
+            "name": "Order ready for shipping",
+            "outgoing": [
+                "sid-E210A33B-83C0-47E7-A647-8ADFBA54B46C"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-666CDFE1-419F-4DE8-B3D5-752EFA04E654": {
+            "name": "Packing",
+            "incoming": [
+                "sid-C4F38C08-C4FC-4974-B42C-DE3E5573C46A"
+            ],
+            "outgoing": [
+                "sid-37937DA1-F966-4E76-876E-58D3DF4CC8AC"
+            ]
+        },
+        "sid-CD9769CC-F6FD-48EE-B95C-FD6A9DB326DD": {
+            "name": "Pick up / select offers for forwarding",
+            "incoming": [
+                "sid-F113F29C-B8E1-4A34-BFA0-FAD1075311BE"
+            ],
+            "outgoing": [
+                "sid-229C19D8-90DD-4D9F-9CF7-78C2A7B8DFD2"
+            ]
+        },
+        "sid-EE94074F-2F94-4610-A112-E671EA796B1E": {
+            "name": "Std. Filling the goods for shipping\n",
+            "incoming": [
+                "sid-AB83E10E-22BD-4670-B0EE-C371FB92B5EC"
+            ],
+            "outgoing": [
+                "sid-2B510616-ED98-472F-BCE1-0EBB74EB00F1"
+            ]
+        },
+        "sid-A3D25C1A-45A5-4E0D-9BFA-B672F2354CDA": {
+            "name": "Complete insurance\n",
+            "incoming": [
+                "sid-00E58699-12E1-4AA6-9339-FF1847138A56"
+            ],
+            "outgoing": [
+                "sid-C65E660A-E859-41BF-AB3E-8979289C990C"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-43174C9F-CCB9-4CBD-B4BC-6B41176F1311": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-1C59549D-AA64-485C-BA58-533A99F1A78B",
+                "sid-76D4F794-8DC7-47D1-96E7-32A8268CF63B"
+            ],
+            "outgoing": [
+                "sid-5F33FA60-4011-4F17-9D25-03E841C3B8C3"
+            ]
+        },
+        "sid-61231128-C75A-40F6-AFB1-1D540DE17DEB": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-37937DA1-F966-4E76-876E-58D3DF4CC8AC",
+                "sid-229C19D8-90DD-4D9F-9CF7-78C2A7B8DFD2"
+            ],
+            "outgoing": [
+                "sid-F651566A-B497-475F-A074-E1E1278748A0"
+            ]
+        },
+        "sid-57344506-14AD-4A35-86DC-E34175BE5A57": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-C65E660A-E859-41BF-AB3E-8979289C990C",
+                "sid-5C9DFBFE-1871-4CBE-9934-9B4027C35DDA"
+            ],
+            "outgoing": [
+                "sid-1C59549D-AA64-485C-BA58-533A99F1A78B"
+            ]
+        },
+        "sid-5C5E2A04-80B7-48A6-BD0D-BA8D65AA6021": {
+            "name": "A lot small?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-4BCF284E-3074-41E7-8298-88F7B73BF1D1"
+            ],
+            "outgoing": [
+                "sid-F113F29C-B8E1-4A34-BFA0-FAD1075311BE",
+                "sid-984BA40A-5BB7-47FF-934C-DFFA702D9D05"
+            ]
+        },
+        "sid-EA7B6C76-6413-4E9F-B5EB-B2E2657A373E": {
+            "name": "Insured?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-B1B56283-CA2C-4E40-A166-B87839EEE3D6"
+            ],
+            "outgoing": [
+                "sid-76D4F794-8DC7-47D1-96E7-32A8268CF63B",
+                "sid-00E58699-12E1-4AA6-9339-FF1847138A56"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-13651363-A7F3-4B2D-9974-2751CBBE789B": {
+            "name": "Submission",
+            "incoming": [
+                "sid-5F33FA60-4011-4F17-9D25-03E841C3B8C3"
+            ]
+        }
+    }
+}

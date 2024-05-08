@@ -1,0 +1,119 @@
+{
+    "start_events": {
+        "sid-F2D6BFFF-1612-4880-8824-04B1D3374421": {
+            "name": "",
+            "outgoing": [
+                "sid-61114DE2-45BA-449D-B932-7A824395E4DC"
+            ]
+        },
+        "sid-AF4BF93C-5F99-4457-86C1-57FA1A87500E": {
+            "name": "",
+            "outgoing": [
+                "sid-61BB12A5-DABD-4E9E-9E8D-A15467918831"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-01D9A100-1622-46FA-AE81-65E0B05FA5F9": {
+            "name": "Pick up a Schufa request",
+            "incoming": [
+                "sid-61114DE2-45BA-449D-B932-7A824395E4DC"
+            ],
+            "outgoing": [
+                "sid-F3AF5FF9-28D9-43C3-97BA-021E7FB50AF5"
+            ]
+        },
+        "sid-CFF78CFF-6D57-4A37-85F2-BDA8551FDFE1": {
+            "name": "forward scoring results",
+            "incoming": [
+                "sid-BB31756A-AF8A-47FF-94D2-80307BF63F29",
+                "sid-684EE1DF-5986-4020-8C6F-3B30A374A565"
+            ],
+            "outgoing": [
+                "sid-71567F25-1C51-49CD-93D4-8C5F19A9B870"
+            ]
+        },
+        "sid-F71E39A1-F5FA-42C3-BFE1-4EF8E5EDE66E": {
+            "name": "Information on lending",
+            "incoming": [
+                "sid-C8769109-48CF-40A2-BF4B-7C0B8525688E"
+            ],
+            "outgoing": [
+                "sid-CAAADBA8-F05D-417C-92CD-98EEEFEC6900"
+            ]
+        },
+        "sid-D5E43E74-4658-4C89-B7E0-8FE963CF008F": {
+            "name": "1. Conduct scoring (level 1)",
+            "incoming": [
+                "sid-61BB12A5-DABD-4E9E-9E8D-A15467918831"
+            ],
+            "outgoing": [
+                "sid-5479EEB7-F0BE-4D47-89DC-D82B4DB8DFB5"
+            ]
+        },
+        "sid-F87184E4-543C-4CBA-95E3-A92842D2EA6B": {
+            "name": "Send scoring result",
+            "incoming": [
+                "sid-2F7E333E-C5FD-4C06-BB78-D85B1083A818"
+            ],
+            "outgoing": [
+                "sid-39276E00-9B41-4580-ADF2-A60D436F8370"
+            ]
+        },
+        "sid-1B1F1FF5-52F6-4F6C-9862-651B6EB41ADB": {
+            "name": "Information to Bank",
+            "incoming": [
+                "sid-37F6BAA4-B177-47F0-B864-08C686302314"
+            ],
+            "outgoing": [
+                "sid-E93603B6-239C-490C-8157-4F5229343F04"
+            ]
+        },
+        "sid-4A0BEFA3-BCB7-4E41-95A7-4D9F2D8FCF7B": {
+            "name": "Two. Conduct scoring (level 2)",
+            "incoming": [
+                "sid-E93603B6-239C-490C-8157-4F5229343F04"
+            ],
+            "outgoing": [
+                "sid-D961E52D-F58E-4AA3-8D56-A001453C5563"
+            ]
+        },
+        "sid-8554F13B-9A49-45CE-B217-C8FEB58C843B": {
+            "name": "Send scoring result",
+            "incoming": [
+                "sid-D961E52D-F58E-4AA3-8D56-A001453C5563"
+            ],
+            "outgoing": [
+                "sid-618EF2A5-0287-4C1F-8028-74A4CB34DAA9"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-42C797EA-736C-4E53-8236-72CFBF27A0A7": {
+            "name": "Scoring result L1 determined?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-5479EEB7-F0BE-4D47-89DC-D82B4DB8DFB5"
+            ],
+            "outgoing": [
+                "sid-2F7E333E-C5FD-4C06-BB78-D85B1083A818",
+                "sid-37F6BAA4-B177-47F0-B864-08C686302314"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-3101F24D-E752-4F71-96F3-6653A5DFF19F": {
+            "name": "Scoring ends",
+            "incoming": [
+                "sid-71567F25-1C51-49CD-93D4-8C5F19A9B870"
+            ]
+        },
+        "sid-9F384CA4-B2B4-4DD4-9D18-C3980FFDB2D8": {
+            "name": "Scoring ends",
+            "incoming": [
+                "sid-39276E00-9B41-4580-ADF2-A60D436F8370",
+                "sid-618EF2A5-0287-4C1F-8028-74A4CB34DAA9"
+            ]
+        }
+    }
+}

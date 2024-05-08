@@ -1,0 +1,125 @@
+{
+    "start_events": {
+        "sid-D92016A6-44A4-414F-A589-255CDA1D9671": {
+            "name": "",
+            "outgoing": [
+                "sid-23BBD491-D956-4A3B-9F92-6681A235D798"
+            ]
+        },
+        "sid-CC4F780F-4AA0-4E8B-9E22-401768B578CD": {
+            "name": "Scoring request\n",
+            "outgoing": [
+                "sid-694CB2E6-3FCF-42F3-82B2-BF861F68F6AA"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-09AEBF67-18C0-4FDB-A261-3900DE2397DA": {
+            "name": "Implementation of scoring",
+            "incoming": [
+                "sid-23BBD491-D956-4A3B-9F92-6681A235D798"
+            ],
+            "outgoing": [
+                "sid-77DAAC3B-7D4C-4B9C-85AC-B4203ED959D9"
+            ]
+        },
+        "sid-5AB12C07-7414-4E16-BD86-22354647CA30": {
+            "name": "Scoring result send level 1",
+            "incoming": [
+                "sid-B2C934FF-3ADD-4B94-9CF7-9499E838669E"
+            ],
+            "outgoing": [
+                "sid-316C3F80-FC7A-4C0B-92A8-707E3BDC7AE8"
+            ]
+        },
+        "sid-A79FED4D-8F16-44E1-B5D5-A24856B28C8E": {
+            "name": "Delay: Level 2 required",
+            "incoming": [
+                "sid-6B85E2BC-8C11-4F08-BDAA-E425C6DCC276"
+            ],
+            "outgoing": [
+                "sid-D3663B80-A672-4266-A395-A5F57CEBD5B7"
+            ]
+        },
+        "sid-D1EB2387-AD00-4576-815C-0944C70947D7": {
+            "name": "Scoring result Level 2",
+            "incoming": [
+                "sid-AD6D60FD-2D46-45D4-B2FC-51B833585C68"
+            ],
+            "outgoing": [
+                "sid-C17FDF89-0019-4F36-BF9C-CDF9B77A8621"
+            ]
+        },
+        "sid-CB8DB126-1176-4850-A32C-6D867FEBE6BF": {
+            "name": "Implementation Level 2 scoring",
+            "incoming": [
+                "sid-D3663B80-A672-4266-A395-A5F57CEBD5B7"
+            ],
+            "outgoing": [
+                "sid-AD6D60FD-2D46-45D4-B2FC-51B833585C68"
+            ]
+        },
+        "sid-4407F226-C589-4CF2-9993-004822C567F6": {
+            "name": "Scoring request",
+            "incoming": [
+                "sid-694CB2E6-3FCF-42F3-82B2-BF861F68F6AA"
+            ],
+            "outgoing": [
+                "sid-DA878BAF-4739-4F10-8CEB-2568F0B9D781"
+            ]
+        },
+        "sid-BF4115E9-B676-4CE3-B80D-FEC38E754050": {
+            "name": "forwarding scoring result",
+            "incoming": [
+                "sid-E513B3FF-8237-4806-9F18-C7C4724A0627",
+                "sid-1DE37090-F80E-463D-9CF2-A2030453D650"
+            ],
+            "outgoing": [
+                "sid-3FE4B7A8-1231-404D-8A63-B9A59EA7A595"
+            ]
+        },
+        "sid-CEAAAACC-094D-4714-B0AF-1DA3B99749B5": {
+            "name": "Delay indicator",
+            "incoming": [
+                "sid-A8FD60D9-0339-41F4-85F6-7D2727720025"
+            ],
+            "outgoing": [
+                "sid-09F2AE7A-6E26-4DD7-9CE7-40EAEB8E94A1"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-FE2A269A-B8CD-45BC-8EC4-AB5A9C256A94": {
+            "name": "Result fixed?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-77DAAC3B-7D4C-4B9C-85AC-B4203ED959D9"
+            ],
+            "outgoing": [
+                "sid-B2C934FF-3ADD-4B94-9CF7-9499E838669E",
+                "sid-6B85E2BC-8C11-4F08-BDAA-E425C6DCC276"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-912EA58B-A8B9-46D2-BF46-FE0711462B73": {
+            "name": "Process",
+            "incoming": [
+                "sid-316C3F80-FC7A-4C0B-92A8-707E3BDC7AE8",
+                "sid-C17FDF89-0019-4F36-BF9C-CDF9B77A8621"
+            ]
+        },
+        "sid-924CE110-1B15-4B56-AA9A-6786E16BF82D": {
+            "name": "Process",
+            "incoming": [
+                "sid-3FE4B7A8-1231-404D-8A63-B9A59EA7A595"
+            ]
+        },
+        "sid-BD87E331-410D-475D-BFFA-07133F5DE96F": {
+            "name": "",
+            "incoming": [
+                "sid-CF6BA60C-F61B-4A13-A878-9C1B774B91E8"
+            ]
+        }
+    }
+}

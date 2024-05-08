@@ -1,0 +1,112 @@
+{
+    "start_events": {
+        "sid-57B96072-903A-4EE8-A104-9056D166F605": {
+            "name": "Take VN in Regress",
+            "outgoing": [
+                "sid-C0CECBF7-BF02-4453-B9DE-795F74FB6637"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-DC51F46B-0BE7-47EF-8056-0843CFFC2C23": {
+            "name": "Check insurance case",
+            "incoming": [
+                "sid-C0CECBF7-BF02-4453-B9DE-795F74FB6637"
+            ],
+            "outgoing": [
+                "sid-DFB2ED86-D7BF-477F-8C66-F7BFAED29F3C"
+            ]
+        },
+        "sid-97B04657-786A-4EAF-A01E-055DB9940164": {
+            "name": "Send payment request",
+            "incoming": [
+                "sid-1D591C97-2F16-4105-8A1A-E4BB8D93FFCC"
+            ],
+            "outgoing": [
+                "sid-26B7172D-C652-4A61-82E0-9B7E6EDD733C"
+            ]
+        },
+        "sid-EAEB61BB-0798-4164-AB62-584D66DCA88F": {
+            "name": "Book payment receipt",
+            "incoming": [
+                "sid-B4349D61-F2B6-42DB-BDA3-226ECA532876"
+            ],
+            "outgoing": [
+                "sid-91F05EF1-8D4A-4CB3-9601-ABDBF47DC4A6"
+            ]
+        },
+        "sid-ED7F36E4-5271-4841-8D64-522B7E650460": {
+            "name": "Proceedings",
+            "incoming": [
+                "sid-0CD7218F-AE83-4685-9C99-58AA5D487FA9"
+            ],
+            "outgoing": [
+                "sid-485A7F65-63AD-40A1-B69B-C732784EBC97"
+            ]
+        },
+        "sid-010E7B8E-B3E1-4C58-A26E-884DE53972E4": {
+            "name": "Tax on debt collection",
+            "incoming": [
+                "sid-8BD9D59D-AC2D-4F7D-9DF0-8D755E7200CD",
+                "sid-2FEEE2D2-E0F4-4A4F-8F52-EDDC79F49FEA"
+            ],
+            "outgoing": [
+                "sid-9282E77D-AA16-4B10-A415-B1760E021792"
+            ]
+        },
+        "sid-2398ED78-EC50-427B-88BD-965F4454A058": {
+            "name": "Close",
+            "incoming": [
+                "sid-8F5A3234-0FB6-4CCA-8AE0-A8C39C914FF5",
+                "sid-F1907D98-CC24-44C6-A402-12DE29FD856E"
+            ],
+            "outgoing": [
+                "sid-D47E49CF-E9D2-436D-9D38-0A1E4D2C4439"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-34571AF8-1F95-4196-A895-3B8E7ADA7D5D": {
+            "name": "Regress?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-DFB2ED86-D7BF-477F-8C66-F7BFAED29F3C"
+            ],
+            "outgoing": [
+                "sid-1D591C97-2F16-4105-8A1A-E4BB8D93FFCC",
+                "sid-8F5A3234-0FB6-4CCA-8AE0-A8C39C914FF5"
+            ]
+        },
+        "sid-7820161D-26C9-48EC-91D7-8AA51C56C6E2": {
+            "name": "Dispute?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-485A7F65-63AD-40A1-B69B-C732784EBC97"
+            ],
+            "outgoing": [
+                "sid-62E869FF-E3C9-4A36-A33B-BDA8B23B2806",
+                "sid-8BD9D59D-AC2D-4F7D-9DF0-8D755E7200CD"
+            ]
+        },
+        "sid-BB7B8445-5821-4B84-A04B-0EBA26F58392": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-62E869FF-E3C9-4A36-A33B-BDA8B23B2806",
+                "sid-9282E77D-AA16-4B10-A415-B1760E021792",
+                "sid-91F05EF1-8D4A-4CB3-9601-ABDBF47DC4A6"
+            ],
+            "outgoing": [
+                "sid-F1907D98-CC24-44C6-A402-12DE29FD856E"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-B91E3106-BF3E-47BD-A191-1E56647F9492": {
+            "name": "Process",
+            "incoming": [
+                "sid-D47E49CF-E9D2-436D-9D38-0A1E4D2C4439"
+            ]
+        }
+    }
+}

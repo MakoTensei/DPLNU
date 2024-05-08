@@ -1,0 +1,86 @@
+{
+    "start_events": {
+        "sid-31DF4F71-7F9D-4349-9AFA-5F4E442E72FA": {
+            "name": "Goods are to be shipped",
+            "outgoing": [
+                "sid-013AF123-CCF2-41EB-B7A2-3300BE0A3DBA"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-0B61F77E-E76D-4665-8CE1-293CD67E97C9": {
+            "name": "Pick up offers from three providers",
+            "incoming": [
+                "sid-3E10EDE3-861C-4F42-9AAD-6E6E31DC17B9"
+            ],
+            "outgoing": [
+                "sid-F05F6E9A-AAA8-442C-B851-DF4B4CF796C9"
+            ]
+        },
+        "sid-E09ADB9E-B7FE-4D62-B2DF-93CC0007FAF3": {
+            "name": "Select a provider",
+            "incoming": [
+                "sid-F05F6E9A-AAA8-442C-B851-DF4B4CF796C9"
+            ],
+            "outgoing": [
+                "sid-0FC01456-84B0-44C2-AD7D-11CC760B1C3D"
+            ]
+        },
+        "sid-4A32A95F-E5F9-4320-A7C6-35A26EAA99F5": {
+            "name": "Specialist",
+            "incoming": [
+                "sid-0FC01456-84B0-44C2-AD7D-11CC760B1C3D"
+            ],
+            "outgoing": []
+        },
+        "sid-02EDDAD3-A8D6-432C-8EBF-4E42B244C859": {
+            "name": "Filling standard package voucher",
+            "incoming": [
+                "sid-EB2A27E9-2C33-4B69-B9C1-08F20B8C6B75"
+            ],
+            "outgoing": [
+                "sid-2C1C8499-828A-48F7-A51D-28614AE7AA87"
+            ]
+        },
+        "sid-E56BA8B7-3D44-48D3-8D63-E052C0488ADC": {
+            "name": "Complete insurance for the goods",
+            "incoming": [
+                "sid-8DCD7972-00CC-4B22-92EF-DFD38AA01173"
+            ],
+            "outgoing": []
+        },
+        "sid-9A17FF0C-CD30-45CC-9407-34C29ED572BC": {
+            "name": "Packaging goods",
+            "incoming": [
+                "sid-CBBE3644-A5B0-42B7-A573-B1BE4249C85D"
+            ],
+            "outgoing": [
+                "sid-470CA2A5-EAB7-40B6-AC46-0E12CA69EBD4"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-9C61CD7C-2BEF-486F-9335-A9F7DD427E58": {
+            "name": "Is there a lot?",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-CC696FFB-851C-455B-B4D9-079ECF64A707"
+            ],
+            "outgoing": [
+                "sid-EB2A27E9-2C33-4B69-B9C1-08F20B8C6B75",
+                "sid-3E10EDE3-861C-4F42-9AAD-6E6E31DC17B9"
+            ]
+        },
+        "sid-E8C7F0F8-4E05-45F4-BCAF-4556A05D534F": {
+            "name": "Insurance of goods required",
+            "direction": "Unspecified",
+            "incoming": [
+                "sid-2C1C8499-828A-48F7-A51D-28614AE7AA87"
+            ],
+            "outgoing": [
+                "sid-8DCD7972-00CC-4B22-92EF-DFD38AA01173"
+            ]
+        }
+    },
+    "end_events": {}
+}

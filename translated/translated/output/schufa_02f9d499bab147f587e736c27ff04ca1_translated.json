@@ -1,0 +1,110 @@
+{
+    "start_events": {
+        "sid-59EEFB71-6082-400A-872A-10142601415F": {
+            "name": "",
+            "outgoing": [
+                "sid-40B0ACB0-D056-44B0-BD8D-730D44A535FA"
+            ]
+        },
+        "sid-CF98D007-81FA-4E71-B51C-8DB8F1B0742C": {
+            "name": "",
+            "outgoing": [
+                "sid-03B04AC8-F941-4CD1-9496-12310C5FE700"
+            ]
+        }
+    },
+    "tasks": {
+        "sid-402866D5-0394-4C3C-84A6-05E460C20541": {
+            "name": "Send scoring inquiry to Schufa",
+            "incoming": [
+                "sid-40B0ACB0-D056-44B0-BD8D-730D44A535FA"
+            ],
+            "outgoing": [
+                "sid-D407FC7C-615E-415A-9CB9-59FB008F428C"
+            ]
+        },
+        "sid-CAA37406-4D85-42F3-B748-8B1F4714B111": {
+            "name": "Scoring Level 2",
+            "incoming": [
+                "sid-645C49C1-1B8C-4BEF-A9D7-1BC6991CA3A0"
+            ],
+            "outgoing": [
+                "sid-992B57FE-1935-4B38-AA4A-577260A594BF"
+            ]
+        },
+        "sid-972C6095-BD73-4C6B-8A2A-FD16B4F15E3A": {
+            "name": "Scoring Level 1\nDebt",
+            "incoming": [
+                "sid-03B04AC8-F941-4CD1-9496-12310C5FE700"
+            ],
+            "outgoing": [
+                "sid-C89DE6FC-C683-4ADB-A37A-C40EA6E2D0CF"
+            ]
+        },
+        "sid-EDC36F2D-E5E0-4B82-8461-40907A591CF1": {
+            "name": "Sending result Level 1",
+            "incoming": [
+                "sid-FE4B15FA-F45D-406C-8415-1AF4051CC752"
+            ],
+            "outgoing": [
+                "sid-E05C2C48-767F-4CDF-BB6E-CCDE8869244D"
+            ]
+        },
+        "sid-AD12DE4A-91BE-4ACD-AE34-996E687B4C4A": {
+            "name": "Determining scoring level 2",
+            "incoming": [
+                "sid-0668EAB8-6E4B-45EE-B773-E5E652C0A5F0"
+            ],
+            "outgoing": [
+                "sid-C8724A21-A897-4D10-8465-C704F6553BAC"
+            ]
+        },
+        "sid-E5CB90A6-CD60-4C36-B4CC-A67F25694D06": {
+            "name": "Report Level 2",
+            "incoming": [
+                "sid-C8724A21-A897-4D10-8465-C704F6553BAC"
+            ],
+            "outgoing": [
+                "sid-69B0C9BB-54AE-42C6-99DE-5FB67298F532"
+            ]
+        }
+    },
+    "gateways": {
+        "sid-9FCBB53E-AD9D-4E6F-A271-44CE680FB099": {
+            "name": "",
+            "direction": "Diverging",
+            "incoming": [
+                "sid-C89DE6FC-C683-4ADB-A37A-C40EA6E2D0CF"
+            ],
+            "outgoing": [
+                "sid-0668EAB8-6E4B-45EE-B773-E5E652C0A5F0",
+                "sid-FE4B15FA-F45D-406C-8415-1AF4051CC752"
+            ]
+        },
+        "sid-36A698AD-B596-4EDB-80B5-EAA0F9EF1622": {
+            "name": "",
+            "direction": "Converging",
+            "incoming": [
+                "sid-E05C2C48-767F-4CDF-BB6E-CCDE8869244D",
+                "sid-69B0C9BB-54AE-42C6-99DE-5FB67298F532"
+            ],
+            "outgoing": [
+                "sid-8AB17EE4-7895-4B80-9334-A843CC28AE62"
+            ]
+        }
+    },
+    "end_events": {
+        "sid-E01C343E-0829-49EC-B796-BEFE206AF154": {
+            "name": "",
+            "incoming": [
+                "sid-BBDC5CFE-8BE4-4B0D-88BD-A6CA8871868C"
+            ]
+        },
+        "sid-B93944AF-1321-4737-B230-8EE2834EA92C": {
+            "name": "",
+            "incoming": [
+                "sid-8AB17EE4-7895-4B80-9334-A843CC28AE62"
+            ]
+        }
+    }
+}
