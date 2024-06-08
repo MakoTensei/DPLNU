@@ -1,7 +1,0 @@
- In the shipping process, there are several tasks and gateways involved. When a package needs to be sent, it first goes through the 'Special shipment?' gateway, which has incoming connections from 'ParallelGateway3' and 'Insurance required?' gateways. This gateway then forwards the package to 'ExclusiveGateway2', which has incoming connections from both 'Special shipment?' and 'Insurance required?' gateways.
-
-If a package requires filling a standard package voucher, it goes through the 'Filling standard package voucher' task, which has incoming connections from 'Special shipment?' and 'ParallelGateway3'. The package is then sent to 'ParallelGateway4', which has incoming connections from 'Filling standard package voucher' and 'ParallelGateway3'.
-
-For insurance-related shipments, the 'Insurance' task has incoming connections from 'Insurance required?' and 'ParallelGateway3'. The package is then sent to 'ExclusiveGateway2', which has incoming connections from both 'Insurance required?' and 'ParallelGateway3'.
-
-When a package needs to be sent, it first goes through the 'Package should be sent' start event, which has no incoming connections. The package then goes through the 'Special shipment?' gateway, which forwards it to 'ExclusiveGateway2'. From there, the package is sent to 'ParallelGateway6', which has incoming connections from 'Package should be sent', 'Special shipment?', and 'ParallelGateway3'. Finally, the package is sent to the 'Package sent' end event, which has incoming connections from 'ParallelGateway4'.

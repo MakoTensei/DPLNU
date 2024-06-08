@@ -1,7 +1,0 @@
- When the event "Potentiary\nRegress determined" occurs, it triggers a series of tasks and gateways. First, the "Check regression" task is initiated, which then sends a signal to "ExclusiveGateway3". Concurrently, the "VN payment request" task is activated, leading to an "Incoming payment" event that connects to "ExclusiveGateway2". Following this, the "Book the entrance" task is triggered, resulting in an "ExclusiveGateway2" event. Additionally, if the "VN contradicts" event is triggered, it leads to a "Proceedings" task and subsequently an "ExclusiveGateway2" event.
-
-The "ExclusiveGateway2" serves as a central hub, receiving signals from "Potentiary\nRegress determined", "Proceedings", and "VN contradicts". It then forwards these signals to "ExclusiveGateway3". Meanwhile, the "Incoming payment" event, originating from "ExclusiveGateway0", connects to "ExclusiveGateway2".
-
-Upon reaching "ExclusiveGateway3", the "Check regression" and "Potentiary\nRegress determined" tasks are completed, and the "Close" event is triggered, which is connected to "EventBasedGateway4". This event also links to the "Debt collection" task, which ultimately leads to the "Close" event.
-
-In summary, the "Potentiary\nRegress determined" event initiates a chain of tasks and gateways, ultimately resulting in the "Close" event.

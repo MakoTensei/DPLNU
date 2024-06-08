@@ -1,9 +1,0 @@
- When a StartEvent0 occurs, the system checks for a regression. If a regression is detected, the system initiates a VN payment request and books the entrance, resulting in a 'Regress paid' event. If no regression is found, the system proceeds to an examination, which leads to an 'ExclusiveGateway2' event.
-
-If the examination determines that a debt collection is necessary, the system triggers a 'Debt collection' event, which in turn calls for a 'Regressed by debt collection' event.
-
-On the other hand, if the VN payment request is successful, the system calls for a 'Regress' event, which is then followed by a 'No regression' event.
-
-In the case of a 'No payment received?' event, the system triggers a 'Regressed by debt collection' event.
-
-Overall, the system follows a flow of events and outcomes based on the incoming and outgoing connections between tasks, gateways, and events.

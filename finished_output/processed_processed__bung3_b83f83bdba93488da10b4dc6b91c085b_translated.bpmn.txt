@@ -1,9 +1,0 @@
- Starting with the 'Regression check' event, which has no incoming connections, it triggers the 'Regression possible?' gateway. This gateway, upon receiving the 'Regression possible?' signal, forwards the event to 'ExclusiveGateway2'. 'ExclusiveGateway2' then sends the event to 'ExclusiveGateway3', which in turn leads to the 'Regression check' event.
-
-The 'Regression check' event, now with incoming connections from 'ExclusiveGateway3', can proceed to the 'VN payment request' task. This task, upon completion, sends a 'Regression possible?' signal back to 'ExclusiveGateway3', which then connects to 'ExclusiveGateway4'.
-
-'ExclusiveGateway4' receives the 'Regression possible?' signal and sends it to 'ExclusiveGateway3', which then connects to 'ExclusiveGateway3' again, but this time for the 'Close' event. The 'Close' event, upon completion, sends a 'Money received' signal to 'ExclusiveGateway3', which then connects to 'ExclusiveGateway3' once more, this time for the 'Book the entrance' task.
-
-The 'Book the entrance' task, upon completion, sends a 'Money received' signal to 'ExclusiveGateway3', which then connects to 'ExclusiveGateway3' again, this time for the 'Close' event. The 'Close' event, upon completion, sends a 'Notification' signal to 'ExclusiveGateway3', which then connects to 'ExclusiveGateway3' once more, this time for the 'Return to Inkasso-DL' task.
-
-The 'Return to Inkasso-DL' task, upon completion, sends a 'Money received' signal to 'ExclusiveGateway3', which then connects to 'ExclusiveGateway3' again, this time for the 'Close' event. The 'Close' event, upon completion, sends a 'Notification' signal to 'ExclusiveGateway3', which then connects to 'ExclusiveGateway3' once more, this time for the 'Proceed

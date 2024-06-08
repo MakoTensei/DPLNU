@@ -1,9 +1,0 @@
- The process begins with the 'Scoring request Frontend' event, which triggers the creation of a 'Create a scoring request' task. This task is then passed to the 'Scoring result obtained' gateway, which in turn sends a 'Create a waiting message' task to the 'Level 1 Scoring' process and a 'Message' task to the 'ExclusiveGateway1' gateway.
-
-The 'Level 1 Scoring' process receives the 'Scoring request Bank' event and initiates the 'Level 1 Scoring' task. This task sends a 'Create a waiting message' task to the 'IntermediateCatchEvent2' gateway and a 'Message' task to the 'ExclusiveGateway1' gateway.
-
-The 'IntermediateCatchEvent2' gateway receives the 'Create a waiting message' task and sends a 'Create a scoring message' task to the 'Level 2 Scoring' process. The 'Level 2 Scoring' process then sends a 'Message' task to the 'ExclusiveGateway1' gateway.
-
-The 'ExclusiveGateway1' gateway receives the 'Create scoring message' task and the 'Message' task, and sends a 'Message' task to the 'Processing' process. The 'Processing' process completes the task and sends a 'Processing completed' event.
-
-Finally, the 'Scoring result obtained' gateway receives the 'Scoring result obtained' event and sends a 'Message' task to the 'Message' event, completing the process.

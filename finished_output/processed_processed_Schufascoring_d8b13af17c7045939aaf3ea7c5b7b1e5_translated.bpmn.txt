@@ -1,9 +1,0 @@
- In the workflow, the process begins with the 'Schufascoring\nnot available' event, which triggers the 'EventBasedGateway2' to forward the result to 'Delay\nReport'. This event is then followed by 'StartEvent1', which leads to 'Report delay'. The 'Report delay' event sends the result to 'ExclusiveGateway0', which forwards the result to 'Result\nforwarded'.
-
-Meanwhile, the 'Scoring request\nsend' task is initiated, but due to the unavailability of 'Schufascoring', the result is obtained and sent to 'ExclusiveGateway0'. This triggers the 'Result\nforwarded' event, which sends the result to 'Delay\nReport'.
-
-The 'Delay\nReport' event, in turn, sends the result to 'Report delay'. The 'Report delay' event then sends the result to 'Result\nsend', which is followed by 'Result\nsend' again due to the 'Scoring ready?' event.
-
-The 'Scoring ready?' event triggers the 'perform scoring\n(level 2)' task, which sends the result to 'Result\nsend'. The 'Result\nsend' event is then followed by 'Follow-up', which sends the result to 'Result\nobtained'.
-
-Finally, the 'Result\nobtained' event triggers the 'ExclusiveGateway0' to forward the result to 'Result\nforwarded', completing the workflow.

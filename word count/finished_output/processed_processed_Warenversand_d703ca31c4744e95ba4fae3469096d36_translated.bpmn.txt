@@ -1,9 +1,0 @@
- When a shipment is initiated, the process begins with the 'Goods be sent' event, which triggers the 'Offers enroll' task to start. This task is responsible for offering the goods to potential buyers. Once the offers are enrolled, the 'Special delivery necessary?' gateway is invoked to determine if special delivery services are required. If special delivery is needed, the 'freight forwarders commission' task is triggered, which involves commissioning freight forwarders for the special delivery.
-
-Simultaneously, the 'Filling the package note' task is initiated to complete the necessary documentation for the shipment. If insurance is deemed necessary, the 'Complete insurance' task is triggered to ensure the goods are insured during transit.
-
-The 'Goods packaging' task is then executed to prepare the goods for shipping. Once the goods are packaged, the 'Goods pickup ready' task is initiated, which signals that the goods are ready for pickup.
-
-The 'Goods pickup ready' task triggers the 'ParallelGateway4' task, which is responsible for coordinating the pickup and shipping process. This task also connects to the 'Ship ready' task, which signifies that the shipment is ready to be dispatched.
-
-In summary, the process starts with the 'Goods be sent' event, leading to a series of tasks and gateways that ensure the goods are enrolled, packaged, insured, and ready for pickup and shipping. The process concludes with the 'Ship ready' event, indicating that the shipment is prepared for dispatch.

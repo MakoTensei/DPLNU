@@ -1,7 +1,0 @@
- Upon receiving a 'Regression\nReport', the system initiates a sequence of tasks to handle the report. First, the 'Check regression case' task is triggered, which sends the report to 'ExclusiveGateway3'. If the report passes this check, the 'Payment\nSend a message' task is activated, sending a message to 'Payment\nentry'. This task is dependent on the 'Regression\nReport' and leads to the 'Book the entrance' task, which in turn sends a message to 'Process\nclosed'.
-
-Simultaneously, the 'Regression\nReport' also triggers the 'Proceedings' task, which sends the report to 'ExclusiveGateway2'. If the report is deemed acceptable, the 'Opposition\njustifiable?' task is activated, which sends the report to 'ExclusiveGateway2', 'ExclusiveGateway3', and 'ExclusiveGateway2' again.
-
-If the 'Regression\nReport' is not suitable for the 'Check regression case', the 'Turn on debt collection office' task is activated, which sends a message to 'Process\nopen....'.
-
-In summary, the 'Regression\nReport' initiates a series of tasks and gateways, leading to either the closure of a process or the opening of a new process, depending on the outcome of the report.

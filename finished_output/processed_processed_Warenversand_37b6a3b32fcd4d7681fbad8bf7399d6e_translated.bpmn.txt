@@ -1,7 +1,0 @@
- When a package is sent, the process begins with the 'Goods be sent' event, which triggers the 'Check shipping' event. This is handled by the 'ExclusiveGateway1', which then forwards the package to 'ParallelGateway3'. 'ParallelGateway3' is responsible for determining if insurance is necessary, and if so, it sends the package to 'Insurance necessary?' event. Once the insurance decision is made, the package is sent back to 'ParallelGateway3' to proceed with the next steps.
-
-The 'ParallelGateway3' then handles the 'Create a quote' event, which is triggered by 'ExclusiveGateway1' and 'Packaging goods'. The quote is created and sent to 'Select offers and forwarders commission' event, which in turn sends the quote back to 'ParallelGateway3'.
-
-After the quote is created, 'ParallelGateway3' sends the package to 'Goods Pickup Ready' event, which is triggered by 'ParallelGateway2'. The package is now ready for pickup, and the process is complete.
-
-In summary, the process starts with the 'Goods be sent' event, which triggers a series of events and gateways, ultimately leading to the 'Goods Pickup Ready' event. The key gateways involved in this process are 'ExclusiveGateway1', 'ParallelGateway2', and 'ParallelGateway3', which handle various tasks such as checking shipping, creating quotes, and determining insurance necessity.

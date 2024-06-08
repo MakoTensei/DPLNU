@@ -1,9 +1,0 @@
- Starting with the event 'Goods are to be shipped', the process begins at the 'ParallelGateway4' which receives this event and sends it to 'ExclusiveGateway1'. At 'ExclusiveGateway1', the event is processed and two outcomes are generated: 'Goods\nPickup\nready' and 'ExclusiveGateway3'. The 'Goods\nPickup\nready' event is then sent to 'ParallelGateway7', which in turn sends it to 'Goods\nPickup\nready'.
-
-Meanwhile, the 'ExclusiveGateway3' event is also processed at 'ExclusiveGateway3', which receives the event from 'ParallelGateway6' and 'Package tickets\nfilling'. It then sends the 'Goods\nPickup\nready' event to the final destination.
-
-In summary, the process starts with 'Goods are to be shipped' and ends with 'Goods\nPickup\nready', with the following sequence of events and gateways:
-
-1. 'Goods are to be shipped' -> 'ParallelGateway4' -> 'ExclusiveGateway1'
-2. 'ExclusiveGateway1' -> 'Goods\nPickup\nready' -> 'ParallelGateway7' -> 'Goods\nPickup\nready'
-3. 'ExclusiveGateway1' -> 'Package tickets\nfilling' -> 'ParallelGateway6' -> 'ExclusiveGateway3' -> 'Goods\nPickup\nready'

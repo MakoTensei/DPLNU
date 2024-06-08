@@ -1,9 +1,0 @@
- When a regression claim is reported, the system initiates a series of tasks to address the issue. The process begins with the 'Regression claim reported' event, which triggers the 'Send payment request to VN' task to handle the claim. As the situation unfolds, the system evaluates whether the claim is a regression by checking the 'is Regress?' gateway. If the claim is indeed a regression, the system proceeds to the 'Handled the case' task, which can lead to different outcomes based on the incoming events.
-
-If the 'is Regress?' event indicates that the claim is not a regression, the system moves to the 'Book now' task, which is connected to the 'ExclusiveGateway2' gateway. This task is designed to handle cases that require immediate attention.
-
-In cases where the 'is Regress?' event points to a regression, the system can either close the case directly or hand it over to the debt collection process, depending on the incoming events. The 'Handled the case' task can lead to the 'Closed' outcome if the case is resolved, or 'handed over case to debt collection' if the case needs further action.
-
-The 'Deadline expired?' event is another critical point in the process. If the 'Reimbursement' task is connected to this event, it indicates that the deadline for the claim has passed, and the case is closed.
-
-Overall, the system's flow is designed to efficiently manage regression claims by evaluating the nature of the claim, determining the appropriate course of action, and ensuring that the case is either resolved or handed over to the correct department for further action.

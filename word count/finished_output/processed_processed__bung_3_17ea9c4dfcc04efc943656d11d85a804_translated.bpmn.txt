@@ -1,9 +1,0 @@
- When a regression report arrives, it triggers a series of tasks and interactions between different entities in the system. The process begins with the 'Regression report' event, which initiates the 'Send a message' task. This task is responsible for sending a message to the 'Set process for resubmission' task, which in turn checks if there's a chance for resubmission. If there is, it proceeds to the 'Date of expiry' task, which sets the expiry date for the resubmission process.
-
-Simultaneously, the 'Regression report' event also triggers the 'Is there a chance?' task, which communicates with the 'ExclusiveGateway3' to determine if the resubmission is justified. If it is, the process continues to the 'Case forwarded' task, which forwards the case to the relevant parties.
-
-On the other hand, if the resubmission is not justified, the 'Send a message' task sends a message to the 'Set process for resubmission' task, which then communicates with the 'ExclusiveGateway2' to proceed with the 'Proceedings' task. This task involves the 'Opposition' entity, which can either close the case or send a message to the 'Close' task.
-
-Meanwhile, the 'Is there a chance?' task also communicates with the 'ExclusiveGateway2' to forward the case to the 'Submitting debt service managers' task. This task waits for feedback and, upon receiving it, sends a message to the 'Fal successfully edited' or 'Fal unsuccessfully edited' tasks, which then forward the case to the 'Case forwarded' task.
-
-In summary, the 'Regression report' event sets off a chain of tasks and interactions between different entities, such as 'Send a message', 'Set process for resubmission', 'ExclusiveGateway3', 'Proceedings', 'Opposition', 'Submitting debt service managers', and 'Fal successfully edited' or 'Fal unsuccessfully edited', ultimately leading to the 'Case forwarded' task.

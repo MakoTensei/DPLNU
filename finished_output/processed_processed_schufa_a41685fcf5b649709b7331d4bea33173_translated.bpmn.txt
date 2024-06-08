@@ -1,7 +1,0 @@
- When a "Scoring order" event is triggered, it initiates the process by sending a message to "Continue scoring result (Level2)". This message is received by "ExclusiveGateway1", which then forwards it to "Scoring". Meanwhile, "IntermediateCatchEvent4" also receives the "Scoring order" message and sends it to "ExclusiveGateway1".
-
-As the process continues, "Continue scoring result (Level1)" is triggered by "ExclusiveGateway1" and sends a message to "Perform scoring (level1)". This message is received by "ExclusiveGateway3", which then forwards it to "Scoring ends".
-
-If a "Scoring request" event is triggered, it sends a message to "Report delay". This message is received by "Delay?", which then sends a message to "Scoring (level2)\nperform". This message is received by "ExclusiveGateway3", which then forwards it to "Scoring ends".
-
-Finally, when the "Scoring" event is triggered, it receives a message from "Continue scoring result (Level1)" and sends a message to "Scoring ends". This event is also triggered by "Delay?", which sends a message to "Scoring ends".

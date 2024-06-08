@@ -1,9 +1,0 @@
- When a Schufa scoring request is initiated, the process begins at the 'Schufascoring requested' event, which triggers the 'ExclusiveGateway0' to handle the incoming request. The 'ExclusiveGateway0' then directs the request to the 'Scoring' task, which starts the scoring process.
-
-Once the scoring process is complete, the 'Scoring' task sends a message to 'Report Scoring' to notify that the scoring is finished. Concurrently, the 'Scoring' task also sends a message to 'Report back delay' to inform about any potential delays in the scoring process.
-
-If the scoring process is completed without any delays, the 'Report Scoring' task sends a message to 'Report the result' to notify that the scoring result is available. However, if there is a delay, the 'Report back delay' task sends a message to 'Report the result' to notify that the scoring result will be available later.
-
-In case the scoring process is completed without any delays, the 'Scoring' task sends a message to 'Scoring ends' to indicate that the scoring process has ended. Similarly, if there is a delay, the 'Scoring result available?' task sends a message to 'Scoring ends' to indicate that the scoring process has ended, but the result will be available later.
-
-In summary, the process starts with a 'Schufascoring requested' event, which triggers the 'ExclusiveGateway0' to handle the request. The 'ExclusiveGateway0' then directs the request to the 'Scoring' task, which initiates the scoring process. Once the scoring is complete, the 'Scoring' task sends messages to 'Report Scoring' and 'Report back delay' to notify about the completion and potential delays. If there are no delays, the 'Report the result' task is notified, and if there are delays, the 'Scoring result available?' task is notified. Finally, the 'Scoring ends' event is triggered to indicate the completion of the scoring process.

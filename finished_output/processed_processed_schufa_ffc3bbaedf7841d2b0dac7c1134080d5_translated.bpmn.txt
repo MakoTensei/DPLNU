@@ -1,9 +1,0 @@
- The process begins with the 'Process start' event, which triggers the 'Scoring Send request' task, sending a request for scoring. This request is then received by the 'Results obtained?' event, which initiates the 'Level 1 Scoring' task. The results obtained from this task are then sent to the 'Communication delay' event, indicating a delay in communication.
-
-Meanwhile, the 'Scoring request\nobtained' event triggers the 'Level 1 Result Report' task, which reports the results obtained from the scoring. This report is then sent to the 'Results obtained?' event, which in turn triggers the 'Level 2 Scoring' task. The results obtained from this task are then sent to the 'Communication delay' event, indicating another delay in communication.
-
-The 'Level 2 Scoring' task results are then sent to the 'Level 2 Report result' event, which triggers the 'ExclusiveGateway2' task. This task communicates the results to the 'EndEvent1' event, which signifies the completion of the process.
-
-Simultaneously, the 'Scoring Send request' task communicates the results to the 'Communicating result to frontend' event, which then triggers the 'EndEvent0' event, signifying the completion of the task.
-
-In summary, the process starts with the 'Process start' event, which triggers a series of tasks and events, including scoring, result reporting, and communication delays. The results are then communicated to the frontend and the process is completed with the 'EndEvent0' and 'EndEvent1' events.

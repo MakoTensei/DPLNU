@@ -1,5 +1,0 @@
- In the event of a regression report, the process begins with the 'Regress\nReport' event, which triggers the 'Send payment request' task. This task is then routed to 'ExclusiveGateway1', where it waits for the 'Customer Responsibility' event. Upon receiving this event, the process proceeds to 'Set process for resubmission'. Concurrently, the 'Regress possible?' event at 'ExclusiveGateway1' leads to the 'Date of expiry' task, which subsequently connects to 'Subject matter'.
-
-Meanwhile, 'IntermediateCatchEvent5' initiates the 'Book the entrance' task, which also connects to 'ExclusiveGateway1'. This gateway then directs the process to 'Transfer the process to debt collection services' if the 'Payment refusal\njustified?' event occurs.
-
-The 'Cash receipt' event, which can be triggered by 'IntermediateCatchEvent5', leads to the 'Closed' event, marking the end of the process.

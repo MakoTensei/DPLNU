@@ -1,9 +1,0 @@
- The process begins with the 'StartEvent0' triggering the 'ExclusiveGateway0', which then sends a 'Scoring request' to 'Send Schufascoring'. 'Send Schufascoring' receives the request and sends a 'Schufascoring\nis fixed' message to 'Schufascoring\nsend a message'. 'Schufascoring\nsend a message' acknowledges the fix and sends a 'Schufascoring\nobtained' message back to 'ExclusiveGateway0'.
-
-Simultaneously, 'ExclusiveGateway0' also sends a 'Result fixed' message to 'ExclusiveGateway1' and 'Schufascoring\nobtained' message to 'EventBasedGateway3'. 'EventBasedGateway3' then sends a 'Schufascoring\ndelayed' message to 'Schufascoring\nobtained'.
-
-'Schufascoring\nobtained' sends a'send delay message' to 'Schufascoring\ndelayed'. 'Schufascoring\ndelayed' sends a 'Schufascoring\nobtained' message back to 'ExclusiveGateway0'.
-
-'ExclusiveGateway0' receives the 'Schufascoring\nobtained' message and sends a 'Share scoring result' message to 'ExclusiveGateway1'. 'ExclusiveGateway1' receives the 'Result fixed' message from 'Schufascoring\nobtained' and sends a 'Process completed' message.
-
-Finally, 'EventBasedGateway3' receives the 'Schufascoring\ndelayed' message and sends a 'Process completed' message. The entire process concludes with the 'Process completed' message from 'ExclusiveGateway1' and 'EventBasedGateway3'.

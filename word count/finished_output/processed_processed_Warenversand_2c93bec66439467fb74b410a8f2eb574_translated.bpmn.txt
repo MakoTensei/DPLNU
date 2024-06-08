@@ -1,9 +1,0 @@
- A shipment process begins with the 'Shipment' start event, which triggers the 'large\nLot?' gateway. This gateway initiates the 'Pick up offers' task, which is responsible for collecting offers related to the shipment. Simultaneously, the 'large\nLot?' gateway also triggers the 'Filling the package note' task, which handles the documentation required for the shipment.
-
-Once the 'Pick up offers' task is completed, it sends an outgoing message to the 'Select your offer' gateway. This gateway then sends an outgoing message to the'sid-9106F21C-9764-41BF-BA8D-70A05987402F' task, which is responsible for selecting the appropriate offer for the shipment.
-
-After the offer is selected, the 'Select your offer' gateway sends an outgoing message to the 'Shipping\ncommission' gateway. This gateway triggers the 'Shipping\ncommission' task, which handles the commission for the shipping process. The 'Shipping\ncommission' task then sends outgoing messages to the 'EndEvent0' and 'EndEvent1' tasks, which mark the completion of the shipping process.
-
-Meanwhile, the 'Filling the package note' task sends an outgoing message to the 'Insurance\nclose' gateway. This gateway triggers the 'Insurance\nclose' task, which handles the insurance closure for the shipment. The 'Insurance\nclose' task sends an outgoing message to the'sid-0C42A562-1054-4CCE-9890-FDD836A03DD2' task, which finalizes the insurance process.
-
-Additionally, the 'Filling the package note' task sends an outgoing message to the 'Packaging goods' task. This task is responsible for packaging the goods for the shipment. The 'Packaging goods' task sends an outgoing message to the'sid-C00DD631-4398-466A-B871-A5D8826E10DC' task, which finalizes

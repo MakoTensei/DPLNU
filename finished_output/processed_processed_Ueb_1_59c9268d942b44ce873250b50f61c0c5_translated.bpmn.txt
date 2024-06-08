@@ -1,7 +1,0 @@
- When a shipment is requested, the process begins with the 'Shipment\nrequested' event, which triggers the '3 offers' task. This task is connected to 'ParallelGateway4', which in turn leads to the 'Check quantity' task. The 'Check quantity' task, upon completion, sends the 'Lot?' to 'ExclusiveGateway3', which then forwards it to 'ExclusiveGateway2'.
-
-At 'ExclusiveGateway2', the 'Insurance needs?' task is initiated, which receives the 'Lot?' and sends it to 'ParallelGateway5'. This task is also connected to 'ExclusiveGateway2', which sends the 'Check insurance needs?' task to 'ExclusiveGateway2' again.
-
-Once the insurance needs are determined, the 'Complete insurance' task is triggered, which sends the 'Insurance needs?' back to 'ExclusiveGateway2'. This task is connected to 'ParallelGateway5', which then sends the 'Shipping costs\nGranted' event to 'ParallelGateway5'.
-
-In summary, the process starts with the 'Shipment\nrequested' event, leading to the '3 offers' task, which triggers a series of tasks and gateways, ultimately resulting in the 'Shipping costs\nGranted' event.

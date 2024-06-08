@@ -1,7 +1,0 @@
- When goods are to be sent, the process begins with the 'Goods are to be sent' event, which triggers the 'Check special shipment' gateway to initiate the decision of who sent the goods. Concurrently, 'ParallelGateway5' is activated to present three offers from forwarders. As the goods are being shipped, the 'Filling the package note' task is executed, which also connects to the 'Check special shipment' gateway to verify the special shipment. Meanwhile, 'Packaging goods' is carried out, and 'ParallelGateway6' is engaged to handle the forwarding process.
-
-
-ParallelGateway5, receiving offers from forwarders, routes them to the 'Cheap forwarder' gateway, which then connects to 'ExclusiveGateway1' to finalize the shipping arrangements. The 'Complete insurance' task is also triggered, linking to 'ExclusiveGateway3' for insurance completion and subsequently to 'ExclusiveGateway1' for the goods to be shipped.
-
-
-Upon completion of the insurance process, the goods are shipped, and the 'Goods are shipped' event is triggered, which concludes the process by connecting to the 'Check special shipment' gateway to confirm the successful shipment.

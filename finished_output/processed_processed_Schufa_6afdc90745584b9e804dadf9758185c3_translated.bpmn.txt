@@ -1,9 +1,0 @@
- When a scoring request arrives at the system, it triggers a series of events and interactions between different components. The process begins with the 'Scoring request arrived' start event, which forwards the request to the 'Level 1 successful?' gateway. If the request is successful, the gateway sends 'Information about delay' and 'Scoring is available at FE' outgoing messages to the respective end events.
-
-If the request is not successful, the 'Is the result fixed?' gateway is triggered, which sends 'EndEvent1' and 'Create scoring level 2' outgoing messages. The 'Create scoring level 2' message triggers the 'Create scoring level 2' task, which creates a new scoring level 2 and sends 'Is the result fixed?' to the 'Is the result fixed?' gateway.
-
-The 'Is the result fixed?' gateway then sends 'Create scoring level 2' and 'Scoring result delivered' outgoing messages. The 'Create scoring level 2' message triggers the 'Create scoring level 2' task, which creates a new scoring level 2 and sends 'Scoring result delivered' to the 'Scoring result delivered' end event.
-
-The 'Scoring result delivered' end event triggers the 'Scoring result delivered' start event, which forwards the result to the 'forward scoring results' gateway. The 'forward scoring results' gateway sends 'Results Level 2 arrived' to the 'Results Level 2 arrived' end event.
-
-Finally, the 'Results Level 2 arrived' end event triggers the 'Scoring is available at FE' start event, which sends 'Scoring is available at FE' to the 'Scoring is available at FE' end event, completing the process.

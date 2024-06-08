@@ -1,7 +1,0 @@
- When a "in Regress\ntake" event occurs, it triggers a series of tasks and gateways to ensure the proper handling of the regression case. The process begins at the "in Regress\ntake" event, which is received by the "ExclusiveGateway2". This gateway then routes the event to the "Check regression" task, which verifies the regression issue. Once the check is complete, the "Check regression" task sends a confirmation to "ExclusiveGateway2", which in turn closes the case with the "Close" task.
-
-Simultaneously, the "in Regress\ntake" event also triggers the "Send payment request" task, which sends a payment request to the customer. Upon receiving the payment confirmation, the "Incoming payment confirmed" event is generated, and the "ExclusiveGateway2" routes it to the "Booking" task, which finalizes the booking process.
-
-Additionally, the "in Regress\ntake" event also initiates the "Proceedings" task, which proceeds with the necessary legal actions. The "Proceedings" task sends an event to "EventBasedGateway4", which then routes it to the "Debt collection" task. The "Debt collection" task sends a notification to "ExclusiveGateway2" to handle the debt collection process.
-
-In summary, the "in Regress\ntake" event triggers a series of tasks and gateways, including "Check regression", "Send payment request", "Booking", "Proceedings", and "Debt collection", to ensure the proper handling of the regression case and associated processes.

@@ -1,9 +1,0 @@
- When a VN regression test is initiated, the system evaluates whether it can be incorporated into the regression process. If it can, the task 'Check if VN can be taken into regression' is triggered, which then sends a payment request to VN and connects to ExclusiveGateway1. Concurrently, the 'Book money receipt' task is activated to record the transaction.
-
-If the VN regression test is not suitable for inclusion, the 'Regress?' gateway determines the next steps. It sends the payment request to VN and directs the task to ExclusiveGateway1. Additionally, it forwards the event to ExclusiveGateway3, which handles objections.
-
-Upon receiving an objection, the 'Opposition\nVN received' event is processed, leading to a decision on whether the objection is justified. If it is, the system closes the task, and the 'Book money receipt' task is also closed. If the objection is not justified, the system proceeds to ExclusiveGateway3, which then transfers the payment to Inkasso-DL.
-
-In the case of an objection being justified, the system also sends the payment request to Inkasso-DL through ExclusiveGateway3.
-
-In summary, the system manages VN regression tests by evaluating their suitability for regression, handling objections, and processing payments accordingly.

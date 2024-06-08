@@ -1,7 +1,0 @@
- When a possible regression is identified, the process begins with the 'possible regression' start event, which triggers the 'Book the entrance' task. This task leads to the 'Regress possible?' gateway, which in turn initiates the 'Payment request' and 'EndEvent0' tasks. If a payment is received, the 'Payment received?' gateway activates the 'EndEvent1' task. Concurrently, the 'Regress possible?' gateway also leads to the 'Proceedings' task, which then triggers the 'Rejection of payment justified?' gateway. This gateway results in the 'EndEvent2' task.
-
-If the representation time is reached, the 'Representation Time' start event leads to the 'Close the process' task, which can either end the process with 'EndEvent0' or 'EndEvent2', depending on the outcome of the 'Rejection of payment justified?' gateway.
-
-Additionally, the 'possible regression' start event can also lead to the 'DL Debt Transfer' task through the 'VN?' gateway, which is triggered by the 'Representation Time' start event. This task can result in either 'Proceedings' or 'EndEvent2', depending on the outcome of the 'Rejection of payment justified?' gateway.
-
-Lastly, the 'Close the process' task can also be initiated directly from the 'Regress possible?' gateway, leading to the 'EndEvent0' task.

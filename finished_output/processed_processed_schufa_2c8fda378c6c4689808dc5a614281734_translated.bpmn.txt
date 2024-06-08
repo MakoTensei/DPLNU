@@ -1,9 +1,0 @@
- The process begins with a 'Schufascoring\nrequested' event, which triggers the 'Send a request to Schufa' task. This task sends a request to Schufa and informs the 'Delay\ninformed' gateway. The 'Delay\ninformed' gateway then shares the delay information, leading to the 'Level 2\nscoring' task.
-
-The 'Schufa request\nobtained' event initiates the 'Level 1\nscoring' task, which determines the Level 1 scoring. This task is connected to the 'Scoring\ndetermined?' gateway, which edits the Schufa request with the Level 1 edited information.
-
-Simultaneously, the 'Schufascoring\nrequested' event also triggers the 'EventBasedGateway1' task, which determines the Level 2 scoring. This task is connected to the 'Send Schufascoring result' task, which sends the Schufascoring result with the Level 2 edited information.
-
-The 'Schufa request\nobtained' event also triggers the 'Send Schufascoring result' task, which sends the Schufascoring result with the Level 1 edited information.
-
-Finally, the 'Level 1\nscoring determined' and 'Level 2\nscoring determined' events mark the end of the process, with the 'Schufa request with\nLevel 1 edited' and 'Schufa request with\nLevel 2 edited' tasks being completed.

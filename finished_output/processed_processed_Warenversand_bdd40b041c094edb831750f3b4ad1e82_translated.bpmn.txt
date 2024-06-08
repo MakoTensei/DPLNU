@@ -1,9 +1,0 @@
- In the order fulfillment process, incoming orders trigger a StartEvent0, which initiates a series of tasks. The first task, 'Incoming orders', is received by the ExclusiveGateway0 and subsequently sends parallel tasks to ParallelGateway4 and ExclusiveGateway1. The 'Request a quote' task, initiated by StartEvent0, is directed to ExclusiveGateway0 and then to ParallelGateway3.
-
-ParallelGateway3, in turn, sends tasks to both ExclusiveGateway1 and itself, while ParallelGateway2, receiving StartEvent0, sends tasks to ParallelGateway4 and EndEvent0. The 'Select offers' task, triggered by ExclusiveGateway1, also goes to ParallelGateway4.
-
-ParallelGateway4, the central hub, receives tasks from Incoming orders, Request a quote, Select offers, Packaging goods, and Insurance. It then sends tasks to EndEvent0. The 'Packaging goods' task, originating from StartEvent0, is directed to ParallelGateway2, which sends tasks to ParallelGateway4 and EndEvent0.
-
-The'make offer' task, initiated by StartEvent0, is sent to ExclusiveGateway1, which in turn sends tasks to ParallelGateway3. ParallelGateway3 sends tasks to ExclusiveGateway1 and itself.
-
-Finally, EndEvent0, triggered by ParallelGateway2 and ParallelGateway4, completes the process.

@@ -1,7 +1,0 @@
- When a case is determined to be regressed, the process begins with the 'Regress determined' event, which triggers the 'Book the process' task. This task is followed by the 'Send payment request' task, which is initiated by the 'Regress determined' event and results in a 'Notification' task. The 'Notification' task then leads to the 'Regress without success completed' task, which is connected to both 'EventBasedGateway3' and 'Regress possible?' gateways.
-
-If the 'Regress possible?' gateway determines that a regress is possible, the 'Re-adjust' task is triggered, which in turn sends a 'Send payment request' task and results in a 'Representation expired' task. The 'Representation expired' task then leads to the 'Case delivered to debt collection' event.
-
-Alternatively, if the 'Regress without success completed' task is triggered, it leads to the 'ExclusiveGateway2' task, which then results in the 'Case delivered to debt collection' event.
-
-In summary, the process of handling a regressed case involves a series of interconnected tasks and gateways, ultimately leading to the delivery of the case to debt collection.

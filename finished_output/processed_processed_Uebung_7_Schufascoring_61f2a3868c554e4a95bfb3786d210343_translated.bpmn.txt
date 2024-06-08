@@ -1,9 +1,0 @@
- In the financial services industry, a scoring request is initiated when a Schufa request is obtained, triggering a series of tasks and interactions between various gateways and services.
-
-When a Schufa request is obtained, the process begins with a 'Scoring request\nobtained' event. This event triggers a 'forward delay message' to be sent to the 'EventBasedGateway2'. The 'forward delay message' is a notification that a scoring request has been received and will be processed shortly.
-
-Next, the 'forward scoring results' task is initiated, with the 'Scoring result\nobtained' event as its incoming trigger. This task sends a 'Scoring request\ncompleted' message to the 'EventBasedGateway2'. The 'Scoring result\nobtained' event is also sent to the 'ExclusiveGateway1', which then forwards it to the 'Schufa request\ncompleted' task.
-
-Meanwhile, the 'forward scoring results' task also sends a 'Scoring request\ncompleted' message to the 'EventBasedGateway2'. This event is triggered by the 'Scoring request\ncompleted' task, which is initiated by the 'Check the scoring request' task. The 'Check the scoring request' task is triggered by the 'Schufa request\nobtained' event and sends a 'Schufa request\ncompleted' message to the 'EventBasedGateway2'.
-
-In summary, the process starts with a 'Scoring request\nobtained' event, which triggers a 'forward delay message' to the 'EventBasedGateway2'. The 'forward scoring results' task then sends a 'Scoring request\ncompleted' message to the 'EventBasedGateway2' and triggers the 'Scoring request\ncompleted' task. The 'Check the scoring request' task is initiated by the 'Schufa request\nobtained' event and sends a 'Schufa request\ncompleted' message to the 'EventBasedGateway2'. The process concludes with the 'Scoring request\ncompleted' and 'Schufa request\ncompleted

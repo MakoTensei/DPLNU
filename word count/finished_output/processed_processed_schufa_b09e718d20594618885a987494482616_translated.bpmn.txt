@@ -1,9 +1,0 @@
- When a "Scoring request" event is triggered, it initiates a sequence of tasks and interactions between various gateways and services. The process begins with the "Scoring request" event, which has no incoming connections but triggers a "Report delay to Frontent" task. This task, identified by the ID'sid-4CF6B6A9-47CC-42C7-85BC-853066FA1F09', is responsible for notifying the Frontent service about a potential delay in the scoring process.
-
-Simultaneously, a "Schufa request" event is initiated, which also has no incoming connections. This event triggers a "Report delay" task, identified by the ID'sid-2F116E00-7327-4092-918C-34CDEED8B60D'. This task is responsible for reporting any delay in the processing of the Schufa request.
-
-As the "Scoring request" event progresses, it triggers a "Perform scoring query (level 1)" task, identified by the ID'sid-A7C744D1-B56A-492A-AB18-5D64B65E018A'. This task is responsible for performing the initial scoring query and determining whether Level 1 is possible. It has incoming connections from the "Scoring request" event and outgoing connections to the "Results Level 1" gateway.
-
-If Level 1 is determined to be possible, the "Scoring query (level 1)" task, identified by the ID'sid-9FD2B994-1D4C-45ED-8F4E-ECB61B40FE50', is triggered. This task performs the scoring query at Level 1 and has incoming connections from the "Perform scoring query (level 1)" task and outgoing connections to the "Results Level 1" gateway.
-
-If Level 1 is not possible, the "Report delay" task, identified by the ID'sid-70499F78-A997-4A4E-9C7C-ADC37

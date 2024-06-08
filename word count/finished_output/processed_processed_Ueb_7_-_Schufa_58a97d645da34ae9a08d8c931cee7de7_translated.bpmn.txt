@@ -1,9 +1,0 @@
- In a financial services system, a series of tasks and gateways work together to process and score requests from customers. The process begins with a "Schufa request\nReport" event, which triggers a "Report delay" task. This task sends a message to the "Report delay" gateway, which then forwards the message to the "Schufa request\nFinished" gateway.
-
-Simultaneously, a "Scoring request\nReport" event initiates a "Send delay message" task. This task sends a message to the "EventBasedGateway2" gateway, which in turn sends a message to the "Delay message\nobtained" gateway. The "Delay message\nobtained" gateway then sends a message to the "Level 1 Scoring" gateway.
-
-The "Level 1 Scoring" gateway receives the message and sends a request to the "ExclusiveGateway1" gateway. The "ExclusiveGateway1" gateway processes the request and sends a "Scoring request\nFinished" message back to the "Send delay message" task.
-
-Meanwhile, the "Report delay" task receives the message from the "Schufa request\nFinished" gateway and completes its task. Similarly, the "Scoring request\nFinished" task receives the message from the "ExclusiveGateway1" gateway and completes its task.
-
-In summary, the system processes a "Schufa request\nReport" and a "Scoring request\nReport" concurrently. The "Schufa request\nReport" triggers a "Report delay" task, which sends a message to the "Schufa request\nFinished" gateway. The "Scoring request\nReport" triggers a "Send delay message" task, which sends a message to the "EventBasedGateway2" gateway. The "EventBasedGateway2" gateway sends a message to the "Delay message\nobtained" gateway, which sends a message to the "Level 1 Scoring" gateway. The "Level 1 Scoring" gateway sends a request to the "ExclusiveGateway1" gateway, which sends a "Scoring request\nFinished" message back to the "Send

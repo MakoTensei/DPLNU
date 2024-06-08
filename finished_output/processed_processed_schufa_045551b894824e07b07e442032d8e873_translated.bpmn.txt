@@ -1,7 +1,0 @@
- In the process of scoring, the system starts with the 'StartEvent0' which triggers the 'Scoring' task. This task is successful and sends an 'EndEvent0' to the 'ExclusiveGateway0'. The successful scoring then leads to the 'Submit scoring result\n' task, which is triggered by 'EndEvent0' and sends an 'EndEvent0' back to 'ExclusiveGateway0'.
-
-However, if there is a delay in scoring, the 'StartEvent0' triggers the 'Report delay' task. This task sends an 'EndEvent0' to the 'ExclusiveGateway0', which then triggers the 'Scoring successfully' task. This task sends an 'EndEvent0' to the 'ExclusiveGateway1', which in turn triggers the 'Submit scoring result\n' task.
-
-Additionally, there are two levels of scoring. The 'StartEvent1' triggers the 'Scroing\nLevel 1' task, which is successful and sends an 'EndEvent0' to the 'ExclusiveGateway0'. This task then triggers the 'Check scoring success' task, which sends an 'EndEvent0' back to 'ExclusiveGateway0'. The successful completion of 'Scroing\nLevel 1' also triggers the 'Scoring\nLevel 2' task, which is successful and sends an 'EndEvent0' to the 'ExclusiveGateway0'.
-
-In summary, the scoring process involves multiple tasks and gateways, with different outcomes based on the success or delay of scoring. The system ensures that the correct tasks are triggered and completed in the right order, with appropriate feedback and results.

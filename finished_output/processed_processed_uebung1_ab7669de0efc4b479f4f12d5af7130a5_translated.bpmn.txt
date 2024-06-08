@@ -1,9 +1,0 @@
- When goods are ready for dispatch, the process begins with a request for a quote to determine the cost and terms of transportation. This request is sent to the 'Type of transport' gateway, which receives the incoming 'Goods ready for dispatch' and sends out two outgoing paths: one to 'ExclusiveGateway3' for further processing and another to 'ParallelGateway5' for packaging.
-
-Once the quote is obtained, the process moves to 'Check special shipment' to ensure that the goods are ready for dispatch and to select the appropriate transportation method. This event sends an incoming message to 'Type of transport' gateway, which then sends out two outgoing paths: one to 'ExclusiveGateway3' for further processing and another to 'ParallelGateway5' for packaging.
-
-After the goods are packaged, the process continues with a request for insurance to protect the shipment. The 'Insurance?' gateway receives the incoming 'Type of transport' message and sends out two outgoing paths: one to 'Complete insurance' and another to 'Good quality'.
-
-The 'Complete insurance' event sends an incoming message to 'ExclusiveGateway2', which then sends an outgoing path to 'ExclusiveGateway3'. Meanwhile, the 'Good quality' event sends an incoming message to 'ParallelGateway5', which then sends an outgoing path to the end of the process.
-
-In summary, the process starts with a request for a quote, followed by checking the special shipment, selecting the transportation method, requesting insurance, completing the insurance, and finally ensuring the goods are of good quality. The process ends when the goods are confirmed to be of good quality.

@@ -1,9 +1,0 @@
- The process begins with the 'Scoring\nRequired' event, which triggers a report to the Frontend, initiating the scoring process. The 'Start scoring request' task is then activated, which awaits the arrival of the 'Scoring result\narrived' message. Upon receiving this message, the 'Prepare scoring result for Frontend' task is triggered, preparing the scoring result for the Frontend.
-
-Simultaneously, the 'Report a enquiry to Frontend' task is activated, which sends the 'Scoring request\nReport' message to the Frontend. The 'Scoring result\nis it?' gateway receives this message and directs it to the 'ExclusiveGateway1' task, which then sends the 'Scoring result\nsent' message to the Frontend.
-
-Meanwhile, the 'Conduct Level1' task is activated, which sends the 'ExclusiveGateway1' message to the 'Prepare Scoringer Genis' task. This task prepares the scoring result and sends it to the 'Scoring result\nsent' message.
-
-The 'Conduct Level2' task is also activated, which sends the'sid-21274E27-FB02-486B-B6ED-DA6401A3007B' message to the 'Scoring result\nsent' task, which then sends the 'Scoring result\nsent' message to the Frontend.
-
-Finally, the'scoring was carried out' event is triggered, which sends the 'Delay message\narrived' message to the'scoring was carried out' task, marking the end of the scoring process.

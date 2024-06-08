@@ -1,9 +1,0 @@
- In the scoring process, a request for scoring (level 1) is initiated, which triggers the 'perform scoring (level 1)' task with the ID'sid-499A741A-EE05-4DA7-AAE8-5BE1C51DFD61'. This task is directed towards 'ExclusiveGateway2', which then forwards the task to 'EndEvent1'.
-
-Simultaneously, a separate request for scoring (level 2) is made, which leads to the 'Scoring (level 2)\nperform' task with the ID'sid-4BF2752D-3B26-4DF9-91D8-81A8D41F9C63'. This task is directed towards 'ExclusiveGateway2' as well, which then forwards the task to 'EndEvent1'.
-
-The 'ExclusiveGateway2' receives both tasks and forwards them to 'EndEvent1'. Meanwhile, 'EventBasedGateway3' receives the 'Scoring 1\nobtained' task and forwards it to 'ExclusiveGateway0', which then sends it to 'Scoring 1\nobtained' and 'Exceptions\nobtained'.
-
-The 'Scoring 1\nobtained' task is then forwarded to 'Scoring\nReport', which is the final output of the scoring process. Similarly, 'EndEvent1' is the final output for both 'perform scoring (level 1)' and 'Scoring (level 2)\nperform' tasks.
-
-The process starts with the 'Scoring\nRequired' event, which triggers the 'Scoring\nrequested' event. The 'Scoring\nrequested' event leads to the 'Exception?' event, which in turn forwards the 'perform scoring (level 1)' task to 'ExclusiveGateway2'. The 'Scoring 1\nobtained' task is then forwarded to 'Scoring\nReport', marking the end of the scoring process.

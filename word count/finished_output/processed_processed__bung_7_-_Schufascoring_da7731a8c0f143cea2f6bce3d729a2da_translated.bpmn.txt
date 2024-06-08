@@ -1,5 +1,0 @@
- When a scoring request is initiated, it first reaches EventBasedGateway2, which then forwards the request to ExclusiveGateway0. If the scoring result is obtained, ExclusiveGateway1 takes over and completes the request. However, if the result is delayed, EventBasedGateway2 sends the request to ExclusiveGateway1 again. In case of a scoring delay, the request is sent to ExclusiveGateway1 as well.
-
-If the scoring result is delayed, EventBasedGateway2 sends the request to perform scoring (level 1), which then goes to ExclusiveGateway1. Once the scoring result is obtained, ExclusiveGateway1 sends the result to ExclusiveGateway1, which completes the request.
-
-In the end, the scoring request is completed, either by ExclusiveGateway0 or ExclusiveGateway1, depending on the outcome of the scoring process.

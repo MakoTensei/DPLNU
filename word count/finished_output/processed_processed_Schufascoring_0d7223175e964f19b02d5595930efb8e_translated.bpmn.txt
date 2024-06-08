@@ -1,7 +1,0 @@
- When the 'Schufa request obtained' event occurs, it triggers a 'Scoring request obtained' event, which in turn initiates 'perform scoring level 1' and 'perform scoring level 2'. The 'perform scoring level 1' task sends a 'Scoring sent' message to 'ExclusiveGateway1', while 'perform scoring level 2' sends a 'Scoring sent' message to 'ExclusiveGateway1' and a 'Message delay sent' message to 'War Scoring directly possible?'.
-
-Upon receiving the 'Scoring request obtained' event, the system processes the request by performing scoring level 1 and level 2. The 'perform scoring level 1' task sends a 'Scoring sent' message to 'ExclusiveGateway1', which then forwards it to 'EventBasedGateway2'. Simultaneously, 'perform scoring level 2' sends a 'Scoring sent' message to 'ExclusiveGateway1' and a 'Message delay sent' message to 'War Scoring directly possible?'.
-
-After the scoring tasks are completed, the 'Scoring sent' messages are sent to their respective destinations. 'Scoring sent' from 'perform scoring level 1' is sent to 'EventBasedGateway2', while 'Scoring sent' from 'perform scoring level 2' is sent to 'ExclusiveGateway1' and 'War Scoring directly possible?'.
-
-Finally, when the 'EndEvent0' event occurs, it triggers a 'Continue reading' message to'sid-957A504A-E626-455A-AB35-403FFF9D766F'. This signifies the completion of the scoring process and the continuation of the workflow.

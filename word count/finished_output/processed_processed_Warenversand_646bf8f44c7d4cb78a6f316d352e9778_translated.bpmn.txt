@@ -1,7 +1,0 @@
- When goods are to be shipped, the process begins with determining the insurance value of the shipment, which is facilitated by the 'Determining insurance value' task. This task takes input from the 'Filling the package note' and directs it to the 'ExclusiveGateway1'. Once the insurance value is determined, the process moves to the 'Insurance close' task, which checks if insurance is necessary and directs the 'Filling the package note' to 'ExclusiveGateway1' again.
-
-Parallel to this, the 'Packaging goods' task prepares the goods for shipment, receiving input from 'Goods are to be shipped' and providing the goods for collection through 'ParallelGateway5'. The 'Provide goods for collection' task then takes the goods from 'ParallelGateway5' and sends them to 'ExclusiveGateway3'.
-
-For selecting a forwarding option, the 'Select a forwarding' task receives three offers and appoints forwarding through 'ExclusiveGateway3'. Meanwhile, the 'Determination of quantity' task, which is triggered by the 'Goods are to be shipped' event, takes input from 'ParallelGateway4' and sends the determined quantity to 'Product is provided'.
-
-The '3 offers' task, which is triggered by 'Goods are to be shipped', sends the offers to 'ExclusiveGateway3' and also to 'ParallelGateway5'. Finally, the 'Product is provided' task, which is the end event, receives the determined quantity from 'Determination of quantity' and completes the process.

@@ -1,9 +1,0 @@
- When the system starts, it initiates two events: StartEvent0 and StartEvent1. StartEvent0 triggers the Check Scoring Level 1 process, which checks if scoring is available. If scoring is available, it sends a reply to EndEvent0, and if not, it triggers Scoring Level 2 required to EndEvent1.
-
-StartEvent1 initiates the Scoring Level 2 process. It first checks if scoring is available through the Scoring\navailable? gateway. If scoring is available, it proceeds to the Report Scoring process, which sends a report to EndEvent2. If scoring is not available, it triggers the Scoring delays process, which waits for scoring delays and sends a reply to Waiting scoring\nLevel 2 to EndEvent3.
-
-The Scoring delays process waits for the Scufa Scoring request and sends a reply to Waiting scoring\nLevel 2. Once scoring delays are resolved, it triggers the EndEvent3.
-
-The EventBasedGateway1 processes the incoming events and sends a reply to EndEvent2 or Scoring Level 2 required, depending on the incoming event.
-
-In summary, the system starts with two events, checks if scoring is available, and proceeds with the appropriate processes based on the availability of scoring. It reports the scoring status and handles any delays in scoring.

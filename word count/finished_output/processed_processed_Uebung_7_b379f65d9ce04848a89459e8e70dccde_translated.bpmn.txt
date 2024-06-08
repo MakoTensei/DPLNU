@@ -1,5 +1,0 @@
- When a Schufa request is initiated, it triggers a series of events and interactions between various tasks and gateways. The process begins with the 'Schufa request started' event, which sends a 'forward delay message' to initiate the workflow. This message is then received by the 'EventBasedGateway2', which in turn sends an 'Answer' to the 'Request request' task, marking it as 'Request edited'.
-
-The 'Request request' task, upon receiving the 'Answer', sends a 'Report delay' to the 'Level 1 Scoring' task. This task, in turn, sends an 'ExclusiveGateway1' to the 'Level 2 Scoring' task, which receives the 'Level 1 Scoring with result?' message. The 'Level 2 Scoring' task then sends a 'Request edited' message back to the 'ExclusiveGateway1', completing the workflow.
-
-In summary, the Schufa request starts a chain of events and interactions between tasks and gateways, ultimately resulting in the 'Request edited' message being sent back to the 'ExclusiveGateway1'.

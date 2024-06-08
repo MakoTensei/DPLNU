@@ -1,9 +1,0 @@
- In the process of scoring and reviewing Schufa data, a series of tasks and gateways are involved to ensure a smooth workflow. The process begins with the 'Scoring Required' event, which triggers the 'Schufa Review reply' task. This task requires an incoming 'Scoring Required' message and will send an 'Answer' outgoing message.
-
-The 'Schufa Review reply' task then connects to the 'Final Result Available?' gateway, which checks if the final result is available. If the result is available, the gateway sends an 'EndEvent0' message, and if not, it sends an 'EndEvent1' message.
-
-Depending on the gateway's response, the workflow continues to the next steps. If the final result is available, the 'Report Final Result' task is triggered, which sends an 'EndEvent1' message. If the result is not available, the 'Report Waiting Period' gateway is activated, which sends an 'EndEvent0' message.
-
-Meanwhile, the 'Scoring Required' event also triggers the 'Request Level1 Scoring' task, which sends an incoming 'Request Arrived' message and an outgoing 'Conduct Level1 Scoring' message. The 'Conduct Level1 Scoring' task connects to the 'Level1 Scoring Sufficient?' gateway, which checks if the level 1 scoring is sufficient. Depending on the gateway's response, the 'Level2 Report Result' task is triggered, sending an 'EndEvent2' or 'EndEvent3' message.
-
-In summary, the workflow starts with the 'Scoring Required' event, which initiates the 'Schufa Review reply' task. The task then connects to the 'Final Result Available?' gateway, which determines if the final result is available. Depending on the gateway's response, the workflow continues to the 'Report Final Result' or 'Report Waiting Period' tasks. Meanwhile, the 'Request Level1 Scoring' task connects to the 'Level1 Scoring Sufficient?' gateway, which determines if the level 1 scoring is sufficient. The workflow then proceeds to the 'Level2 Report Result' task, which sends the final report result.

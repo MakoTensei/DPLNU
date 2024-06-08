@@ -1,9 +1,0 @@
- In the scoring process, a request is first received, triggering an event that sends the request to the ExclusiveGateway0. This gateway then forwards the request to EventBasedGateway2, which in turn sends the request to Schufascoring to obtain the scoring results. Once the scoring results are obtained, the process continues to forward scoring results to the appropriate gateways.
-
-If there is a delay in obtaining the scoring results, a report delay event is triggered, which sends a request to Get Level 2 scoring. This request is then sent to ExclusiveGateway0, which forwards it to EventBasedGateway2.
-
-For Level 1 scoring, a Sufa request event is triggered, which sends the request to Continue Level 1 scoring. This request is then sent to Schufa request, which sends a request to Calculation successful? to determine if the calculation was successful. If successful, the request is forwarded to Schufa request Finished, and if not, it is forwarded to Calculate Level 2 Scoring.
-
-Once the Level 2 scoring is calculated, the request is sent to Send Level 2 scoring, which forwards it to Schufa request Finished.
-
-In summary, the scoring process involves a series of events and gateways that work together to obtain and calculate scoring results, handle delays, and forward requests to the appropriate gateways for further processing.

@@ -1,9 +1,0 @@
- The system initiates a process for resubmission when an incoming payment is received, which then triggers the 'Set process for resubmission' task. This task has an incoming link to 'Incoming payment' and outgoing links to 'Incoming payment' and 'Close'. The 'Incoming payment' task is also linked to the 'Payment\nenrollment' gateway, which closes the process upon receiving an incoming payment.
-
-Simultaneously, the 'Payment\ncheck refusal' task is triggered by an opposition event, leading to a 'Payments\ncheck refusal' gateway. This gateway closes the process and transfers the opposition to the 'Transfer Inkasso' task.
-
-The 'Can VN in\nRegress ge-\nare they?' gateway is triggered by the 'StartEvent0' start event and closes the process upon receiving an incoming link. It also has an outgoing link to the 'Set process for resubmission' task.
-
-The 'EventBasedGateway2' gateway is triggered by the 'Set process for resubmission' task and closes the process upon receiving an incoming link. It also has outgoing links to 'Close', 'Opposition', and 'Transfer Inkasso'.
-
-In summary, the system handles incoming payments, opposition events, and resubmission processes through a series of interconnected tasks and gateways, ultimately leading to the closure of the process and the transfer of opposition to the 'Transfer Inkasso' task.

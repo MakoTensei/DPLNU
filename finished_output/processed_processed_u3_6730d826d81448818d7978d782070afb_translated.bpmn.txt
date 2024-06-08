@@ -1,7 +1,0 @@
- In the process of scoring at Schufa, the system initiates with the 'StartEvent0' triggering the 'Hit Schufa Scoring' task, which then sends a 'Schufascore\nReport' message to 'ExclusiveGateway1'. This leads to the 'Wait for Schufa message' task, which awaits a response from Schufa. Concurrently, the 'Report delay in sales' task is activated, indicating a delay in sales reporting.
-
-Once Schufa responds, the 'Schufascore\nReport' message is routed back to 'ExclusiveGateway1', prompting the 'Report Score to Sales' task. This task communicates the delay to the sales department through the 'Delay\nReported?' gateway, which in turn leads to the 'Happy End' event, signifying the completion of the scoring process.
-
-Simultaneously, the 'perform scoring calls 2' task is initiated by 'StartEvent1', which sends a 'Report delay to Bank' message to 'ExclusiveGateway3'. This triggers the 'Report Schufa Score to Bank' task, which communicates the Schufa score to the bank. If the bank acknowledges the delay, the 'Unhappy end' event is triggered, marking the end of the process.
-
-In summary, the scoring process at Schufa involves multiple tasks and gateways, with 'StartEvent0' and 'StartEvent1' initiating the process, and 'Happy End' and 'Unhappy end' marking its completion. The system ensures that the Schufa score is reported to both the sales department and the bank, while also handling any delays in the reporting process.

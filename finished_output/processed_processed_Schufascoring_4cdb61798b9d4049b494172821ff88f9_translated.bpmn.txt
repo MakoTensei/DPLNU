@@ -1,9 +1,0 @@
- In the event of starting the scoring process, the system initiates a sequence of tasks and interactions between various components. The process begins with the 'StartEvent0' triggering the 'Determining Scoring' task, which then requests L1 scoring by connecting to the 'Get L1 scoring?' gateway. Concurrently, the 'Send L1 scoring' task is activated, preparing to dispatch the L1 scoring data.
-
-As the 'Get L1 scoring?' gateway receives the request, it forwards it to the 'Share delay' gateway, which in turn connects to the 'EventBasedGateway1'. This gateway, upon receiving the request, sends a'receive delay notification' to the 'Share delay' gateway, which then relays the notification to the 'L1 forward scoring' task.
-
-Meanwhile, the 'Determining Scoring' task, after receiving the L1 scoring data, shares it with the 'Share L2 scoring' gateway. This gateway then connects to the 'L2 forward scoring' task, which sends the L2 scoring data.
-
-Once the L1 scoring data is shared, the 'L1 forward scoring' task sends the L1 scoring data to the 'L1 Scoring sent' endpoint, completing the L1 scoring process. Similarly, the 'L2 forward scoring' task sends the L2 scoring data to the 'L2 Scoring sent' endpoint, completing the L2 scoring process.
-
-In summary, the scoring process starts with the 'StartEvent0' triggering the 'Determining Scoring' task, which then initiates a series of interactions between various components to determine and share L1 and L2 scoring data, ultimately sending the scoring data to the respective endpoints.

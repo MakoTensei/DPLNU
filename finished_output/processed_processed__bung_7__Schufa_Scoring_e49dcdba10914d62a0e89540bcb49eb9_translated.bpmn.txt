@@ -1,7 +1,0 @@
- In the event of a scoring request, the process begins with 'StartEvent0', which triggers the 'Scoring Send request' task. This task is then followed by a 'Scoring delayed' event, leading to the 'Report delay' task. The 'Report delay' task then connects to the 'ExclusiveGateway1', which receives both 'StartEvent1' and 'first scoring\n(level 1)' tasks. The 'ExclusiveGateway1' then sends the 'Scoring determined' task.
-
-Meanwhile, the 'Scoring delayed' event also connects to the 'Scoring result is before?' task, which in turn sends the 'Scoring determined' task. The 'Scoring determined' task is then followed by the 'Scoring reported' event, which is the end of the process.
-
-On the other hand, if the scoring request is delayed, the process starts with 'StartEvent0', which triggers the 'Scoring Send request' task. This task is then followed by the 'Scoring delayed' event, leading to the 'Report delay' task. The 'Report delay' task then connects to the 'EventBasedGateway2', which receives both 'StartEvent0' and 'EventBasedGateway2' tasks. The 'EventBasedGateway2' then sends the 'Scoring reported' event.
-
-Simultaneously, the 'Scoring delayed' event also connects to the 'Scoring result is over' task, which sends the 'Scoring reported' event. This marks the end of the process.

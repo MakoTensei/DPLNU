@@ -1,7 +1,0 @@
- When the 'VN in Regress take test' event occurs, it triggers a series of tasks and gateways. First, a 'Send a message' task is initiated, which sends a message to set the case to reimbursement. This message then triggers the'set to reimbursement' task, which in turn leads to a 'Payment' task. The 'Payment' task sends a message to 'ExclusiveGateway1', which then closes the process.
-
-Simultaneously, the 'VN in Regress take test' event also triggers the 'Regression possible?' gateway. This gateway sends a message to 'Opposition justified?' and 'ExclusiveGateway1'. The 'Opposition justified?' gateway sends a message to 'ExclusiveGateway4', which then sends a message to 'ExclusiveGateway3'. The 'ExclusiveGateway3' gateway closes the process.
-
-Additionally, the 'VN in Regress take test' event also triggers the 'VN contradicts' event. This event sends a message to the 'Regression possible?' gateway, which then sends a message to 'ExclusiveGateway3'. The 'ExclusiveGateway3' gateway closes the process.
-
-Finally, the 'Process closed' event signifies the end of the process, with 'Proceedings' being one of the incoming events.

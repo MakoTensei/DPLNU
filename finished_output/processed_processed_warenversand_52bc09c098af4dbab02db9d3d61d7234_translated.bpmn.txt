@@ -1,7 +1,0 @@
- The process begins with the 'Goods Ship Ready' event, where the goods are prepared for shipment. This event triggers the 'Packaging of Goods' task, which packages the goods and sends them to the 'Providing Packaged Goods for Collection' task. The 'Determine Quantity' task then follows, where the quantity of the packaged goods is determined and sends a 'Lot?' request to the 'Lot?' gateway. The 'Lot?' gateway connects to the 'Pick up, compare and hire offers from three freight forwarders' task, which initiates the process of selecting the best freight forwarder for the shipment.
-
-Meanwhile, the 'Goods Ship Ready' event also triggers the 'Fill Out Standard Package Tickets' task, which checks if insurance is necessary and sends a request to the 'Insurance Necessary?' gateway. The 'Insurance Necessary?' gateway connects to the 'Completion of Shipping Insurance' task, which completes the insurance process for the shipment.
-
-Once the best freight forwarder is selected, the 'Pick up, compare and hire offers from three freight forwarders' task sends the 'Lot?' request to the 'ParallelGateway2' gateway. The 'ParallelGateway2' gateway connects to the 'Providing Packaged Goods for Collection' task, which delivers the packaged goods for collection.
-
-Finally, the 'Completion of Shipping Insurance' task completes the insurance process, and the 'Shipping Insurance Completed' event signals the end of the process, with the goods ready for pickup.

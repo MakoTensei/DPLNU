@@ -1,9 +1,0 @@
- In the process of scoring, a scoring request initiates the workflow with the StartEvent0, which is then directed to the ExclusiveGateway0. This gateway determines if the scoring can proceed to Level 1. If the scoring request is approved, it moves to Scoring Level 1, where the scoring process is completed and the result is redirected to EndEvent1.
-
-If the scoring request is not approved to proceed to Level 1, it is instead reported as a delay and sent to Report delay.
-
-Meanwhile, another scoring process can also be initiated with StartEvent1, which leads to Level 1 available? Gateway. If Level 1 is available, the scoring process proceeds to Scoring Level 1, and the result is redirected to EndEvent1.
-
-In addition to the scoring process, there is also a delay mechanism in place. If StartEvent0 is initiated, it is directed to EventBasedGateway2, which then sends the request to Report delay.
-
-Lastly, there is a Level 2 scoring process that starts with StartEvent0 and is directed to ExclusiveGateway0. If Level 2 is available, the scoring process proceeds to Scoring Level 2, and the result is sent to EndEvent2.

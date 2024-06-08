@@ -1,7 +1,0 @@
- When the 'Schufascoring' event is triggered, the system initiates a sequence of tasks to process scoring inquiries. First, it sends a scoring inquiry to Schufa, which is then received by the 'Stands scoring result fixed?' gateway. This gateway, in turn, forwards the inquiry to the 'ExclusiveGateway1' and also sends a 'Result in Level 1 detected' message to the 'Result in Level 1 detected' endpoint.
-
-Simultaneously, the 'Scoring request obtained' event triggers the 'perform first scoring (level 1)' task, which sends a 'Result in Level 1 detected' message to the corresponding endpoint. Additionally, the 'perform first scoring (level 1)' task also triggers the 'perform scoring level 2' task, which sends a 'Result in Level 2 detected' message to the 'Result in Level 2 detected' endpoint.
-
-The 'ExclusiveGateway1' then receives the 'Result in Level 2 detected' message and forwards it to the 'Results Level 2 Report' endpoint. This endpoint, in turn, sends a 'Result Schufascoring Reported to Frontend' message to the 'Result Schufascoring Reported to Frontend' endpoint.
-
-Finally, the 'Result Schufascoring Reported to Frontend' endpoint receives the 'Results Level 2 Report' message and completes the sequence of tasks.

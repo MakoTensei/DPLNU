@@ -1,7 +1,0 @@
- When a request for Schufascoring is initiated, the process begins with the 'Schufascoring\nrequested' event, which triggers the 'forward scoring' task. This task then sends the request to 'ExclusiveGateway1', which is responsible for conducting the first scoring. Once the first scoring is completed, the 'Follow-up' task is triggered, forwarding the scoring to 'ExclusiveGateway1' again.
-
-If a scoring request is received, it is directed to 'ExclusiveGateway1', which then forwards the request to 'Scoring'. If the results are available, the 'Results are available?' event sends the scoring to both 'Scoring' and 'Scoring forwarded' tasks.
-
-In case of a delay, the 'Delay' event sends the request to 'Scoring forwarded', which then forwards the request to 'ExclusiveGateway1'. If a second scoring is required, the 'perform second scoring' task is triggered, sending the request to 'ExclusiveGateway1'.
-
-Overall, the process involves a series of tasks and gateways working together to ensure the Schufascoring request is processed and scored efficiently.

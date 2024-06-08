@@ -1,9 +1,0 @@
- The process begins with the 'Shipping goods' start event, which triggers the 'ExclusiveGateway3' to handle incoming 'Shipping goods'. This leads to the 'Pick up and select offers for forwarders' task, which requires 'Lot?' as an incoming event. The 'Lot?' gateway then forwards to 'Pick up and select offers for forwarders' and subsequently to 'EndEvent0'.
-
-Meanwhile, 'Shipping goods' also triggers 'ParallelGateway4', which sends 'Shipping goods' to 'ExclusiveGateway3' and 'ParallelGateway5'. 'ParallelGateway5' then sends 'Filling the package note' to 'ParallelGateway5', which in turn leads to 'EndEvent0'.
-
-The 'ExclusiveGateway3' also receives 'Shipping goods' from 'ParallelGateway4', and forwards it to 'Complete insurance'. This task requires 'Insurance necessary?' as an incoming event, which is handled by 'ExclusiveGateway3'. The task then leads to 'Complete insurance', which forwards to 'ExclusiveGateway3'.
-
-Lastly, 'ParallelGateway4' sends 'Shipping goods' to 'ExclusiveGateway3', which forwards it to 'ParallelGateway5'. 'ParallelGateway5' then sends 'EndEvent0' to its outgoing event.
-
-In summary, the process involves several tasks and gateways, including 'Shipping goods', 'ExclusiveGateway3', 'ParallelGateway4', 'Pick up and select offers for forwarders', 'Filling the package note', and 'Complete insurance', all leading to 'EndEvent0'.

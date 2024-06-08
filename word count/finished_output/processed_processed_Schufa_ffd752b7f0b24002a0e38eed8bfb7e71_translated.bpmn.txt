@@ -1,5 +1,0 @@
- In the process of handling a scoring inquiry, the system initiates with the 'StartEvent0' which triggers the 'ExclusiveGateway0'. This gateway determines whether to send a scorin inquiry to Schufa or proceed with the scoring process. If the inquiry is sent, the 'Delay\nreceived' event is triggered, leading to the'sid-1906715D-C90C-4803-8357-7788F12411F7' gateway, which then sends the inquiry to Schufa.
-
-Conversely, if the inquiry is not sent, the 'Determining scoring' gateway is activated, which sends a request for scoring. This request is received by the 'Scoring request\narrived' event, which in turn triggers the 'ExclusiveGateway2'. The 'ExclusiveGateway2' decides to wait for the scoring result and sends the 'on scoring result\nwait' event to the'sid-314D8F57-AF61-410C-A104-F20EF75EC85E' gateway.
-
-Upon receiving the scoring result, the'sid-2CD8A574-F0B2-4350-9A9D-E42FC4AC9DA4' gateway sends the 'EndEvent1' event to the'sid-BDE61DF1-94E0-4314-81DB-D06776342547' gateway, marking the end of the scoring inquiry process.

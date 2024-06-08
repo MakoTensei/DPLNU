@@ -1,7 +1,0 @@
- When a "Regression report" is received, it triggers the "Regression\npossible" gateway, which in turn initiates the creation of a "Payment request\nCreating" and closes the "Process\nclosed" event. Concurrently, the "Regression\npossible" gateway also leads to the "EventBasedGateway3" where the "Opposition\nCheck" task is processed, resulting in the "ExclusiveGateway2" and "Process\nclosed" events.
-
-Meanwhile, the "Payment request\nCreating" task is completed, and the "Payment\nReport" is received, which closes the "Process\nclosed" event. The "Opposition\nReport" task is also processed at "EventBasedGateway3", leading to the "Process\nclosed" event.
-
-Additionally, the "1 week" event at "EventBasedGateway3" opens a new process.
-
-Finally, the "Process\nclosed" event is triggered, which is the culmination of the "Regression report" event, and it has incoming events from "EventBasedGateway3", "Regression\npossible", and "Opposition\nReport".

@@ -1,9 +1,0 @@
- In the grading process, a request is obtained, triggering a series of events and tasks. The first task, "Perform scoring (LEVEL 1)," is initiated when a Schuf request is obtained. This task immediately sends a request for scoring results to the "Schufascoring result immediately\navailable?" gateway.
-
-Once the scoring results are obtained, the "Scoring result\nobtained" event is triggered, which sends the results to the "ExclusiveGateway0." This gateway then forwards the results to the "Perform scoring (LEVEL 1)" task, which completes and sends the results to the "EndEvent0."
-
-After the initial scoring, a second task, "perform final scoring (LEVEL 2)," is initiated when the "Perform scoring (LEVEL 1)" task completes. This task sends a request for final scoring results to the "sid-5B2C3197-300F-4824-AAC0-98D48E667B48" gateway.
-
-The "Scoring result\ndelays" event is triggered when the final scoring results are obtained, sending the results to the "sid-00BBAEAC-1FA5-47C0-973F-BB7978D23511" gateway.
-
-Finally, the "EndEvent1" event is triggered, which sends the final scoring results to the "ExclusiveGateway2" gateway. This gateway then forwards the results to the "EndEvent1" event, completing the grading process.

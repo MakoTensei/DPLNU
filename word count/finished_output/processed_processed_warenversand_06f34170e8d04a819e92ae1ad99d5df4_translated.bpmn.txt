@@ -1,7 +1,0 @@
- The process begins with the 'Goods must be shipped' start event, which triggers the 'Packaging goods' task. The 'Packaging goods' task then sends the goods to the 'ParallelGateway5' for further processing. Concurrently, the 'Goods must be shipped' event also triggers the 'Provide for collection' task, which is responsible for arranging the collection of the goods.
-
-Meanwhile, the 'ParallelGateway4' receives the 'Goods must be shipped' event and sends it to both 'ExclusiveGateway2' and 'Packaging goods'. The 'ExclusiveGateway2' is responsible for clearing insurance requirements, which is triggered by the 'Insurance?' event. The 'Insurance?' event also sends the 'Goods must be shipped' event to 'ExclusiveGateway3' for further processing.
-
-The 'Check order quantity' task, triggered by the 'ParallelGateway4', sends the 'Insurance?' event to 'ExclusiveGateway3' and 'Clearing insurance requirements' to 'ExclusiveGateway2'. The 'ExclusiveGateway2' then sends the 'Clearing insurance requirements' to 'ExclusiveGateway3', which in turn sends the 'ParallelGateway5' for the final step.
-
-The 'EndEvent0' is triggered by both the 'Insurance?' event and the 'ParallelGateway5'. This event signifies the completion of the process.

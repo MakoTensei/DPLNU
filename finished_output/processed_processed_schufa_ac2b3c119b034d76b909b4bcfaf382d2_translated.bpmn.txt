@@ -1,9 +1,0 @@
- In the scoring process, there are several tasks and gateways involved. The process begins with the 'Schufascoring enroll' event, which triggers the 'StartEvent1'. This event leads to the 'Scoring is fixed?' gateway, which has incoming connections from 'StartEvent1' and outgoing connections to 'First scoring successful' and 'Scoring with Delay'.
-
-The 'First scoring successful' task is triggered by the 'on scoring wait' event, which has incoming connections from 'StartEvent1' and 'Scoring is fixed?'. This task has outgoing connections to 'First scoring successful' and 'Scoring with Delay'.
-
-The 'Scoring with Delay' task is also triggered by the 'on scoring wait' event and has outgoing connections to 'Scoring with Delay' and 'Final Scoring'.
-
-The 'Final Scoring' task is triggered by the 'Final Scoring' event, which has incoming connections from 'First scoring successful' and 'Scoring with Delay'. This task has an outgoing connection to 'Scoring completed'.
-
-The 'Scoring completed' event has incoming connections from 'First scoring successful', 'Scoring with Delay', and 'Final Scoring'. This event signifies the completion of the scoring process.

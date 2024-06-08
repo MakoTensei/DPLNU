@@ -1,9 +1,0 @@
- In the scoring process, a request is initiated by the 'Schufascoring\nrequested' event, which triggers the 'Level 1 scoring is present?' gateway to determine if Level 1 scoring is available. If Level 1 scoring is present, the 'Report L1 scoring on frontend' task is executed, and the 'EndEvent0' is generated.
-
-Once Level 1 scoring is confirmed, the 'Schufascoring\nCreating' event is triggered, leading to the 'Results determined?' gateway. This gateway then sends the results to the'sid-04AF8A00-D1CD-401B-8820-DF894857EBF2' and'sid-3BD1DA2C-BE08-4D3B-BF07-3C0816F0E93C' end events.
-
-Simultaneously, the 'Level 2 scoring\nready' gateway is activated, which sends the 'EndEvent0' to the 'Report L2 scoring on frontend' task.
-
-The 'EndEvent0' is also used as an input for the 'Level 1 scoring is present?' gateway, which then triggers the 'EndEvent1' event.
-
-Finally, the 'Scoring ends' event is generated, which sends the results to the'sid-76F54E12-4699-4687-9D26-EA261C003F2B' and'sid-365F2772-4C2A-42CF-890C-BD08A9C4A4DC' end events, completing the scoring process.

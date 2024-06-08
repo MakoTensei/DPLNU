@@ -1,9 +1,0 @@
- In the scoring process, a StartEvent0 initiates the sequence. This event triggers a Scoring request, which is then caught by IntermediateCatchEvent2. The Scoring request is then sent as a Scoring value\nsend event. Meanwhile, StartEvent1 initiates a separate process where a Send a reply event is triggered. This event is caught by ExclusiveGateway0, which then sends an EndEvent2.
-
-The Scoring value\nsend event from StartEvent0 is also caught by ExclusiveGateway0, which sends an EndEvent3. Concurrently, StartEvent0 triggers an EventBasedGateway1, which sends an EndEvent0.
-
-In Level 1 scoring, StartEvent1 triggers an ExclusiveGateway0, which sends an EndEvent2 and an EndEvent3. The Delay\nReport event from ExclusiveGateway0 is then caught by EndEvent3.
-
-In Level 2 scoring, StartEvent1 triggers a Send a reply event, which is caught by ExclusiveGateway0 and sends an EndEvent2. The Delay\nReport event from ExclusiveGateway0 is then caught by EndEvent3.
-
-Lastly, StartEvent0 triggers a Note to MA event, which is caught by IntermediateCatchEvent4, sending an EndEvent1.

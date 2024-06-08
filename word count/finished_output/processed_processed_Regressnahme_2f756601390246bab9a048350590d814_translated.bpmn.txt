@@ -1,7 +1,0 @@
- The system initiates a process when a 'Regression Report' event occurs, triggering the 'Testing' task with an incoming 'Regression Report' and an outgoing 'ExclusiveGateway2'. Concurrently, the 'Book Payment Receipt' task is activated, receiving a 'Regression Report' and sending an 'ExclusiveGateway2' as its output. The 'Payment Method Send a Message' task is also triggered, with an incoming 'Regression Report' and an outgoing 'Refund Period Expired'. Meanwhile, the 'Reasons Check' task is initiated, receiving a 'Regression Report' and sending an 'ExclusiveGateway2'.
-
-The 'ExclusiveGateway2' then routes the incoming events to the 'Refund Period Expired' and 'Reasons Justifiable?' tasks, which both send an 'ExclusiveGateway2' as their output. The 'EventBasedGateway3' receives a 'Regression Report' and sends 'ExclusiveGateway2', 'Reasons?', and 'donate to debt collection' as its outputs. The 'Refund Period Expired' task receives a 'possibility is there?' event and sends a 'donate to debt collection' as its output.
-
-The 'Money?' event is received by the 'Testing' task, which sends it to the 'Book Payment Receipt' task. The 'Reasons?' event is received by the 'EventBasedGateway3' task, which sends it to the 'donate to debt collection' task.
-
-Finally, the 'Process Close' task is triggered, receiving a 'Book Payment Receipt' event and sending no output. The 'donate to debt collection' task is also triggered, receiving 'EventBasedGateway3' and 'Reasons?' events, and sending no output.

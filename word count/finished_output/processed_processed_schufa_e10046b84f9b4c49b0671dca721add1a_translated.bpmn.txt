@@ -1,9 +1,0 @@
- In the scoring process, there are several tasks and gateways involved. The process begins with the 'Scoring\nRequired' start event, which triggers the 'Send scoring inquiry to Schufa' task. This task sends an inquiry to Schufa and results in an 'IntermediateCatchEvent4'. The 'IntermediateCatchEvent4' then triggers the 'Transfer to Frontend' task, which sends the inquiry to the frontend for further processing.
-
-Meanwhile, the 'Scoring request required' start event initiates the 'perform scoring (level 1)' task, which requires a scoring request. This task sends a request to Schufa and results in a 'Result\nis it?' event. The 'Result\nis it?' event triggers the 'ExclusiveGateway1' task, which has two outgoing paths: 'EndEvent0' and 'ExclusiveGateway2'. The 'EndEvent0' path is taken by the 'Result\nis it?' event, which sends a response back to the frontend.
-
-The 'ExclusiveGateway1' task also receives the 'IntermediateCatchEvent4' from the 'Send scoring inquiry to Schufa' task. This event triggers the 'Perform scoring (level 2)' task, which requires a scoring request. The 'Perform scoring (level 2)' task sends a request to Schufa and results in an'sid-20B4BB8B-9B60-4A3F-BDB4-9F571947D295' event.
-
-Additionally, the 'Report delay' start event triggers the 'Report delay' task, which sends a delay report. This task results in an 'IntermediateCatchEvent5', which triggers the 'EndEvent0' path through the 'ExclusiveGateway3' task.
-
-In summary, the scoring process involves sending inquiries to Schufa, performing level 1 and level 2 scoring, and handling delay reports. The process flows through various tasks and gateways, ultimately resulting in responses sent to the frontend and other end events.

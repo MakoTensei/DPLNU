@@ -1,9 +1,0 @@
- In a system designed to handle financial data processing, a series of tasks and gateways work together to manage requests and responses related to Schufa, a credit bureau. The process begins with an 'Internal Schufa request' that triggers a sequence of events and interactions between different components.
-
-When an 'Internal Schufa request' is received, the system initiates the 'Send Schufa to Schufa' task, which sends the request to Schufa and expects a reply. This task is routed through 'ExclusiveGateway0', which is responsible for handling the 'Expect reply' event. Upon receiving a reply, the system moves to the 'Add a reply' task, which is also routed through 'ExclusiveGateway0'.
-
-The 'Add a reply' task sends a reply back to Schufa, and the system then proceeds to the 'forward scoring result' task. This task is responsible for forwarding the scoring results to the next stage. The 'forward scoring result' task is routed through 'IntermediateCatchEvent3', which is connected to 'ExclusiveGateway0'.
-
-Simultaneously, the 'Send scoring results' task is triggered by the 'Sufa Question Report' event. This task sends the scoring results to 'ExclusiveGateway1', which is responsible for handling the 'Request completed' event. The 'perform second scoring' task is also routed through 'ExclusiveGateway1' and sends the results to the 'Scoring results' task.
-
-The 'Scoring results' task is then routed through 'ExclusiveGateway1' again, and the system concludes the process with the 'Request completed' event. This event signifies the successful completion of the entire sequence of tasks and interactions, ensuring that the financial data processing is handled efficiently and accurately.

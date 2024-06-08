@@ -1,9 +1,0 @@
- When a shipment of goods arrives, the process begins with the 'Goods\nShip' event, which triggers the 'Pick up offers' task. This task allows the system to select the best offer for the incoming goods. Once an offer is selected, the 'Select your offer' task is initiated, which requires the quantity of the goods to proceed. The 'Select your offer' task then connects to the 'ExclusiveGateway2', which is responsible for handling the selected offer.
-
-Simultaneously, the 'Filling the package note' task is triggered, which requires the quantity of the goods to be filled in the package note. This task connects to the 'ExclusiveGateway2' as well, ensuring that the package note is filled out correctly.
-
-The 'ParallelGateway3' receives the incoming goods and connects to both the 'Pick up offers' and 'Filling the package note' tasks. After the offers are selected and the package note is filled, the 'Packaging goods' task is initiated, which packages the goods and sends them to the 'ParallelGateway4'.
-
-The 'ParallelGateway4' then receives the packaged goods and connects to the 'Goods\nready for dispatch' task, which requires the quantity of the goods to be dispatched. Once the goods are ready for dispatch, the 'Complete insurance' task is triggered, which requires the insurance necessity to be determined. This task connects to the 'ExclusiveGateway2' to handle the insurance process.
-
-In summary, the process starts with the 'Goods\nShip' event, which triggers a series of tasks and gateways to select the best offer, fill the package note, package the goods, dispatch the goods, and complete the insurance process. The 'Goods\nready for dispatch' event marks the end of the process, with the goods now ready to be shipped to their destination.

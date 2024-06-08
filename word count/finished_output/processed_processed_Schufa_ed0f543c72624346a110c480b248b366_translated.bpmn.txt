@@ -1,9 +1,0 @@
- The system starts with a Scoring request event, which triggers a series of tasks and gateways to process the scoring results. The Scoring request event is routed to EventBasedGateway1, which receives the Scoring result Level 1 and triggers a Delay message to be sent to the forwarding results to Frontend task. This task then sends a Scoring request to continue scoring result Level 2.
-
-Simultaneously, the Scoring result Level 1 received event is also routed to EventBasedGateway1, which triggers a forward delay message to be sent to the forwarding results to Frontend task. This task then sends a Scoring request to continue scoring result Level 2.
-
-The Continue scoring result Level 2 task receives the Results available? event from EventBasedGateway1 and triggers a Report delay event. This event sends a perform scoring level 2 message to continue scoring result Level 2.
-
-The perform scoring level 2 task receives the Results available? event from EventBasedGateway1 and triggers a Continue scoring result Level 2 event. This event sends a Scoring request back to EventBasedGateway1, completing the cycle.
-
-In summary, the Scoring request event initiates a chain of tasks and gateways to process the scoring results, with the system continuously looping between the Continue scoring result Level 2 and Scoring request events until the scoring process is complete.

@@ -1,7 +1,0 @@
- When a message indicating a possible regression is received, the system initiates a sequence of events and interactions between various tasks and gateways. The process begins with the 'Message: Regress possible' event, which triggers the 'Send payment request' task. This task is connected to the 'ExclusiveGateway2', which then leads to the 'Book the entrance' task upon receiving an 'Incoming payment'.
-
-If the 'Incoming payment' event occurs, the 'Close' task is triggered, concluding the process. However, if the 'Incoming payment' event does not occur, the 'Book the entrance' task leads to the 'ExclusiveGateway2', which then connects to the 'Proceedings' task upon receiving an 'Objection of the UN' event.
-
-In the case of an objection, the 'Proceedings' task leads to the 'Process of debt collection office' task, which is connected to the 'Rejection of payment justified?' task through the 'EventBasedGateway4'. If the 'Rejection of payment justified?' task is triggered, the process concludes with the 'EndEvent0' task.
-
-In summary, the system handles a possible regression by initiating a sequence of tasks and interactions between various gateways, ultimately leading to either the 'Close' task or the 'Process of debt collection office' task, depending on the incoming events.

@@ -1,7 +1,0 @@
- When a shipment is requested, the process begins with the task of picking up offers from three freight forwarders, which is facilitated by the 'Pick up offers from three freight forwarders' task. This task has incoming connections to 'Shipment\nrequested' and outgoing connections to 'Specialist with best offer'. The 'Specialist with best offer' task then takes over, receiving an incoming connection from 'Special shipping\nQuantity required?' and outgoing connections to 'ExclusiveGateway2'.
-
-The 'ExclusiveGateway2' task, which has incoming connections from 'Special shipping\nQuantity required?' and 'Complete insurance', forwards the process to 'ParallelGateway4'. Once the goods are packaged, the 'Deliver packaged goods' task comes into play, with incoming connections from 'ParallelGateway4' and outgoing connections to 'End'.
-
-Simultaneously, the 'Filling the package note' task, which has incoming connections from 'ParallelGateway3', sends the package note to 'ExclusiveGateway2'. The 'Complete insurance' task, with incoming connections from 'Insurance\nnecessary?', also sends the insurance information to 'ExclusiveGateway2'.
-
-Finally, the 'End' event signifies the completion of the process, with incoming connections from 'Insurance\nnecessary?' and outgoing connections to 'End'. This event marks the successful delivery of the packaged goods, filled package note, and completed insurance.

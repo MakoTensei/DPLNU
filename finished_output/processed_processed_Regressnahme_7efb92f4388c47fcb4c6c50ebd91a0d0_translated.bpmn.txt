@@ -1,7 +1,0 @@
- Upon receiving a 'Regress reported' notification, the system initiates a sequence of tasks to address the potential regression. First, the 'Check case for possible regression' task is triggered, which is routed to 'ExclusiveGateway2'. If the case is deemed to have a possible regression, it proceeds to 'EndEvent1'. Concurrently, a 'Send payment request to VN' task is initiated, which is directed to 'IntermediateCatchEvent6'. If the payment request is justified, it moves to 'ExclusiveGateway3'.
-
-Simultaneously, the 'Book the entrance' task is activated to secure the case, and it is also routed to 'ExclusiveGateway2'. If the case is not justified, the 'Check payment refusal' task is triggered, which is directed to 'ExclusiveGateway3'.
-
-If the payment request is denied, the 'Drop to Debt Service Provider' task is initiated, and it is routed to 'EndEvent0'. If the case is not justified, the 'Close the process' task is activated, and it is directed to 'EndEvent1'.
-
-In summary, the system handles a 'Regress reported' notification by initiating tasks to check for possible regression, send payment requests, book the entrance, and handle payment refusals. The tasks are routed through various gateways and end events based on the outcomes of these tasks.

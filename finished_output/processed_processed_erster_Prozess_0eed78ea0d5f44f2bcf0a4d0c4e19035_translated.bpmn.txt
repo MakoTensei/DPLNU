@@ -1,9 +1,0 @@
- The process begins with the 'Shipping goods' event, which triggers the 'Choose the cheapest offer' task. This task is connected to 'ExclusiveGateway1', which in turn leads to 'Postal mail'. The 'Postal mail' task has incoming connections from 'EventBasedGateway3' and'sid-AFECF22C-D24B-456D-A309-EDE14A995A5E'.
-
-Next, the 'who takes delivery' task is triggered by the 'Shipping goods' event. This task connects to 'ParallelGateway4', which has outgoing connections to 'ParallelGateway5' three times. 'ParallelGateway5' then connects to 'ExclusiveGateway1'.
-
-The 'Offer of Spediteur 1', 'Offer of Spediteur 2', and 'Offer of Spediteur 3' tasks are all triggered by 'ParallelGateway4' and have outgoing connections to 'ParallelGateway5'.
-
-The 'Filling the package note' task is triggered by the 'large quantity' event and connects to 'Is insurance necessary?' task. The 'Is insurance necessary?' task then connects to 'Complete insurance' task.
-
-Finally, the 'Complete insurance' task is triggered by 'Is insurance necessary?' and connects to 'EventBasedGateway3'. This task leads to the 'Postal mail' task, completing the process.

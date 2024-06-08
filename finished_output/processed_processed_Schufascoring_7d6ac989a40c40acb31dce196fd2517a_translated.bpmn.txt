@@ -1,9 +1,0 @@
- In the scoring process, a scoring request is obtained and sent to EventBasedGateway2, which then forwards it to ExclusiveGateway1. If the request is for Scoring Level 1, it is processed at ExclusiveGateway1 and then sent to EndEvent1. For Scoring Level 2, the request is also sent to ExclusiveGateway1, but it is processed at ExclusiveGateway1 and then transferred to EndEvent1.
-
-When a delay message with a report is received, it is sent to EventBasedGateway2, which then forwards it to ExclusiveGateway1. If a scoring result with a report is received, it is sent to EndEvent0.
-
-The process starts with a scoring request obtained, which is sent to EventBasedGateway2. From there, it can either go to ExclusiveGateway1 for Scoring Level 1 or Scoring Level 2, or it can be transferred to EndEvent1.
-
-In the case of a delay message with a report, it is also sent to EventBasedGateway2 and then to ExclusiveGateway1. The report is then sent to EndEvent1.
-
-The process ends with EndEvent0 receiving a scoring result with a report, or EndEvent1 receiving a message from ExclusiveGateway0 or ExclusiveGateway1.

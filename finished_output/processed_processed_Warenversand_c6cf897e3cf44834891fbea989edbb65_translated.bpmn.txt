@@ -1,9 +1,0 @@
- The process begins with the 'Shipment' start event, which triggers the 'Pick up offers' task. This task receives the 'Shipment' as its incoming data and sends out a 'Special offer'. The 'Special offer' then flows into the 'Select your offer' task, which in turn sends out a 'Specialist'. The 'Specialist' is responsible for handling the 'Quantity to be shipped' task, which receives the 'Special offer' as its incoming data and sends out to 'ExclusiveGateway3'.
-
-The 'ExclusiveGateway3' then sends the 'Quantity to be shipped' to the 'Filling the package note' task, which receives the 'Quantity to be shipped' as its incoming data and sends out to 'ParallelGateway5'. The 'ParallelGateway5' receives the 'Quantity to be shipped' twice and sends it to both 'EndEvent0' and itself.
-
-Meanwhile, the 'Specialist' also sends the 'Quantity to be shipped' to the 'Insurance close' task, which receives the 'Quantity to be shipped' as its incoming data and sends out to 'ExclusiveGateway2'. The 'ExclusiveGateway2' then sends the 'Insurance close' to 'ParallelGateway5'.
-
-The 'ParallelGateway5' receives the 'Insurance required?' twice and sends it to both 'EndEvent0' and itself. The 'EndEvent0' receives the 'Insurance required?' as its incoming data and has no outgoing data.
-
-In summary, the process involves several tasks and gateways, starting with the 'Shipment' event and ending with the 'EndEvent0'. The tasks and gateways work together to ensure the shipment is picked up, offers are selected, packages are filled, and insurance is considered.

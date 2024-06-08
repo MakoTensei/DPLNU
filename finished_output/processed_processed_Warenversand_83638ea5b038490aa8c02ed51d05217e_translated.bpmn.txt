@@ -1,7 +1,0 @@
- When a shipment is required, the process begins with the 'Pick up offers' task, which is triggered by the 'Shipment required' start event. This task, identified by'sid-037C9A82-E506-42B1-A921-84EAA4A6BF9A', takes the incoming 'Shipment required' event and directs it to 'ParallelGateway4'. From there, 'ParallelGateway4' connects to 'Pick up offers', which in turn leads to the 'Filling the package note' task. This task, identified by'sid-16F29953-8DAA-46E4-AE9F-E6580E7A5D76', is initiated by the 'Special shipment required?' event and sends it to 'Insurance required?' gateway.
-
-Simultaneously, 'ParallelGateway4' also connects to 'Specialist', identified by'sid-04BF3861-78F4-4C97-9E3B-74827BE4493D', which is triggered by the 'Shipment required' start event. The 'Specialist' task then connects to 'ParallelGateway5', identified by'sid-9DA9F77B-65D6-4D8F-8B6D-E22FE8EFA405', which is responsible for handling special shipments.
-
-The 'Filling the package note' task, upon receiving the 'Insurance required?' event, connects to 'ExclusiveGateway3', identified by'sid-FF1903C3-5E1B-4ED8-AC49-9D88C5F90C39'. This gateway then connects to 'ParallelGateway5', which is responsible for handling insurance-related tasks.
-
-As the process continues, 'ParallelGateway5' connects to 'Goods ready for shipping', identified by'sid-9DA9F77B-65D6-4D8F-

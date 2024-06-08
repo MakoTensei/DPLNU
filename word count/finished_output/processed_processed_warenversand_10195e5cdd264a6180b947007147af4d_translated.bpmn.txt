@@ -1,7 +1,0 @@
- In the process of preparing goods for dispatch, the workflow begins with the 'goods are available for dispatch' event, which triggers the 'Check shipping quantity' task. This task is facilitated by the 'ParallelGateway4' and leads to the 'ExclusiveGateway0'. From there, the 'Insurance required?' event is triggered, which also comes from 'ParallelGateway4'. The 'ExclusiveGateway0' then directs the workflow to 'ExclusiveGateway2', where the 'Complete insurance (leave).' task is executed.
-
-Simultaneously, the 'Check shipping quantity' task also leads to 'ExclusiveGateway2' through 'ParallelGateway5'. This gateway connects to the 'Provide goods for collection' task, which is initiated by 'ParallelGateway5' and results in 'Goods ready for dispatch'.
-
-The 'Complete insurance (leave).' task from 'ExclusiveGateway2' and the 'Goods ready for dispatch' task from 'ParallelGateway5' both converge at 'ExclusiveGateway3'. Here, the 'Specialist' task is triggered, which is connected to 'ParallelGateway4' and 'ExclusiveGateway3'.
-
-Finally, the 'Goods ready for dispatch' event concludes the process, with 'Insurance required?' being one of its incoming events. This event is handled by 'ExclusiveGateway2', which then leads to the 'ParallelGateway5', completing the workflow.

@@ -1,9 +1,0 @@
- The process begins with a 'Requested' event, which triggers the 'Scoring request' event. This request is then forwarded to 'EventBasedGateway0', which sends out 'Transfer 1 scoring result' to initiate the LVL1 scoring process.
-
-Simultaneously, 'EventBasedGateway1' receives the 'Scoring request' and sends out 'Delay detected' to signal a delay in the scoring process. This delay leads to the 'LVL2 Scoring' event, which is also triggered by 'EventBasedGateway0'.
-
-The 'LVL1 Scoring' event is then sent to 'EventBasedGateway1', which in turn sends out 'LVL1 Scoring' to the next stage. The 'LVL1 Scoring' event results in the 'Request with LVL1 completed' event, which is sent back to 'EventBasedGateway0'.
-
-Meanwhile, the 'LVL2 Scoring' event also results in the 'Request with LVL2 completed' event, which is sent back to 'EventBasedGateway0'.
-
-In summary, the process starts with a 'Requested' event, which leads to a 'Scoring request'. This request triggers the LVL1 and LVL2 scoring processes, which are managed by 'EventBasedGateway0' and 'EventBasedGateway1'. The completion of both LVL1 and LVL2 scoring results in 'Request with LVL1 completed' and 'Request with LVL2 completed' events, respectively.

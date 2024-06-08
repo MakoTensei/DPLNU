@@ -1,9 +1,0 @@
- The process begins with the 'Shipping costs\nobtained' event, which triggers the 'Check quantity' task. This task checks the quantity of the goods and sends the 'Lot?' to the 'Lot?' gateway. The 'Lot?' gateway then directs the flow to either 'ExclusiveGateway2' or 'ExclusiveGateway3', depending on whether insurance is necessary.
-
-If insurance is necessary, the 'Versichungsbedarf' task is triggered, which also sends the 'Lot?' to the 'Lot?' gateway, leading to 'ExclusiveGateway2'. This gateway then sends the goods to 'ParallelGateway5', which closes the process.
-
-If insurance is not necessary, the 'Closure of the' task is triggered, which sends the 'Lot?' to the 'Lot?' gateway, leading to 'ExclusiveGateway3'. This gateway then sends the goods to 'ParallelGateway5', which closes the process.
-
-In both cases, the 'ParallelGateway5' sends the goods to 'Goods ready for dispatch', marking the end of the process.
-
-In summary, the process involves several tasks and gateways, with the 'Lot?' gateway serving as a critical decision point. The 'Check quantity' task initiates the process, and the 'Goods ready for dispatch' event marks its completion.

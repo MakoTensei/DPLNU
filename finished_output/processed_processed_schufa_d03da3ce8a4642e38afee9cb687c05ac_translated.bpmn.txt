@@ -1,7 +1,0 @@
- When a Schufa request is triggered, the system initiates a sequence of tasks to determine the customer's credit score level and send a scoring inquiry report. The process begins with the 'Schufa request triggered' event, which leads to the 'Scoring View result' task. This task is responsible for displaying the initial scoring view.
-
-Simultaneously, the 'Delay display' task is activated, which introduces a brief delay before proceeding to the next step. After the delay, the system evaluates the customer's credit score level by determining whether it falls under Level 1 or Level 2. This decision is made by the 'Determine Schufa Score Level 1' and 'Determine Schufa Score Level 2' tasks, which both route to the 'ExclusiveGateway1'.
-
-The 'ExclusiveGateway1' then directs the process to either 'EndEvent2' for Level 1 or 'EndEvent3' for Level 2. If the customer's score is determined to be Level 1, the system sends a 'Schufascore Report' to the customer. Conversely, if the score is Level 2, the system sends a 'Delay display' task again to introduce another delay before proceeding.
-
-After the second delay, the 'ParallelGateway2' task routes the process to either 'Back to Schufa Score' for Level 2 or 'EndEvent3' for Level 1. The 'Back to Schufa Score' task sends the customer's score back to Schufa for further processing. Finally, the 'EndEvent3' and 'EndEvent2' tasks conclude the process by signaling the completion of the respective tasks.
