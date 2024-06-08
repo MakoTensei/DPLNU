@@ -1,0 +1,9 @@
+ The process begins with the 'Shipping costs' start event, which triggers the 'Pick up offers' task. This task receives input from 'ParallelGateway5' and outputs 'Select your offer'. The 'Select your offer' task then receives input from 'A lot big?' and outputs 'Specialist'. The 'Specialist' task, in turn, receives input from 'A lot big?' and outputs 'EndEvent0'.
+
+Simultaneously, the 'Pick up offers' task also sends input to 'ParallelGateway5', which then sends input to 'A lot big?'. The 'A lot big?' task receives this input and outputs 'Insurance necessary?'. The 'Insurance necessary?' task receives input from 'A lot big?' and outputs 'Complete insurance'. The 'Complete insurance' task sends input to 'ParallelGateway4', which also receives input from 'ParallelGateway5' and 'Complete insurance'.
+
+The 'Delivering goods' task, which is triggered by the 'Shipping costs' start event, receives input from 'ParallelGateway5' and outputs 'EndEvent0'. The 'EndEvent0' task receives input from 'A lot big?' and 'Complete insurance' and outputs 'ParallelGateway4'.
+
+Lastly, the 'Packaging goods' task, which is triggered by 'ParallelGateway5', receives input from 'ParallelGateway4' and outputs 'EndEvent0'. The 'EndEvent0' task receives input from 'A lot big?' and 'Insurance necessary?' and outputs 'ParallelGateway4'.
+
+In summary, the process involves several tasks and gateways, starting with 'Shipping costs' and ending with 'ParallelGateway4'. The tasks and gateways are interconnected, with inputs and outputs flowing between them to ensure the smooth delivery of goods.

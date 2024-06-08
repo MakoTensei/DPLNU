@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-41EB5A71-EC9D-403C-816E-FE99467BD16F', 'name': 'Send a reply', 'incoming': ['Objection?'], 'outgoing': ['Proceedings']}
+{'id': 'sid-E60E6373-227C-4BEE-BD1F-4EF14E1DA97E', 'name': 'Payment request\nCheck', 'incoming': ['IntermediateCatchEvent8'], 'outgoing': ['Objection?']}
+{'id': 'sid-E643202E-5958-430D-AFC4-350A07828E36', 'name': 'Execution of payment', 'incoming': ['Payment method\nobtained'], 'outgoing': ['Money\nobtained']}
+{'id': 'sid-8699536A-5E36-4D4A-AFEC-6F6DA1414C46', 'name': 'Regress notification\nCheck', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-6EA12468-6DAD-4098-84B0-5B21E2052B44', 'name': 'Payment request\nCreating', 'incoming': ['Regression report\nobtained'], 'outgoing': ['IntermediateCatchEvent8']}
+{'id': 'sid-D1A55327-08A8-4286-9DF2-7CAB22D35995', 'name': 'Book money receipt', 'incoming': ['Money\nobtained'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-2130FCE2-F3CA-4EFE-8BA9-05C870F7F0EE', 'name': 'Proceedings', 'incoming': ['Objection?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-7C8F15D7-E48B-49F1-936F-E7DC1782F228', 'name': 'Delivered to debt collection service provider', 'incoming': ['IntermediateCatchEvent8'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-5E0016F0-9F55-4415-AA93-A430B701A562', 'name': 'Close', 'incoming': ['Money\nobtained'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-A7316058-70B4-444F-A1EF-3C61F3B4050F', 'name': 'Objection?', 'incoming': ['Opposition\ncorrect?'], 'outgoing': ['Payment method\nobtained', 'ExclusiveGateway3']}
+{'id': 'sid-D66FD35E-E789-434D-918C-FAB72CAF9157', 'name': 'Regress?', 'incoming': ['Regression report\nobtained'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway3']}
+{'id': 'sid-75F5E402-A2B8-4FF0-95FF-7F26C8A420D6', 'name': 'Opposition\ncorrect?', 'incoming': ['Objection?'], 'outgoing': ['Money\nobtained', 'ExclusiveGateway3']}
+{'id': 'sid-DF3A15E9-C116-4589-A261-CC701A13358A', 'name': 'ExclusiveGateway3', 'incoming': ['Regress?', 'Proceedings', 'StartEvent0', 'Objection?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-A8D42C92-D9F5-4131-A8F8-021227300668', 'name': 'Payment method\nobtained', 'incoming': ['Objection?'], 'outgoing': ['Execution of payment']}
+{'id': 'sid-9A6D65F0-93B5-41F8-9798-C31B1FEE4C61', 'name': 'Regression report\nobtained', 'incoming': ['StartEvent0'], 'outgoing': ['Payment request\nCreating']}
+{'id': 'sid-B14D567D-EBDE-4922-B769-CE63426F9819', 'name': 'Money\nobtained', 'incoming': ['Opposition\ncorrect?'], 'outgoing': ['Close']}
+{'id': 'sid-D2B9FD1E-ED72-4D41-9A61-8E768E763D04', 'name': 'Representation', 'incoming': ['Regress?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E4B8286C-DFA3-49C3-9E53-38E8261B065B', 'name': 'IntermediateCatchEvent8', 'incoming': ['Regress?', 'Opposition\ncorrect?'], 'outgoing': ['Delivered to debt collection service provider', 'Payment request\nCheck']}
+
+Start Events:
+{'id': 'sid-9CB8E50D-BCB1-48D4-80C4-6D35053D8543', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway3']}
+
+End Events:
+{'id': 'sid-45C08A9E-75E5-4E5F-8560-F648CC691AEF', 'name': 'EndEvent0', 'incoming': ['Representation'], 'outgoing': []}

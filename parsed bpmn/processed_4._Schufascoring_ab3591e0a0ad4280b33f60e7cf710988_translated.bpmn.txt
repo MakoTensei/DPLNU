@@ -1,0 +1,30 @@
+Tasks:
+{'id': 'sid-C105FF75-E63D-4BC7-80C2-A935EDAB42B8', 'name': 'Start the process', 'incoming': ['StartEvent0'], 'outgoing': ['sid-2492E973-565B-4DA2-9131-A442C02A852C']}
+{'id': 'sid-AF27CEA6-38A0-47DB-A1D2-595EE33940BF', 'name': 'Start Schufascoring at the touch of a button', 'incoming': ['Scoring'], 'outgoing': ['Communication process started']}
+{'id': 'sid-7CBF6861-3A09-4A52-8D66-BFDE4BEF5268', 'name': 'Communication process started', 'incoming': ['Scoring'], 'outgoing': ['sid-5C5F17DA-EF30-4BE9-95CA-3585ACD35B52']}
+{'id': 'sid-EB69A4AD-E20D-45A0-BEE4-DA49EFE232DE', 'name': 'See the results', 'incoming': ['Schufa result'], 'outgoing': ['Request completed']}
+{'id': 'sid-59E8E901-66A4-4F06-B8A2-7A7138193F6B', 'name': 'Show notification for delay', 'incoming': ['Delay'], 'outgoing': ['Other activities']}
+{'id': 'sid-79566EC7-96AB-4B16-9C23-3C0CA9A75938', 'name': 'Other activities', 'incoming': ['Delay'], 'outgoing': ['Request completed']}
+{'id': 'sid-A0B639AE-283B-451E-A722-F0E9752B0FE4', 'name': 'Start the first scoring', 'incoming': ['Start Schufascoring'], 'outgoing': ['Scroing successful?']}
+{'id': 'sid-B2AE6AC1-5812-46A5-854F-7C0749166680', 'name': 'Start second scoring', 'incoming': ['sid-6FDF97C8-2392-4743-A6C4-622F65C70ABE'], 'outgoing': ['sid-2A5BC2AB-1801-4DD8-BBC4-6AB465BE742E']}
+
+Gateways:
+{'id': 'sid-C993BBA4-27BD-4DDD-93F3-EDA5991C71ED', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'EventBasedGateway3'], 'outgoing': ['Request completed']}
+{'id': 'sid-62B56CED-28BF-4EC1-A99D-07DAA096168D', 'name': 'Scroing successful?', 'incoming': ['Start Schufascoring'], 'outgoing': ['sid-BDF18A9B-0A06-4C87-8593-97AAFBEEF6F4', 'sid-E80026FE-16DC-480E-97F0-C09194F50BA5']}
+{'id': 'sid-02EAA4B7-2A70-401D-AEFB-8384FE4D33AD', 'name': 'EventBasedGateway2', 'incoming': ['sid-3D563102-F7FB-4E22-A0A3-88D5883EFCCF'], 'outgoing': ['Schufa result Level 1', 'Delay message']}
+{'id': 'sid-027BD4F8-B1AC-4DA3-9B25-1EE297B83BB4', 'name': 'EventBasedGateway3', 'incoming': ['sid-9A21C082-C9A6-43B5-A1B6-F74CDBBB1392'], 'outgoing': ['Schufa result', 'ExclusiveGateway0']}
+{'id': 'sid-5BCFCED9-B9C9-4803-A7DC-629174698ED9', 'name': 'Schufa result Level 1', 'incoming': ['EventBasedGateway2'], 'outgoing': ['sid-2AD03D9C-FF4B-4E61-AB03-07CE79DE89E4']}
+{'id': 'sid-FFC0D7BE-53FA-4CB9-9296-8A0B185040BF', 'name': 'Delay message', 'incoming': ['EventBasedGateway2'], 'outgoing': ['sid-7E8B9E35-8C04-4545-8913-E3D81A9F2D1A']}
+{'id': 'sid-C3DACD30-BB59-409B-8D21-4A4011BE5D24', 'name': 'Schufa result 2', 'incoming': ['sid-25E9ADBE-4AEC-4E00-B2FC-FC144EA3742B'], 'outgoing': ['sid-52EC959C-08AE-481C-B50E-A11488F65C67']}
+{'id': 'sid-3E50AF64-5550-4C9B-BF34-FB21E2A87BB7', 'name': 'Schufa result', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Request completed']}
+{'id': 'sid-91EDE6C7-44D7-48D1-A791-565F9DB72513', 'name': 'Delay', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-E3796726-8881-4E3F-B090-ACDBCA2E1E4B', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Start the process']}
+{'id': 'sid-52FA6225-90EA-49B7-820B-A4D96DACD516', 'name': 'Scoring', 'incoming': [], 'outgoing': ['Communication process started']}
+{'id': 'sid-BBAA04D4-35D3-4FE9-BE51-4C1BFB3ADC9A', 'name': 'Start Schufascoring', 'incoming': [], 'outgoing': ['Scroing successful?']}
+
+End Events:
+{'id': 'sid-7EFAEEF0-7C16-4A48-BE90-7738156CED7F', 'name': 'Scoring ends', 'incoming': ['sid-008E1975-CD51-4B67-B380-8BC8E619A801', 'sid-4508B77E-3356-4287-8528-BC4EBE396EDB'], 'outgoing': []}
+{'id': 'sid-71E42810-7A30-469E-862B-5FCA25873E50', 'name': 'Request completed', 'incoming': ['Other activities'], 'outgoing': []}
+{'id': 'sid-053D3CC8-F2EF-4E6A-9DD4-8D54373C5444', 'name': 'Scoring request completed', 'incoming': ['sid-B1F523AC-1499-49C8-9D9A-96F1E51D8062', 'sid-DC56902F-216B-4363-BED0-593E4707FA9A'], 'outgoing': []}

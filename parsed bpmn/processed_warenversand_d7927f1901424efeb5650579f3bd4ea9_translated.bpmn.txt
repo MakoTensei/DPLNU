@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-FE519B36-DAC4-4780-8FD1-EDE5805B8DEB', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-BD7CCE0E-99A5-4C1A-9D39-CA497F9C3E9E', 'name': 'Filling the package note', 'incoming': ['Volume of goods?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-DB6BFDD8-EA68-4B43-A70D-DFF944C66238', 'name': 'Order', 'incoming': ['Select a spedituer'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-1F9D4DFD-48D1-477C-AAEA-0187F7CEAF2C', 'name': '3 offers', 'incoming': ['Volume of goods?'], 'outgoing': ['Select a spedituer']}
+{'id': 'sid-B8F509CC-19F9-4835-8B22-A55D631F51E8', 'name': 'Separation of invoice Shipping type', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-978764EF-8ED1-4700-852B-1496CC3B575A', 'name': 'Select a spedituer', 'incoming': ['Volume of goods?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-BFE53EFC-5C6A-4EC1-9467-A3C4BB24A729', 'name': 'Provide for collection', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9880FCFB-CCD4-4F27-9AD5-8C4317975367', 'name': 'insurance', 'incoming': ['Is insurance necessary?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-5F21C371-02B8-46FF-B059-B99B770A8321', 'name': 'Volume of goods?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway3']}
+{'id': 'sid-B26463FC-26DB-4C63-A289-CEBF48E40AAB', 'name': 'Is insurance necessary?', 'incoming': ['Separation of invoice Shipping type'], 'outgoing': ['insurance', 'EndEvent0']}
+{'id': 'sid-12E6E6CD-238E-43B6-BD8F-23D2BA34F332', 'name': 'ExclusiveGateway2', 'incoming': ['insurance', 'Filling the package note'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-0A184AEE-572F-4024-81E1-3CB63A94AEE1', 'name': 'ExclusiveGateway3', 'incoming': ['Volume of goods?', 'ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-A2D2C3D7-F420-429D-880F-E70C3577066A', 'name': 'ParallelGateway4', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway3', 'ParallelGateway5']}
+{'id': 'sid-47D180FF-B36F-4C52-9DBA-8CFC607CF85C', 'name': 'ParallelGateway5', 'incoming': ['Separation of invoice Shipping type', 'StartEvent0'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-AF8F4393-1F24-4220-BE8E-6DA48052FC4A', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Provide for collection']}
+
+End Events:
+{'id': 'sid-EAF4A747-21BF-40AA-AAC2-A8EACAB96C31', 'name': 'EndEvent0', 'incoming': ['Is insurance necessary?'], 'outgoing': []}

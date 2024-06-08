@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-CA55BFF4-42AC-4F82-9A5F-78C74F82FB2F', 'name': 'Scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['Delay message']}
+{'id': 'sid-C053D3C0-888D-4435-B0A9-6C10E577DFA0', 'name': 'Transfer Schufa result to Frontend', 'incoming': ['StartEvent0'], 'outgoing': ['gradation\ncompleted']}
+{'id': 'sid-5EA720BB-B801-4AA8-AD69-78841619F7FB', 'name': 'Report delay', 'incoming': ['Delay message'], 'outgoing': ['Wait for Schufa result']}
+{'id': 'sid-CB63440A-41D0-4EFF-B22B-0F0D755B948C', 'name': 'Schufa result\nat the front end\nforward', 'incoming': ['Delay message'], 'outgoing': ['gradation\ncompleted']}
+{'id': 'sid-92586686-86C1-4DEA-8FCD-480A025D85AC', 'name': 'Level 1 scoring is performed', 'incoming': ['StartEvent1'], 'outgoing': ['successful?']}
+{'id': 'sid-2207D6B4-1860-43A8-B03C-22E3B64B8707', 'name': 'Create scoring result', 'incoming': ['StartEvent1'], 'outgoing': ['Schufa process\ncompleted']}
+{'id': 'sid-A624DC44-0807-41C0-8B59-AE59D418FD6A', 'name': 'Report delay to Bank', 'incoming': ['successful?'], 'outgoing': ['Level 2 Scoring']}
+{'id': 'sid-F9D1AEC6-E047-417B-AC74-629109DB9124', 'name': 'Level 2 Scoring', 'incoming': ['successful?'], 'outgoing': ['Schufa process\ncompleted']}
+
+Gateways:
+{'id': 'sid-4C45FCC5-817D-4E64-9E4C-7BA668D7AA17', 'name': 'successful?', 'incoming': ['StartEvent1'], 'outgoing': ['Schufa process\ncompleted', 'Schufa process\ncompleted']}
+{'id': 'sid-4A72811C-A433-4E2D-A34A-69ED5057E213', 'name': 'EventBasedGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['gradation\ncompleted', 'EndEvent2']}
+{'id': 'sid-2F6D4083-9C90-4618-94A3-144BC118B507', 'name': 'Wait for Schufa result', 'incoming': ['Delay message'], 'outgoing': ['gradation\ncompleted']}
+{'id': 'sid-33C9E089-B6E4-4FA7-A634-3E00AD8E71DD', 'name': 'Delay message', 'incoming': ['Scoring request'], 'outgoing': ['Schufa result\nat the front end\nforward', 'EndEvent2']}
+{'id': 'sid-E7BD4557-ED19-49ED-9ABC-BB531CC75653', 'name': 'Schufa result\nLevel 1', 'incoming': ['StartEvent0'], 'outgoing': ['gradation\ncompleted']}
+
+Start Events:
+{'id': 'sid-EDB1E76A-FE94-46C9-88F9-7066281C17D7', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Transfer Schufa result to Frontend']}
+{'id': 'sid-ADC4B799-AB6E-452E-9291-2C35592F0CB8', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Create scoring result']}
+
+End Events:
+{'id': 'sid-52491549-D32E-45AD-B37D-13396BE22ED1', 'name': 'gradation\ncompleted', 'incoming': ['Wait for Schufa result'], 'outgoing': []}
+{'id': 'sid-C7D9208B-AB20-43C6-9AB8-F5E9BEBB3F6D', 'name': 'gradation\ncompleted', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-82DF7D1D-DA52-49AC-8E0E-C038EB0025E9', 'name': 'EndEvent2', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-CC4CC581-CE8D-491B-A70C-78E3888BED14', 'name': 'Schufa process\ncompleted', 'incoming': ['successful?'], 'outgoing': []}
+{'id': 'sid-1E3A4A17-C706-4844-AD2C-FB5D49A18B10', 'name': 'Schufa process\ncompleted', 'incoming': ['successful?'], 'outgoing': []}

@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-8B00B357-8211-43A0-AAD8-A4AE2CCC1BD9', 'name': 'Scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring result level 1 received']}
+{'id': 'sid-E71BC594-2A40-4878-BFB2-E8B8AE673CAE', 'name': 'forward results to FE', 'incoming': ['Scoring result level 1 received'], 'outgoing': ['Scoring request']}
+{'id': 'sid-7F76071D-81B0-4D5F-BA2C-B492909758C1', 'name': 'forward delay to FE', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring result level 2 received']}
+{'id': 'sid-68430245-6EF8-44BA-B312-E45C22063E6C', 'name': 'forward scoring level 2', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring request']}
+{'id': 'sid-5C2BDEF9-4AC5-47E0-90C7-5A6577F01ECD', 'name': 'Scorling Level 1', 'incoming': ['Scoring request'], 'outgoing': ['Result?']}
+{'id': 'sid-C9113F34-D2E8-4026-95B7-C4443CEA8927', 'name': 'Follow-up', 'incoming': ['Scoring request'], 'outgoing': ['Scoring request']}
+{'id': 'sid-6766FA05-457B-48CD-95C5-2CFAD2361533', 'name': 'Report delay', 'incoming': ['Result?'], 'outgoing': ['Level 2 Scoring']}
+{'id': 'sid-8E4FB5DB-D363-4499-801F-E999C87168EC', 'name': 'Level 2 Scoring', 'incoming': ['Result?'], 'outgoing': ['Scoring Level 2']}
+{'id': 'sid-C93EEC75-C5BB-4768-9B5D-28C3B1BA8077', 'name': 'Scoring Level 2', 'incoming': ['Result?'], 'outgoing': ['Scoring request']}
+
+Gateways:
+{'id': 'sid-4726F1CA-6829-430D-A99B-ABC2A13B646A', 'name': 'Result?', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Scoring request', 'Scoring request']}
+{'id': 'sid-5E8747F1-2C69-4891-871F-CDFB45658134', 'name': 'EventBasedGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['Delay message received', 'Scoring request']}
+{'id': 'sid-F4C2BE23-95F3-4CF2-9A8D-5FA827ED06D9', 'name': 'Scoring result level 1 received', 'incoming': ['Scoring result level 1 received'], 'outgoing': ['Scoring result level 1 received']}
+{'id': 'sid-5A292A22-0614-4601-901B-8D3D974CDE92', 'name': 'Delay message received', 'incoming': ['StartEvent0'], 'outgoing': ['forward delay to FE']}
+{'id': 'sid-4AFA5219-380D-4C1D-9F32-8112D5DBB6CC', 'name': 'Scoring result level 2 received', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring request']}
+
+Start Events:
+{'id': 'sid-36B0493D-A9BB-4FF9-9033-CB604F27469D', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['forward scoring level 2']}
+{'id': 'sid-18D291D6-A109-4728-9584-06144C99BE2F', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Follow-up']}
+
+End Events:
+{'id': 'sid-24380B4B-1CB4-446E-8098-88B89239A216', 'name': 'Scoring request', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-76667121-C022-4E7F-8A3D-9578D314FDB9', 'name': 'Scoring request', 'incoming': ['Scoring result level 2 received'], 'outgoing': []}
+{'id': 'sid-2C973073-DC33-4069-B1CF-79BCB50BDF84', 'name': 'Scoring request', 'incoming': ['Result?'], 'outgoing': []}
+{'id': 'sid-9D88569E-AC81-41D7-B187-151474B69C77', 'name': 'Scoring request', 'incoming': ['EventBasedGateway1'], 'outgoing': []}

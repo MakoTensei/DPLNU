@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-09181A84-B99D-4E10-9B52-4FC7BF8C3F9A', 'name': 'Hit Schufa Scoring at Schufa', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-C59EA0B7-2113-4D82-ACED-277673720705', 'name': 'Wait for Schufa message', 'incoming': ['StartEvent0'], 'outgoing': ['Schufascore\nReport']}
+{'id': 'sid-1B0D08B4-84C5-43D7-B35A-F4F4560CF6DF', 'name': 'Report delay in sales', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-6E102390-C7AA-493A-9F98-CAB0BCB77265', 'name': 'Report Score to Sales', 'incoming': ['Delay\nReported?'], 'outgoing': ['Happy End']}
+{'id': 'sid-02DBEFE9-8603-470E-965B-34B3A10B60AB', 'name': 'perform scoring step 1', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-AE9DD2E7-9F29-411C-AC4F-E664952BC519', 'name': 'Report delay to Bank', 'incoming': ['StartEvent1'], 'outgoing': ['perform scoring calls 2']}
+{'id': 'sid-4A5EEF01-B62C-4109-9F27-DC7F5B3DDF38', 'name': 'Report Schufa Score to Bank', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['Unhappy end']}
+{'id': 'sid-1456CFDF-B972-4B94-8A15-CF1B340D1234', 'name': 'perform scoring calls 2', 'incoming': ['Results available?'], 'outgoing': ['Unhappy end']}
+
+Gateways:
+{'id': 'sid-06C32744-E8C8-4848-9B53-3C68F3AE9475', 'name': 'Delay\nReported?', 'incoming': ['Schufascore\nReport'], 'outgoing': ['Report delay in sales', 'Happy End']}
+{'id': 'sid-3F4C5BA8-B67F-427D-8025-4DBFC350202A', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent0', 'Schufascore\nReport'], 'outgoing': ['Wait for Schufa message']}
+{'id': 'sid-F3169EA8-A88F-42BB-90F9-7D1AFAD1D3D4', 'name': 'Results available?', 'incoming': ['StartEvent1'], 'outgoing': ['Unhappy end', 'ExclusiveGateway3']}
+{'id': 'sid-4F8341B7-A28D-41D5-9E32-184302F01AFE', 'name': 'ExclusiveGateway3', 'incoming': ['perform scoring calls 2', 'perform scoring step 1'], 'outgoing': ['Unhappy end']}
+{'id': 'sid-B48B97FC-B2C2-41DB-A51E-8A552E5023E7', 'name': 'Schufascore\nReport', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-3E779757-FFA1-4AA2-8895-86FC7E72DE17', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Report delay in sales']}
+{'id': 'sid-7EB1C9D3-4602-47B2-985D-44D0F566643D', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Report delay to Bank']}
+
+End Events:
+{'id': 'sid-497A6CAD-E16B-4977-847A-EDA316475500', 'name': 'Happy End', 'incoming': ['Delay\nReported?'], 'outgoing': []}
+{'id': 'sid-A1892578-48AF-4039-AFA7-3CEF60EE59F2', 'name': 'Unhappy end', 'incoming': ['Results available?'], 'outgoing': []}

@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-C9983616-5814-428C-BE0D-E4737593B74B', 'name': 'Scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring available']}
+{'id': 'sid-6F53BF7F-EED6-49FC-9787-6DEAF9925F10', 'name': 'Share scoring', 'incoming': ['Scoring available'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-41CDCC93-1260-4227-B077-51DE52CAEC7B', 'name': 'Share delay', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-F837A0E0-E4C8-470D-8AEC-C11C6C2AA252', 'name': 'Share scoring', 'incoming': ['Delay reported'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-78DE1C58-B029-4AC9-937E-DED57FD385A4', 'name': 'Scoring Level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Score available?']}
+{'id': 'sid-A78D1783-9F4F-43E5-BE4D-436F8CDC3BB2', 'name': 'Share scoring', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-897A4A07-89E6-4235-A1AE-ABADEA0851AA', 'name': 'Report delay', 'incoming': ['Score available?'], 'outgoing': ['Scoring Level 2']}
+{'id': 'sid-7B6A2A42-2AFD-4DCC-B930-EE99D0D5E1A3', 'name': 'Scoring Level 2', 'incoming': ['Score available?'], 'outgoing': ['Share scoring']}
+{'id': 'sid-33A96023-4B2A-49E1-8E7F-EC1DF719A5A6', 'name': 'Share scoring', 'incoming': ['Score available?'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-C167BD3D-E660-429D-8E72-ED44B79198B5', 'name': 'Score available?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2', 'EndEvent3']}
+{'id': 'sid-7D518640-AF6F-4D5C-9061-8D8E05F6475C', 'name': 'EventBasedGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-84C9FCE2-D32F-432A-99AE-063BCFC53EBB', 'name': 'IntermediateCatchEvent2', 'incoming': ['EventBasedGateway1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-38E3371E-16A3-4207-AB74-D8188D40C9B9', 'name': 'Scoring available', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-36E85F74-F9FB-436E-8803-F089BA9C026B', 'name': 'Delay reported', 'incoming': ['StartEvent0'], 'outgoing': ['Share scoring']}
+
+Start Events:
+{'id': 'sid-3BFB42D0-F03D-4E0A-8F0D-0FB44103D831', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Share delay']}
+{'id': 'sid-02FC35ED-7C6D-4272-BB7D-056179DD6359', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Share scoring']}
+
+End Events:
+{'id': 'sid-2D6F5AD4-1383-4FE5-8E48-C2C309437D10', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-84980FA1-A286-4BD5-8363-C74B3EC47A86', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-DCF40BDB-E1A3-47F9-B0A7-C27EB52BEA14', 'name': 'EndEvent2', 'incoming': ['Score available?'], 'outgoing': []}
+{'id': 'sid-7200F0CA-6F53-45DC-965F-F83315FCF2C0', 'name': 'EndEvent3', 'incoming': ['Score available?'], 'outgoing': []}

@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-D0ECF8FB-9D18-4A2B-95F4-BA4D5B6E5125', 'name': 'Check regression case', 'incoming': ['Regression\nReport'], 'outgoing': ['possibility\navailable']}
+{'id': 'sid-7956C043-228F-4C24-A065-41DEE8BCC294', 'name': 'Close', 'incoming': ['Regression\nReport'], 'outgoing': ['sid-171642DE-96EA-4619-9379-40899B5F92DE']}
+{'id': 'sid-5625A022-3111-40AA-99DA-ED83C0C70450', 'name': 'Set process\nReimbursement', 'incoming': ['VN payment request'], 'outgoing': ['Money received']}
+{'id': 'sid-FE64AD6E-2735-406B-B6E1-EC8EB1075DDF', 'name': 'Booking', 'incoming': ['Money received'], 'outgoing': ['sid-E6161B31-6E74-45D5-90D1-D98C299A8E56']}
+{'id': 'sid-11E8681B-8712-467E-807C-61347FDAE98C', 'name': 'Disclosure of debt collection', 'incoming': ['Reimbursement period\nExpired', 'Suspended'], 'outgoing': []}
+{'id': 'sid-2FEF979C-83B6-4CCF-B636-89F4F7972542', 'name': 'Reasons\nCheck', 'incoming': ['Reasons'], 'outgoing': ['Suspended']}
+{'id': 'sid-BBF89AD4-A144-49EC-B732-69792DB961AA', 'name': 'VN payment request', 'incoming': ['possibility\navailable'], 'outgoing': ['Reasons']}
+
+Gateways:
+{'id': 'sid-4C30CAE5-D2B1-4CD8-86F7-0FEF75873FCF', 'name': 'possibility\navailable', 'incoming': ['Regression\nReport'], 'outgoing': ['Close', 'VN payment request']}
+{'id': 'sid-284EAF75-4732-4F36-8BCD-E7C2387624E2', 'name': 'Suspended', 'incoming': ['EventBasedGateway2'], 'outgoing': ['sid-76D07D52-D8F7-41F9-9F1D-D94EE4A5FF6E', 'Disclosure of debt collection']}
+{'id': 'sid-9F7FBFF8-0743-42E8-A7DE-C51352653ECA', 'name': 'EventBasedGateway2', 'incoming': ['VN payment request'], 'outgoing': ['Money received', 'Suspended', 'Reimbursement period\nExpired']}
+{'id': 'sid-A9255BD2-8ED7-48A9-A9EB-62C2ACF104A0', 'name': 'Money received', 'incoming': ['Set process\nReimbursement'], 'outgoing': ['Booking']}
+{'id': 'sid-812A37A6-D898-425A-B41B-CBA4A8A86C44', 'name': 'Reasons', 'incoming': ['VN payment request'], 'outgoing': ['Suspended']}
+{'id': 'sid-C5160E79-388F-4DF0-8487-0CE69E30D34D', 'name': 'Reimbursement period\nExpired', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Disclosure of debt collection']}
+
+Start Events:
+{'id': 'sid-EC5B23BB-1BB4-4BC0-93B7-5A41CA26EA9D', 'name': 'Regression\nReport', 'incoming': [], 'outgoing': ['Close']}
+
+End Events:

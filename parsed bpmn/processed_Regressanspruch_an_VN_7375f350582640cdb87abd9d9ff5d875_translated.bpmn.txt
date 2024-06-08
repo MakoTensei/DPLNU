@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-04DA4E49-0A2B-4A7E-A8DD-66D540300E7E', 'name': 'Check the case', 'incoming': ['Insurance\ncan be found in Regress\nwe have taken'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-FF2820A4-2769-4B44-BF75-5A3DEE080644', 'name': 'Send payment request to VN', 'incoming': ['ParallelGateway5'], 'outgoing': ['Yellow ink']}
+{'id': 'sid-F1895302-4592-464B-8558-79ABACD2081D', 'name': 'Set process for re-submission\n', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-546DD3E9-7CD8-4F36-BA18-62D1AED7FB73', 'name': 'Book money receipt', 'incoming': ['Yellow ink'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-1DD40984-7F0B-40FC-BFCF-5B48020FBAF4', 'name': 'Proceedings', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-F1A42E69-D912-4A9B-A21E-B3375DE9C1EB', 'name': 'Close', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-ADEB5370-3434-4F2C-9BEB-26BB652B4235', 'name': 'Debt collection\norder', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-06640A83-0882-4501-8BE2-7D38A749C461', 'name': 'justified?', 'incoming': ['Insurance\ncan be found in Regress\nwe have taken'], 'outgoing': ['ParallelGateway6', 'ExclusiveGateway2']}
+{'id': 'sid-F20E7E10-3DAC-4C8F-8598-0D0F3895FDAB', 'name': 'justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-C059B389-16DA-4E0E-B1C9-EC76408BD849', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Check the case', 'Insurance\ncan be found in Regress\nwe have taken'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F5576A02-56D5-44FC-BF70-73EAE7150530', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-737CE5CB-BD79-44A1-8EE8-E0C87DB2D136', 'name': 'EventBasedGateway4', 'incoming': ['ParallelGateway5'], 'outgoing': ['Close', 'ParallelGateway6', 'Debt collection\norder']}
+{'id': 'sid-257B9061-AADB-4B84-B7BA-BFE6B11EB250', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway6', 'ParallelGateway6']}
+{'id': 'sid-E4F7B9D5-761C-4D39-B8AB-BB601B31481F', 'name': 'ParallelGateway6', 'incoming': ['EventBasedGateway4', 'ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-0ED451B6-26F4-46B4-8DD6-0AC5B918B40C', 'name': 'Yellow ink', 'incoming': ['Send payment request to VN'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-27501CB7-C516-4454-81E5-2FC258620521', 'name': 'Opposition', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-7652F7A1-4403-4559-B3C5-1D5920C6DBB2', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-9B7201DB-FA92-41B8-8841-B77428E6BBB2', 'name': 'Insurance\ncan be found in Regress\nwe have taken', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-3C2B4D7B-F126-4192-BFBC-DCB17D97D0C2', 'name': 'EndEvent0', 'incoming': ['Opposition'], 'outgoing': []}
+{'id': 'sid-FB73D56B-EF60-400F-9996-7172D6684EF2', 'name': 'EndEvent1', 'incoming': ['Reimbursement period expired'], 'outgoing': []}

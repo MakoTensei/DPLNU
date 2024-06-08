@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-19F36078-2170-4CAB-AC01-17F24AD7532B', 'name': 'First scoring (level 1)', 'incoming': ['Schufascoring request arrived'], 'outgoing': ['Could be determined a Level 1 scoring result']}
+{'id': 'sid-5BCC8008-F705-4D61-A2F3-4F2E7DD0D334', 'name': 'Level 1 scoring\nsend result to the bank', 'incoming': ['Schufascoring request arrived'], 'outgoing': ['Schufa request with Level 1 result answered']}
+{'id': 'sid-80BEF1C0-4663-488F-9E5E-1B658B368926', 'name': 'Report delay to the bank', 'incoming': ['Could be determined a Level 1 scoring result'], 'outgoing': ['Level 2 Scoring']}
+{'id': 'sid-7FB2C945-E0A5-4A78-B150-9BE118C28810', 'name': 'Level 2 Scoring', 'incoming': ['Could be determined a Level 1 scoring result'], 'outgoing': ['Level 2 Scoring to the Bank']}
+{'id': 'sid-2DE579FD-1533-4300-A80C-4BF16E271435', 'name': 'Level 2 Scoring to the Bank', 'incoming': ['Could be determined a Level 1 scoring result'], 'outgoing': ['Schufa request with Level 2 Scoring answered']}
+{'id': 'sid-6556CD46-2C86-4E4A-8F7E-1F87EFD7BF31', 'name': 'Report Scoring to Credit Transfer Frontend', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Schufa request processed']}
+{'id': 'sid-6693A572-15A0-4257-BE92-50DE026A4DE5', 'name': 'Give notice of delay', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Wait for Level 2 Scoring result from Schufaservice']}
+{'id': 'sid-C2CB21A9-62D0-4CD5-96FB-81410E61C097', 'name': 'Report Scoring to Credit Transfer Frontend', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Schufa request with delay\nfinished']}
+{'id': 'sid-20456FB0-220C-4328-ACB4-9DF9670E4873', 'name': 'forward scoring request to Schufaservice', 'incoming': ['Pick up Schufascoring'], 'outgoing': ['Schufa request with delay\nfinished']}
+
+Gateways:
+{'id': 'sid-BDF7DBE9-8497-4C8D-9D7F-2343C05A81A2', 'name': 'Could be determined a Level 1 scoring result', 'incoming': ['Schufascoring request arrived'], 'outgoing': ['Schufa request with Level 1 result answered', 'Schufa request with Level 2 Scoring answered']}
+{'id': 'sid-18A4B755-23E9-4BE0-86A6-4A6A9085C006', 'name': 'EventBasedGateway1', 'incoming': ['Pick up Schufascoring'], 'outgoing': ['Schufa request processed', 'Wait for Level 2 Scoring result from Schufaservice']}
+{'id': 'sid-0807E33F-1BBF-4669-89B5-2D9D15495C12', 'name': 'Wait for Level 2 Scoring result from Schufaservice', 'incoming': ['forward scoring request to Schufaservice'], 'outgoing': ['Schufa request with delay\nfinished']}
+{'id': 'sid-FFFBC408-7941-4E25-AC36-F4895FDF89AB', 'name': 'IntermediateCatchEvent3', 'incoming': ['Pick up Schufascoring'], 'outgoing': ['Report Scoring to Credit Transfer Frontend']}
+{'id': 'sid-63C67FCA-BA4B-4E50-9FDC-F84EB1C3E1AB', 'name': 'IntermediateCatchEvent4', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Schufa request processed']}
+
+Start Events:
+{'id': 'sid-ED8A6D20-685B-49FD-A8DF-85409F2686BA', 'name': 'Schufascoring request arrived', 'incoming': [], 'outgoing': ['Level 1 scoring\nsend result to the bank']}
+{'id': 'sid-53C80902-98CC-47B5-ABB0-44673C78D9BD', 'name': 'Pick up Schufascoring', 'incoming': [], 'outgoing': ['IntermediateCatchEvent3']}
+
+End Events:
+{'id': 'sid-20DF8CF6-E276-45A9-8EDC-AB95D944CC8F', 'name': 'Schufa request with Level 1 result answered', 'incoming': ['Could be determined a Level 1 scoring result'], 'outgoing': []}
+{'id': 'sid-F4DAE0A4-BF45-400E-A278-CB31969A9E0F', 'name': 'Schufa request with Level 2 Scoring answered', 'incoming': ['Could be determined a Level 1 scoring result'], 'outgoing': []}
+{'id': 'sid-0E86FCCE-0A1E-4C23-98E5-0B2BA74165AD', 'name': 'Schufa request processed', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-F891F81F-2B3A-4DD1-8275-B17388AEE4EF', 'name': 'Schufa request with delay\nfinished', 'incoming': ['forward scoring request to Schufaservice'], 'outgoing': []}

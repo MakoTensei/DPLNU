@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-0E0CFE55-8331-4B09-A6D0-D3A29F2537A2', 'name': 'Scoring request\nby Schufa', 'incoming': ['Schufascoring\nthe\nDebt'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-2555C356-EAC1-4127-B38E-1E0DE9C06D68', 'name': 'forward scoring result to Frontend', 'incoming': ['Delayed\nResult\narrived'], 'outgoing': ['Scoring determined']}
+{'id': 'sid-6FC5B9C0-CA48-4CC7-A203-BB2EA4EB6587', 'name': 'Report delay', 'incoming': ['Schufascoring\nthe\nDebt'], 'outgoing': ['Delayed\nResult\narrived']}
+{'id': 'sid-809EC842-F37C-4DAB-91D2-5107ACA12EB4', 'name': 'perform first scoring (level 1)', 'incoming': ['scoring request\narrived'], 'outgoing': ['Results']}
+{'id': 'sid-53FA219E-7FC1-4899-96FA-AD4F1FA6E91F', 'name': 'Second scoring (level 2)', 'incoming': ['sid-D802ED20-BF96-4DF3-B811-677B590DFCF1'], 'outgoing': ['Send a reply']}
+{'id': 'sid-1ADEA71E-087B-4045-88CF-F68580C279CB', 'name': 'Send a reply', 'incoming': ['Second scoring (level 2)'], 'outgoing': ['Scoring request\nFinished']}
+{'id': 'sid-5A453477-1744-40B0-B39B-0945489BA9DD', 'name': 'Send a reply', 'incoming': ['Scoring?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-A35985A2-3CF2-40A4-9BBB-83FDE5B72C0C', 'name': 'Results', 'incoming': ['scoring request\narrived'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-CC12496D-E86B-4835-AE4F-5D24F1702BD4', 'name': 'Delay?', 'incoming': ['Schufascoring\nthe\nDebt'], 'outgoing': ['Report delay', 'Scoring determined']}
+{'id': 'sid-346CA9AC-0CB1-42A2-BA48-89B5DAC9277B', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring request\nby Schufa', 'Schufascoring\nthe\nDebt'], 'outgoing': ['Scoring determined']}
+{'id': 'sid-C0D3C60F-9D22-4E59-8508-5E1AFEB0E074', 'name': 'Scoring?', 'incoming': ['scoring request\narrived'], 'outgoing': ['ExclusiveGateway3', 'sid-3F0BAE70-8C0D-497E-ACE1-6DFC7FBE9A12']}
+{'id': 'sid-0DF0B6E6-DEC7-4214-9AF2-DBC0CE9C0C1D', 'name': 'ExclusiveGateway3', 'incoming': ['Results', 'Send a reply'], 'outgoing': ['Scoring request\nFinished']}
+{'id': 'sid-79DD9A3C-64D9-4FD7-9716-68ABB6367BE5', 'name': 'Delayed\nResult\narrived', 'incoming': ['Schufascoring\nthe\nDebt'], 'outgoing': ['forward scoring result to Frontend']}
+
+Start Events:
+{'id': 'sid-F87CFFFC-C221-4927-9EBB-01DED370965E', 'name': 'Schufascoring\nthe\nDebt', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-562ECE47-1FFD-471C-A5A2-6E3E3EB5EFE4', 'name': 'scoring request\narrived', 'incoming': [], 'outgoing': ['Scoring?']}
+
+End Events:
+{'id': 'sid-1B8B52BD-722D-4FF4-8B22-88805AE5727A', 'name': 'Scoring determined', 'incoming': ['Delay?'], 'outgoing': []}
+{'id': 'sid-4D8FFC22-D204-41C8-9AD0-943F29D10083', 'name': 'Scoring request\nFinished', 'incoming': ['Send a reply'], 'outgoing': []}

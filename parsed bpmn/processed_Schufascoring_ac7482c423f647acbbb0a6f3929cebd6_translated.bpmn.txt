@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-F8EC7FBD-8783-4A7A-A025-BE75D7714092', 'name': 'Request to Schufa', 'incoming': ['Pick up Schufascoring'], 'outgoing': ['Scoring Level 1 reported']}
+{'id': 'sid-351C3D4D-2D2A-4DF0-B9A2-76DB29D7368E', 'name': 'Scoring to the front end', 'incoming': ['Scoring Level 1 reported'], 'outgoing': ['Scoring ends']}
+{'id': 'sid-805D4037-7DCA-44F3-B343-692228442592', 'name': 'Report delay to the frontend', 'incoming': ['Pick up Schufascoring'], 'outgoing': ['Scoring Level 2 reported']}
+{'id': 'sid-45CE1C00-02CC-4B95-94EB-3BB9DD7FD0C2', 'name': 'Continue to the Frontend', 'incoming': ['Pick up Schufascoring'], 'outgoing': ['Scoring ends']}
+{'id': 'sid-87047536-F5D7-40EA-A3F3-70CDFF0DCF67', 'name': 'Scroing Level 1\nDebt', 'incoming': ['Schufa request'], 'outgoing': ['Identification level 1 possible?\n']}
+{'id': 'sid-39B44FBF-83C9-4C0A-B804-792AB4B9534B', 'name': 'Transfer scoring level 1', 'incoming': ['Schufa request'], 'outgoing': ['Scoring ends']}
+{'id': 'sid-F5D1FFBA-0FE3-4A11-B9EA-43E70229D89F', 'name': 'Report delay', 'incoming': ['Identification level 1 possible?\n'], 'outgoing': ['Scoring Level 2']}
+{'id': 'sid-C5571714-A5BA-4B56-8B40-B5B470ECA1B9', 'name': 'Scoring Level 2', 'incoming': ['Identification level 1 possible?\n'], 'outgoing': ['Report scoring level 2']}
+{'id': 'sid-642810CC-4020-4F41-B875-2E03A2DB9C55', 'name': 'Report scoring level 2', 'incoming': ['Identification level 1 possible?\n'], 'outgoing': ['Scoring Level 2 finished']}
+
+Gateways:
+{'id': 'sid-4A6B91B0-20A3-40C7-9635-2B84038C476A', 'name': 'Identification level 1 possible?\n', 'incoming': ['Schufa request'], 'outgoing': ['Scoring Level 2 finished', 'Scoring ends']}
+{'id': 'sid-BF15BD03-0EA6-4111-89D4-235C507B69E8', 'name': 'EventBasedGateway1', 'incoming': ['Pick up Schufascoring'], 'outgoing': ['Scoring ends', 'Delay reported']}
+{'id': 'sid-9FD3566C-66FD-4156-92CA-4D64CAC21F96', 'name': 'Scoring Level 1 reported', 'incoming': ['Request to Schufa'], 'outgoing': ['Scoring ends']}
+{'id': 'sid-85809CD8-365E-415B-A8A2-419DA5EA6F8B', 'name': 'Delay reported', 'incoming': ['Pick up Schufascoring'], 'outgoing': ['Report delay to the frontend']}
+{'id': 'sid-3B042D3F-109C-4EFA-9DAB-DD57F819C014', 'name': 'Scoring Level 2 reported', 'incoming': ['Pick up Schufascoring'], 'outgoing': ['Scoring ends']}
+
+Start Events:
+{'id': 'sid-60800D68-D9FE-4A33-A56A-1556155BCCC4', 'name': 'Pick up Schufascoring', 'incoming': [], 'outgoing': ['Continue to the Frontend']}
+{'id': 'sid-2C638088-E939-4343-9CE6-15DC6DA3257C', 'name': 'Schufa request', 'incoming': [], 'outgoing': ['Transfer scoring level 1']}
+
+End Events:
+{'id': 'sid-E73B121C-D6D5-4B5C-B8AA-15B464259A91', 'name': 'Scoring ends', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-760A93A5-F8AC-44D3-AF1E-1A8CF1AD5C61', 'name': 'Scoring ends', 'incoming': ['Scoring Level 2 reported'], 'outgoing': []}
+{'id': 'sid-4A0DA0BA-2632-4F8C-B4BF-80752C170798', 'name': 'Scoring ends', 'incoming': ['Identification level 1 possible?\n'], 'outgoing': []}
+{'id': 'sid-81B0BB53-CF49-48FB-9FA0-394F5FE3AB00', 'name': 'Scoring Level 2 finished', 'incoming': ['Identification level 1 possible?\n'], 'outgoing': []}

@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-B5807589-1E0B-4C95-A432-DF63F1F13F7C', 'name': 'Ask question', 'incoming': ['Request vpm\nFrontend'], 'outgoing': ['Scoring result received']}
+{'id': 'sid-F64736DB-B078-47DE-8922-90B436634266', 'name': 'Reporting of results', 'incoming': ['Scoring result received'], 'outgoing': ['Scoring request\nFinished']}
+{'id': 'sid-D3C5E940-F616-41D2-87D6-7FD7D7621A1E', 'name': 'Delay notification', 'incoming': ['Delay message\nReport'], 'outgoing': ['Scoring result received']}
+{'id': 'sid-68E565F5-7DE3-4F31-B836-9629ACCF454D', 'name': 'Reporting of results', 'incoming': ['Scoring result received'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-D48AEBD2-8286-4BD9-A56F-20E647713073', 'name': 'Level 1 scoring', 'incoming': ['Request from the bank\nReport'], 'outgoing': ['carried out']}
+{'id': 'sid-E1C09B4D-A117-4098-9EA9-67432AD1BD04', 'name': 'Delay message to bank', 'incoming': ['Request from the bank\nReport'], 'outgoing': ['Conduct Level 2 scoring']}
+{'id': 'sid-58F0463E-1DF3-4E54-88E7-485974A769CB', 'name': 'Conduct Level 2 scoring', 'incoming': ['carried out'], 'outgoing': ['Registration for bank']}
+{'id': 'sid-767F1887-0FF5-4930-BB1E-27C05EC2F1E2', 'name': 'Result message to Bank', 'incoming': ['carried out'], 'outgoing': ['Scoring request edited']}
+{'id': 'sid-4E3B7253-4F5D-462B-AA62-825784BB6AC0', 'name': 'Registration for bank', 'incoming': ['carried out'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-EF94DC83-618D-4005-B8E5-1DB8FC24C378', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'Request vpm\nFrontend'], 'outgoing': ['Scoring request\nFinished']}
+{'id': 'sid-064085F4-7ADF-4C23-8171-3252711A8156', 'name': 'carried out', 'incoming': ['Request from the bank\nReport'], 'outgoing': ['Registration for bank', 'Scoring request edited']}
+{'id': 'sid-D889E907-1F33-41DF-B9E5-82B9909DF8BD', 'name': 'ExclusiveGateway2', 'incoming': ['Registration for bank', 'Result message to Bank'], 'outgoing': ['Scoring request edited']}
+{'id': 'sid-3D00717E-3DC1-46B6-AFEC-1BA86F223D39', 'name': 'EventBasedGateway3', 'incoming': ['Request vpm\nFrontend'], 'outgoing': ['ExclusiveGateway0', 'Scoring result received']}
+{'id': 'sid-3BB54667-B272-483C-926D-C8C180633BF6', 'name': 'Request vpm\nFrontend', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-3A344D70-EC9E-4868-B0DC-F09C861D9283', 'name': 'Delay message\nReport', 'incoming': ['Request vpm\nFrontend'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-D4EC4082-6F09-4821-8290-09B30456DC23', 'name': 'Scoring result received', 'incoming': ['Ask question'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-342E5856-0967-44AE-B4C8-E8A9E0A0E840', 'name': 'Scoring result received', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-0C911A3B-77DA-4D9B-B9A1-22923644252F', 'name': 'Request from the bank\nReport', 'incoming': [], 'outgoing': ['Delay message to bank']}
+
+Start Events:
+
+End Events:
+{'id': 'sid-7BCC502B-B8CF-498A-9C2D-73DBC143DE04', 'name': 'Scoring request\nFinished', 'incoming': ['Reporting of results'], 'outgoing': []}
+{'id': 'sid-9C9DBAE6-61F2-496F-8DE8-7E9C52F8ACF5', 'name': 'Scoring request edited', 'incoming': ['carried out'], 'outgoing': []}

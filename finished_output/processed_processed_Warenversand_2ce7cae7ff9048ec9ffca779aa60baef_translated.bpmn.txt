@@ -1,0 +1,14 @@
+ Starting with the 'Order\nShipment' event, the process unfolds as follows:
+
+1. The 'Order\nShipment' event triggers the 'Filling the package note' task, which is routed through 'ParallelGateway4' and connects to 'ExclusiveGateway0'.
+2. Upon reaching 'ExclusiveGateway0', the task branches out to two paths:
+   a. One path leads to the 'Offer request Sped2' task, which is routed through 'ParallelGateway6' and connects to 'ExclusiveGateway1'.
+   b. The other path leads to the 'Specialist' task, which is also routed through 'ParallelGateway6' and connects to 'ExclusiveGateway2'.
+3. The 'Offer request Sped2' task, after passing through 'ParallelGateway6', connects to 'ParallelGateway5' and then to 'ExclusiveGateway2'.
+4. The 'Specialist' task, after passing through 'ParallelGateway6', connects to 'ExclusiveGateway2'.
+5. Meanwhile, the 'clarification is required insurance' task, triggered by the 'Order\nShipment' event, is routed through 'ExclusiveGateway0' and connects to 'ParallelGateway7'.
+6. The 'Complete insurance' task, triggered by the 'clarification is required insurance' task, is routed through 'InclusiveGateway3' and connects to 'ExclusiveGateway2'.
+7. The 'Packaging goods' task, triggered by the 'Order\nShipment' event, is routed through 'ParallelGateway4' and connects to 'ParallelGateway8'.
+8. The 'Delivering goods' task, triggered by the 'Packaging goods' task, is routed through 'ParallelGateway8' and connects to the final event, 'Goods delivered'.
+
+In summary, the 'Order\nShipment' event initiates a series of tasks and gateways, ultimately leading to the 'Goods delivered' event. The tasks and

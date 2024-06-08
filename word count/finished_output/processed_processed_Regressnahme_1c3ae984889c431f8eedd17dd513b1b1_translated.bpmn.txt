@@ -1,0 +1,15 @@
+ In the system, a 'Regression claim to check' event initiates a series of processes and interactions between various tasks and gateways. The event triggers the 'Regression claim to check' task, which has an incoming link from 'Regression claim to check' event and an outgoing link to 'ExclusiveGateway3'.
+
+The 'ExclusiveGateway3' then connects to the 'Process transferred to debt collection office' task, which has an incoming link from 'EventBasedGateway4' and an outgoing link to 'Process'. This task is responsible for transferring the claim to the debt collection office.
+
+Meanwhile, 'ExclusiveGateway2' is connected to the 'Book money receipt' task, which has an incoming link from 'Money ingested' and an outgoing link to 'ExclusiveGateway3'. This task is responsible for booking the money receipt.
+
+The 'Opposition justified?' task is connected to 'ExclusiveGateway3' and 'EventBasedGateway4', and it handles the justification of opposition.
+
+The 'Notification' task is connected to 'ExclusiveGateway3' and handles notifications related to the regression claim.
+
+The 'Money ingested' task is connected to 'ExclusiveGateway3' and handles the ingestion of money.
+
+Lastly, the 'Process' task, which is the end event, has an incoming link from 'Regression claim\navailable?' and an outgoing link to 'ExclusiveGateway3'. This task finalizes the process and is responsible for handling the regression claim availability.
+
+In summary, the 'Regression claim to check' event initiates a series of tasks and gateways, ultimately leading to the 'Process' task, which finalizes the process and handles the regression claim availability.

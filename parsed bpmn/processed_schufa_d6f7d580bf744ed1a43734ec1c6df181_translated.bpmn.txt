@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-AFF15B03-C888-414B-A4A8-9F43ABE73114', 'name': 'Scoring request to the Schufa', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-426E0475-563E-4ECD-806D-76C459E94504', 'name': 'forwarding to lending', 'incoming': ['Delay'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-907BA866-A0CD-463D-9AFA-B3F0E799AD64', 'name': 'forwarding to lending', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-F90E86F3-8794-4488-8C04-3809021170C0', 'name': 'Level 1 scoring', 'incoming': ['StartEvent1'], 'outgoing': ['Feedback to the bank']}
+{'id': 'sid-2A464F88-D05D-4FE9-941B-26548461D124', 'name': 'Feedback to the bank', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-698F8BE1-7085-456E-AD15-F9948EE68DC1', 'name': 'Level 1 scoring', 'incoming': ['StartEvent1'], 'outgoing': []}
+{'id': 'sid-E571F4B8-F461-49F1-9393-1254DBDA5491', 'name': 'Level 2 scoring', 'incoming': ['StartEvent1'], 'outgoing': ['sid-843A7B97-4DA0-4B70-B16C-960377A1E52B']}
+
+Gateways:
+{'id': 'sid-6A210C4A-AD10-4848-AE5A-992FBE06E7AA', 'name': 'Delay', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-E6D6B691-B1B7-4D94-83A9-406849AC2AEC', 'name': 'successful', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2', 'Level 2 scoring']}
+{'id': 'sid-3E71191D-1FA7-4FC6-923A-A6F9A088F65B', 'name': 'IntermediateCatchEvent2', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-1B4F8794-2991-40DC-AA82-4243F3EB547B', 'name': 'IntermediateCatchEvent3', 'incoming': ['Scoring request to the Schufa'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-8465593A-EB26-4279-9481-689892EAE2AC', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Delay']}
+{'id': 'sid-F1D3A1E8-E145-4A24-BD6E-CC846411CA84', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Level 2 scoring', 'Level 1 scoring']}
+
+End Events:
+{'id': 'sid-20BEBBC5-DE2D-4B9E-B8E7-33152FC7783C', 'name': 'EndEvent0', 'incoming': ['Delay'], 'outgoing': []}
+{'id': 'sid-EAB76634-235F-499E-892B-A431FBE939F4', 'name': 'EndEvent1', 'incoming': ['Delay'], 'outgoing': []}
+{'id': 'sid-4F9D2AFF-6F80-42C4-BDA9-2C2E50A25D74', 'name': 'EndEvent2', 'incoming': ['Feedback to the bank'], 'outgoing': []}
+{'id': 'sid-24626EB5-8688-465C-8F5C-04019B484EE3', 'name': 'EndEvent3', 'incoming': ['sid-14FADA77-76F2-44AD-822A-D07252893386'], 'outgoing': []}

@@ -1,0 +1,17 @@
+ In the financial services process, the workflow begins with the receipt of a 'Regression report\nReport'. This triggers the 'Regress possibility check' task, which then sends a request to 'ExclusiveGateway3'. If the regression report indicates a possible default, the 'Debt collection office' task is initiated, which also sends a request to 'ExclusiveGateway1'. Concurrently, the 'Book payment receipt' task is activated, sending a request to 'ExclusiveGateway4'.
+
+If the regression report does not indicate a possible default, the 'Send payment request' task is triggered, which sends a request to 'Incoming payment\nReport'. This report then leads to the 'Process\nFinished' task, which closes the process and sends a signal to 'ExclusiveGateway1'.
+
+In the case of an opposition being justified, the 'Debt collection office' task is activated, which sends a request to 'ExclusiveGateway3' and 'Close the process' task, which sends a signal to 'ExclusiveGateway1'.
+
+The 'Proceedings' task is initiated when a 'Regression report\nReport' is received, sending a request to 'ExclusiveGateway3'.
+
+The 'Default period\nExpired' event triggers the 'Close the process' task, sending a request to 'ExclusiveGateway1'.
+
+The 'Opposition\njustified' event activates the 'Debt collection office' task, which sends a request to 'ExclusiveGateway3' and 'Close the process' task, which sends a signal to 'ExclusiveGateway1'.
+
+The 'VN contradicts' event triggers the 'ExclusiveGateway4' task, which sends a request to 'Process\nFinished'.
+
+The 'Incoming payment\nReport' event initiates the 'Send payment request' task, which sends a request to 'ExclusiveGateway1'.
+
+The process concludes with the 'Process\nFinished' task, which sends a signal to 'ExclusiveGateway1'.

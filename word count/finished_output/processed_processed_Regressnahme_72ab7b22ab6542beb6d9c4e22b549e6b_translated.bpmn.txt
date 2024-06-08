@@ -1,0 +1,11 @@
+ In the process of handling a regression report, the system initiates a sequence of tasks and gateways to ensure proper handling of the report. The sequence begins with the 'Regression report' start event, which triggers the 'Check regression' task, directing the report to 'ParallelGateway5'. This task is connected to the 'Money received?' event, which in turn leads to the 'Book money' task at 'ExclusiveGateway3'.
+
+Simultaneously, the 'Regression report' event also triggers the 'Possibility available?' task at'sid-92ADA4E4-DEED-4C9B-BA98-B930B75FD828', which connects to the 'Money received?' event. This event leads to the 'Book money' task at 'ExclusiveGateway3' and the 'Close' event.
+
+Following the 'Book money' task, the 'ParallelGateway5' task connects to the 'justified?' event at'sid-F16788C1-E782-4C02-9216-C5D5B6EFDCBB', which then leads to the 'Close' event.
+
+Meanwhile, the 'Check regression' task at'sid-47AD5544-0537-48D0-BFFC-2F5E2B2D58EB' connects to the 'ParallelGateway5' task and the 'justified?' event.
+
+The 'Set process for resubmission' task at'sid-0A95DD70-BAD6-479D-8F97-12DF1F0C0076' is triggered by the 'ParallelGateway5' task and connects to the 'ParallelGateway5' task again.
+
+The 'VN receives payment request' task at'sid-3AB265AC-9E87-4A87-8A28-6118B014E9AC' is triggered by the 'ParallelGateway4' task and connects to the 'Parallel

@@ -1,0 +1,34 @@
+Tasks:
+{'id': 'sid-993F4857-9CB4-4F60-A84B-0FDFB7A1CFEE', 'name': 'Choose a dish from offer', 'incoming': ['Visit restaurant'], 'outgoing': ["Guest waits until he's in line"]}
+{'id': 'sid-8C9FC72D-E1AF-48AA-9A23-9F2E1301C726', 'name': 'Add your order', 'incoming': ['Visit restaurant'], 'outgoing': ['Order payment']}
+{'id': 'sid-9185C502-B1A4-43F1-8B78-47DFFE0D1F2D', 'name': 'Order payment', 'incoming': ["Guest waits until he's in line"], 'outgoing': ['meal ready']}
+{'id': 'sid-790FEA65-11A8-4F0D-AC74-CB8287E6BBA7', 'name': 'Milling time to finish', 'incoming': ['meal ready'], 'outgoing': ['Eat meal']}
+{'id': 'sid-B32C2B81-04ED-4026-A300-80F83A2DAA5A', 'name': 'Eat meal', 'incoming': ['meal ready'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E466A7FD-3A0D-45CD-AAC2-7FFA9C309959', 'name': 'Enter order in cash system and call amount', 'incoming': ['Consumption of the order'], 'outgoing': ['Cash from the customer']}
+{'id': 'sid-C8690D5B-4A4D-43BB-A8AD-6D9735267BEA', 'name': 'Cash from the customer', 'incoming': ['Consumption of the order'], 'outgoing': ['Adjust and transfer Pieper']}
+{'id': 'sid-0F040A46-D0A9-40BB-A986-4DB7FAC593AE', 'name': 'Adjust and transfer Pieper', 'incoming': ['Consumption of the order'], 'outgoing': ['inform Koch about ordered meal']}
+{'id': 'sid-55DB57D5-6CA3-42DC-8411-7FF108C8331E', 'name': 'inform Koch about ordered meal', 'incoming': ['Consumption of the order'], 'outgoing': ['meal ready']}
+{'id': 'sid-875E56E6-2C7A-4871-95A4-9BB157FBABED', 'name': 'Trigger Pieper', 'incoming': ['Consumption of the order'], 'outgoing': ['Guest appears']}
+{'id': 'sid-62790CCA-5A54-4571-B6FE-4615E69F4B6B', 'name': 'Hand over meal', 'incoming': ['Consumption of the order'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-2D2991A5-573E-44A2-8E73-3C88D24ED546', 'name': 'Retrieve guest', 'incoming': ['after 5 minutes\nRetrieve guest'], 'outgoing': ['Issue']}
+{'id': 'sid-A1A0A1E6-3791-458A-AB19-264B2918F33C', 'name': 'Preparation of meal', 'incoming': ['Consumption\nOrder from the frame'], 'outgoing': ['Milling time in vain']}
+{'id': 'sid-5458C908-4E21-4180-BBA0-3C1713742B31', 'name': 'Milling time in vain', 'incoming': ['Consumption\nOrder from the frame'], 'outgoing': ['inform employees']}
+{'id': 'sid-5DDF1F1D-27D3-4B43-9921-2FEB0BD8622F', 'name': 'inform employees', 'incoming': ['Consumption\nOrder from the frame'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-9CF580BD-0DD6-40F4-A3C1-28CC77DEAA74', 'name': 'Issue', 'incoming': ['meal ready', 'Issue'], 'outgoing': ['Issue', 'EndEvent1']}
+{'id': 'sid-829BA429-8B9C-437C-8CBA-7B5134E93740', 'name': "Guest waits until he's in line", 'incoming': ['Visit restaurant'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B4649FC9-F62E-42A3-ADE7-8D0F55BCBB8C', 'name': 'meal ready', 'incoming': ["Guest waits until he's in line"], 'outgoing': ['EndEvent0']}
+{'id': 'sid-2209F57E-88B7-4729-9ECC-260626870DC3', 'name': 'meal ready', 'incoming': ['Consumption of the order'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-8D70CB48-9CF1-4B00-AA3A-7D32AF45B0CA', 'name': 'after 5 minutes\nRetrieve guest', 'incoming': ['meal ready'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-88C6230B-57F0-4696-8407-A96BF13F8ED6', 'name': 'Guest appears', 'incoming': ['Consumption of the order'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-A7E833C8-5AE2-4A3C-810C-C201F7B98A05', 'name': 'Visit restaurant', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-1FBA9EE1-8487-4EAA-BE15-3F0C63F2890A', 'name': 'Consumption of the order', 'incoming': [], 'outgoing': ['Hand over meal']}
+{'id': 'sid-4088E5A2-825E-4CFB-B992-756B9111A6C4', 'name': 'Consumption\nOrder from the frame', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-0A5B7C9C-BD9F-43E7-899A-F8C77C8F4857', 'name': 'EndEvent0', 'incoming': ["Guest waits until he's in line"], 'outgoing': []}
+{'id': 'sid-7D74E5D8-A589-4D8F-8BC6-EB3EBAC43A8E', 'name': 'EndEvent1', 'incoming': ['meal ready'], 'outgoing': []}
+{'id': 'sid-790683EA-5E11-47A7-880E-ED6F68D9AFE5', 'name': 'EndEvent2', 'incoming': ['inform employees'], 'outgoing': []}

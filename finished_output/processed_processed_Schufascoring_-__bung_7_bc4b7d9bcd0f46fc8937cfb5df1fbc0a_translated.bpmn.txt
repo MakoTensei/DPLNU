@@ -1,0 +1,9 @@
+ In the scoring process, a request is initiated by the 'Schufascoring request\nReport' event, which triggers the 'Share delay' task to share the report. This task then connects to the 'ExclusiveGateway0' to further process the request.
+
+Once the report is shared, the 'Share delay' task sends the report to the 'ExclusiveGateway0', which in turn connects to the 'EventBasedGateway3'. The 'EventBasedGateway3' then checks if the results are available and sends the request to either 'Schufascoring request\nFinished' or 'perform scoring level 2' tasks, depending on the availability of results.
+
+If the results are available, the 'perform scoring level 2' task is triggered, which connects to the 'ExclusiveGateway2'. The 'ExclusiveGateway2' then sends the request to the 'Schufascoring request\nFinished' task, marking the completion of the scoring process.
+
+On the other hand, if the results are not available, the 'Schufascoring request\nFinished' task is triggered, which connects to the 'ExclusiveGateway2'. The 'ExclusiveGateway2' then sends the request to the 'perform scoring level 2' task, which continues the scoring process at level 2.
+
+In summary, the scoring process involves a series of tasks and gateways that work together to handle the scoring request, share the report, check for results, and complete the scoring process.

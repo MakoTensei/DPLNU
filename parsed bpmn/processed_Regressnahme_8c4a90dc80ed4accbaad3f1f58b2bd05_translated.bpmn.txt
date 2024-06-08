@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-E0896DB7-FE30-4627-8E06-ACE6FA98B1E5', 'name': 'Check the case', 'incoming': ['Possible rainfall'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-824F4323-83E9-4715-8702-8D703EE8DA87', 'name': 'Send payment request', 'incoming': ['Possible rainfall'], 'outgoing': ['Cash receipt']}
+{'id': 'sid-4A7FD33F-283A-4CC7-B202-FD99CDE8B540', 'name': 'Book the entrance', 'incoming': ['Cash receipt'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-92665115-FDAE-493D-B5B4-4064C790D9CC', 'name': 'Proceedings', 'incoming': ['Possible rainfall'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-72146415-8F74-489E-B1CD-E2E777621898', 'name': 'Debt service provider', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process delivered to debt collection office']}
+
+Gateways:
+{'id': 'sid-AD6BFE22-076D-4961-BB04-28B5448D268E', 'name': 'Regression?', 'incoming': ['Possible rainfall'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-EDBA135A-87A9-4AFF-A8C3-7062B159CB2E', 'name': 'ExclusiveGateway1', 'incoming': ['Check the case', 'Regression?', 'Right to object?'], 'outgoing': ['Closed']}
+{'id': 'sid-03F1E6C2-5D36-4F2E-85AC-46A0BCFCC078', 'name': 'Right to object?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3', 'Closed']}
+{'id': 'sid-A3FC5F5F-5076-4793-B9BF-73958BCD977F', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Possible rainfall'], 'outgoing': ['Process delivered to debt collection office']}
+{'id': 'sid-018BBD07-BA7D-4D81-B902-4C1194E70930', 'name': 'EventBasedGateway4', 'incoming': ['Possible rainfall'], 'outgoing': ['Cash receipt', 'Right to object?', 'Debt service provider']}
+{'id': 'sid-D30D88EA-A1F2-4C37-BB8E-9AA56EA2E869', 'name': 'Cash receipt', 'incoming': ['Regression?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-A1F7EDFF-C892-46C4-9757-EAF3A04FA78F', 'name': 'VN contradicts', 'incoming': ['Possible rainfall'], 'outgoing': ['Closed']}
+{'id': 'sid-A3D8C790-1D5B-4791-AD81-C07428914548', 'name': 'Reimbursement', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process delivered to debt collection office']}
+
+Start Events:
+{'id': 'sid-4CB2DA1C-0C33-4CB4-99D5-C08FFEC77C64', 'name': 'Possible rainfall', 'incoming': [], 'outgoing': ['ExclusiveGateway3']}
+
+End Events:
+{'id': 'sid-14915269-C7C4-438E-85C0-8CDA9E766FB5', 'name': 'Closed', 'incoming': ['VN contradicts'], 'outgoing': []}
+{'id': 'sid-30D9E313-D221-47D9-BFD2-616E4D9BBEA2', 'name': 'Process delivered to debt collection office', 'incoming': ['Reimbursement'], 'outgoing': []}

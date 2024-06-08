@@ -1,0 +1,21 @@
+ 1. **ParallelGateway6** receives a start event and initiates the process by sending a request to Spediteur 1 to pick up offers.
+
+2. **ExclusiveGateway0** acts as a decision point, receiving offers from Spediteur 1 and deciding whether to send the offer to ExclusiveGateway2 for further processing or to ExclusiveGateway3 for insurance checks.
+
+3. **ParallelGateway4** receives offers from ExclusiveGateway0 and sends them to either ExclusiveGateway2 for packaging or to ParallelGateway5 for selecting the offer.
+
+4. **ParallelGateway5** processes the selected offer and sends it to Specialist for final selection.
+
+5. **Specialist** reviews the offer and sends it to ExclusiveGateway2 for insurance processing.
+
+6. **ExclusiveGateway2** either completes the insurance process or sends the offer to ExclusiveGateway3 for insurance checks.
+
+7. **ParallelGateway6** also sends offers to Spediteur 2 for picking up offers.
+
+8. **ExclusiveGateway4** receives offers from Spediteur 2 and sends them to either ExclusiveGateway2 for packaging or to ParallelGateway5 for selecting the offer.
+
+9. **ParallelGateway7** is responsible for delivering the goods after the offer is selected and packaged.
+
+10. **ExclusiveGateway3** checks if insurance is necessary and, if so, completes the insurance process.
+
+11. **EndEvent0** signifies the completion of the process, receiving inputs from ExclusiveGateway3 and ParallelGateway7.

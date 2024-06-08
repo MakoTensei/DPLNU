@@ -1,0 +1,41 @@
+Tasks:
+{'id': 'sid-CDDD35DD-22A7-45F3-97A6-BCFDB3E26DE9', 'name': 'Restaurant\nentering', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Select a court']}
+{'id': 'sid-ABA27DAA-84E7-497E-A22E-7EF29BFA9428', 'name': 'Select a court', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['in the row']}
+{'id': 'sid-2AE0A4CA-2238-4818-A727-BE6099B4E1B0', 'name': 'Order\ngive up', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['paid\nAmount']}
+{'id': 'sid-7268999D-15BF-4430-B5BE-83391A09766C', 'name': 'Amount\nPay', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Piper\nobtained']}
+{'id': 'sid-67EA526E-E76E-4E5A-891C-0700EBE83FF8', 'name': 'Food\nretrieval', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Food\nobtained']}
+{'id': 'sid-96C30F11-891B-47A1-B549-E6EBD2D05A46', 'name': 'Eat meal', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['ready to pie']}
+{'id': 'sid-1DD07D3A-31AC-4E79-932D-FD00A3D5653F', 'name': 'Enter your order', 'incoming': ['Order\nobtained'], 'outgoing': ['Cash']}
+{'id': 'sid-B5FE1DC9-4A65-4392-9148-4E6BDA485D28', 'name': 'Cash', 'incoming': ['Order\nobtained'], 'outgoing': ['Set Piper\nand hand over']}
+{'id': 'sid-B33E8CCC-35E3-4DFC-8340-C99B022112FE', 'name': 'Set Piper\nand hand over', 'incoming': ['Order\nobtained'], 'outgoing': ['Koch inform']}
+{'id': 'sid-32FDB483-03E2-457A-8EDB-C57D4BC3E381', 'name': 'Koch inform', 'incoming': ['Order\nobtained'], 'outgoing': ['Info\navailable\nGet food']}
+{'id': 'sid-780C1FEC-FA70-490C-995A-51537CE3C393', 'name': 'Initiate Piper of the Guest', 'incoming': ['Order\nobtained'], 'outgoing': ['> 5 min.']}
+{'id': 'sid-4FEC13E9-4448-44CB-996D-B5321953F8E0', 'name': 'Deliver food', 'incoming': ['Guest\nappears\nfor collection'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-0A5D1830-E9FA-4D72-A43C-8617804904B4', 'name': 'Guest\nexcl.', 'incoming': ['> 5 min.'], 'outgoing': ['Anz. Calls\n< 3 times']}
+{'id': 'sid-D7C4ECE3-539D-4CE2-A8B4-1A6E645D19A8', 'name': 'Cancel order', 'incoming': ['Anz. Calls\n< 3 times'], 'outgoing': ['Eat meal itself']}
+{'id': 'sid-0129CF63-0BFA-4F1D-896D-10EAEFCA5DC0', 'name': 'Eat meal itself', 'incoming': ['EventBasedGateway1'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-69FF2BAF-1246-4996-BD13-D8992AD164C8', 'name': 'Preparation of meal', 'incoming': ['new\nOrders\nMeals'], 'outgoing': ['Meals\nprovide\n+ info']}
+{'id': 'sid-1CC5D03A-B78C-4051-BBBB-F888B934203A', 'name': 'Meals\nprovide\n+ info', 'incoming': ['new\nOrders\nMeals'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-CBFE0FCF-CB15-4718-B5F4-D989F8CC446C', 'name': 'Anz. Calls\n< 3 times', 'incoming': ['Info\navailable\nGet food', 'Order\nobtained'], 'outgoing': ['EndEvent1', 'EndEvent2']}
+{'id': 'sid-F94784D7-718A-4A52-B466-8AFBF82C67FB', 'name': 'EventBasedGateway1', 'incoming': ['Order\nobtained'], 'outgoing': ['Guest\nappears\nfor collection', 'Eat meal itself']}
+{'id': 'sid-5CD9C9DB-74C9-4C18-ADC0-C71B5957FD27', 'name': 'in the row', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Order\ngive up']}
+{'id': 'sid-9BFE271E-D010-40F9-941B-DE6B14EC9364', 'name': 'paid\nAmount', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Amount\nPay']}
+{'id': 'sid-57B75047-DD34-45F3-9CBD-C1F4DAEB7704', 'name': 'Piper message\nobtained', 'incoming': ['Piper\nobtained'], 'outgoing': ['Food\nretrieval']}
+{'id': 'sid-A7C8B3B1-B1B9-4864-A15B-4482C0DC84D5', 'name': 'Piper\nobtained', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Food\nretrieval']}
+{'id': 'sid-A32FF606-64C9-46E3-826B-F85DA576A7FE', 'name': 'Food\nobtained', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['ready to pie']}
+{'id': 'sid-280873AC-0545-4B8F-9493-6D711A32E6D8', 'name': 'Info\navailable\nGet food', 'incoming': ['Order\nobtained'], 'outgoing': ['Guest\nappears\nfor collection']}
+{'id': 'sid-03457D56-0EBA-4A2A-B6BA-D2BF06D7F4CB', 'name': 'Guest\nappears\nfor collection', 'incoming': ['Info\navailable\nGet food'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-AF122E77-2837-4435-968F-7EB496414937', 'name': '> 5 min.', 'incoming': ['Initiate Piper of the Guest'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-EE2B2B1E-61F6-4262-8EC6-58707BF47A13', 'name': 'Hunger\nNot applicable', 'incoming': [], 'outgoing': ['Eat meal']}
+{'id': 'sid-4DEEC044-BD6E-4CA5-9A2E-9ECDB50A5844', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['Anz. Calls\n< 3 times']}
+{'id': 'sid-9890C726-049A-4EE7-9CFE-9E3D40AE080F', 'name': 'new\nOrders\nMeals', 'incoming': [], 'outgoing': ['Meals\nprovide\n+ info']}
+
+End Events:
+{'id': 'sid-14EA2B9E-1E9A-4CA9-98B1-1BCE83B42D17', 'name': 'ready to pie', 'incoming': ['Food\nobtained'], 'outgoing': []}
+{'id': 'sid-A4D89C61-14DD-482A-A866-028457FAB8D4', 'name': 'EndEvent1', 'incoming': ['> 5 min.'], 'outgoing': []}
+{'id': 'sid-F3EE2457-415B-4501-84C5-6A7B03A25783', 'name': 'EndEvent2', 'incoming': ['Anz. Calls\n< 3 times'], 'outgoing': []}
+{'id': 'sid-2A9A18B6-B910-4E61-A240-F1FE44F6C594', 'name': 'EndEvent3', 'incoming': ['Meals\nprovide\n+ info'], 'outgoing': []}

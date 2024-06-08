@@ -1,0 +1,9 @@
+ When a new request is received, it triggers the 'StartEvent1' process, which initiates the 'Scoring Send inquiry to Schufa' task. This task sends an inquiry to Schufa and sets up an 'IntermediateCatchEvent2' to handle the response. Once the response is received, the 'IntermediateCatchEvent2' sends the outcome to 'EndEvent0'.
+
+Simultaneously, the 'StartEvent1' process also triggers the 'Report the result' task. This task awaits the 'Result known?' event, which is handled by the 'Result known?' gateway. Upon receiving the result, the 'Report the result' task concludes, and the 'EndEvent1' is triggered.
+
+If the result is known, the 'Result known?' event also triggers the 'Level 1 Scoring' task, which awaits the 'Result known?' event to determine if the result is known. Once the result is known, the 'Level 1 Scoring' task concludes, and the 'EndEvent1' is triggered.
+
+In case the result is not known, the 'Result known?' event triggers the 'Report delay' task, which sets up an 'IntermediateCatchEvent4' to handle the delay. The 'IntermediateCatchEvent4' sends the delay notification to 'Report delay', which concludes the process.
+
+If a new request is received, it triggers the 'StartEvent1' process, which initiates the 'Scoring Send inquiry to Schufa' task and sets up an 'IntermediateCatchEvent4' to handle the response. Upon receiving the response, the 'IntermediateCatchEvent4' sends the delay notification to 'Report delay', which concludes the process.

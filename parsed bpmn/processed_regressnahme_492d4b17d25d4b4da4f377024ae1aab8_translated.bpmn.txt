@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-7F5C9952-1901-4839-8B47-4C2913F35431', 'name': 'Check the case', 'incoming': ['Regression order has been reported'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-130484CD-7B4A-47F9-827F-B91AE4D70251', 'name': 'Book payment receipt', 'incoming': ['Incoming payment\nconfirmed'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-FFB2F381-C2ED-4AD7-85E6-31961369DEF8', 'name': 'Proceedings', 'incoming': ['Objection'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-E533C3DB-CB3F-4DA5-ABAE-1E1A3051D46E', 'name': 'Disclosure of debt collection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process\nforwarded']}
+{'id': 'sid-E1B87150-E730-47CB-9978-983A802D2BCE', 'name': 'Close', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Closed']}
+
+Gateways:
+{'id': 'sid-48D2F38E-70C8-4B8A-8051-60DFE039AC4B', 'name': 'ExclusiveGateway0', 'incoming': ['Regression order has been reported'], 'outgoing': ['sid-FEE18CDA-DFA2-4409-938B-166BAF766B41', 'ExclusiveGateway3']}
+{'id': 'sid-78529A6D-D688-435B-893A-D22E78CF6E8D', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-71D5C4FF-2E36-42E3-9C97-599A77447A45', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['Process\nforwarded']}
+{'id': 'sid-E863A50E-2499-43C2-973F-98E4340052FC', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Check the case', 'Objection'], 'outgoing': ['Closed']}
+{'id': 'sid-FAAA34D8-4796-429C-A60C-1EA413E9860C', 'name': 'EventBasedGateway4', 'incoming': ['sid-006B3AFE-1D61-48BB-A0B0-E6E547CDE41F'], 'outgoing': ['Close', 'ExclusiveGateway1', 'Disclosure of debt collection']}
+{'id': 'sid-9D83EBFF-B27E-4084-A320-12EC82F81401', 'name': 'Incoming payment\nconfirmed', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Closed']}
+{'id': 'sid-C720FE2C-4C5D-4B76-BC41-72DCA3B38906', 'name': 'Objection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-A0FD5D63-A0F4-41AF-8857-F3FB4CD3ACEB', 'name': 'Date of expiry', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process\nforwarded']}
+
+Start Events:
+{'id': 'sid-0F4559DE-E9C6-4745-BD68-FB4020D38ADC', 'name': 'Regression order has been reported', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-93741D7E-ABCB-4F10-8E1A-DD20A8F19146', 'name': 'Closed', 'incoming': ['Incoming payment\nconfirmed'], 'outgoing': []}
+{'id': 'sid-08FD231A-2A26-4F39-AADC-61B1E933654F', 'name': 'Process\nforwarded', 'incoming': ['Date of expiry'], 'outgoing': []}

@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-2FA55E44-70C2-49CD-A01B-803086F9357C', 'name': 'Check the case', 'incoming': ['Regress is reported'], 'outgoing': ['Possibility']}
+{'id': 'sid-64AEC21D-04F4-428B-82F6-E492F7477E99', 'name': 'Send a message', 'incoming': ['Regress is reported'], 'outgoing': ['Procedure for resubmission']}
+{'id': 'sid-F2EB5B49-B917-46E2-B906-F92BDE633E6F', 'name': 'Procedure for resubmission', 'incoming': ['Possibility'], 'outgoing': ['Payment received?']}
+{'id': 'sid-0B115D04-C497-4348-BE20-FBA28B43D84F', 'name': 'Close the process', 'incoming': ['Possibility'], 'outgoing': ['End']}
+{'id': 'sid-B93D452C-23DB-4DDB-80F7-CB13EDC8275D', 'name': 'Book and close the entrance', 'incoming': ['Payment received?'], 'outgoing': ['End']}
+{'id': 'sid-EC0B964E-BF75-4B27-B29C-0F89B83F0AE1', 'name': 'Proceedings', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-3FCBE310-C255-4F92-86D0-965923C4FD06', 'name': 'Close the process', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['End of procedure']}
+{'id': 'sid-B9F8B37A-363E-4071-B377-B6960C77BD75', 'name': 'Collection', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Open']}
+{'id': 'sid-87DC000F-A4C0-491A-B590-8101324CA5F5', 'name': 'Collection', 'incoming': ['Date of expiry'], 'outgoing': ['Vorgan open']}
+
+Gateways:
+{'id': 'sid-1FFA9802-C8BB-4D89-B6BB-6CDBDB2325DE', 'name': 'Possibility', 'incoming': ['Regress is reported'], 'outgoing': ['End of procedure', 'End']}
+{'id': 'sid-4EE57021-1836-4BFC-A384-2D455A318687', 'name': 'ExclusiveGateway1', 'incoming': ['Possibility'], 'outgoing': ['End of procedure', 'Open']}
+{'id': 'sid-2076A7E6-5F55-4D9A-9BE6-BE4E953BCD51', 'name': 'EventBasedGateway2', 'incoming': ['Possibility'], 'outgoing': ['IntermediateCatchEvent4', 'End', 'Date of expiry']}
+{'id': 'sid-F2A63AC2-7480-4BCB-9C37-FA3F32BD7981', 'name': 'Payment received?', 'incoming': ['Procedure for resubmission'], 'outgoing': ['End']}
+{'id': 'sid-24C3A24E-1468-4A57-88B9-EB9D69C859C2', 'name': 'IntermediateCatchEvent4', 'incoming': ['Possibility'], 'outgoing': ['Close the process']}
+{'id': 'sid-2AB815BD-A549-4BEB-821D-9526439192D1', 'name': 'Date of expiry', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Vorgan open']}
+
+Start Events:
+{'id': 'sid-335FC119-51C8-4B69-8425-4C3DE9327946', 'name': 'Regress is reported', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-113C74F6-C1F2-46F1-A345-2DD4C075F169', 'name': 'End', 'incoming': ['Possibility', 'EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-0285D173-D350-426C-8961-E7EC0C389789', 'name': 'Open', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}
+{'id': 'sid-554B33AB-C0EA-445D-ACE2-A83C0251B59B', 'name': 'Vorgan open', 'incoming': ['Date of expiry'], 'outgoing': []}
+{'id': 'sid-08610E87-C2E6-4FD3-A8AD-FA4ECB85FB00', 'name': 'End of procedure', 'incoming': ['Possibility'], 'outgoing': []}

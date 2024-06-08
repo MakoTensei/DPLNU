@@ -1,0 +1,19 @@
+Tasks:
+{'id': 'sid-681D0717-6F8F-4D32-90E1-E981E8CFFCF4', 'name': 'Start Scoringan Question', 'incoming': ['StartEvent0'], 'outgoing': ['receive result']}
+{'id': 'sid-4EBADC40-73D1-42AC-9942-1A3A71BFFBC8', 'name': 'Scoring Level1', 'incoming': ['Request request'], 'outgoing': ['ParallelGateway1']}
+{'id': 'sid-6E835D5B-080F-45DE-870B-BA70926BDB48', 'name': 'Scoring Level2', 'incoming': ['ParallelGateway1'], 'outgoing': ['Sending result']}
+{'id': 'sid-B14D1D60-D3D7-4AF9-94CC-DEBBB186A571', 'name': 'Delay', 'incoming': ['ParallelGateway1'], 'outgoing': ['Sending result']}
+
+Gateways:
+{'id': 'sid-6A0C0EC0-418B-4D77-8CFA-4DA561805425', 'name': 'ExclusiveGateway0', 'incoming': ['Request request'], 'outgoing': ['Sending result', 'Sending result']}
+{'id': 'sid-9DC62646-C8BB-45FB-BD3D-89DDFE3BA456', 'name': 'ParallelGateway1', 'incoming': ['Scoring Level1'], 'outgoing': ['Sending result', 'Sending result']}
+{'id': 'sid-ABD3479C-3CAD-424F-BC7C-5E2315435608', 'name': 'receive result', 'incoming': ['StartEvent0'], 'outgoing': ['Finished\n']}
+{'id': 'sid-EA7ADB04-A38B-4F7D-AC23-7AF14E2517BC', 'name': 'Info message\nDelay', 'incoming': ['Delay'], 'outgoing': ['Sending result']}
+
+Start Events:
+{'id': 'sid-6763AE7B-69D2-4EA9-AADF-A35074D0DE1C', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['receive result']}
+{'id': 'sid-F304C422-077E-4B8F-8D3A-B5BE21E1CE5B', 'name': 'Request request', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-B6018DE1-B0A5-4CD7-9AA4-39A6B953A48F', 'name': 'Finished\n', 'incoming': ['receive result'], 'outgoing': []}
+{'id': 'sid-801CE8C0-95E6-4295-8426-CBF4872A41CB', 'name': 'Sending result', 'incoming': ['ExclusiveGateway0', 'ExclusiveGateway0', 'ParallelGateway1'], 'outgoing': []}

@@ -1,0 +1,17 @@
+ Let's weave the tasks and gateways into a coherent narrative:
+
+When goods are to be shipped, the process begins at the 'Goods are to be shipped' event. This triggers the 'Determine quantity / value' task, which is responsible for figuring out the quantity and value of the goods. The task is connected to the 'ExclusiveGateway2', which receives the incoming request and sends it to 'ExclusiveGateway1' and 'ExclusiveGateway1' for further processing.
+
+Simultaneously, the 'Pick up Spedition offers' task is initiated. This task is responsible for picking up spedition offers and is connected to 'ParallelGateway5'. The task sends the incoming request to 'Choose the cheapest offer', which is connected to 'ExclusiveGateway2'.
+
+The 'Choose the cheapest offer' task then determines the best offer and sends the outcome to 'Order to forward' task. This task is connected to 'ExclusiveGateway3', which forwards the order to the warehouse workers.
+
+Meanwhile, the 'Complete insurance' task is also triggered. It is connected to 'ExclusiveGateway0', which receives the incoming request and sends it to 'ExclusiveGateway1' and 'ExclusiveGateway1'.
+
+The 'Order to forward' task sends the order to the warehouse workers, while the 'Pick up Spedition offers' task chooses the cheapest offer and sends the order to 'ParallelGateway4'.
+
+The 'ParallelGateway4' task, which handles the complete insurance, sends the order to 'ParallelGateway7', which is responsible for shipping the goods.
+
+Finally, the 'Goods shipped' event is triggered, marking the end of the process. The goods are shipped, and the outgoing request is sent to 'ParallelGateway7'.
+
+In summary, the process starts with determining the quantity and value of the goods, choosing the cheapest offer, completing the insurance, and finally shipping the goods. Each task is connected to the appropriate gateways, ensuring a smooth flow of information and

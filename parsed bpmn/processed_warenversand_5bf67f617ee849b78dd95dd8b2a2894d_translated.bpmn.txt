@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-7C5B2938-AD65-4559-B6DB-3A78C674C2C1', 'name': 'the quantity of goods', 'incoming': ['Entrance order'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-C59D40F0-FA21-44E1-B005-C1B8D696E940', 'name': 'normal mail order', 'incoming': ['Entrance order'], 'outgoing': ['Filling the package note']}
+{'id': 'sid-95285D40-EB8E-45D1-B04A-E6A9CA8D3374', 'name': 'Pick up offers', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-9F31AAE5-FB12-4EA7-9A11-A219FE460541', 'name': 'Spedition 1', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}
+{'id': 'sid-537A1316-0505-4FC2-AAB6-A1A13E0F4757', 'name': 'Spedition 2', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}
+{'id': 'sid-2930C1D3-AF70-4181-A43C-A440D62FCD62', 'name': 'Spedition 3', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}
+{'id': 'sid-47638A72-B58B-4137-9BF3-A302E2E94317', 'name': 'Filling the package note', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-F60E8DB5-0B60-4941-B827-561F3F11DE8A', 'name': 'Task7', 'incoming': ['Fill in insurance card'], 'outgoing': []}
+{'id': 'sid-D357A550-759B-449A-A95B-336971806895', 'name': 'Fill in insurance card', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Task7']}
+{'id': 'sid-F2F15B93-FFD1-44F2-964A-F7A6CE0493A6', 'name': 'Delivering goods', 'incoming': ['sid-E60C5F48-6561-476F-8FC6-BC265C7281DD'], 'outgoing': []}
+{'id': 'sid-9611A967-E445-424D-B974-28B1B4FA047C', 'name': 'Packaging goods', 'incoming': ['Entrance order'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-7322211E-0398-41ED-ABBA-1C00C4732614', 'name': 'ExclusiveGateway0', 'incoming': ['Entrance order'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway1']}
+{'id': 'sid-DFF86244-EAD5-43D3-882F-C63E93E7A584', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Spedition 1', 'Spedition 2', 'Spedition 3']}
+{'id': 'sid-C92B3C95-6A8C-4EF7-9F5C-E957A773BA1A', 'name': 'ExclusiveGateway2', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Fill in insurance card']}
+{'id': 'sid-11281CC8-0D1B-4EF6-BE97-7552AB467BBF', 'name': 'ParallelGateway3', 'incoming': ['Entrance order'], 'outgoing': ['Packaging goods']}
+
+Start Events:
+{'id': 'sid-76F6BA74-689F-4B05-B984-988C60B02950', 'name': 'Entrance order', 'incoming': [], 'outgoing': ['Packaging goods', 'normal mail order']}
+
+End Events:

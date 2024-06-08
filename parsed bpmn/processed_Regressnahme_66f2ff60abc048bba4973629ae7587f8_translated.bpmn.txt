@@ -1,0 +1,19 @@
+Tasks:
+{'id': 'sid-DA4369D1-8402-4909-BCDD-E2856AE60B6C', 'name': 'Check the case', 'incoming': ['Check regression'], 'outgoing': ['Regress possible?']}
+{'id': 'sid-CFB46523-3D6A-4FD1-82B2-EDFF760D669C', 'name': 'Proceedings', 'incoming': ['VN appeals'], 'outgoing': ['Objection justified?']}
+{'id': 'sid-D518CC7A-4A6B-4644-B111-C93056DB38AF', 'name': 'Book payment', 'incoming': ['Payment confirmed'], 'outgoing': ['Closed']}
+
+Gateways:
+{'id': 'sid-6443C56B-77AA-45D4-9512-721A9FEB3EF2', 'name': 'Regress possible?', 'incoming': ['Check regression'], 'outgoing': ['Closed', 'sid-DE2C6D2F-85BA-4E69-9177-867E217C4E8E']}
+{'id': 'sid-4FA82259-D21B-4ECD-BC0B-029AF979AEA5', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway2'], 'outgoing': ['sid-E8EC85AD-A81F-40CE-B0A0-FDA769315B43', 'sid-56E83FFD-9815-4562-B7BA-1FEDFBAD7147']}
+{'id': 'sid-B2CEA949-D0F0-4AF0-8FFA-EAE2A1B98EC8', 'name': 'EventBasedGateway2', 'incoming': ['sid-F9A059F4-8782-4D9D-80AB-7C44940980F0'], 'outgoing': ['Objection justified?', 'Date of expiry', 'Payment confirmed']}
+{'id': 'sid-116F305D-1728-4B55-9D39-9DCCE40AF7A2', 'name': 'Date of expiry', 'incoming': ['EventBasedGateway2'], 'outgoing': ['sid-D843F7C1-7A74-41F2-9007-184362E68D9F']}
+{'id': 'sid-A067F907-2EDD-4D9A-BA1A-18A6A1499379', 'name': 'VN appeals', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Objection justified?']}
+{'id': 'sid-9F0E1805-9EFC-4431-84B0-49C672B41FD0', 'name': 'Payment confirmed', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Closed']}
+
+Start Events:
+{'id': 'sid-AD93C73A-3F4D-4DD3-9E9A-08C5F127501F', 'name': 'Check regression', 'incoming': [], 'outgoing': ['Regress possible?']}
+
+End Events:
+{'id': 'sid-837D7CEA-A48D-4E2B-93EC-F59836A8E0CF', 'name': 'Closed', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-0C677AA0-6ED5-4553-B1F3-EB333C3612BB', 'name': 'Closed', 'incoming': ['Payment confirmed', 'sid-4BE311F2-061F-49EC-9F58-EBB9A03F29C3', 'sid-0F7128DD-7324-4DC8-A8ED-B405F03931C7'], 'outgoing': []}

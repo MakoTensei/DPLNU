@@ -1,0 +1,9 @@
+ When a shipment is initiated, the process begins with the 'Goods are to be shipped' event, which triggers the 'ExclusiveGateway0'. This gateway directs the flow to 'ExclusiveGateway1', where 'Shipping insurance' is processed. Concurrently, 'ExclusiveGateway2' handles the 'Filling the package note' task.
+
+Simultaneously, 'ParallelGateway4' receives the 'Goods are to be shipped' event and routes it to 'Choose the cheapest offer' and 'ParallelGateway5'. 'ParallelGateway5' then forwards the request to 'ExclusiveGateway1'.
+
+As the shipment progresses, 'ParallelGateway6' is responsible for 'Request a quote' from freight forwarders and 'Choose the cheapest offer'. Both tasks are routed to 'ExclusiveGateway1'.
+
+Once the shipping insurance and package note are completed, the process moves to 'ParallelGateway7', which handles the 'Shipping insurance' and 'Provision for collection' tasks.
+
+Finally, the process concludes at 'EndEvent0', where the shipment is fully processed and ready for delivery.

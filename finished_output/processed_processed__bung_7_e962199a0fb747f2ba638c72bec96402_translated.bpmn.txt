@@ -1,0 +1,13 @@
+ In the credit scoring process, a series of tasks are executed to ensure accurate and timely scoring results. The process begins with the 'Start from credit award Frontend' event, which triggers the 'ExclusiveGateway0' to forward the scoring result to the bank.
+
+When a scoring request is made to Schufa, the 'Scoring request to Schufa' task is initiated, and the 'IntermediateCatchEvent4' is triggered to send the final scoring result to the frontend.
+
+If the Level 1 scoring is successful, the 'Level 1 scoring successful?' event is triggered, and the 'ExclusiveGateway2' is responsible for forwarding the scoring result to the bank.
+
+In case the Level 1 scoring is not successful, the 'Note that the result is delayed' event is triggered, and the 'Level 2 scoring' task is initiated. The 'Level 2 scoring' task is then forwarded to the 'ExclusiveGateway2' for further processing.
+
+The 'StartEvent1' event is responsible for initiating the Level 1 scoring process, and the 'Level 1 scoring successful?' event determines whether the Level 1 scoring was successful or not.
+
+The 'Scoring result\nforwarded' event signifies the completion of the scoring process, and it is triggered by both the 'IntermediateCatchEvent4' and the 'Level 1 scoring successful?' events.
+
+Overall, the credit scoring process involves a series of interconnected tasks and gateways to ensure accurate and timely results, with the 'ExclusiveGateway0' and 'ExclusiveGateway2' playing crucial roles in forwarding the scoring results to the bank.

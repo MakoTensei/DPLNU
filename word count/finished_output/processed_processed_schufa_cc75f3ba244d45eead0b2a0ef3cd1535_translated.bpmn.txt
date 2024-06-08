@@ -1,0 +1,7 @@
+ In a scoring system, a StartEvent0 initiates the process, triggering an incoming connection to ExclusiveGateway0. This gateway then directs the flow to EventBasedGateway3, which in turn sends the data to EndEvent0. Meanwhile, a Scoring request is received by IntermediateCatchEvent4, which subsequently reports the Scoring result to EndEvent0.
+
+Once EndEvent0 is reached, the process transitions to Report delay, where the Scoring result is reported to Scoring result reported. This event then connects to ExclusiveGateway0, completing the loop.
+
+Simultaneously, StartEvent1 initiates a separate scoring process, connecting to ExclusiveGateway1. This gateway sends the data to EndEvent1, which then connects to ExclusiveGateway2. The L2 scoring result is then sent to EndEvent1, completing the second scoring process.
+
+In summary, the scoring system consists of StartEvent0 and StartEvent1, which initiate separate scoring processes. The processes involve various events and gateways, including EventBasedGateway3, ExclusiveGateway0, ExclusiveGateway1, and ExclusiveGateway2. The system ensures that scoring requests are processed and results are reported efficiently.

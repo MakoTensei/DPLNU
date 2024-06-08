@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-24B27893-F59E-4956-B2E1-D1FC7BA85FA1', 'name': 'Check regression', 'incoming': ['Regression takes place'], 'outgoing': ['VN payment request']}
+{'id': 'sid-080F94C7-3C30-4225-909B-1494B9D8F6FE', 'name': 'VN payment request', 'incoming': ['Regression takes place'], 'outgoing': ['Objection received']}
+{'id': 'sid-0D669992-1972-4113-AD23-4E1A839DDE74', 'name': 'Book money receipt', 'incoming': ['Regression takes place'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-171E91AF-A7C6-4CEB-BF61-FCE834ECB58E', 'name': 'Close the process', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-FACBC2FC-8689-4B0B-B2D4-1E11134F3A92', 'name': 'Proceedings', 'incoming': ['Objection received'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-1F148D73-9C5F-43BB-B4E8-403B9496AD5E', 'name': 'Inkasso-Diestwandr', 'incoming': ['Objection received'], 'outgoing': ['EndEvent4']}
+{'id': 'sid-D6464279-38F5-49A4-ADD3-F9427789FB71', 'name': 'Close the process', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-E64F7F24-5031-43A8-A8F5-E67DFC777434', 'name': 'Disclosure of debt collection', 'incoming': ['Money not received'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-C8E2756B-DA00-4EC0-AB87-0CAE6ABC43F8', 'name': 'ExclusiveGateway0', 'incoming': ['Regression takes place'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-CA7ED02D-2F8A-46AA-863F-A139D4917338', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent2', 'EndEvent4']}
+{'id': 'sid-1C2BBF26-687C-4D7C-900A-FF6B8D5FDE2F', 'name': 'EventBasedGateway2', 'incoming': ['VN payment request'], 'outgoing': ['Money received', 'Money not received', 'EndEvent4']}
+{'id': 'sid-85E18FDE-4CA0-4005-91AC-7268F94D05F4', 'name': 'Money received', 'incoming': ['Regression takes place'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-AB71D2A1-401D-4C56-8295-C280F3204F91', 'name': 'Objection received', 'incoming': ['VN payment request'], 'outgoing': ['Inkasso-Diestwandr']}
+{'id': 'sid-B374D3CA-8C04-4E46-91DD-AD8ADB328799', 'name': 'Money not received', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent3']}
+
+Start Events:
+{'id': 'sid-D5B21C45-670A-4E20-9B58-D0AD4E9B5C7A', 'name': 'Regression takes place', 'incoming': [], 'outgoing': ['Book money receipt']}
+
+End Events:
+{'id': 'sid-713A7651-B439-4F3E-BFFB-2269836D957A', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-996F166C-FAE3-4818-992E-5CEF6CDE3C01', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-34FAE2E5-6536-4634-A5E4-F2F28309404D', 'name': 'EndEvent2', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}
+{'id': 'sid-D3D53D3E-36DF-4F53-B3A0-0E311009AA36', 'name': 'EndEvent3', 'incoming': ['Money not received'], 'outgoing': []}
+{'id': 'sid-E0FFDE89-C935-4A6A-8999-4753EFA6FF81', 'name': 'EndEvent4', 'incoming': ['EventBasedGateway2'], 'outgoing': []}

@@ -1,0 +1,18 @@
+ In the case of a regression report, the process begins with the 'Regression Report' event, which triggers the 'Send Payment Request to VN' task. This task is then routed to 'ExclusiveGateway2' and subsequently to 'EndEvent1'.
+
+When 'VN contradicts' is received, it is directed to 'ExclusiveGateway3', which in turn leads to 'EndEvent0'.
+
+If 'Money received' is encountered, it triggers the 'Set process for resubmission' task, which is then routed to 'ExclusiveGateway2' and 'EndEvent1'.
+
+The 'Set process for resubmission' task is also connected to 'EventBasedGateway4', which can forward the task to 'Debt Collection Service Providers' and 'EndEvent2'.
+
+Lastly, the 'EndEvent0' task is connected to 'Existence Possibility?' gateway, which can lead to 'Set process for resubmission'.
+
+In summary, the process flow is as follows:
+
+1. 'Regression Report' event triggers 'Send Payment Request to VN' task.
+2. 'Send Payment Request to VN' task is routed to 'ExclusiveGateway2' and then to 'EndEvent1'.
+3. 'VN contradicts' event is directed to 'ExclusiveGateway3', leading to 'EndEvent0'.
+4. 'Money received' event triggers 'Set process for resubmission' task, which is routed to 'ExclusiveGateway2' and 'EndEvent1'.
+5. 'Set process for resubmission' task can also be forwarded to 'Debt Collection Service Providers' and 'EndEvent2' through 'EventBasedGateway4'.
+6. 'EndEvent0' task is connected to 'Existence Possibility?' gateway, which can lead to 'Set process for resubmission'.

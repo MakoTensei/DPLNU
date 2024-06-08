@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-A3A3C8A8-3C19-4902-AC15-8481DF22DA4E', 'name': 'determine whether order is to be insured\n', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-1A812EE3-69B9-4248-9114-CB48E25D614B', 'name': 'Complete insurance', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-D39220B3-0619-454F-BF93-63F525F95C9B', 'name': 'Determination of shipment quantity', 'incoming': ['Product ordered\n'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-39467C08-D6EC-4D28-A8AA-69FE48786E85', 'name': 'Three offers selected', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-783B9F5D-49F0-44E0-9551-37E1DD8C4767', 'name': 'Filling the package note\n', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-D650A80A-63FE-48EA-99E3-DF08452010A9', 'name': 'Check offer 1', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-B0010FAF-07DD-4405-B7EC-179FC30CE2FC', 'name': '2 check\n', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-7A847D23-844F-4581-9591-7FECA3DA11FF', 'name': 'Check offer 3', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-D91D5C36-E933-4F05-A660-F07629AD3A83', 'name': 'Select a provider', 'incoming': ['ParallelGateway6'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-0FC6F243-9605-4096-9710-56126957E6DA', 'name': 'Packaging of goods', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-B1B581E4-8E5D-4C1B-AE9F-C504A87C3855', 'name': 'Delivering goods', 'incoming': ['ParallelGateway7'], 'outgoing': ['Goods were sent\n']}
+
+Gateways:
+{'id': 'sid-74DDD868-8A29-4429-B9EC-7E5675E136CF', 'name': 'ExclusiveGateway0', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Complete insurance', 'ExclusiveGateway1']}
+{'id': 'sid-238BC019-0141-413A-BE5A-FB49B804607B', 'name': 'ExclusiveGateway1', 'incoming': ['determine whether order is to be insured\n', 'ParallelGateway4'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-29F71A78-AA0A-446C-A01F-96675786E6F1', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway6'], 'outgoing': ['Three offers selected', 'ExclusiveGateway0']}
+{'id': 'sid-C13F77AB-35F5-4E74-8791-2F7A8569E01E', 'name': 'ExclusiveGateway3', 'incoming': ['ExclusiveGateway2', 'ParallelGateway4'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-54153B89-4001-46C8-B810-0A9A8D1CCFFD', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway6'], 'outgoing': ['Check offer 1', 'ExclusiveGateway3', 'ExclusiveGateway1']}
+{'id': 'sid-8866F614-96A7-44AE-A664-9A9DFE12B2F5', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway6', 'ParallelGateway4', 'ParallelGateway4'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-DD1DB33E-3A41-4077-9087-37570EF076FA', 'name': 'ParallelGateway6', 'incoming': ['Product ordered\n'], 'outgoing': ['Select a provider', 'ParallelGateway7']}
+{'id': 'sid-AA6F25E2-39E4-4EE3-83D0-1B3D6EAE0EB7', 'name': 'ParallelGateway7', 'incoming': ['ParallelGateway6', 'determine whether order is to be insured\n'], 'outgoing': ['Goods were sent\n']}
+
+Start Events:
+{'id': 'sid-E8FE462C-1231-4C93-A263-C8E7739A66AE', 'name': 'Product ordered\n', 'incoming': [], 'outgoing': ['Determination of shipment quantity']}
+
+End Events:
+{'id': 'sid-88940041-33D7-43E5-892D-F49B620A71AE', 'name': 'Goods were sent\n', 'incoming': ['ParallelGateway7'], 'outgoing': []}

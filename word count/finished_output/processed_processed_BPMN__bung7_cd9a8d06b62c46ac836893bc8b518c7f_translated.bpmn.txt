@@ -1,0 +1,17 @@
+ The process begins with a "Scoring request" event, which triggers a series of tasks and gateways to handle the scoring process. The first task, "Scoring request," initiates the process and sends a "forward delay message" to indicate a pause in the scoring.
+
+The "Results Scoring1" gateway receives the "Scoring request" and forwards it to "Continue scoring result Level 2," which is the next step in the scoring process.
+
+Meanwhile, the "EventBasedGateway1" receives the "Scoring request" and forwards it to "Scoring request completed" and "Delay message." The "Delay message" gateway sends a "forward delay message" back to the "Scoring request" event, indicating a pause in the process.
+
+The "Continue scoring result Level 2" task receives the "forward delay message" and sends a "Scoring request completed" event, signaling the end of the first level of scoring.
+
+The "Report result to Bank" task, triggered by the "Scoring request," sends a "Report scoring result 1 to Bank" event, indicating the completion of the first scoring level.
+
+The "Report delay" gateway receives the "Result there?" event and sends a "perform final scoring (level 2)" event, indicating the need to proceed with the final scoring level.
+
+The "perform final scoring (level 2)" task receives the "perform final scoring (level 2)" event and sends a "a few minutes" event, indicating that the final scoring will take a few minutes.
+
+The "Report scoring result 2 to Bank" task receives the "a few minutes" event and sends a "Scoring 2 finished" event, signaling the completion of the final scoring level.
+
+In summary, the scoring process starts with a "Scoring request" event, which triggers a series of tasks and gateways to handle the scoring process. The process involves multiple levels of scoring, with pauses and delays to ensure accuracy and completeness. The final result is reported to the bank, and the process concludes with the completion of the final scoring level.

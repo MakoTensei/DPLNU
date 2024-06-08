@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-6F7F3EAD-BECF-4F44-8334-AA626391C76C', 'name': 'Check the case', 'incoming': ['Regression case\nmgl. before'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-FBF413A7-AECB-4C8A-96E2-BC81184F22CB', 'name': 'Send payment request', 'incoming': ['Regression case\nmgl. before'], 'outgoing': ['Add to wishlist']}
+{'id': 'sid-B351EB94-AC2C-4516-8CE2-911E00CFB80F', 'name': 'Add to wishlist', 'incoming': ['Regress possible?'], 'outgoing': ['Money received']}
+{'id': 'sid-5EBA7AA8-6ED7-464D-8117-F64585A30E4E', 'name': 'Book the entrance', 'incoming': ['Money received'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-CB8A9543-EBB5-4BDC-BA27-DB2B1093F53D', 'name': 'Close', 'incoming': ['Denial of payment\njustified?'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-CD910FAB-5D9B-4C49-BE7A-E1F5F7BFB187', 'name': 'Proceedings', 'incoming': ['VN\nReport'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-9CD90CC9-8A00-47A3-9795-98A6DED2D424', 'name': 'Inkasso handed over', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-05AB7CD8-EE96-4BE2-BDCB-C2D56AD930CF', 'name': 'Regress possible?', 'incoming': ['Regression case\nmgl. before'], 'outgoing': ['Denial of payment\njustified?', 'ExclusiveGateway1']}
+{'id': 'sid-666874BB-15CF-4399-BFE0-FB816ED6C57D', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway4', 'Check the case', 'VN\nReport', 'Reimbursement period\nExpired'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-2B436CB9-E6F5-4A5D-A46E-AAB1EACB7B03', 'name': 'Denial of payment\njustified?', 'incoming': ['Regress possible?'], 'outgoing': ['Close', 'ExclusiveGateway3']}
+{'id': 'sid-DDD26AEE-8852-48EC-864C-A565164C0DF8', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-0D0EA8EC-45E8-4ED1-AFB1-79B8A20690F4', 'name': 'EventBasedGateway4', 'incoming': ['Regress possible?'], 'outgoing': ['Regression\ncompleted', 'VN\nReport', 'Inkasso handed over']}
+{'id': 'sid-35787EC2-26D5-47AD-B31F-B1B69846FE58', 'name': 'Money received', 'incoming': ['Add to wishlist'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-7A008D0A-C895-4125-8588-5EDB5877AC22', 'name': 'VN\nReport', 'incoming': ['Regress possible?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-760789E2-350D-4EC4-9CD1-3DB4E80FB700', 'name': 'Reimbursement period\nExpired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-C4C8C542-A98F-4A2D-B553-7CC77560DC04', 'name': 'Regression case\nmgl. before', 'incoming': [], 'outgoing': ['Send payment request']}
+
+End Events:
+{'id': 'sid-DDE25EAB-34BC-4A0E-8DD3-AEC9E3867DB1', 'name': 'Regression\ncompleted', 'incoming': ['EventBasedGateway4'], 'outgoing': []}

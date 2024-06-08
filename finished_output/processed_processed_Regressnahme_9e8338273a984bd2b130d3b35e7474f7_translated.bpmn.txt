@@ -1,0 +1,16 @@
+ Upon receiving a report, the system initiates a series of tasks to handle the case. First, a Case Check is triggered, which determines if the report is valid and if it warrants further action. If the report is valid, the system proceeds to ExclusiveGateway1, where it evaluates the case and decides whether to send a payment reminder to the customer.
+
+
+If the customer has previously expressed opposition, the system checks for any opposition against the customer and routes the case to ExclusiveGateway3 for further evaluation. Conversely, if the customer is against the case, the system also sends the case to ExclusiveGateway1 for additional processing.
+
+
+In parallel, the system also monitors for the possibility of a payment being available. If a possibility is confirmed, the system adds the item to the customer's wishlist and may also trigger a reimbursement process.
+
+
+If the reimbursement process is initiated, the system checks if the reimbursement is justified. If it is, the system closes the case and sends an EndEvent0 notification. If the reimbursement is not justified, the system sends a Close notification and routes the case to ExclusiveGateway3.
+
+
+Additionally, if the reimbursement period has expired, the system sends an EndEvent1 notification to conclude the reimbursement process.
+
+
+In summary, the system handles a report by checking the case, evaluating the customer's stance, managing payment and reimbursement processes, and concluding the case with appropriate notifications.

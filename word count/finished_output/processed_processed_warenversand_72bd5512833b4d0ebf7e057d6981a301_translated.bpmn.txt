@@ -1,0 +1,12 @@
+ Let's describe the workflow in a more natural flow:
+
+1. When a shipment arrives, the process begins with the 'Shipment' event.
+2. The shipment is then picked up by the 'Pick up offers' task, which is routed through 'ExclusiveGateway0'.
+3. After picking up the offers, the task 'Determine quantity' is triggered, which also goes through 'ExclusiveGateway0'.
+4. The determined quantity is then used to fill the standard package voucher, a task that is routed through 'ParallelGateway9'.
+5. The filled package voucher is then sent to 'ParallelGateway8' for packaging.
+6. Once the goods are packaged, the 'Provide goods for collection' task is triggered, which sends the goods to 'ParallelGateway8'.
+7. The goods are then collected and sent to 'ExclusiveGateway3' for delivery.
+8. The delivery process is completed when the 'End' event is triggered, marking the end of the workflow.
+
+This workflow ensures that the shipment is picked up, the quantity is determined, the package is filled and packaged, and finally, the goods are collected and delivered.

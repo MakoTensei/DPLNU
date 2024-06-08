@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-CAF3BACE-5213-4C77-BFAD-48CA9089B05F', 'name': 'Request a quote', 'incoming': ['ParallelGateway1'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-90DEB6EF-EA7A-48A4-94C7-93D6C6130C0A', 'name': 'Request a quote', 'incoming': ['sid-348C4D9F-3010-4BA2-9291-6351A7403FB9'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-B562F774-2CBC-4D6C-8824-8844C0F81E43', 'name': 'Request a quote', 'incoming': ['ParallelGateway1'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-A80C970F-44A5-4238-B8AC-66D9A16AEE57', 'name': 'Special delivery', 'incoming': ['Shipment\n\n'], 'outgoing': []}
+{'id': 'sid-819D3515-8F15-47EA-AC6B-34A348AA13F5', 'name': '1 Choose anbegot', 'incoming': ['ParallelGateway1'], 'outgoing': ['Specialist']}
+{'id': 'sid-F61A718F-56B7-4307-8116-9666B752FC00', 'name': 'Specialist', 'incoming': ['ParallelGateway1'], 'outgoing': []}
+{'id': 'sid-E72A5CC5-3653-4E17-A2D4-3D7027FBDEC9', 'name': 'normal mail order', 'incoming': ['Shipment\n\n'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-EB984800-BE1E-4967-80AE-934BBF202D18', 'name': 'Fill in packaging paper', 'incoming': ['Shipment\n\n'], 'outgoing': []}
+{'id': 'sid-1D73C37D-1B99-4995-A3A6-3A95E798E949', 'name': 'Closing of insurance', 'incoming': ['ParallelGateway2'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-8D080956-E7BF-431E-B65B-22443B2725DE', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway1', 'Request a quote', 'ParallelGateway1'], 'outgoing': ['Specialist']}
+{'id': 'sid-6341F3D7-34ED-4B76-9784-353CBA77EDDA', 'name': 'ParallelGateway1', 'incoming': [], 'outgoing': ['1 Choose anbegot', 'Specialist']}
+{'id': 'sid-5C942F15-3A7E-4BAA-903B-3903E7FD91B0', 'name': 'ParallelGateway2', 'incoming': ['Shipment\n\n'], 'outgoing': ['Fill in packaging paper', 'Closing of insurance']}
+
+Start Events:
+{'id': 'sid-F4C974B2-1B52-4106-8467-2BF60421DDAB', 'name': 'Shipment\n\n', 'incoming': [], 'outgoing': ['Special delivery', 'Fill in packaging paper']}
+
+End Events:

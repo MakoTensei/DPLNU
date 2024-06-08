@@ -1,0 +1,7 @@
+ The process begins with the 'StartEvent0' triggering the 'Start Schufascoring request' task, which initiates the scoring process and sends an 'IntermediateCatchEvent2' to the 'Scoring\ncompleted' gateway. Once the scoring is completed, the 'Scoring\ndetermined' event is generated, which then triggers the 'Return to Frontend' task, sending the 'Scoring\ndetermined' message back to the frontend. Concurrently, the 'Check the results' task is activated by 'StartEvent0', which awaits the 'Scoring\ndetermined' event to proceed.
+
+Meanwhile, the 'StartEvent1' initiates the 'perform scoring level 1' task, which sends a 'Follow-up' event to the 'Scoring request' gateway. This gateway then sends the 'Scoring request' event back to the 'Follow-up' task, which in turn sends the 'Scoring request' event to the 'perform scoring level 2' task. The 'perform scoring level 2' task sends a 'Follow-up' event to the 'Scoring request' gateway, which sends the 'Scoring request' event back to the 'perform scoring level 2' task.
+
+If the 'Test\nsuccessful?' event is triggered by 'StartEvent1', it sends a 'Scoring request' event to the 'Follow-up' task and a 'Scoring request' event back to itself.
+
+Finally, when the 'Scoring\ndetermined' event is received by the 'Check the results' task, it triggers the 'Report default' task, which sends an 'IntermediateCatchEvent2' to the 'Scoring\ncompleted' gateway. This gateway then sends the 'Scoring\ndetermined' event to the 'Frontend' and the 'Report default' event to itself.

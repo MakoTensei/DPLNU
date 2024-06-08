@@ -1,0 +1,11 @@
+ In the banking system, when a Schufascoring request is received, it triggers a series of tasks and gateways to ensure timely and accurate scoring. The process begins with the 'Schufascoring request' start event, which initiates the 'Schufascoring Send inquiry' task. This task sends an inquiry about the Schufascore response delays and sets up an outgoing connection to the 'ExclusiveGateway0'.
+
+The 'ExclusiveGateway0' then receives the inquiry and routes it to the 'Schufascore Response Delays' task. This task handles the delay in the Schufascore response and sends an outgoing connection to the 'Schufascore completed' end event.
+
+Meanwhile, the 'Schufascoring Send inquiry' task also connects to the 'IntermediateCatchEvent2' gateway, which in turn sends the request to the 'Sufascoring' task. The 'Sufascoring' task then connects back to the 'ExclusiveGateway0'.
+
+When a 'Request Schufascoring received' start event occurs, it triggers the 'perform scoring' task, which sends an inquiry to the 'Score available?' gateway. The 'Score available?' gateway then connects to the 'Task5' and 'Share delay' end events.
+
+The 'Score available?' gateway also receives the 'Schufascore Response Delays' task and connects it to the 'Report back Schufascore' task. This task sends the completed score back to the 'ExclusiveGateway0'.
+
+In summary, the banking system uses a series of tasks and gateways to handle Schufascoring requests, ensuring that the scoring process is efficient and accurate. The 'Schufascoring request' start event initiates the process, while the 'Schufascore completed' end event signifies the successful completion of the scoring task.

@@ -1,0 +1,43 @@
+Tasks:
+{'id': 'sid-5B7148DE-AE4C-460B-BA20-93D4BD45B473', 'name': 'go to restaurant', 'incoming': ['Hunger'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-04761859-A50D-4FCE-BDFC-D052601A205A', 'name': 'Select a court', 'incoming': ['Hunger'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-057D98BE-BC69-47E0-91DB-B71801A73775', 'name': 'in waiting series\nand then be', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-EC1D5A7F-2F13-46EC-B999-E04891526EE4', 'name': 'Add your order', 'incoming': ['Hunger'], 'outgoing': ['Order payment']}
+{'id': 'sid-B9CA61A4-2A19-4887-8E85-D8289A0AA480', 'name': 'Order payment', 'incoming': ['ParallelGateway4'], 'outgoing': ['Take Pieper']}
+{'id': 'sid-BCEDC192-B9A7-4CEB-956A-6E8B29AB3136', 'name': 'Eat meal', 'incoming': ['Pick up food'], 'outgoing': ['Hunger\nbe gone']}
+{'id': 'sid-3A05BB56-1879-4FB2-8FD2-C3AE4338DE78', 'name': 'Pick up food', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Hunger\nbe gone']}
+{'id': 'sid-BA61AC02-550B-464A-AB89-1FC6CAB8EA5A', 'name': 'Take Pieper', 'incoming': ['ParallelGateway4'], 'outgoing': ['Other\nConclusion\nthat food\nready for collection']}
+{'id': 'sid-8BCE9B6C-0AC9-444D-ABEB-5CF61CE28449', 'name': 'Preparation of meal', 'incoming': ['meal order\nby\nEmployees'], 'outgoing': ['Putting meal in vain']}
+{'id': 'sid-AF2C49F1-6514-4DF7-953D-E3F6D2372911', 'name': 'Putting meal in vain', 'incoming': ['meal order\nby\nEmployees'], 'outgoing': ['Meals\nmade available']}
+{'id': 'sid-EA44BB27-71B9-46BF-B888-343D523DC451', 'name': 'Place your order in cash', 'incoming': ['Menu order\nby guest'], 'outgoing': ['Cash from the customer']}
+{'id': 'sid-8BB2E3EF-B53D-4C8D-85D9-9D7826ECD8DA', 'name': 'Cash from the customer', 'incoming': ['Menu order\nby guest'], 'outgoing': ['IntermediateCatchEvent7']}
+{'id': 'sid-511995F7-EE0B-4F73-8F50-DD6E25F6659A', 'name': 'pieper set', 'incoming': ['Menu order\nby guest'], 'outgoing': ['Pieper transferred to customers']}
+{'id': 'sid-CA26AED7-E504-4A55-9D4C-68029B4B56EC', 'name': 'Pieper transferred to customers', 'incoming': ['IntermediateCatchEvent7'], 'outgoing': ['Information to Koch for the ordered meal']}
+{'id': 'sid-00DBC5BC-7050-4762-93FC-50B86589B07C', 'name': 'Information to Koch for the ordered meal', 'incoming': ['IntermediateCatchEvent7'], 'outgoing': ['Back info from\nget cook,\nthat food is ready']}
+{'id': 'sid-ED4181EC-A7DE-4060-A692-8715DEBF733F', 'name': "Trigger the guest's Pieper\n", 'incoming': ['Back info from\nget cook,\nthat food is ready'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-0A924671-56C8-4C2A-B99C-2D5563018D14', 'name': 'Read more', 'incoming': ['IntermediateCatchEvent10'], 'outgoing': ['IntermediateCatchEvent10']}
+{'id': 'sid-730C609F-B058-4CC2-A083-60BD322FE577', 'name': 'Deliver food to guest', 'incoming': ['Guest has\nReported'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-330D81AD-2AF3-40D2-B561-2804EB068F04', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway1', 'EventBasedGateway1'], 'outgoing': ['Hunger\nbe gone']}
+{'id': 'sid-35DC45B1-3163-405E-B927-E2A0BC1BFFA0', 'name': 'EventBasedGateway1', 'incoming': ['ParallelGateway3'], 'outgoing': ['Pick up food', 'Hunger\nbe gone']}
+{'id': 'sid-55EDF22B-08B4-4DE2-9540-08E09490DEFF', 'name': 'EventBasedGateway2', 'incoming': ['IntermediateCatchEvent7', 'IntermediateCatchEvent10'], 'outgoing': ['5 min', 'Guest has\nReported']}
+{'id': 'sid-EAC749C5-A819-410D-9DAD-D7D02421525F', 'name': 'ParallelGateway3', 'incoming': ['Hunger'], 'outgoing': ['Select a court', 'Hunger\nbe gone']}
+{'id': 'sid-6B9CBE4A-8CC0-4DE4-95D5-B732339FB8A9', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway3', 'Hunger'], 'outgoing': ['Food ready']}
+{'id': 'sid-6A820A89-A5B3-4B2C-80B5-10E44404CD96', 'name': 'Food ready', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-9106536E-A8AE-4D53-90A8-2F1611C3D4F5', 'name': 'Other\nConclusion\nthat food\nready for collection', 'incoming': ['Take Pieper'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-104714DC-9B2B-4D35-AB98-20853307282A', 'name': 'IntermediateCatchEvent7', 'incoming': ['Menu order\nby guest'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-8B1D9EA6-CDAA-4C2C-AF51-4D2B59EF05D2', 'name': 'Back info from\nget cook,\nthat food is ready', 'incoming': ['IntermediateCatchEvent7'], 'outgoing': ['Guest has\nReported']}
+{'id': 'sid-271E4068-1B84-4333-A64C-16A7FC0E5C6D', 'name': '5 min', 'incoming': ['IntermediateCatchEvent10'], 'outgoing': ['Read more']}
+{'id': 'sid-B137BBF3-5922-4B35-9089-AF4A7168C9B7', 'name': 'IntermediateCatchEvent10', 'incoming': ['IntermediateCatchEvent10'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-EAB9C3F3-530C-4234-AF39-A0BB15F5FF2D', 'name': 'Guest has\nReported', 'incoming': ['Back info from\nget cook,\nthat food is ready'], 'outgoing': ['EndEvent2']}
+
+Start Events:
+{'id': 'sid-3965FFC7-4539-49FF-84D0-A3B520E5D9B3', 'name': 'Hunger', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-6024E13E-84B9-4094-B303-63436D3D8C54', 'name': 'meal order\nby\nEmployees', 'incoming': [], 'outgoing': ['Putting meal in vain']}
+{'id': 'sid-4033E2BE-FF4A-41DF-9D59-EBB222939842', 'name': 'Menu order\nby guest', 'incoming': [], 'outgoing': ['pieper set']}
+
+End Events:
+{'id': 'sid-4D5E549C-CF54-4DB2-9AFC-80240F137EE1', 'name': 'Hunger\nbe gone', 'incoming': ['ParallelGateway3'], 'outgoing': []}
+{'id': 'sid-9927AE56-2383-42D9-ADA5-FC0B748FDF99', 'name': 'Meals\nmade available', 'incoming': ['Putting meal in vain'], 'outgoing': []}
+{'id': 'sid-910655C0-58D5-4971-8514-B77978751520', 'name': 'EndEvent2', 'incoming': ['Guest has\nReported'], 'outgoing': []}

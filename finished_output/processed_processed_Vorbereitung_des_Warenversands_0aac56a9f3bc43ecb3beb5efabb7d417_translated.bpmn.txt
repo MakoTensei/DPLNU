@@ -1,0 +1,7 @@
+ Upon receiving an order, the process begins with the 'Receive your order' event, which triggers the 'Packaging goods' task. This task is connected to 'ParallelGateway4' and leads to the 'Provide goods for collection' task, which in turn connects to 'ExclusiveGateway0'. The 'Provide goods for collection' task also connects to 'Delivery order completed' task, which is an end event.
+
+Next, the 'Determine quantity' task is triggered, which connects to 'ParallelGateway4' and leads to 'Offers from\n3 freight forwarders' task. This task connects to 'Insurance' task, which in turn connects to 'Insurance close' task. The 'Insurance close' task connects to 'ParallelGateway5', which finally connects to 'ExclusiveGateway0'.
+
+The 'Determining insurance requirements' task is triggered, which connects to 'ParallelGateway3' and leads to 'Delivery order completed' task, which is an end event.
+
+In summary, the process starts with receiving an order, leading to packaging goods and providing goods for collection. The quantity is then determined, leading to offers from freight forwarders and determining insurance requirements. The insurance is closed, and the delivery order is completed.

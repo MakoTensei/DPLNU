@@ -1,0 +1,9 @@
+ The process begins with an event where a scoring request is needed, which triggers the 'Scoring\nis needed' task. This task is directed to 'ExclusiveGateway0', which upon completion, sends a 'Scoring\ncompleted' message to 'Level 1 Information\nobtained'.
+
+Next, a 'Scoring request\nobtained' event occurs, leading to the 'Scoring\ndelays' task. This task sends a 'Send notice of delay to Frontend' message to the 'Frontend' team.
+
+Meanwhile, 'Scoring\nis needed' also triggers the 'Scoring request\nobtained' task, which sends a 'Scoring\ncompleted' message to 'ExclusiveGateway2'.
+
+The 'Delay?' event then triggers the 'Scoring\ncompleted' task, which sends a 'Scoring\ncompleted' message to 'Share the result of the bank'.
+
+Finally, the 'Scoring\ncompleted' event sends a 'Scoring\ncompleted' message to 'ExclusiveGateway0', completing the process.

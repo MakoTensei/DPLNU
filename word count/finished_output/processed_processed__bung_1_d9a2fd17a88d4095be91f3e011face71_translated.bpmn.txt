@@ -1,0 +1,13 @@
+ When a shipment of goods is initiated, the process begins with the 'Goods Ship' event, which triggers the determination of the shipping mode. This decision is crucial as it affects the subsequent steps in the process. Once the shipping mode is determined, the process moves to the 'Insurance close' task, where the necessity of insurance is assessed. If insurance is deemed necessary, the process flows to the 'Special delivery necessary?' gateway, which further evaluates the need for special delivery services.
+
+
+If special delivery is required, the process proceeds to the 'Specialist' task, where a specialist is engaged to handle the special delivery. The specialist's involvement ensures that the delivery is managed with the appropriate level of care and attention. Following the special delivery, the process returns to the 'ParallelGateway4' to finalize the delivery arrangements.
+
+
+Concurrently, if insurance is not necessary, the process continues to the 'Fill in packaging paper' task, where the packaging of the goods is completed. After packaging, the process reaches the 'Determine whether insurance is required' task, which reassesses the need for insurance. If insurance is still not required, the process moves to the 'Specialist' task, similar to the previous scenario.
+
+
+In both scenarios, the 'Specialist' task leads to the 'ParallelGateway4' to finalize the delivery arrangements. Once the delivery is completed, the process concludes with the 'Goods made available' event, marking the successful completion of the shipment process.
+
+
+Throughout this process, the 'ParallelGateway3' plays a pivotal role in coordinating the flow between tasks and gateways, ensuring that the necessary decisions and actions are taken to facilitate a smooth and efficient delivery of goods.

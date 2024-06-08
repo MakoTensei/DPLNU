@@ -1,0 +1,9 @@
+ When a scoring request is received from Schufa, it triggers a series of events and interactions between various gateways and services. The process begins with the 'Schufascoring request we have discussed' event, which initiates the scoring request to Schufa. This event leads to the 'Scoring request at Schufa send' task, which sends the request to Schufa.
+
+Upon receiving the scoring request, Schufa processes it and sends back a 'Scoring request obtained' event. This event triggers the 'Level 1 Scoring perform' task, which performs the initial scoring and sends the result to the 'ParallelGateway1'.
+
+The 'ParallelGateway1' then handles the result and sends a 'Delay Message send' task, which delays the result for further processing. After the delay, the 'Result send' task is triggered, which sends the final scoring result to the 'Result send' task.
+
+Meanwhile, the 'IntermediateCatchEvent2' event is triggered, which sends a 'Result request' task to the 'Result send' task. This task ensures that the final result is requested and sent to the appropriate destination.
+
+In summary, the scoring request process involves multiple tasks and gateways, including 'Scoring request at Schufa send', 'Level 1 Scoring perform', 'ParallelGateway1', 'Delay Message send', and 'Result send', all working together to ensure the scoring request is processed and the final result is delivered.

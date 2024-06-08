@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-5EB9629A-5BDC-4A48-90C8-AE945BA36FAF', 'name': 'Check the case', 'incoming': ['Regression reported'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-1817DED0-FE7C-47A9-9163-83B3D3262DDA', 'name': 'Set process for resubmission', 'incoming': ['sid-81042CE3-08FC-40EA-BABC-A7FCB0AD5079'], 'outgoing': ['VN paid']}
+{'id': 'sid-C3C27CD0-44A1-4002-8C2F-2B7C15F8614E', 'name': 'Close', 'incoming': ['Denial of payment\njustified?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-EF316B90-7EB6-44D8-BBED-2CD75F35B164', 'name': 'Book the entrance', 'incoming': ['VN paid'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-4DA5DA67-8226-4CAB-94F5-81B413ABE102', 'name': 'Proceedings', 'incoming': ['VN not paid'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-16AE9460-AA5D-4A64-9429-5242139FFED3', 'name': 'Informing collection service providers', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-45F228FA-1F86-464E-BD49-7FB5558493C1', 'name': 'Regression possible?', 'incoming': ['StartEvent0'], 'outgoing': ['sid-C36DBD10-A243-4C62-9B85-0052793DAFE5', 'ExclusiveGateway1']}
+{'id': 'sid-B8C34009-71A1-4CD8-8BB5-62A5C1FF756F', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway4', 'Check the case', 'VN not paid'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-16ABDE2D-8777-4CC8-924F-575FC5B45548', 'name': 'Denial of payment\njustified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Close', 'ExclusiveGateway3']}
+{'id': 'sid-915A22EF-0761-4B65-ACA4-46481136BCAB', 'name': 'ExclusiveGateway3', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-25DC2160-5CAF-4973-9B38-1A77C459AA6F', 'name': 'EventBasedGateway4', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway1', 'Denial of payment\njustified?', 'Informing collection service providers']}
+{'id': 'sid-E312705B-8285-4D00-BB68-71C332F0B63B', 'name': 'Regression reported', 'incoming': ['StartEvent0'], 'outgoing': ['Regression possible?']}
+{'id': 'sid-EB850B1C-DAF2-4DB2-A8C9-DE493D147FC5', 'name': 'VN paid', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-C0941BD4-B3BB-4B54-B6D2-1741D8702A87', 'name': 'VN not paid', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-FA8383F3-B073-4D47-AFF3-5C43DCA4FF00', 'name': 'Reimbursement period\nExpired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-13ED639C-6052-4BB0-B171-6E0654EEC71C', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Regression possible?']}
+
+End Events:
+{'id': 'sid-219B3D84-141C-401C-8188-1C1610DC8B86', 'name': 'EndEvent0', 'incoming': ['Book the entrance'], 'outgoing': []}
+{'id': 'sid-E3391033-86F9-481C-9B96-D87E2F2EAE15', 'name': 'EndEvent1', 'incoming': ['Reimbursement period\nExpired'], 'outgoing': []}

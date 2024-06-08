@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-00BF2BC2-D89F-48E8-870E-3C9627BC29EE', 'name': 'Complete insurance', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-D78BF3D8-59B8-4019-9180-1CCCBD3199E7', 'name': 'Check shipping mode', 'incoming': ['My start'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-AFE048EC-43DA-40B1-92EB-BD27C742374F', 'name': 'Pick up offers\n', 'incoming': ['My start'], 'outgoing': ['sid-85E7718A-64A4-4D54-A29A-8ACDA228AD37']}
+{'id': 'sid-3C553AB1-1202-4FC8-8123-AD4C39FF3C86', 'name': 'Select your offer', 'incoming': ['sid-622B3469-E330-44F7-BEF0-D152599AFEED'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-9A209615-4209-4138-8663-274F215838B4', 'name': 'Filling the package note\n', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Check insurance']}
+{'id': 'sid-41DAE59C-11F1-4F6D-A56B-A722F024331F', 'name': 'Check insurance', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-CA6D9AE6-2FC1-4B3B-8B31-F6475F732B87', 'name': 'Shipment', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-D2620C05-89C9-4FF6-8F34-1BB6951B3A8A', 'name': 'Send a quote', 'incoming': ['Offer advertised'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-A8EA5C4F-DB48-4482-BCB6-526476D93C64', 'name': 'ExclusiveGateway0', 'incoming': ['My start'], 'outgoing': ['Pick up offers\n', 'ExclusiveGateway2']}
+{'id': 'sid-9D8D01A3-2692-4B06-9354-DE77720022A2', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-99F1630D-F9E8-4A4D-9703-A1CB4349D8D8', 'name': 'ExclusiveGateway2', 'incoming': ['Check insurance', 'ExclusiveGateway0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F58133D4-B9D9-4DC1-BC48-92E5F36769A6', 'name': 'ExclusiveGateway3', 'incoming': ['Complete insurance', 'Select your offer'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-92886AE2-4351-450A-885F-851348A08C33', 'name': 'My start', 'incoming': [], 'outgoing': ['Pick up offers\n']}
+{'id': 'sid-2D8DF483-56C2-4814-B98E-A1407DBCF1C5', 'name': 'Offer advertised', 'incoming': [], 'outgoing': ['Send a quote']}
+
+End Events:
+{'id': 'sid-C21F9F5D-B857-4146-90D6-9C6D37A2AB60', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}
+{'id': 'sid-5E162884-D5FE-4FAB-9160-3CBA93F92798', 'name': 'EndEvent1', 'incoming': ['Send a quote'], 'outgoing': []}

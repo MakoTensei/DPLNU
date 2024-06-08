@@ -1,0 +1,32 @@
+Tasks:
+{'id': 'sid-A34E346E-E318-4A1C-A04A-53EDA624111D', 'name': 'Select a court', 'incoming': ['Hunger! Will Essen.'], 'outgoing': ["Wait till he's in line"]}
+{'id': 'sid-F9A2B67A-A33C-4EF1-878D-26AAC6AE944B', 'name': 'Add your order', 'incoming': ['Hunger! Will Essen.'], 'outgoing': ['Court of Justice']}
+{'id': 'sid-B1C5B50B-FC24-447C-BC33-671F91169A30', 'name': 'Food', 'incoming': ['Court of Justice'], 'outgoing': ['No more hunger']}
+{'id': 'sid-F953B82F-AFAE-493D-85AD-17B4B45DC0BF', 'name': 'Court of Justice', 'incoming': ["Wait till he's in line"], 'outgoing': ['No more hunger']}
+{'id': 'sid-573CFF34-1AA0-4C96-AE78-BF139F19B60C', 'name': 'Court of Justice', 'incoming': ['Court of Justice'], 'outgoing': ['Court of Justice']}
+{'id': 'sid-23238A97-509A-46BD-886D-21A2B5F25F51', 'name': 'Cash', 'incoming': ['Input into the cash register system'], 'outgoing': ['Adjust Pieper, assign and transfer to customers']}
+{'id': 'sid-3BD999C2-5CC8-4E0F-99CC-B6D1A3DA433F', 'name': 'Input into the cash register system', 'incoming': ['Order to receive'], 'outgoing': ['Adjust Pieper, assign and transfer to customers']}
+{'id': 'sid-89053D9B-807A-4E43-8905-90F01352030C', 'name': 'Adjust Pieper, assign and transfer to customers', 'incoming': ['Order to receive'], 'outgoing': ['Trigger Pieper']}
+{'id': 'sid-F2FB46BE-1166-4BF0-99C3-53D5615C6B39', 'name': 'Trigger Pieper', 'incoming': ['Order to receive'], 'outgoing': ['5 minutes waiting']}
+{'id': 'sid-9703D353-508E-44E0-B397-C2A02C27F733', 'name': 'Court of First Instance', 'incoming': ['Order to receive'], 'outgoing': ['Court was duly handed over']}
+{'id': 'sid-B78992D3-0789-47A4-A434-1AA1A5DA00DF', 'name': 'Call', 'incoming': ['5 minutes waiting'], 'outgoing': ['No one has reported']}
+{'id': 'sid-FC9B1DDC-E363-40B5-B029-AA5EE7E838DE', 'name': 'Cook food', 'incoming': ['Order to receive'], 'outgoing': ['Place court on line']}
+{'id': 'sid-954BDB3E-673F-4C84-825A-9F6BD2DCACA8', 'name': 'Place court on line', 'incoming': ['Order to receive'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-80C0F845-5DFB-45B3-B3C2-99148AD7AF04', 'name': 'EventBasedGateway0', 'incoming': ['Order to receive'], 'outgoing': ['Court was duly handed over', 'No one has reported']}
+{'id': 'sid-86CC17E4-098B-4C12-9DF2-4EC5051C95AD', 'name': "Wait till he's in line", 'incoming': ['Hunger! Will Essen.'], 'outgoing': ['No more hunger']}
+{'id': 'sid-375FF9C1-BEB7-445A-955F-23E3E1E8EC43', 'name': 'Court of Justice', 'incoming': ['Court of Justice'], 'outgoing': ['No more hunger']}
+{'id': 'sid-07197847-43BF-41DB-A1B3-A7FF4B9B8395', 'name': '5 minutes waiting', 'incoming': ['Trigger Pieper'], 'outgoing': ['No one has reported']}
+{'id': 'sid-46725FE7-876D-4801-9F77-A2628982BAFB', 'name': 'IntermediateCatchEvent4', 'incoming': ['Order to receive'], 'outgoing': ['Court was duly handed over']}
+
+Start Events:
+{'id': 'sid-D701E6BC-7B70-4CD9-B3CB-C65EBFC40AB5', 'name': 'Hunger! Will Essen.', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-614CF412-FF39-4060-BAF6-0227EAC1F64B', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Court of First Instance']}
+{'id': 'sid-459DE7A0-5C0E-424F-97D7-60583F8E9E12', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Place court on line']}
+
+End Events:
+{'id': 'sid-DA07E758-A636-48E0-AF29-603147BDF472', 'name': 'No more hunger', 'incoming': ["Wait till he's in line"], 'outgoing': []}
+{'id': 'sid-1BAE00E4-114C-49B8-861A-E46EFFBA7103', 'name': 'Court was duly handed over', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-308FA49F-8488-4BE4-BB88-8DB85D98240F', 'name': 'No one has reported', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-8B8E9679-6B9A-4E54-85E8-A9C9D15E3385', 'name': 'EndEvent3', 'incoming': ['Place court on line'], 'outgoing': []}

@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-F31F5903-BBD5-4B31-B475-E68B2CF69CCE', 'name': 'Check the case', 'incoming': ['Regress determined'], 'outgoing': ['Regress possible?']}
+{'id': 'sid-F0BD7C1E-D336-42E5-B911-D3663C1A421B', 'name': 'Re-adjust', 'incoming': ['Send payment request'], 'outgoing': ['Representation expired']}
+{'id': 'sid-AC42D2DE-7842-4F27-8B7D-5DAB7050F455', 'name': 'Send payment request', 'incoming': ['Regress determined'], 'outgoing': ['Notification']}
+{'id': 'sid-0FBD5CED-B611-47AB-92F4-2114057DFD0E', 'name': 'Book the process', 'incoming': ['Regress determined'], 'outgoing': ['Regress successfully completed']}
+{'id': 'sid-E8072507-A76E-4E76-8CCD-3F4E840D0640', 'name': 'Proceedings', 'incoming': ['Notification'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-8261AC00-E8A4-4B51-8A11-8E7EF9DAC121', 'name': 'Order Debt Service Provider', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Case delivered to debt collection']}
+
+Gateways:
+{'id': 'sid-48E50D2A-7680-4105-8BC6-E2187FA6EF0C', 'name': 'Regress possible?', 'incoming': ['Regress determined'], 'outgoing': ['Objection', 'Regress without success completed']}
+{'id': 'sid-AC8CED84-E0A2-48FF-A8C6-70354F5909F8', 'name': 'Objection', 'incoming': ['Regress possible?'], 'outgoing': ['Regress without success completed', 'ExclusiveGateway2']}
+{'id': 'sid-51641E7D-1AA9-480E-9D39-06784A646D5B', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3', 'Proceedings'], 'outgoing': ['Case delivered to debt collection']}
+{'id': 'sid-926C587C-3231-4F40-9732-16F5520837A8', 'name': 'EventBasedGateway3', 'incoming': ['Regress determined'], 'outgoing': ['Order Debt Service Provider', 'Regress without success completed', 'Regress successfully completed']}
+{'id': 'sid-E6333D33-761C-4859-84E1-932B9D01CF3F', 'name': 'Representation expired', 'incoming': ['Re-adjust'], 'outgoing': ['Case delivered to debt collection']}
+{'id': 'sid-CFB90B7B-2309-491A-AEF8-6187CF2AEFBC', 'name': 'Notification', 'incoming': ['Regress possible?'], 'outgoing': ['Regress without success completed']}
+{'id': 'sid-76C7DCE4-BFF4-437B-973B-84A49846A181', 'name': 'Money\nobtained', 'incoming': ['Regress determined'], 'outgoing': ['Regress successfully completed']}
+
+Start Events:
+{'id': 'sid-6ABCE89F-68A6-4042-B849-C5BB547171B2', 'name': 'Regress determined', 'incoming': [], 'outgoing': ['Book the process']}
+
+End Events:
+{'id': 'sid-9E639B0D-2F6F-4CFE-8A17-5A084F4274A6', 'name': 'Case delivered to debt collection', 'incoming': ['Representation expired'], 'outgoing': []}
+{'id': 'sid-69F71E95-0CF0-4F4B-9A24-AD26999F47F7', 'name': 'Regress successfully completed', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-18FAFA1F-A001-4A05-AF04-78501ECB93CF', 'name': 'Regress without success completed', 'incoming': ['EventBasedGateway3', 'Regress possible?'], 'outgoing': []}

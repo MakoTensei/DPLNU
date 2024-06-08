@@ -1,0 +1,7 @@
+ The process begins with the 'StartEvent0' triggering the 'Pick up offers - Order Spediteur' task, which then sends a request to 'ExclusiveGateway0'. This gateway forwards the request to 'Comparison', which in turn sends a request to 'Specialist'. The 'Specialist' task is then followed by 'Goods ready for dispatch', which is triggered by 'StartEvent0' and does not send any requests to other tasks.
+
+Simultaneously, 'StartEvent0' also triggers 'Packaging goods' task, which sends a request to 'ParallelGateway3'. This gateway then sends a request to 'Signature Package Ticket', which in turn sends a request to 'ExclusiveGateway2'. The 'ExclusiveGateway2' task sends a request to 'Goods ready for dispatch', which is triggered by 'StartEvent0' and does not send any requests to other tasks.
+
+Meanwhile, 'StartEvent1' triggers the 'Create a quote' task, which sends a request to 'Send a quote'. This task then triggers 'EndEvent0', which does not send any requests to other tasks.
+
+In summary, the process involves the 'StartEvent0' triggering multiple tasks and gateways, with 'Goods ready for dispatch' and 'Send a quote' being the final tasks in the process.

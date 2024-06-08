@@ -1,0 +1,11 @@
+ In a system where message delays and scoring events are managed, there are several key components and interactions that take place. The system includes various tasks, gateways, start events, and end events, each with their own unique identifiers and relationships.
+
+Starting with the start events, 'StartEvent0' and 'StartEvent1' are the initial triggers for the system. 'StartEvent0' initiates the process by sending a message to 'Scoring' and 'ExclusiveGateway0'. On the other hand, 'StartEvent1' sends a message to 'ExclusiveGateway2' and triggers the 'Scoring\nLevel 1' task.
+
+The 'Scoring' task has two outgoing connections: 'Scoring request' and 'Scoring\nLevel 2'. The former sends a message to 'ExclusiveGateway0', while the latter sends a message to 'ExclusiveGateway2'. The 'Scoring\nLevel 1' task, which is triggered by 'StartEvent1', sends a message to 'ExclusiveGateway2' and 'EndEvent1'.
+
+The 'ExclusiveGateway0' gateway receives messages from 'EventBasedGateway3' and 'EventBasedGateway3', and sends a message to 'EndEvent0'. The 'ExclusiveGateway1' gateway, which is triggered by 'StartEvent1', sends messages to 'ExclusiveGateway2' and 'EndEvent1'. The 'ExclusiveGateway2' gateway, which is triggered by 'StartEvent1' and 'Scoring\nLevel 1', sends a message to 'EndEvent1'.
+
+The 'Delay' task, triggered by 'StartEvent0', sends a message to 'ExclusiveGateway0'. The 'Transmission Scoring' task, triggered by 'StartEvent1', sends messages to 'ExclusiveGateway2' and 'EndEvent2'.
+
+In summary, the system starts with 'StartEvent0' and 'StartEvent1', which trigger various tasks and gateways. The 'Scoring' task is a central component, with connections to multiple gateways and end events. The 'ExclusiveGateway0' and 'Exclus

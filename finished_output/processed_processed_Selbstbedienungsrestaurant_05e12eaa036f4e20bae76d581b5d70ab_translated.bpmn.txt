@@ -1,0 +1,73 @@
+ 1. Restaurant Entrance:
+   - Hunger feels
+   - Outgoing to Court of Justice: Select Court
+
+2. Court of Justice:
+   - Wait for customer
+   - Outgoing to Wait
+
+3. Wait:
+   - Customer is on the line
+   - Outgoing to ExclusiveGateway0
+
+4. ExclusiveGateway0:
+   - Hunger feels
+   - Outgoing to Add your order
+
+5. Add your order:
+   - Place your order
+   - Outgoing to Order payment
+
+6. Order payment:
+   - Customer is on the line
+   - Outgoing to ExclusiveGateway0
+
+7. ExclusiveGateway0:
+   - Message of Cooking
+   - Outgoing to EventBasedGateway1
+
+8. EventBasedGateway1:
+   - Wait for Pieper
+   - Outgoing to Wait
+
+9. Wait:
+   - Customer is on the line
+   - Outgoing to IntermediateCatchEvent3
+
+10. IntermediateCatchEvent3:
+    - Customer is on the line
+    - Outgoing to ExclusiveGateway0
+
+11. ExclusiveGateway0:
+    - Message of Cooking
+    - Outgoing to 5 minutes past
+
+12. 5 minutes past:
+    - Message of Cooking
+    - Outgoing to ExclusiveGateway0
+
+13. ExclusiveGateway0:
+    - Guest published
+    - Outgoing to Order processed 23
+
+14. Order processed 23:
+    - Customer is tired
+    - Outgoing to Customer is tired
+
+15. Customer is tired:
+    - Put food into the empires
+    - Outgoing to inform employees
+
+16. Inform employees:
+    - Prepared food
+    - Outgoing to Customer is tired
+
+17. Prepared food:
+    - Customer is on the line
+    - Outgoing to IntermediateCatchEvent3
+
+18. IntermediateCatchEvent3:
+    - Customer is tired
+    - Outgoing to ExclusiveGateway0
+
+1

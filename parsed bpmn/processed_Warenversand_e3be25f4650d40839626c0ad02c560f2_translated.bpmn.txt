@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-21274A5A-A6F0-4489-B17A-3FD1B7CB2288', 'name': 'Filling the package note', 'incoming': ['ParallelGateway0'], 'outgoing': []}
+{'id': 'sid-1967ED65-9176-46BC-9AD9-1CA7B8343A35', 'name': 'Prepare for your request', 'incoming': ['Shipment'], 'outgoing': ['ParallelGateway1']}
+{'id': 'sid-184D7BF1-D4BF-43D2-B923-E1EC6B0F551E', 'name': 'Send inquiry to Spediteur 1', 'incoming': ['Shipment'], 'outgoing': ['Offer 1']}
+{'id': 'sid-AEAD6B2A-D6D2-430E-8632-50011AE39DA1', 'name': 'Offer 1', 'incoming': ['ParallelGateway1'], 'outgoing': ['sid-48A4DE0A-B880-4357-9CA7-491F8232A7AD']}
+{'id': 'sid-E3DEF6BE-3473-4B52-86A7-12C4AA2FC71C', 'name': 'Send inquiry to Spediteur 2', 'incoming': ['ParallelGateway1'], 'outgoing': ['Offer 2']}
+{'id': 'sid-6FEA4BA2-C8D1-4B27-99EB-A7BEA0B658BF', 'name': 'Offer 2', 'incoming': ['ParallelGateway1'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-0F0F5321-A26A-420D-9370-18503C6943BF', 'name': 'Send inquiry to Spediteur 3', 'incoming': ['ParallelGateway1'], 'outgoing': ['Offer 3']}
+{'id': 'sid-618D93F2-FFDE-4A48-9C51-069E567E8742', 'name': 'Offer 3', 'incoming': ['ParallelGateway1'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-1E74786B-2FBD-47C5-94A5-FB90C4BFC1D5', 'name': 'Select your offer', 'incoming': ['ParallelGateway3'], 'outgoing': ['Specialist']}
+{'id': 'sid-AFEF73E4-EAC1-4BD6-8485-9F85BF1C7E35', 'name': 'Specialist', 'incoming': ['ParallelGateway3'], 'outgoing': ['sid-630E0B9C-08A2-42BA-9225-1D458F88E786']}
+
+Gateways:
+{'id': 'sid-FEE0CA52-4EF6-4BE8-87D0-AD75C65C1706', 'name': 'ParallelGateway0', 'incoming': ['Shipment'], 'outgoing': ['Prepare for your request', 'Filling the package note']}
+{'id': 'sid-233FA595-CACD-4BA4-B06D-E341868B8E5F', 'name': 'ParallelGateway1', 'incoming': ['Shipment'], 'outgoing': ['Offer 1', 'ParallelGateway2', 'ParallelGateway3']}
+{'id': 'sid-4C824BCC-1011-449B-B340-A08DDE35CBB0', 'name': 'ParallelGateway2', 'incoming': ['ParallelGateway1'], 'outgoing': []}
+{'id': 'sid-3CF9EE13-930C-4FD3-AE3E-2BC2519966C8', 'name': 'ParallelGateway3', 'incoming': ['ParallelGateway1'], 'outgoing': ['Specialist']}
+
+Start Events:
+{'id': 'sid-8A2F3E74-D89D-4E40-AFC8-81943CE08D5C', 'name': 'Shipment', 'incoming': [], 'outgoing': ['Send inquiry to Spediteur 1']}
+
+End Events:
+{'id': 'sid-5FEA11F1-C1A3-4AFC-927F-4286AF6A34ED', 'name': 'Goods shipped', 'incoming': [], 'outgoing': []}

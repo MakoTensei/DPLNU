@@ -1,0 +1,13 @@
+ When a shipment of goods is ready for dispatch, the process begins with a check on shipping conditions to ensure everything is in order. This check is facilitated by the 'Check shipping conditions' task, which has an incoming link to the 'Goods ready for dispatch' event and an outgoing link to 'Big crowd?'.
+
+If the shipping conditions are satisfactory, the process continues with the 'Pick up more offers' task, which has an incoming link to 'ParallelGateway3'. This task is connected to the 'Check shipping conditions' task through the 'Big crowd?' gateway.
+
+The 'Pick up more offers' task then leads to the 'Check the offer' task, which has an incoming link to 'Big crowd?' and an outgoing link to 'ExclusiveGateway0'. This task is connected to 'ParallelGateway3' through the 'Big crowd?' gateway.
+
+Once the offer is checked, the process moves to the 'Selection and assignment' task, which has an incoming link to 'Big crowd?' and an outgoing link to 'ExclusiveGateway0'. This task is connected to 'Check the offer' task through the 'Big crowd?' gateway.
+
+After the offer is selected and assigned, the process proceeds to the 'Packaging goods' task, which has an incoming link to 'ParallelGateway3' and an outgoing link to 'ParallelGateway4'. This task is connected to 'Pick up more offers' task through 'ParallelGateway3'.
+
+The 'Packaging goods' task then leads to the 'Provide for collection' task, which has an incoming link to 'ParallelGateway4' and an outgoing link to'ready for collection'. This task is connected to 'Packaging goods' task through 'ParallelGateway4'.
+
+Finally, when the goods are ready for collection, the process ends with the'ready for collection' event, which has an incoming link to 'ParallelGateway4' and no outgoing links. This event is connected to 'Provide for collection' task through 'ParallelGateway4'.

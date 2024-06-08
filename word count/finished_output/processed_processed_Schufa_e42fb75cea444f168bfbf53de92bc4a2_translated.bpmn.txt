@@ -1,0 +1,11 @@
+ When the 'Schufascoring required' event is triggered, it initiates a scoring process that begins with the creation of a scoring request. This request is then routed to 'ExclusiveGateway0', which is responsible for handling the initial stages of the scoring process.
+
+Upon receiving the 'Schufascoring required' event, the 'ExclusiveGateway0' sends the request to 'EventBasedGateway3', which is the gateway responsible for the actual scoring. The scoring result is then sent back to 'ExclusiveGateway2', which is the next step in the process.
+
+If there is a delay in the scoring process, the 'Delay display' task is triggered, which is handled by 'ExclusiveGateway2'. This task is responsible for displaying the delay status to the user.
+
+Once the scoring process is complete, the 'Scoring result' task is triggered, which sends the result to 'EndEvent0'. This marks the end of the initial scoring process.
+
+If there is a delay in the scoring process, the 'Report delay' task is triggered, which sends the delay status to 'ExclusiveGateway0'. This gateway then routes the delay status to 'EndEvent1', indicating that the delay has been reported.
+
+In summary, the scoring process begins with the creation of a scoring request, which is routed through various gateways and tasks, depending on the incoming events and their respective outgoing connections. The process concludes with the reporting of the scoring result or delay status, depending on the outcome of the scoring process.

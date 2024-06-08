@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-BF24EB37-0B72-4AC1-80CB-44083E7E3913', 'name': 'Check the case', 'incoming': ['Regression\nReport\n'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-1D34859A-D056-416C-9B71-48B824D3829B', 'name': 'Close', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C0C1A965-DE7E-4D2D-A53A-31C066FC4266', 'name': 'Send payment request to VN', 'incoming': ['Regression\nReport\n'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-A865DEFD-41E4-494D-BDD1-DD65B3F346F1', 'name': 'Book the entrance', 'incoming': ['Money received'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-1471309B-068F-443A-AE64-50CD68A5A593', 'name': 'Proceedings', 'incoming': ['VN contradicts'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-F47FB3C4-8E93-473B-9F68-A911003182FC', 'name': 'forward to debt collection service providers', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-3A8718DC-56E7-4815-9438-0074A12D2F27', 'name': 'Set process for resubmission', 'incoming': ['Existence\nPossibility?'], 'outgoing': ['Money received']}
+
+Gateways:
+{'id': 'sid-8A5D6A4D-B7F2-4D97-BC6B-39E8A66EF9C3', 'name': 'Existence\nPossibility?', 'incoming': ['Regression\nReport\n'], 'outgoing': ['EndEvent0', 'Set process for resubmission']}
+{'id': 'sid-BFFC6129-1D63-4B79-9AF0-045880DE64E9', 'name': 'Denial of payment\njustified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-2C4B4582-737A-48C7-AA5C-42CDDE34FCE6', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-E6313EE1-301A-4AA3-805A-1C2AA5F523BF', 'name': 'ExclusiveGateway3', 'incoming': ['Check the case', 'VN contradicts'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-5F4574B8-96CB-4114-A1D9-8198B2BD2487', 'name': 'EventBasedGateway4', 'incoming': ['Set process for resubmission'], 'outgoing': ['forward to debt collection service providers', 'EndEvent1', 'Denial of payment\njustified?']}
+{'id': 'sid-8821779B-71BA-4720-AEDD-AA41A1A8ED44', 'name': 'Money received', 'incoming': ['Set process for resubmission'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-E45DBDB8-BBA0-47CF-93FF-5B2E256993B9', 'name': 'VN contradicts', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-9E49EE4E-75CE-476C-BB67-177FDBB711EB', 'name': 'Reimbursement\nentered', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent2']}
+
+Start Events:
+{'id': 'sid-D98C33F6-FAA6-406D-A2A3-B46A830D902B', 'name': 'Regression\nReport\n', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:
+{'id': 'sid-32257D7B-275B-4F4A-A4A4-BEB7CFE30FDA', 'name': 'EndEvent0', 'incoming': ['Existence\nPossibility?'], 'outgoing': []}
+{'id': 'sid-2FB3402C-D676-4A1D-9848-4A5A40CC36C7', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-83404DCA-6D18-4FFB-A928-8A32C060F511', 'name': 'EndEvent2', 'incoming': ['Reimbursement\nentered'], 'outgoing': []}

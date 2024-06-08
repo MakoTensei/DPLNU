@@ -1,0 +1,9 @@
+ In the loan process, the system starts with a 'Loan' event. This triggers the 'Check credit award' task, which then initiates the 'Run schufascoring' task. The 'Schufascoring request of credit award' task is triggered by the 'Schufascoring request of credit award' event, which in turn leads to the 'Report delay' task.
+
+The 'Schufascoring request from Bank' event triggers the 'ExclusiveGateway2' task, which forwards the request to either 'Report the final result' or 'Report back delay' tasks. The 'Result?' task is triggered by the 'Schufascoring request from Bank' event and can lead to either 'Report the final result' or 'Report back delay' tasks.
+
+The 'Report delay' task is triggered by the 'Delay?' task and sends the final scoring result to the 'EndEvent2' task. The 'Report back delay' task is also triggered by the 'Delay?' task and sends the final scoring result to the 'EndEvent2' task.
+
+The 'Level 2 Scoring' task is triggered by the 'Result?' task and sends the final scoring result to the 'EndEvent2' task. The 'Delay?' task is triggered by the 'Schufascoring request of credit award' event and sends the final scoring result to the 'EndEvent2' task.
+
+In summary, the loan process involves checking credit award, running schufascoring, and reporting delays or final results based on the scoring process. The tasks and events are interconnected through gateways and end events, ensuring a smooth flow of information and actions.

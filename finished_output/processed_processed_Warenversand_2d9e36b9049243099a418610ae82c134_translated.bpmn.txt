@@ -1,0 +1,13 @@
+ The process begins with the 'Goods for shipping' start event, which triggers the 'Pick up offers' task through the 'ParallelGateway4'. The 'Pick up offers' task then sends the 'Goods for shipping' to the 'ExclusiveGateway0', which in turn leads to the 'Select and order offer' task. The 'Select and order offer' task sends the 'Goods for shipping' to the 'ExclusiveGateway3', which connects to the 'ParallelGateway5'.
+
+The 'ParallelGateway5' receives the 'Goods for shipping' and sends it to the 'Separation of shipment' task, which then sends the goods to the 'EndEvent0'. The 'EndEvent0' receives the 'Separation of shipment' and completes the process.
+
+Meanwhile, the 'Pick up offers' task also sends the 'Goods for shipping' to the 'ExclusiveGateway1', which leads to the 'Filling the package note' task. The 'Filling the package note' task sends the 'Goods for shipping' to the 'ExclusiveGateway2', which connects to the 'ExclusiveGateway3'. The 'ExclusiveGateway3' sends the 'Goods for shipping' to the 'ParallelGateway5', which connects to the 'EndEvent0'.
+
+In summary, the process involves the following tasks:
+1. 'Pick up offers' task: Packaging goods and sending them to 'Select and order offer' task.
+2. 'Select and order offer' task: Selecting and ordering the goods, sending them to 'ExclusiveGateway3'.
+3. 'Filling the package note' task: Filling the package note, sending it to 'ExclusiveGateway2'.
+4. 'Insurance close' task: Closing the insurance, sending it to 'ExclusiveGateway2'.
+5. 'Separation of shipment' task: Separating the shipment, sending it to 'EndEvent0'.
+6. 'EndEvent0' task: Completing the process.

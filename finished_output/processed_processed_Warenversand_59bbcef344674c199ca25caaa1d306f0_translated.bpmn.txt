@@ -1,0 +1,9 @@
+ When goods are to be shipped, the process begins with the 'Pick up the offer of 3 carriers' task, which involves evaluating the offers from three different carriers to find the cheapest option. This task is facilitated by the 'Insurance necessary' gateway, which ensures that the selected carrier provides the required insurance coverage. Once the cheapest offer is chosen, the 'Choose the cheapest offer' task is triggered, which sends the details of the selected carrier to the 'Specialist' gateway for further processing.
+
+Simultaneously, the 'categorize shipping' task is initiated to determine the appropriate shipping category for the goods. This task is connected to the 'ParallelGateway4' gateway, which processes the incoming information and directs the flow to either 'ParallelGateway5' or 'Pick up the offer of 3 carriers' based on the shipping category.
+
+After the shipping category is determined, the 'Filling the package note' task is executed, which involves preparing the necessary documentation for the shipment. This task is routed to the 'ExclusiveGateway1' gateway, which then sends the package note to the 'ExclusiveGateway2' gateway for further processing.
+
+Once the package note is processed, the 'Packaging goods' task is triggered, which packages the goods for shipment. This task is connected to the 'ParallelGateway4' gateway, which sends the packaged goods to 'ParallelGateway5' for the next step in the process.
+
+Finally, the 'Delivering goods' task is initiated, which involves the actual delivery of the goods to the customer. This task is routed to the 'ParallelGateway5' gateway, which sends the delivery confirmation to the 'Product is ready' task, marking the end of the process.

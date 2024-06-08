@@ -1,0 +1,7 @@
+ In the scoring process, when a scoring request is initiated, it triggers the transfer of Schufa results to the frontend. This is followed by a level 1 scoring process, which is completed when the Schufa result is received. If the level 1 scoring is successful, it leads to the creation of a scoring result.
+
+Once the level 1 scoring is completed, the system waits for the Schufa result. Upon receiving the Schufa result, it triggers the forwarding of the result to the frontend. This is followed by a level 2 scoring process, which is completed when the Schufa result is received. If the level 2 scoring is successful, it leads to the completion of the Schufa process.
+
+In case of a delay in the Schufa result, the system reports the delay to the bank, which then triggers the level 2 scoring process.
+
+The scoring process is initiated by the StartEvent0, and it concludes with the EndEvent2. The gradation completion is the common outcome for both level 1 and level 2 scoring processes.

@@ -1,0 +1,9 @@
+ The process begins with the 'Start' event, which triggers the 'Pick up offers' task. This task is connected to the 'ParallelGateway4', which then leads to the 'Special delivery\nNotwenidig?' task. If the delivery is not wanted, the process moves to the 'Specialist' task, which is also connected to 'ParallelGateway4'. The 'Specialist' task then leads to the 'Goods\nmade available' task.
+
+If the delivery is wanted, the process moves to the 'Filling the package note' task, which is connected to 'ParallelGateway4'. This task then leads to the 'Goods\nmade available' task.
+
+The 'Goods\nmade available' task is connected to both 'ExclusiveGateway2' and 'ParallelGateway5'. If the goods are made available through 'ExclusiveGateway2', the process moves to the 'Deliver goods for deduction' task, which is connected to 'ParallelGateway4'. This task then leads to the 'ParallelGateway5' task.
+
+On the other hand, if the goods are made available through 'ParallelGateway5', the process ends directly at the 'Goods\nmade available' task.
+
+In summary, the process starts with the 'Start' event, leading to 'Pick up offers' and 'Special delivery\nNotwenidig?'. Depending on the delivery preference, the process either moves to 'Specialist' and 'Goods\nmade available' or directly to 'Filling the package note' and 'Goods\nmade available'. The 'Goods\nmade available' task then leads to either 'Deliver goods for deduction' and 'ParallelGateway5' or directly to 'Goods\nmade available'. The process ends at the 'Goods\nmade available' task.

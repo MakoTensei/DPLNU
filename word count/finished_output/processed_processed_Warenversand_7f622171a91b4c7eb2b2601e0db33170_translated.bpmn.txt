@@ -1,0 +1,13 @@
+ Upon completion of the 'Goods finished' event, the process begins with the 'Pick up three offers' task, which involves selecting three offers from the available options. This task is triggered by the incoming event 'Goods finished' and has an outgoing gateway to 'Select the Spediteur'. Once the offers are selected, the process moves to the 'Complete the offer' task, which is triggered by the incoming event 'Lot?' and has an outgoing gateway to 'ExclusiveGateway1'.
+
+Simultaneously, the 'Filling the package note' task is initiated, which is triggered by the incoming event 'Lot?' and has an outgoing gateway to 'ExclusiveGateway1'. This task involves filling the package note with the necessary details.
+
+The 'Select the Spediteur' task is triggered by the incoming event 'Lot?' and has an outgoing gateway to 'Complete the offer'. This task involves choosing the shipping service provider for the selected offers.
+
+The 'Complete the offer' task is triggered by the incoming event 'Lot?' and has an outgoing gateway to 'ExclusiveGateway1'. This task involves finalizing the selected offers and preparing them for shipping.
+
+Meanwhile, the 'Provide ready-to-order goods' task is triggered by the incoming event 'ParallelGateway4' and has an outgoing gateway to 'Product ready made available'. This task involves making the selected goods ready for order and making them available for purchase.
+
+The 'Packaging goods' task is triggered by the incoming event 'ParallelGateway3' and has an outgoing gateway to 'Product ready made available'. This task involves packaging the selected goods for shipping.
+
+Finally, the 'Product ready made available' event is triggered by the incoming event 'ParallelGateway3' and has no outgoing gateway. This event signifies the completion of the process, with the goods being packaged and ready for shipping.

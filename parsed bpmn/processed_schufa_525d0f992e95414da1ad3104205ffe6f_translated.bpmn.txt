@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-3B61DD54-0F67-4818-A4F4-464D6A7ADD9E', 'name': 'Scoring request to Schufa', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring successfully']}
+{'id': 'sid-19AA77FD-AD02-4662-80FC-9272A8B2E0D1', 'name': 'Share Score Level 1', 'incoming': ['Scoring successfully'], 'outgoing': ['Score\nforwarded']}
+{'id': 'sid-61CF6875-8765-4F75-8FC9-ABDDAB2A974C', 'name': 'Reporting of delay', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Score Level 2\nobtained']}
+{'id': 'sid-B4295BD4-A3ED-4559-A6BC-4B0932A91F50', 'name': 'Share Score Level 2', 'incoming': ['Scoring\nRequired'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-8AB58A71-6B10-41CD-A2A6-0149EB6276ED', 'name': 'perform scoring level 1', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Results obtained?']}
+{'id': 'sid-6A99EE08-DA29-4AEF-B58A-728494942E17', 'name': 'Report scoring result Level 1 to Bank', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Scoring performed']}
+{'id': 'sid-182C4912-EFA6-44B8-9A6B-6A4F892CA9A4', 'name': 'Report delay to bank scoring system', 'incoming': ['Results obtained?'], 'outgoing': ['perform scoring level 2']}
+{'id': 'sid-9EDA0A68-07B1-469D-AA48-1B3CEC29557F', 'name': 'perform scoring level 2', 'incoming': ['Results obtained?'], 'outgoing': ['Report scoring result Level 2 to Bank']}
+{'id': 'sid-59089059-46FD-4933-A95A-EEFFDAFDC639', 'name': 'Report scoring result Level 2 to Bank', 'incoming': ['Results obtained?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-48684ED2-B9B3-4338-94DF-82E0AE3B5C65', 'name': 'ExclusiveGateway0', 'incoming': ['Result\nobtained', 'Score Level 2\nobtained'], 'outgoing': ['Score\nforwarded']}
+{'id': 'sid-7DC1155E-9F35-4119-86D9-2CAA2E45D9EB', 'name': 'Results obtained?', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Scoring performed', 'Report scoring result Level 2 to Bank']}
+{'id': 'sid-A3288629-A036-47D8-A902-CAABA3D4366C', 'name': 'ExclusiveGateway2', 'incoming': ['Report scoring result Level 2 to Bank', 'Scoring request\nobtained'], 'outgoing': ['Scoring performed']}
+{'id': 'sid-B1F4B16F-C388-4300-9D77-EDF5997C24F6', 'name': 'Result\nobtained', 'incoming': ['Scoring\nRequired'], 'outgoing': ['ExclusiveGateway0', 'Scoring Level 2\nRequired']}
+{'id': 'sid-E2994424-7E0F-4F7D-BE8A-A5CE899D5960', 'name': 'Scoring successfully', 'incoming': ['Scoring request to Schufa'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-3845358A-A140-4D6A-AEB6-3E7FB9D11720', 'name': 'Scoring Level 2\nRequired', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Reporting of delay']}
+{'id': 'sid-9E446A83-F3D4-4FD9-AA08-A21A31F999C5', 'name': 'Score Level 2\nobtained', 'incoming': ['Scoring\nRequired'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['Share Score Level 2']}
+{'id': 'sid-C54B8478-12DE-42C9-B98B-4CA4CA713019', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-75612D95-5003-4C58-9DC2-AB6135D9E494', 'name': 'Score\nforwarded', 'incoming': ['Share Score Level 1'], 'outgoing': []}
+{'id': 'sid-5BD1A64C-FECC-4F69-B632-114BAE48B4A4', 'name': 'Scoring performed', 'incoming': ['Results obtained?'], 'outgoing': []}

@@ -1,0 +1,33 @@
+Tasks:
+{'id': 'sid-188702F4-3FD2-448E-81FF-94750949EA00', 'name': 'Visit the restaurant\n', 'incoming': ['Hunger'], 'outgoing': ['Select a court']}
+{'id': 'sid-676967D8-CE8A-4281-9D86-D164E5268F10', 'name': 'Select a court', 'incoming': ['Hunger'], 'outgoing': ['in the row']}
+{'id': 'sid-680EF6F2-D657-46E7-9934-8F0C13DEC233', 'name': 'Pick up Pieper', 'incoming': ['waiting for Pieper'], 'outgoing': ['waiting for a beep signal']}
+{'id': 'sid-C4C23BED-D3E9-4790-8655-914A2E40880D', 'name': 'Eat court', 'incoming': ['sid-24760FD3-C272-40AA-8EB1-5D01837C2107'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-2467C806-EB03-49C7-861A-420BA8C275F7', 'name': 'Enter your order in cash system', 'incoming': ['Ordered'], 'outgoing': ['Cash']}
+{'id': 'sid-53454E75-F4C7-43F0-9680-E456575B0F43', 'name': 'Cash', 'incoming': ['Ordered'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-D41B4D21-9D2A-49B7-B967-CF88502572D8', 'name': 'Adjust Pieper', 'incoming': ['Ordered'], 'outgoing': ['sid-F0783364-BFCD-4E49-990D-439EE77380C6']}
+{'id': 'sid-4D2F6D84-DCAA-438B-98FF-C5E3F19831C7', 'name': 'Pick up Pieper', 'incoming': ['waiting for Pieper'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-06559078-AFF5-4FB3-99CD-730C8D286AA9', 'name': 'Retrieve customer', 'incoming': ['5 min'], 'outgoing': ['Customer will appear']}
+{'id': 'sid-718654C0-5AA8-486F-8BB1-21B3D5020D0E', 'name': 'prepare court', 'incoming': ['Court should be prepared'], 'outgoing': ['Place court in vain']}
+{'id': 'sid-71DDEEBD-5CDD-440E-8FAE-EA81B2867819', 'name': 'Place court in vain', 'incoming': ['Court should be prepared'], 'outgoing': ['sid-5C2196FC-98B9-46CE-9F15-DFE7B892BA8F']}
+
+Gateways:
+{'id': 'sid-18AC4C4B-7B68-44A6-B1BD-E4530C477C9B', 'name': 'EventBasedGateway0', 'incoming': ['sid-08E57BFA-CCF9-4BA8-B5E1-8AAA172D7D80', 'EventBasedGateway0'], 'outgoing': ['Customer will appear', 'EventBasedGateway0']}
+{'id': 'sid-8C0D9C8E-032E-42DA-8E06-8D2D5C4C3CC3', 'name': 'in the row', 'incoming': ['Hunger'], 'outgoing': ['sid-61348215-2BCD-444C-920C-5158FE3BA7A3']}
+{'id': 'sid-C35F6FCC-1F0A-4A48-8A1F-D8DB4846ECEB', 'name': 'waiting for Pieper', 'incoming': ['sid-31F6296D-CCD0-4447-A26D-B6714CA5FB85'], 'outgoing': ['waiting for a beep signal']}
+{'id': 'sid-B84CCBC9-9A22-4CEA-B2E7-E8D6BC27E866', 'name': 'waiting for a beep signal', 'incoming': ['waiting for Pieper'], 'outgoing': ['sid-EBA79603-477C-4554-9C09-FD901FD45229']}
+{'id': 'sid-5B872431-C632-4E02-BBEF-57539B89AFD8', 'name': 'waiting for trial', 'incoming': ['sid-650C4118-2B3C-4706-BB46-EFBCC1E8B281'], 'outgoing': ['sid-B81E4959-B262-4376-8133-ABD60CC05A2B']}
+{'id': 'sid-3A61F91F-EF4E-4EED-AEFA-E3AC26DE6478', 'name': 'Court of Justice', 'incoming': ['sid-6EEA1978-5087-4C29-B5A3-CC5B22C4116C'], 'outgoing': ['sid-634D5AD0-5BCE-4D13-AD22-90F8F8CE9E21']}
+{'id': 'sid-BA903DD8-EC67-4A5F-9B0F-DD0C0F954C18', 'name': 'Customer will appear', 'incoming': ['Retrieve customer'], 'outgoing': ['sid-F66D1F12-031B-406D-9D13-D405E2AF5BEF']}
+{'id': 'sid-ED481D83-2AED-41EC-9241-979CFB43A449', 'name': 'waiting for Pieper', 'incoming': ['sid-745BCB34-1C85-4866-A7A3-952966B377FD'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-EDA89FFB-9BFC-4900-AED5-FA0AB03C0649', 'name': '5 min', 'incoming': ['5 min'], 'outgoing': ['5 min']}
+
+Start Events:
+{'id': 'sid-2227A41D-2DEB-4CE4-83B5-209B9E236931', 'name': 'Hunger', 'incoming': [], 'outgoing': ['in the row']}
+{'id': 'sid-E31B8DBF-EC34-4BF2-9E4B-FE98ED63BF51', 'name': 'Ordered', 'incoming': [], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-3844D847-8445-4CAD-B471-142161242FD1', 'name': 'Court should be prepared', 'incoming': [], 'outgoing': ['Place court in vain']}
+
+End Events:
+{'id': 'sid-FFC6D619-E46C-43FC-BFBE-3640A0A15B66', 'name': 'EndEvent0', 'incoming': ['Eat court'], 'outgoing': []}
+{'id': 'sid-7DD60C3B-4D0D-4AFD-A850-D6ADF408F19B', 'name': 'EndEvent1', 'incoming': ['waiting for Pieper'], 'outgoing': []}
+{'id': 'sid-AFA0CF8F-E4A3-4F77-A9D0-56D13AD761C7', 'name': 'EndEvent2', 'incoming': ['sid-5622AC87-803D-415E-B50D-80B82C59031E'], 'outgoing': []}

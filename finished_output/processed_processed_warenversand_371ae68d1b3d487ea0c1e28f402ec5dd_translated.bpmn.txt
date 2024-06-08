@@ -1,0 +1,9 @@
+ The process begins with the dispatch of goods, which triggers the 'Goods dispatched they are' event, leading to the 'Special shipment required?' gateway. This gateway then directs the process to either 'Filling the package note' or 'Pick up offers' based on the specific requirements.
+
+If 'Filling the package note' is chosen, the process continues to 'ExclusiveGateway2', which in turn connects to 'Specialist'. The 'Specialist' then directs the process to 'ExclusiveGateway3', which leads to 'ParallelGateway5'.
+
+On the other hand, if 'Pick up offers' is chosen, the process goes to 'Specialist' directly, which then connects to 'ExclusiveGateway3'. From there, the process moves to 'ParallelGateway5'.
+
+In both cases, 'ParallelGateway5' is the final step, where the goods are packaged and ready for dispatch. This event connects to 'Delivering goods', which concludes the process.
+
+In summary, the process starts with the dispatch of goods, followed by a decision point at the 'Special shipment required?' gateway, leading to either 'Filling the package note' or 'Pick up offers'. The chosen path then proceeds through the respective gateways and ends with the packaging and dispatch of the goods.

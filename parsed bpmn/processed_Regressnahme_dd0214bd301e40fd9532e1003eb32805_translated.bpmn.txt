@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-417CE8AB-38D5-49BE-8820-147167CF9986', 'name': 'Check the case', 'incoming': ['Regress reported'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-93EB04D7-8BDB-49FC-B27C-FC026B50C03C', 'name': 'Send a message', 'incoming': ['Regress reported'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-89D3099D-3B89-487A-86FF-0AC232A0023D', 'name': 'Reimbursement', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Opposition']}
+{'id': 'sid-5EE886A9-41D7-469E-AC93-728FCA29D543', 'name': 'Book the entrance', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-15EFF38F-C667-418F-B5EB-1B0677046A58', 'name': 'Proceedings', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-7609BD0E-8CF6-4FFF-B45B-F4647AA72F1C', 'name': 'Action', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Inkasso Service\nNotification']}
+{'id': 'sid-756C758B-A8D6-431F-8DA0-75033CDFFBAD', 'name': 'Close', 'incoming': ['Money received'], 'outgoing': ['Close']}
+
+Gateways:
+{'id': 'sid-77A1D3DB-5622-465D-A4AE-C2615B8F8381', 'name': 'ExclusiveGateway0', 'incoming': ['Regress reported'], 'outgoing': ['Date of expiry', 'ExclusiveGateway2']}
+{'id': 'sid-B5B9C5BC-F2DC-40FD-AD69-A2BD84BC7A7A', 'name': 'ExclusiveGateway1', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-AF3337AE-E48D-4F88-8614-A0402D5F111A', 'name': 'ExclusiveGateway2', 'incoming': ['Money received', 'Check the case', 'Inkasso Service\nNotification', 'Proceedings'], 'outgoing': ['Close']}
+{'id': 'sid-D10C2A36-2DC3-4ADC-B29B-3CD614AF9709', 'name': 'ExclusiveGateway3', 'incoming': ['IntermediateCatchEvent5', 'Opposition'], 'outgoing': ['Inkasso Service\nNotification']}
+{'id': 'sid-549A15A9-5BC3-4178-81A6-C25AEBA6E0D8', 'name': 'Money received', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Close']}
+{'id': 'sid-F0FA89C3-1A53-465A-8A0E-F1B5057A4079', 'name': 'IntermediateCatchEvent5', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Book the entrance', 'Action', 'ExclusiveGateway1']}
+{'id': 'sid-269B403C-8B77-4ED5-B76A-3DB2B0FAD497', 'name': 'Opposition', 'incoming': ['Reimbursement'], 'outgoing': ['Inkasso Service\nNotification']}
+{'id': 'sid-2ADB01E0-8092-4AC8-8212-3FC03900F3E2', 'name': 'Date of expiry', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-09FD304E-92DA-4BCE-94EE-B180D7B847A0', 'name': 'Inkasso Service\nNotification', 'incoming': ['Opposition'], 'outgoing': ['Close']}
+
+Start Events:
+{'id': 'sid-42FAA72B-273A-4FD3-B021-911CAE66CD6E', 'name': 'Regress reported', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-C0481541-AB07-4ABC-AF37-B01313BEB599', 'name': 'Close', 'incoming': ['Inkasso Service\nNotification'], 'outgoing': []}

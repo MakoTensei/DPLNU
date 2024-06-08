@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-4882B934-CA18-4D04-A22C-5B7DE4B5F835', 'name': 'Scoring Start request', 'incoming': ['Scoring\nRequired'], 'outgoing': ['IntermediateCatchEvent0']}
+{'id': 'sid-5E510731-F297-43BC-B132-C6147BD00BAA', 'name': 'forwarding\nScoring result', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Request edited']}
+{'id': 'sid-E0CC1F5F-868C-40B8-9492-47D5C6BD9144', 'name': 'forwarding\ncredit system', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-5BD3CB3E-63B6-4EE3-B898-17CDC0E96D47', 'name': 'Scoring Level 1', 'incoming': ['Scoring request'], 'outgoing': ['Scoring calculated']}
+{'id': 'sid-6B73C8C4-2E17-462D-8B50-0C47FD6F9491', 'name': 'Scoring Level 2', 'incoming': ['Prepare information about delay'], 'outgoing': ['Scoring calculated']}
+{'id': 'sid-1FE20939-CC65-473E-8BFF-F0F05F153836', 'name': 'Prepare information about delay', 'incoming': ['sid-96CEC6DE-18D0-4D09-BBD9-E7AE22383BD7'], 'outgoing': ['Scoring calculated']}
+
+Gateways:
+{'id': 'sid-D0478016-2D31-42B1-BDE8-D2112CABA220', 'name': 'IntermediateCatchEvent0', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Request edited']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['forwarding\nScoring result']}
+{'id': 'sid-6BE30BA5-2E14-494A-B17B-8041BA03AA97', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['forwarding\ncredit system']}
+{'id': 'sid-31833808-AA39-41D1-A7AD-DBFE18CFA784', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Scoring Level 1']}
+
+End Events:
+{'id': 'sid-1DF20381-7D2B-4811-9552-24B18E8B5B2C', 'name': 'Request edited', 'incoming': ['IntermediateCatchEvent0'], 'outgoing': []}
+{'id': 'sid-DF4F6A56-277F-4413-97A1-B2795ED54A3A', 'name': 'EndEvent1', 'incoming': ['forwarding\ncredit system'], 'outgoing': []}
+{'id': 'sid-A0584AB6-8632-4818-8424-AAB623199315', 'name': 'Scoring calculated', 'incoming': ['Prepare information about delay'], 'outgoing': []}
+{'id': 'sid-413FD700-71C5-4DCE-9DF7-AB42EC86066E', 'name': 'Scoring calculated', 'incoming': ['Scoring Level 1'], 'outgoing': []}

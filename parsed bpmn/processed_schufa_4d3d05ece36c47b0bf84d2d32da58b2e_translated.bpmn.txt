@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-E288D13A-6AD2-4484-9B71-45A3BA076DF5', 'name': 'Start your search', 'incoming': ['Schufascoring\nRequired'], 'outgoing': ['Send result or delay to Frontend']}
+{'id': 'sid-F10938BB-78D7-48DC-9582-71C0B49647A1', 'name': 'Send result or delay to Frontend', 'incoming': ['Schufascoring\nRequired'], 'outgoing': ['Level 2 scoring\nwe are']}
+{'id': 'sid-132B4EBC-7B07-45F5-AFBA-551334F2FCC2', 'name': 'Share scoring', 'incoming': ['Level 2 scoring\nwe are'], 'outgoing': ['Request completed']}
+{'id': 'sid-EF2C656C-82D6-4567-A03B-0B5462E3B4C0', 'name': 'Level 1 Scoring', 'incoming': ['Schufaanffrage'], 'outgoing': ['Share result or delay']}
+{'id': 'sid-CC394873-5E9B-4949-8961-86F369364522', 'name': 'Share result or delay', 'incoming': ['Schufaanffrage'], 'outgoing': ['Request completed']}
+{'id': 'sid-092CBA0B-A92E-4357-968F-7F8A14CC48E5', 'name': 'Level 2 Scoring', 'incoming': ['Schufaanffrage'], 'outgoing': ['Transfer Result Level 2 scoring']}
+{'id': 'sid-BBC8B708-4398-4D64-9075-9A77D3AD4FDA', 'name': 'Transfer Result Level 2 scoring', 'incoming': ['Level 2 scoring\nnecessary?'], 'outgoing': ['Request completed']}
+
+Gateways:
+{'id': 'sid-EE70917B-E820-4A89-AADC-3CDD07F7BC18', 'name': 'The delay\nReported?', 'incoming': ['Schufascoring\nRequired'], 'outgoing': ['Request completed', 'Request closed']}
+{'id': 'sid-96AABADA-E885-42A1-B278-8474F543A22F', 'name': 'Level 2 scoring\nnecessary?', 'incoming': ['Schufaanffrage'], 'outgoing': ['Request completed', 'Request completed']}
+{'id': 'sid-6778E5CF-9308-48B3-8AA4-68F028D972E7', 'name': 'Level 2 scoring\nwe are', 'incoming': ['Send result or delay to Frontend'], 'outgoing': ['Request completed']}
+
+Start Events:
+{'id': 'sid-C65505A0-6224-429F-844A-6CF8A6A65E89', 'name': 'Schufascoring\nRequired', 'incoming': [], 'outgoing': ['The delay\nReported?']}
+{'id': 'sid-B54F24D2-D8D7-463E-A5F6-C00747BE7837', 'name': 'Schufaanffrage', 'incoming': [], 'outgoing': ['Level 2 Scoring']}
+
+End Events:
+{'id': 'sid-E167AD07-1EB9-4E85-8233-B89D34B77500', 'name': 'Request completed', 'incoming': ['The delay\nReported?'], 'outgoing': []}
+{'id': 'sid-6EC2B710-0F94-4646-A4C4-F9A9909C8AA3', 'name': 'Request closed', 'incoming': ['The delay\nReported?'], 'outgoing': []}
+{'id': 'sid-314F057A-1DD8-488F-BF02-C6145A1098C3', 'name': 'Request completed', 'incoming': ['Share result or delay'], 'outgoing': []}
+{'id': 'sid-01BB5200-6EE9-425C-93CF-20853CDE3674', 'name': 'Request completed', 'incoming': ['Level 2 scoring\nnecessary?'], 'outgoing': []}

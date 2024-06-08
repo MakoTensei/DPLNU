@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-AB50D761-7CF6-45B7-BE48-9CEAD7923043', 'name': 'Schufascoring\nCreate an inquiry', 'incoming': ['Scoring request\nto a customer'], 'outgoing': ['Scoring\nQuestion\nsend']}
+{'id': 'sid-DF6963CE-9CDD-4F7E-879F-05691CCA7B83', 'name': 'Scoring\nQuestion\nsend', 'incoming': ['Scoring request\nto a customer'], 'outgoing': ['Scoring result\nobtained']}
+{'id': 'sid-F17E43C2-8884-4B24-84BC-20C733ACDD0A', 'name': 'Send scoring result', 'incoming': ['Scoring\nget an inquiry'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-BAA24603-6190-4260-BF91-2826F39221F4', 'name': 'Report delay', 'incoming': ['Delay'], 'outgoing': ['perform scoring step 2']}
+{'id': 'sid-E6BE7F26-EE72-4F6A-9C49-F1073425E1EF', 'name': 'perform scoring step 2', 'incoming': ['Delay'], 'outgoing': ['Final scoring\nresult']}
+{'id': 'sid-873FC9EC-538E-4A4D-A7B5-926166C65869', 'name': 'Final scoring\nresult', 'incoming': ['Delay'], 'outgoing': ['Delay']}
+
+Gateways:
+{'id': 'sid-0D7D6886-143A-4AA5-8266-24C8244941D9', 'name': 'EventBasedGateway0', 'incoming': ['Scoring\nget an inquiry', 'Delay'], 'outgoing': ['EndEvent1', 'Delay']}
+{'id': 'sid-B3AE1414-0275-4615-B713-CD802F7793F7', 'name': 'Scoring result\nobtained', 'incoming': ['Scoring request\nto a customer'], 'outgoing': ['sid-A98AB618-88DB-414D-B459-3CA406BD2F1E']}
+{'id': 'sid-D823BC1A-1261-4129-9E6D-D7DFBB052363', 'name': 'Scoring\nresult available', 'incoming': ['Scoring\nget an inquiry'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-F261D6B2-8424-47DA-A125-7F03DB41FD71', 'name': 'Delay', 'incoming': ['Final scoring\nresult'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-4488235E-2F39-4325-8B5C-3398DE9F7234', 'name': 'Scoring request\nto a customer', 'incoming': [], 'outgoing': ['Scoring result\nobtained']}
+{'id': 'sid-241DFED8-6034-4A09-87C8-71A1EAEC8382', 'name': 'Scoring\nget an inquiry', 'incoming': [], 'outgoing': ['Send scoring result']}
+
+End Events:
+{'id': 'sid-E56FD808-F89C-4C6F-AD12-A83A04778F1F', 'name': 'EndEvent0', 'incoming': ['sid-2E5BF560-C4AB-49BB-B488-C49B2B6443D6'], 'outgoing': []}
+{'id': 'sid-CE46A509-36CA-4EF2-8EA1-FED83F12F2EC', 'name': 'EndEvent1', 'incoming': ['Delay'], 'outgoing': []}

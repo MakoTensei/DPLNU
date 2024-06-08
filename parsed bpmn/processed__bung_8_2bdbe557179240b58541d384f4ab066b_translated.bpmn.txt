@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-DF34199A-71BD-49D0-A112-A5A854B9AA32', 'name': 'Visit the restaurant', 'incoming': ['Famine'], 'outgoing': ['Select a court']}
+{'id': 'sid-C01993E7-3E69-4CEF-9207-21B4FE9FDF55', 'name': 'Select a court', 'incoming': ['Famine'], 'outgoing': ['Waiting to the row']}
+{'id': 'sid-A903CDD4-B0DF-4AA4-A2C6-E725C8F8C94E', 'name': 'Waiting to the row', 'incoming': ['Famine'], 'outgoing': ['Add your order']}
+{'id': 'sid-B2B6EC96-6B59-4CE3-B2D5-BD16C7A3064E', 'name': 'Add your order', 'incoming': ['Famine'], 'outgoing': ['Payment']}
+{'id': 'sid-0FE59E68-F405-415E-8671-D9E31238A282', 'name': 'Payment', 'incoming': ['Famine'], 'outgoing': ['wait till food ready']}
+{'id': 'sid-E4057F72-0FF2-46E9-A425-F165FB57FE3E', 'name': 'wait till food ready', 'incoming': ['Famine'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-44984275-CF6B-4735-87BF-891FBF02F35D', 'name': 'Pick up meal', 'incoming': ['Famine'], 'outgoing': ['Eat meal']}
+{'id': 'sid-3C6F436A-BFBA-4806-B1DD-A2BA0A907E14', 'name': 'Eat meal', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['Famine']}
+{'id': 'sid-AB59903F-DEA8-40BE-BCEC-3144E808A080', 'name': 'Recording', 'incoming': ['new customer'], 'outgoing': ['Purchase order']}
+{'id': 'sid-B91485B6-2693-4C63-ABF0-E672D6820CAA', 'name': 'Purchase order', 'incoming': ['new customer'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-EDDD9795-620C-49E5-B7F9-346009B496AE', 'name': 'Adjust Pieper', 'incoming': ['new customer'], 'outgoing': ['Give pepser to guest']}
+{'id': 'sid-E490EF82-4CC9-4E11-B837-C28AADB8DCA9', 'name': 'Send order to Koch', 'incoming': ['Give pepser to guest'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-CED37BC9-E755-48CE-91AF-C331E503401C', 'name': 'Give pepser to guest', 'incoming': ['new customer'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-AFFBF7A2-F7D7-4312-A8B3-066D46C81FDC', 'name': 'Pieper made out', 'incoming': ['new customer'], 'outgoing': ['5 min.']}
+{'id': 'sid-74BA0DEA-25B2-4F3D-9D4F-75F3CD62FF59', 'name': 'already picked up?', 'incoming': ['5 min.'], 'outgoing': ['5 min.']}
+{'id': 'sid-33E5CD21-BF62-49CC-988A-94DFD3069719', 'name': 'Leave food', 'incoming': ['new customer'], 'outgoing': ['Meal time picked up']}
+{'id': 'sid-8E2E9E11-7AC3-44AA-B2A3-185137130A65', 'name': 'Preparation of meal', 'incoming': ['new\nOrder'], 'outgoing': ['Making a Mahzeit in Hochreich']}
+{'id': 'sid-9105B4F0-0930-49FC-87A7-1E61E9DF74EB', 'name': 'Making a Mahzeit in Hochreich', 'incoming': ['new\nOrder'], 'outgoing': ['Information to employees']}
+{'id': 'sid-C0B267AD-C153-4C12-82A5-13089407A502', 'name': 'Information to employees', 'incoming': ['new\nOrder'], 'outgoing': ['Prepared meal']}
+
+Gateways:
+{'id': 'sid-2FE2EE1E-262C-4868-B7B9-31C8C35B30A5', 'name': 'ExclusiveGateway0', 'incoming': ['new customer', 'EventBasedGateway1'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-B8FB3EE3-A1B5-4B01-9C7D-2CD45423FAD1', 'name': 'EventBasedGateway1', 'incoming': ['new customer'], 'outgoing': ['ExclusiveGateway0', 'Meal time picked up']}
+{'id': 'sid-A9F101E7-BFD7-4B2E-9AA9-1A3A18CAD24D', 'name': 'IntermediateCatchEvent2', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['Famine']}
+{'id': 'sid-ED8BB990-BC47-4260-BD96-2476A54BEB96', 'name': '5 min.', 'incoming': ['already picked up?'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-3D605692-C00B-4B0C-85BD-5A0D97FDD267', 'name': 'Famine', 'incoming': [], 'outgoing': ['Pick up meal']}
+{'id': 'sid-D1993B3B-1976-431A-AD4B-2FC22B90408C', 'name': 'new customer', 'incoming': [], 'outgoing': ['Leave food']}
+{'id': 'sid-E51EB52B-AD44-488D-AA4E-F1D22B69C19C', 'name': 'new\nOrder', 'incoming': [], 'outgoing': ['Information to employees']}
+
+End Events:
+{'id': 'sid-9477CA44-A6E5-4BCF-802F-B8E2848C5616', 'name': 'Famine', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': []}
+{'id': 'sid-9843315B-5CCB-4C94-84D9-E5FD5CF4B493', 'name': 'Meal time picked up', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-9B39FC7A-E36E-40BB-B28C-74372DE3F4DF', 'name': 'Prepared meal', 'incoming': ['Information to employees'], 'outgoing': []}

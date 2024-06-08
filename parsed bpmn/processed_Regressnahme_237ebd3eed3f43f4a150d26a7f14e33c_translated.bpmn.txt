@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-6A744475-BEA1-4C1D-A727-8DF2493FDDC5', 'name': 'Examination Regression', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-F6201E46-3607-495F-B165-94D304980231', 'name': 'Examination Cash Input', 'incoming': ['Reimbursement period'], 'outgoing': ['Transfer to debt collection']}
+{'id': 'sid-037A3933-1547-4725-A3A8-E3423BA23E1E', 'name': 'Book the entrance', 'incoming': ['Reimbursement period'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-17E94ED1-597D-42F3-8ABF-105C4FAB9FB0', 'name': 'Examination Objection to legality', 'incoming': ['Object payment request'], 'outgoing': ['Transfer to debt collection']}
+
+Gateways:
+{'id': 'sid-F4E9C523-4C0F-4648-B2E0-E214AD947277', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent0'], 'outgoing': ['sid-81144C82-38D9-406B-86F3-4B8B777372D8', 'EndEvent2']}
+{'id': 'sid-A7DD2733-0824-432A-AFDA-37EBBD396118', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent0', 'Transfer to debt collection']}
+{'id': 'sid-CD28E55C-15C8-4F9B-B71E-204D8F038A1F', 'name': 'ExclusiveGateway2', 'incoming': ['Object payment request'], 'outgoing': ['EndEvent2', 'Transfer to debt collection']}
+{'id': 'sid-F9EE85BC-6702-4C95-AC25-87C1359CF46E', 'name': 'EventBasedGateway3', 'incoming': ['sid-564CA091-3035-4CDE-83D8-6AFDF186B1F3'], 'outgoing': ['EndEvent0', 'Object payment request']}
+{'id': 'sid-46698765-7F69-48C0-821C-62C69357DD54', 'name': 'Reimbursement period', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Book the entrance']}
+{'id': 'sid-3FB2BEF2-FD27-4C64-BB46-F36AD4A49B05', 'name': 'Object payment request', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent2']}
+
+Start Events:
+{'id': 'sid-CC18F4C8-A41D-4C72-BDEB-347BF73DB613', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-D89EE73F-A049-4824-9588-7E2238A2C228', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-3B369739-47F0-4C2C-AD6A-828240B6EB02', 'name': 'Transfer to debt collection', 'incoming': ['Examination Objection to legality', 'Examination Cash Input'], 'outgoing': []}
+{'id': 'sid-AB3ECBEE-8B4C-40A5-A270-AC75A64CBB33', 'name': 'EndEvent2', 'incoming': ['Object payment request', 'ExclusiveGateway0'], 'outgoing': []}

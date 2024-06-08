@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-76C638A1-2B8E-4F06-8E2A-7F2AC57DE42F', 'name': 'Scoring request 1', 'incoming': ['ParallelGateway1'], 'outgoing': ['Successful query ?']}
+{'id': 'sid-672F190A-F64B-4D16-8B6E-0989C4F791AB', 'name': 'Send a message', 'incoming': ['Request'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-FD9C0D56-3F90-494B-B502-0B2DFEB1D802', 'name': 'Sending result', 'incoming': ['Request', 'ParallelGateway1'], 'outgoing': []}
+{'id': 'sid-4D15EFCA-82D2-44D2-94CC-1CF2E44E8062', 'name': 'Scoring request 2', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-52E54520-4E87-4522-AD76-79FA398E18E4', 'name': 'Request to Schufa', 'incoming': ['Start'], 'outgoing': []}
+{'id': 'sid-C5F449F9-C8C2-4D37-A271-099567C8679D', 'name': 'Other work done', 'incoming': ['StartEvent3'], 'outgoing': []}
+{'id': 'sid-61461FA7-8A48-4E1F-9BAD-9E4594C3E67F', 'name': 'Process', 'incoming': ['StartEvent2'], 'outgoing': ['sid-C21FD741-3EF3-489D-8215-7C75934D58FB']}
+
+Gateways:
+{'id': 'sid-2A7DE67D-D78D-48C3-B3C3-A13C2932259E', 'name': 'Successful query ?', 'incoming': ['ParallelGateway1', 'ParallelGateway1'], 'outgoing': ['Sending result', 'ParallelGateway3']}
+{'id': 'sid-1D9EF6D7-2515-4FEE-82A4-656873E088C1', 'name': 'ParallelGateway1', 'incoming': ['Request'], 'outgoing': ['ParallelGateway2', 'Sending result']}
+{'id': 'sid-CD9D7416-C2A2-4FE0-A7D8-D368179A69E8', 'name': 'ParallelGateway2', 'incoming': ['Request'], 'outgoing': ['Send a message', 'ParallelGateway3']}
+{'id': 'sid-2CC09BFC-EA5E-4B41-8DB0-1759FCD04AFA', 'name': 'ParallelGateway3', 'incoming': ['Delay', 'Request'], 'outgoing': ['Sending result']}
+{'id': 'sid-8A3AA6C3-2B9A-469F-A65F-022E1A7E1EFA', 'name': 'Delay', 'incoming': ['ParallelGateway1'], 'outgoing': ['ParallelGateway3']}
+
+Start Events:
+{'id': 'sid-617DA722-5CF7-4BEC-883C-5231B2031736', 'name': 'Request', 'incoming': [], 'outgoing': ['Sending result']}
+{'id': 'sid-724CAFEA-0FB0-4434-BAB5-8DC89D2C25DF', 'name': 'Start', 'incoming': [], 'outgoing': ['Request to Schufa']}
+{'id': 'sid-2B0F2C55-6B81-478B-BA99-4EB60C456D94', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['Process']}
+{'id': 'sid-16DD6D9E-C655-415E-88F2-1E10F9C7310C', 'name': 'StartEvent3', 'incoming': [], 'outgoing': ['Other work done']}
+
+End Events:

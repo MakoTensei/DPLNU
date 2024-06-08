@@ -1,0 +1,21 @@
+ In our workflow, we start with an event called "Regressive thinking," which triggers a series of tasks and interactions with various gateways. Here's how the process unfolds:
+
+1. The "Regressive thinking" event initiates a task to "Send payment request to VN." This task is routed through "ExclusiveGateway0," which has the ability to either close the case or set it for re-preparation.
+
+2. If the case is set for re-preparation, the task proceeds to "Set on Re-Preparation." This event is also connected to "ExclusiveGateway0," which can close the case or send a payment request to VN.
+
+3. Upon receiving the payment request, "Payment received" event is triggered, which then routes the task to "ExclusiveGateway1." This gateway has the authority to close the case.
+
+4. Concurrently, the "Set on Re-Preparation" event also leads to "Transfer to debt collection office" task, which is connected to "EventBasedGateway4." This gateway can close the case or cancel an invoice.
+
+5. If the case is closed, the "Case closed" event is triggered, which has connections to "ExclusiveGateway0" and "Payment deadline."
+
+6. In the case of "Opposition VN," the event leads to a task to "Send a letter to VN," which is routed through "ExclusiveGateway2." This gateway can either send a letter to VN or route the task to "ExclusiveGateway1."
+
+7. The "Send a letter to VN" task can also be triggered by the "EventBasedGateway4" event, which has connections to "ExclusiveGateway2" and "ExclusiveGateway3."
+
+8. "ExclusiveGateway3" can close the case or send a letter to VN.
+
+9. The "Payment deadline" event can also close the case, and it is connected to "ExclusiveGateway0."
+
+In summary, the "Regressive thinking" event sets off a chain of tasks and interactions with various gate

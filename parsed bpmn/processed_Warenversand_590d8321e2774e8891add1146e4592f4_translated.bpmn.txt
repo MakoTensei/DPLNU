@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-19DCE29A-9861-44D6-832F-49127C56772E', 'name': 'Filling the package note', 'incoming': ['Special shipment necessary'], 'outgoing': ['Insurance necessary']}
+{'id': 'sid-48450AF9-25F6-4D83-8AAE-B50D42DD35D2', 'name': 'Complete insurance', 'incoming': ['Insurance necessary'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-510704E0-3B54-47A3-86C8-D3072F779703', 'name': 'Ask Spediteur', 'incoming': ['Special shipment necessary'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-38DC790F-D6F6-4C5C-AE61-92AD6841E81F', 'name': 'Request Spediteur 1', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-BE977481-2DCC-4FA1-9759-DE2B4F883AE8', 'name': 'Request Spediteur 2', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-8A4AD154-A320-4EF4-9F0A-5D5CCC6A09E6', 'name': 'Specialist', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-21A89FC2-8429-4C03-B7BD-1A567FA32E8D', 'name': 'Request Spediteur 3', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-A646B672-60D4-4978-B2F9-14742B88C3FB', 'name': 'Delivering goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-30F8F081-23F8-4562-9104-6DCB7627E942', 'name': 'Special shipment necessary', 'incoming': ['My start'], 'outgoing': ['EndEvent0', 'Insurance necessary']}
+{'id': 'sid-2A654F4D-6573-408B-B8C0-3F2DDE21731B', 'name': 'Insurance necessary', 'incoming': ['My start', 'Special shipment necessary'], 'outgoing': ['EndEvent0', 'EndEvent0', 'EndEvent0']}
+{'id': 'sid-09694ED2-92B7-4BCD-8F87-675B5451683F', 'name': 'ParallelGateway2', 'incoming': ['Special shipment necessary'], 'outgoing': ['ParallelGateway3', 'ParallelGateway3', 'ParallelGateway3']}
+{'id': 'sid-5B729950-617B-4344-AD5E-28DD182EDFA9', 'name': 'ParallelGateway3', 'incoming': ['Special shipment necessary', 'ParallelGateway2', 'ParallelGateway2'], 'outgoing': ['Delivering goods']}
+
+Start Events:
+{'id': 'sid-6BB716BF-1D32-4D77-9EDF-3230607F79D9', 'name': 'My start', 'incoming': [], 'outgoing': ['Insurance necessary']}
+
+End Events:
+{'id': 'sid-9D798DFB-5BD4-4267-B6D8-E680F9689F6F', 'name': 'EndEvent0', 'incoming': ['Special shipment necessary', 'Specialist', 'Insurance necessary'], 'outgoing': []}

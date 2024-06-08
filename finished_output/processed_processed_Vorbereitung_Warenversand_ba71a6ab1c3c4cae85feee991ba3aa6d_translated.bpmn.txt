@@ -1,0 +1,11 @@
+ The process begins with a 'Shipment Required' event, which triggers the initiation of the packaging goods task. This task is assigned to 'ParallelGateway4', which receives the incoming request and sends out a 'Packaging goods' task with an 'outgoing' connection to 'ParallelGateway5'.
+
+Once the goods are packaged, the 'Delivering goods' task is triggered, which is also assigned to 'ParallelGateway5'. This task receives the incoming request from 'ParallelGateway4' and sends out a 'Goods delivered' event as its 'outgoing' connection.
+
+Before the goods are delivered, the 'Explain the shipping receipt' task is initiated, which is assigned to 'ParallelGateway4'. This task receives the incoming request and sends out a 'large amount?' event to 'Gateway sid-793E1779-E332-41F8-B264-57A169466E6F'.
+
+The 'large amount?' event is then received by 'Gateway sid-793E1779-E332-41F8-B264-57A169466E6F', which triggers the 'Filling the package note' task. This task receives the incoming request and sends out a 'Check insurance requirements' event to 'Gateway sid-B71F428A-C72A-4C6B-A548-C82E09C42DBB'.
+
+The 'Check insurance requirements' event is received by 'Gateway sid-B71F428A-C72A-4C6B-A548-C82E09C42DBB', which triggers the 'Complete insurance' task. This task receives the incoming request and sends out a 'ExclusiveGateway3' event.
+
+Finally, the 'ExclusiveGateway3' event is received by 'Gateway sid-C648074B-7EBE-40BF-96A3-C262C8EC2E3

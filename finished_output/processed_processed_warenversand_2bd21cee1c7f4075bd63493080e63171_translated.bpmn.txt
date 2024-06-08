@@ -1,0 +1,15 @@
+ The process begins with the 'Start event\n\nGoods\nbe sent' event, which triggers the Secretariat to clarify the shipping path. This event is routed to ExclusiveGateway2, where the 'Fill in\nPackage tickets\nfor normal\nPostal mail' task is initiated.
+
+ParallelGateway6 receives the incoming event from ExclusiveGateway2 and directs it to ExclusiveGateway3. Here, the 'Offers\nenroll' task is executed, which offers three different tax payable options on various offers.
+
+ParallelGateway4 is then connected to ExclusiveGateway0, which in turn routes the incoming event to ExclusiveGateway3. This pathway is responsible for selecting suitable special offers based on the customer's preferences.
+
+ParallelGateway6, after receiving the 'Start event\n\nGoods\nbe sent' event, sends it to ExclusiveGateway3, where the 'Lane - Spedition\n\nTax payable on:\nOffer 1' task is performed. This task is duplicated three times, each time routing to ParallelGateway5.
+
+ParallelGateway5, which receives the incoming events from ParallelGateway4, routes them to ExclusiveGateway3. This pathway handles the tax payable on offers 2 and 3.
+
+ParallelGateway6, after processing the first offer, sends the event to ExclusiveGateway3, where the 'Lane - Spedition\n\nTax payable on:\nOffer 2' task is executed. This task is also duplicated three times, each time routing to ParallelGateway5.
+
+ParallelGateway6, after processing the second offer, sends the event to ExclusiveGateway3, where the 'Lane - Spedition\n\nTax payable on:\nOffer 3' task is executed. This task is duplicated three times, each time routing to ParallelGateway5.
+
+ParallelGateway4, after processing the special offers, sends the event to ExclusiveGateway3,

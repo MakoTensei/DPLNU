@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-25DCEEC1-38BC-44CC-B4A9-B42C83873FF7', 'name': 'Secretariat clears size of shipping', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-6C8301FE-2E53-43A7-A435-C7E96BFB96F0', 'name': 'Secretariat collects offers from 3 carriers', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C008A9BC-E413-493E-BE9F-810086920D24', 'name': 'Secretariat fills standardised parcel note', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Secretariat clarifies whether insurance is required']}
+{'id': 'sid-302C4683-B355-4432-9103-CB874E4C9EF3', 'name': 'Secretariat clarifies whether insurance is required', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-D9968B89-D88A-4C32-878C-DF9D858591E4', 'name': 'Logistics manager locks insurance', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-7DE9ABC1-E461-4895-8A2E-B8A859351451', 'name': 'Accept Offer 1', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-6B97A47D-963E-4E2E-87B9-B6728B8EEF5D', 'name': 'Accept Offer 2', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-0430FE05-8472-411E-A0CC-050101F41BF4', 'name': 'Accept Offer 3', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-02059B96-CAAC-4802-8A76-8E56D54B5C01', 'name': 'Warehouse workers packaged', 'incoming': ['ParallelGateway5'], 'outgoing': ['Warehouse workers provide goods for collection']}
+{'id': 'sid-80945113-1CEA-44D3-AA8F-7F8464576ABE', 'name': 'Warehouse workers provide goods for collection', 'incoming': ['ParallelGateway5'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-239C1AEA-4968-439C-8AC5-B76102566E02', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway5'], 'outgoing': ['Secretariat collects offers from 3 carriers', 'ExclusiveGateway4']}
+{'id': 'sid-F3642349-C1DC-49B4-A763-DA6CCD96FA20', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway4', 'ExclusiveGateway4']}
+{'id': 'sid-5C98EE42-79C3-42DF-9165-324FF9A7A36F', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway5'], 'outgoing': ['Accept Offer 1', 'ExclusiveGateway3', 'ExclusiveGateway3']}
+{'id': 'sid-54B7017F-E6C4-45CF-B0F9-E127A6C7DD23', 'name': 'ExclusiveGateway3', 'incoming': ['ParallelGateway5', 'ExclusiveGateway2', 'ExclusiveGateway2'], 'outgoing': []}
+{'id': 'sid-54548F3C-05CD-4AB9-918C-71155562F12E', 'name': 'ExclusiveGateway4', 'incoming': ['Secretariat clarifies whether insurance is required', 'ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-4FB9AB48-65EA-457A-AA35-78CBA826E254', 'name': 'ParallelGateway5', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway3', 'Warehouse workers provide goods for collection']}
+
+Start Events:
+{'id': 'sid-2817A60D-A9A2-4C52-9325-9932D9C323FD', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Secretariat collects offers from 3 carriers']}
+
+End Events:

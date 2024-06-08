@@ -1,0 +1,13 @@
+ In the scoring process, the system starts by receiving a scoring request from Schufa, which triggers the 'StartEvent0'. This event is then forwarded to the 'EventBasedGateway1', which directs the process towards 'Towards success' and 'Delay'. The 'Scoring success Level 1' task is initiated, marking the successful completion of the first level of scoring.
+
+
+Simultaneously, the 'Scoring request has been received' event is also received by the 'EventBasedGateway1', which sends the process towards 'Towards success' and 'Continue scoring level 2'. The 'Scoring success Level 2' task is then triggered, indicating the successful completion of the second level of scoring.
+
+
+The 'EndEvent0' is triggered by the 'EventBasedGateway1', marking the end of the first level of scoring. The 'EndEvent1' is triggered by the 'Scoring Level 2' task, marking the end of the second level of scoring.
+
+
+Throughout this process, the system also handles delays by sending the process to the 'Delay' gateway when the 'StartEvent0' is received. This ensures that the scoring process can be paused and resumed as needed.
+
+
+In summary, the scoring process starts with a request from Schufa, goes through two levels of scoring, and handles delays as necessary. The process is managed by various gateways and events, ensuring a smooth and efficient scoring process.

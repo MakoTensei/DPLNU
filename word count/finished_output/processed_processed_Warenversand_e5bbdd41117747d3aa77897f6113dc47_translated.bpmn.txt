@@ -1,0 +1,9 @@
+ In a bustling warehouse, the process of packaging and delivering goods begins with the 'StartEvent0' triggering the selection of a 'Spediteur' (shipping agent) from a list of offers. Once a 'Spediteur' is chosen, the 'ExclusiveGateway0' receives the offer and directs the flow to 'ExclusiveGateway1', where the commission for the selected 'Spediteur' is processed.
+
+Parallelly, the 'ParallelGateway5' receives incoming goods and sends them to 'ParallelGateway4' for packaging. Simultaneously, the 'Filling the package note' task is initiated, which requires the 'Insurance?' decision. The 'Insurance?' task, upon receiving the 'Lot?' input, diverts the flow to 'ExclusiveGateway1'.
+
+After the goods are packaged, they are sent to the 'Delivering goods' task, which is triggered by 'ParallelGateway5'. The 'Delivering goods' task then connects to 'EndEvent0', marking the completion of the delivery process.
+
+Throughout this process, the 'ExclusiveGateway1' plays a crucial role in managing the flow of tasks, ensuring that the 'Spediteur' commission, 'Insurance?', and 'EndEvent0' are handled appropriately. The 'ParallelGateway4' and 'ParallelGateway5' work in tandem to handle the packaging and delivery of goods, respectively.
+
+In summary, the warehouse's workflow involves selecting a 'Spediteur', packaging goods, deciding on insurance, and delivering the goods, all while managing the flow of tasks through various gateways and events.

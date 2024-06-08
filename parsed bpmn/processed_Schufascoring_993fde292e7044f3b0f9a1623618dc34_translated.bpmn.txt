@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-D2C37332-EC73-4467-AD62-6280DFA5AA13', 'name': 'Start Schufascoring request', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-9F35F2C3-075B-4C9F-8968-A4058594D58C', 'name': 'Return to Frontend', 'incoming': ['Scoring\ncompleted'], 'outgoing': ['Scoring\ndetermined']}
+{'id': 'sid-54F9A5C4-F8E0-4925-B012-8636C369F346', 'name': 'Check the results', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring\ndetermined']}
+{'id': 'sid-C65B712B-4592-4040-A05C-BB0AAFA35640', 'name': 'Report default', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-E6D8E46E-1C3B-4BCF-AFFA-DA6F5D46102B', 'name': 'perform scoring level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Follow-up']}
+{'id': 'sid-85C1C015-C6A8-487F-9E4B-38A53A1BB65B', 'name': 'Follow-up', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring request']}
+{'id': 'sid-E10164AB-30E4-4BC9-9217-ED00C39C216E', 'name': 'perform scoring level 2', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring request']}
+{'id': 'sid-EAFA081A-6E1B-4545-87A7-DF557F6E377A', 'name': 'Follow-up', 'incoming': ['StartEvent1'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-A6246041-5759-4142-B981-72017CA04D2F', 'name': 'Scoring\ncompleted', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['Scoring\ndetermined', 'Report default']}
+{'id': 'sid-9E33557B-0DFB-4B5C-A089-DA4879E25A03', 'name': 'Test\nsuccessful?', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring request', 'Scoring request']}
+{'id': 'sid-2A975D32-64EE-47D6-A67D-7044A5C4D7F6', 'name': 'IntermediateCatchEvent2', 'incoming': ['StartEvent0', 'IntermediateCatchEvent2'], 'outgoing': ['Scoring\ncompleted']}
+
+Start Events:
+{'id': 'sid-B3E7E0DA-28D6-4B5E-8CE2-D01EA5958D3F', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Check the results']}
+{'id': 'sid-324C6635-3BD3-4511-9937-0768AA5EB7E9', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Follow-up']}
+
+End Events:
+{'id': 'sid-4A6EB0A1-56A4-41FD-8D84-73348EB60A54', 'name': 'Scoring\ndetermined', 'incoming': ['Check the results'], 'outgoing': []}
+{'id': 'sid-78DDB704-BEC4-4D06-B68A-5063B911313D', 'name': 'Scoring request', 'incoming': ['Test\nsuccessful?'], 'outgoing': []}

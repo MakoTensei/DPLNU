@@ -1,0 +1,17 @@
+ The process begins with the 'Start' event, which triggers the 'Pick up offers' task. This task has an incoming connection from 'ParallelGateway3'. The user is then presented with a choice between a 'Special shipment or standard?' option. Depending on the user's choice, the process diverges into two paths.
+
+If the user selects 'Special shipment', the process moves to the 'Specialist' task, which has an incoming connection from 'Special shipment or standard?'. The 'Specialist' task then connects to 'ExclusiveGateway1'.
+
+On the other hand, if the user selects 'Standard', the process moves to the 'Check shipping mode' task, which also has an incoming connection from 'ParallelGateway3'. This task connects to 'ParallelGateway4'.
+
+In the 'Check shipping mode' task, the user is asked whether insurance is necessary. If the user answers 'Yes', the process moves to the 'Insurance close' task, which has an incoming connection from 'Is insurance necessary?'. The 'Insurance close' task connects to 'ExclusiveGateway1'.
+
+If the user answers 'No', the process moves to the 'Filling the package note' task, which also has an incoming connection from 'Special shipment or standard?'. This task connects to 'Check insurance'.
+
+The 'Check insurance' task then connects to 'ParallelGateway4'.
+
+In the 'Filling the package note' task, the user is prompted to check insurance. If the user decides to proceed with insurance, the process moves to the 'Providing goods' task, which has an incoming connection from 'ParallelGateway4'. The 'Providing goods' task connects to 'End'.
+
+If the user decides not to proceed with insurance, the process moves to the 'Packaging goods' task, which also has an incoming connection from 'ParallelGateway3'. This task connects to 'ParallelGateway4'.
+
+The 'ParallelGateway4' task then connects to the 'End' event, marking the completion of the process.

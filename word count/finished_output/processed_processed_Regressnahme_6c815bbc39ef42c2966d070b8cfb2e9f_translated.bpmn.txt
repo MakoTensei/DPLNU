@@ -1,0 +1,14 @@
+ The process begins with a 'Regression check' initiated by the 'Regression check\nStart' event. This event triggers the 'Regression claim?' gateway, which in turn sets the process for resubmission and closes the claim.
+
+Simultaneously, the 'EventBasedGateway3' event is triggered, which leads to two possible outcomes:
+
+1. If the 'Regression claim?' is justified, the process proceeds without payment and closes, leading to the 'Procedure without payment\nclosed' event.
+2. If the 'Regression claim?' is not justified, the process continues with the debtor and delivers the payment, leading to the 'Process\ndebtor\ndelivered' event.
+
+In both cases, the 'EventBasedGateway3' also triggers the 'Debt collection service provider' gateway, which processes the debtor and delivers the payment.
+
+Meanwhile, the 'Payment\nReport' event is triggered, which sets the process for resubmission and closes the process with incoming payment.
+
+Lastly, the 'Opposition\nReport' event is triggered, which leads to the closure of the process without payment.
+
+The process concludes with the 'Closed' event, which signifies the end of the process.

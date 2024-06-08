@@ -1,0 +1,9 @@
+ When a shipment is ready for dispatch, the process begins with a check for insurance necessity, which is triggered by the 'Goods ready for dispatch' event. This leads to the 'Insurance necessary?' event, which in turn connects to 'ExclusiveGateway2' and 'ExclusiveGateway3'. From 'ExclusiveGateway2', the process flows to 'ParallelGateway5', where the 'Complete insurance' task is initiated.
+
+Simultaneously, 'Goods ready for dispatch' also triggers 'Special shipment?' at 'ExclusiveGateway3', which connects to 'ParallelGateway5'. Once the insurance is complete, the process moves to 'ParallelGateway5', where 'Select your offer' is executed, followed by 'Specialist' and 'ExclusiveGateway2'.
+
+After the specialist's involvement, the process proceeds to 'Check insurance requirements' at 'ExclusiveGateway2', which again leads to 'ParallelGateway5'. Here, 'Filling the package note' is carried out, followed by 'ExclusiveGateway3'.
+
+The shipment then moves to 'Clearing the shipping mode' at 'ExclusiveGateway3', which connects to 'ParallelGateway5'. The 'Packaging goods' task is initiated at 'ParallelGateway4', which in turn leads to 'ParallelGateway5'.
+
+Finally, 'Provide goods for collection' at 'ParallelGateway5' results in the 'Good quality' event, marking the successful completion of the process.

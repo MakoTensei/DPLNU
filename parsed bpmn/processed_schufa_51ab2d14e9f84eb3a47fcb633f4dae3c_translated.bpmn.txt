@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-DD3DD9D2-A3EE-48AF-9EF3-BECDE6F0BF69', 'name': 'Send Schufa request', 'incoming': ['Request Schufascoring'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-19B48D13-10F7-42E9-82B6-5EE81A6F4A80', 'name': 'forward Schufa Scoring results L. I to Frontend', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-3E62B2C8-03C6-4031-AA93-9827DEAE97A8', 'name': 'Report delay', 'incoming': ['Request Schufascoring'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-57695872-994E-422F-A9A8-C302D1B54362', 'name': 'forward Schufa Scoring results LII to frontend', 'incoming': ['Request Schufascoring'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E257B060-C5E7-4524-A43D-B8ECB3EA85E3', 'name': 'perform scoring level I', 'incoming': ['Request Schufascorfing'], 'outgoing': ['Info there?']}
+{'id': 'sid-2F5AABF8-9307-45EB-AEA0-E9C2BB196425', 'name': 'Scoring Level II', 'incoming': ['sid-BBA1840C-1962-40F0-B90F-B7079B2F9B66'], 'outgoing': ['sid-500E17CE-1E02-4B58-80C6-853E329C28DF']}
+
+Gateways:
+{'id': 'sid-6D349991-238B-447C-A84A-38E88A8604DA', 'name': 'Info there?', 'incoming': ['Request Schufascorfing'], 'outgoing': ['sid-DEA85859-E491-4F4B-9FC3-6226925675E4', 'sid-08E9D62D-EB79-4C93-A5F5-EF48E5C07B70']}
+{'id': 'sid-5AA8F2AA-8186-40C8-90CE-30F50ECD2E6A', 'name': 'EventBasedGateway1', 'incoming': ['Request Schufascoring'], 'outgoing': ['EndEvent0', 'IntermediateCatchEvent3']}
+{'id': 'sid-0EEFEAF2-9704-4F0A-90C9-696EF2E6AFB6', 'name': 'IntermediateCatchEvent2', 'incoming': ['Send Schufa request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-56779F94-B3F6-477F-AEC1-BCB25A66BF7A', 'name': 'IntermediateCatchEvent3', 'incoming': ['Request Schufascoring'], 'outgoing': ['Report delay']}
+{'id': 'sid-6FD22DC1-1FA5-4B0A-BF8D-CE00A7BB8516', 'name': 'IntermediateCatchEvent4', 'incoming': ['Request Schufascoring'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-A879E0FA-274A-42D8-936E-CF5140E0EA23', 'name': 'Request Schufascoring', 'incoming': [], 'outgoing': ['forward Schufa Scoring results LII to frontend']}
+{'id': 'sid-99A22290-93C9-48D1-967C-D7F43E352ED7', 'name': 'Request Schufascorfing', 'incoming': [], 'outgoing': ['Info there?']}
+
+End Events:
+{'id': 'sid-EB0B687B-8637-4BF0-9869-5407850EC3B2', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1', 'IntermediateCatchEvent4'], 'outgoing': []}
+{'id': 'sid-357DD067-EB80-4CF9-9E65-40ECB1509B3F', 'name': 'EndEvent1', 'incoming': ['sid-F8A40C9D-64A5-46F3-A567-B793DD22CFF8', 'sid-5FA83EA2-0704-4218-BEB6-3E08DC09F1DC'], 'outgoing': []}

@@ -1,0 +1,19 @@
+Tasks:
+{'id': 'sid-98C51373-A0A7-4D9E-AE8F-E9449D104B86', 'name': 'Packing goods for shipping', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-B8C08DA4-9305-4270-8BE4-E8CE970B8ADB', 'name': 'Provision for collection', 'incoming': ['Goods for shipping'], 'outgoing': []}
+{'id': 'sid-CBBE4897-BF63-47E0-99C6-66CCF99D7FB2', 'name': 'Decision on shipping type', 'incoming': ['ParallelGateway4'], 'outgoing': ['InclusiveGateway2']}
+{'id': 'sid-71C7A808-B15F-4275-96C8-26F022560C08', 'name': 'Pick up offers', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-551454ED-6098-438B-98A3-6CF9E6C4DF0F', 'name': 'Filling the package note', 'incoming': ['InclusiveGateway2'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-743C2009-DA74-460D-9901-77F5AF6A2170', 'name': 'Close insurance if necessary', 'incoming': ['InclusiveGateway2'], 'outgoing': ['ParallelGateway3']}
+
+Gateways:
+{'id': 'sid-80ABC7C3-21BD-4550-B986-50D89E21C1D7', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway3', 'ExclusiveGateway1']}
+{'id': 'sid-BB1097D2-A40D-476C-B2EF-DF869BF40607', 'name': 'ExclusiveGateway1', 'incoming': ['ParallelGateway4', 'ExclusiveGateway0'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-9BEE15D2-9A01-4A3F-8586-31D25E47A653', 'name': 'InclusiveGateway2', 'incoming': ['Decision on shipping type'], 'outgoing': ['ExclusiveGateway1', 'Close insurance if necessary']}
+{'id': 'sid-0D94320E-CE5A-4A00-A77B-794848BA8FA3', 'name': 'ParallelGateway3', 'incoming': ['ParallelGateway4', 'Close insurance if necessary', 'ExclusiveGateway0'], 'outgoing': ['Provision for collection']}
+{'id': 'sid-7A897EBB-743A-488F-9E0B-047C08C0C63C', 'name': 'ParallelGateway4', 'incoming': ['Goods for shipping'], 'outgoing': ['ExclusiveGateway1', 'Provision for collection']}
+
+Start Events:
+{'id': 'sid-CFB3885C-DB1C-4546-A9D3-F064D72801BD', 'name': 'Goods for shipping', 'incoming': [], 'outgoing': ['Provision for collection']}
+
+End Events:

@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-EA3E77A8-7A06-45E5-85BB-D1EAB535940D', 'name': 'Check regression case', 'incoming': ['News -\nRegression Case'], 'outgoing': ['Regression\njustified?']}
+{'id': 'sid-58A4BD51-CC42-4A70-8810-D6712947E264', 'name': 'Reasons\nCheck', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-B3C0CABF-4086-4D1E-8BFD-2E788E75ECFA', 'name': 'Payment\non request', 'incoming': ['News -\nRegression Case'], 'outgoing': ['Payment\nentry']}
+
+Gateways:
+{'id': 'sid-71FBF145-CD30-4242-87B1-4914F9B58F89', 'name': 'Regression\njustified?', 'incoming': ['News -\nRegression Case'], 'outgoing': ['Process\nclose\n', 'Payment\non request']}
+{'id': 'sid-1FBB04EB-B405-4B16-8055-5BCEF7AC8538', 'name': 'Opposition\njustified?', 'incoming': ['Expect event'], 'outgoing': ['Process\nclose\n', 'ExclusiveGateway2']}
+{'id': 'sid-78BD1385-05AD-4E22-8407-818762036D46', 'name': 'ExclusiveGateway2', 'incoming': ['Expect event', 'Reasons\nCheck'], 'outgoing': ['Tax payable on:\nDebt collection office']}
+{'id': 'sid-4CC13970-3A19-45D8-A9EA-EC0D01606FEB', 'name': 'Expect event', 'incoming': ['News -\nRegression Case'], 'outgoing': ['Process\nclose\n', 'Opposition\njustified?', 'ExclusiveGateway2']}
+{'id': 'sid-48A5981D-1FE4-48E1-A0C1-B30E5295D4C3', 'name': 'Payment\nentry', 'incoming': ['Payment\non request'], 'outgoing': ['Process\nclose\n']}
+{'id': 'sid-BDCB7C4E-B307-442B-9252-66EBBB8E8CDA', 'name': 'Opposition', 'incoming': ['News -\nRegression Case'], 'outgoing': ['Process\nclose\n']}
+{'id': 'sid-A986C49D-D3CF-44CC-A56D-F639F82BFF81', 'name': '14 days after\nPayment method\n\nReimbursement period\nExpired', 'incoming': ['Expect event'], 'outgoing': ['Tax payable on:\nDebt collection office']}
+
+Start Events:
+{'id': 'sid-29986368-FF09-4042-B438-9DE064C96328', 'name': 'News -\nRegression Case', 'incoming': [], 'outgoing': ['Opposition']}
+
+End Events:
+{'id': 'sid-00F892D9-2FF2-437D-9ED1-9EE5F26A0B05', 'name': 'Process\nclose\n', 'incoming': ['Regression\njustified?'], 'outgoing': []}
+{'id': 'sid-26D1BB74-51A4-49C6-8641-A3F6F0B29B9E', 'name': 'Process\nclose\n', 'incoming': ['Expect event'], 'outgoing': []}
+{'id': 'sid-E00F390D-928D-4CBE-841A-04A65406878E', 'name': 'Process\nclose\n', 'incoming': ['Opposition'], 'outgoing': []}
+{'id': 'sid-D51E5478-9159-4BD1-9774-68CF20C830FF', 'name': 'Tax payable on:\nDebt collection office', 'incoming': ['14 days after\nPayment method\n\nReimbursement period\nExpired'], 'outgoing': []}

@@ -1,0 +1,37 @@
+Tasks:
+{'id': 'sid-0154DF36-FA2B-4D26-BE19-1E40865258FF', 'name': 'Packaging order', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-E520E615-0D11-45AC-8615-2920BD6A7E7E', 'name': 'provide for collection', 'incoming': ['Order\nfor shipping\nhand over'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-40BC3365-AE40-4B83-8D64-AB8B4AF14A8B', 'name': 'Clear the amount', 'incoming': ['ParallelGateway6'], 'outgoing': ['Lot?']}
+{'id': 'sid-F2F3CABA-F807-40E1-A8C5-44FA73179F5D', 'name': 'Filling the package note', 'incoming': ['ParallelGateway6'], 'outgoing': ['Check insurance']}
+{'id': 'sid-46196248-5903-44AE-B967-05C7051D52E5', 'name': 'Pick up offers', 'incoming': ['Lot?'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-EAE427CC-2243-41A7-BAB3-FAB474F3D16E', 'name': 'Select your offer', 'incoming': ['ParallelGateway8'], 'outgoing': ['Specialist']}
+{'id': 'sid-F119ED71-4E7D-4BCB-8092-F4D42501D59D', 'name': 'Specialist', 'incoming': ['ParallelGateway8'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E6C0A7AE-BD74-41F0-86F5-05D8012B5F82', 'name': 'Check insurance', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-EAE7D9FB-6EAD-4214-BAEB-287CF0261FC7', 'name': 'Complete insurance', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-22FE63F1-0300-44AF-BFE9-F211B92598D1', 'name': 'Create a quote', 'incoming': ['ParallelGateway7'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C1C9D028-81AB-4177-A5E2-1E811013AF69', 'name': 'Receive order receipt', 'incoming': ['ParallelGateway9'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-F5E911D4-E1CC-47E8-8FCA-E8611BCDCCCF', 'name': 'Create a quote', 'incoming': ['ParallelGateway7'], 'outgoing': ['ParallelGateway8']}
+{'id': 'sid-058A4AEC-9080-42D6-B4D7-D4AB3CA90C84', 'name': 'Receive order receipt', 'incoming': ['Spediteur?'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-51B96996-4DD5-4E45-AB72-B3AF550767AD', 'name': 'Create a quote', 'incoming': ['ParallelGateway7'], 'outgoing': ['ParallelGateway8']}
+{'id': 'sid-3B234CEF-0014-438B-BABF-D808E72F584F', 'name': 'Receive order receipt', 'incoming': ['Spediteur?'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-BBBADBBB-8FD6-4728-ADCB-4AFAA52E3254', 'name': 'Lot?', 'incoming': ['ParallelGateway6'], 'outgoing': ['ExclusiveGateway4', 'EndEvent0']}
+{'id': 'sid-348BC278-A3F1-4E02-B011-114196F95E71', 'name': 'Spediteur?', 'incoming': ['ParallelGateway9'], 'outgoing': ['EndEvent3', 'EndEvent2', 'EndEvent1']}
+{'id': 'sid-611F976C-E8EC-4780-9716-BCF30626422C', 'name': 'Insurance necessary?', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway4']}
+{'id': 'sid-CFED20BB-5201-40CC-B567-ABA64E42E5A9', 'name': 'ExclusiveGateway3', 'incoming': ['Check insurance', 'Insurance necessary?'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-DDC776AC-7D5B-4ADB-B2A9-308B92228F80', 'name': 'ExclusiveGateway4', 'incoming': ['ParallelGateway9', 'Lot?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-3BA3B996-1A3E-4DA0-A40C-6479F71BAA5D', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway6', 'ParallelGateway9'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-EA05E240-4619-4E38-AAF3-396B7A14F51D', 'name': 'ParallelGateway6', 'incoming': ['Order\nfor shipping\nhand over'], 'outgoing': ['Filling the package note', 'provide for collection']}
+{'id': 'sid-A061BEAA-B9ED-477F-A3CA-9F6C92AB1171', 'name': 'ParallelGateway7', 'incoming': ['Lot?'], 'outgoing': ['EndEvent0', 'ParallelGateway8', 'ParallelGateway8']}
+{'id': 'sid-B16F09C3-9C00-4C0F-9D04-E438C6666050', 'name': 'ParallelGateway8', 'incoming': ['ParallelGateway7', 'ParallelGateway7', 'Create a quote'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-3BAE8FFD-BE4F-4452-A59F-EF64DD94A6BA', 'name': 'ParallelGateway9', 'incoming': ['Specialist'], 'outgoing': ['Receive order receipt', 'EndEvent0']}
+
+Start Events:
+{'id': 'sid-43B79AB2-60CC-4865-A71B-4DAE4C05D146', 'name': 'Order\nfor shipping\nhand over', 'incoming': [], 'outgoing': ['provide for collection']}
+
+End Events:
+{'id': 'sid-58EB9D02-0866-4191-9749-8B1E8F814C87', 'name': 'EndEvent0', 'incoming': ['Lot?'], 'outgoing': []}
+{'id': 'sid-6901971E-1008-4C45-9068-C0ABDE334EA8', 'name': 'EndEvent1', 'incoming': ['Spediteur?'], 'outgoing': []}
+{'id': 'sid-05351196-6667-44E4-ABB8-69ECB461473D', 'name': 'EndEvent2', 'incoming': ['Spediteur?'], 'outgoing': []}
+{'id': 'sid-6813CCAC-A836-4260-942D-E739B27A726D', 'name': 'EndEvent3', 'incoming': ['Spediteur?'], 'outgoing': []}

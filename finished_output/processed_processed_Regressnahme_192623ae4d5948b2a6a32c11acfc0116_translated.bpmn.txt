@@ -1,0 +1,19 @@
+ In the case management system, various tasks are triggered by incoming events, which then direct the flow of the case through different gateways and result in specific outcomes.
+
+When a 'Regression report\nReport' event occurs, it initiates the 'Check the case' task, which sends a message to 'ExclusiveGateway1'. This task is triggered by the incoming event and has 'ExclusiveGateway1' as its outgoing gateway.
+
+If the 'Claim justified?' event is received, it leads to the 'Close' task, which closes the case and sends it to 'ExclusiveGateway1'. This event is also triggered by the incoming event and has 'ExclusiveGateway1' as its outgoing gateway.
+
+The 'Set case for resubmission' task is triggered by the 'Claim justified?' event and sends the case to 'ExclusiveGateway1'. This task has 'Expiration period' as its outgoing gateway.
+
+The 'Book the entrance' task is triggered by the 'Payment' event and sends the case to 'ExclusiveGateway1'. This task has 'Closed' as its outgoing gateway.
+
+The 'donate to collection service providers' task is triggered by the 'EventBasedGateway4' event and sends the case to 'ExclusiveGateway1'. This task has 'Closed' as its outgoing gateway.
+
+The 'Proceedings' task is triggered by the 'Notification' event and sends the case to 'ExclusiveGateway3'. This task has 'ExclusiveGateway1' as its outgoing gateway.
+
+The 'Opposition justified?' task is triggered by the 'EventBasedGateway4' event and sends the case to 'ExclusiveGateway3'. This task has 'ExclusiveGateway1' as its outgoing gateway.
+
+The 'ExclusiveGateway1' gateway receives cases from various tasks and sends them to 'ExclusiveGateway2'. This gateway has 'Closed' as its outgoing gateway.
+
+The 'ExclusiveGateway2' gateway receives cases from 'ExclusiveGateway1' and sends them to 'ExclusiveGate

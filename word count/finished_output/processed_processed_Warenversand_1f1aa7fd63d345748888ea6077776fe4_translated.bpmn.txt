@@ -1,0 +1,9 @@
+ The process begins with the 'Shipping costs' start event, which triggers the 'Select your offer' task. This task is dependent on the 'Shipping costs' and leads to the selection of an offer. Once the offer is selected, the 'Order Sx' task is initiated, which is dependent on the 'Select your offer' task. The 'Order Sx' task sends the order to the 'ParallelGateway3' and results in the 'Goods ready for dispatch' end event.
+
+Simultaneously, the 'Check order quantity' task is triggered by the 'Shipping costs' start event. This task sends the order quantity to the 'ParallelGateway2' and results in three instances of the 'ParallelGateway3' end event, each representing the dispatch of goods.
+
+The 'Filling the package note' task is triggered by the 'Insurance required?' start event, which is dependent on the 'Select your offer' task. This task sends the package note to the 'ExclusiveGateway0' and results in the 'Goods ready for dispatch' end event.
+
+Lastly, the 'Packaging of goods' task is triggered by the 'Provision for collection' start event, which is dependent on the 'Packaging of goods' start event. This task sends the packaged goods to the 'ParallelGateway3' and results in the 'EndEvent1' end event.
+
+In summary, the process involves selecting an offer, placing an order, dispatching goods, filling the package note, and packaging the goods for collection. The tasks are interconnected through incoming and outgoing gateways, ensuring a smooth flow of information and actions.

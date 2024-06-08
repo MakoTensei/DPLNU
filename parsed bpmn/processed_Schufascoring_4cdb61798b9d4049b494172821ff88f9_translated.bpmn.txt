@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-A960141E-251C-49B8-AB7B-8F3354C4488A', 'name': 'Determining Scoring', 'incoming': ['StartEvent0'], 'outgoing': ['Get L1 scoring?']}
+{'id': 'sid-D4DA9A0A-312B-4521-927D-85A7D2FE1C74', 'name': 'Determining Scoring', 'incoming': ['sid-3BB2E10C-7D80-4A81-8DA4-9AB3B4E82884'], 'outgoing': ['Share L2 scoring']}
+{'id': 'sid-3B357181-9844-4443-9C3F-F2809DFF7C52', 'name': 'Share L2 scoring', 'incoming': ['Determining Scoring'], 'outgoing': ['L2 Scoring sent']}
+{'id': 'sid-33197675-6281-400B-87E7-4404CBBBEEDA', 'name': 'Send L1 scoring', 'incoming': ['StartEvent0'], 'outgoing': ['L1 Scoring sent']}
+{'id': 'sid-D5096123-F16B-4188-A333-E06B8FEE0971', 'name': 'Share delay', 'incoming': ['Get L1 scoring?'], 'outgoing': ['sid-1462FAA1-542B-46AC-8C47-F24E498E5ADC']}
+{'id': 'sid-58E3332F-0213-4D65-9D6F-C33FD43FAEEB', 'name': 'Create a scoring request\n', 'incoming': ['StartEvent1'], 'outgoing': ['L1 scoring']}
+{'id': 'sid-753AC730-EE00-4CCB-B2E4-BCA7A5E53EFC', 'name': 'Share delay', 'incoming': ['StartEvent1'], 'outgoing': ['sid-B61A1254-D1A3-4867-AE2D-8083EB45DF0A']}
+{'id': 'sid-6CC4B6BA-9777-4935-8237-9E17BA03FB1E', 'name': 'L1 forward scoring', 'incoming': ['L1 scoring'], 'outgoing': ['L1 Scoring sent']}
+{'id': 'sid-EE52134A-531A-4B05-B8CE-39FC1449333E', 'name': 'L2 forward scoring', 'incoming': ['sid-F64EF762-6902-476C-B07B-4F795AC525E4'], 'outgoing': ['L2 Scoring sent']}
+
+Gateways:
+{'id': 'sid-885111B0-700A-4528-B6E1-1A64C59930F9', 'name': 'Get L1 scoring?', 'incoming': ['StartEvent0'], 'outgoing': ['Share delay', 'L1 Scoring sent']}
+{'id': 'sid-E052B8D3-AC14-4E51-B7DF-7D3DBAB93FE9', 'name': 'EventBasedGateway1', 'incoming': ['StartEvent1'], 'outgoing': ['L1 Scoring sent', 'receive delay notification']}
+{'id': 'sid-1637BFBE-C82A-4680-A44D-A34C353BD4A1', 'name': 'L1 scoring', 'incoming': ['Create a scoring request\n'], 'outgoing': ['L1 Scoring sent']}
+{'id': 'sid-A7456E0A-448B-4AFD-83BF-5B0625401C1B', 'name': 'receive delay notification', 'incoming': ['StartEvent1'], 'outgoing': ['Share delay']}
+
+Start Events:
+{'id': 'sid-1D4C0053-F27B-44C8-B589-509AFBD3AC8B', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Send L1 scoring']}
+{'id': 'sid-431F729D-86DE-4AA3-BB1E-AD848829A307', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Share delay']}
+
+End Events:
+{'id': 'sid-DBF90A73-3AA7-4CA1-BCB1-480651A68543', 'name': 'L2 Scoring sent', 'incoming': ['Share L2 scoring'], 'outgoing': []}
+{'id': 'sid-2CC2C3D3-7CC1-4B3B-A234-79CB10D1A939', 'name': 'L1 Scoring sent', 'incoming': ['Get L1 scoring?'], 'outgoing': []}
+{'id': 'sid-726B5F1F-B91B-4F31-9558-F3B86E887E9E', 'name': 'L1 Scoring sent', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-4AE109A8-5634-4B1C-AE69-348F9E249E50', 'name': 'L2 Scoring sent', 'incoming': ['L2 forward scoring'], 'outgoing': []}

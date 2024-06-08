@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-13B141B3-AEA6-4E13-8BD8-29038B94D5EC', 'name': 'Send payment request', 'incoming': ['Regress possible'], 'outgoing': ['Again\ntemplate\nDuration\nExpired\nand no cash entry']}
+{'id': 'sid-00D24FD9-50A1-4277-9D7E-99CBE0BCBCC5', 'name': 'Book money receipt', 'incoming': ['Regress\nReport\narrived'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-FE0ABA17-B963-4251-B9FF-619C3C6D86F1', 'name': 'Close', 'incoming': ['justified?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-69607DCE-718F-4D4A-B7E1-A897C197C0CA', 'name': 'Proceedings', 'incoming': ['VN contradicts'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-66742EF9-2627-4E08-9430-0D571BB78A57', 'name': 'Debt collection service', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-0EAA058C-E847-423C-9468-0E06786B6541', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'VN contradicts', 'EventBasedGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-820C1DB8-DE7F-4DAC-9223-4B7109C9CF9B', 'name': 'justified?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway2', 'Close']}
+{'id': 'sid-737A8DD6-6073-4D8C-AF0F-E982A3E34486', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-98F6D1C0-EB11-4A47-BF67-D76F3A6BDA10', 'name': 'EventBasedGateway3', 'incoming': ['Regress\nReport\narrived'], 'outgoing': ['justified?', 'EndEvent0', 'Again\ntemplate\nDuration\nExpired\nand no cash entry', 'ExclusiveGateway0']}
+{'id': 'sid-D37B073E-0B5B-4E3B-8598-9F74F7E2DB0F', 'name': 'Money received', 'incoming': ['Regress\nReport\narrived'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-42BF9C10-E7C3-4FA9-B09C-2D35ACC4E0D1', 'name': 'Regress possible', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Again\ntemplate\nDuration\nExpired\nand no cash entry']}
+{'id': 'sid-BD31D341-46D7-4973-997A-4A8911C3767A', 'name': 'VN contradicts', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-9D7AEF02-7A9E-4BC6-8A3D-C166956403BB', 'name': 'Again\ntemplate\nDuration\nExpired\nand no cash entry', 'incoming': ['EventBasedGateway3'], 'outgoing': ['sid-95454BA9-381F-48A8-8088-383C8B988ED6']}
+{'id': 'sid-2656C4E6-4E12-46C4-9030-02F23719C8B0', 'name': 'Regress not possible', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-DE0A6BCB-C351-40E1-BC4B-F4246F05A76A', 'name': 'Regress\nReport\narrived', 'incoming': [], 'outgoing': ['Book money receipt']}
+
+End Events:
+{'id': 'sid-638CA241-A565-4067-A603-9A0FA2B2E4C5', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway3', 'ExclusiveGateway2'], 'outgoing': []}

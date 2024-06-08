@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-538509BB-933C-4861-89D8-EF5FAAD1376D', 'name': 'Follow-up', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Process']}
+{'id': 'sid-79D9F4E5-217E-4DB7-AC73-B7A19D1A1886', 'name': 'Share delay', 'incoming': ['Scoring delays'], 'outgoing': ['Process']}
+{'id': 'sid-755CB349-199B-4ED5-815D-9D7BDB08CF5E', 'name': 'First scoring', 'incoming': ['StartEvent1'], 'outgoing': ['Results available?']}
+{'id': 'sid-FB03526F-739D-4C80-B3AE-F2E1DF1F21D3', 'name': 'Scoring Level2', 'incoming': ['StartEvent1'], 'outgoing': ['sid-A1DC9FC9-59D1-4344-9FE3-44A1F2F1FCBE']}
+
+Gateways:
+{'id': 'sid-784517BD-69EF-482F-B5FD-EB2E82C130B0', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'Scoring result obtained'], 'outgoing': ['Process']}
+{'id': 'sid-23C4AF03-B0C9-4D19-AB14-5E0022CE0BBB', 'name': 'Results available?', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring Level2', 'sid-84A7930A-D5C6-4C43-9023-EE24A155F6A9']}
+{'id': 'sid-2165B9B9-2E9E-4CEB-9214-00134E3608A3', 'name': 'ExclusiveGateway2', 'incoming': ['sid-D4A5CE80-5180-438A-A938-5C3406CF5719', 'sid-823A75CD-7A9A-4F27-A3F6-31FE5B369103'], 'outgoing': ['Process']}
+{'id': 'sid-1CC68633-A058-4FA1-BC55-5FB9B1802BAB', 'name': 'EventBasedGateway3', 'incoming': ['sid-48DB1AC8-766E-480C-9842-190F28ED96AA'], 'outgoing': ['Process', 'ExclusiveGateway0']}
+{'id': 'sid-1B1813DB-1FE0-4479-97D7-EAC3BCED1D10', 'name': 'Scoring delays', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Process']}
+{'id': 'sid-CFD67C02-1320-4DD0-96E5-56E962B87226', 'name': 'Scoring result obtained', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Process']}
+{'id': 'sid-C82ACD62-33C6-4CEC-A609-106CCC38879D', 'name': 'Scoring result obtained', 'incoming': ['Share delay'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['sid-6B694D43-E030-48B1-BB9A-AA335D90AE08']}
+{'id': 'sid-E07870EF-BBCB-4757-85FA-21083A09B65F', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Scoring Level2']}
+
+End Events:
+{'id': 'sid-A3A513CF-574B-4FAF-B96F-A9718DE5C1E2', 'name': 'Process', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-0DF5AD86-2887-46C3-930A-E9E8F8267EDE', 'name': 'Process', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}

@@ -1,0 +1,23 @@
+ In a system designed to handle scoring requests and reporting results, the following sequence of events and gateways are involved:
+
+1. The process begins with the 'StartEvent0' triggering the 'Delay?' gateway. This gateway determines whether a delay is necessary before proceeding with the scoring process.
+
+2. If a delay is required, the 'Delay?' gateway sends the 'Delay?' event to the 'Scoring 2\nResult arrived' gateway, which then sends the 'Scoring 2\nResult arrived' event to the 'ExclusiveGateway1'.
+
+3. The 'ExclusiveGateway1' receives the 'Scoring 2\nResult arrived' event and sends the 'EndEvent0' event, signaling the completion of the delay process.
+
+4. Concurrently, the 'Delay?' gateway also sends the 'EndEvent0' event to the 'Report the result' gateway, which then sends the 'EndEvent0' event to the 'ExclusiveGateway2'.
+
+5. The 'ExclusiveGateway2' receives the 'EndEvent0' event and sends the 'Level 2\nnecessary?' event to the 'Level 2 scoring' gateway.
+
+6. The 'Level 2 scoring' gateway receives the 'Level 2\nnecessary?' event and sends the 'Scoring 2 results' event to the 'ExclusiveGateway3'.
+
+7. The 'ExclusiveGateway3' receives the 'Scoring 2 results' event and sends the 'EndEvent1' event, signaling the completion of the scoring process.
+
+8. The 'StartEvent1' triggers the 'Level 2\nnecessary?' gateway, which sends the 'Level 2\nnecessary?' event to the 'Scoring 2 results' gateway.
+
+9. The 'Scoring 2 results' gateway receives the 'Level 2\nnecessary?' event and sends the 'EndEvent1' event to the 'ExclusiveGateway3'.
+
+10. The 'ExclusiveGateway3' receives the 'EndEvent1' event, completing the entire process.
+
+In summary, the system handles scoring requests by initiating a delay process

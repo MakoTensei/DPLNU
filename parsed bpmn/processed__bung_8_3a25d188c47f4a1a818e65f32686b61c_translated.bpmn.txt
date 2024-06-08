@@ -1,0 +1,43 @@
+Tasks:
+{'id': 'sid-60A1722E-F4F0-4D19-A1DE-B946FDE26CB6', 'name': 'Visit the restaurant', 'incoming': ['Gastronomy'], 'outgoing': ['Select a court from the map']}
+{'id': 'sid-9DD67875-5E55-4930-A9D4-281B683797FF', 'name': 'Select a court from the map', 'incoming': ['Gastronomy'], 'outgoing': ['Guest is in line']}
+{'id': 'sid-4E29DDE1-40EA-43D0-8B55-CF83DE98C429', 'name': 'Add your order', 'incoming': ['Gastronomy'], 'outgoing': ['Payment']}
+{'id': 'sid-329EF752-AD27-47E1-BDFA-B4DE2E731604', 'name': 'Payment', 'incoming': ['Guest is in line'], 'outgoing': ['Accept Pieper']}
+{'id': 'sid-40195A42-EAC9-4A4F-B354-721723CBE044', 'name': 'Accept Pieper', 'incoming': ['Guest is in line'], 'outgoing': ['Customer will be called']}
+{'id': 'sid-A6E71A9D-CCD4-436D-B9E1-508E75F462A7', 'name': 'Go to pickup', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Take a meal']}
+{'id': 'sid-51C060CD-7E5C-4F13-8AA7-8A0EC5CDE914', 'name': 'Take a meal', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Food']}
+{'id': 'sid-A88370E4-0C2A-485A-8210-EB1F1F6F5527', 'name': 'Food', 'incoming': ["Pieper 'piept'"], 'outgoing': ['Leave a Reply']}
+{'id': 'sid-40577D15-BB8C-44F1-A465-0CEC40C0DFB6', 'name': 'Leave a Reply', 'incoming': ['Customer will be called'], 'outgoing': ['Customer is tired']}
+{'id': 'sid-B0C768FE-90DF-4FFE-8D08-7154744A2E51', 'name': 'Enter your order in the cash register system', 'incoming': ['Order to receive'], 'outgoing': ['Paying']}
+{'id': 'sid-0F74406C-D7B9-47B4-AB6C-DF6E073D51B0', 'name': 'Paying', 'incoming': ['Order to receive'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-AACC4D62-37D1-4462-8F0B-77A560AD5B38', 'name': 'Adjust Pieper', 'incoming': ['Order to receive'], 'outgoing': ['Pieper transferred to customers']}
+{'id': 'sid-D9533BFD-CB8D-49D6-A241-A17207B2C15C', 'name': 'Pieper transferred to customers', 'incoming': ['Order to receive'], 'outgoing': ['Koch inform']}
+{'id': 'sid-010FCE45-4E86-4B6B-9CF0-D87748C4409D', 'name': 'Koch inform', 'incoming': ['Order to receive'], 'outgoing': ['Court is ready']}
+{'id': 'sid-203AB461-30AC-4864-AEEB-71DE6EB17020', 'name': 'Trigger the Pieper of the Customer', 'incoming': ['Order to receive'], 'outgoing': ['5 minutes past']}
+{'id': 'sid-E9FB0F92-C115-4468-BEF3-C206EF134606', 'name': 'Leave food', 'incoming': ['Customer at issue'], 'outgoing': ['Issued']}
+{'id': 'sid-96EB5B16-5150-448F-BFEE-B71503148AE5', 'name': 'Retrieve customer', 'incoming': ['5 minutes past'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-95D18E8B-5F9C-43C0-B2AA-4E8336A51925', 'name': 'prepare court', 'incoming': ['Order to receive'], 'outgoing': ['Place court in the empires']}
+{'id': 'sid-0723CFEA-BDA7-4FA7-A506-4608FE1C5E55', 'name': 'Place court in the empires', 'incoming': ['Order to receive'], 'outgoing': ['inform employees']}
+{'id': 'sid-DDD230A5-74EA-4CDC-91A6-E7E605F1FDF7', 'name': 'inform employees', 'incoming': ['Order to receive'], 'outgoing': ['Date']}
+
+Gateways:
+{'id': 'sid-2929E0F2-FD53-46C8-8C6D-3C25E95B0712', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'EventBasedGateway2'], 'outgoing': ['Customer is tired']}
+{'id': 'sid-AE969645-F6CA-4B7C-A217-43893EB267B3', 'name': 'ExclusiveGateway1', 'incoming': ['Court is ready', 'Order to receive'], 'outgoing': ['Issued']}
+{'id': 'sid-A9549F77-0AD8-406D-94FC-71E0C759A2B0', 'name': 'EventBasedGateway2', 'incoming': ['Guest is in line'], 'outgoing': ['Go to pickup', 'Take a meal']}
+{'id': 'sid-56C4AE48-DEB6-46E4-B481-6CE055C0662F', 'name': 'EventBasedGateway3', 'incoming': ['Order to receive'], 'outgoing': ['Customer at issue', 'ExclusiveGateway1']}
+{'id': 'sid-3AFA8E33-D852-438D-B6D6-505BDA61DCC1', 'name': 'Guest is in line', 'incoming': ['Gastronomy'], 'outgoing': ["Pieper 'piept'"]}
+{'id': 'sid-7CA26D70-8C80-4552-85E9-BCC2E91DF905', 'name': "Pieper 'piept'", 'incoming': ['Guest is in line'], 'outgoing': ['Food']}
+{'id': 'sid-A38C8AA4-615E-4922-88A0-DA05166AEA66', 'name': 'Customer will be called', 'incoming': ['Accept Pieper'], 'outgoing': ['Leave a Reply']}
+{'id': 'sid-431CB46F-E8E5-4F07-8640-BA238864D027', 'name': 'Court is ready', 'incoming': ['Order to receive'], 'outgoing': ['Customer at issue']}
+{'id': 'sid-17D0CDAA-3662-4575-AF6A-1965A05120B0', 'name': 'Customer at issue', 'incoming': ['Court is ready'], 'outgoing': ['Issued']}
+{'id': 'sid-DAEC6C3F-A146-4E62-ACB7-DB873B367002', 'name': '5 minutes past', 'incoming': ['Trigger the Pieper of the Customer'], 'outgoing': ['Issued']}
+
+Start Events:
+{'id': 'sid-3B5FC15E-D921-4CC8-A7E8-3FD4224F38DB', 'name': 'Gastronomy', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-643D2612-C020-4046-9A36-25C7CA93CDA7', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-ABBC37C8-BE55-4041-9F7B-A85C1EDA19CF', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-FA2CC2FF-0993-4689-B97D-8940DFA2E7CA', 'name': 'Customer is tired', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-2CC63332-9FA7-42BF-B4DD-DC412F4718C5', 'name': 'Issued', 'incoming': ['5 minutes past'], 'outgoing': []}
+{'id': 'sid-0D5E8AFA-BA4B-4C61-94FC-EB25D3CC053D', 'name': 'Date', 'incoming': ['inform employees'], 'outgoing': []}

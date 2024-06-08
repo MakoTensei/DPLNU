@@ -1,0 +1,17 @@
+Tasks:
+{'id': 'sid-42687B12-71D9-4AFD-9C72-FB724F3D2A9E', 'name': 'Scoring Level 1\nperform', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-8EC991F9-5FEC-4E18-BBC1-165506A9B21F', 'name': 'Scoring Level 2\nperform', 'incoming': ['sid-3F4A9F83-74A3-407F-A1EC-33B05B1C1962'], 'outgoing': ['ExclusiveGateway0']}
+
+Gateways:
+{'id': 'sid-B81AD6DD-6D65-45B1-B6F0-87DA058A5272', 'name': 'ExclusiveGateway0', 'incoming': ['Scoring request\nobtained', 'Scoring Level 2\nperform'], 'outgoing': ['sid-28A20C57-D30C-4F8E-8235-60520BA9FC49']}
+{'id': 'sid-67E7B99B-370A-41D3-97BC-BC7E7A0F7441', 'name': 'EventBasedGateway1', 'incoming': ['sid-E87B1B24-4511-45B0-A1FE-6BB97C486E4C', 'sid-617C93FA-69D5-4F28-80A6-F2C6A2E1D35B'], 'outgoing': ['Scoring result\nobtained', 'Delay message\nobtained']}
+{'id': 'sid-9ED6ADD7-AE79-43C3-9737-6E52D932E50E', 'name': 'Scoring result\nobtained', 'incoming': ['EventBasedGateway1'], 'outgoing': ['sid-48E7BE0F-0E63-480D-9F0E-8FC69D42D98F']}
+{'id': 'sid-5D48E402-39F6-4CE6-86E5-844AF9289C1C', 'name': 'Delay message\nobtained', 'incoming': ['EventBasedGateway1'], 'outgoing': ['sid-2D704127-0B11-4C2E-B27E-749A220768F9']}
+
+Start Events:
+{'id': 'sid-F9EA2854-D570-4FD0-AB05-C31AC17463CE', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['sid-ADB1024E-AC34-4921-A621-F6F4D1ACB620']}
+{'id': 'sid-315BD193-DCD4-446C-B411-A0CBA38F3D17', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-6B6C8FA0-4704-41DD-B648-ECBDF6BA5BC9', 'name': 'EndEvent0', 'incoming': ['sid-D0021B15-A97E-4CE7-B47B-4EA676BF3A2E'], 'outgoing': []}
+{'id': 'sid-30DCFC13-E3F1-48BB-8788-C6B3899E8CE5', 'name': 'EndEvent1', 'incoming': ['sid-5B4F0408-D28A-47B8-A918-06DF83B3E8E4'], 'outgoing': []}

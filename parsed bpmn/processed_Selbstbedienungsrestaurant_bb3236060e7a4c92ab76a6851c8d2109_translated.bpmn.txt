@@ -1,0 +1,32 @@
+Tasks:
+{'id': 'sid-EE6FF34B-364E-4D03-9607-DA7AE21E738D', 'name': 'Visit the restaurant', 'incoming': ['Feeling hungry'], 'outgoing': ['Select a court']}
+{'id': 'sid-47707F23-00CF-427C-A7E9-25B165E8DB00', 'name': 'Select a court', 'incoming': ['Feeling hungry'], 'outgoing': ['wait for order task']}
+{'id': 'sid-6F195079-5220-40DF-96D8-EFB8C3182C61', 'name': 'Add your order', 'incoming': ['Feeling hungry'], 'outgoing': ['Order payment']}
+{'id': 'sid-ED54BC7C-DA9B-42D0-96B3-6D41DB3CD8E2', 'name': 'Order payment', 'incoming': ['wait for order task'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-740F1227-7587-459F-9CA8-445F61E9AE21', 'name': 'Pick up Pieper', 'incoming': ['wait for order task'], 'outgoing': ['buzzer']}
+{'id': 'sid-557978DA-0031-4470-A438-8DFAADBDBD00', 'name': 'Court of Justice', 'incoming': ['buzzer'], 'outgoing': ['Food']}
+{'id': 'sid-72B76B52-6FE4-4563-B5E3-922FA014EBB2', 'name': 'Food', 'incoming': ['buzzer'], 'outgoing': []}
+{'id': 'sid-C8E83099-AEE3-4D9B-B570-A6C3BAC11DCC', 'name': 'Recording', 'incoming': ['StartEvent1'], 'outgoing': ['Cash']}
+{'id': 'sid-13187F5E-509F-40E2-9B25-DF9C37337A08', 'name': 'Cash', 'incoming': ['StartEvent1'], 'outgoing': ['Activate Buzzer/Pieper']}
+{'id': 'sid-033EA1CB-893A-456E-9E37-91A9ECCED874', 'name': 'Activate Buzzer/Pieper', 'incoming': ['StartEvent1'], 'outgoing': ['Submit your order']}
+{'id': 'sid-19E0A0FC-DC84-4C2E-8965-72879D6A2025', 'name': 'Submit your order', 'incoming': ['StartEvent1'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-4EA3CE23-F4BE-4130-9B89-0D4DC1FC8EE3', 'name': 'Guest information', 'incoming': ['StartEvent1'], 'outgoing': ['Provide order']}
+{'id': 'sid-39190466-72DC-4BCD-8D62-66AC918C602C', 'name': 'Provide order', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-9E7C60A6-A528-4719-843E-1485A5B197D5', 'name': 'Recording', 'incoming': ['StartEvent2'], 'outgoing': ['prepare court']}
+{'id': 'sid-E89D078B-5720-4648-A37D-40A315B323FE', 'name': 'prepare court', 'incoming': ['StartEvent2'], 'outgoing': ['Providing court in empire']}
+{'id': 'sid-1FF4AE6E-A643-4291-B8F1-1C83C3803951', 'name': 'Providing court in empire', 'incoming': ['StartEvent2'], 'outgoing': ['Staff']}
+{'id': 'sid-99660640-FDA0-4CFB-9B84-0C43E116C2E6', 'name': 'Staff', 'incoming': ['StartEvent2'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-3F6E969B-65A2-479C-AA09-8BF3B2F5D5D3', 'name': 'wait for order task', 'incoming': ['Feeling hungry'], 'outgoing': ['buzzer']}
+{'id': 'sid-28D1735E-9501-490F-AC0D-A666DF6B43D3', 'name': 'buzzer', 'incoming': ['wait for order task'], 'outgoing': ['Food']}
+{'id': 'sid-07F58084-F321-445C-B0FA-85E72AC660DD', 'name': 'IntermediateCatchEvent2', 'incoming': ['StartEvent1'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-0644FC6B-0754-4AC1-B007-6CC4052E0AD8', 'name': 'IntermediateCatchEvent3', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': []}
+
+Start Events:
+{'id': 'sid-D2E65B47-9BD4-4205-A29F-FC76805A6DAB', 'name': 'Feeling hungry', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-9A97A0F6-14EC-4FE9-BCB5-F08D2C3B0DE7', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Guest information']}
+{'id': 'sid-D3CE04DF-9F39-4FC9-B2AA-161A8445A6C4', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['Staff']}
+
+End Events:
+{'id': 'sid-B15ACC94-E13E-486C-8793-3706D5D51927', 'name': 'EndEvent0', 'incoming': ['Staff'], 'outgoing': []}

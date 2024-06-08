@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-ADFA6B8C-6DC1-4419-998C-CFA54F1F70F7', 'name': 'Packaging goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-11AA88F6-936F-4171-A137-F9900C4EE314', 'name': 'Provide for collection', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-FF797115-7018-4CE5-847F-5FE009285967', 'name': 'Pick up offers', 'incoming': ['Big crowd?'], 'outgoing': ['Select your offer']}
+{'id': 'sid-52290493-4ADE-43F5-8640-1675FA3379EF', 'name': 'Determination of quantity', 'incoming': ['ParallelGateway5'], 'outgoing': ['Big crowd?']}
+{'id': 'sid-615EDE61-D3A2-4AF1-B01C-739929FAD914', 'name': 'Select your offer', 'incoming': ['ParallelGateway5'], 'outgoing': ['Specialist']}
+{'id': 'sid-160076EE-D5DA-4487-96BC-65BB6B5E0A19', 'name': 'Specialist', 'incoming': ['Big crowd?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-D589A01E-174F-43AD-A773-7FEDD1543890', 'name': 'Filling the package note', 'incoming': ['Big crowd?'], 'outgoing': ['Identify insurance status']}
+{'id': 'sid-A6091B0D-4195-4378-BD98-15585EA63520', 'name': 'Identify insurance status', 'incoming': ['Big crowd?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C82FF7BF-9FBB-42A8-8863-359C40033E1F', 'name': 'Insurance close', 'incoming': ['Insurance required?'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-562BFEB4-BEF5-4AD7-861A-08EE9AB96309', 'name': 'Big crowd?', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway4', 'ExclusiveGateway2']}
+{'id': 'sid-26AA654D-75B9-4ADB-9599-263F56F76BA0', 'name': 'Insurance required?', 'incoming': ['Big crowd?'], 'outgoing': ['Insurance close', 'EndEvent0', 'ExclusiveGateway2']}
+{'id': 'sid-5F0197B4-71B2-4A1A-8047-B58B79EB68D3', 'name': 'ExclusiveGateway2', 'incoming': ['Big crowd?', 'Identify insurance status'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-A7CB663C-FE64-4CF3-8537-124C04DCB2F3', 'name': 'ExclusiveGateway3', 'incoming': ['Insurance close', 'Big crowd?'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-B891EFC3-B105-4AFA-B3DE-6ADA982A7971', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway5', 'Insurance required?', 'Big crowd?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-70E659ED-8A95-4C9D-A272-BF1CCA276A2E', 'name': 'ParallelGateway5', 'incoming': ['StartEvent0'], 'outgoing': ['Select your offer', 'Provide for collection']}
+
+Start Events:
+{'id': 'sid-24112A31-25CE-48FA-8B22-1DD452EF9D4A', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Provide for collection']}
+
+End Events:
+{'id': 'sid-3AF7A38E-AB7F-4EFC-91CA-173A36AEB2FE', 'name': 'EndEvent0', 'incoming': ['Insurance required?'], 'outgoing': []}

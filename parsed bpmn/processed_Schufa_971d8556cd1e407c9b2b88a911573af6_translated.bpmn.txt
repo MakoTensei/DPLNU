@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-3BF7A3A1-E64A-4CA7-BAB6-D01DEEAE0483', 'name': 'Scoring request\nSufa\nsend', 'incoming': ['Request\nOf which:\nFrontend'], 'outgoing': ['Delay message\nobtained']}
+{'id': 'sid-B6C5A93F-65E0-4F3D-A33C-4E785EFC03E9', 'name': 'Report\nDelay', 'incoming': ['Delay message\nobtained'], 'outgoing': ['Score value\n(delayed)\nobtained']}
+{'id': 'sid-620FCF66-ACF0-4D45-9535-3A83D19BC36B', 'name': 'Report\nSchufascore', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E459B200-86F9-4F0E-B1DD-3B7ADB2310BA', 'name': 'Scoring\n(level 1)\nDebt', 'incoming': ['Bank scoring request\nobtained'], 'outgoing': ['Score\navailable?']}
+{'id': 'sid-8450E03D-AE4E-4920-976E-C92C6B989FD0', 'name': 'Send a score value', 'incoming': ['Bank scoring request\nobtained'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-8E10B183-8219-4EB9-969C-D44C1B0DF688', 'name': 'Report\nDelay', 'incoming': ['Score\navailable?'], 'outgoing': ['Scoring\n(level 2)\nDebt']}
+{'id': 'sid-3E30E93B-2666-4D4A-A84C-BD7733794CAC', 'name': 'Scoring\n(level 2)\nDebt', 'incoming': ['Score\navailable?'], 'outgoing': ['Score\nsend']}
+{'id': 'sid-CEAA59ED-C440-4CAA-B08A-6CA41893B3B7', 'name': 'Score\nsend', 'incoming': ['Score\navailable?'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-C8FEBC7B-1AAC-4AD4-A236-186851960974', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'Delay message\nobtained'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-0E1A2C3C-30C7-4F58-8C7D-615A4F609685', 'name': 'Score\navailable?', 'incoming': ['Bank scoring request\nobtained'], 'outgoing': ['EndEvent1', 'EndEvent2']}
+{'id': 'sid-A3D29822-790B-4C6E-94B5-C248104CB549', 'name': 'EventBasedGateway2', 'incoming': ['Request\nOf which:\nFrontend'], 'outgoing': ['Report\nSchufascore', 'Score value\n(delayed)\nobtained']}
+{'id': 'sid-AEAC991F-3679-4AF6-813E-189D050EB8C6', 'name': 'Delay message\nobtained', 'incoming': ['Scoring request\nSufa\nsend'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-586DA446-EFF9-4D47-8443-885F745E0E23', 'name': 'Score value\n(sofort)\nobtained', 'incoming': ['Request\nOf which:\nFrontend'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-70D73FBC-C404-4D08-B7CC-E60725F3BC24', 'name': 'Score value\n(delayed)\nobtained', 'incoming': ['EventBasedGateway2'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-BA9EE2CF-4957-4649-AF47-69272AE30925', 'name': 'Request\nOf which:\nFrontend', 'incoming': [], 'outgoing': ['Score value\n(sofort)\nobtained']}
+{'id': 'sid-5536AF11-4A7B-4423-987C-E748E6B8C02A', 'name': 'Bank scoring request\nobtained', 'incoming': [], 'outgoing': ['Send a score value']}
+
+End Events:
+{'id': 'sid-D9FF8C73-F1AA-4733-B5F0-B150B82EB4AE', 'name': 'EndEvent0', 'incoming': ['Score value\n(sofort)\nobtained'], 'outgoing': []}
+{'id': 'sid-25F52FA5-D073-4D11-9FF7-62E82976BB80', 'name': 'EndEvent1', 'incoming': ['Score\navailable?'], 'outgoing': []}
+{'id': 'sid-50841BEE-C127-48EC-A435-E6FD84E1EDDE', 'name': 'EndEvent2', 'incoming': ['Score\navailable?'], 'outgoing': []}

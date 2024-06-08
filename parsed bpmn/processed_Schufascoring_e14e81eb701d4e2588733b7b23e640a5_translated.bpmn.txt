@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-6C67A43F-B683-437B-8AAD-E64B3E348159', 'name': 'Scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-96E2DD2F-E98E-465A-83A3-93C270CF7CD1', 'name': 'perform scoring', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring cannot be\ndetermined']}
+{'id': 'sid-35E6EFD6-5C37-48F2-B99B-B69AD7317DCE', 'name': 'perform scoring', 'incoming': ['sid-4B31E775-5431-44D1-AD39-B434116ECAAB'], 'outgoing': ['IntermediateCatchEvent4']}
+
+Gateways:
+{'id': 'sid-D01C1CEC-A3BC-4142-B3D4-4E9476CADB63', 'name': 'Scoring result available?\n', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1', 'IntermediateCatchEvent3']}
+{'id': 'sid-D2CD07A0-BA26-4C13-8EB3-545D8F33AB55', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring result available?\n', 'sid-77E482D9-E05A-47E4-982A-5CAE5BE776E3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6F9B9CE3-8A16-4D60-9176-60C7D36AE778', 'name': 'IntermediateCatchEvent2', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-79E87D56-C017-403F-96C4-E250E4EB5A30', 'name': 'IntermediateCatchEvent3', 'incoming': ['StartEvent0'], 'outgoing': ['sid-FD2CE364-7E91-423B-ACD8-EA854CE0688A']}
+{'id': 'sid-D89280AE-335C-4A32-A38C-B3C95A0279D3', 'name': 'IntermediateCatchEvent4', 'incoming': ['StartEvent1', 'perform scoring'], 'outgoing': ['Scoring lies\nbefore', 'Scoring cannot be\ndetermined']}
+{'id': 'sid-0681C9F4-7206-4204-B9C0-0676FB67F876', 'name': 'Scoring cannot be\ndetermined', 'incoming': ['perform scoring'], 'outgoing': ['sid-3F09F403-6D82-411E-B2F8-8BDF286B4571']}
+{'id': 'sid-58D390AE-0A31-489F-A864-6D4F3869686A', 'name': 'Scoring lies\nbefore', 'incoming': ['StartEvent1'], 'outgoing': ['sid-F6F328CA-0C4A-48C7-AA55-5A529BB0B080']}
+
+Start Events:
+{'id': 'sid-E488E8D5-8E58-429C-9919-F9B24C74294F', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-10BC2718-8475-4E3B-B1C1-8B421AC09EB7', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Scoring lies\nbefore']}
+
+End Events:
+{'id': 'sid-2F052529-B223-4D5D-8FC9-5B182C7F264B', 'name': 'EndEvent0', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': []}
+{'id': 'sid-C809BDA5-4E38-4803-9F96-B24BE0E6D54B', 'name': 'Scoring ends\n', 'incoming': ['sid-BC3E057F-EE2E-4538-AD9C-53FE62C71B02'], 'outgoing': []}

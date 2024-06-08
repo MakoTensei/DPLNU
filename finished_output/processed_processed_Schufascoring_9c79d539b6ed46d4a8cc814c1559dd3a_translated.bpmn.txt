@@ -1,0 +1,9 @@
+ The process begins with the 'Schufascoring\nRequest\nReport' event, which triggers the 'perform scoring level 1' task. This task receives a 'Scoring\nQuestion\nReport' and sends a 'Scoring\nLevel 1\nReported back' to the 'Test\nLevel 1\npossible?' gateway.
+
+Once the 'Scoring\nLevel 1\nmeets' task is completed, it triggers the 'Schufascoring\nLeve 1 is finished' event. This event then sends a 'Scoring\nLevel 1\nReported back' to the 'Test\nLevel 1\npossible?' gateway.
+
+The 'Test\nLevel 1\npossible?' gateway, upon receiving the 'Scoring\nLevel 1\nReported back', triggers the 'forward scoring results' task. This task sends a 'grease\nLEvel 2\nis finished' event to the 'IntermediateCatchEvent2' gateway.
+
+The 'IntermediateCatchEvent2' gateway, upon receiving the 'grease\nLEvel 2\is finished' event, triggers the 'grease\nLEvel 2\nis finished' task. This task sends a 'grease\nLEvel 2\is finished' event to the 'End Events' section.
+
+In summary, the process starts with a request for a report on scoring level 1, which triggers a task to perform scoring level 1. Once the scoring level 1 task meets the criteria, it triggers the completion of level 1 and sends a report back to the test level 1 gateway. This triggers the forwarding of results to level 2, which completes the scoring process and sends a final report.

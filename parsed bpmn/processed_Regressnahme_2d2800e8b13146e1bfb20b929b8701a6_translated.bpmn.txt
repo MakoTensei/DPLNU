@@ -1,0 +1,30 @@
+Tasks:
+{'id': 'sid-CFD75377-E03C-4E51-B9A8-2A9E944E3C3C', 'name': 'Check case for regression', 'incoming': ['Case ready for regress'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-DE020BA2-7327-4A82-B9E6-983F89F96D2A', 'name': 'Close the case', 'incoming': ['ExclusiveGateway5'], 'outgoing': ['Case closed']}
+{'id': 'sid-F3C925FE-E96E-4624-B5F9-1FFEABE61F73', 'name': 'Send a message', 'incoming': ['Case ready for regress'], 'outgoing': ['Reimbursement period']}
+{'id': 'sid-A98F387D-A679-47E8-BE5C-8F79DED7438C', 'name': 'Proceedings', 'incoming': ['Case ready for regress'], 'outgoing': ['Case closed']}
+{'id': 'sid-6177A228-123D-4CE0-8BB8-F3EC925B2A1B', 'name': 'Transfer payment to debt collection service provider', 'incoming': ['Objection'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-C254F894-8312-4B7A-976B-773499ABBF3D', 'name': 'Check payment receipt', 'incoming': ['Reimbursement period'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-2F8467E8-04E9-48C5-ACDA-2E33CC2CCD81', 'name': 'Payment of invoice', 'incoming': ['ExclusiveGateway6'], 'outgoing': ['ExclusiveGateway7']}
+{'id': 'sid-96F12BE0-2833-41C7-A4E3-7BF60F44FCF9', 'name': 'submit an objection', 'incoming': ['ExclusiveGateway6'], 'outgoing': ['ExclusiveGateway7']}
+
+Gateways:
+{'id': 'sid-E0514DB0-30E5-4F25-A976-9499BD30ADCB', 'name': 'Regress?', 'incoming': ['Case ready for regress'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-A9745A54-0AC9-47DB-A154-9617FB93B13E', 'name': 'Opposition\njustified', 'incoming': ['EventBasedGateway8'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway4']}
+{'id': 'sid-023B78C2-2B2F-4F7A-BF28-1BB9EE53AA2E', 'name': 'ExclusiveGateway2', 'incoming': ['Case ready for regress', 'Regress?', 'Check case for regression'], 'outgoing': ['Case closed']}
+{'id': 'sid-BB0B9D0E-C497-44E5-A5EB-4D3986641712', 'name': 'Payment\nobtained', 'incoming': ['Regress?'], 'outgoing': ['ExclusiveGateway4', 'ExclusiveGateway5']}
+{'id': 'sid-34E5376A-C17C-417F-9B31-E7A2F9BBD364', 'name': 'ExclusiveGateway4', 'incoming': ['Objection', 'Check payment receipt'], 'outgoing': ['Transfer payment to debt collection service provider']}
+{'id': 'sid-15D77621-2926-4FA2-B98C-1625D30544E0', 'name': 'ExclusiveGateway5', 'incoming': ['EventBasedGateway8', 'Objection'], 'outgoing': ['Case closed']}
+{'id': 'sid-6562A4DC-A65C-4ACD-B8E6-164457087848', 'name': 'ExclusiveGateway6', 'incoming': ['Invoicing'], 'outgoing': ['ExclusiveGateway7', 'submit an objection', 'EndEvent1']}
+{'id': 'sid-61325A28-665C-45DE-BAA9-8399CC9F3B65', 'name': 'ExclusiveGateway7', 'incoming': ['submit an objection', 'ExclusiveGateway6', 'Invoicing'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-83607C6E-4611-48B9-A5CF-DAC101F668BB', 'name': 'EventBasedGateway8', 'incoming': ['Case ready for regress'], 'outgoing': ['Opposition\njustified', 'ExclusiveGateway5']}
+{'id': 'sid-3A6A0DDC-C80B-47C4-8E8D-C3FADCB6B88A', 'name': 'Reimbursement period', 'incoming': ['Regress?'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-5B625ACF-03C0-4190-A4B4-B03FC4033074', 'name': 'Objection', 'incoming': ['Case ready for regress'], 'outgoing': ['ExclusiveGateway5']}
+
+Start Events:
+{'id': 'sid-5DEEC319-CC75-4CAF-BFFD-E0C64477A99A', 'name': 'Case ready for regress', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-30DB312A-2A76-49F0-B375-8DB2854D73E6', 'name': 'Invoicing', 'incoming': [], 'outgoing': ['ExclusiveGateway7']}
+
+End Events:
+{'id': 'sid-84250185-6860-4959-9CFB-9ECA7324E541', 'name': 'Case closed', 'incoming': ['Proceedings'], 'outgoing': []}
+{'id': 'sid-D65E0AE6-CCF4-4E1D-95B6-5F3ED72B5B42', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway6'], 'outgoing': []}

@@ -1,0 +1,15 @@
+ In the logistics process, we have several tasks and gateways that work together to ensure the smooth delivery of goods. Here's a flow of the process:
+
+1. The process starts with the 'Start' event, which triggers the collection of goods for shipment.
+
+2. The 'ParallelGateway4' receives the incoming goods and sends them to 'ExclusiveGateway0'. This gateway ensures that the goods are insured and sends them to either 'ParallelGateway7' or 'ParallelGateway6' based on the insurance requirement.
+
+3. If insurance is required, the goods are sent to 'ParallelGateway7', where the insurance is processed. If insurance is not required, the goods are sent to 'ParallelGateway6' for further processing.
+
+4. The 'ExclusiveGateway0' also sends the goods to 'Choose from' gateway, which selects the appropriate forwarder for the shipment. In this case, the forwarders are 'Collection of Spediteur 1', 'Collection of Spediteur 2', and 'Collection of Spediteur 3'.
+
+5. The selected forwarder, 'Collection of Spediteur 1', receives the goods and sends them to 'ExclusiveGateway2'. This gateway ensures that the goods are insured and sends them to 'ParallelGateway7'.
+
+6. The 'ParallelGateway7' processes the insurance and sends the goods to the final event, 'EndEvent0', which signifies the completion of the shipment process.
+
+In summary, the process starts with the collection of goods, followed by insurance verification and forwarding to the appropriate forwarders. The goods are then insured and sent to the final event, marking the successful completion of the shipment.

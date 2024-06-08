@@ -1,0 +1,30 @@
+Tasks:
+{'id': 'sid-ECAD5BF7-BFA5-489E-9334-0DD341F77844', 'name': 'Level 1 request\nsend', 'incoming': ['New Schufascore\nRequest'], 'outgoing': ['Process Level 1 response']}
+{'id': 'sid-4C18C321-F50A-498E-8A44-325B63A9A7CB', 'name': 'Process Level 1 response', 'incoming': ['New Schufascore\nRequest'], 'outgoing': ['Get Score?']}
+{'id': 'sid-16EB5E2C-DA70-43C2-A6F9-4DF5DA2E4E6D', 'name': 'Report Score (Level1) to the Frontend', 'incoming': ['New Schufascore\nRequest'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-A48E4751-3D07-4314-A14B-AF3DBE60BBE8', 'name': 'Report delay', 'incoming': ['Get Score?'], 'outgoing': ['Level 2\nScore get']}
+{'id': 'sid-052F02AC-72DC-400A-90CA-961D0B975581', 'name': 'Report Score (Level2) to the Frontend', 'incoming': ['Level 2\nScore get'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-9981350B-EF34-47CB-BE3D-6530A373C8B0', 'name': 'Report error (Timeout) to the Fronend', 'incoming': ['Timeout\nentered'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-8CB3684A-1D15-4F30-BFC7-78DAE8E7D58E', 'name': 'Check request', 'incoming': ['New score\nRequest'], 'outgoing': ['Score available immediately?']}
+{'id': 'sid-B604F732-F94E-4F3D-8304-FE6BD139453A', 'name': 'Score\nLevel 1', 'incoming': ['New score\nRequest'], 'outgoing': ['EndEvent4']}
+{'id': 'sid-AB4B2B31-60ED-44E4-93DD-9926E2C66526', 'name': 'Calculate score', 'incoming': ['Delay Report Level 1'], 'outgoing': ['Score send level 2']}
+{'id': 'sid-D2827813-2BF3-45C6-9CA5-2BFAAFC5BD27', 'name': 'Score send level 2', 'incoming': ['Delay Report Level 1'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-A428E8EF-8919-4562-85B8-AB214F487938', 'name': 'Delay Report Level 1', 'incoming': ['Score available immediately?'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-4FA3BBC7-448B-4DC5-8096-C854B3823248', 'name': 'Get Score?', 'incoming': ['New Schufascore\nRequest'], 'outgoing': ['EndEvent0', 'EndEvent2']}
+{'id': 'sid-E363A764-4EDF-4F66-85A5-AEAB35ED488A', 'name': 'Score available immediately?', 'incoming': ['New score\nRequest'], 'outgoing': ['EndEvent4', 'EndEvent3']}
+{'id': 'sid-63DA6161-CCE0-42B2-AC4D-656F1A1EEF39', 'name': 'EventBasedGateway2', 'incoming': ['Get Score?'], 'outgoing': ['EndEvent1', 'Timeout\nentered']}
+{'id': 'sid-C6116158-0018-426E-957D-C727B3F1FE99', 'name': 'Level 2\nScore get', 'incoming': ['Report delay'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-1AD611D8-6D9C-4601-9A53-5645A6E170AA', 'name': 'Timeout\nentered', 'incoming': ['Get Score?'], 'outgoing': ['EndEvent2']}
+
+Start Events:
+{'id': 'sid-A641DD0F-5E76-4520-88B7-18D1BE0D07A7', 'name': 'New Schufascore\nRequest', 'incoming': [], 'outgoing': ['Report Score (Level1) to the Frontend']}
+{'id': 'sid-C3B09CD0-1910-47A0-995F-F058B0F8E0CE', 'name': 'New score\nRequest', 'incoming': [], 'outgoing': ['Score\nLevel 1']}
+
+End Events:
+{'id': 'sid-2CF76C37-8819-4E60-97B9-6DCD4139FF97', 'name': 'EndEvent0', 'incoming': ['Get Score?'], 'outgoing': []}
+{'id': 'sid-0F694C3D-E556-46AB-90B4-0BCEFD59CB39', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-5FA7CB67-E8F3-4D6D-B726-4BDB009023DC', 'name': 'EndEvent2', 'incoming': ['Get Score?'], 'outgoing': []}
+{'id': 'sid-D9DA54CF-CA29-4577-AAF0-27E451B632B8', 'name': 'EndEvent3', 'incoming': ['Score available immediately?'], 'outgoing': []}
+{'id': 'sid-AC6CD4B8-D9E5-4891-B7A5-F3A55DE93A34', 'name': 'EndEvent4', 'incoming': ['Score available immediately?'], 'outgoing': []}

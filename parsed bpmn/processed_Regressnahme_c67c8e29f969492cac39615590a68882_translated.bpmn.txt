@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-12B45CDC-55B1-44E4-B2CE-77ADD125D3DF', 'name': 'Examination of the facts', 'incoming': ['Check regression'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-706BFFFD-4F02-4951-8B77-196FB5217BD2', 'name': 'Book payment receipt', 'incoming': ['Incoming payment'], 'outgoing': ['Closed\nwith payment receipt']}
+{'id': 'sid-0233ACA8-558A-4513-A09A-72E15198E3E2', 'name': 'Examination of the objection', 'incoming': ['VN'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-9FD71D71-30C9-4EE5-A0D4-E9F3BCFAC014', 'name': 'ExclusiveGateway0', 'incoming': ['Check regression'], 'outgoing': ['sid-71E85F30-5C0D-4926-8731-B4F5E1211CB1', 'Closed']}
+{'id': 'sid-655D3F5D-97AA-4D71-81F3-04A37682C78B', 'name': 'Opposition\nmade out?', 'incoming': ['VN'], 'outgoing': ['Not accepted', 'ExclusiveGateway2']}
+{'id': 'sid-BE047ABE-79AB-4EDF-B8A2-97806F18AE1C', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3', 'Examination of the objection'], 'outgoing': ['Transfer to debt collection']}
+{'id': 'sid-6F83C049-07B9-42CB-A5C9-253F98C3E06A', 'name': 'EventBasedGateway3', 'incoming': ['sid-295C6CF4-6605-4F61-B75C-BAFDE3242599'], 'outgoing': ['Closed\nwith payment receipt', 'ExclusiveGateway2', 'VN']}
+{'id': 'sid-04BB256D-204E-4661-B035-B4BF359ABA68', 'name': 'Incoming payment', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Closed\nwith payment receipt']}
+{'id': 'sid-B497EE85-3824-4104-A35C-A1D7C192BF61', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Transfer to debt collection']}
+{'id': 'sid-65028B12-3397-4A92-950E-7D3F0517CF99', 'name': 'VN', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Not accepted']}
+
+Start Events:
+{'id': 'sid-CD940A23-0B6A-44D3-93A0-A3241BC05A22', 'name': 'Check regression', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-36819E26-B2E9-4ACA-81D5-04322F45F831', 'name': 'Closed', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-E38096C0-ECAA-4B26-82FA-F639E81D328E', 'name': 'Closed\nwith payment receipt', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-E1AD0CF2-17FF-4CA4-94FC-A360D8119297', 'name': 'Not accepted', 'incoming': ['VN'], 'outgoing': []}
+{'id': 'sid-99EEED8E-3BC3-40D3-9A22-92132B84AE03', 'name': 'Transfer to debt collection', 'incoming': ['Reimbursement period expired'], 'outgoing': []}

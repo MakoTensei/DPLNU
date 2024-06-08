@@ -1,0 +1,15 @@
+ The process begins with the 'Goods for shipping' event, which triggers the 'Check shipping quantity' task. This task checks if the shipment is a special one. If it is, the 'Specialist' gateway is engaged, and the 'Special delivery carried out' task is initiated.
+
+If the shipment is not special, the 'Request offers' task is triggered, which in turn leads to the '1 Choose a quote xy' task. This task is dependent on the 'Is it a special shipment?' inquiry.
+
+Once a quote is chosen, the 'Specialist' gateway is engaged again, and the 'Special delivery carried out' task is initiated.
+
+If the shipment is special, the 'Filling the package note' task is triggered, which leads to the 'ExclusiveGateway2' task. This task is dependent on the 'Is it a special shipment?' inquiry.
+
+The 'ExclusiveGateway2' task then leads to the 'Complete insurance' task, which is dependent on the 'Insurance required?' inquiry.
+
+If the shipment is not special, the 'Delivering goods' task is triggered, which leads to the 'Product is provided' task. This task is dependent on the 'ParallelGateway3' inquiry.
+
+Similarly, the 'Packaging goods' task is triggered, which also leads to the 'Product is provided' task. This task is dependent on the 'ParallelGateway3' inquiry.
+
+In summary, the process involves a series of tasks and gateways that handle different aspects of the shipping process, from checking the shipment quantity to delivering the goods and providing the product. The process is initiated by the 'Goods for shipping' event and ends with the 'Special delivery carried out' or 'Product is provided' tasks.

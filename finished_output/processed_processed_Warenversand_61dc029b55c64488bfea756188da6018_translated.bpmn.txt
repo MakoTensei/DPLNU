@@ -1,0 +1,15 @@
+ The process begins with the 'Goods\nfor shipping\nready' event, which triggers the 'ParallelGateway5' to receive the goods ready for shipping. This event then leads to the 'Check quantity' task, where the quantity of the goods is verified. The 'Check quantity' task sends the goods to 'ParallelGateway4' for further processing.
+
+Simultaneously, the 'Check quantity' task also sends the goods to 'ParallelGateway3' for the 'Complete insurance' task. The 'Complete insurance' task checks if insurance is required for the goods and sends the goods to 'ExclusiveGateway2' if insurance is needed.
+
+Meanwhile, the 'ParallelGateway5' also sends the goods to 'ParallelGateway3' for the 'Filling the package note' task. This task checks if there are any special requirements for the package and sends the goods to 'Specialist' if needed.
+
+The 'Specialist' task then sends the goods to 'ParallelGateway4' for the 'Pick up offers' task. This task selects the cheapest offer for the goods to be picked up.
+
+The 'Pick up offers' task sends the goods to 'ParallelGateway3' for the 'Choose the cheapest offer' task. This task selects the cheapest offer for the goods to be picked up.
+
+The 'Choose the cheapest offer' task sends the goods to 'ExclusiveGateway2' for the 'Check insurance requirements' task. This task checks if insurance is required for the goods and sends the goods to 'ParallelGateway3' if insurance is needed.
+
+The 'Check insurance requirements' task sends the goods to 'ParallelGateway3' for the 'Goods dispatch' task. This task dispatches the goods to the final destination.
+
+The 'Goods dispatch' task sends the goods to the 'Goods delivered' event, which marks the end of the process.

@@ -1,0 +1,13 @@
+ When goods are to be shipped, the process begins at the 'Goods are to be shipped' event, which triggers the following sequence of tasks and gateways:
+
+1. The 'Goods are to be shipped' event initiates the 'Check quantity' task, which requires the 'Goods are to be shipped' event as an incoming trigger. This task sends a request to 'ParallelGateway5' for checking the quantity of goods.
+
+2. Upon receiving the request, 'ParallelGateway5' sends the request to 'ExclusiveGateway2' as one of its outgoing tasks.
+
+3. 'ExclusiveGateway2' then processes the request and sends the goods to 'ParallelGateway6' for packaging.
+
+4. 'ParallelGateway6' receives the request and packages the goods.
+
+5. After packaging, 'ParallelGateway6' sends the packaged goods to 'Goods shipped' event, marking the end of the process.
+
+In summary, the process starts with the 'Goods are to be shipped' event, which triggers the 'Check quantity' task. This task sends a request to 'ParallelGateway5', which in turn sends the request to 'ExclusiveGateway2'. 'ExclusiveGateway2' then sends the goods to 'ParallelGateway6' for packaging. Finally, 'ParallelGateway6' sends the packaged goods to the 'Goods shipped' event, completing the process.

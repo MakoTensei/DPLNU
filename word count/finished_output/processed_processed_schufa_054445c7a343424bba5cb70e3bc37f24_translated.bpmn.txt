@@ -1,0 +1,19 @@
+ In the scoring process, a series of events and gateways work together to ensure that scoring requests are processed and shared appropriately.
+
+1. The process begins with a 'Scoring request' event, which triggers the 'Scoring L1' gateway. This gateway processes the incoming request and sends an 'EndEvent1' message to indicate the completion of the first stage.
+
+2. The 'Scoring L1' gateway then sends the request to the 'Scoring L2' gateway, which processes the request and generates a 'Share Scoring Level 2' event.
+
+3. The 'Scoring L2' gateway sends the event to the 'Share Scoring Level 2' gateway, which calculates the scoring and sends a 'Share Scoring Level 2' event to the 'EndEvent3' gateway.
+
+4. The 'Scoring calculable' gateway receives the 'Scoring request' event and sends an 'EndEvent3' message to indicate the completion of the calculation.
+
+5. The 'Share Scoring Level 2' gateway sends the event to the 'EndEvent0' gateway, which completes the process and sends an 'EndEvent0' message.
+
+6. If there is a delay in the scoring process, the 'Delay' gateway is triggered by the 'Scoring\nRequired' event. This gateway sends a 'Share delay' event to the 'EndEvent4' gateway, which completes the delay process.
+
+7. In case of an error during the scoring process, the 'EventBasedGateway1' gateway is triggered by the 'Scoring\nRequired' event. It sends an 'Error message to Frontend' event to the 'EndEvent4' gateway, which completes the error handling process.
+
+8. Additionally, the 'timeout 30 sec' gateway is triggered by the 'EventBasedGateway1' event. If the timeout occurs, it sends an 'Error message to Frontend' event to the 'EndEvent4' gateway, which completes the timeout handling process.
+
+Overall, the scoring process involves a series of events and gateways that work together to ensure the proper handling of scoring requests, delays, and errors.

@@ -1,0 +1,31 @@
+ In the scoring process, a request for scoring is initiated, which triggers a series of events and interactions between different components.
+
+1. The process begins with a 'Scoring\nRequired' event, which has no incoming connections but sends a message to 'Report Scoring Level 2 to Frontend'.
+
+2. A 'Scoring request\nwe are' event is then triggered, which connects to 'ExclusiveGateway2'.
+
+3. The 'Scoring request\nwe are' event then connects to 'Scoring Level 1', which in turn connects to 'ExclusiveGateway0'.
+
+4. The 'Scoring Level 1' event sends a message to 'ExclusiveGateway0', which then connects to 'Scoring completed'.
+
+5. The 'Scoring immediately possible?' event connects to 'ExclusiveGateway2', which then connects to 'Scoring supplied'.
+
+6. The 'Scoring supplied' event connects back to 'ExclusiveGateway2', completing the process.
+
+Additionally, there are other events and connections that occur during the process:
+
+- 'Scoring Level 1' connects to 'IntermediateCatchEvent6', which then connects to 'ExclusiveGateway0'.
+
+- 'Scoring Level 2' connects to 'Report Level 2 scoring', which then connects to 'ExclusiveGateway2'.
+
+- 'Report delay to Frontend' connects to 'IntermediateCatchEvent6', which then connects to 'ExclusiveGateway0'.
+
+- 'Report Level 2 scoring' connects to 'ExclusiveGateway2', which then connects to 'Scoring supplied'.
+
+- 'Delay' connects to 'Report delay to Frontend', which then connects to 'IntermediateCatchEvent6'.
+
+- 'ExclusiveGateway0' connects to 'EventBasedGateway3', which then connects to 'Delay'.
+
+- 'EventBasedGateway3' connects to 'ExclusiveGateway0' and 'Delay'.
+
+This flow of events and connections ensures

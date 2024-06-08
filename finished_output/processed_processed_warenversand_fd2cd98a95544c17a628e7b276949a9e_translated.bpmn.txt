@@ -1,0 +1,7 @@
+ The process begins with the 'Goods can be shipped' event, which triggers the 'ExclusiveGateway2' to handle the incoming request. This gateway then directs the goods to the 'Fill in the package and clarify the need for insurance' task, which requires the 'Goods can be shipped' information. The task is completed, and the goods are then sent to the 'ExclusiveGateway3' for further processing.
+
+Simultaneously, the 'ExclusiveGateway0' receives the 'Goods can be shipped' event and sends the goods to the 'Pick up three offers from forwarders, select' task. The task selects the best offer and sends the goods to the 'Specialist' gateway. The 'Specialist' gateway then directs the goods to the 'ParallelGateway5' for packaging.
+
+The 'ParallelGateway5' receives the goods and sends them to the 'Deliver goods for shipping' task. This task prepares the goods for shipping and sends them to the 'Goods ready for shipping' event.
+
+Finally, the 'ExclusiveGateway1' receives the 'Insurance close' event and sends the goods to the 'Goods ready for shipping' event, completing the process.

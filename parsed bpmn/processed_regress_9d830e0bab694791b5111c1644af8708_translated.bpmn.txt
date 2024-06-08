@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-6D9E2016-CFFF-4117-A610-4E6C66CA92C8', 'name': 'Check the case', 'incoming': ['Possibility for VN to be taken into regress'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-860F132E-1F15-4CD6-83B4-C4FACD74B36C', 'name': 'Create payment on request', 'incoming': ['Possibility for VN to be taken into regress'], 'outgoing': ['Set on re-submission']}
+{'id': 'sid-4709EB25-0E5F-49E7-BFA3-8583FF8B1219', 'name': 'Set on re-submission', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Payment']}
+{'id': 'sid-A5CFB84A-A829-43A7-83C7-58DE86C54076', 'name': 'Book payment', 'incoming': ['Payment'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-03454584-3DEE-4DFC-A75A-A27828EA4DB4', 'name': 'Proceedings', 'incoming': ['VN received'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-2FB022D4-F493-4D8B-9E63-5F2FDAC1F00E', 'name': 'Debt collection agency', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-02E24D55-DC0C-4406-89EC-CFF67B8A0786', 'name': 'Close the case', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-3FDBF3F1-D55F-4C6F-ABE3-5A6B5541620F', 'name': 'ExclusiveGateway0', 'incoming': ['Possibility for VN to be taken into regress'], 'outgoing': ['EndEvent0', 'ExclusiveGateway3']}
+{'id': 'sid-B722294A-D66B-426C-80B2-9F7F2FA9D23A', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-B050ECA0-BBD6-4FF9-985B-5720CBCF7B13', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-84FF4274-8E20-44AA-ACB0-1D4B9D089E00', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Check the case', 'VN received'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-74346AFD-AABD-4051-B626-B894366C39B7', 'name': 'EventBasedGateway4', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Close the case', 'Debt collection agency', 'ExclusiveGateway1']}
+{'id': 'sid-5F236AA0-CD69-4A36-B9BD-DD18B0F8A453', 'name': 'Payment', 'incoming': ['Set on re-submission'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-B47462B9-F7A2-40BF-B354-B8ABE4F7483C', 'name': 'Reimbursement deadline reached', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-51E78B8B-64A2-4511-B20B-4FFDB2FEF563', 'name': 'VN received', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-21856CC8-D24F-4EC7-9FFC-2D8007DA932A', 'name': 'Possibility for VN to be taken into regress', 'incoming': [], 'outgoing': ['Create payment on request']}
+
+End Events:
+{'id': 'sid-123ED87C-410A-41C1-8B24-81F37E272659', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-DB9CBB44-24E2-4BAA-9084-539605356695', 'name': 'EndEvent1', 'incoming': ['Payment'], 'outgoing': []}

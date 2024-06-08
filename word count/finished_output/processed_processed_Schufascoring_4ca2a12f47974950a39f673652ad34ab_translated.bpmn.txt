@@ -1,0 +1,7 @@
+ The process begins with a 'Request for Scoring from the front end' event, which triggers the forwarding of a 'Scoring Level 1' to the frontend. This request is then received by the 'ExclusiveGateway0', which processes the request and forwards it to 'Scoring Level 1'. The 'Scoring Level 1' task is performed, and the result is checked. If the result is obtained, the process continues to 'Scoring Level 2' through 'ExclusiveGateway0'. If the result is not obtained, the process loops back to 'Scoring Level 1'.
+
+Meanwhile, the 'Scoring Level 2' task is also triggered by the initial request and is forwarded to 'ExclusiveGateway0'. Upon obtaining the result, the process either continues to 'Continue scoring result Level 2' or loops back to 'Scoring Level 2' based on the result.
+
+The 'EventBasedGateway3' is triggered by the initial request and forwards the request to 'Scoring' and 'Delay reported'. The 'Delay reported' event triggers a 'Delay message' forwarded to 'ExclusiveGateway0'.
+
+The process concludes with the 'Processed' event, which is triggered by the successful completion of 'Scoring Level 1' and 'Scoring Level 2'. The 'Scoring request' event is also triggered, which loops back to the initial request.

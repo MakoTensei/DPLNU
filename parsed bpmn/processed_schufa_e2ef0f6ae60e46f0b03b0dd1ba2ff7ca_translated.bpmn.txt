@@ -1,0 +1,18 @@
+Tasks:
+{'id': 'sid-5B4B7799-6971-45EF-A17F-41E4D6F750E3', 'name': 'Level 1 scoring\nperform', 'incoming': ['Scoring\nrequired'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-5407BBF1-A95C-4972-A6B6-F934D705E574', 'name': 'Level 2 scoring\nperform', 'incoming': ['sid-89365A07-D5E1-4FA3-BF40-493A27D77A4D'], 'outgoing': ['Scoring\ncarried out']}
+
+Gateways:
+{'id': 'sid-E62630F3-ACB8-40C4-A523-BFAB8E99A927', 'name': 'Scoring results\nis there?', 'incoming': ['Scoring\nrequired'], 'outgoing': ['ExclusiveGateway1', 'sid-2D995D56-8C26-45B2-9832-62C853CE5E54']}
+{'id': 'sid-1C0DA01F-352C-47E7-9F14-56E9C89D567F', 'name': 'ExclusiveGateway1', 'incoming': ['Level 1 scoring\nperform', 'Level 2 scoring\nperform'], 'outgoing': ['Scoring\ncarried out']}
+{'id': 'sid-E05790A0-BC6D-4FA2-98DD-37D8772264CE', 'name': 'EventBasedGateway2', 'incoming': ['sid-263A490E-2106-4840-AC9C-30A35AB6FD8B', 'sid-D643B52F-3641-4220-BF1C-0077C17412CD'], 'outgoing': ['Delay\nReport\nobtained', 'Schufa scoring\ncompleted']}
+{'id': 'sid-0620C68F-7E8A-4398-B22A-C05C035378D2', 'name': 'Delay\nReport\nobtained', 'incoming': ['EventBasedGateway2'], 'outgoing': ['sid-EA2BBBE2-ADED-4BDF-B2DA-304F15D9C615']}
+{'id': 'sid-17A537B5-9538-453B-ABB8-50A601921656', 'name': 'Scoring results\nobtained', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Schufa scoring\ncompleted']}
+
+Start Events:
+{'id': 'sid-5DFEA7C6-A6F7-4EB6-9300-E07840D49D21', 'name': 'Schufa scoring\nrequired', 'incoming': [], 'outgoing': ['sid-83241DDD-57C6-4331-8E84-C7C7914A96E4']}
+{'id': 'sid-49802C96-67B1-42E0-8D8B-A0B8DF4587B1', 'name': 'Scoring\nrequired', 'incoming': [], 'outgoing': ['Scoring results\nis there?']}
+
+End Events:
+{'id': 'sid-68A19BD7-A73E-426F-9AC9-FB3B525AE8EC', 'name': 'Schufa scoring\ncompleted', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-26B51A3F-306E-4E2B-A6F6-3F8B818CD238', 'name': 'Scoring\ncarried out', 'incoming': ['Level 2 scoring\nperform'], 'outgoing': []}

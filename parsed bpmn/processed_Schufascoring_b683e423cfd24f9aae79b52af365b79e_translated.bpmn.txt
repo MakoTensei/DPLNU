@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-4DE6B98E-96FF-422B-A3A4-47C58ADFE4AE', 'name': 'Request Schufaservice', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-75A146CB-49B4-4A2A-82CD-0594B18A28A9', 'name': 'Report delay', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F01F1ABB-E3E3-4D7A-AD8D-81A2DB1F4558', 'name': 'Level 1 Scoring', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-DD821850-F842-437D-8A4D-D8DC3B0DB1B3', 'name': 'Level 2 Soring perform', 'incoming': ['Report delay'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-ACB1E74D-D547-4E88-BDF2-6C5FCCCB6708', 'name': 'Report delay', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-6F57B015-7D9B-4B40-AB5A-5519405FB180', 'name': 'Score available?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'EndEvent1']}
+{'id': 'sid-6944744D-87DA-464E-9AA2-D25050339B83', 'name': 'IntermediateCatchEvent1', 'incoming': ['StartEvent0'], 'outgoing': []}
+{'id': 'sid-5240AD1E-FB30-4BFE-A2FF-0D3D3AD202F8', 'name': 'IntermediateCatchEvent2', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent1', 'EndEvent0']}
+{'id': 'sid-2F8EB14B-A9D4-4897-915B-DFC0D6AE5BFD', 'name': 'IntermediateCatchEvent3', 'incoming': ['Request Schufaservice'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-D0B8E1ED-49FF-41F1-A1F1-C65D3DC0E4A3', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['IntermediateCatchEvent1']}
+{'id': 'sid-21AB8C9F-1A1F-4D69-925B-6AA2C105A93B', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Report delay']}
+
+End Events:
+{'id': 'sid-ACF8764E-2023-4FB7-B852-7F4A26F13A1F', 'name': 'EndEvent0', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': []}
+{'id': 'sid-0E6ED3CE-1E22-45C7-BA5B-6920A48E009F', 'name': 'EndEvent1', 'incoming': ['Score available?', 'Level 1 Scoring'], 'outgoing': []}

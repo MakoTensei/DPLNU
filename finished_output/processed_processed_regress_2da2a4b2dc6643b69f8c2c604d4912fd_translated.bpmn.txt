@@ -1,0 +1,21 @@
+ Let's describe the workflow in a more natural and understandable flow:
+
+1. When a possible regression is detected, the process starts with the 'Possible regression' event. This event triggers the 'Regress possible?' gateway, which then sends the case to either 'ParallelGateway7' or 'EndEvent0' based on the outcome.
+
+2. If the 'Regress possible?' gateway decides to send the case to 'ParallelGateway7', the process continues to 'Creating payment request for VN'. This task is responsible for creating a payment request for Vietnam.
+
+3. Concurrently, the 'Possible regression' event also triggers 'ParallelGateway6'. This gateway sends the case to either 'Creating payment request for VN' or 'ParallelGateway7' based on the outcome.
+
+4. If the 'Regress possible?' gateway sends the case to 'EndEvent0', the process ends there.
+
+5. When an objection from Vietnam is received, the 'Objection of VN' event triggers the 'EventBasedGateway5'. This gateway sends the case to either 'ExclusiveGateway3' or 'ParallelGateway7' based on the outcome.
+
+6. If the 'EventBasedGateway5' decides to send the case to 'ExclusiveGateway3', the process continues to 'Check case for regress'. This task checks the case for any regressions.
+
+7. If the 'EventBasedGateway5' decides to send the case to 'ParallelGateway7', the process continues to 'Creating payment request for VN'.
+
+8. When a default period expires, the 'Default period\nExpired' event triggers the 'EventBasedGateway5'. This gateway sends the case to either 'ExclusiveGateway3' or 'ParallelGateway7' based on the outcome.
+
+9. When an incoming payment is received, the 'Incoming payment' event triggers the 'EventBasedGateway5'. This gateway sends the case to either 'ExclusiveGateway2' or 'ParallelGateway7' based on the outcome.
+
+10. If the 'Exclusive

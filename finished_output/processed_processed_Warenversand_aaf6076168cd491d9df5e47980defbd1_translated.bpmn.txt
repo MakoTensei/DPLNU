@@ -1,0 +1,7 @@
+ Upon receiving an order intake, the process begins with the 'Order intake' start event, which triggers the 'ParallelGateway3' to initiate the examination of the order quantity. This leads to the 'Filling the package note' task, which requires the 'Special shipment required?' gateway to be activated. The 'Specialist' is then engaged to handle the special shipment, and the process continues through 'ParallelGateway4'.
+
+Once the special shipment is confirmed, the 'Complete insurance' task is triggered, which requires the 'Insurance required?' gateway to be activated. The 'ExclusiveGateway2' is then engaged to handle the insurance process, and the 'ParallelGateway4' is used to continue the process.
+
+After the insurance is completed, the 'Pick up offers' task is initiated, which requires the 'Special shipment required?' gateway to be activated again. The 'Select a quote' task is then triggered, and the 'Specialist' is engaged to provide a quote.
+
+Once the quote is selected, the 'Provide package for collection' task is initiated, which requires the 'ParallelGateway4' to be activated. Finally, the 'EndEvent0' event is triggered, marking the completion of the process.

@@ -1,0 +1,10 @@
+ The process begins with the event 'Goods\nShip ready', which triggers the 'Send a quote request' task. This task is connected to the 'ParallelGateway4' and 'ExclusiveGateway3'. Once the quote request is processed, the 'ParallelGateway4' sends the 'Goods\nShip ready' event to the 'Send a quote request' task, which then triggers the 'Filling up your parcel certificate' task. This task is connected to the 'Scope\nLot?' and 'ExclusiveGateway2'. After the parcel certificate is filled, the 'ExclusiveGateway2' sends the 'Insurance\nnecessary?' event to the 'ParallelGateway5', which in turn triggers the 'Complete package insurance' task. This task is connected to the 'Insurance\nnecessary?' event and 'ExclusiveGateway2'.
+
+Once the package is insured, the 'ParallelGateway5' sends the 'Goods\nShip ready' event to the 'Provide goods for collection' task, which is connected to the 'ParallelGateway5'. The 'Provide goods for collection' task then triggers the 'Goods\nready for dispatch' event, marking the end of the process.
+
+In summary, the process involves the following steps:
+1. 'Goods\nShip ready' event triggers 'Send a quote request' task.
+2. 'Send a quote request' task triggers 'Filling up your parcel certificate' task.
+3. 'Filling up your parcel certificate' task triggers 'Complete package insurance' task.
+4. 'Complete package insurance' task triggers 'Provide goods for collection' task.
+5. 'Provide goods for collection' task triggers 'Goods\nready for dispatch' event, marking the end of the process.

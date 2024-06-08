@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-9E6B1F34-2745-4B5F-BC8F-9AE9DB3CA882', 'name': 'Send scoring inquiry to Schufa', 'incoming': ['Schufascoring request\nReport'], 'outgoing': ['Scoring result\nobtained']}
+{'id': 'sid-82688103-DF35-4A3E-9FD6-C22D967012AF', 'name': 'forwarding results to Frontend', 'incoming': ['Scoring result\nobtained'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-AA13AFBA-38F2-43F9-B319-742CD4A27B6F', 'name': 'Send notification to employees', 'incoming': ['Schufascoring request\nReport'], 'outgoing': ['Scoring result obtained']}
+{'id': 'sid-69403C67-6DE4-4798-BA39-6BD058908DE5', 'name': 'Result to\nFrontend\nforward', 'incoming': ['Schufascoring request\nReport'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-A7D296F3-DDBD-4F82-8573-7B70194F3154', 'name': 'Scoring\nLevel 1\nperform', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Result\nfixed?']}
+{'id': 'sid-E7FD00A3-1B20-4A74-9356-59EC5B97DE29', 'name': 'Report results to the bank', 'incoming': ['Scoring request\nReport'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-6441DFD8-2E55-452C-AE74-8305BA5726AE', 'name': 'Report delay to the bank', 'incoming': ['Result\nfixed?'], 'outgoing': ['Scoring\nLevel 2\nperform']}
+{'id': 'sid-157A2114-1669-4D8A-B9EE-3FEDD4FBD08D', 'name': 'Scoring\nLevel 2\nperform', 'incoming': ['Result\nfixed?'], 'outgoing': ['Report the result to the bank']}
+{'id': 'sid-60146CCB-4B78-4C5C-9F93-B5E23605B79A', 'name': 'Report the result to the bank', 'incoming': ['Result\nfixed?'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-9F6039E5-07DE-4896-A1EA-D8876A93F27B', 'name': 'Result\nfixed?', 'incoming': ['Scoring request\nReport'], 'outgoing': ['EndEvent3', 'EndEvent2']}
+{'id': 'sid-51A76A75-5F11-4E00-A7BD-C3C2AEE5D5F8', 'name': 'EventBasedGateway1', 'incoming': ['Schufascoring request\nReport'], 'outgoing': ['EndEvent0', 'Delay notification\nobtained']}
+{'id': 'sid-F35D29E2-71B3-4D61-97A6-48D8D8559943', 'name': 'Scoring result\nobtained', 'incoming': ['Send scoring inquiry to Schufa'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-A47976D2-1E73-4650-82E7-2F602F899352', 'name': 'Delay notification\nobtained', 'incoming': ['Schufascoring request\nReport'], 'outgoing': ['Send notification to employees']}
+{'id': 'sid-6E8E576B-5863-4F70-9CAE-6DCB2370AE59', 'name': 'Scoring result obtained', 'incoming': ['Schufascoring request\nReport'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-9A8CE0BF-9D5F-4BC0-A532-A846FF2B78BF', 'name': 'Schufascoring request\nReport', 'incoming': [], 'outgoing': ['Result to\nFrontend\nforward']}
+{'id': 'sid-947B8953-6CE0-4242-83EB-CDC3319B7423', 'name': 'Scoring request\nReport', 'incoming': [], 'outgoing': ['Report results to the bank']}
+
+End Events:
+{'id': 'sid-5484ADD5-5091-44BC-9F0A-BED205635F66', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-BE78AAE3-BD27-452C-A914-02EB200FB9EF', 'name': 'EndEvent1', 'incoming': ['Scoring result obtained'], 'outgoing': []}
+{'id': 'sid-AEDBBD6B-FF81-434F-B552-8D765D0F436E', 'name': 'EndEvent2', 'incoming': ['Result\nfixed?'], 'outgoing': []}
+{'id': 'sid-7BDB812C-6832-4FD0-81D9-BF13B4AD3A76', 'name': 'EndEvent3', 'incoming': ['Result\nfixed?'], 'outgoing': []}

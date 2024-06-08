@@ -1,0 +1,32 @@
+Tasks:
+{'id': 'sid-3E0ED324-F436-4611-AF29-A53F7F13166D', 'name': 'clarification of which expedition does not transfer the transport', 'incoming': ['ParallelGateway4'], 'outgoing': ['large quantity > 5']}
+{'id': 'sid-BBD720B1-6F4C-4BA5-9148-AB382728C147', 'name': 'Special delivery', 'incoming': ['Order of goods sent'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-EDC537D2-BAA6-4C0B-8C23-02AEE9D68768', 'name': 'Sopediteuer 1', 'incoming': ['Order of goods sent'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-D037B4DB-FBD5-48EC-A121-F50629D3BD6C', 'name': 'Sopediteuer 1', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-E4D1C9D4-C53A-4408-A633-E549A49499CC', 'name': 'Sopediteuer 1', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-F125434B-EBFF-4976-B772-DC73B6957885', 'name': 'Selection', 'incoming': ['Order of goods sent'], 'outgoing': ['Send order to Spediteuer']}
+{'id': 'sid-7BB696D4-76FA-4B85-A009-2BA81CA80AEB', 'name': 'Send order to Spediteuer', 'incoming': ['ParallelGateway6'], 'outgoing': ['Spediteuer collects the goods from the warehouse']}
+{'id': 'sid-FE2B01F2-D8F2-4E2C-9AFC-98F0843AABB9', 'name': 'Spediteuer collects the goods from the warehouse', 'incoming': ['ParallelGateway6'], 'outgoing': ['Delivery to the premises']}
+{'id': 'sid-9A830C3D-CF2E-4A69-92E8-C12DDDDB0CE8', 'name': 'Delivery to the premises', 'incoming': ['ParallelGateway6'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-FF5DEF06-F182-45EB-AF92-BE6C065D3117', 'name': 'Filling the postcard', 'incoming': ['large quantity > 5'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-633FD700-2DE6-4838-A360-5BD503D491DC', 'name': 'Pick up goods from warehouse', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Send goods via post']}
+{'id': 'sid-0E45EE37-A53D-4842-BB6C-3024B3D0C583', 'name': 'Insurance close', 'incoming': ['Is insurance required?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-7358DFA8-6C9A-4807-B70A-01D04F031105', 'name': 'Send goods via post', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-12B7224C-EA70-4777-964A-8CF320B86FFA', 'name': 'Packaging', 'incoming': ['ParallelGateway4'], 'outgoing': ['Product for shipping']}
+{'id': 'sid-323E2F32-1893-4D77-A01A-1E1D711E85DA', 'name': 'Product for shipping', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway7']}
+
+Gateways:
+{'id': 'sid-CCE32064-F720-479D-9270-A18A9CE44E29', 'name': 'large quantity > 5', 'incoming': ['ParallelGateway4'], 'outgoing': ['Special delivery', 'ExclusiveGateway3']}
+{'id': 'sid-8D4DBE3F-066E-4492-B16A-ED8723B3020B', 'name': 'Is insurance required?', 'incoming': ['large quantity > 5'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-8D0354A2-34D1-4835-AECD-96D4BC2CDF6A', 'name': 'ExclusiveGateway2', 'incoming': ['Filling the postcard', 'large quantity > 5'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-15FBC2A0-105C-44AA-AD34-540FBE133C2A', 'name': 'ExclusiveGateway3', 'incoming': ['large quantity > 5', 'ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-D5C25CE6-54EA-4B31-86D6-61D41774A933', 'name': 'ParallelGateway4', 'incoming': ['Order of goods sent'], 'outgoing': ['Special delivery', 'Product for shipping']}
+{'id': 'sid-297408E2-048A-4824-9135-4ABA5D8ACDFC', 'name': 'ParallelGateway5', 'incoming': ['Order of goods sent'], 'outgoing': ['ExclusiveGateway3', 'ParallelGateway7', 'Sopediteuer 1']}
+{'id': 'sid-6EC05D6D-7660-4FC7-A89E-7EA01CFF2F1E', 'name': 'ParallelGateway6', 'incoming': ['ParallelGateway5', 'Order of goods sent', 'ParallelGateway5'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-58528985-071E-45BA-8F2F-53A0F45EBE85', 'name': 'ParallelGateway7', 'incoming': ['Product for shipping', 'ParallelGateway5'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-E3489BFD-5985-4288-9540-12DEAC1AB746', 'name': 'Order of goods sent', 'incoming': [], 'outgoing': ['Selection']}
+
+End Events:
+{'id': 'sid-D2456899-53D2-4952-8A8D-A32F7BDEC575', 'name': 'EndEvent0', 'incoming': ['Delivery to the premises'], 'outgoing': []}

@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-10996E78-3A53-4517-82B0-050E7F81A44C', 'name': 'Scoring\nat Schufa\nclarify', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring delays']}
+{'id': 'sid-B6F4FE9F-14A5-4E8D-B867-6BAA44AE886A', 'name': 'forward scoring to the Frontent', 'incoming': ['StartEvent0'], 'outgoing': ['Schufascoring\nFinished']}
+{'id': 'sid-5212311F-5335-4CA4-8DC2-8A1590CAC314', 'name': 'Report delay of VM', 'incoming': ['Scoring delays'], 'outgoing': ['Level 2\nScoring\nobtained']}
+{'id': 'sid-1617B19C-9517-4063-B704-38947D13082C', 'name': 'perform scoring\n(level 1)', 'incoming': ['Scoring\nQuestion\nobtained'], 'outgoing': ['Is the result fixed?']}
+{'id': 'sid-B7A4BA39-06DF-40FC-8A88-851F18BEBDFF', 'name': 'Level 1 Bank scoring', 'incoming': ['Scoring\nQuestion\nobtained'], 'outgoing': ['Scoring ends']}
+{'id': 'sid-21831C38-B410-4921-8514-3816981798F0', 'name': 'Report delay', 'incoming': ['Is the result fixed?'], 'outgoing': ['Perform further scoring\n(level 2)']}
+{'id': 'sid-AF15D74B-66E2-468F-95E1-B9E0ACE8A17A', 'name': 'Perform further scoring\n(level 2)', 'incoming': ['Is the result fixed?'], 'outgoing': ['Level 2 Bank scoring']}
+{'id': 'sid-44A21928-1E0E-4921-BB66-66F5093FACB1', 'name': 'Level 2 Bank scoring', 'incoming': ['Is the result fixed?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-6CBF0B49-1173-4FDD-A668-7423984488CC', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'Scoring delays'], 'outgoing': ['Schufascoring\nFinished']}
+{'id': 'sid-8E72C6B6-4543-4D2A-8037-53843506154F', 'name': 'Is the result fixed?', 'incoming': ['Scoring\nQuestion\nobtained'], 'outgoing': ['Level 2 Bank scoring', 'Scoring ends']}
+{'id': 'sid-C155AD29-069B-4FB9-9277-08660E5D7DCA', 'name': 'ExclusiveGateway2', 'incoming': ['Level 2 Bank scoring', 'Scoring\nQuestion\nobtained'], 'outgoing': ['Scoring ends']}
+{'id': 'sid-6EB9EF9C-CABB-42D5-A55D-BC94D3DE4D4C', 'name': 'EventBasedGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['Level 2\nScoring\nobtained', 'Schufascoring\nFinished']}
+{'id': 'sid-7126CEDB-4BF9-4312-802D-ED6152879A8D', 'name': 'Scoring delays', 'incoming': ['Scoring\nat Schufa\nclarify'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-CE574D53-0531-43CB-8895-A32B25944646', 'name': 'Scoring immediately', 'incoming': ['StartEvent0'], 'outgoing': ['forward scoring to the Frontent']}
+{'id': 'sid-4C26F99B-ED96-4FC1-857D-EB83FAF52A67', 'name': 'Level 2\nScoring\nobtained', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-06F9497C-6E31-4A15-81C8-3EC048425551', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['forward scoring to the Frontent']}
+{'id': 'sid-181F313A-DB45-479B-A3EA-5414A9E9921B', 'name': 'Scoring\nQuestion\nobtained', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-59EE9E69-A015-424D-98C9-59A965B84EB0', 'name': 'Schufascoring\nFinished', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-10C0AC35-2072-4323-A0DB-18374A03FFC0', 'name': 'Scoring ends', 'incoming': ['Is the result fixed?'], 'outgoing': []}

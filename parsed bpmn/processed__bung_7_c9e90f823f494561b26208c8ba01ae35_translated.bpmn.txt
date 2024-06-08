@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-9683120B-BB04-40E4-96F2-D4537BCFC646', 'name': 'Scoring request', 'incoming': ['Button\nSchufascoring'], 'outgoing': ['Evaluate Schufa feedback']}
+{'id': 'sid-05F89DA7-6E20-4C5A-BC44-F6B78113BBD4', 'name': 'forwarding results to Frontend', 'incoming': ['Get Level 2 scores'], 'outgoing': ['Page not found']}
+{'id': 'sid-AF511EFD-EA24-4B1E-BEBC-0D1A41E9851D', 'name': 'Evaluate Schufa feedback', 'incoming': ['Button\nSchufascoring'], 'outgoing': ['Page not found']}
+{'id': 'sid-BD55C876-21D1-48A5-B55E-D10CB9CA6B5D', 'name': 'Staff information about delay', 'incoming': ['Button\nSchufascoring'], 'outgoing': ['Get Level 2 scores']}
+{'id': 'sid-30047DBC-32F1-4CCD-9CCB-A70CB26820B6', 'name': 'Level 1 Scoring', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Level 1 scoring feasible?']}
+{'id': 'sid-1B41E300-0442-4013-8782-1E34A9563155', 'name': 'Level 1 score report', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Level 1 score reported']}
+{'id': 'sid-F41EABB9-0923-47B6-94B9-EA1F60507736', 'name': 'Report delay of the bank', 'incoming': ['Level 1 scoring feasible?'], 'outgoing': ['Level 2 Score']}
+{'id': 'sid-97E90F4A-2BC7-42F2-BF06-D485A12D856C', 'name': 'Level 2 Score', 'incoming': ['Level 1 scoring feasible?'], 'outgoing': ['Level score reported']}
+
+Gateways:
+{'id': 'sid-7D87819B-A719-4106-9FD0-C2CA141666F2', 'name': 'Level 1 score\n?', 'incoming': ['Button\nSchufascoring'], 'outgoing': ['Staff information about delay', 'ExclusiveGateway1']}
+{'id': 'sid-A73AACF5-BB36-45BE-AB1F-7875186BF5C9', 'name': 'ExclusiveGateway1', 'incoming': ['Button\nSchufascoring', 'Evaluate Schufa feedback'], 'outgoing': ['Page not found']}
+{'id': 'sid-3E89BE8D-CAC7-4566-B8CD-52A75C2EC345', 'name': 'Level 1 scoring feasible?', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Level 1 score reported', 'Level score reported']}
+{'id': 'sid-8778CDEA-06AD-4740-8ABC-6EE531C8D32B', 'name': 'Get Level 2 scores', 'incoming': ['Button\nSchufascoring'], 'outgoing': ['forwarding results to Frontend']}
+
+Start Events:
+{'id': 'sid-8286C9F2-6BCD-4310-8F87-E1E72A7CC3AD', 'name': 'Button\nSchufascoring', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-D27237BB-9EF6-4BF8-BF7B-B800083CF357', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['Level 1 score report']}
+
+End Events:
+{'id': 'sid-63A0F926-75CA-4ED0-8F1A-A96F5EE8DB67', 'name': 'Page not found', 'incoming': ['Evaluate Schufa feedback'], 'outgoing': []}
+{'id': 'sid-12F599EE-CAAF-4CA7-BC17-37FD6B1401F4', 'name': 'Level 1 score reported', 'incoming': ['Level 1 scoring feasible?'], 'outgoing': []}
+{'id': 'sid-D435810A-1B50-4865-8B84-F9CF3E127330', 'name': 'Level score reported', 'incoming': ['Level 1 scoring feasible?'], 'outgoing': []}

@@ -1,0 +1,15 @@
+ In the financial services industry, a series of tasks and gateways work together to process and score Schufa requests. The process begins when a Schufa request and its corresponding report are received, triggering the 'Schufa request\nReport' event. This event initiates a sequence of tasks and interactions between various gateways and services.
+
+Firstly, the 'Schufa request\nReport' event triggers the 'forward delay message' task, which sends a delay message to 'ExclusiveGateway0'. This gateway is responsible for handling the initial processing of the Schufa request.
+
+Simultaneously, the 'Schufa request\nReport' event also triggers the 'Send delay message' task, which sends a delay message to 'ExclusiveGateway0'. This task ensures that the processing of the Schufa request is not rushed and allows for proper handling of the request.
+
+Once the delay messages are sent, the 'forward delay message' task sends the 'Schufa request\nReport' to 'ExclusiveGateway0', which then forwards the report to 'EventBasedGateway3'. This gateway is responsible for routing the report to the appropriate tasks and services.
+
+At the same time, the 'Send delay message' task sends the 'Schufa request\nReport' to 'EventBasedGateway3', which also forwards the report to 'ExclusiveGateway0'. This ensures that the report is processed by the appropriate gateways and services.
+
+'ExclusiveGateway0' then forwards the report to the 'perform scoring level 2' task, which is responsible for conducting the scoring process at level 2. This task receives the report and sends it to 'ExclusiveGateway2', which further forwards the report to 'perform scoring level 2'.
+
+The 'perform scoring level 2' task receives the report and sends it to 'ExclusiveGateway2', which forwards the report to 'Scoring request\nFinished'. This task is responsible for finalizing the scoring process and sending the results to the appropriate destination.
+
+The 'Scoring request\nFinished' task receives the report from 'ExclusiveGateway2' and sends it to 'Results available

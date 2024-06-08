@@ -1,0 +1,38 @@
+Tasks:
+{'id': 'sid-0F5299AC-5560-4012-B540-D504BA68BEA4', 'name': 'Visit the restaurant\n', 'incoming': ['Hunger is coming'], 'outgoing': ['Select a court']}
+{'id': 'sid-DDF91B6D-E0A0-480F-BDFA-FFE9F72CBB35', 'name': 'Select a court', 'incoming': ['Hunger is coming'], 'outgoing': ['Add your order']}
+{'id': 'sid-3491998C-762E-4CAA-B726-CB9F78AD54EB', 'name': 'Add your order', 'incoming': ['Hunger is coming'], 'outgoing': ['Order payment']}
+{'id': 'sid-ADF41718-0FB4-40E7-87EC-372CE0B14DAC', 'name': 'Order payment', 'incoming': ['Hunger is coming'], 'outgoing': ['Pieper\nagainst\ntake']}
+{'id': 'sid-79860A70-7BFC-4BE6-877C-5D51FB698464', 'name': 'Pieper\nagainst\ntake', 'incoming': ['Hunger is coming'], 'outgoing': ['Call\nS\n']}
+{'id': 'sid-1CA7DFA4-934E-412F-8EC4-83BB85D03731', 'name': 'Court of Justice\n', 'incoming': ['Hunger is coming'], 'outgoing': ['Eat court\n']}
+{'id': 'sid-50559D1B-D28B-44A2-9A2D-DB078153DFF6', 'name': 'Eat court\n', 'incoming': ['Pieper\nS'], 'outgoing': ['Famine\n\n']}
+{'id': 'sid-E72C99A9-EF79-4734-A0D3-C3701E7BA6E0', 'name': 'Input of the order into the cash register system\n', 'incoming': ['Order goes on'], 'outgoing': ['Cash']}
+{'id': 'sid-40288A48-E5A6-49E7-B333-E5E1C35AD27C', 'name': 'Cash', 'incoming': ['Order goes on'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-B0310C01-DC3F-43B5-82BF-2F0331A0FB05', 'name': 'Adjust Pieper', 'incoming': ['Order goes on'], 'outgoing': ['Pieper handed over to guest\n']}
+{'id': 'sid-2AB7B1FA-A88F-4411-8F51-1B76BE08B719', 'name': 'Pieper handed over to guest\n', 'incoming': ['Order goes on'], 'outgoing': ['Koch inform']}
+{'id': 'sid-A7EF2F65-456C-43D6-AA55-039AA90A0717', 'name': 'Koch inform', 'incoming': ['Order goes on'], 'outgoing': ['Information from\nkitchen goes']}
+{'id': 'sid-EE5E5630-0AA5-4E6E-971B-0E38D60748F4', 'name': 'Trigger Pieper', 'incoming': ['Information from\nkitchen goes'], 'outgoing': ['Court of Justice\noutput\n']}
+{'id': 'sid-F14B80B8-ADD4-4048-897F-37FDD7CFAAEF', 'name': 'Retrieve guest', 'incoming': ['Information from\nkitchen goes'], 'outgoing': ['Court of Justice\ndispose']}
+{'id': 'sid-B9DF0BF6-C0B2-4029-812A-288A813FB4DD', 'name': 'Meals\nto prepare\n', 'incoming': ['Order\nCreation of the court\nwe are\n'], 'outgoing': ['Meals\nprovide']}
+{'id': 'sid-95B228CE-7308-4CEA-9424-708715309FDF', 'name': 'Meals\nprovide', 'incoming': ['Order\nCreation of the court\nwe are\n'], 'outgoing': ['inform employees\n']}
+{'id': 'sid-612D48CD-3F50-4D94-8DE4-11460FC40205', 'name': 'inform employees\n', 'incoming': ['Order\nCreation of the court\nwe are\n'], 'outgoing': ['Meals\navailable\n']}
+
+Gateways:
+{'id': 'sid-97271EC0-BE8A-4C8D-A5E6-3CB3CEC0B861', 'name': 'ExclusiveGateway0', 'incoming': ['Pieper\nS', 'EventBasedGateway2'], 'outgoing': ['Famine\n\n']}
+{'id': 'sid-B05C9876-71BF-4270-ADCA-77BD9CD26D60', 'name': 'Court picked up?', 'incoming': ['Order goes on'], 'outgoing': ['Court of Justice\noutput\n', 'Court of Justice\ndispose']}
+{'id': 'sid-74C3B91F-5679-49D6-8B44-047A6CA55BF2', 'name': 'EventBasedGateway2', 'incoming': ['Hunger is coming'], 'outgoing': ['Court of Justice\n']}
+{'id': 'sid-B5723D6C-8C3D-457F-B1DB-91DE8F190779', 'name': 'Pieper\nS', 'incoming': ['sid-CB24B874-E3E9-4955-B308-81FC50D9E43A'], 'outgoing': ['Eat court\n']}
+{'id': 'sid-E3443A20-BF62-4839-96D5-2826EE690318', 'name': 'Call\nS\n', 'incoming': ['Pieper\nagainst\ntake'], 'outgoing': ['Famine\n\n']}
+{'id': 'sid-ECD6923A-74CF-47AC-B288-1D20B9569708', 'name': 'Order goes on', 'incoming': [], 'outgoing': ['Court of Justice\ndispose']}
+{'id': 'sid-29683A11-E1AE-46C3-AB72-90A45259F20E', 'name': 'Information from\nkitchen goes', 'incoming': ['Order goes on'], 'outgoing': ['Guest 5 times\nretrieved']}
+{'id': 'sid-DCA9D8D9-6B2E-4D9C-8DA6-8A5C05F82130', 'name': 'Guest 5 times\nretrieved', 'incoming': ['Information from\nkitchen goes'], 'outgoing': ['Court of Justice\ndispose']}
+{'id': 'sid-539B632E-095D-49C7-BAE1-12286F0E7DC3', 'name': 'Order\nCreation of the court\nwe are\n', 'incoming': [], 'outgoing': ['Meals\navailable\n']}
+
+Start Events:
+{'id': 'sid-6A4CFAF7-33C2-4619-9588-E93928DDC141', 'name': 'Hunger is coming', 'incoming': [], 'outgoing': ['Court of Justice\n']}
+
+End Events:
+{'id': 'sid-DF306E37-74E5-49BD-A1EA-BF271876914C', 'name': 'Famine\n\n', 'incoming': ['Call\nS\n'], 'outgoing': []}
+{'id': 'sid-AE939960-10C2-4D83-BE31-E4CF5588C31F', 'name': 'Court of Justice\noutput\n', 'incoming': ['Trigger Pieper'], 'outgoing': []}
+{'id': 'sid-F9FE40C7-7BFE-40CF-BA4F-9E10B256EE31', 'name': 'Court of Justice\ndispose', 'incoming': ['Order goes on'], 'outgoing': []}
+{'id': 'sid-018E4000-09DE-4ABB-86A2-4D682A1108A1', 'name': 'Meals\navailable\n', 'incoming': ['Order\nCreation of the court\nwe are\n'], 'outgoing': []}

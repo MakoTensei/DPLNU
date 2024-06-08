@@ -1,0 +1,17 @@
+ The system processes scoring requests through a series of interconnected tasks and gateways. When a scoring request is initiated, it triggers a sequence of events and interactions between different components.
+
+1. The first step is the 'Scoring request' start event, which initiates the process. This request is sent to the 'EventBasedGateway1', which then forwards the request to the 'Scoring result obtained' gateway.
+
+2. The 'Scoring result obtained' gateway processes the scoring request and generates a 'Scoring result obtained' event. This event is then sent to the 'EventBasedGateway2', which forwards the event to 'EndEvent1' and 'EndEvent2'.
+
+3. The 'Scoring result obtained' event is also sent to the 'forward notification' gateway, which forwards the event to 'forward notification' start event. This event triggers the 'forward notification' task, which sends a notification to 'EndEvent3' and 'Get delay email'.
+
+4. The 'Get delay email' task receives the 'Scoring request' event and sends a further information event to the 'Further information' gateway.
+
+5. The 'forward notification' task sends a 'forward request' event to the 'Scoring 1 check' gateway, which processes the request and generates a 'Scoring 1 check' event. This event is then sent to the 'Scoring 2 check' gateway, which processes the event and generates a '> 10 min\nResults obtained' event.
+
+6. The '> 10 min\nResults obtained' event is sent to the 'no result\nwe have' gateway, which forwards the event to 'EndEvent3'.
+
+7. The 'EndEvent3' event signifies the completion of the process, and no further events are generated.
+
+In summary, the system processes scoring requests through a series of tasks and gateways, generating events and forwarding them to the appropriate components. The process ensures that scoring requests are handled efficiently and that relevant events are generated and forwarded to the appropriate endpoints.

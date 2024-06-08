@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-855BAAA2-1D5C-4DB0-9C48-3EA7321314E1', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['Delivering goods']}
+{'id': 'sid-8B1C9D91-B005-42C0-98D6-034F63F796B7', 'name': 'Delivering goods', 'incoming': ['Shipping order'], 'outgoing': []}
+{'id': 'sid-ADDE6096-90A7-49EB-A982-3329176F5B97', 'name': 'Complete insurance\n', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-AC5EAE08-5F49-40B5-9EE9-1A17E95E8E8E', 'name': 'Filling the package note\n', 'incoming': ['sid-96A8A7BC-D909-4245-BEE6-D6362661582C'], 'outgoing': ['Insurance necessary?']}
+{'id': 'sid-24FE038C-FEA8-4B99-91B1-B79DC765555F', 'name': 'Postal mail', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-CBFDC1BD-C3EA-466B-96BA-5ECB44EFB092', 'name': 'Pick up offers\n', 'incoming': ['sid-88401224-B794-4BC9-87E0-EEF3959A2A02'], 'outgoing': ['Select your offer']}
+{'id': 'sid-9825A26F-435A-4AD2-BE33-36C614AC0432', 'name': 'Select your offer', 'incoming': ['Pick up offers\n'], 'outgoing': ['Specialist']}
+{'id': 'sid-CD0527F1-C6B9-47E0-8F99-5641D3A78046', 'name': 'Specialist', 'incoming': ['Select your offer'], 'outgoing': []}
+{'id': 'sid-4AC1BCD0-0AC1-49EA-AB4E-30EFCE6778C7', 'name': 'Quantity\nCheck', 'incoming': ['ParallelGateway3'], 'outgoing': ['Quantity']}
+{'id': 'sid-5259C839-8650-454E-92E4-AF71105EE0BD', 'name': 'Insurance necessary?', 'incoming': ['Filling the package note\n'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-4B8DB09E-9EE6-4DF4-B02D-EB9F1FEDD62E', 'name': 'Quantity', 'incoming': ['ParallelGateway3'], 'outgoing': []}
+{'id': 'sid-3724458E-72E0-4D73-B768-239454D075B0', 'name': 'ExclusiveGateway1', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway2', 'EndEvent0']}
+{'id': 'sid-212A678B-6E71-4794-A306-D32758409D61', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance necessary?', 'Complete insurance\n'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-BC6B4626-E687-4A6F-BF0F-37DAAD551A4B', 'name': 'ParallelGateway3', 'incoming': ['Shipping order'], 'outgoing': ['Quantity', 'Delivering goods']}
+
+Start Events:
+{'id': 'sid-B7BC02AD-3D34-4099-ADE6-017C6CFEEFD9', 'name': 'Shipping order', 'incoming': [], 'outgoing': ['Delivering goods']}
+
+End Events:
+{'id': 'sid-7F511CAA-3CF6-41BF-A12B-4A170B2CBDB8', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}

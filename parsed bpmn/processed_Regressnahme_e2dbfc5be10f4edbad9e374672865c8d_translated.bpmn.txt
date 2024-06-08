@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-EAE4B20B-FE99-4B93-A883-BDFEFB06996E', 'name': 'VN test', 'incoming': ['Regression procedure'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-46C9C61D-9777-4422-BDDB-976267EAB637', 'name': 'Check payment receipt', 'incoming': ['Defining deadline'], 'outgoing': ['Correct entrance?']}
+{'id': 'sid-F927CD04-E1C4-492B-900A-3F24ED6E2CE8', 'name': 'Create a payment prompt', 'incoming': ['Regression procedure'], 'outgoing': ['sid-96054E09-70D9-4C3D-B266-22728424F89A']}
+{'id': 'sid-DFAB9EFD-2DC8-4175-9283-541E684C8303', 'name': 'Debt collection', 'incoming': ['ExclusiveGateway4'], 'outgoing': ['sid-6634B32C-70F3-4AAF-89EE-CA89833CFDF1']}
+{'id': 'sid-2CBFE3C6-CEBC-419F-A7ED-2191CCA452D9', 'name': 'Book payment', 'incoming': ['EventBasedGateway6'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-940C2DEE-9C6C-46B9-904C-45E55A762DE6', 'name': 'Representation', 'incoming': ['ParallelGateway7'], 'outgoing': ['Payment receipt']}
+{'id': 'sid-945D7BEE-905E-4DE1-8B6F-AF075275863E', 'name': 'Book part payment', 'incoming': ['Correct entrance?'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-4C7F0EB2-9244-40F9-8F41-BC6D663BE1E4', 'name': 'Proceedings', 'incoming': ['Notification'], 'outgoing': ['ExclusiveGateway4']}
+
+Gateways:
+{'id': 'sid-693258ED-1498-46A1-B55D-B03A28502C58', 'name': 'Take Regress?', 'incoming': ['Regression procedure'], 'outgoing': ['ExclusiveGateway1', 'Notification']}
+{'id': 'sid-511C7901-E7A8-44D4-A1EE-9133E9CE7E49', 'name': 'ExclusiveGateway1', 'incoming': ['Payment receipt', 'VN test', 'Do you mind?'], 'outgoing': ['Regression exam completed']}
+{'id': 'sid-5E867FB4-6268-42A8-A68F-A707BB203001', 'name': 'Correct entrance?', 'incoming': ['Payment receipt'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway4']}
+{'id': 'sid-888E2B02-3FFC-41E4-B962-A94841BAFAFB', 'name': 'Do you mind?', 'incoming': ['Notification'], 'outgoing': ['Regression exam completed', 'ExclusiveGateway4']}
+{'id': 'sid-DB3190FD-4DBA-4A69-87B1-B5D2AC49B76D', 'name': 'ExclusiveGateway4', 'incoming': ['Proceedings', 'Correct entrance?'], 'outgoing': ['Debt collection']}
+{'id': 'sid-62E0E470-450C-4221-8719-7A35E020FB03', 'name': 'ExclusiveGateway5', 'incoming': ['EventBasedGateway6', 'EventBasedGateway6'], 'outgoing': ['Book payment']}
+{'id': 'sid-7A083F8B-E7B4-4798-8E2B-59D84C816042', 'name': 'EventBasedGateway6', 'incoming': ['Take Regress?'], 'outgoing': ['Book payment', 'ExclusiveGateway5', 'Notification']}
+{'id': 'sid-E60862F5-D42A-4841-8679-CEEDED178C52', 'name': 'ParallelGateway7', 'incoming': ['Regression procedure'], 'outgoing': ['Create a payment prompt', 'Defining deadline']}
+{'id': 'sid-D189B741-CEB3-4A4C-BA88-804FCBC835E2', 'name': 'Defining deadline', 'incoming': ['ParallelGateway7'], 'outgoing': ['Check payment receipt']}
+{'id': 'sid-87172CE8-B6C4-46FE-B28A-7B073015B1CE', 'name': 'Payment receipt', 'incoming': ['Representation'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-F272FE3F-A20D-4090-8735-D2A9ADA29628', 'name': 'Notification', 'incoming': ['Take Regress?'], 'outgoing': ['Regression exam completed']}
+
+Start Events:
+{'id': 'sid-CDC3BD72-1010-444F-9FB6-D9522792BF82', 'name': 'Regression procedure', 'incoming': [], 'outgoing': ['Create a payment prompt']}
+
+End Events:
+{'id': 'sid-842D056C-6F39-4AE2-A531-FB639E58EFA0', 'name': 'Regression exam completed', 'incoming': ['Notification'], 'outgoing': []}

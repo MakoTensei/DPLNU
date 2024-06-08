@@ -1,0 +1,9 @@
+ In response to the event of "Goods the Shipping," the system initiates a series of tasks to ensure the successful delivery of the goods. First, the system checks if insurance is necessary, which is determined by the incoming event "Insurance necessary?" and connects to ExclusiveGateway2. Concurrently, the system also processes the "Big crowd?" event, which triggers the tasks "Filling the package note" and "Pick up offers," both of which are routed to ExclusiveGateway2.
+
+Once the insurance check is complete, the system proceeds to "Complete insurance" and "Pick up offers" tasks, which are connected to ExclusiveGateway3. Following this, the system moves on to "Filling the package note" and "Pick up offers" tasks, which are routed to ExclusiveGateway2.
+
+After the insurance check, the system initiates the "Check quantity" task, which is connected to the incoming event "Goods the Shipping." This task is then routed to ExclusiveGateway2.
+
+The "Packaging goods" task is triggered next, which is connected to ParallelGateway4. Once the goods are packaged, the system moves on to the "Delivering goods" task, which is connected to ParallelGateway5.
+
+Finally, the "Shipment prepared" event is triggered, which is connected to ParallelGateway5. This event signifies the completion of the delivery process.

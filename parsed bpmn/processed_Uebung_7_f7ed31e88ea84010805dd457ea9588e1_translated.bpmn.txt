@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-ED37A51C-B53B-4681-8BFD-4B196D144136', 'name': 'Start Schufa request', 'incoming': ['StartEvent0'], 'outgoing': ['Result not final']}
+{'id': 'sid-3BD81A32-3061-4D97-95BA-196F31835FE0', 'name': 'Creating Schufa results', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-66D368B4-AFC7-40D6-AB1C-BC90CDE16104', 'name': 'Staff', 'incoming': ['Result not final'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-1B3D5C64-ED99-4DCA-9E97-3D7614648D51', 'name': 'find final result', 'incoming': ['perform scoring level 1'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-71F66BE7-7DC4-4828-8336-37C0A017BF70', 'name': 'send final result', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-82506E7B-4B64-4E67-A330-FDA31552EA36', 'name': 'perform scoring level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Final result?']}
+{'id': 'sid-DFA24F5F-7A5F-45B9-8C27-366BFCB3A9E3', 'name': 'Notify Bank', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring Leve 2']}
+{'id': 'sid-0E6DA980-B86F-44DD-B756-A434C550A9A0', 'name': 'Scoring Leve 2', 'incoming': ['Final result?'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-DBDFDF23-52FA-4C5A-9B1F-EDF593BBBA91', 'name': 'Final result?', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring Leve 2', 'EndEvent1']}
+{'id': 'sid-4789BCB0-3985-4DA1-96BD-DFF8245CFD46', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring Leve 2', 'find final result'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-BF9159A5-1A3D-4CEB-9C8E-D6591A7CBBE3', 'name': 'EventBasedGateway2', 'incoming': ['StartEvent0', 'EventBasedGateway2'], 'outgoing': ['EndEvent0', 'EventBasedGateway2']}
+{'id': 'sid-FF1BA732-B8B4-4FE2-BD4D-A64D3A46C8DE', 'name': 'Result not final', 'incoming': ['Start Schufa request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-3DD429EA-A22D-4C30-AEF6-914ABE7B4476', 'name': 'Results final', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-FB0E0D20-91EA-4F20-AD7A-75C6BA0D5F6B', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Creating Schufa results']}
+{'id': 'sid-E5AE8015-BC81-4436-8653-E19DD5228E36', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Notify Bank']}
+
+End Events:
+{'id': 'sid-23D29981-D299-4390-9CD7-868EB25E397D', 'name': 'EndEvent0', 'incoming': ['Result not final'], 'outgoing': []}
+{'id': 'sid-1EFB9D5B-2187-4671-B8B9-AF5B68543C82', 'name': 'EndEvent1', 'incoming': ['Final result?'], 'outgoing': []}

@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-08C15652-EB8F-4027-980A-514B22995863', 'name': 'Scoring Send inquiry to Schufa', 'incoming': ['Request sales\n'], 'outgoing': ['Scoring result available']}
+{'id': 'sid-2BE53FD8-A2B4-4796-B2D8-55A0D4D15B3E', 'name': 'Follow-up', 'incoming': ['Request sales\n'], 'outgoing': ['Scoring\ncompleted']}
+{'id': 'sid-601709BF-148C-4221-85A7-758547AB1598', 'name': 'Wait for scoring level 2', 'incoming': ['Scoring result available'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-5C0B50C2-12C8-42E1-B601-5AE91B8373B9', 'name': 'Notify sales staff', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-4145089A-837A-46C6-9185-86550F396950', 'name': 'Informing the front', 'incoming': ['Scoring\nResult'], 'outgoing': ['Close request']}
+{'id': 'sid-E206924A-9EDC-42C5-95DF-4AA537B58292', 'name': 'Close request', 'incoming': ['Scoring\nResult'], 'outgoing': ['Request\nclosed']}
+{'id': 'sid-B04E7DC9-1B0C-40A9-BB50-77F78B577478', 'name': 'Scoring Level 1\nExecution', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Evaluation\nof scoring']}
+{'id': 'sid-282557E7-49F0-4468-B2BB-059C239033A1', 'name': 'Follow-up', 'incoming': ['Results available\n'], 'outgoing': ['Scoring\ncompleted']}
+{'id': 'sid-C51CB085-ACD6-4884-91D4-C9651248B50D', 'name': 'Reporting to Bank', 'incoming': ['Delay'], 'outgoing': ['Start scoring level 2']}
+{'id': 'sid-146C36EA-2F5C-40A5-911F-116EC3C17C51', 'name': 'Start scoring level 2', 'incoming': ['Delay'], 'outgoing': ['Waiting for result']}
+{'id': 'sid-EA536737-CC2B-431D-95CB-D2EAA9FA4948', 'name': 'Waiting for result', 'incoming': ['Delay'], 'outgoing': ['Scoring result\ndetermined']}
+{'id': 'sid-1401DB34-7B8A-400C-A137-2413D399E842', 'name': 'Notify Bank', 'incoming': ['Scoring result\ndetermined'], 'outgoing': ['Scoring\ncompleted']}
+{'id': 'sid-F86255C0-E87D-4544-A6C7-96F5BFE820FC', 'name': 'Evaluation\nof scoring', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Delay']}
+
+Gateways:
+{'id': 'sid-4F5302F6-8164-42DB-9BC8-A4299C70A6C2', 'name': 'EventBasedGateway0', 'incoming': ['Request sales\n'], 'outgoing': ['Scoring\ncompleted', 'ParallelGateway2']}
+{'id': 'sid-3D2AE8A1-74EE-40D6-BC21-8FA2EB71B3D2', 'name': 'EventBasedGateway1', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Scoring\ncompleted', 'Scoring\ncompleted']}
+{'id': 'sid-F3C4265A-2ACA-45D2-A145-0998D71BCCC7', 'name': 'ParallelGateway2', 'incoming': ['ParallelGateway3', 'EventBasedGateway0'], 'outgoing': ['Request\nclosed']}
+{'id': 'sid-BEE6E379-F3C0-44CD-8FD2-77B8031EB6C0', 'name': 'ParallelGateway3', 'incoming': ['EventBasedGateway0'], 'outgoing': ['Scoring\nResult', 'Request\nclosed']}
+{'id': 'sid-93D7BDC2-78A5-428F-8C4D-BC2EFFFF2652', 'name': 'Scoring\nResult', 'incoming': ['ParallelGateway3'], 'outgoing': ['Request\nclosed']}
+{'id': 'sid-0ABD8D2A-B1AD-424D-B844-8B4A09F569C3', 'name': 'Scoring result available', 'incoming': ['Scoring Send inquiry to Schufa'], 'outgoing': ['Wait for scoring level 2']}
+{'id': 'sid-E0F5869B-D7AA-4FEB-BC44-75498FF44AD7', 'name': 'Scoring result\nNot available', 'incoming': ['Request sales\n'], 'outgoing': ['Scoring\ncompleted']}
+{'id': 'sid-D76552FB-9033-419D-B09D-BD5800FF55F1', 'name': 'Delay', 'incoming': ['Evaluation\nof scoring'], 'outgoing': ['Scoring result\ndetermined']}
+{'id': 'sid-D78FF856-BD45-45F1-94F7-F7DF4ACA6EF7', 'name': 'Results available\n', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Scoring\ncompleted']}
+{'id': 'sid-7E57272A-0B8E-437A-BC3C-29DAD5D89FC4', 'name': 'Scoring result\ndetermined', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Scoring\ncompleted']}
+
+Start Events:
+{'id': 'sid-0A36F169-E24D-4B12-B329-011865160F04', 'name': 'Request sales\n', 'incoming': [], 'outgoing': ['Follow-up']}
+{'id': 'sid-82AD105B-7B2E-403B-B55B-4DCB247A0C8A', 'name': 'Scoring request\nReport', 'incoming': [], 'outgoing': ['Results available\n']}
+
+End Events:
+{'id': 'sid-662896BD-7B12-4A87-833B-0ED76C622AB8', 'name': 'Scoring\ncompleted', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-D279D328-783F-40E8-BD8F-A88D6DE84543', 'name': 'Request\nclosed', 'incoming': ['ParallelGateway3'], 'outgoing': []}
+{'id': 'sid-21191EF4-79E0-4AA7-8C6A-F54AEBB12DB8', 'name': 'Scoring\ncompleted', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-288CEC2B-1091-417E-B217-FBEC83E057EC', 'name': 'Scoring\ncompleted', 'incoming': ['EventBasedGateway1'], 'outgoing': []}

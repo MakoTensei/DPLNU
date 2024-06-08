@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-90052036-662A-467D-A24B-D456CA245F2D', 'name': 'Send a message', 'incoming': ['Right?'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-7C46B42C-130F-48FD-93B4-B00878B08156', 'name': 'Set process for resubmission', 'incoming': ['Right?'], 'outgoing': ['Reimbursement period expired']}
+{'id': 'sid-4EDBB5AE-57E2-4218-AB31-108D0B8F8969', 'name': 'Book payment receipt', 'incoming': ['Payment'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-FE6655B2-CC8E-4A9E-8BA8-ABECC828D576', 'name': 'Proceedings', 'incoming': ['Notification'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-DCB4E572-A804-44E4-9EDC-D3979A81E4F0', 'name': 'Inkasso handed over', 'incoming': ['Waiting for VN'], 'outgoing': ['Process forwarded to collection']}
+{'id': 'sid-CF6E2476-567C-488E-8677-9FF000C1115B', 'name': 'Check regression', 'incoming': ['Regression possibility\nReport'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-B54401BB-BC2F-4C46-9792-66C71C8F7EA2', 'name': 'Close regression', 'incoming': ['Right?'], 'outgoing': ['Process']}
+
+Gateways:
+{'id': 'sid-4A047883-FB43-4880-BBD2-5A3825C52FA3', 'name': 'Right?', 'incoming': ['Regression possibility\nReport'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway4']}
+{'id': 'sid-25B6BDB2-46BD-4FC7-BB68-3BF4E54A020C', 'name': 'ExclusiveGateway1', 'incoming': ['Check regression', 'Regression possibility\nReport'], 'outgoing': ['Process']}
+{'id': 'sid-0CF01BF6-568B-4A4D-8B1E-2A8BE0773E3B', 'name': 'Right?', 'incoming': ['Waiting for VN'], 'outgoing': ['ExclusiveGateway3', 'Close regression']}
+{'id': 'sid-B9B5C4B1-D8B2-4DB9-9B6A-7AC5FD8FD4C6', 'name': 'ExclusiveGateway3', 'incoming': ['Waiting for VN', 'Proceedings'], 'outgoing': ['Process forwarded to collection']}
+{'id': 'sid-70A4A535-E146-4819-9697-671F0FC07E2D', 'name': 'ExclusiveGateway4', 'incoming': ['Notification', 'Waiting for VN'], 'outgoing': ['Process']}
+{'id': 'sid-97A5A782-C576-4470-85FC-4124FAC880D8', 'name': 'Waiting for VN', 'incoming': ['Right?'], 'outgoing': ['Payment', 'Inkasso handed over', 'Process']}
+{'id': 'sid-1D1A9CCB-695E-4CD6-A528-F970153D9BD6', 'name': 'Reimbursement period expired', 'incoming': ['Set process for resubmission'], 'outgoing': ['Process forwarded to collection']}
+{'id': 'sid-A470BAF2-3B01-43ED-9921-67405EA91915', 'name': 'Payment', 'incoming': ['Right?'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-82E41972-7422-4238-B3F3-A50CFECE614B', 'name': 'Notification', 'incoming': ['Waiting for VN'], 'outgoing': ['ExclusiveGateway4']}
+
+Start Events:
+{'id': 'sid-24580770-DB70-49B5-9ED4-BADF15615B66', 'name': 'Regression possibility\nReport', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-D9FE40A6-9C08-4E8D-B9B8-7B21199784CB', 'name': 'Process', 'incoming': ['Waiting for VN'], 'outgoing': []}
+{'id': 'sid-07E6EE6E-C5EA-46E1-9010-5E740D286599', 'name': 'Process forwarded to collection', 'incoming': ['Reimbursement period expired'], 'outgoing': []}

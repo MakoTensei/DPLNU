@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-9307E3AF-DEBE-4DDA-9A92-57F0F98D82D5', 'name': 'Insurance close', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-2FAFE303-6432-4CB4-A7FE-71150E2EBD07', 'name': 'Clear shipping quantity', 'incoming': ['sid-D7A9FA8C-E5EE-4E3B-955F-379F679B4B5B'], 'outgoing': ['large quantity?\n']}
+{'id': 'sid-82257CC4-647D-4D52-9D60-EC9D01C0A605', 'name': 'Pick up offers', 'incoming': ['large quantity?\n'], 'outgoing': ['Select your offer']}
+{'id': 'sid-71D6B6AA-368C-498A-B007-D007E5DEAF87', 'name': 'Select your offer', 'incoming': ['large quantity?\n'], 'outgoing': ['Specialist']}
+{'id': 'sid-34D38286-16AD-4486-9B6B-0E5C2248C8E0', 'name': 'Specialist', 'incoming': ['large quantity?\n'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-260B6555-C090-476F-9373-9C6272AADE47', 'name': 'fill out standard package voucher', 'incoming': ['large quantity?\n'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-85AF69CE-60BF-4630-9F71-E135B5E8EDCE', 'name': 'Packaging goods', 'incoming': ['Description\nobtained'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-FC57D1E7-9DA2-48CF-A17B-3134818481D3', 'name': 'Delivering goods', 'incoming': ['Description\nobtained'], 'outgoing': ['Shipping\nprepared\n']}
+
+Gateways:
+{'id': 'sid-A80E759E-CA20-4D35-9EDB-7EAECF2D564E', 'name': 'ExclusiveGateway0', 'incoming': ['large quantity?\n', 'large quantity?\n'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-8F8B6419-5AC4-468B-AD2A-F0F3C67655AE', 'name': 'ExclusiveGateway1', 'incoming': ['Insurance\nnecessary?', 'Insurance\nnecessary?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-59465CEB-2511-4FD4-973E-BBDB45BAEA3E', 'name': 'large quantity?\n', 'incoming': ['Clear shipping quantity'], 'outgoing': ['ExclusiveGateway0', 'ExclusiveGateway0']}
+{'id': 'sid-2D3BA817-368C-460F-BDC1-214499010186', 'name': 'Insurance\nnecessary?', 'incoming': ['large quantity?\n'], 'outgoing': ['ParallelGateway5', 'ExclusiveGateway0']}
+{'id': 'sid-29374EE2-4AF4-47A3-AE25-9B3C8D94F95D', 'name': 'ParallelGateway4', 'incoming': ['Description\nobtained'], 'outgoing': ['Packaging goods']}
+{'id': 'sid-3FA9C0F6-4F77-4A67-81F4-AB7820D7EE21', 'name': 'ParallelGateway5', 'incoming': ['Description\nobtained', 'fill out standard package voucher'], 'outgoing': ['Shipping\nprepared\n']}
+
+Start Events:
+{'id': 'sid-5C41DBD1-72AC-4006-BC00-ECB54B1E3F16', 'name': 'Description\nobtained', 'incoming': [], 'outgoing': ['Delivering goods']}
+
+End Events:
+{'id': 'sid-9C168E02-2D19-4723-A299-E479D19483B8', 'name': 'Shipping\nprepared\n', 'incoming': ['ParallelGateway5'], 'outgoing': []}

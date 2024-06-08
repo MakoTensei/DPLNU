@@ -1,0 +1,57 @@
+Tasks:
+{'id': 'sid-7A5506B0-44CD-4DE4-8D23-AAF64A250B1E', 'name': 'Enter local', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Choose food']}
+{'id': 'sid-5E350AA5-8786-4DF6-A050-3D22D12580B1', 'name': 'Choose food', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['at first place\npre-pressed']}
+{'id': 'sid-280314D7-94EA-4C52-88AA-FF1ED8DB4800', 'name': 'Add your order', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-70429BFF-F51D-423E-B380-8782A2BB88EA', 'name': 'Pay', 'incoming': ['Payment method\nobtained'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-4418007A-CCC0-49D8-B51B-BB64A0287D88', 'name': 'Find a place', 'incoming': ['Get Pieper'], 'outgoing': ['Pieper Watch']}
+{'id': 'sid-7A812AF6-3DEE-486B-9397-DEEFAD3EBC48', 'name': 'Pieper Watch', 'incoming': ['Get Pieper'], 'outgoing': ['Viewed']}
+{'id': 'sid-E934D76A-68DD-4DEA-9390-7BD2855F6A2E', 'name': 'Pick up food', 'incoming': ['Pieper noticed?'], 'outgoing': ['Get food']}
+{'id': 'sid-737D87E0-86DD-49ED-A55A-4108B39409CF', 'name': 'they have', 'incoming': ['Pieper\nthey are'], 'outgoing': ['Eat']}
+{'id': 'sid-4836EA30-CB3E-4E3C-A547-18DEA7B747F4', 'name': 'Eat', 'incoming': ['Pieper\nthey are'], 'outgoing': ['Famine']}
+{'id': 'sid-18B8BE78-7ED3-4AC0-8624-3DBE378A2987', 'name': 'Pieper\nthey are', 'incoming': ['Get food'], 'outgoing': ['Famine']}
+{'id': 'sid-12428254-B0E3-42A0-BED8-09D1FB2AB956', 'name': 'Enter your order', 'incoming': ['Order\nobtained'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-09C7A91F-FBA2-4F8E-93BF-F18C865757BD', 'name': 'Request for payment', 'incoming': ['Order\nobtained'], 'outgoing': ['Get money']}
+{'id': 'sid-CE3BCA92-B8ED-4716-843A-4680A63B93DC', 'name': 'Check quantity', 'incoming': ['Order\nobtained'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-4A56E452-F827-4940-8F73-3F6A8478AB80', 'name': 'Execute change', 'incoming': ['Suitable\npaid?'], 'outgoing': ['ExclusiveGateway6']}
+{'id': 'sid-0546EEB5-D427-4FE1-B813-803865DBA95D', 'name': 'Adjust Pieper', 'incoming': ['Get money'], 'outgoing': ['Add Pieper']}
+{'id': 'sid-04263C1B-37CE-47C5-AF6F-751802F3DACB', 'name': 'Add Pieper', 'incoming': ['ExclusiveGateway6'], 'outgoing': ['Koch inform']}
+{'id': 'sid-7EBA3D90-558A-41BC-AFA7-D2A679284526', 'name': 'Koch inform', 'incoming': ['ExclusiveGateway6'], 'outgoing': ['Eat ready-\nInformation']}
+{'id': 'sid-434E9358-E9BA-4CE8-B573-5B7300C47FA8', 'name': 'Trigger Pieper', 'incoming': ['Eat ready-\nInformation'], 'outgoing': ['5 min.']}
+{'id': 'sid-54862076-3D50-4446-B7E0-D3330F11B953', 'name': 'Deliver food', 'incoming': ['Issue request\nobtained'], 'outgoing': ['Get Pieper']}
+{'id': 'sid-D87E7CCC-8ED8-4C80-BE27-1565766DC202', 'name': 'Retrieve guest', 'incoming': ['5 min.'], 'outgoing': ['EventBasedGateway8']}
+{'id': 'sid-E147EDDD-E9DB-463D-8C7B-4F0A6F238F34', 'name': 'Preparation of meal', 'incoming': ['Order to receive'], 'outgoing': ['Putting a meal on a medium']}
+{'id': 'sid-FA6CC554-97B9-4D00-A9C4-1371A646A720', 'name': 'Putting a meal on a medium', 'incoming': ['Order to receive'], 'outgoing': ['inform employees']}
+{'id': 'sid-60B89C1C-B189-4086-B04B-CD62BD290FDF', 'name': 'inform employees', 'incoming': ['Order to receive'], 'outgoing': ['Court of Justice']}
+
+Gateways:
+{'id': 'sid-03A10B93-E2E3-4018-B829-FFC790391218', 'name': 'ExclusiveGateway0', 'incoming': ['at first place\npre-pressed', 'suitable\npaid?'], 'outgoing': ['Payment method\nobtained']}
+{'id': 'sid-82C13D4B-F890-405C-90AD-D044A644FAD1', 'name': 'suitable\npaid?', 'incoming': ['at first place\npre-pressed'], 'outgoing': ['ExclusiveGateway2', 'Customer\nfinished', 'ExclusiveGateway2']}
+{'id': 'sid-40C7AD3C-5F38-4462-8C2B-1D35F0EB6D17', 'name': 'ExclusiveGateway2', 'incoming': ['Pay', 'at first place\npre-pressed'], 'outgoing': ['Customer\nfinished']}
+{'id': 'sid-003181CD-A96B-4850-BB0B-7042FC27F319', 'name': 'ExclusiveGateway3', 'incoming': ['Exchange rate\nobtained', 'Pieper noticed?'], 'outgoing': ['Famine']}
+{'id': 'sid-0AA5767B-6C7C-434D-B066-DB62D2D9D360', 'name': 'Suitable\npaid?', 'incoming': ['Get money'], 'outgoing': ['Get Pieper', 'ExclusiveGateway5', 'EventBasedGateway8']}
+{'id': 'sid-0C439304-DD08-4EB6-9BCB-1560034EECD2', 'name': 'ExclusiveGateway5', 'incoming': ['Order\nobtained', 'Order\nobtained'], 'outgoing': ['Request for payment']}
+{'id': 'sid-14B32FB4-85D1-40C9-AF30-D7274503B246', 'name': 'ExclusiveGateway6', 'incoming': ['Get money', 'Suitable\npaid?'], 'outgoing': ['EventBasedGateway8']}
+{'id': 'sid-AED63ACB-B216-4E36-8C0B-1F84B04B53E0', 'name': 'Pieper noticed?', 'incoming': ['Exchange rate\nobtained'], 'outgoing': ['Pick up food', 'Get food']}
+{'id': 'sid-46386D15-504A-4F3F-8335-23A52E810880', 'name': 'EventBasedGateway8', 'incoming': ['Suitable\npaid?', '5 min.'], 'outgoing': ['EventBasedGateway8', 'Pieper noticed']}
+{'id': 'sid-347DE989-EEF3-4768-AA4F-4D353C2E7FA6', 'name': 'at first place\npre-pressed', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-52063720-10EC-41A6-BFDC-68CE11B79359', 'name': 'Payment method\nobtained', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-1A3701FF-218C-4887-8C17-AA089C53BD00', 'name': 'Exchange rate\nobtained', 'incoming': ['suitable\npaid?'], 'outgoing': ['Famine']}
+{'id': 'sid-72154033-BE65-4E75-ABEB-FCE0A9460946', 'name': 'Get Pieper', 'incoming': ['Exchange rate\nobtained'], 'outgoing': ['Pieper noticed']}
+{'id': 'sid-596C3BC3-6A67-4162-999D-6ED6F68B9DCA', 'name': 'Get food', 'incoming': ['Pieper noticed?'], 'outgoing': ['Famine']}
+{'id': 'sid-53635AD2-BB68-4634-97E7-DDB1492F46D5', 'name': 'Pieper noticed', 'incoming': ['5 min.'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-614062F1-9A16-4402-9A3D-4AFC0365AEEF', 'name': 'Viewed', 'incoming': ['Pieper Watch'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-059232C4-EE2E-4FA2-866D-00658454B062', 'name': 'Get money', 'incoming': ['Order\nobtained'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-6E9D2254-1614-4933-8468-4FF7AF5270E5', 'name': 'Eat ready-\nInformation', 'incoming': ['Suitable\npaid?'], 'outgoing': ['Issue request\nobtained']}
+{'id': 'sid-D537186C-9416-43F5-8B6E-34F1D942E693', 'name': 'Issue request\nobtained', 'incoming': ['Suitable\npaid?'], 'outgoing': ['Pieper noticed']}
+{'id': 'sid-A6D26FA0-27E5-4CC2-98D3-1A99C7BC7C26', 'name': 'Get Pieper', 'incoming': ['Suitable\npaid?'], 'outgoing': ['Customer\nfinished']}
+{'id': 'sid-1F993B61-270F-44BD-B0D7-D2A3201DF2BA', 'name': '5 min.', 'incoming': ['Trigger Pieper'], 'outgoing': ['Pieper noticed']}
+
+Start Events:
+{'id': 'sid-A342D2CC-2303-43EA-B8C1-49FD65944414', 'name': 'Hunger\nNot applicable', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-6B8C5AC7-0139-48B8-B024-9F436A251D70', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-56A26977-BE72-4F10-89DB-36A93E6678AC', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-07F5E9AA-B618-40C0-93DB-8796D153BD04', 'name': 'Famine', 'incoming': ['Exchange rate\nobtained'], 'outgoing': []}
+{'id': 'sid-77A046B7-79F7-4305-B007-2EABB03FF101', 'name': 'Customer\nfinished', 'incoming': ['suitable\npaid?'], 'outgoing': []}
+{'id': 'sid-F13327A2-3D10-4E4D-9CD2-96DB40B7E3D5', 'name': 'Court of Justice', 'incoming': ['inform employees'], 'outgoing': []}

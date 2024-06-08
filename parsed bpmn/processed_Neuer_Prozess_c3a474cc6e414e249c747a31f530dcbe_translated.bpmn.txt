@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-36C6D633-30F1-49E9-9087-77D5CD458D8F', 'name': 'Check the case', 'incoming': ['Regression possibility\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-D2F5344F-056B-4AA3-813D-E747CB251A72', 'name': 'Send a message', 'incoming': ['Regression possibility\nReport'], 'outgoing': ['Set process to WV']}
+{'id': 'sid-08C58657-6C4E-4D69-962A-FF939A032714', 'name': 'Close', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Process without result']}
+{'id': 'sid-BC792418-1C44-44B2-9223-DF16E657B5CB', 'name': 'Set process to WV', 'incoming': ['Regress possible?'], 'outgoing': ['Money received']}
+{'id': 'sid-0B34EA7E-E715-44D1-B453-B545D2067B5D', 'name': 'Book money', 'incoming': ['Money received'], 'outgoing': ['Close']}
+{'id': 'sid-463CE41E-F4CD-4F84-9482-F5A9F702AD7C', 'name': 'Close', 'incoming': ['Money received'], 'outgoing': ['Case successfully completed']}
+{'id': 'sid-23D2FD92-642D-40E3-B197-5B5C4BAE2394', 'name': 'Examination', 'incoming': ['Notification'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-97BDA6FB-1C44-463E-A567-9A57670780C9', 'name': 'forward case to debt collection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Case\nDebt collection forwarded']}
+
+Gateways:
+{'id': 'sid-168708B0-B7DB-42D1-A1F6-405AEDCCD42D', 'name': 'Regress possible?', 'incoming': ['Regression possibility\nReport'], 'outgoing': ['Process without result', 'justified?']}
+{'id': 'sid-71A443FB-2322-4B24-B0C2-94D460759CA7', 'name': 'justified?', 'incoming': ['Regress possible?'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-8787B3EA-7CFC-400A-99D3-5024AE5E0202', 'name': 'ExclusiveGateway2', 'incoming': ['Check the case', 'Examination'], 'outgoing': ['Process without result']}
+{'id': 'sid-9C4E67B2-30FD-4E83-8CA0-4A7E92F81153', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'EventBasedGateway4'], 'outgoing': ['Case\nDebt collection forwarded']}
+{'id': 'sid-905E28F0-FFA7-4E55-B891-69BE71ED9013', 'name': 'EventBasedGateway4', 'incoming': ['Regress possible?'], 'outgoing': ['Case\nDebt collection forwarded', 'Case successfully completed', 'forward case to debt collection']}
+{'id': 'sid-20DA97EB-7A56-41B0-9ADC-52D04BA72AC1', 'name': 'Money received', 'incoming': ['Set process to WV'], 'outgoing': ['Case successfully completed']}
+{'id': 'sid-1E03DA99-8F21-48D9-AB10-3E29399E7B92', 'name': 'Notification', 'incoming': ['Regress possible?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-9C4BAB19-80EF-4BAA-8129-9D84DCDC5D73', 'name': 'Representation expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-80385070-0951-403F-88D3-2B39450638CF', 'name': 'Regression possibility\nReport', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-196D40AA-BC4A-4F14-BD13-1E1B72C2C1C8', 'name': 'Case successfully completed', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-5EEEC290-C9EE-4E7C-AF59-7FD7BBD598B1', 'name': 'Process without result', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-28529839-F94F-4687-85D9-4C3F3A22C1FD', 'name': 'Case\nDebt collection forwarded', 'incoming': ['EventBasedGateway4'], 'outgoing': []}

@@ -1,0 +1,11 @@
+ In the event of a scoring request being obtained, the process begins at the EventBasedGateway1. This gateway receives the incoming 'Scoring request obtained' event and forwards it to the ExclusiveGateway0. The ExclusiveGateway0 then completes the request, sending it to the Result Obtained gateway.
+
+Once the result is obtained, it is forwarded to the Result Forward gateway. This gateway then sends the result to the Request Completed gateway, completing the first cycle of the process.
+
+In a separate scenario, when a request is obtained, it is directed to the EventBasedGateway2. This gateway completes the request and sends it to the Delay Entered gateway.
+
+Upon receiving the 'Delay Report obtained' event, the Delay Entered gateway sends the request to the Report Delay gateway. The Report Delay gateway then completes the request, sending it to the Request Completed gateway.
+
+In another scenario, when a result is obtained, it is sent to the Result Before gateway. This gateway completes the result and sends it to the Request Completed gateway.
+
+In summary, the process involves several gateways and events that work together to handle scoring requests, obtain results, and manage delays. The ExclusiveGateway0, EventBasedGateway1, EventBasedGateway2, and Result Obtained gateways play crucial roles in managing the flow of events and requests.

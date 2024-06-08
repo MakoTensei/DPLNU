@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-256D66D5-F00B-4CD2-AA6D-9BF494EB97A2', 'name': 'Scoring request\nsend', 'incoming': ['StartEvent0'], 'outgoing': ['The result']}
+{'id': 'sid-325EEF69-D7D1-49E0-95FB-FCA49A51E4C1', 'name': 'Scoring Level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Applications?']}
+{'id': 'sid-B45EE6FF-4412-4005-8068-F747A90AF438', 'name': 'Send a reply', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-B51D05BD-9FF1-4440-A1E2-2543F127CA86', 'name': 'Send delay', 'incoming': ['Applications?'], 'outgoing': ['Scoring Level 2']}
+{'id': 'sid-3B468057-91FB-49F1-8586-CBBD615AEDAB', 'name': 'Scoring Level 2', 'incoming': ['Applications?'], 'outgoing': ['Send a reply']}
+{'id': 'sid-B8F50274-C3D6-4DEC-9F71-33F1A5CB6F10', 'name': 'Send a reply', 'incoming': ['Applications?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-D5982310-809C-40C9-87E9-1ED0B1E56D98', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-4F567635-FE5A-44E7-AAF6-655862597D6A', 'name': 'Applications?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'Send a reply']}
+{'id': 'sid-314A49E5-0A87-4145-9AD9-0CD154BCE1AE', 'name': 'ExclusiveGateway2', 'incoming': ['StartEvent1', 'Send a reply'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-C00F2B62-42EF-4A33-987F-9BB81311C5D0', 'name': 'EventBasedGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0', 'EndEvent0']}
+{'id': 'sid-5539C40A-CD7C-4F06-89CF-AD1BF59407D5', 'name': 'The result', 'incoming': ['Scoring request\nsend'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-D1D33F45-FAD2-4B2E-8353-FCFFEAA9FBF6', 'name': 'Delay', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F42A5138-ED8B-468C-8B03-219C05C43DAB', 'name': 'The result', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-AF026C46-B3FE-4C35-B44F-FF89AC4D4E6E', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-C6B92E1B-F813-43FF-9A9C-550340A5BBBF', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-B37E0895-79AE-40C4-936E-677A607816E1', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-B30E19FE-D47D-43FB-821D-2923EED2508B', 'name': 'EndEvent1', 'incoming': ['Applications?'], 'outgoing': []}

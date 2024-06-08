@@ -1,0 +1,11 @@
+ When a 'Regression check reported' event occurs, it triggers a series of tasks and gateways to ensure a thorough investigation and resolution process. Here's how the flow unfolds:
+
+1. The 'Regression check reported' event initiates the 'Check regression claim' task, which has an exclusive gateway leading to 'ExclusiveGateway5'.
+2. 'ExclusiveGateway5' receives the 'Regression check reported' event and forwards it to 'Set process for resubmission' task. This task has an exclusive gateway leading to 'ExclusiveGateway4'.
+3. 'ExclusiveGateway4' receives the 'Set process for resubmission' event and forwards it to 'Book payment' task. This task has an exclusive gateway leading to 'ExclusiveGateway5'.
+4. 'ExclusiveGateway5' receives the 'Book payment' event and forwards it to 'Complete the process' task. This task has an exclusive gateway leading to 'Process'.
+5. The 'Process' task receives the'regression\npossible?' event from 'ExclusiveGateway5' and forwards it to 'Proceedings' task. This task has an exclusive gateway leading to 'ExclusiveGateway3'.
+6. 'ExclusiveGateway3' receives the 'Proceedings' event and forwards it to 'Dispense process for collection service' task. This task has an exclusive gateway leading to 'ExclusiveGateway5'.
+7. 'ExclusiveGateway5' receives the 'Dispense process for collection service' event and forwards it to 'Process'.
+
+In summary, the 'Regression check reported' event initiates a chain of tasks and gateways, ultimately leading to the 'Process' task, which concludes the investigation and resolution process.

@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-46DA2036-1879-4D73-AF1C-BD04380C79B2', 'name': 'send scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['forward scoring result']}
+{'id': 'sid-FBE9F794-1FC5-488B-89CC-29AF8A3DDE08', 'name': 'forward scoring result', 'incoming': ['StartEvent0'], 'outgoing': ['End']}
+{'id': 'sid-CDA82411-2FAF-4CD2-9ABA-12D35BB4DCBA', 'name': 'report delay', 'incoming': ['sid-76E8DB45-F066-49F9-BF3F-F17BD0D4D3C3'], 'outgoing': ['IntermediateCatchEvent0']}
+{'id': 'sid-E0E0F3B3-E773-4E04-85B0-D00C95A89C12', 'name': 'scoring result on frontend', 'incoming': ['IntermediateCatchEvent0'], 'outgoing': ['End']}
+{'id': 'sid-B9E705B1-D2AE-4EDF-9AD8-05F2E005C480', 'name': 'level1-scoring', 'incoming': ['StartEvent1'], 'outgoing': ['result report']}
+{'id': 'sid-14F46AC8-E54B-48CB-832C-A4FCB4F2BD8E', 'name': 'level2-scoring', 'incoming': ['sid-54D33369-8DBE-4BA2-97CE-1B4692819B5E'], 'outgoing': ['result report\n']}
+{'id': 'sid-B0A876C5-C203-4671-A850-A7DB6B8D42AF', 'name': 'result report', 'incoming': ['StartEvent1'], 'outgoing': ['End']}
+{'id': 'sid-4853AE11-C689-42AB-B6ED-7C2B0B2C194F', 'name': 'result report\n', 'incoming': ['level2-scoring'], 'outgoing': ['End']}
+
+Gateways:
+{'id': 'sid-18758D84-6960-4CD2-A5D2-73183C2E84CF', 'name': 'IntermediateCatchEvent0', 'incoming': ['report delay'], 'outgoing': ['End']}
+
+Start Events:
+{'id': 'sid-EC8D3C2C-E37D-4E19-9D77-B97DFE54F69C', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['forward scoring result']}
+{'id': 'sid-9A064C2B-7389-44A7-8499-9E3FA2DDEAFC', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['result report']}
+
+End Events:
+{'id': 'sid-800FCBA8-9AD9-409E-B408-0793E3D3E89C', 'name': 'End', 'incoming': ['forward scoring result'], 'outgoing': []}
+{'id': 'sid-B952DAB7-DEDE-4082-9A6F-1F748E755CFD', 'name': 'End', 'incoming': ['IntermediateCatchEvent0'], 'outgoing': []}
+{'id': 'sid-A872326B-13DC-4EC8-9ABC-F9A3BC119130', 'name': 'End', 'incoming': ['result report'], 'outgoing': []}
+{'id': 'sid-2E330FD3-058B-45B8-B65C-E5BDC5169BF6', 'name': 'End', 'incoming': ['result report\n'], 'outgoing': []}

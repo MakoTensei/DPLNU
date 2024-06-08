@@ -1,0 +1,12 @@
+ When a regression takes place, it triggers a series of events and interactions within the system. The process begins with the 'Regression takes place' event, which initiates the following sequence:
+
+1. The 'Regression takes place' event triggers the 'Book money receipt' task, which records the occurrence of the regression.
+2. The 'Book money receipt' task then sends an 'outgoing' signal to the 'VN payment request' task, indicating that a payment request has been made.
+3. The 'VN payment request' task receives the signal and sends an 'outgoing' signal to the 'Objection received' task, indicating that an objection has been received.
+4. The 'Objection received' task sends an 'outgoing' signal to the 'Inkasso-Diestwandr' task, which handles the objection.
+5. The 'Inkasso-Diestwandr' task sends an 'outgoing' signal to the 'EndEvent4' task, marking the end of the objection process.
+6. Meanwhile, the 'VN payment request' task also sends an 'outgoing' signal to the 'ExclusiveGateway1' task, which determines the next course of action based on the incoming signal.
+7. The 'ExclusiveGateway1' task sends an 'outgoing' signal to the 'EndEvent2' task, marking the end of the process.
+8. The 'EndEvent2' task sends an 'outgoing' signal to the 'Close the process' task, which finalizes the entire process.
+
+In summary, when a regression occurs, it sets off a chain of events and interactions that involve booking a money receipt, handling a VN payment request, and addressing any objections that may arise. The process concludes with the finalization of the entire process.

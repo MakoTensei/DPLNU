@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-7D85DDED-8827-43C2-AAAF-E8C8F8D0CB18', 'name': 'Start Schufa scoring process', 'incoming': ['StartEvent0'], 'outgoing': ['Delay']}
+{'id': 'sid-3AB94135-0A04-4DAF-B4C0-5557F3363339', 'name': 'Report delay to the frontend', 'incoming': ['Delay'], 'outgoing': ['IntermediateCatchEvent6']}
+{'id': 'sid-ABDA2417-14EE-43ED-A424-FEEF46742469', 'name': 'forward scoring results', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-8F71FEAA-F605-4269-955C-5CC5D3B1FCBB', 'name': 'Conduct scoring (level 1)', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-FFB62462-2AD4-4598-AC5A-E9B2AE7BE29B', 'name': 'Send a message to Bank for delay', 'incoming': ['StartEvent1'], 'outgoing': ['Conduct scoring (level 2)']}
+{'id': 'sid-3045DAB4-0FB4-4F3D-9BF7-13C5B19E3CDF', 'name': 'Scoring results', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-078B420B-2356-48DB-AF59-3186E43F8BEF', 'name': 'Conduct scoring (level 2)', 'incoming': ['Delay?'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-5C39CF6A-D905-4647-BD12-8078BA8C0D8B', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'Delay'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-63E43D31-45A8-4E67-A4DE-35BE7EFCADE5', 'name': 'Delay?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'ExclusiveGateway2']}
+{'id': 'sid-30BC96CB-0D92-4960-8F53-7543FDA178B9', 'name': 'ExclusiveGateway2', 'incoming': ['Conduct scoring (level 1)', 'Conduct scoring (level 2)'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-D0A5477C-44D0-4ECA-8C52-5D4885FE1B9F', 'name': 'EventBasedGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent6', 'forward scoring results']}
+{'id': 'sid-06A4E67A-D41D-4104-B0A8-58DA03D7F4F8', 'name': 'Delay', 'incoming': ['Start Schufa scoring process'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-EE98DD42-769D-41CE-BF14-9D3EF52401A4', 'name': 'IntermediateCatchEvent5', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-3CE51E7B-9116-41AE-882D-B867DD53DEFC', 'name': 'IntermediateCatchEvent6', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-9ADA018A-8146-4AF3-81C3-10887EC225D0', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-0F7E214C-13D3-433A-ACB6-4668431B2658', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Send a message to Bank for delay']}
+
+End Events:
+{'id': 'sid-EE62CCE4-A2E0-41C1-938D-965CFF7FE823', 'name': 'EndEvent0', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': []}
+{'id': 'sid-3EB2B185-3C85-46CB-A2A9-EB70EF52C02E', 'name': 'EndEvent1', 'incoming': ['Delay?'], 'outgoing': []}

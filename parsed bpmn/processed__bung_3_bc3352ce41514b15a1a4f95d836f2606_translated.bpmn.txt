@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-6C77655B-41E4-40F8-9EBE-8363B9CF6566', 'name': 'Check regression case', 'incoming': ['StartEvent0'], 'outgoing': ['is regression?']}
+{'id': 'sid-021E76B5-B9DF-4F3F-8EEA-A87CC770FD69', 'name': 'VN payment request', 'incoming': ['StartEvent0'], 'outgoing': ['Payment']}
+{'id': 'sid-7B94058D-8ABE-46E2-80AE-04066D07C753', 'name': 'Book the entrance', 'incoming': ['Payment'], 'outgoing': ['Regress paid']}
+{'id': 'sid-39055FB0-8BD1-4DCD-95C3-FCD8C09E0E1D', 'name': 'Examination', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-BA52AAFC-1BCF-4239-852B-4F9DD03742F0', 'name': 'Debt collection', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Regressed by debt collection']}
+{'id': 'sid-DBAF6C5F-330F-4D4C-9C13-6D611AAEF014', 'name': 'Regression', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Call Regress']}
+{'id': 'sid-89951F09-CBD8-4FBD-A24D-A2CFCCDE3A54', 'name': 'Close request', 'incoming': ['is regression?'], 'outgoing': ['No regression']}
+
+Gateways:
+{'id': 'sid-DB029CE2-FFC4-47AA-9340-8A240C411858', 'name': 'is regression?', 'incoming': ['StartEvent0'], 'outgoing': ['No regression', 'Regress paid']}
+{'id': 'sid-2AF4C9A6-71D4-4D71-8659-00C5EF1EE39F', 'name': 'Repouch justified?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Call Regress', 'ExclusiveGateway2']}
+{'id': 'sid-046490AF-BD7D-4CC5-9DC6-434861FDB784', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3', 'StartEvent0'], 'outgoing': ['Regressed by debt collection']}
+{'id': 'sid-21E03417-0E74-46B2-AE10-96E814C11196', 'name': 'EventBasedGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['Payment', 'Regression', 'Debt collection']}
+{'id': 'sid-BCBE09C5-94E5-406C-84B8-361ABD375F3A', 'name': 'Payment', 'incoming': ['is regression?'], 'outgoing': ['Regress paid']}
+{'id': 'sid-61A0C8AB-9EA3-490F-8106-6264E956CF91', 'name': 'References', 'incoming': ['StartEvent0'], 'outgoing': ['Call Regress']}
+{'id': 'sid-8F1E73A4-0D79-47AF-9E5A-D77AFC8AE17C', 'name': 'No payment received?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Regressed by debt collection']}
+
+Start Events:
+{'id': 'sid-D89312AD-B853-460E-82EA-3029E8D41BD2', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-1094B9C0-0784-4A73-B44E-DD1E1DEECE16', 'name': 'No regression', 'incoming': ['is regression?'], 'outgoing': []}
+{'id': 'sid-437EFF83-E7BF-4F08-AD02-1E55D844BD56', 'name': 'Regress paid', 'incoming': ['is regression?'], 'outgoing': []}
+{'id': 'sid-00CEE7BA-C1C6-4A74-999A-31642D3F7DEA', 'name': 'Call Regress', 'incoming': ['References'], 'outgoing': []}
+{'id': 'sid-952EFBC9-D32C-42D1-A766-90952CE02AA5', 'name': 'Regressed by debt collection', 'incoming': ['No payment received?'], 'outgoing': []}

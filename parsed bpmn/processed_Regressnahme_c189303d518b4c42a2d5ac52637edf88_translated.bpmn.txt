@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-16D64446-02F8-497A-92F8-D983F712A79E', 'name': 'Examination Regress possible?', 'incoming': ['Message: Regress possible'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-5E0ED4A5-E7BA-4FE0-B112-CFCC7550699F', 'name': 'Send payment request', 'incoming': ['Message: Regress possible'], 'outgoing': ['sid-9C500A21-6279-409B-A442-47D56A151F54']}
+{'id': 'sid-F0A8A3D9-18A1-4C22-92A4-F97416EC6F74', 'name': 'on resubmission', 'incoming': ['sid-DA5EB3B7-96B5-4241-9295-684F073CF91E'], 'outgoing': ['Incoming payment']}
+{'id': 'sid-EDEE711E-A81B-4555-9958-9671541AF8B3', 'name': 'Book the entrance', 'incoming': ['Incoming payment'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-901EDFF2-B10F-4DFB-8FCD-E9D34B5DBBF5', 'name': 'Close', 'incoming': ['Incoming payment'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-1C664785-AA66-4061-BD10-B19DB1F1A803', 'name': 'Proceedings', 'incoming': ['Objection of the UN'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-3F218D41-4B85-47CD-891D-084B0CEC605A', 'name': 'Process of debt collection office', 'incoming': ['EventBasedGateway4'], 'outgoing': ['sid-22FBCFC6-E2DC-4CF0-8F46-BB63784B5B9E']}
+
+Gateways:
+{'id': 'sid-FF37A354-66C7-48DF-9CE7-F96558F1A749', 'name': 'ExclusiveGateway0', 'incoming': ['Message: Regress possible'], 'outgoing': ['ExclusiveGateway2', 'Send payment request']}
+{'id': 'sid-98611F7B-8584-4052-A541-113029EC43C2', 'name': 'Rejection of payment justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-60554710-92DD-4BE7-A46D-629EECF76540', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'EventBasedGateway4', 'Examination Regress possible?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-AD2A6DD0-9B45-47AC-A0AA-BA820EDC6F2E', 'name': 'ExclusiveGateway3', 'incoming': ['Objection of the UN', 'EventBasedGateway4'], 'outgoing': ['Process of debt collection office']}
+{'id': 'sid-585AAFA9-31BB-4E6C-ABE2-E12414BC151E', 'name': 'EventBasedGateway4', 'incoming': ['on resubmission'], 'outgoing': ['EndEvent0', 'Process of debt collection office', 'Rejection of payment justified?']}
+{'id': 'sid-BEF27716-6734-4376-82C6-9F664F160538', 'name': 'Incoming payment', 'incoming': ['on resubmission'], 'outgoing': ['Close']}
+{'id': 'sid-F0A116E8-F11E-45EF-BBA1-F0B7489A4498', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-E91E4BA8-1B46-4D02-8FEB-8DF641EA75FF', 'name': 'Objection of the UN', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-9B4E9D04-8DBD-45F4-9081-F23531630FBD', 'name': 'Message: Regress possible', 'incoming': [], 'outgoing': ['Send payment request']}
+
+End Events:
+{'id': 'sid-F9082E6A-C206-432A-9137-AE82CE927619', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway4', 'sid-7889CAA5-A42C-4894-8D81-936FBA6B8535'], 'outgoing': []}

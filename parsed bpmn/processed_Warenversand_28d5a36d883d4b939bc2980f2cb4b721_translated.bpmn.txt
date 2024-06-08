@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-EDF7102C-901A-4D6E-B19F-EB3A2297D564', 'name': 'Complete insurance', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-1CD713CB-661E-456B-9573-D65C5BD9519B', 'name': 'Specialist', 'incoming': ['Goods ready for dispatch'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-32A80461-2413-4EDD-A4B5-88D8D5C37791', 'name': 'Request offers', 'incoming': ['ParallelGateway3'], 'outgoing': ['sid-688EAD5C-7ADD-42D1-9F5F-7A1ED3F468DF']}
+{'id': 'sid-774B1A67-F9D7-4728-9E35-C6B4633BDD6E', 'name': 'Filling the package note', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-04B1738C-8267-4888-948C-7F9E9F510499', 'name': 'Special offer\nSelect', 'incoming': ['sid-120380C7-712B-4B3B-8DF4-F4D6232D175F'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-FC55DA5A-7075-478D-89B7-F4783361F01B', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['Provide goods for collection']}
+{'id': 'sid-424C83C5-D6A9-40DA-8B64-5134616E18A4', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+
+Gateways:
+{'id': 'sid-DF7C7B8D-9A8A-409E-8DC9-01FC29C60ECF', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway2', 'Request offers']}
+{'id': 'sid-4614DBFB-D6DB-47A2-AFA3-5C92848D4F73', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Goods can be sent', 'ExclusiveGateway2']}
+{'id': 'sid-FF3537C0-6C1A-45E8-A00D-EB2B16C2076D', 'name': 'ExclusiveGateway2', 'incoming': ['Special offer\nSelect', 'Filling the package note', 'ExclusiveGateway0'], 'outgoing': ['Goods can be sent']}
+{'id': 'sid-09BDD6E4-9F10-4378-B590-FF6C68F666D0', 'name': 'ParallelGateway3', 'incoming': ['Goods ready for dispatch'], 'outgoing': ['Request offers', 'Provide goods for collection']}
+{'id': 'sid-B36EB855-1A4D-4416-9C21-915C869944FD', 'name': 'ParallelGateway4', 'incoming': ['Complete insurance', 'Provide goods for collection'], 'outgoing': ['Goods can be sent']}
+
+Start Events:
+{'id': 'sid-52703793-3B40-4CC0-8302-63D7CDFE0680', 'name': 'Goods ready for dispatch', 'incoming': [], 'outgoing': ['Specialist']}
+
+End Events:
+{'id': 'sid-49F5CADA-7EC0-4734-8BE3-A443CCFB747A', 'name': 'Goods can be sent', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}

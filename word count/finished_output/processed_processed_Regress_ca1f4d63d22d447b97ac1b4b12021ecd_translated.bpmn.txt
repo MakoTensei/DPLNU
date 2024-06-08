@@ -1,0 +1,13 @@
+ In a system where various tasks and gateways interact, the following sequence of events unfolds:
+
+When a "Regress reported" event occurs, it triggers the "ExclusiveGateway0" to process the incoming request. This gateway then sends out two outgoing messages: "justified?" and "Close." The "justified?" message is received by the "justified?" gateway, which in turn sends out "Close" and "Process for me completed" messages.
+
+Meanwhile, the "Regress reported" event also triggers the "Money received" task, which has incoming connections to "ExclusiveGateway0" and "IntermediateCatchEvent4." The "Money received" task sends out a "Close" message upon completion.
+
+The "Opposition arrived" event, with incoming connections to "ExclusiveGateway0" and "IntermediateCatchEvent4," results in the "Opposition arrived" task sending out a "Close" message.
+
+The "IntermediateCatchEvent4" event, with incoming connections to "send payment request," triggers the "Book the entrance" task, which sends out a "Close" message. It also triggers the "Process for me completed" task twice, sending out the same message twice.
+
+Lastly, the "send payment request" event, with incoming connections to "Regress reported" and "IntermediateCatchEvent4," triggers the "send payment request" task. This task sends out "Respondent deadline expired" and "justified?" messages. The "Respondent deadline expired" message is received by the "Respondent deadline expired" gateway, which sends out "Process for me completed" message.
+
+The system concludes with two "Process for me completed" events, one triggered by the "justified?" gateway and the other by the "Respondent deadline expired" gateway. Both events have incoming connections from "IntermediateCatchEvent4."

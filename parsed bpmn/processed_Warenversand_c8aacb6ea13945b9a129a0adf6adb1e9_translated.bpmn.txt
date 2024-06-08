@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-5D121A32-9E3E-4AA7-8FEE-682938F6A38C', 'name': 'Check your order', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-53E05855-FD23-42D3-8515-1D359D1198C1', 'name': 'Filling the package note\n', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-9C4EDA56-B53B-4897-9B7D-65791AB7A4B2', 'name': 'Pick up offers\n', 'incoming': ['Check quantity?\n'], 'outgoing': ['Select your offer\n']}
+{'id': 'sid-EBADD745-5AFA-47A3-B753-BBBBBDE80548', 'name': 'Select your offer\n', 'incoming': ['Check quantity?\n'], 'outgoing': ['sid-3D0051DC-CD12-402D-A3E1-FC8DB626D173']}
+{'id': 'sid-96B7B53A-952F-4DF1-B238-43A33F2B9D6E', 'name': 'Packaging goods\n', 'incoming': ['sid-1B0B100C-31E2-4EE7-9264-CAD9573A4B0F'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-F1D7ACB8-55C6-40D2-B9E0-2A05CDABED07', 'name': 'Delivering goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['Shipment\n']}
+{'id': 'sid-C1450C08-9815-4EA5-A2EC-8CFA06964D33', 'name': 'Fill in insurance card\n', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway5']}
+
+Gateways:
+{'id': 'sid-9F2AD045-E203-4E8E-9BF8-B0E8DA55EDC1', 'name': 'Check quantity?\n', 'incoming': ['StartEvent0'], 'outgoing': ['Select your offer\n', 'Close insurance?\n']}
+{'id': 'sid-26B5475A-35A3-465C-9622-DDCD48EB41CB', 'name': 'Close insurance?\n', 'incoming': ['StartEvent0'], 'outgoing': ['Fill in insurance card\n', 'sid-16DAF87A-A590-4E2B-AB62-48DE946181CC']}
+{'id': 'sid-A689ACB7-FCB6-45FD-85D1-4590FD1B525C', 'name': 'ParallelGateway2', 'incoming': ['Check your order'], 'outgoing': ['Fill in insurance card\n', 'ParallelGateway3']}
+{'id': 'sid-AB4906A7-ADED-4682-83D6-C9A56435AD18', 'name': 'ParallelGateway3', 'incoming': ['ParallelGateway2'], 'outgoing': ['sid-3161C75F-6553-4398-BC8F-24EBA60A7B7A']}
+{'id': 'sid-94FE5454-DCFD-43BC-8F87-023C829A4C11', 'name': 'ParallelGateway4', 'incoming': ['Packaging goods\n'], 'outgoing': ['Shipment\n']}
+{'id': 'sid-354C1025-D2FE-4467-84E3-3920534A128B', 'name': 'ParallelGateway5', 'incoming': ['Fill in insurance card\n'], 'outgoing': []}
+
+Start Events:
+{'id': 'sid-DC7BC634-B590-4DFF-AB00-7B555A6A3DAB', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Close insurance?\n']}
+
+End Events:
+{'id': 'sid-74B3496A-1CCE-476D-99C4-E8742969D88F', 'name': 'Shipment\n', 'incoming': ['ParallelGateway4'], 'outgoing': []}

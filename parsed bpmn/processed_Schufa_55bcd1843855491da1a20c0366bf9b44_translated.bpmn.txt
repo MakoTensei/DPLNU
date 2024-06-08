@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-381E9C8B-B4B7-4D93-A881-D05FBB126601', 'name': 'Request scoring', 'incoming': ['Scoring\nrequested'], 'outgoing': ['Answer']}
+{'id': 'sid-31A7B1BA-9831-4D94-B552-A062506D3970', 'name': 'Share the result', 'incoming': ['Scoring\nrequested'], 'outgoing': ['Request\nFinished']}
+{'id': 'sid-9E7B3A64-AA10-4B3B-8C55-F6D51EEA8102', 'name': 'Share intermediate result', 'incoming': ['Answer'], 'outgoing': ['Results obtained']}
+{'id': 'sid-D7A2AA95-CDFE-4156-B2C9-549825462C9A', 'name': 'Share the result', 'incoming': ['Results obtained'], 'outgoing': []}
+{'id': 'sid-667152A2-AB15-4CCA-AC4C-AC6FFDFB60CA', 'name': 'perform first scoring (level 1)', 'incoming': ['Scoring requested'], 'outgoing': ['Result check']}
+{'id': 'sid-9E7F9E2B-EC59-4862-B327-960043B0E6D8', 'name': 'Result check', 'incoming': ['Scoring requested'], 'outgoing': ['Result there?']}
+{'id': 'sid-7C1464A9-040C-4034-92D2-8D372C44B0EB', 'name': 'send positive message', 'incoming': ['Scoring requested'], 'outgoing': []}
+{'id': 'sid-411BED5D-9E4B-477B-8982-F612D950E233', 'name': 'Announce delay', 'incoming': ['Result there?'], 'outgoing': ['Level 2 scoring']}
+{'id': 'sid-25662E0E-E6AA-4D41-B08B-130063E703E8', 'name': 'Level 2 scoring', 'incoming': ['Result there?'], 'outgoing': ['Share result']}
+{'id': 'sid-23555E24-CD8F-4E0C-BECA-32D1E32EAD80', 'name': 'Share result', 'incoming': ['Result there?'], 'outgoing': ['Request edited']}
+
+Gateways:
+{'id': 'sid-F15F1204-30AB-482E-9278-7F6FF2004A64', 'name': 'Result there?', 'incoming': ['Scoring requested'], 'outgoing': ['send positive message', 'Request edited']}
+{'id': 'sid-38A05AA2-EDAF-401A-B53E-0D85BBCDC9E2', 'name': 'Type of response', 'incoming': ['Scoring\nrequested'], 'outgoing': ['Request\nFinished', 'Results obtained']}
+{'id': 'sid-232BC506-D73E-4003-9757-FCC4ABEE3681', 'name': 'Answer', 'incoming': ['Request scoring'], 'outgoing': ['Request\nFinished']}
+{'id': 'sid-D2832CA3-486B-4D8C-8A0F-9C55E5770376', 'name': 'Answer', 'incoming': ['Scoring\nrequested'], 'outgoing': ['Results obtained']}
+{'id': 'sid-17A9EAE6-C918-47E2-ADF0-B5C00839CCD5', 'name': 'Results obtained', 'incoming': ['Type of response'], 'outgoing': ['Share the result']}
+
+Start Events:
+{'id': 'sid-6C43114B-9473-44F7-9436-BC3C52DEA075', 'name': 'Scoring\nrequested', 'incoming': [], 'outgoing': ['Share the result']}
+{'id': 'sid-EEF3B397-C7AD-40F7-94D0-46971F730D24', 'name': 'Scoring requested', 'incoming': [], 'outgoing': ['send positive message']}
+
+End Events:
+{'id': 'sid-42DC6CA8-D8CB-4F19-8D1E-EE251AF8069B', 'name': 'Request\nFinished', 'incoming': ['Type of response'], 'outgoing': []}
+{'id': 'sid-75B62FC4-5640-49F6-AB30-B651532A47E9', 'name': 'Request edited', 'incoming': ['Result there?'], 'outgoing': []}

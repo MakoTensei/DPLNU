@@ -1,0 +1,9 @@
+ In the event of a regression, the system initiates a series of checks and processes to ensure the integrity of the system. The process begins with a 'Regression' event, which triggers a 'Send a message' task to create an object template. This task is then followed by a 'Check regression' task, which evaluates the regression and determines if it is justified. If the regression is justified, the system proceeds to the 'ExclusiveGateway3' task, which leads to the 'Process' task.
+
+If the regression is not justified, the system sends a message to 'ExclusiveGateway1', which can result in either 'Not justified' or 'EndEvent1' tasks. In the case of 'Not justified', the system may also send a message to 'ExclusiveGateway2'.
+
+Additionally, the system monitors for 'Money received' events, which, upon occurrence, initiate a 'Process' task.
+
+The system also keeps track of the 'Date of expiry' for 14 days, which, when reached, triggers an 'EndEvent1' task.
+
+In summary, the system follows a flow where a 'Regression' event leads to a series of checks and decisions, ultimately resulting in either a 'Process' task or an 'EndEvent1' task, depending on the outcome of the regression check.

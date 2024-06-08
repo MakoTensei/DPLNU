@@ -1,0 +1,42 @@
+ Flowchart Description:
+
+1. Start Event: Hunger
+   - Outgoing: Pick up food
+
+2. Gateway: wait till Ordering task possible
+   - Incoming: Hunger
+   - Outgoing: on food wait
+
+3. Task: Add your order
+   - Incoming: on food wait
+   - Outgoing: Enter your order in the cash register system
+
+4. Gateway: EventBasedGateway0
+   - Incoming: Food in the enriched
+   - Outgoing: 5 min.
+
+5. Task: Select a court
+   - Incoming: 5 min.
+   - Outgoing: Prepare meal
+
+6. Task: Preparation of meal
+   - Incoming: meal order is arrived
+   - Outgoing: Putting the meal into the reach
+
+7. Gateway: EventBasedGateway0
+   - Incoming: Food in the enriched
+   - Outgoing: Guest meets
+
+8. Task: Retrieve guest
+   - Incoming: 5 min.
+   - Outgoing: Deliver food
+
+9. Task: Deliver food
+   - Incoming: Guest gives order on
+   - Outgoing: Inform employees about meal in the mountains
+
+10. End Event: EndEvent0
+    - Incoming: Food can retrieved
+    - Outgoing: None
+
+This flowchart describes the process of a guest ordering food at a restaurant, from the initial hunger trigger to the delivery of the meal. The process includes gateways to manage the flow of tasks and events, ensuring that the guest's order is prepared and delivered efficiently.

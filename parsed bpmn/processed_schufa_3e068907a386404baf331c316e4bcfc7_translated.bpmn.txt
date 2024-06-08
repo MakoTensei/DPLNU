@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-6339198F-53B9-44CC-B850-F2A77B2D91EF', 'name': 'Send scoring request to the Schufa', 'incoming': ['Scoring\nRequired'], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-BD699536-D276-4E93-A347-820CD127DD2C', 'name': 'Scoring result back', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-2847A104-AE98-40B1-B14A-35900B228C5E', 'name': 'Send result to the bank', 'incoming': ['Can the result\nsmart delivered?'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-A0B08DF2-EDA5-412A-A2FB-234CE15236D3', 'name': 'Delay notification', 'incoming': ['Can the result\nsmart delivered?'], 'outgoing': ['sid-8E3D1C49-AC86-420A-B0F4-307210468353']}
+{'id': 'sid-90676302-5DCD-4514-B84A-9F90EEEB036F', 'name': 'Send result to the bank', 'incoming': ['sid-9575D9BA-3262-4413-98EF-720993FD0BEC'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-E84E4EA2-E79B-4394-82AA-7C384952E975', 'name': 'Delay?', 'incoming': ['Scoring\nRequired'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-8FAD0240-7E38-4EC4-88A7-B3D0DB5AAD69', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring\nRequired', 'IntermediateCatchEvent5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-25199159-0969-424C-89F8-46F0C9C0A2DF', 'name': 'Can the result\nsmart delivered?', 'incoming': ['sid-DA7FB567-9A96-4994-B27E-BB4CA7D58FD0'], 'outgoing': ['Delay notification', 'EndEvent1']}
+{'id': 'sid-CF372E9E-7AA7-4121-855C-7DF76E1DF182', 'name': 'ExclusiveGateway3', 'incoming': ['Send result to the bank', 'Send result to the bank'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-2BD8C5E9-4942-42FB-885C-9634306016CD', 'name': 'IntermediateCatchEvent4', 'incoming': ['Delay?'], 'outgoing': ['Scoring result back']}
+{'id': 'sid-5AC381C9-C38D-4745-BBD2-8E0AA8B0CC39', 'name': 'IntermediateCatchEvent5', 'incoming': ['Scoring\nRequired'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-2BBCAAB3-2E90-447D-8E72-182CC25C6ECF', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['sid-EB3E7230-BFE6-4E6B-85C9-DB661BDEB3BB']}
+
+End Events:
+{'id': 'sid-0BD9655E-4F8F-41A8-9E38-A6966061E351', 'name': 'EndEvent0', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': []}
+{'id': 'sid-D0CBD376-CB55-4ACB-B0D6-56C72F16CD72', 'name': 'EndEvent1', 'incoming': ['Can the result\nsmart delivered?'], 'outgoing': []}

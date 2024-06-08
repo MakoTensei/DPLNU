@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-85CC819D-BE96-4C4F-927E-70D00E5A5584', 'name': 'Pick up shipping information', 'incoming': ['Goods\nbe sent'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-60B8DD9B-D170-4779-95CC-D9F1E571010B', 'name': 'Offers\nenroll', 'incoming': ['Goods\nbe sent'], 'outgoing': ['Select your offer']}
+{'id': 'sid-0C1DC69B-8D45-4BA8-8AD8-0CCD8F558C4E', 'name': 'Select your offer', 'incoming': ['Special delivery\nnecessary?'], 'outgoing': ['freight forwarders\ncommission']}
+{'id': 'sid-C75BE0C5-F626-4D76-8AF9-3F8B01D60793', 'name': 'freight forwarders\ncommission', 'incoming': ['Special delivery\nnecessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-D78072EC-9DE5-4E08-8686-A0CA7B02002C', 'name': 'Filling the package note', 'incoming': ['Special delivery\nnecessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-28A06223-60D0-4A5F-8036-53BD47425020', 'name': 'Complete insurance', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-277BB76A-9D04-4607-96AF-853AC24A8A08', 'name': 'Goods\npackaging', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-92CDE791-AFCC-44D8-BEBA-6180FCCA25B2', 'name': 'Goods\nPickup\nready', 'incoming': ['ParallelGateway4'], 'outgoing': ['Ship ready']}
+
+Gateways:
+{'id': 'sid-B30CC5CA-93E9-49D4-AB1D-C9514A6C941B', 'name': 'Special delivery\nnecessary?', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4', 'ExclusiveGateway2']}
+{'id': 'sid-0C06D93F-8035-4BFC-9F7D-7A5FFF753361', 'name': 'Insurance\nnecessary?', 'incoming': ['Special delivery\nnecessary?'], 'outgoing': ['ExclusiveGateway2', 'ParallelGateway4']}
+{'id': 'sid-8CF0FE5C-E59B-4B64-ADA4-41ADFE03DC6F', 'name': 'ExclusiveGateway2', 'incoming': ['Special delivery\nnecessary?', 'Insurance\nnecessary?', 'Filling the package note'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-1655201D-FF08-4EFF-8A4B-126F7AAFD776', 'name': 'ParallelGateway3', 'incoming': ['Goods\nbe sent'], 'outgoing': ['Offers\nenroll', 'ParallelGateway4']}
+{'id': 'sid-81DD9A53-A83E-4792-BE9F-4D96632A8A33', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway3', 'Special delivery\nnecessary?'], 'outgoing': ['Ship ready']}
+
+Start Events:
+{'id': 'sid-036AEDBF-0D69-4523-AD15-174CA125C37F', 'name': 'Goods\nbe sent', 'incoming': [], 'outgoing': ['Offers\nenroll']}
+
+End Events:
+{'id': 'sid-B7E54173-0CE0-462B-BDDE-6C4921F594F9', 'name': 'Ship ready', 'incoming': ['ParallelGateway4'], 'outgoing': []}

@@ -1,0 +1,35 @@
+Tasks:
+{'id': 'sid-883EC2C3-9688-4B98-9486-DBF54EE4407D', 'name': 'Order the Court', 'incoming': ['Guest would like to eat'], 'outgoing': ['Payments']}
+{'id': 'sid-4FF43E6C-64EC-4D40-B842-13E468AA5ED6', 'name': 'Payments', 'incoming': ['Guest would like to eat'], 'outgoing': ['wait until Pieper reports']}
+{'id': 'sid-71749941-8C28-4B6C-9B1D-1A7B61A6F917', 'name': 'Pick up food', 'incoming': ['Guest would like to eat'], 'outgoing': ['Eat meal']}
+{'id': 'sid-6C177A75-E91E-4317-9D53-4D9D9FBDF132', 'name': 'Eat meal', 'incoming': ['Pieper reports'], 'outgoing': ['Famine']}
+{'id': 'sid-5AF6FF57-7F99-4A56-BC6F-930EF54AA563', 'name': 'Edit your order', 'incoming': ['Order to receive'], 'outgoing': ['Request money']}
+{'id': 'sid-5A0DF23A-66F8-4FA2-AFD1-C0CE70BE0195', 'name': 'Request money', 'incoming': ['Order to receive'], 'outgoing': ['Get money']}
+{'id': 'sid-D8629017-16C6-4C90-8DA8-9603961D05D2', 'name': 'Pieper handed over to guest', 'incoming': ['Order to receive'], 'outgoing': ['Koch inform\n']}
+{'id': 'sid-198819E3-96DA-4A14-828D-8857D3EC6E79', 'name': 'Koch inform\n', 'incoming': ['Get money'], 'outgoing': ['meal is ready\n']}
+{'id': 'sid-EDC32083-1AFC-42BF-8077-7115DBC85DCF', 'name': 'Trigger Pieper', 'incoming': ['meal is ready\n'], 'outgoing': ['5 minutes waiting']}
+{'id': 'sid-36ED8DB7-0F68-453B-A18A-1EEE56EB38FA', 'name': 'Retrieve the guest', 'incoming': ['5 minutes waiting'], 'outgoing': []}
+{'id': 'sid-DE14CE5F-E945-4C14-8113-FB10AD134348', 'name': 'Leave food', 'incoming': ['meal is ready\n'], 'outgoing': ['Milling time handed out']}
+{'id': 'sid-DD682A4A-7A17-4B09-9EA0-8CA4BE0768B9', 'name': 'Preparation of meal', 'incoming': ['Order to receive'], 'outgoing': ['Putting meal in vain']}
+{'id': 'sid-A2884BBC-EC76-4147-BF72-D352EE854ED0', 'name': 'Putting meal in vain', 'incoming': ['Order to receive'], 'outgoing': ['inform employees']}
+{'id': 'sid-35FD5EBF-1F3D-4E9F-A1AF-52D705678C14', 'name': 'inform employees', 'incoming': ['Order to receive'], 'outgoing': ['Order executed']}
+
+Gateways:
+{'id': 'sid-7BAFDDBA-BA31-4CE4-936F-9679ADDE2000', 'name': 'EventBasedGateway0', 'incoming': ['Get money', 'sid-4BA45A4C-A676-476A-A5EF-2E304806A887'], 'outgoing': ['Milling time handed out', '5 minutes waiting']}
+{'id': 'sid-7274F7DB-A5E7-4EA9-A902-A62BFC751220', 'name': 'Get Pieper', 'incoming': ['Guest would like to eat'], 'outgoing': ['Famine']}
+{'id': 'sid-60DD3B7A-0983-4528-8C79-23F294A6D1F1', 'name': 'wait until Pieper reports', 'incoming': ['Payments'], 'outgoing': ['Pieper reports']}
+{'id': 'sid-BC259DDE-3DBF-4B9A-BD25-A4FC2EDA1E7B', 'name': 'Pieper reports', 'incoming': ['Guest would like to eat'], 'outgoing': ['Famine']}
+{'id': 'sid-58FC322B-5E7C-4ECF-A5C2-431567B21F3F', 'name': 'Get money', 'incoming': ['Order to receive'], 'outgoing': ['Milling time handed out']}
+{'id': 'sid-00CF9B34-DAB7-4033-8975-0E26FE06F0AD', 'name': '5 minutes waiting', 'incoming': ['Trigger Pieper'], 'outgoing': ['Retrieve the guest']}
+{'id': 'sid-A6C3008A-FD9A-4E78-B66E-4E6708DAE3DE', 'name': 'Guest collects food', 'incoming': ['meal is ready\n'], 'outgoing': ['Milling time handed out']}
+{'id': 'sid-E107A4DC-0FDC-4B25-A141-BE52701354D0', 'name': 'meal is ready\n', 'incoming': ['Get money'], 'outgoing': ['Leave food']}
+
+Start Events:
+{'id': 'sid-F6361E8B-8D30-4037-BF2F-7BCD2F5548A6', 'name': 'Guest would like to eat', 'incoming': [], 'outgoing': ['Pick up food']}
+{'id': 'sid-6EFB8B8D-B2C8-4CF8-8160-888B9E86C163', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Pieper handed over to guest']}
+{'id': 'sid-441541F8-7005-4AC9-ADE8-EE368BEBC77D', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-BE65D1FC-5C77-479B-A423-923B468EE778', 'name': 'Famine', 'incoming': ['Get Pieper'], 'outgoing': []}
+{'id': 'sid-D9A9BB2F-891A-41B5-A8AB-6309EB36F8A4', 'name': 'Milling time handed out', 'incoming': ['Get money'], 'outgoing': []}
+{'id': 'sid-30D1E454-C367-4B83-B334-33FB32EAB9C7', 'name': 'Order executed', 'incoming': ['inform employees'], 'outgoing': []}

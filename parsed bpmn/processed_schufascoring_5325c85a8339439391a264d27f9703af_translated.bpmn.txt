@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-8C9ADC25-C2BC-4948-85EE-C7F26F8CE302', 'name': 'Start scoring request', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring result\narrived']}
+{'id': 'sid-E0189A58-8B78-4C10-ABB4-F3F553AFDF6C', 'name': 'Prepare scoring result for Frontend', 'incoming': ['Scoring result\narrived'], 'outgoing': ['scoring was carried out']}
+{'id': 'sid-94A6FA81-4385-43C6-9D41-2A99A02627DB', 'name': 'Report a enquiry to Frontend', 'incoming': ['Scoring\nRequired'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-9143569B-6997-4884-889A-A3749FF1A4A4', 'name': 'Conduct Level1', 'incoming': ['Scoring request\nReport'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-D7B28A46-CE3E-46C7-BDD1-FBCC0B505E57', 'name': 'Prepare Scoringer Genis\n', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Scoring result\nsent']}
+{'id': 'sid-933FD085-A0EE-488C-A16C-A949AB9C92AE', 'name': 'Conduct Level2\n', 'incoming': ['sid-21274E27-FB02-486B-B6ED-DA6401A3007B'], 'outgoing': ['Scoring result\nsent']}
+
+Gateways:
+{'id': 'sid-E51C3F4C-FDC8-4AA3-9505-235685A33E57', 'name': 'Scoring result\nis it?', 'incoming': ['Scoring request\nReport'], 'outgoing': ['ExclusiveGateway1', 'sid-BE96CD77-7608-45C7-B9FD-945B8076149A']}
+{'id': 'sid-E6FDE971-FE8A-49BE-B2CA-29E619207EA9', 'name': 'ExclusiveGateway1', 'incoming': ['Conduct Level1', 'Conduct Level2\n'], 'outgoing': ['Scoring result\nsent']}
+{'id': 'sid-AFB6DC34-E7EA-4527-815F-72A716C247AE', 'name': 'EventBasedGateway2', 'incoming': ['Scoring\nRequired', 'EventBasedGateway2'], 'outgoing': ['scoring was carried out', 'EventBasedGateway2']}
+{'id': 'sid-91051BDF-992D-4546-A129-7DF46C8FD801', 'name': 'Scoring result\narrived', 'incoming': ['Start scoring request'], 'outgoing': ['scoring was carried out']}
+{'id': 'sid-E739DBD2-1014-4A96-9F36-5AD711248224', 'name': 'Delay message\narrived', 'incoming': ['Scoring\nRequired'], 'outgoing': ['scoring was carried out']}
+
+Start Events:
+{'id': 'sid-19A153C0-D641-4FFC-B7CA-9F6F1E8D75EF', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['Report a enquiry to Frontend']}
+{'id': 'sid-6B151811-ADBC-45D1-B40F-8176E791F97B', 'name': 'Scoring request\nReport', 'incoming': [], 'outgoing': ['Scoring result\nis it?']}
+
+End Events:
+{'id': 'sid-35EAB414-80AB-43D6-A927-9B921EBCEBB3', 'name': 'scoring was carried out', 'incoming': ['Delay message\narrived'], 'outgoing': []}
+{'id': 'sid-C7324598-7DD1-4EAD-B743-8DBFC4C940D1', 'name': 'Scoring result\nsent', 'incoming': ['Conduct Level2\n'], 'outgoing': []}

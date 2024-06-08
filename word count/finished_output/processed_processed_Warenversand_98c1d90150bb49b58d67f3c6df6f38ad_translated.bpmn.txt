@@ -1,0 +1,13 @@
+ A shipment arrives, triggering a series of tasks and gateways to ensure its proper handling. The process begins with the 'Shipment' start event, which initiates 'Task1' for handling the shipment. Simultaneously, 'Special shipment?' is received by 'Special shipment?' gateways, leading to 'Task0' and 'Task1' outgoing tasks. 'Task0' is responsible for identifying if there's a special shipment, while 'Task1' handles the shipment itself.
+
+
+'Task1' then connects to 'ParallelGateway3', which receives the 'Special shipment?' signal and directs the shipment to 'Packaging goods'. Concurrently, 'Special shipment?' also triggers 'fill out the parcel certificate' task, which in turn connects to 'ExclusiveGateway2'.
+
+
+'ExclusiveGateway2' handles the 'Special shipment?' and 'ParallelGateway4' inputs, sending the shipment to 'EndEvent0'. Meanwhile, 'ParallelGateway3' sends the shipment to 'Packaging goods', and 'ParallelGateway4' sends the shipment to 'ExclusiveGateway2' twice.
+
+
+Additionally, 'Offer 1' and 'Offer 2' tasks are connected to 'ParallelGateway4', which also sends the shipment to 'EndEvent0'. Lastly, 'Insurance close' task is triggered by 'Insurance required?' and connects to 'ExclusiveGateway2', which also sends the shipment to 'EndEvent0'.
+
+
+In summary, the shipment process involves multiple tasks and gateways, ensuring that the shipment is properly handled, packaged, and insured. The process concludes with the 'EndEvent0', signifying the completion of the shipment handling.

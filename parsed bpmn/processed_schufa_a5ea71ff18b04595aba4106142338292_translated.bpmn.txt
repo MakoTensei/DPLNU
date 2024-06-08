@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-8B77F564-833C-4F06-8704-C39433BBBA70', 'name': 'Determine Schufascore', 'incoming': ['Starts scoring'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-3AC8449E-EC7D-4196-BF5F-585F3C82CE46', 'name': 'Positive result obtained', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9CF6D9B4-A3CD-4274-A89E-815F43294708', 'name': 'Get final result', 'incoming': ['Starts scoring'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-40969601-9A0C-4F18-9D70-8AFC021EB242', 'name': 'Scoring Level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring is fixed?']}
+{'id': 'sid-006D9802-E9B6-4234-AC2D-A9EDA87F7A93', 'name': 'Send result to BAnk', 'incoming': ['StartEvent1'], 'outgoing': ['Send result to credit award']}
+{'id': 'sid-6175D84B-72B6-465C-9B89-9D311C7E20B1', 'name': 'Send result to credit award', 'incoming': ['Scoring is fixed?'], 'outgoing': []}
+{'id': 'sid-E128263A-1E6D-4728-9A3C-E22C41BAC0A9', 'name': 'Report deceleration', 'incoming': ['Scoring is fixed?'], 'outgoing': ['Scoring Level 2']}
+{'id': 'sid-B0A60036-EAC4-471C-9251-136899318338', 'name': 'Scoring Level 2', 'incoming': ['Scoring is fixed?'], 'outgoing': ['a few minutes']}
+{'id': 'sid-A4283B84-1A04-41E4-810A-060BCA956540', 'name': 'Send final result to Bank', 'incoming': ['a few minutes'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-0B3AC04B-14BD-4FBB-BD84-2B995B4F7569', 'name': 'Scoring is fixed?', 'incoming': ['StartEvent1'], 'outgoing': ['Send result to credit award', 'a few minutes']}
+{'id': 'sid-A25476B9-48D1-4615-AF4C-46FAC6651D59', 'name': 'EventBasedGateway1', 'incoming': ['Starts scoring', 'EventBasedGateway1'], 'outgoing': ['EndEvent0', 'EndEvent0', 'EndEvent0']}
+{'id': 'sid-2CCAF507-DD3C-4228-9C11-1A3E15C95B9F', 'name': 'IntermediateCatchEvent2', 'incoming': ['Determine Schufascore'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-7EDB0E9C-0DC6-4C98-813B-67327020F8BD', 'name': 'IntermediateCatchEvent3', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-4280CC76-09E9-441A-832D-D9D6E0F54B39', 'name': 'IntermediateCatchEvent4', 'incoming': ['Starts scoring'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F00D69FC-B758-4998-9363-BFDD95F465F9', 'name': 'a few minutes', 'incoming': ['Scoring is fixed?'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-D2F2BD78-6042-40D3-A68E-CFA68D2D932A', 'name': 'Starts scoring', 'incoming': [], 'outgoing': ['Get final result']}
+{'id': 'sid-3F6E3468-72C9-4D71-934E-9633F24DB726', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Send result to BAnk']}
+
+End Events:
+{'id': 'sid-F24009E9-4A27-42FF-889B-BA4588D2CBE9', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1', 'EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-F83A8E57-02FD-4ACF-985E-15284CE2BB4C', 'name': 'EndEvent1', 'incoming': ['a few minutes'], 'outgoing': []}

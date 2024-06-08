@@ -1,0 +1,16 @@
+Tasks:
+{'id': 'sid-E6CA6435-24A2-4667-B8F2-94E6DFB39DF5', 'name': 'Start your search', 'incoming': ['StartEvent0'], 'outgoing': ['further work']}
+{'id': 'sid-6FC34587-D7D3-4B66-AD15-C66AE5C5F0D5', 'name': 'further work', 'incoming': ['StartEvent0'], 'outgoing': []}
+{'id': 'sid-D7013E1F-3F22-4956-B263-DE674D0AFFDB', 'name': 'Scoring Level 1', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-2AF16EA4-778D-4DBB-9E2F-2AF62EF42D9F', 'name': 'Scoring Level 2', 'incoming': ['sid-8CC033C4-8190-4DB3-8B22-2316DF678C80'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-514966D0-A4E7-4EEF-A31E-BC8CB5272B20', 'name': 'Successful?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent0', 'sid-665418F2-BA0B-4C8B-8557-E6DC2141F2BF']}
+
+Start Events:
+{'id': 'sid-683B2698-C3C5-47E5-944D-EAB02518CDB4', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['further work']}
+{'id': 'sid-DB3DE195-C4E6-4B2E-A7B6-9E0D77BD63DF', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Successful?']}
+
+End Events:
+{'id': 'sid-FAA202DA-29D2-4153-A41B-230984E1351A', 'name': 'EndEvent0', 'incoming': ['Scoring Level 1'], 'outgoing': []}
+{'id': 'sid-F97CA2FD-211C-464C-B7F2-7CC63C3BFA85', 'name': 'EndEvent1', 'incoming': ['Scoring Level 2'], 'outgoing': []}

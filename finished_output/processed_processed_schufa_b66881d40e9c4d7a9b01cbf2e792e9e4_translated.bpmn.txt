@@ -1,0 +1,9 @@
+ In a system designed to handle credit requests and scoring levels, there are several tasks and gateways that work together to process and report on the scoring levels. When a 'Request\nCredit' event is initiated, it triggers the 'Level 1 Scoring' task, which then sends an 'ExclusiveGateway0' event to start the process. If the scoring is successful, an 'EndEvent0' event is generated, marking the completion of the Level 1 scoring.
+
+Simultaneously, the 'Level 1 Scoring' task also sends a 'Report level 1' event to the 'Report level 1' task, which generates an 'EndEvent0' event upon completion. If the scoring is not yet available, the 'Wait for Level 2 message' task is triggered, sending an 'EndEvent0' event to indicate the waiting state.
+
+In case the Level 1 scoring is not present, the 'Check if Level 1 scoring is present' task is initiated, which sends an 'ExclusiveGateway1' event to start the process. If the Level 1 scoring is not present, the 'Report that Level 1 is not present' task is triggered, sending an 'EndEvent1' event to indicate the absence of Level 1 scoring.
+
+The 'Level 1 Scoring Return' task, triggered by the 'Sufa\nRequest' event, sends an 'EndEvent1' event upon completion. If Level 1 scoring is not present, the 'Level 2 scoring\ncalculate and\nReport back' task is initiated, sending an 'EndEvent1' event to indicate the completion of Level 2 scoring.
+
+The 'ExclusiveGateway0' and 'ExclusiveGateway1' gateways handle the incoming and outgoing events for their respective tasks, ensuring that the system processes and reports on the credit scoring levels efficiently.

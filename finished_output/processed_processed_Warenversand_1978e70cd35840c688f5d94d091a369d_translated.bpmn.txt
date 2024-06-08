@@ -1,0 +1,7 @@
+ Upon the dispatch of goods, the process initiates with the 'Goods dispatched they are' event, which triggers the 'ExclusiveGateway2' to handle the incoming request. This gateway then directs the process to 'ParallelGateway3', where the 'Fill out standard package voucher' task is executed. Following this, the 'ParallelGateway3' sends the request to 'ExclusiveGateway2' again to obtain the desired type of shipping. Concurrently, the 'Request a quote' task is activated, prompting the'spediteur commission' gateway to process the shipping type inquiry. Once the shipping type is determined, the'spediteur commission' gateway sends the request back to 'ExclusiveGateway2'.
+
+Simultaneously, the 'Check shipping mode' task is triggered by the 'Goods dispatched they are' event, which also routes to 'ParallelGateway3'. This task ensures that the shipping mode is verified before proceeding.
+
+After obtaining the shipping details, the 'Provide goods for collection' task is initiated, which sends the goods to 'ParallelGateway4'. This gateway then connects to the 'Shipping prepared' task, which finalizes the process by preparing the shipment for dispatch.
+
+In summary, the process begins with the dispatch of goods, followed by a series of tasks and gateways that handle various aspects of the shipping process, ultimately leading to the preparation of the shipment for dispatch.

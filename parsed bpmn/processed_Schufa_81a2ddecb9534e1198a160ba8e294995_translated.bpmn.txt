@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-C998BE51-F6A4-4654-96F1-BA477E250C1E', 'name': 'Pick up Schufascoring', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway1']}
+{'id': 'sid-673E5B34-410A-4991-8853-131837CE8E43', 'name': 'Completion of work', 'incoming': ['ParallelGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-241052ED-ADD3-4849-AE01-31032D17E810', 'name': 'Execution of other work', 'incoming': ['StartEvent0'], 'outgoing': ['sid-356C2C21-F10C-4A4D-8475-1AA7F0675D8A']}
+{'id': 'sid-49F5D924-067D-409B-BDC4-73CFE4D68E5C', 'name': 'Score result obtained', 'incoming': ['ParallelGateway1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-FA4F8CE0-750A-4728-AC75-F0478E728BAA', 'name': 'Implementation 1. scoring', 'incoming': ['StartEvent1'], 'outgoing': ['Results determined?']}
+{'id': 'sid-07430219-D6E8-4509-AACF-CF144C0F1F9C', 'name': 'Entering delay', 'incoming': ['StartEvent1'], 'outgoing': ['Implementation 2. Scoring']}
+{'id': 'sid-277FF08A-A7E5-420A-8DF8-8DDB7F34A7AA', 'name': 'Implementation 2. Scoring', 'incoming': ['Results determined?'], 'outgoing': ['Communication of the Scring Value']}
+{'id': 'sid-C21CB39A-7A59-44C1-B95D-896966CCD013', 'name': 'Communication of scoring value', 'incoming': ['Results determined?'], 'outgoing': []}
+{'id': 'sid-E5925E44-A7B5-459F-98F9-A777D898C157', 'name': 'Communication of the Scring Value', 'incoming': ['Results determined?'], 'outgoing': ['sid-AA9FBFCF-88FB-4E59-BFE1-221DFC6846B4']}
+
+Gateways:
+{'id': 'sid-026BF573-53D9-4CE6-9108-D780E6EB8FBB', 'name': 'Results determined?', 'incoming': ['StartEvent1'], 'outgoing': ['Communication of the Scring Value', 'Communication of scoring value']}
+{'id': 'sid-96558AB2-0243-4A75-B4A4-F3A0169F5848', 'name': 'ParallelGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['Execution of other work', 'EndEvent0']}
+{'id': 'sid-2A6D30B0-2C1B-44DF-9C1F-74D7880C4347', 'name': 'ParallelGateway2', 'incoming': ['Score result obtained', 'sid-AFB14033-04EF-41E1-8BEC-788DD30C8E08'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-1A443ECD-54EC-4CA5-9F29-439A1079AA75', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Execution of other work']}
+{'id': 'sid-391ECF6D-EDE0-45F9-9BC2-47C95F246C65', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Entering delay']}
+
+End Events:
+{'id': 'sid-AAF88452-25D8-442B-B427-BEEF2056C1DA', 'name': 'EndEvent0', 'incoming': ['ParallelGateway1'], 'outgoing': []}

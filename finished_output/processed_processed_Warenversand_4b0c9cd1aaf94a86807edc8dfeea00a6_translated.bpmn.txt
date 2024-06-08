@@ -1,0 +1,11 @@
+ The process begins with an 'Order to receive' event, which triggers the 'Clear shipping variant' task. This task requires 'Insurance required' and 'ParallelGateway4' as its incoming tasks. 'Insurance required' is linked to 'ExclusiveGateway3' and 'ExclusiveGateway1', while 'ParallelGateway4' connects to 'ParallelGateway7' and 'ParallelGateway6'.
+
+The 'ParallelGateway4' task then leads to the 'Filling the package note' task, which requires 'large quantity?' as an incoming task. This task connects to 'ExclusiveGateway3' and 'ParallelGateway7'.
+
+The 'ParallelGateway6' task, which has multiple incoming tasks including 'ParallelGateway4' and 'ParallelGateway5', connects to 'ExclusiveGateway1'.
+
+The 'Insurance close' task, which requires 'Insurance required' as an incoming task, connects to 'ParallelGateway7'.
+
+The 'ParallelGateway7' task, which has multiple incoming tasks including 'ParallelGateway4' and 'Insurance close', leads to the 'Goods delivered' task.
+
+In summary, the process starts with an 'Order to receive' event, which triggers a series of tasks and gateways, ultimately leading to the 'Goods delivered' event. The process involves tasks like 'Clear shipping variant', 'Filling the package note', and 'Insurance close', and gateways like 'ParallelGateway4', 'ParallelGateway6', and 'ExclusiveGateway1'.

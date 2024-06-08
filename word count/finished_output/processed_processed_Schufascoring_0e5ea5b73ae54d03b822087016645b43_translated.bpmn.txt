@@ -1,0 +1,7 @@
+ In the scoring process, the system starts with the "Scoringan Ask" task, which triggers the "StartEvent0" and sends a message to the "Scoringan Ask" task. This task then forwards the message to the "Scoring Level 1" task, which is connected to the "ExclusiveGateway1". The "Scoring Level 1" task sends the result to the "Sending result" task, which in turn triggers the "EndEvent0" and sends the result to the "Scoring result\nobtained" task.
+
+Meanwhile, the "Is the result already fixed?" task, triggered by "StartEvent1", connects to the "ExclusiveGateway1" and waits for the results from the "Scoring Level 1" and "Scoring Level 2" tasks. Once the results are received, the "Scoring result\nobtained" task sends the result to the "Sending result" task, which then triggers the "EndEvent0" and sends the final result to the "Information" task.
+
+The "EventBasedGateway2" task acts as a bridge between the "Scoring Level 1" and "Scoring Level 2" tasks, as well as the "Scoring result\nobtained" and "EndEvent0" tasks. It also connects to the "Delay" task, which waits for the results from the "Scoring Level 1" and "Scoring Level 2" tasks before sending the information to the "Information" task.
+
+Overall, the scoring process involves multiple tasks and gateways working together to obtain and send the scoring results.

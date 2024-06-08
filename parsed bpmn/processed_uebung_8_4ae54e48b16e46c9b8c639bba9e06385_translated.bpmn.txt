@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-2EE3E2FF-345B-4AFC-AA58-CFEFEA2DF688', 'name': 'Select a court', 'incoming': ['Visit the restaurant'], 'outgoing': ['in the row']}
+{'id': 'sid-DF7D83B8-D7CF-4089-8A16-FFD941CEF1FB', 'name': 'Add your order', 'incoming': ['in the row'], 'outgoing': ['Order payment']}
+{'id': 'sid-33099C7A-6C64-4144-8343-EE7A3E492C39', 'name': 'Pick up meal', 'incoming': ['meal is ready for pickup'], 'outgoing': ['Eat meal']}
+{'id': 'sid-31894CC7-7628-420C-9DA9-266321B6C310', 'name': 'Eat meal', 'incoming': ['meal is ready for pickup'], 'outgoing': ['Famine']}
+{'id': 'sid-36EC7EF9-3186-4291-83CA-A9C3CB09E7D6', 'name': 'Visit the restaurant', 'incoming': ['Hunger'], 'outgoing': ['in the row']}
+{'id': 'sid-4C9D4185-89D2-40DE-AD0C-E639E239E899', 'name': 'Order payment', 'incoming': ['Hunger'], 'outgoing': ['Pieper received']}
+{'id': 'sid-3BAA46D4-AE2D-42F2-9753-BA6756E72749', 'name': 'Pieper received', 'incoming': ['in the row'], 'outgoing': ['Famine']}
+{'id': 'sid-E9210C54-6796-42DD-B063-1247D8BD4E54', 'name': 'Enter your order in cash system', 'incoming': ['Order\nthe'], 'outgoing': ['Cash in']}
+{'id': 'sid-7E46A3A7-867E-433D-A6B1-7101ACDA85A5', 'name': 'Cash in', 'incoming': ['Order\nthe'], 'outgoing': ['Pieper over']}
+{'id': 'sid-45813442-77E6-4E43-8498-5FAD7890D129', 'name': 'Pieper over', 'incoming': ['Order\nthe'], 'outgoing': ['Ask Cook about the order']}
+{'id': 'sid-4B046707-1D51-4C25-BCFA-B7D2AC72A3C7', 'name': 'Ask Cook about the order', 'incoming': ['Order\nthe'], 'outgoing': ['meal is picking up']}
+{'id': 'sid-1DAFE248-6A10-41FF-8C3C-7A5CD5EA6C28', 'name': 'Trigger Pieper for Guest', 'incoming': ['Order\nthe'], 'outgoing': ['Guest appears']}
+{'id': 'sid-DD6614D2-937E-4D34-A0A3-E88EDFBA08C5', 'name': 'Outputting meal', 'incoming': ['Order\nthe'], 'outgoing': ['Order for Gast xy completed']}
+{'id': 'sid-C211E07A-9C91-496E-8564-B5A65B4B0D5B', 'name': 'Retrieve guest', 'incoming': ['5min past'], 'outgoing': ['sid-E3F3D3AF-3FFA-4621-BC8C-3F2C9A648E9A']}
+{'id': 'sid-52EEAA49-70D6-4BA9-B4F5-2D629870DF4A', 'name': 'Preparation of meal', 'incoming': ['Order to receive'], 'outgoing': ['Putting the meal into the reach']}
+{'id': 'sid-A445F783-2AEE-4B56-84EF-6873244214CC', 'name': 'Information', 'incoming': ['Putting the meal into the reach'], 'outgoing': ['Order for Gast xy completed']}
+{'id': 'sid-3CA95BF4-549A-45F2-9FB8-157CA4EE5D58', 'name': 'Putting the meal into the reach', 'incoming': ['Order to receive'], 'outgoing': ['Order for Gast xy completed']}
+
+Gateways:
+{'id': 'sid-3B7AA795-AA81-4753-B4F8-6E849FA666B3', 'name': 'EventBasedGateway0', 'incoming': ['meal is picking up'], 'outgoing': ['5min past', 'Order for Gast xy completed']}
+{'id': 'sid-674A1469-C3C9-4B89-A111-EFA0042AAB53', 'name': 'meal is ready for pickup', 'incoming': ['in the row'], 'outgoing': ['Famine']}
+{'id': 'sid-21D1E9BD-0F09-4CA4-9AAC-A5D51898C260', 'name': 'in the row', 'incoming': ['Hunger'], 'outgoing': ['meal is ready for pickup']}
+{'id': 'sid-D96BF9B4-FA9B-4986-8558-BFFC65064E73', 'name': 'meal is picking up', 'incoming': ['Order\nthe'], 'outgoing': ['5min past']}
+{'id': 'sid-B9047457-871E-4154-93DC-62250AB5CDE6', 'name': '5min past', 'incoming': ['meal is picking up'], 'outgoing': ['Retrieve guest']}
+{'id': 'sid-2A923196-1033-4024-9733-3857E7AED4DD', 'name': 'Guest appears', 'incoming': ['Order\nthe'], 'outgoing': ['Order for Gast xy completed']}
+
+Start Events:
+{'id': 'sid-0301B1A3-3A58-421E-B78E-5417ABD854B2', 'name': 'Hunger', 'incoming': [], 'outgoing': ['Order payment']}
+{'id': 'sid-A4D21A64-8F0E-4F78-966B-B3E4F2467CD8', 'name': 'Order\nthe', 'incoming': [], 'outgoing': ['Outputting meal']}
+{'id': 'sid-2774DD54-00FE-420E-A50B-ED78E0E639BC', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Putting the meal into the reach']}
+
+End Events:
+{'id': 'sid-56181A35-E0E3-474C-9865-6E3B5709FB06', 'name': 'Famine', 'incoming': ['Pieper received'], 'outgoing': []}
+{'id': 'sid-3DF7DDEE-4C25-436C-9E15-B7F0AB35D8F7', 'name': 'Order for Gast xy completed', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-DBC2B5F6-7307-40A9-8114-458B7622127D', 'name': 'Order for Gast xy completed', 'incoming': ['Putting the meal into the reach'], 'outgoing': []}

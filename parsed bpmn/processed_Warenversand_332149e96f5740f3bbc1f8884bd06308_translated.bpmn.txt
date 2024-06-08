@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-D0F0631A-4A93-42DC-9572-1974A0B4F4F5', 'name': 'Create a quote', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-78C0FE5F-C267-4CB9-AD61-B7B12B769FD1', 'name': 'Pick up forwarding offers', 'incoming': ['sid-6E060602-6A8E-447A-A998-CDB47329B9F6'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-D767A483-535F-43F9-A49E-6232E1BB5856', 'name': 'Filling the package note', 'incoming': ['sid-A22D4C52-A85F-45A5-B124-7D663B8CC94D'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-B32B731A-0CD6-4ED4-B979-01560351F493', 'name': 'Order / report to warehouse workers', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['Packaging goods']}
+{'id': 'sid-05FB30F4-2189-4970-BCA7-A36516D8660B', 'name': 'Select a quote and order forwarders', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-E37D76A3-BF13-4756-9E54-774883931E2C', 'name': 'Packaging goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['Provide goods for collection']}
+{'id': 'sid-DEC5EA84-6839-487D-B6FB-3AA9600B306A', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods\nfor shipping\nready']}
+{'id': 'sid-A060B60C-AE22-46FB-8F5B-AF1CB089C798', 'name': 'Insurance close', 'incoming': ['Insurance required?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-BAF617F8-030B-45A9-BF8B-DFED2655FD68', 'name': 'large\nShipping\nquantity?', 'incoming': ['StartEvent0'], 'outgoing': ['sid-50A8CBB9-74D8-4094-8618-E4C9A5F3C491', 'sid-478A1100-6C2B-4072-80C8-F4CC636BA966']}
+{'id': 'sid-9BCDC596-C3D2-4D26-98C8-303DF9724D1F', 'name': 'Insurance required?', 'incoming': ['Filling the package note'], 'outgoing': ['Insurance close', 'Goods\nfor shipping\nready']}
+{'id': 'sid-6AD84883-26C2-4EB6-B881-76CA00CDA003', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance close', 'Filling the package note'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-87F0C60C-96A1-4C1F-ACAD-4C795530325F', 'name': 'ExclusiveGateway3', 'incoming': ['ParallelGateway4', 'Insurance required?'], 'outgoing': ['Goods\nfor shipping\nready']}
+{'id': 'sid-926C62FB-A988-487B-B7EB-EA251A35ED74', 'name': 'ParallelGateway4', 'incoming': ['Pick up forwarding offers'], 'outgoing': ['Provide goods for collection']}
+{'id': 'sid-40066562-A7B8-4D15-BDA7-842C3E5D03BE', 'name': 'ParallelGateway5', 'incoming': ['Pick up forwarding offers'], 'outgoing': ['Packaging goods']}
+
+Start Events:
+{'id': 'sid-A0018128-8FC5-4F41-BF72-F5E13A0B2BD3', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['large\nShipping\nquantity?']}
+
+End Events:
+{'id': 'sid-12DA43AB-8034-4C85-9D53-6FEE01B81CBF', 'name': 'Goods\nfor shipping\nready', 'incoming': ['Insurance required?'], 'outgoing': []}

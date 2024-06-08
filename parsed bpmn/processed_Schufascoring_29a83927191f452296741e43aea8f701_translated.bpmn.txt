@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-9581B9E2-61C2-4589-9D69-D23AC087B39D', 'name': 'Started request', 'incoming': ['Schufascoring Inquiry'], 'outgoing': ['Results arrived']}
+{'id': 'sid-C73C9C7F-1477-4B10-AC03-6FFCC149ED8C', 'name': 'Guide other actions through', 'incoming': ['sid-7B42E4C4-B7B3-4A4D-A83F-0F434FD78009'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-F10878D3-FEA8-463D-A286-CC7CFC27A3C8', 'name': 'Guide scoring through', 'incoming': ['Starts scoring'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-A759574B-50E0-49C4-B080-7BDA3860DB03', 'name': 'Send delay', 'incoming': ['can work immediately?'], 'outgoing': ['Guide scoring through']}
+{'id': 'sid-52D50C78-2575-4EC7-8E6D-FEC00D4F363C', 'name': 'Guide scoring through', 'incoming': ['can work immediately?'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-EE5F4039-DDD8-4A45-A8F3-BBDEB8E65F0A', 'name': 'can work immediately?', 'incoming': ['Starts scoring'], 'outgoing': ['EndEvent2', 'EndEvent3']}
+{'id': 'sid-80775708-7EE5-480F-8E66-A2BAFD4E196F', 'name': 'EventBasedGateway1', 'incoming': ['Schufascoring Inquiry'], 'outgoing': ['Results arrived', 'Get delay message']}
+{'id': 'sid-C860DD2D-3348-4D3F-9ADD-732D0F9C43A7', 'name': 'Results arrived', 'incoming': ['Started request'], 'outgoing': ['sid-79A03A43-8D27-4074-AC14-CD8A1876CB60']}
+{'id': 'sid-2B9AFA2C-A3A3-4C7A-92CF-64A6923C41A0', 'name': 'Get delay message', 'incoming': ['Schufascoring Inquiry'], 'outgoing': ['sid-B7ED304A-F5D0-40AA-9658-B91E09D0F3EE']}
+{'id': 'sid-7AD16039-B9C0-4E42-B292-A51EC962BECD', 'name': 'IntermediateCatchEvent4', 'incoming': ['Guide other actions through'], 'outgoing': ['sid-E76515DE-FFC7-453F-8D44-C4FC83FB4228']}
+
+Start Events:
+{'id': 'sid-BDAAB62C-01A1-4444-9A46-1E2176C09A6B', 'name': 'Schufascoring Inquiry', 'incoming': [], 'outgoing': ['Get delay message']}
+{'id': 'sid-7C72E568-962A-4776-A750-038DC0B039B5', 'name': 'Starts scoring', 'incoming': [], 'outgoing': ['Guide scoring through']}
+
+End Events:
+{'id': 'sid-0060C859-C1A0-4DC0-979B-CE0F89005B13', 'name': 'EndEvent0', 'incoming': ['sid-8657F51B-E3DF-431F-AA40-597EE41E6253'], 'outgoing': []}
+{'id': 'sid-E97E0818-1D2B-402B-AAB2-FA2C510AF0B1', 'name': 'EndEvent1', 'incoming': ['sid-53A56835-7F5B-4A51-AD5D-D7EDC6056C7A'], 'outgoing': []}
+{'id': 'sid-0BC4552E-A51C-4855-9FDF-F5BC5138A784', 'name': 'EndEvent2', 'incoming': ['can work immediately?'], 'outgoing': []}
+{'id': 'sid-9CCAF781-FDB7-4EA8-A98A-7FEFD2139B31', 'name': 'EndEvent3', 'incoming': ['can work immediately?'], 'outgoing': []}

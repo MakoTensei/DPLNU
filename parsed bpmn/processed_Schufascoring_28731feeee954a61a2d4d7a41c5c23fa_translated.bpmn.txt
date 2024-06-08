@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-B792F2EF-18A7-461F-AC73-07B965B07614', 'name': 'Wait for scoring', 'incoming': ['sid-A6FF27B8-6A17-40EC-9AE2-0E0199DF1C99'], 'outgoing': ['Results Level 1\nobtained']}
+{'id': 'sid-76064C76-4EA5-46B9-8080-65F5CABBD9EA', 'name': 'wait for scoring level 2', 'incoming': ['delay message\nobtained'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-E9CB7804-6A5D-4406-B7E6-70485D10A96A', 'name': 'perform scoring level 1', 'incoming': ['Scoring request\nReport'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-58E4474E-E314-4206-9D80-E1BF3F0A852F', 'name': 'Scoring Level 2\nperform', 'incoming': ['ParallelGateway2'], 'outgoing': ['scoring result\nsend']}
+
+Gateways:
+{'id': 'sid-8D265450-0A30-418A-A087-82483ECCD583', 'name': 'Scoring\ndetermined?', 'incoming': ['Scoring request\nReport'], 'outgoing': ['ParallelGateway2', 'scoring result\nsend']}
+{'id': 'sid-17682E3B-D48B-464E-A782-46CD033F1357', 'name': 'EventBasedGateway1', 'incoming': ['Wait for scoring'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-28A01AB4-AE73-430D-82C5-FC432255B16C', 'name': 'ParallelGateway2', 'incoming': ['perform scoring level 1'], 'outgoing': ['scoring result\nsend', 'sid-6828EC50-9CF1-418D-BC11-8DD0153F9FF1']}
+{'id': 'sid-D90D932A-F2E5-42E4-B11A-3D24493E4F76', 'name': 'Results Level 1\nobtained', 'incoming': ['Wait for scoring'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F7C6F5CE-A0A2-4D4D-B729-BBB71ECBD072', 'name': 'delay message\nobtained', 'incoming': ['EventBasedGateway1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-A6C1B806-768F-4FFA-AB37-BF87BE69995B', 'name': 'Results Level\n2', 'incoming': ['wait for scoring level 2'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-9FA03921-D6AD-4262-AF31-7146F00F3C10', 'name': 'Schufascoring\nrequested', 'incoming': [], 'outgoing': ['sid-0E5E023C-93DC-433B-BC88-96AF61EA244E']}
+{'id': 'sid-0420CA35-9F90-4754-B349-A1B0D5CE627F', 'name': 'Scoring request\nReport', 'incoming': [], 'outgoing': ['Scoring\ndetermined?']}
+
+End Events:
+{'id': 'sid-8E8E80FF-35C3-4C75-B0AF-D5292FAF64A6', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-7BBCF2F5-DE4D-41CB-819A-E8E0C0F28B9B', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-7BE5DEE9-A3C4-4838-A9D7-F1FFF6E11E9A', 'name': 'scoring result\nsend', 'incoming': ['Scoring\ndetermined?'], 'outgoing': []}
+{'id': 'sid-B1DBE462-BA94-4F7C-8985-1A25348311CE', 'name': 'scoring result\nsend', 'incoming': ['ParallelGateway2'], 'outgoing': []}

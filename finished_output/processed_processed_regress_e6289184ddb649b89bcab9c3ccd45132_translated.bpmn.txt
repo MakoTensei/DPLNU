@@ -1,0 +1,11 @@
+ In the financial process, a series of tasks are executed to ensure proper handling of debt collection and reimbursement. The process begins with the 'StartEvent0' which triggers the 'Check regression' task. This task is responsible for verifying the accuracy of the financial data. Once the check is complete, the 'Reimbursement period expired' task is initiated, which is linked to the 'EndEvent0'.
+
+The 'Reimbursement period expired' task is connected to the 'Money received' task, indicating that the reimbursement period has ended and the money has been received. This task then proceeds to the 'ExclusiveGateway0', which is responsible for handling the next steps in the process.
+
+The 'ExclusiveGateway0' connects to the 'EndEvent0', marking the completion of the reimbursement process. Meanwhile, the 'Not justified' task, which is triggered by the'sid-F26BB875-0472-4525-B637-F11510FC6D1D' incoming event, is directed to the 'ExclusiveGateway1'. This gateway handles cases where the debt collection is not justified.
+
+The 'VN contradicts' task, triggered by the'sid-CC9E1F70-7E73-413F-9F8C-60C87575989D' incoming event, is directed to the 'ExclusiveGateway3'. This gateway is responsible for handling cases where the Vendor's (VN) information contradicts the data.
+
+Additionally, the 'Disclosure of debt collection' task, triggered by the'sid-5C408395-9D89-4491-84C3-156EA5731A1E' incoming event from the 'ParallelGateway4', is linked to the 'EndEvent0'. This task is responsible for disclosing the debt collection process to the relevant parties.
+
+In summary, the financial process starts with the 'StartEvent0', which triggers the 'Check regression' task. The 'Reimbursement

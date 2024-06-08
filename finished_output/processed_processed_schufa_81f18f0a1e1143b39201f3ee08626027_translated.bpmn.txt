@@ -1,0 +1,32 @@
+ 1. Credit examination requested -> forward credit assessment
+2. Credit examination requested -> Run other tasks
+3. Scoring question obtained -> Transfer scoring level 1
+4. Scoring question obtained -> Customer information
+5. Credit evaluation obtained -> Credit assessment completed
+6. Scoring order finished -> Information
+7. Scoring order finished -> Customer information
+8. Credit evaluation obtained -> Credit assessment completed
+9. Transfer scoring level 1 -> Scoring order finished
+
+In this flow, the tasks are processed in the following sequence:
+
+1. Credit examination requested triggers two parallel paths:
+   a. Forward credit assessment
+   b. Run other tasks
+
+2. Scoring question obtained initiates two parallel paths:
+   a. Transfer scoring level 1
+   b. Customer information
+
+3. Credit evaluation obtained leads to Credit assessment completed.
+
+4. Transfer scoring level 1 results in Scoring order finished.
+
+5. Customer information is the final output from the parallel path of Scoring question obtained.
+
+End events:
+
+1. Credit assessment completed (from Credit evaluation obtained)
+2. Scoring order finished (from Transfer scoring level 1)
+3. Credit assessment completed (from Credit evaluation obtained)
+4. Scoring order finished (from ParallelGateway1)

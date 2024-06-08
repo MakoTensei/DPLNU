@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-206CF8BD-0529-4F3E-97A0-C12068B3FD87', 'name': 'Check the case', 'incoming': ['Regression case reported\n'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-89D732D5-17DE-41D6-BFCE-AEE6CD69B55C', 'name': 'Payment\nsend to request', 'incoming': ['Regression case reported\n'], 'outgoing': ['Opposition']}
+{'id': 'sid-1B6893AE-AC16-4206-ADEC-30EB7CAF74E5', 'name': 'Proceedings', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-0894FE20-4A89-4C59-8C77-68A638CB96AE', 'name': 'On\nDebt collection office\nthey are', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Debt collection office issued']}
+{'id': 'sid-DA1D48DD-0FFB-4F5F-BF79-4E35302C0E08', 'name': 'Book now', 'incoming': ['Incoming payment'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-0FF84D0B-312D-4B12-89B3-BF559D270D43', 'name': 'Complete the process', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Case closed']}
+
+Gateways:
+{'id': 'sid-3D3350CF-FC01-41C7-AE51-D7E019653365', 'name': 'Regress possible', 'incoming': ['Regression case reported\n'], 'outgoing': ['Opposition\npossible?', 'ExclusiveGateway3']}
+{'id': 'sid-5D05E5DE-33D2-44DE-890F-85AAF25CE6AD', 'name': 'Opposition\npossible?', 'incoming': ['Regress possible'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-83B35A8F-0C2F-4EED-B402-24AE438214B5', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['Debt collection office issued']}
+{'id': 'sid-28F4CA20-C1BA-42EB-B27C-EC2DA6157604', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'EventBasedGateway4', 'Check the case'], 'outgoing': ['Case closed']}
+{'id': 'sid-7DFCD90E-581C-463E-AF23-12F715CE9FCC', 'name': 'EventBasedGateway4', 'incoming': ['Regression case reported\n'], 'outgoing': ['On\nDebt collection office\nthey are', 'Complete the process', 'Case closed']}
+{'id': 'sid-95364B33-B87C-44E7-9766-69AB31DEDDA2', 'name': 'Opposition', 'incoming': ['Regress possible'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-49119EB8-A2FE-4413-A513-4288085E3A3E', 'name': 'Date of expiry', 'incoming': ['Regression case reported\n'], 'outgoing': ['Debt collection office issued']}
+{'id': 'sid-F13FB67C-86D9-42C6-A496-6C665CB26137', 'name': 'Incoming payment', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-EB4CCDB5-75F5-409A-851A-FD158EC9B8CB', 'name': 'Regression case reported\n', 'incoming': [], 'outgoing': ['Date of expiry']}
+
+End Events:
+{'id': 'sid-BCA4FCEC-397A-440E-A4F8-E73141C57D49', 'name': 'Debt collection office issued', 'incoming': ['Date of expiry'], 'outgoing': []}
+{'id': 'sid-69E5D480-7BC0-40AA-A9B2-D8CFCF0DF370', 'name': 'Case closed', 'incoming': ['EventBasedGateway4'], 'outgoing': []}

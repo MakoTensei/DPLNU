@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-41474BB8-BAEF-4B15-BA76-889D0DBD94D0', 'name': 'Goods should be shipped', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-FA4B7A2D-CEF5-41CC-B6A4-DB650D5BDC2B', 'name': 'Pick up offers', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['best offer']}
+{'id': 'sid-78D18A6D-9896-4884-900A-4448A31BBA35', 'name': 'best offer', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Specialist']}
+{'id': 'sid-93DCE245-3B9F-42B7-954D-0D8E34036D06', 'name': 'Fill in parcel form', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C918C3B2-7443-40FF-B459-B2D315DD0E1A', 'name': 'Specialist', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['sid-8FBF287C-8D81-4327-88C1-F1415974A02F']}
+{'id': 'sid-0A86BA4E-C793-4C2C-8FD7-CAB53F809898', 'name': 'Insurance close', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-B4E6444E-D033-411F-A450-FFAB618F9685', 'name': 'Packaging goods', 'incoming': ['StartEvent0'], 'outgoing': ['sid-1A5894FC-02FD-4C1B-A1FE-673E1EF40A66']}
+{'id': 'sid-AF688405-5E3A-413C-8734-D723F97395A4', 'name': 'Delivering goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['sid-C494796A-33BD-4EB5-8F60-2E175B3F6974']}
+
+Gateways:
+{'id': 'sid-44E69325-44DA-4689-932A-61014822CB43', 'name': 'ExclusiveGateway0', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ParallelGateway4', 'ExclusiveGateway2', 'Specialist']}
+{'id': 'sid-59B91525-1D70-421E-964A-E8CB90003F37', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2', 'ParallelGateway4']}
+{'id': 'sid-49F977AD-5F2D-429D-8514-90417E7F25E3', 'name': 'ExclusiveGateway2', 'incoming': ['ExclusiveGateway0', 'ExclusiveGateway1'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-46A0B6D1-D31C-4167-9E85-3375FFEDCDD4', 'name': 'ParallelGateway3', 'incoming': ['StartEvent0', 'StartEvent0'], 'outgoing': ['Packaging goods', 'Packaging goods']}
+{'id': 'sid-C645457D-4D1F-4B5A-B9CF-C90683821B38', 'name': 'ParallelGateway4', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Delivering goods']}
+
+Start Events:
+{'id': 'sid-68FDD39B-9375-40D3-8479-D8CCAB772C9C', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Packaging goods']}
+
+End Events:
+{'id': 'sid-08BD6A55-9ECD-4848-882C-BD6FC9509D46', 'name': 'EndEvent0', 'incoming': [], 'outgoing': []}

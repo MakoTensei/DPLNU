@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-A357443D-67E5-4A0B-B798-69D629D32D64', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-C73A6C87-A043-4ED4-8CEE-B0704DB89C43', 'name': 'Provide goods for collection', 'incoming': ['Goods\nShip'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-5DAE2948-A1BB-4DC4-85F4-7DDDCA65CE0A', 'name': 'Select shipping mode', 'incoming': ['ParallelGateway3'], 'outgoing': ['Filling the package note', 'Request a quote']}
+{'id': 'sid-E907DE51-25E8-4710-906D-EA7BC382F33A', 'name': 'Filling the package note', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-A2E32832-BC0F-47E9-869B-3015C1DFA822', 'name': 'Request a quote', 'incoming': ['Select shipping mode'], 'outgoing': ['Select a forwarding']}
+{'id': 'sid-95418204-7A97-4A43-A3F8-2B4978E15BEE', 'name': 'Specialist', 'incoming': ['Select a forwarding'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-BF116847-1BEC-4A97-B523-2CEE2E965C79', 'name': 'Select a forwarding', 'incoming': ['Request a quote'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-91A25228-B576-4EF0-9733-A9EBDDA7A1A2', 'name': 'Insurance close', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-BB1F6395-7DAD-4B16-BFCB-6371C7846E7C', 'name': 'Insurance\nnecessary?', 'incoming': ['ParallelGateway3'], 'outgoing': ['Insurance close', 'EndEvent0']}
+{'id': 'sid-3EB86637-BACA-45C2-B662-189F0102AF2F', 'name': 'ExclusiveGateway1', 'incoming': ['Insurance close', 'Filling the package note'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-3EB12E4C-C9F7-424D-9F97-D6A2189A9F90', 'name': 'ParallelGateway2', 'incoming': ['ParallelGateway3', 'Select a forwarding', 'ParallelGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E275402B-AA35-4F8C-B7A7-118EE778C076', 'name': 'ParallelGateway3', 'incoming': ['Goods\nShip'], 'outgoing': ['ParallelGateway2', 'Provide goods for collection']}
+
+Start Events:
+{'id': 'sid-99FE5A1C-E606-4F83-BF9A-E24D09EB51A1', 'name': 'Goods\nShip', 'incoming': [], 'outgoing': ['Provide goods for collection']}
+
+End Events:
+{'id': 'sid-1B376907-BAE2-4A7D-AB40-B1AAAB931E1E', 'name': 'EndEvent0', 'incoming': ['Insurance\nnecessary?'], 'outgoing': []}

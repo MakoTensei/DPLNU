@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-33957E0B-9D4C-43EC-BC99-0BBE2D84DD85', 'name': 'Checking', 'incoming': ['Message triggered'], 'outgoing': ['Possible?']}
+{'id': 'sid-58F38258-CCA9-43FE-B0A5-9F078E6650D1', 'name': 'Close', 'incoming': ['Message triggered'], 'outgoing': ['Report negatively completed']}
+{'id': 'sid-D47E47DC-EF14-4B0D-8270-9B0536978F79', 'name': 'Send VN payment request', 'incoming': ['Possible?'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-717CB826-E59B-44E2-906E-DE9F8066AD43', 'name': 'Set process for resubmission', 'incoming': ['Possible?'], 'outgoing': ['Money received']}
+{'id': 'sid-98E4A0C6-9551-4FA4-BD13-7CDF0A3842F4', 'name': 'Proceedings', 'incoming': ['Notification'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-239BA2A0-6DB7-4D58-8787-F1DD8E6FB178', 'name': 'Book the entrance', 'incoming': ['Money received'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-D2CC9B57-F9C7-4466-BF67-EA68712560C7', 'name': 'Close', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Report positively completed']}
+{'id': 'sid-C09C3B83-5F6D-4CC6-8C41-286E12D96C15', 'name': 'inform collection service providers', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Collection informed']}
+
+Gateways:
+{'id': 'sid-831ADD8A-FCE3-4887-9CF9-1111D9DFD2D3', 'name': 'Possible?', 'incoming': ['Message triggered'], 'outgoing': ['Report negatively completed', 'Justified?']}
+{'id': 'sid-E7F9B546-2F16-4EED-B396-15D4B820BDA1', 'name': 'Justified?', 'incoming': ['Possible?'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-DB9A1533-930E-4B0C-80FD-32EAE02DDBAB', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['Collection informed']}
+{'id': 'sid-86F2D2D8-D7ED-47AA-A635-D48F758747CE', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'EventBasedGateway4'], 'outgoing': ['Report positively completed']}
+{'id': 'sid-1AF9F6BD-F707-4679-BEA9-3A6572688CD1', 'name': 'EventBasedGateway4', 'incoming': ['Possible?'], 'outgoing': ['Report positively completed', 'inform collection service providers', 'Close']}
+{'id': 'sid-201D5BE0-5E13-4F44-A171-573B06E0BD24', 'name': 'Money received', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-A994D869-B614-45F6-9C42-4C60DBF16897', 'name': 'Notification', 'incoming': ['Possible?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-B588D846-9893-4D3C-BCA7-902F0D0889F2', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Collection informed']}
+
+Start Events:
+{'id': 'sid-71F7DB61-9DE4-4455-9B12-59A83E4B93CF', 'name': 'Message triggered', 'incoming': [], 'outgoing': ['Close']}
+
+End Events:
+{'id': 'sid-9EC967A2-97CA-4F7E-9E5E-998D56C2D1EA', 'name': 'Report negatively completed', 'incoming': ['Possible?'], 'outgoing': []}
+{'id': 'sid-59C169B2-54F2-4433-BC77-41112E3881C1', 'name': 'Report positively completed', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-F9C8E171-666E-4421-A32D-F7B6852E3B75', 'name': 'Collection informed', 'incoming': ['Reimbursement period expired'], 'outgoing': []}

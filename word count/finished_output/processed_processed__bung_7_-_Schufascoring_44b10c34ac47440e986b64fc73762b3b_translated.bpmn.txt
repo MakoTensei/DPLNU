@@ -1,0 +1,11 @@
+ Upon receiving a Schufascoring request, the system initiates the first scoring process, which is Level 1 scoring. This process involves determining the initial scoring result based on the incoming data. Once the Level 1 scoring result is determined, it is sent to the bank, completing the first task.
+
+If the Level 1 scoring result is determined, the system proceeds to send the Level 1 scoring result to the bank. This task is handled by the Gateway with the ID'sid-BDF7DBE9-8497-4C8D-9D7F-2343C05A81A2', which also answers Schufa requests with Level 1 and Level 2 Scoring results.
+
+In case the Level 1 scoring result determination is delayed, the system reports the delay to the bank through the Gateway with the ID'sid-7FB2C945-E0A5-4A78-B150-9BE118C28810'. This Gateway is responsible for sending Level 2 Scoring results to the bank.
+
+The system also has an Event-Based Gateway with the ID'sid-18A4B755-23E9-4BE0-86A6-4A6A9085C006'. This Gateway waits for Level 2 Scoring results from the Schufaservice and processes Schufa requests.
+
+When the Level 2 Scoring result is determined, the system reports the delay to the bank through the Gateway with the ID'sid-6556CD46-2C86-4E4A-8F7E-1F87EFD7BF31'. This Gateway is responsible for sending Schufa requests processed to the bank.
+
+In summary, the system processes Schufascoring requests by determining Level 1 and Level 2 scoring results, sending them to the bank, and handling any delays or processing requests accordingly.

@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-5869442B-1E60-42FB-B8B5-0DCFA5BE6178', 'name': 'Scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['Schufascoring\nis fixed']}
+{'id': 'sid-6ADDC201-6A4E-4541-9DFE-3498E25AAC84', 'name': 'Schufascoring\nsend a message', 'incoming': ['Schufascoring\nis fixed'], 'outgoing': ['Process completed']}
+{'id': 'sid-F6EE4496-71CD-4CFF-9CD0-9BB5160CE521', 'name': 'send delay message', 'incoming': ['StartEvent0'], 'outgoing': ['Schufascoring\nobtained']}
+{'id': 'sid-F36E78D1-B88B-41CC-8369-9AD98EE8D951', 'name': '1. Run scoring', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Result fixed']}
+{'id': 'sid-40890857-952B-4B67-8722-5E7EEC9D0C8B', 'name': 'Send Schufascoring', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Process completed']}
+{'id': 'sid-97F3315D-ED1F-41BB-B547-9AADCE3E3CB1', 'name': 'Report delay', 'incoming': ['Result fixed'], 'outgoing': ['Two. perform scoring']}
+{'id': 'sid-9D78BCB9-23E4-4300-BC19-9C9A51DEAAB1', 'name': 'Two. perform scoring', 'incoming': ['Result fixed'], 'outgoing': ['Share scoring result']}
+{'id': 'sid-8491B4A8-E78D-4CDE-AFBF-C516759274CA', 'name': 'Share scoring result', 'incoming': ['Result fixed'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-471AFA2B-F4F1-4F68-A543-F26782DCA854', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'StartEvent0'], 'outgoing': ['Process completed']}
+{'id': 'sid-C97B758F-8F64-43FB-88FB-80508347FE3C', 'name': 'ExclusiveGateway1', 'incoming': ['Result fixed', 'Result fixed'], 'outgoing': ['Process completed']}
+{'id': 'sid-8EFF06DB-CC6C-4952-80CC-E5091641C356', 'name': 'Result fixed', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-03E6A52F-8D56-4088-B0B5-A67B3F24370F', 'name': 'EventBasedGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['Process completed', 'Schufascoring\ndelayed']}
+{'id': 'sid-FF80909B-990E-4889-B986-47C548AF67BF', 'name': 'Schufascoring\nis fixed', 'incoming': ['Scoring request'], 'outgoing': ['Schufascoring\nsend a message']}
+{'id': 'sid-5920710D-9DC8-43DB-94F4-572899DC6CB3', 'name': 'Schufascoring\ndelayed', 'incoming': ['StartEvent0'], 'outgoing': ['send delay message']}
+{'id': 'sid-944DAE0D-7CA6-4110-9823-64274DFE2E6F', 'name': 'Schufascoring\nobtained', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-9297CEFD-EE91-4F76-8911-EE1A59405C14', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-5EDBE8A6-38A1-412C-8016-16D61AC067BD', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['Send Schufascoring']}
+
+End Events:
+{'id': 'sid-5572C2DA-63BC-4891-9622-343E26F70E97', 'name': 'Process completed', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-FA7C3550-D987-4C33-9BAB-BED33A6B2366', 'name': 'Process completed', 'incoming': ['Send Schufascoring'], 'outgoing': []}

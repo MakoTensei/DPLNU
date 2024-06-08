@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-D7268626-1798-41F6-972F-9B6C6880BEB7', 'name': 'start the request', 'incoming': ['Scoring request'], 'outgoing': ['received delay']}
+{'id': 'sid-0821A8EB-C264-4D8A-BDBA-55D449BF1F86', 'name': 'Scoring Level1', 'incoming': ['Scoring request'], 'outgoing': ['Level 1 reported']}
+{'id': 'sid-928658E0-D6BB-45D4-9543-D06F85475BFB', 'name': 'Determining scoring level 2', 'incoming': ['sid-845BFCCC-5502-43FB-9D34-72B1615C9B1A'], 'outgoing': ['Level 2 reported']}
+
+Gateways:
+{'id': 'sid-FF83BC44-4190-404A-93E7-347BC3E6D26B', 'name': 'Scoring Level 1OK?', 'incoming': ['Scoring request'], 'outgoing': ['sid-3740DD38-045D-48F3-8088-1BFEF83D11AC', 'Level 1 reported']}
+{'id': 'sid-EC450880-CF0F-4A26-9179-8949A2099CCD', 'name': 'EventBasedGateway1', 'incoming': ['Scoring request'], 'outgoing': ['received delay', 'EndEvent1']}
+{'id': 'sid-F2028AC5-7E9D-4989-9A68-147AFAC119DE', 'name': 'received delay', 'incoming': ['start the request'], 'outgoing': ['sid-64BB3DEB-C3B1-4550-A867-8FAF981BED49']}
+{'id': 'sid-0A4B1955-4BF2-4235-90CB-1D6B08F1B18E', 'name': 'Level 1 received', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-8CE5D228-6A1E-46BF-9C85-5B9AD00B228A', 'name': 'Level 2', 'incoming': ['sid-DB422421-39A7-46CC-B231-122609702BB7'], 'outgoing': ['sid-C35D6EF1-08B9-4CEC-80FA-9C6DB6C81F9A']}
+
+Start Events:
+{'id': 'sid-A340E4FA-F552-44E4-BCDA-01D8E1556E36', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Level 1 received']}
+{'id': 'sid-0A10DC32-718E-4CC4-A271-BF327A44A967', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Scoring Level 1OK?']}
+
+End Events:
+{'id': 'sid-3BD8A298-AD3E-405A-8A4D-55D2D821B4BD', 'name': 'EndEvent0', 'incoming': ['sid-6B34D4D2-6A15-4D96-9027-B0D8D6ED9587'], 'outgoing': []}
+{'id': 'sid-1142A471-DE63-49B7-882D-3C98532A5263', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-8D8B8180-EBDC-4A9E-B24F-2DD2EC4EE0C5', 'name': 'Level 1 reported', 'incoming': ['Scoring Level1'], 'outgoing': []}
+{'id': 'sid-8FD9824F-984B-4975-99D1-A4AE9DFD3EF6', 'name': 'Level 2 reported', 'incoming': ['Determining scoring level 2'], 'outgoing': []}

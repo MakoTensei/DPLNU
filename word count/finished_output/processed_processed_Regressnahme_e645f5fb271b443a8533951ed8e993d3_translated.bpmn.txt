@@ -1,0 +1,11 @@
+ Melung raises a concern about a possible regression, which triggers the 'Regression\nRight?' gateway. If the gateway confirms the need for regression, the process is completed.
+
+Following the confirmation of regression, the 'Set process for resubmission' gateway is activated, leading to the 'Money goes' gateway. This initiates the payment process, which then connects to the 'ExclusiveGateway2' for further processing.
+
+The 'ExclusiveGateway2' can lead to two outcomes: 'Opposition\njustified?' if the appeal is justified, or 'Default period\nExpired' if the default period has expired.
+
+If the appeal is justified, the process continues through 'EventBasedGateway4', which can lead to 'Opposition\njustified?' or 'ExclusiveGateway2' based on the outcome of the appeal.
+
+If the default period has expired, the process moves through 'EventBasedGateway4' and then to 'ExclusiveGateway3'.
+
+Once all the necessary steps are completed, the process is marked as 'Process\ncompleted', signaling the end of the case handling.

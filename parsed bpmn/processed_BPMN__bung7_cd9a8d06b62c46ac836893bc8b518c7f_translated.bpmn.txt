@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-8F264E63-5974-4A5D-82C3-7C41FF3706AD', 'name': 'Scoring request', 'incoming': ['Scoring request'], 'outgoing': ['Results Scoring1']}
+{'id': 'sid-BD0A25A8-2911-4E86-9102-5477472806C8', 'name': 'forward scoring result 1', 'incoming': ['Results Scoring1'], 'outgoing': ['Continue scoring result Level 2']}
+{'id': 'sid-99EC32DB-E6DF-4468-BEEA-64AC8E43C2CA', 'name': 'forward delay message', 'incoming': ['Scoring request'], 'outgoing': []}
+{'id': 'sid-E50C7E4F-F49A-452F-BCA6-157E2C04C696', 'name': 'forward scoring result 2', 'incoming': ['Continue scoring result Level 2'], 'outgoing': ['Scoring request completed']}
+{'id': 'sid-E4121167-B0CC-4744-B435-FA5992F87765', 'name': 'Scoring (Level1)', 'incoming': ['Scoring request'], 'outgoing': ['Result there?']}
+{'id': 'sid-0C5514D2-4A7F-4AB5-BDF1-331BC3BBF1F4', 'name': 'Report result to Bank', 'incoming': ['Scoring request'], 'outgoing': ['Scoring 1 finished']}
+{'id': 'sid-268EFE41-E780-4065-9B7B-5AD23558A6C0', 'name': 'Report delay', 'incoming': ['Result there?'], 'outgoing': ['perform final scoring (level 2)']}
+{'id': 'sid-FFACA3B5-B2DF-41BE-A566-54A003B59E9B', 'name': 'perform final scoring (level 2)', 'incoming': ['Result there?'], 'outgoing': ['a few minutes']}
+{'id': 'sid-7AFB8340-1192-42EF-836F-31D725FE47CB', 'name': 'Report scoring result 2 to Bank', 'incoming': ['a few minutes'], 'outgoing': ['Scoring 2 finished']}
+
+Gateways:
+{'id': 'sid-CA187F08-E88D-4574-B302-216FA8CB04D0', 'name': 'Result there?', 'incoming': ['Scoring request'], 'outgoing': ['Scoring 1 finished', 'a few minutes']}
+{'id': 'sid-E282E024-9B73-42B4-9A31-4A66BCC1D51A', 'name': 'EventBasedGateway1', 'incoming': ['Scoring request'], 'outgoing': ['Scoring request completed', 'Delay message']}
+{'id': 'sid-64ADECF4-180A-40D4-A062-B0679991A99E', 'name': 'Results Scoring1', 'incoming': ['Scoring request'], 'outgoing': ['Continue scoring result Level 2']}
+{'id': 'sid-E79ED6EF-167A-4F26-8452-75FBDAD0C384', 'name': 'Delay message', 'incoming': ['Scoring request'], 'outgoing': ['forward delay message']}
+{'id': 'sid-B365A3BD-62AA-4EF5-AE30-8F872153D01A', 'name': 'Continue scoring result Level 2', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Scoring request completed']}
+{'id': 'sid-C5440575-85F1-4CA6-A4F7-9EB4302612B7', 'name': 'a few minutes', 'incoming': ['Result there?'], 'outgoing': ['Scoring 2 finished']}
+
+Start Events:
+{'id': 'sid-3421242E-6132-4749-ABE9-54A62CE36CC1', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['forward delay message']}
+{'id': 'sid-92CD7929-BA15-4E98-A677-CB403A568B67', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Report result to Bank']}
+
+End Events:
+{'id': 'sid-FF53FCCF-F69A-4940-B7EE-D355E596FDB5', 'name': 'Scoring request completed', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-A8079855-1948-4E1D-96FF-A2FF688A6A3B', 'name': 'Scoring 2 finished', 'incoming': ['a few minutes'], 'outgoing': []}
+{'id': 'sid-F105DC5E-B317-4BD3-8723-CEA246F11075', 'name': 'Scoring 1 finished', 'incoming': ['Result there?'], 'outgoing': []}

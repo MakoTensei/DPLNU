@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-39BF6F03-BF17-461C-9820-4075F7D6F07A', 'name': 'forward request', 'incoming': ['Scoring\nrequested'], 'outgoing': ['Scoring\nReport']}
+{'id': 'sid-151B3C55-F459-4168-936C-3681927EC988', 'name': 'forward scoring', 'incoming': ['Scoring\nReport'], 'outgoing': ['Scoring request\nFinished']}
+{'id': 'sid-522C99B6-B5C0-4A3C-8FD5-A16A60A9528D', 'name': 'forward delay message', 'incoming': ['Scoring\nrequested'], 'outgoing': ['EventBasedGateway1']}
+{'id': 'sid-1EAACBDF-7052-4F9E-8382-CC5E26183F1F', 'name': 'Level 1 Scoring', 'incoming': ['Schufa show\nrequested'], 'outgoing': ['Result\npresent?']}
+{'id': 'sid-7DECA1BB-4173-4915-BF68-23622542A125', 'name': 'Send delay message', 'incoming': ['Schufa show\nrequested'], 'outgoing': ['Level 2 Scoring']}
+{'id': 'sid-22B3723C-825D-426C-87E9-97AAA6F00EC2', 'name': 'Level 2 Scoring', 'incoming': ['Result\npresent?'], 'outgoing': ['Result\npresent?']}
+{'id': 'sid-ADB8C4BD-6146-4698-A9E5-9E114D573ADE', 'name': 'Scoring', 'incoming': ['Result\npresent?'], 'outgoing': ['Schufa show\nFinished']}
+
+Gateways:
+{'id': 'sid-DD201F0C-D8E7-45EB-A9D7-C72C94E3E920', 'name': 'Result\npresent?', 'incoming': ['Schufa show\nrequested', 'Result\npresent?'], 'outgoing': ['Schufa show\nFinished', 'Scoring']}
+{'id': 'sid-C316001A-05A9-4E30-B4E7-632583596368', 'name': 'EventBasedGateway1', 'incoming': ['Scoring\nrequested', 'EventBasedGateway1'], 'outgoing': ['Scoring request\nFinished', 'EventBasedGateway1']}
+{'id': 'sid-98E56B66-4727-41B6-8575-4206A10551D2', 'name': 'Scoring\nReport', 'incoming': ['forward request'], 'outgoing': ['Scoring request\nFinished']}
+{'id': 'sid-681F42E0-E581-4B07-862D-E7D39655178C', 'name': 'Delay message\nobtained', 'incoming': ['Scoring\nrequested'], 'outgoing': ['Scoring request\nFinished']}
+
+Start Events:
+{'id': 'sid-A4873A27-65B4-4C3B-86D6-E184DE63E31D', 'name': 'Scoring\nrequested', 'incoming': [], 'outgoing': ['forward delay message']}
+{'id': 'sid-7F6A5EF9-5EEB-4DAE-8408-11040E35CFEB', 'name': 'Schufa show\nrequested', 'incoming': [], 'outgoing': ['Send delay message']}
+
+End Events:
+{'id': 'sid-6F8CAD75-3F50-40AD-9C78-CBAC22B85BF5', 'name': 'Scoring request\nFinished', 'incoming': ['Delay message\nobtained'], 'outgoing': []}
+{'id': 'sid-8894CC96-CB2B-471B-A075-F4346254A59F', 'name': 'Schufa show\nFinished', 'incoming': ['Result\npresent?'], 'outgoing': []}

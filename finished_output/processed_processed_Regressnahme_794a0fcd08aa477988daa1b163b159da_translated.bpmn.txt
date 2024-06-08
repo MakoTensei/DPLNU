@@ -1,0 +1,7 @@
+ When a "Regression claim reported" event occurs, it triggers a series of tasks and gateways to process the claim. The process begins with the "Send payment request" task, which is directed to "ExclusiveGateway1". This gateway then determines if the claim is justified, leading to the "Is there a claim?" gateway. If the claim is justified, the process moves to "Close" with the "Closed" event.
+
+If the claim is not justified, the process continues through "Set process for resubmission" and "Money received" tasks, which are also directed to "ExclusiveGateway1". The "VN has contradicted" event leads to the same gateway, while the "Reimbursement period expired" event also goes to "ExclusiveGateway1".
+
+Upon receiving the "Is there a claim?" event, the process can either proceed to "Close" or continue through "Proceedings" and "ExclusiveGateway3". If the claim is not justified, the process moves to "Regress to Debt Service Provider" and then back to "ExclusiveGateway1".
+
+In summary, the "Regression claim reported" event initiates a flow that involves multiple tasks and gateways, ultimately leading to either the closure of the claim or the continuation of the process through various stages.

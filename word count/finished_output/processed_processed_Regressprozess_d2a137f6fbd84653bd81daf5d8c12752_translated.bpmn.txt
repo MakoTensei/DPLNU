@@ -1,0 +1,23 @@
+ In the system, we have several tasks and gateways that handle different events and outcomes. Let's break down the flow of events and tasks:
+
+1. A 'Report possible Regression' event triggers the 'Examination Regress possibility' task. This task has two outcomes: 'ExclusiveGateway3' and 'No claim'.
+
+2. The 'ExclusiveGateway3' outcome leads to the 'Debt collection' task, which has two outcomes: 'Money on debt collection' and 'Get money'.
+
+3. The 'No claim' outcome leads to the 'Reimbursement period expired' task, which has one outcome: 'Money on debt collection'.
+
+4. The 'EventBasedGateway4' event triggers the 'Debt collection' task, which has two outcomes: 'Money on debt collection' and 'ExclusiveGateway1'.
+
+5. The 'ExclusiveGateway1' outcome leads to the 'VN payment request' task, which has one outcome: 'Money received'.
+
+6. The 'Money received' outcome leads to the 'Get money' task, which has one outcome: 'Get money'.
+
+7. The 'Report possible Regression' event also triggers the 'Proceedings' task, which has two outcomes: 'ExclusiveGateway2' and 'Objection entry'.
+
+8. The 'ExclusiveGateway2' outcome leads to the 'Debt collection' task, which has one outcome: 'Money on debt collection'.
+
+9. The 'Objection entry' outcome leads to the 'ExclusiveGateway3' outcome, which has one outcome: 'No claim'.
+
+10. The 'Reimbursement period expired' task also triggers the 'Money on debt collection' task, which has one outcome: 'Money on debt collection'.
+
+In summary, the 'Report possible Regression' event can lead to the 'Debt collection' task through multiple paths, and the 'Debt collection' task can result in 'Money on debt collection' or 'Get money'. The 'ExclusiveGateway3' outcome can also lead to 'No claim', which in turn

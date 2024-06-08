@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-D5F823B9-924C-4B43-AFB2-656385AC2479', 'name': 'Examination Regress', 'incoming': ['Damage\nhave been regulated'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-354A6B23-4562-4160-8E93-6CBA3FEF247D', 'name': 'Payment request', 'incoming': ['Damage\nhave been regulated'], 'outgoing': ['Payment\nentry\nobtained']}
+{'id': 'sid-6BC372D1-8D8E-41A4-B1AF-61A88453766B', 'name': 'Close', 'incoming': ['Opposition\njustified?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-D077A550-B719-4E4A-B3FB-026A03C4FBFD', 'name': 'Book payment', 'incoming': ['Payment\nentry\nobtained'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-FD6B8246-701E-4100-9A55-B0893E4D345D', 'name': 'Proceedings', 'incoming': ['Damage\nhave been regulated'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-563FB41A-1875-408B-A7C8-8BEE35819C02', 'name': 'handover\nInkasso-DL', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-EB41C389-3B55-4FC3-AA0C-AEE735FB4DCF', 'name': 'Regress possible?', 'incoming': ['Damage\nhave been regulated'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-C2D8C819-71A2-4D6C-9AA6-5E257A9B8460', 'name': 'ExclusiveGateway1', 'incoming': ['Examination Regress', 'Regress possible?', 'Opposition\nobtained'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-43ADC468-D721-46C7-B482-5D090B33109A', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3', 'Close']}
+{'id': 'sid-F7698114-AAE4-4139-9347-1EB3A4E1F9A0', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Damage\nhave been regulated'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-078AFD3C-0EAE-4951-B067-5365B2411036', 'name': 'EventBasedGateway4', 'incoming': ['Damage\nhave been regulated'], 'outgoing': ['Payment\nentry\nobtained', 'Opposition\njustified?', 'handover\nInkasso-DL']}
+{'id': 'sid-2628DA20-94CF-4A75-9316-97D6AC55DD52', 'name': 'Payment\nentry\nobtained', 'incoming': ['Regress possible?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-0F8B479E-7F2E-4908-BDB8-FE10EC28A54E', 'name': 'Opposition\nobtained', 'incoming': ['Damage\nhave been regulated'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-288B28B2-C619-4B4B-85C3-94E2C1117BBA', 'name': 'Deadline for opposition\nwait', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-BD7BF535-7601-4927-88B2-65C93EBA2B9C', 'name': 'Damage\nhave been regulated', 'incoming': [], 'outgoing': ['ExclusiveGateway3']}
+
+End Events:
+{'id': 'sid-6D137169-B630-4434-871B-2E730F21C661', 'name': 'EndEvent0', 'incoming': ['Book payment'], 'outgoing': []}
+{'id': 'sid-9BB828C9-5B8C-4093-BBC2-142535269602', 'name': 'EndEvent1', 'incoming': ['Deadline for opposition\nwait'], 'outgoing': []}

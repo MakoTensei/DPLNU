@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-03192584-ADF6-43BC-934E-C4397523B6D7', 'name': 'perform scoring level 1', 'incoming': ['StartEvent0'], 'outgoing': ['Delay?']}
+{'id': 'sid-B58AF4A9-0BE1-493B-993C-5412F42A22E3', 'name': 'Send a reply', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-2DDFB472-DA74-4F51-926F-787E3FE525FF', 'name': 'perform scoring level 2', 'incoming': ['Information about delay'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-19FA46DE-4D50-4373-8993-387DDEC49F54', 'name': 'Information about delay', 'incoming': ['Delay?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-7F89190E-D10C-4478-A2E8-92F22454F129', 'name': 'Check whether fast query is possible', 'incoming': ['StartEvent1'], 'outgoing': ['Quick answer possible?']}
+{'id': 'sid-0D6D7901-28D5-48BE-B0DE-23F840DF490B', 'name': 'Send a reply', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-C4A9C897-FA9E-4E4A-8D7E-90179245E886', 'name': 'Answer', 'incoming': ['Quick answer possible?'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-450FB857-D3C9-4D1C-BAFD-67A5CF2CD87E', 'name': 'Delay?', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'EndEvent0']}
+{'id': 'sid-B9BCA62B-01AB-4F8E-A00A-847A29EB6080', 'name': 'Quick answer possible?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'EndEvent1']}
+
+Start Events:
+{'id': 'sid-827066F9-1D33-4C1F-BD1E-9F4B5334C0E5', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Send a reply']}
+{'id': 'sid-1E252C49-8EE9-493D-BB03-0B4DC2452C32', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Send a reply']}
+
+End Events:
+{'id': 'sid-1EE13C3A-BCB4-4AF2-B49D-08D1195C716F', 'name': 'EndEvent0', 'incoming': ['Delay?', 'Delay?'], 'outgoing': []}
+{'id': 'sid-A2B9A767-DAEB-4C84-8D53-0A973459DF4D', 'name': 'EndEvent1', 'incoming': ['Quick answer possible?', 'Quick answer possible?'], 'outgoing': []}

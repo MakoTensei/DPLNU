@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-97BA6A16-F36B-467C-ABF3-966543D66F74', 'name': 'Check regression', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-18313409-8B2C-4DA1-B0BF-E540D42A5E77', 'name': 'Close regression', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-40B31706-90B7-4F11-82B9-32E4664033BC', 'name': 'Check payment refusal', 'incoming': ['Rejection of payment'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-1E02F9BC-72C4-4645-8855-8657E95B7EC0', 'name': 'Accounting amount', 'incoming': ['Payment received'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-08B405FF-9394-4BA9-82D0-902FF7ABFC36', 'name': 'Set process for resubmission', 'incoming': ['sid-7753AC9F-B113-46D8-996C-3B3812DBB1A0'], 'outgoing': ['Payment received']}
+
+Gateways:
+{'id': 'sid-CBA728CB-2AA7-4A34-99DB-C63CE847547F', 'name': 'Regression possible?', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway2', 'sid-FF763AFD-60BB-4903-927D-CD3430D3E100']}
+{'id': 'sid-D0C61A84-3095-4B92-88E6-DA1D3B09AA81', 'name': 'Rejection of payment justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-472E58A8-6BD3-4264-9A90-667D4215B637', 'name': 'ExclusiveGateway2', 'incoming': ['Check payment refusal', 'EventBasedGateway4', 'Check regression'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-5B914256-49E7-43EE-A1D3-678A247F0739', 'name': 'ExclusiveGateway3', 'incoming': ['Rejection of payment', 'EventBasedGateway4'], 'outgoing': ['sid-CFC423D7-1153-4E45-A464-18C4C086BE55']}
+{'id': 'sid-352A0FCD-01C9-464F-A64E-375E5559B3ED', 'name': 'EventBasedGateway4', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway3', 'Rejection of payment justified?', 'ExclusiveGateway2']}
+{'id': 'sid-C4218213-6EEF-4ABC-8449-DD6F49436017', 'name': 'Payment received', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-28F90DD5-7300-468C-9569-E6198571CF8D', 'name': 'Rejection of payment', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-C77D3BC1-4861-4997-A94B-CFC5D759AD8E', 'name': 'First run', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-D362FA88-09F8-48E5-8B43-66DB68F56D65', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Regression possible?']}
+
+End Events:
+{'id': 'sid-955BBEC5-AB99-496E-A2E9-AAD2F4079DC4', 'name': 'EndEvent0', 'incoming': ['Check payment refusal'], 'outgoing': []}
+{'id': 'sid-B64D4B9E-7B4F-425E-AE49-A6E4C2B2B7AD', 'name': 'Open', 'incoming': ['sid-F4522E60-8A41-4D0D-A8CB-415F5266713D'], 'outgoing': []}

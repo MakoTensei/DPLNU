@@ -1,0 +1,21 @@
+ The process begins with the event 'Goods are to be shipped', which triggers the 'ExclusiveGateway1' to handle the shipping process. This gateway then sends the goods to 'ParallelGateway5' for further processing.
+
+Next, the 'ParallelGateway5' receives the goods and sends a 'Pick up offers' event to 'ParallelGateway4'. This gateway then sends a 'Special offer' event to 'ExclusiveGateway1', which in turn sends it to 'Specialist'.
+
+The 'Specialist' receives the 'Special offer' and sends it to 'ExclusiveGateway0', which then sends it back to 'ParallelGateway1'.
+
+Meanwhile, the 'Goods are to be shipped' event also triggers the 'Insurance necessary?' event. This event is received by 'InclusiveGateway3', which sends the 'InclusiveGateway3' event to 'ParallelGateway5'.
+
+The 'ParallelGateway5' receives the 'InclusiveGateway3' event and sends it to the 'Specialist' along with the 'Special offer' event. The 'Specialist' then sends the 'Special offer' event to 'ExclusiveGateway1', which sends it back to 'ParallelGateway5'.
+
+The 'ParallelGateway5' receives the 'Special offer' event and sends a 'Goods are ready for collection' event to the final destination.
+
+In summary, the process involves the following steps:
+
+1. 'Goods are to be shipped' event triggers 'ExclusiveGateway1'
+2. 'ExclusiveGateway1' sends goods to 'ParallelGateway5'
+3. 'ParallelGateway5' sends 'Pick up offers' event to 'ParallelGateway4'
+4. 'ParallelGateway4' sends 'Special offer' event to 'ExclusiveGateway1'
+5. 'ExclusiveGateway1' sends 'Special offer' event to 'Specialist'
+6. 'Specialist' sends 'Special offer' event to 'ExclusiveGateway0'
+7. 'Insur

@@ -1,0 +1,19 @@
+ Starting with a possible regress request, the system processes the request through a series of gateways and tasks. Initially, the request is directed to the 'Regression\nYES/NO' gateway, which determines if there is a need for a regress. If a regress is needed, the system proceeds to the 'Request\nInsurance' task, which handles the insurance-related aspects of the regress.
+
+
+If the regress is not needed, the system moves to the 'no regression' task, which does not require any further action. However, if the regress is needed, the system then sends the request to the 'Reimbursement' gateway, which handles the reimbursement process.
+
+
+Simultaneously, the system also processes incoming payments through the 'Incoming payment' gateway, which leads to the 'Booking' task, resulting in a 'Finished' state.
+
+
+The 'Opposition\nYES/NO' gateway, triggered by the 'EventBasedGateway2', leads to the 'Opposition\nYES/NO' task, which can result in a 'Finished' state or a message from the inkasso.
+
+
+The 'Reasons\nby VN' gateway, also triggered by 'EventBasedGateway2', leads to the 'Reasons\nby VN' task, which also concludes with a 'Finished' state.
+
+
+Lastly, the 'Result' gateway, triggered by 'EventBasedGateway2', leads to the 'Message from Inkasso' task, which also ends with a 'Finished' state.
+
+
+The system concludes with a 'Finished' state, marking the end of the event processing.

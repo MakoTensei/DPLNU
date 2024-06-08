@@ -1,0 +1,21 @@
+ In the world of event-driven communication, a series of tasks and gateways work together to facilitate the scoring process. Let's dive into the flow of this system:
+
+When the 'StartEvent0' occurs, it triggers the 'Start Communication' task, which initiates the process by sending a message to the 'IntermediateCatchEvent2'. This event, in turn, leads to the 'Scoring' task, which begins the scoring process.
+
+Simultaneously, the 'StartEvent0' also triggers the 'EventBasedGateway1', which sends a message to the 'Scoring ends' task. This task is responsible for ending the scoring process once it's completed.
+
+As the 'Scoring' task progresses, it sends a message to the 'IntermediateCatchEvent4', which also sends a message to the 'Scoring ends' task, further ensuring the scoring process is properly concluded.
+
+Meanwhile, the 'StartEvent0' also triggers the 'Continue scoring result Level 2' task, which continues the scoring process at Level 2. This task sends a message to the 'Scoring ends' task, ensuring the process is properly concluded.
+
+The 'Scoring' task also sends a message to the 'Scoring available' gateway, which in turn sends a message to the 'Scoring' task, allowing it to continue the scoring process.
+
+The 'Scoring' task also sends a message to the 'Create a message Result Level 2' task, which creates a message with the result of the scoring process at Level 2.
+
+The 'IntermediateCatchEvent2' task, upon receiving a message from the 'Start Communication' task, sends a message to the 'Scoring ends' task, ensuring the scoring process is properly concluded.
+
+The 'EventBasedGateway1' task, upon receiving a message from the 'StartEvent0', sends a message to the 'Scoring ends' task, ensuring the scoring process is properly concluded.
+
+The 'IntermediateCatchEvent3' task, upon receiving a message from the 'StartEvent0', sends a message to the 'Decrease\nforward info' task, which decreases the forward information.
+
+The 'Inter

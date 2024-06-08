@@ -1,0 +1,5 @@
+ In the scoring process, the system starts with the 'StartEvent0' which triggers the forward scoring to the Frontent. This event is followed by the 'Scoring\nat Schufa\nclarify' task, which is responsible for clarifying the scoring at Schufa. The task 'Scoring delays' is then initiated due to the incoming 'Scoring\nat Schufa\nclarify' event, leading to the 'ExclusiveGateway0' where the 'Schufascoring\nFinished' event is eventually triggered.
+
+Meanwhile, the 'Scoring\nQuestion\nobtained' event initiates the 'Level 2 Bank scoring' task, which is directed to 'ExclusiveGateway2'. The 'Level 2 Bank scoring' task is then followed by the 'Scoring ends' event, which is triggered by the 'Is the result fixed?' event.
+
+In summary, the scoring process starts with 'StartEvent0', followed by tasks related to Schufa clarification, scoring delays, and level 1 bank scoring. The process then transitions to level 2 bank scoring, which is directed to 'ExclusiveGateway2'. Finally, the process concludes with the 'Scoring ends' event, triggered by the 'Is the result fixed?' event.

@@ -1,0 +1,17 @@
+ In the case of a potential regression for VN, the process begins with the Gateway 'Regress possible?' which receives the incoming event 'VN may be taken into regression'. This gateway then directs the case to 'ParallelGateway3' and also leads to a closure.
+
+ParallelGateway3, upon receiving the case, sends a message to'sid-3B9560E2-4427-43E1-AED1-C1B5A56A5150' and sets the case to'reimbursement'.
+
+Meanwhile, 'EventBasedGateway2' is triggered by the incoming event 'VN may be taken into regression'. This gateway then leads to a closure and also triggers the 'Objection okay?' gateway.
+
+The 'Objection okay?' gateway, upon receiving the event, sends a message to the 'Debt collection office' and also leads to a closure.
+
+The 'Debt collection office' does not have any incoming or outgoing events, so it remains idle.
+
+The 'Money received' event, triggered by 'EventBasedGateway2', leads to a closure.
+
+The 'VN' event, also triggered by 'EventBasedGateway2', leads to a closure.
+
+Finally, the 'Close' event, triggered by 'Regress possible?' and 'EventBasedGateway2', leads to a closure.
+
+In summary, the process starts with the 'Regress possible?' gateway, which directs the case to 'ParallelGateway3' and 'Closed'. 'ParallelGateway3' then sends a message to'sid-3B9560E2-4427-43E1-AED1-C1B5A56A5150' and sets the case to'reimbursement'. 'EventBasedGateway2' triggers the 'Objection okay?' gateway, which sends a message to the 'Debt collection office' and leads to a closure. The 'Money received' and 'VN' events lead to closures, and the 'Close' event concludes the process.

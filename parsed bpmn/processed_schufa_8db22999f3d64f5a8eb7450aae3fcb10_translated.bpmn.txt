@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-AD1EAF1B-0045-4D2E-BD74-72BFFE00B02B', 'name': 'Scoring request to Schufa', 'incoming': ['StartEvent0'], 'outgoing': ['Delay reported']}
+{'id': 'sid-437AD4BE-47CE-4F18-BC08-DE5EBC9AE652', 'name': 'forwarding results to Frontend', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F50A312D-301C-458E-ADAA-269840D98D29', 'name': 'Report delay to Sales-MA', 'incoming': ['Delay reported'], 'outgoing': ['Result']}
+{'id': 'sid-6F2E001F-40F8-4FB7-B4B0-DC05EC918F2F', 'name': 'first scoring', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-EDCF32FE-717D-4B6D-A53A-296652D35B58', 'name': 'Report result to Bank', 'incoming': ['second scoring'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-EDCC73BE-09AF-43F0-9E55-026A76203D36', 'name': 'Report delay to Bank', 'incoming': ['StartEvent1'], 'outgoing': ['second scoring']}
+{'id': 'sid-A86199B3-7BDD-467E-9FDC-427E4BB5ED3E', 'name': 'second scoring', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-4593AA9B-10F5-49DE-851C-3274BDF321E5', 'name': 'Report result to Bank', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-66CF7956-224F-4396-A8B8-AD54C9BA1F8D', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'Delay reported'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-493DF642-A030-41FD-9043-CFE4B3CD1862', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'ExclusiveGateway2']}
+{'id': 'sid-472DE9A8-5D79-45D1-82D1-0BA6FD0DAA71', 'name': 'ExclusiveGateway2', 'incoming': ['Report result to Bank', 'ExclusiveGateway1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-6D00CF85-21EE-4854-A4DE-EBA43875FD28', 'name': 'EventBasedGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['Result', 'EndEvent0']}
+{'id': 'sid-B2D9E081-AB43-4C3A-9765-8A82AEF9C06B', 'name': 'Delay reported', 'incoming': ['Scoring request to Schufa'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-F11767BC-0DC3-425A-B218-2F098643097B', 'name': 'Result', 'incoming': ['StartEvent0'], 'outgoing': ['forwarding results to Frontend']}
+{'id': 'sid-82134EDB-30BC-458E-B07E-87816ABC12A5', 'name': 'Result', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-B27481A9-F348-43DB-AD71-9402EC9C0099', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['forwarding results to Frontend']}
+{'id': 'sid-A8BFBD64-2FB5-44F1-9739-A19B2F141DC5', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Report delay to Bank']}
+
+End Events:
+{'id': 'sid-DD59F2D5-7661-40AA-B605-34DE1D2D2D75', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-FE824482-45E3-435B-A5F0-1A32B9549808', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}

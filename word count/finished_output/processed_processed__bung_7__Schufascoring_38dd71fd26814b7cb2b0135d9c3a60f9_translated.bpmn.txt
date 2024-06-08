@@ -1,0 +1,7 @@
+ In the scoring process, the system starts with the 'Schufascoring\nInterest' event, which triggers a 'Report delay' action. This delay is managed by the 'EventBasedGateway1' gateway, which then sends a 'Scoring request\nFinished' message to the 'Scoring\nResult\nobtained' gateway. The 'Scoring\nResult\nobtained' gateway, upon receiving the 'Scoring request\nFinished' message, sends a 'Scoring request\nFinished' message back to 'EventBasedGateway1'.
+
+Meanwhile, the 'StartEvent1' event initiates a 'Send a reply' action, which sends a 'Scoring request\nFinished' message to the 'Scoring request\nFinished' gateway. The 'Scoring request\nFinished' gateway, in turn, sends a 'Scoring request\nFinished' message back to 'Send a reply'.
+
+Additionally, the 'Schufascoring\nInterest' event also triggers a 'Conducts second scoring' action, which sends a 'Scoring request\nFinished' message to the 'Scoring request\nFinished' gateway. This gateway, upon receiving the 'Scoring request\nFinished' message, sends a 'Scoring request\nFinished' message back to 'Conducts second scoring'.
+
+In summary, the scoring process involves a series of events and gateways that work together to manage the scoring request, obtain the result, and send the final message indicating the completion of the scoring process.

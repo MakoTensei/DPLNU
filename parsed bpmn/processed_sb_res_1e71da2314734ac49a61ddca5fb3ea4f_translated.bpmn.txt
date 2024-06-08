@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-DB262E18-53BC-4702-8B59-A6263D3609B9', 'name': 'Enter the Restraurant', 'incoming': ['Hunger'], 'outgoing': ['to choose from']}
+{'id': 'sid-18762CA8-B3ED-4A05-AAF1-CAD1D6407A28', 'name': 'to choose from', 'incoming': ['Hunger'], 'outgoing': ['wait till\nThe series']}
+{'id': 'sid-8FA9836C-0A18-4665-8F10-8BDE4883EE97', 'name': 'Bezhalen', 'incoming': ['sid-B13C9268-6DD3-435D-9E42-2DAA9CE5E4AC'], 'outgoing': ['Pieper against\ntake']}
+{'id': 'sid-6C1F4FE4-164F-49C2-AD67-D8E4965CFB76', 'name': 'Meals\nretrieval', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Eat meal']}
+{'id': 'sid-A24DBE83-7831-4D61-8BBB-E53532732965', 'name': 'Eat meal', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Famine']}
+{'id': 'sid-B491AFCD-6BE5-4058-B011-FBBD969191B0', 'name': 'Place\nGo', 'incoming': ['Pieper against\ntake'], 'outgoing': ['it is called']}
+{'id': 'sid-C2B3A1CB-3D92-47E9-81AA-EA54E72DC62E', 'name': 'Enter your order in cash\n', 'incoming': ['Order\naccept'], 'outgoing': ['Payment method']}
+{'id': 'sid-8CEDF505-8B4F-453D-9E01-6FC4480E7E71', 'name': 'Payment method', 'incoming': ['Order\naccept'], 'outgoing': ['Pieper\nset and pass']}
+{'id': 'sid-F3D63EE9-567C-42F0-92B3-E73EA0B717BB', 'name': 'Pieper\nset and pass', 'incoming': ['Order\naccept'], 'outgoing': ['sid-E1B9B823-936E-41FF-BFB8-AFE8BBDC855B']}
+{'id': 'sid-6FC76921-BC35-42D9-A8F5-545FAD6F660B', 'name': 'Pieper\ntrigger', 'incoming': ['Food ready'], 'outgoing': ['Guest appears']}
+{'id': 'sid-5E2EC168-6E8B-424F-811F-725AB65E12C1', 'name': 'Guest call', 'incoming': ['5 min'], 'outgoing': ['Hand over meal']}
+{'id': 'sid-1248529E-313B-4E1A-A77B-14F8A40D9E29', 'name': 'Preparation of meal', 'incoming': ['Order'], 'outgoing': ['in Druchreich']}
+{'id': 'sid-9CF8A10C-527D-49B3-A63B-D3F9218C3E87', 'name': 'in Druchreich', 'incoming': ['Order'], 'outgoing': ['Employees\ninformation']}
+
+Gateways:
+{'id': 'sid-7A5310F6-544C-4018-A68A-76813CC266BB', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway1', 'EventBasedGateway1'], 'outgoing': ['Famine']}
+{'id': 'sid-1ACE8E5E-7F2F-494A-BEE2-F766717B2A7D', 'name': 'EventBasedGateway1', 'incoming': ['Pieper against\ntake'], 'outgoing': ['Meals\nretrieval', 'Eat meal']}
+{'id': 'sid-87639AFD-5F11-4233-9F0A-2D4E087E90BE', 'name': 'EventBasedGateway2', 'incoming': ['Food ready', 'Food ready'], 'outgoing': ['Hand over meal', 'EventBasedGateway2']}
+{'id': 'sid-F806F725-C2CE-494C-A70E-218C21AC8F64', 'name': 'wait till\nThe series', 'incoming': ['Hunger'], 'outgoing': ['sid-B99AFE63-3E00-4CCF-90AF-B1C984222A5B']}
+{'id': 'sid-D7F2631F-FE6B-44CA-BEB3-9B1470F1F814', 'name': 'Pieper against\ntake', 'incoming': ['Bezhalen'], 'outgoing': ['Famine']}
+{'id': 'sid-41ABFCE7-4184-450A-A416-435A2D9FE09B', 'name': 'Pieper', 'incoming': ['Pieper against\ntake'], 'outgoing': ['Famine']}
+{'id': 'sid-7EBC0177-A710-4816-9CD6-AE020D6D8008', 'name': 'it is called', 'incoming': ['Place\nGo'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-0295B93A-AF3E-4380-900D-10D6E5DED48F', 'name': 'Food ready', 'incoming': ['sid-0A5FDFB2-0FD9-446F-BC58-93B51AFCD280'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-27865FA2-49A7-4293-9F38-C83DE42C1F64', 'name': '5 min', 'incoming': ['Food ready'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-C5F29F0E-D6D7-49A7-A5FA-17F8A7FBE7D0', 'name': 'Guest appears', 'incoming': ['Pieper\ntrigger'], 'outgoing': ['Hand over meal']}
+
+Start Events:
+{'id': 'sid-2E4AC800-10BB-4960-A8BE-84E5613DEF41', 'name': 'Hunger', 'incoming': [], 'outgoing': ['wait till\nThe series']}
+{'id': 'sid-0A616D22-9443-4FDF-81D1-AF516EE34A0A', 'name': 'Order\naccept', 'incoming': [], 'outgoing': ['Pieper\nset and pass']}
+{'id': 'sid-A295F650-596F-4608-A984-107C9469967F', 'name': 'Order', 'incoming': [], 'outgoing': ['in Druchreich']}
+
+End Events:
+{'id': 'sid-7086DCAC-8291-453D-BADC-65DCAD1422C3', 'name': 'Famine', 'incoming': ['Pieper against\ntake'], 'outgoing': []}
+{'id': 'sid-7FB53CD0-C297-47A3-B6DE-4687F362CEC7', 'name': 'Hand over meal', 'incoming': ['Guest call'], 'outgoing': []}
+{'id': 'sid-4AE5F688-22A2-44D0-8273-3B601C7EE346', 'name': 'Employees\ninformation', 'incoming': ['in Druchreich'], 'outgoing': []}

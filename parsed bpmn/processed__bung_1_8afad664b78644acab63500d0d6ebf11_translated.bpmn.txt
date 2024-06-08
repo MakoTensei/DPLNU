@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-C9E8C6D5-3281-4E2D-A168-46EF7E86BFC6', 'name': 'Packaging goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-8003FDB7-F43B-46A6-A678-DE99F60937A5', 'name': 'Delivering goods', 'incoming': ['Shipping costs'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-2D66EC04-A801-4480-ADAC-3A095545E00B', 'name': 'Clearing the shipping mode', 'incoming': ['ParallelGateway5'], 'outgoing': ['A lot big?']}
+{'id': 'sid-6200D095-19A7-4E31-ADE5-588F8F0812D2', 'name': 'Pick up offers', 'incoming': ['ParallelGateway5'], 'outgoing': ['Select your offer']}
+{'id': 'sid-02646CA5-C0F7-48B6-9F62-E737FC53E8AF', 'name': 'Select your offer', 'incoming': ['A lot big?'], 'outgoing': ['Specialist']}
+{'id': 'sid-FC57180F-5220-4834-BABC-4EF60C5C0077', 'name': 'Specialist', 'incoming': ['A lot big?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B2409113-C377-41D9-AB5E-AE60957DFEE7', 'name': 'Filling the package note', 'incoming': ['A lot big?'], 'outgoing': ['Insurance necessary?']}
+{'id': 'sid-7BE49EF7-7A83-4D70-8285-AD9DE8E762F6', 'name': 'Complete insurance', 'incoming': ['Insurance necessary?'], 'outgoing': ['ParallelGateway4']}
+
+Gateways:
+{'id': 'sid-C6E652DD-91AB-4307-94FE-BB26C4FDA8AE', 'name': 'A lot big?', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0', 'Insurance necessary?']}
+{'id': 'sid-8E1A1D72-4166-4370-BFC8-E7B80345760F', 'name': 'ExclusiveGateway1', 'incoming': ['Specialist', 'ExclusiveGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-4691A61B-7D52-4E29-A9F6-B79F2434CC2B', 'name': 'Insurance necessary?', 'incoming': ['A lot big?'], 'outgoing': ['Complete insurance', 'sid-AF16C62C-1477-464F-8D80-65DC5BB914EF']}
+{'id': 'sid-166DC7F1-2B49-4EB4-8DDA-801549A9486D', 'name': 'ExclusiveGateway3', 'incoming': ['Complete insurance'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-025AA811-5300-4D57-AD45-9FBA5E1DF836', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway5', 'Complete insurance'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-08843204-F366-47C4-B733-11021EC29E9D', 'name': 'ParallelGateway5', 'incoming': ['Shipping costs'], 'outgoing': ['Pick up offers', 'Delivering goods']}
+
+Start Events:
+{'id': 'sid-58E2F4C8-6882-4AAC-B6E1-DAC8D77FB695', 'name': 'Shipping costs', 'incoming': [], 'outgoing': ['Delivering goods']}
+
+End Events:
+{'id': 'sid-7B841D6D-4C3B-40C1-9C40-16054A8902CB', 'name': 'EndEvent0', 'incoming': ['A lot big?'], 'outgoing': []}

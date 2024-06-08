@@ -1,0 +1,9 @@
+ In the case of a reported regression, the process begins with the 'Report\nRegression' start event, which triggers a series of tasks and gateways. First, the 'Check the case' task is initiated, which then connects to the 'Regress\ncapable' gateway. This gateway, in turn, sends the 'Send payment request' and 'EndEvent0' tasks to the respective outgoing paths.
+
+Simultaneously, the 'Check the case' task also connects to the 'ExclusiveGateway2' with the 'justified?' incoming event. If the case is justified, the 'Close' task is triggered, and the 'EndEvent0' task is sent to the 'ExclusiveGateway2' outgoing path.
+
+Meanwhile, the 'Payment\ntest' task is also triggered by the 'Report\nRegression' start event, which connects to the 'paid?' gateway. If the payment is successful, the 'book' task is initiated, and the 'EndEvent0' task is sent to the 'ExclusiveGateway2' outgoing path.
+
+Additionally, the 'Check inbox' task is triggered by the 'paid?' gateway, which connects to the 'ExclusiveGateway5' with the 'Rigid\n?' incoming event. If the inbox is checked, the 'EndEvent0' task is sent to the 'ExclusiveGateway5' outgoing path.
+
+In summary, the process begins with a reported regression, which triggers a series of tasks and gateways, ultimately leading to the 'EndEvent0' event. The 'EndEvent0' event is connected to the 'Regress\ncapable' and 'justified?' gateways, as well as the 'ExclusiveGateway2' and 'ExclusiveGateway5' gateways, depending on the outcome of the tasks and events.

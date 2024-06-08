@@ -1,0 +1,9 @@
+ When a shipment is initiated, the process begins with the 'StartEvent0' which triggers the 'Shipping Explaining' task, asking if a special shipment is necessary. If the answer is yes, the process diverges to the 'Special delivery' task, which inquires about the necessity of insurance. Depending on the response, the process either proceeds to 'ExclusiveGateway1' for insurance-related decisions or to 'ExclusiveGateway3' for special shipment-related decisions.
+
+If the shipment is not special, the process moves to the 'Normal postal shipment' task, which then leads to 'ExclusiveGateway1'. From there, the process can either continue to 'Insurance close' for insurance-related decisions or to 'ParallelGateway5' for the delivery process.
+
+In the case of a special shipment, the process diverges to 'Insurance close' to handle insurance-related decisions. Afterwards, the process proceeds to 'ParallelGateway5' for the delivery process.
+
+The 'ParallelGateway4' task is triggered by the 'StartEvent0' and can lead to either 'ParallelGateway5' for the delivery process or back to 'StartEvent0' for a new shipment initiation.
+
+Finally, the 'Delivering goods' task is triggered by 'StartEvent0' and leads to the 'EndEvent0', marking the completion of the shipment process.

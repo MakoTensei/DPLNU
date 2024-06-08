@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-0120835A-8279-42A8-93D3-D5C2F22557DF', 'name': 'VN', 'incoming': ['Payment on\nRequirement'], 'outgoing': ['Check?']}
+{'id': 'sid-53C62531-8842-46B6-8C3E-585649E31BED', 'name': 'Regress\nReport', 'incoming': ['StartEvent0'], 'outgoing': ['Check the case']}
+{'id': 'sid-B1148453-8327-4F5A-BA00-303E57629673', 'name': 'Regress available', 'incoming': ['StartEvent0'], 'outgoing': ['Payment on\nRequirement']}
+{'id': 'sid-C6F1E65C-8D7D-4EDE-AECC-0FDE65A21D65', 'name': 'Payment on\nRequirement', 'incoming': ['Check the case'], 'outgoing': ['Reimbursement\nset', 'Check?']}
+{'id': 'sid-A8024CBC-0E49-48D3-96CC-20B5F1E900DD', 'name': 'Close', 'incoming': ['Check the case'], 'outgoing': []}
+{'id': 'sid-8DBC84E2-2D98-4652-853B-749A39F22370', 'name': 'Money received', 'incoming': ['1 week'], 'outgoing': ['Book input and complete process']}
+{'id': 'sid-64024F24-7100-403C-98ED-0188E4B18AFC', 'name': 'Book input and complete process', 'incoming': ['1 week'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-30B203C6-4AEC-4B0A-98CF-C151D8A0E2DB', 'name': 'Payments\nrefuse ok.', 'incoming': ['Check?'], 'outgoing': ['Close the process']}
+{'id': 'sid-C0E7499E-9EAE-4EC7-B6B2-DF70B93D71EF', 'name': 'Close the process', 'incoming': ['Check?'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-3DEA0AD2-CFFC-4020-AAD5-349B2A868C3A', 'name': 'Disclosure of debt collection', 'incoming': ['Check?', '1 week'], 'outgoing': []}
+{'id': 'sid-F193552E-5380-4C60-BFBF-9A6AE4690D9A', 'name': 'Reimbursement\nset', 'incoming': ['Payment on\nRequirement'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-2550B0F3-B504-4EC0-AF33-72865C5F6BEB', 'name': 'Check the case', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1', 'Close']}
+{'id': 'sid-0A576650-E652-4990-ABCB-E612CD89746A', 'name': 'Check?', 'incoming': ['Check the case'], 'outgoing': ['EndEvent1', 'Disclosure of debt collection']}
+{'id': 'sid-11854D8E-1E73-4D2E-8918-62B71A3B4EEA', 'name': '1 week', 'incoming': ['Reimbursement\nset'], 'outgoing': ['EndEvent0', 'Disclosure of debt collection']}
+
+Start Events:
+{'id': 'sid-16EBB4E3-49DB-42B6-BE7F-4225B20C78A1', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Regress available']}
+
+End Events:
+{'id': 'sid-C9C6CBA3-6FDC-4B11-8304-AAE6FC7635D5', 'name': 'EndEvent0', 'incoming': ['Reimbursement\nset'], 'outgoing': []}
+{'id': 'sid-DB4825A0-3EE1-42C1-9B99-5EDC85108021', 'name': 'EndEvent1', 'incoming': ['Check the case'], 'outgoing': []}

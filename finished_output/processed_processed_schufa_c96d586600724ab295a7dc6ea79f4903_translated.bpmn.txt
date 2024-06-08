@@ -1,0 +1,11 @@
+ In a bustling financial institution, a series of tasks and gateways work in harmony to process credit applications. The process begins with a 'StartEvent0', which triggers the 'ParallelGateway2'. This gateway is responsible for initiating the 'Get scoring?' request, which is then directed to the 'Get scoring?' gateway.
+
+Once the 'Get scoring?' request is received, it is forwarded to the 'ParallelGateway3'. This gateway is responsible for analyzing the Schufa response and forwarding the answer to the credit transfer. Simultaneously, it also sends the 'Scoring completed request' to the 'Get scoring?' gateway.
+
+The 'Get scoring?' gateway, upon receiving the 'Scoring completed request', sends a reply to the 'Send a reply' event, marking the completion of the scoring process.
+
+Meanwhile, the 'ParallelGateway3' also sends a 'Determining scoring level 2' request to the 'Get scoring?' gateway, which in turn sends a 'Scoring completed request' to the 'Scoring completed request' event.
+
+The 'Scoring completed request' event is then forwarded to the 'EndEvent2' event, which marks the end of the scoring process.
+
+In summary, the credit application process begins with a 'StartEvent0', which triggers a series of events and gateways. The 'Get scoring?' gateway receives the 'Scoring completed request' and sends a reply to the 'Send a reply' event. The 'ParallelGateway3' sends a 'Determining scoring level 2' request, which also results in a 'Scoring completed request' being sent to the 'Scoring completed request' event. Finally, the 'EndEvent2' event marks the completion of the scoring process.

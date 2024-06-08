@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-152628FF-AA6F-40E2-9431-679E1F55094C', 'name': 'Scoring request', 'incoming': ['Requirements\nconsists of:'], 'outgoing': ['Result L1']}
+{'id': 'sid-FE8074A4-1B97-4831-A2DF-BA2F80276D39', 'name': 'Create L1', 'incoming': ['Scoring request\nconsists of:'], 'outgoing': ['L1 to Bank']}
+{'id': 'sid-F6276166-0943-4971-B772-B842BF68E4EC', 'name': 'Create L2', 'incoming': ['sid-E0700151-FA35-4FE9-8338-92986424E9AF'], 'outgoing': ['L2 to Bank']}
+
+Gateways:
+{'id': 'sid-6853BACC-1ED8-4D25-942B-CD55F2A977EB', 'name': 'L1 delivers\nResult', 'incoming': ['Scoring request\nconsists of:'], 'outgoing': ['L1 to Bank', 'sid-07C7F810-20E0-497C-8963-0BD2AF8221AC']}
+{'id': 'sid-16033058-BD0E-4735-A525-3FC2AF9305FA', 'name': 'EventBasedGateway1', 'incoming': ['Requirements\nconsists of:'], 'outgoing': ['L1 scoring\nat the front end', 'Delay']}
+{'id': 'sid-3ECFE7E7-4CBB-4C4F-B8B9-1710D0FA7FB0', 'name': 'Result L1', 'incoming': ['Scoring request'], 'outgoing': ['L1 scoring\nat the front end']}
+{'id': 'sid-D7408E01-7B4E-4780-AD55-9E52650E3A24', 'name': 'Delay', 'incoming': ['Requirements\nconsists of:'], 'outgoing': ['sid-4727A803-851B-4D75-A5CD-74DE7F3C6197']}
+{'id': 'sid-FDBD121A-6C69-4069-A392-09989D2A944F', 'name': 'Result L2\n', 'incoming': ['sid-E8CDD610-82DD-41CF-B3D9-B4829E4E4E65'], 'outgoing': ['L2 scoring\nat the front end']}
+
+Start Events:
+{'id': 'sid-DA9B6D1C-9B0F-4518-876D-A7B69AD50C19', 'name': 'Requirements\nconsists of:', 'incoming': [], 'outgoing': ['Delay']}
+{'id': 'sid-89B5F67B-9A3D-4BFD-9BDE-892A24A4EAEC', 'name': 'Scoring request\nconsists of:', 'incoming': [], 'outgoing': ['L1 delivers\nResult']}
+
+End Events:
+{'id': 'sid-82143A00-E2AC-43D0-ABFD-49048DB11A5C', 'name': 'L1 scoring\nat the front end', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-3273622F-E7B0-4B3C-A938-E0CA5F95DDBC', 'name': 'L2 scoring\nat the front end', 'incoming': ['Result L2\n'], 'outgoing': []}
+{'id': 'sid-6E580CCE-7B9D-487A-AAEB-504ECC69711D', 'name': 'L1 to Bank', 'incoming': ['Create L1'], 'outgoing': []}
+{'id': 'sid-FC06E739-EBCD-46E7-ACAD-A26A6CFC7939', 'name': 'L2 to Bank', 'incoming': ['Create L2'], 'outgoing': []}

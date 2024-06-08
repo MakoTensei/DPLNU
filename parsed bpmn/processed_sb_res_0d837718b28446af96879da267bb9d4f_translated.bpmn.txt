@@ -1,0 +1,32 @@
+Tasks:
+{'id': 'sid-18CDE803-2B6F-4B81-A8C8-F992B129A8DF', 'name': 'Start your order', 'incoming': ['Restaurant'], 'outgoing': ['Order payment']}
+{'id': 'sid-EFC3B7C3-E393-4EED-B996-487467995963', 'name': 'Order payment', 'incoming': ['Restaurant'], 'outgoing': ['Pieper take over']}
+{'id': 'sid-66691E9B-F8F8-4E14-A92D-1A44C0935A75', 'name': 'Restaurant', 'incoming': ['Guest feels hungry'], 'outgoing': ['Pieper take over']}
+{'id': 'sid-32BA9504-4BB7-4A54-8163-ED7EBF7F465B', 'name': 'Pieper take over', 'incoming': ['Guest feels hungry'], 'outgoing': ['Pieper reports: food ready']}
+{'id': 'sid-3E7EC032-B409-4341-984B-7DCB76B98AD1', 'name': 'Pick up food', 'incoming': ['Guest feels hungry'], 'outgoing': ['Food']}
+{'id': 'sid-3A3DA2DA-44DC-4245-9719-8F4CBF678E7F', 'name': 'Food', 'incoming': ['Pieper reports: food ready'], 'outgoing': ['no feeling of hunger']}
+{'id': 'sid-19C7E77E-0A11-4E72-8920-0F17788FCA0F', 'name': 'Cook food', 'incoming': ['Food ordered'], 'outgoing': ['Add food to the rich']}
+{'id': 'sid-63DA9E78-3885-4B17-A2EB-5547180B48B1', 'name': 'Add food to the rich', 'incoming': ['Food ordered'], 'outgoing': ['inform employees']}
+{'id': 'sid-08EE7B05-E2CA-4C5C-B771-A1EEA68864A3', 'name': 'inform employees', 'incoming': ['Food ordered'], 'outgoing': ['Prepared food']}
+{'id': 'sid-9D085399-882E-4FE4-A4EE-DAE4E2189FA1', 'name': 'Enter your order in cash system', 'incoming': ['Order received'], 'outgoing': ['Purchase order']}
+{'id': 'sid-C5D57718-2E54-4F3E-9BBE-204C847AA22C', 'name': 'Purchase order', 'incoming': ['Order received'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-5941492A-1AE4-4CBE-8DB9-454089B02D7F', 'name': 'Adjust Pieper', 'incoming': ['Order received'], 'outgoing': ['Leave a Pieper']}
+{'id': 'sid-7395DF8E-E5FE-415A-8D04-660A9DA7A08C', 'name': 'Leave a Pieper', 'incoming': ['Order received'], 'outgoing': ['Order cook']}
+{'id': 'sid-E7D24E74-FAC5-4826-BA72-008A6C2D0E72', 'name': 'Order cook', 'incoming': ['Order received'], 'outgoing': ['Prepared food']}
+{'id': 'sid-173CE06B-8768-4855-A261-80D75B1F5829', 'name': 'Trigger Pieper', 'incoming': ['Order received'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-4E097C04-E93E-4E3D-9389-CE7BA53BAB97', 'name': 'Pieper reports: food ready', 'incoming': ['Guest feels hungry'], 'outgoing': ['no feeling of hunger']}
+{'id': 'sid-24F844D3-2B56-423F-8CDD-3FA743F728AE', 'name': 'Prepared food', 'incoming': ['Order received'], 'outgoing': ['Trigger Pieper']}
+{'id': 'sid-83B6C5ED-296E-4ABB-A8C7-CC98FAD14E57', 'name': 'IntermediateCatchEvent2', 'incoming': [], 'outgoing': []}
+{'id': 'sid-06834C92-1331-49F2-B4F0-41F729BBE5C3', 'name': 'IntermediateCatchEvent3', 'incoming': ['sid-69F48047-E22A-47BC-A720-FCF247BE0B70'], 'outgoing': []}
+{'id': 'sid-4F2D7EEC-AC53-4F9D-94B9-EDCB62376047', 'name': 'IntermediateCatchEvent4', 'incoming': ['sid-F11286D2-AB54-4616-8528-356EC0C2ED26'], 'outgoing': []}
+
+Start Events:
+{'id': 'sid-4289220E-8D01-4382-912B-A12E7A0F7278', 'name': 'Guest feels hungry', 'incoming': [], 'outgoing': ['Pick up food']}
+{'id': 'sid-D47C4D8C-6DFA-4DB8-9F44-0EE49E954CB1', 'name': 'Food ordered', 'incoming': [], 'outgoing': ['inform employees']}
+{'id': 'sid-97D00430-DAFF-462B-891B-9F7C9E02F6B4', 'name': 'Order received', 'incoming': [], 'outgoing': ['Trigger Pieper']}
+
+End Events:
+{'id': 'sid-90ECBB0A-DBA3-439B-BD6B-70BF537BF665', 'name': 'no feeling of hunger', 'incoming': ['Pieper reports: food ready'], 'outgoing': []}
+{'id': 'sid-C642A082-74A5-4F79-8BCE-1017DA0BC532', 'name': 'Prepared food', 'incoming': ['inform employees'], 'outgoing': []}

@@ -1,0 +1,13 @@
+ In the bustling world of logistics, a series of interconnected tasks and decisions come together to ensure the smooth delivery of goods. Let's dive into the intricate flow of operations:
+
+1. The process begins with the 'Goods should be shipped' event, which triggers the determination of the shipment quantity. This decision is made by the 'Determining the shipment quantity' task, which takes into account the 'Goods should be shipped' event and outputs the 'ExclusiveGateway0' for further processing.
+
+2. The 'ExclusiveGateway0' then receives the 'Determining the shipment quantity' task and passes it to the 'Offer Spediteur 1' for small delivery quantity assessment. The 'Offer Spediteur 1' task, in turn, connects to the 'Small delivery quantity?' gateway, which determines whether insurance is necessary.
+
+3. If insurance is required, the 'Insurance?' task is triggered, which connects to the 'ExclusiveGateway4'. The 'ExclusiveGateway4' then forwards the insurance decision to the 'ParallelGateway7', where the final shipment is sent.
+
+4. On the other hand, if insurance is not needed, the 'Offer Spediteur 1' task connects to the 'ParallelGateway5' for small delivery quantity assessment. The 'ParallelGateway5' then connects to the 'Offer Spediteur 2' for exclusive shipping, which in turn connects to the 'ExclusiveGateway0'.
+
+5. The 'ExclusiveGateway0' receives the 'Offer Spediteur 2' task and connects to the 'ParallelGateway6' for packing. The 'ParallelGateway6' then connects to the 'Offer Spediteur 3' for exclusive shipping, which connects to the 'ExclusiveGateway0'.
+
+6. The 'ExclusiveGateway0' receives the 'Offer Spediteur 3' task and connects to the 'ParallelGateway7' for sending the final shipment

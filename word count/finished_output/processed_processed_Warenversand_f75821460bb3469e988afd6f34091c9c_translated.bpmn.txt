@@ -1,0 +1,19 @@
+ In the shipping process, the following tasks are performed:
+
+1. The quantity of the shipment is checked at ParallelGateway6, which then sends the information to ExclusiveGateway0.
+2. The package note is filled out at StartEvent0, which triggers the task 'Filling the package note'. This task sends the information to ExclusiveGateway0, which in turn sends it to ExclusiveGateway1.
+3. The necessity of insurance is determined at ExclusiveGateway1, which sends the information to ExclusiveGateway2.
+4. If insurance is deemed necessary, the task 'Complete insurance' is executed at ExclusiveGateway2, which then sends the information to ExclusiveGateway3.
+5. The offer from Spediteur 1 is sent at ParallelGateway4, which then sends the offer to ParallelGateway5.
+6. The offer from Spediteur 2 is sent at ParallelGateway4, which also sends the offer to ParallelGateway5.
+7. The offer from Spediteur 3 is sent at ParallelGateway4, which sends the offer to ParallelGateway5.
+8. A quote is created at ExclusiveGateway0, which sends the information to ParallelGateway5.
+9. The customer selects their offer at ParallelGateway5, which then sends the information to ExclusiveGateway3.
+10. The goods are packaged at ParallelGateway6, which sends the information to ParallelGateway7.
+11. The collection is provided at ParallelGateway7, which then sends the information to EndEvent0.
+
+The gateways involved in this process are:
+
+- ExclusiveGateway0: Receives information from ParallelGateway6 and sends it to ExclusiveGateway1 and ExclusiveGateway2.
+- ExclusiveGateway1: Receives information from ExclusiveGateway0 and sends it to ExclusiveGateway2 and ParallelGateway7.
+- ExclusiveGateway2: Receives information from Exclusive

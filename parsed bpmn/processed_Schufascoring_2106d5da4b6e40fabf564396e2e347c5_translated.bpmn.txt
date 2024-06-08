@@ -1,0 +1,18 @@
+Tasks:
+{'id': 'sid-3BEBC622-E6FE-47B7-BF8F-080B85D5EDA3', 'name': 'Pick up Schufa scoring', 'incoming': ['Schufascoring\nRequests received'], 'outgoing': ['Schufascoring\nwill be reported back']}
+{'id': 'sid-E49F2348-C5EF-4F6E-BEB3-19C1E3403C0B', 'name': 'Scoring\n(level 1)\nDebt', 'incoming': ['Scoring request\nwe have discussed'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-23C25FB2-174F-471C-AFDF-5C5C6C7DD5F2', 'name': 'Socred\n(level 2)\n', 'incoming': ['sid-80910AF9-CDEB-4C5E-B0DD-FF7B7DFA2547'], 'outgoing': ['Final score\nhave been notified']}
+
+Gateways:
+{'id': 'sid-BF63EF81-EC71-4078-A749-27EC496F2B28', 'name': 'ExclusiveGateway0', 'incoming': ['Scoring request\nwe have discussed'], 'outgoing': ['EndEvent2', 'sid-C34A534C-BB2F-4AEE-BB23-39EFF0946FCC']}
+
+Start Events:
+{'id': 'sid-3BCCDFC7-3298-4762-B61A-9FCAE07FFE99', 'name': 'Schufascoring\nRequests received', 'incoming': [], 'outgoing': ['Pick up Schufa scoring']}
+{'id': 'sid-EA368708-C138-4E5F-B40B-7118124C9C34', 'name': 'Delay message\nobtained', 'incoming': [], 'outgoing': ['sid-41ED3149-58A4-4C84-AE79-25268864A46C']}
+{'id': 'sid-AB3869BF-2FD6-4496-824A-168F997D28C5', 'name': 'Scoring request\nwe have discussed', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-B81E47F0-974C-49A1-97F5-30A7D303572D', 'name': 'Schufascoring\nwill be reported back', 'incoming': ['Pick up Schufa scoring'], 'outgoing': []}
+{'id': 'sid-811B2713-C247-4AD7-ADDD-650EB9DA0F3B', 'name': 'Delay\nReported', 'incoming': ['sid-41ED3149-58A4-4C84-AE79-25268864A46C'], 'outgoing': []}
+{'id': 'sid-0D428609-CF5D-4FF5-B5DC-2112ED7DD6EF', 'name': 'EndEvent2', 'incoming': ['Scoring\n(level 1)\nDebt'], 'outgoing': []}
+{'id': 'sid-55532561-0D3F-438A-B56B-357D50B2D095', 'name': 'Final score\nhave been notified', 'incoming': ['Socred\n(level 2)\n'], 'outgoing': []}

@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-0AE17C32-6E24-414E-873B-780BCFEE3B06', 'name': 'Check the case', 'incoming': ['Possible regression reported'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-80506298-61E1-4B1B-B1FE-75E93A9205B5', 'name': 'Close the process', 'incoming': ['justified?'], 'outgoing': ['Closed']}
+{'id': 'sid-3344ECFA-AD95-4ABA-AF5F-DE6433ABB160', 'name': 'Book the entrance', 'incoming': ['Money received'], 'outgoing': ['Closed']}
+{'id': 'sid-28AF29D3-C08F-46AD-A597-7C7B5F5EA73A', 'name': 'Proceedings', 'incoming': ['Objection'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-B5CFC27C-AB6A-462D-AA52-A27C51EF19EB', 'name': 'Set process for resubmission', 'incoming': ['sid-F4DCC03C-E1D3-4386-82B6-F68951597977'], 'outgoing': ['Reimbursement period expired']}
+
+Gateways:
+{'id': 'sid-9A1AAC62-B7B7-4612-8C18-138A8EBBB9DE', 'name': 'Regress possible?', 'incoming': ['Possible regression reported'], 'outgoing': ['sid-172B75B0-4263-4CB9-961D-1107F1B0CCCE', 'ExclusiveGateway1']}
+{'id': 'sid-C8116F44-160B-438A-A883-D30847D1FE88', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway4', 'Check the case', 'Objection'], 'outgoing': ['Closed']}
+{'id': 'sid-584B0105-89F6-471D-A4DF-A167FE779C7A', 'name': 'justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Close the process', 'ExclusiveGateway3']}
+{'id': 'sid-519A7D4F-7E95-4DFD-B804-ADE1E82E536D', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['sid-54C47A39-05B5-49B8-A555-F61F9B0C1150']}
+{'id': 'sid-71CD283E-85E3-4E7F-A604-C071CDBEE29E', 'name': 'EventBasedGateway4', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway1', 'justified?']}
+{'id': 'sid-AE8FABAA-EB65-4273-83FC-4C2DEEBE1A8E', 'name': 'Reimbursement period expired', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-16A85F79-6483-472B-9E7D-1FACB860BF35', 'name': 'Money received', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-00ED41B6-06C8-41AF-99B8-0567A1AABE5A', 'name': 'Objection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-C2D19528-827A-4469-9559-C6303120432A', 'name': 'Possible regression reported', 'incoming': [], 'outgoing': ['Regress possible?']}
+
+End Events:
+{'id': 'sid-F820D45E-A5E8-4DA2-9996-A031FA720485', 'name': 'Closed', 'incoming': ['Book the entrance'], 'outgoing': []}
+{'id': 'sid-A32E2CF8-513B-4994-B630-F3D25D746C98', 'name': 'handed over to debt collection companies', 'incoming': ['sid-6D4DF63D-8611-4165-BB75-E7CA28D19BD3'], 'outgoing': []}

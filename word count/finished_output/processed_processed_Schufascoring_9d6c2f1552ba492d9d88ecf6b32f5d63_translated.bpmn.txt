@@ -1,0 +1,11 @@
+ In a scoring system, a series of tasks and gateways work together to process scoring requests and generate results. When a scoring request is initiated, it first reaches the 'Scoring takes place' gateway, which then sends the request to either 'Share delay' or 'ExclusiveGateway1' based on the incoming report.
+
+If the request goes to 'Share delay', it is forwarded to 'IntermediateCatchEvent5', which then sends the request to 'ExclusiveGateway1'. On the other hand, if the request goes to 'ExclusiveGateway1', it receives the 'perform scoring level 1' task and sends the request to 'Scoring request\nFinished'.
+
+Simultaneously, the 'Scoring takes place' gateway also sends the request to 'Scoring result\nReport' gateway, which generates the scoring result and sends it back to the 'Scoring request\nFinished' gateway.
+
+In the case of 'Scoring Level 2\nperform', the request is sent directly to 'Scoring request\nFinished' after completing the level 2 task.
+
+The 'EventBasedGateway2' gateway handles events related to the scoring request and sends the request to 'Scoring request\nFinished' after processing the event.
+
+Finally, when the scoring process is completed, the request is sent to the 'Scoring request\nFinished' gateway, which marks the end of the process.

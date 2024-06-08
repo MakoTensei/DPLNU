@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-A5B8BC13-11FF-4522-B6A0-E1525FEB55DF', 'name': 'Scoring request', 'incoming': ['Scoring\nRequired'], 'outgoing': ['wait for Level 1 scoring result']}
+{'id': 'sid-8C648853-3569-4205-BB41-7257C9C3A8C9', 'name': 'Send delay', 'incoming': ['Level 1 final result available?'], 'outgoing': ['wait for Level 2 scoring result']}
+{'id': 'sid-392EB9A6-1466-4068-892A-2E1FDECD6011', 'name': 'Level 1 Scoring', 'incoming': ['Scoring result required'], 'outgoing': ['End result from level 1 is fixed']}
+{'id': 'sid-DA7FEA83-334F-4855-B172-242AF762C535', 'name': 'Level 2 Scoring', 'incoming': ['sid-687AB2FD-4A44-47F8-871F-C2292F3E367E'], 'outgoing': ['End result from level 2 is fixed']}
+
+Gateways:
+{'id': 'sid-3CA8EEED-90CB-4B2F-8F7F-90AC522154C7', 'name': 'Level 1 final result available?', 'incoming': ['Scoring\nRequired'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-8B92F47C-6AE1-42F1-B01F-DA737F4917A6', 'name': 'ExclusiveGateway1', 'incoming': ['Level 1 final result available?', 'wait for Level 1 scoring result'], 'outgoing': ['Scoring sent']}
+{'id': 'sid-44A11C76-D207-493E-82BA-12676274B2BC', 'name': 'Result is fixed?', 'incoming': ['Scoring result required'], 'outgoing': ['End result from level 1 is fixed', 'sid-FBADA9D5-E16A-4AB3-ADC0-0284EEA84722']}
+{'id': 'sid-2DFFA9D4-08A4-42E2-AE3F-8CAFF94FAD49', 'name': 'wait for Level 1 scoring result', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring sent']}
+{'id': 'sid-D8B317EC-851C-404F-8DF8-DF1C5E6EA0A3', 'name': 'wait for Level 2 scoring result', 'incoming': ['Scoring\nRequired'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['wait for Level 2 scoring result']}
+{'id': 'sid-BEB717CE-EF48-4E9E-B6AD-5E2F0B127EF6', 'name': 'Scoring result required', 'incoming': [], 'outgoing': ['Result is fixed?']}
+
+End Events:
+{'id': 'sid-B82442F1-2D8B-42D5-8A18-AD7834058738', 'name': 'Scoring sent', 'incoming': ['wait for Level 1 scoring result'], 'outgoing': []}
+{'id': 'sid-A98C7C60-203D-4FB9-B99E-0014F3472575', 'name': 'End result from level 1 is fixed', 'incoming': ['Level 1 Scoring'], 'outgoing': []}
+{'id': 'sid-11AD67B2-F5D0-4007-B932-52EC42FE1F5A', 'name': 'End result from level 2 is fixed', 'incoming': ['Level 2 Scoring'], 'outgoing': []}

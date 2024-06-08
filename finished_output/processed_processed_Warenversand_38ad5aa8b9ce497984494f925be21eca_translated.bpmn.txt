@@ -1,0 +1,9 @@
+ The process begins with the 'Shipping goods' start event, which triggers the '3 Special Delivery Offers' task. This task accepts 'Shipping goods' as an incoming event and directs users to 'Select your offer' as an outgoing event. Upon selection, the 'Select your offer' task receives 'large quantity' as an incoming event and sends users to 'Specialist' as an outgoing event. The 'Specialist' task then receives 'large quantity' as an incoming event and directs users to 'ExclusiveGateway1' as an outgoing event. The 'ExclusiveGateway1' task, in turn, receives 'Insurance required' as an incoming event and sends users to 'EndEvent0'. The 'EndEvent0' task, which marks the completion of the process, receives 'Insurance required' as an incoming event and has no outgoing events.
+
+Meanwhile, the 'Shipping goods' start event also triggers the 'Fill in parcel form for mail delivery' task, which accepts 'Shipping goods' as an incoming event and directs users to 'ParallelGateway4' as an outgoing event. The 'ParallelGateway4' task, in turn, receives 'Fill in parcel form for mail delivery' as an incoming event and sends users to 'EndEvent0'.
+
+Additionally, the 'Fill in parcel form for mail delivery' task also triggers the 'Packaging goods' task, which accepts 'Fill in parcel form for mail delivery' as an incoming event and directs users to 'ParallelGateway4' as an outgoing event. The 'ParallelGateway4' task, in turn, receives 'Packaging goods' as an incoming event and sends users to 'EndEvent0'.
+
+Lastly, the '3 Special Delivery Offers' task also triggers the 'Provide packaged goods for collection' task, which accepts '3 Special Delivery Offers' as an incoming event and directs users to 'ParallelGateway4' as an outgoing event. The 'ParallelGateway4' task, in turn, receives 'Provide packaged goods for collection' as an incoming event and sends users to 'EndEvent0'.
+
+In summary, the process involves the 'Shipping goods' start

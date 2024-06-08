@@ -1,0 +1,7 @@
+ In the process of handling shipments, there are several tasks and gateways involved. When goods are to be shipped, the process begins with the 'Goods are to be shipped' start event, which triggers the 'ExclusiveGateway3'. This gateway receives incoming tasks such as 'Goods are to be shipped' and 'Select your offer'. From 'ExclusiveGateway3', the process diverges into two paths: one leads to the 'Insurance close' task, which is triggered by the 'Is insurance necessary?' start event, and the other leads to the 'Shipment' task, which is triggered by the 'Goods are to be shipped' start event.
+
+The 'Insurance close' task, with the ID'sid-4ECC1902-8B0B-466E-85C8-405078532EB4', requires the question 'Is insurance necessary?' as an incoming task and directs to 'ParallelGateway5' as an outgoing task. On the other hand, the 'Shipment' task, with the ID'sid-8BF8C3F1-C8C7-45E3-8500-57C6B9CF22EF', receives incoming tasks from 'ParallelGateway5' and leads to the 'EndEvent0' as an outgoing task.
+
+The 'ParallelGateway4' gateway, with the ID'sid-5F42E55A-C173-4EB2-9913-4699ADD75EA5', is a critical point in the process. It receives incoming tasks such as 'Goods are to be shipped' and 'Select your offer', and directs to 'Delivering goods' and 'ParallelGateway5' as outgoing tasks.
+
+The 'Pick up offers' task, with the ID'sid-B36DA494-F8E9-4565-AAC9-09F22B1DB99F', is triggered by the 'Special shipment?' start event and receives incoming tasks from 'ParallelGateway4'. It then

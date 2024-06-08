@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-6E09BB07-F287-446D-89E1-11D3D79637D2', 'name': 'Possibility to check inregress', 'incoming': ['Insurance\ncan be found in Regress\nwe have taken'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-8458A8B2-1863-4CE3-922B-EFB4F32CFFA1', 'name': 'Close', 'incoming': ['Opposition\njustified'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6810BC88-C96D-4A1E-9A0D-DA32087D377D', 'name': 'Send payment request to VN', 'incoming': ['Insurance\ncan be found in Regress\nwe have taken'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-ECD84B96-00CE-49BA-9A4A-FA4F6EBEC092', 'name': 'Set process for resubmission', 'incoming': ['Inregess\nCommission\npossible'], 'outgoing': ['Reimbursement\n-time limit\nExpired']}
+{'id': 'sid-EED05E8D-850F-448C-945E-4CB871453ED4', 'name': 'Proceedings', 'incoming': ['Opposition\nReport'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-49B3776B-8CAB-4924-A33D-2E798DDA5757', 'name': 'Dispense process to debt collection service providers', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-FF00309D-1DAF-44AB-AB50-3285F837E692', 'name': 'Book incoming money', 'incoming': ['Money\nReport'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-2DB26CA4-C940-4214-87E8-7578F060A41E', 'name': 'Inregess\nCommission\npossible', 'incoming': ['Insurance\ncan be found in Regress\nwe have taken'], 'outgoing': ['Money\nReport', 'EndEvent0']}
+{'id': 'sid-83AD1BF5-BDB1-4F8A-BBE7-1DF60CE5E6BE', 'name': 'ExclusiveGateway1', 'incoming': ['Opposition\nReport', 'Money\nReport', 'Possibility to check inregress'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-7405D3FF-9AF9-4C82-9F3E-636E46E022AB', 'name': 'Opposition\njustified', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Close', 'ExclusiveGateway3']}
+{'id': 'sid-91ABCCEF-4BB0-4E11-BF80-7F39AEE54A37', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-9E47C47C-520F-473B-9DAC-244CA97F71DA', 'name': 'EventBasedGateway4', 'incoming': ['Inregess\nCommission\npossible'], 'outgoing': ['Money\nReport', 'Opposition\njustified', 'Dispense process to debt collection service providers']}
+{'id': 'sid-96C8E745-69AA-4FC8-8135-EE5E5FA8670A', 'name': 'Reimbursement\n-time limit\nExpired', 'incoming': ['Set process for resubmission'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-3E089D5E-F0A6-4664-8023-74526F6B1485', 'name': 'Money\nReport', 'incoming': ['Inregess\nCommission\npossible'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-3C9649E4-B509-40FE-BB8E-10E7CE0CC941', 'name': 'Opposition\nReport', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-DC4A6FE5-EF64-4AD8-B527-965266CBEA8F', 'name': 'Insurance\ncan be found in Regress\nwe have taken', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:
+{'id': 'sid-DC4FEB1D-0C5B-44AA-8163-8E9C045807D4', 'name': 'EndEvent0', 'incoming': ['Inregess\nCommission\npossible'], 'outgoing': []}
+{'id': 'sid-1A5AE384-8678-46F7-B013-E7736D0A8264', 'name': 'EndEvent1', 'incoming': ['Reimbursement\n-time limit\nExpired'], 'outgoing': []}

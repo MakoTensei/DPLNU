@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-BF94EE20-4B4E-4205-BEC6-2B75D99E8CB4', 'name': 'Level 1 scoring', 'incoming': ['Scoring request'], 'outgoing': ['sid-F6679A2B-F70D-45A9-AA71-CDC69A8AD42A']}
+{'id': 'sid-4EFB1A4D-6DBF-41BA-839A-E3CF8412F697', 'name': 'Scoring Level 2', 'incoming': ['Result fixed'], 'outgoing': ['sid-9C4AEFA8-EDCE-465D-A990-BB446C44C7DA']}
+
+Gateways:
+{'id': 'sid-3F548405-1EBF-4ED6-832D-4AE5010AA853', 'name': 'Result fixed', 'incoming': ['sid-4484B667-F2A0-4741-8022-FA84FF032AD3'], 'outgoing': ['End', 'Scoring Level 2']}
+{'id': 'sid-21083013-15EC-45E6-8810-F1870B738929', 'name': 'Is earnings solid?', 'incoming': ['EventBasedGateway2', 'EventBasedGateway2'], 'outgoing': ['Timeout', 'sid-EB45D37F-2316-4913-AC39-2D50D76AA8F8']}
+{'id': 'sid-B41E9435-A94B-41FE-B749-696F07678D68', 'name': 'EventBasedGateway2', 'incoming': ['sid-46064B15-7AE5-4E56-87FD-A7115F5E8346'], 'outgoing': ['Timeout', 'Is earnings solid?']}
+{'id': 'sid-BEFE75D3-F0BA-4C38-9FA4-16E97B524F3D', 'name': 'EventBasedGateway3', 'incoming': ['Get Schufa results'], 'outgoing': ['on scoring\nLevel 2 waiting', 'Timeout']}
+{'id': 'sid-23D8F264-2CA2-49D2-938B-467F88B57AEA', 'name': 'Get Schufa results', 'incoming': ['EventBasedGateway2'], 'outgoing': ['on scoring\nLevel 2 waiting']}
+{'id': 'sid-8900E291-872E-450D-B0AD-144E0A3BE8B6', 'name': 'on scoring\nLevel 2 waiting', 'incoming': ['Get Schufa results'], 'outgoing': ['sid-351F2CFC-1348-49DA-B088-1D780D44ED69']}
+{'id': 'sid-D5D36C6A-CA76-45CE-AC42-7850A7B190AC', 'name': 'Timeout', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Is earnings solid?']}
+{'id': 'sid-04758FD5-385E-42F3-96FB-C266E06B9A64', 'name': 'Timeout', 'incoming': ['EventBasedGateway2'], 'outgoing': ['sid-85D092F1-7A7C-439A-A629-5B7E8A5D55EF']}
+
+Start Events:
+{'id': 'sid-74F07518-4FB4-446A-9EDA-281398878F46', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Level 1 scoring']}
+{'id': 'sid-2E60C5C0-2DA3-4AF6-8F59-6F3EC00903E4', 'name': 'Request from Frontend', 'incoming': [], 'outgoing': ['sid-D238DAB9-A470-4F06-834B-4EDEBDC591BA']}
+
+End Events:
+{'id': 'sid-67B34415-48E4-4621-B236-CC956E798E8F', 'name': 'End', 'incoming': ['Result fixed'], 'outgoing': []}
+{'id': 'sid-D0D9A5A9-512B-486A-B480-CBC78F1BA3D6', 'name': 'End', 'incoming': ['sid-1C4FDE82-3153-410C-B688-53DF66ACAEF2'], 'outgoing': []}
+{'id': 'sid-5AC7E04D-3B6D-43BE-9312-0C496991477C', 'name': 'End', 'incoming': ['sid-FA2BA42A-D298-4583-B790-8BE4EAA2D921'], 'outgoing': []}
+{'id': 'sid-95AC8A42-5D55-4464-8428-B95AD4F7BC9F', 'name': 'End', 'incoming': ['sid-74FAE626-5ED2-42D4-93E5-F54B8D695451'], 'outgoing': []}

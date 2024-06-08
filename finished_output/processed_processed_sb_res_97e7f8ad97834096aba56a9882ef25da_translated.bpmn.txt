@@ -1,0 +1,21 @@
+ In the restaurant management system, the following sequence of events occurs:
+
+1. A customer feels hunger (`sid-BC04656A-9168-4A4D-A449-5911AFA804E3`):
+   - This triggers the `IntermediateCatchEvent5` gateway, which processes the customer's hunger and initiates the ordering process.
+
+2. The customer selects a menu (`sid-DIDF60C1-4B0E-4E97-82DA-590DA09CE52`):
+   - The `Select Menu` event leads to `IntermediateCatchEvent4`, where the customer's order is processed and sent to the kitchen.
+
+3. The kitchen prepares the order (`sid-467DAEB8-D969-4B0E-8F88-99CEB09CE52`):
+   - The `Pays menu` event is triggered, and the kitchen prepares the order.
+
+4. The customer picks up their food (`sid-4977D757-201E-4778-8F88-5AD56B672A0C`):
+   - The `Customer picks food` event occurs, and the customer receives their meal.
+
+5. The customer eats their meal (`sid-4977D757-201E-4778-8F88-5AD56B672A0C`):
+   - The `Customer eats\n` event is triggered, and the customer enjoys their meal.
+
+6. The customer completes their order (`sid-4977D757-201E-4778-8F8-5AD56B672A0C`):
+   - The `Customer eats\n` event is followed by the `EndEvent0` event, marking the completion of the customer's order.
+
+7. The kitchen cashes the order (`sid-BFF34BCB-FF34-4

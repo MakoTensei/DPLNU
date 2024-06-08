@@ -1,0 +1,13 @@
+ When a shipping request is received, it triggers a series of tasks and interactions between various services and gateways to ensure the order is processed efficiently. Here's a natural flow of events:
+
+1. The process begins with the 'Get shipping request' event, which initiates the packaging and shipping process.
+2. The request is first directed to 'ParallelGateway4', which receives the shipping request and forwards it to 'Packaging goods' and 'ExclusiveGateway3'.
+3. 'Packaging goods' is responsible for preparing the package, while 'ExclusiveGateway3' handles the routing of the package to the appropriate destination.
+4. Simultaneously, 'Filling the package note' task is triggered, which fills in the necessary details on the package note. This task is connected to 'ExclusiveGateway2', which then routes the package note to 'ExclusiveGateway3'.
+5. The 'Request Spedition 1', 'Request Spedition 2', and 'Request Spedition 3' tasks are initiated to expedite the shipping process. These tasks are connected to 'Selection', which routes the expedited requests to 'ExclusiveGateway3'.
+6. To ensure the package is insured, the 'Complete insurance' task is triggered, which is connected to 'Insurance?' at 'ExclusiveGateway2'.
+7. The 'Specialist' task is initiated to provide additional expertise during the shipping process. This task is connected to 'Selection' and routes the specialist to 'ExclusiveGateway3'.
+8. Once the package is ready for delivery, the 'Order parcel service' task is triggered, which is connected to 'ExclusiveGateway3'.
+9. Finally, the 'Goods delivered' event signifies the successful delivery of the package, and the 'Specialist' task is completed.
+
+This flow ensures that the shipping request is processed efficiently, with tasks and gateways working together to fulfill the order and provide a smooth delivery experience.

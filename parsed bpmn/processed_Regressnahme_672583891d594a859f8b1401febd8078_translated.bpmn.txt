@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-3CD1FB6F-BE0A-4C82-8B4C-E6C7EFE445FA', 'name': 'Regression\nCheck', 'incoming': ['Regression\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-F8E8F8A3-94B0-4CA5-9F6C-CF30DB5104D6', 'name': 'Reasons\nCheck', 'incoming': ['Reasons\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-4EBA9898-448D-4665-BD4C-43C36622A6FE', 'name': 'Book the entrance', 'incoming': ['Payment\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-DF688CAE-C3DB-458D-8FC9-9A599DD66F71', 'name': 'Case\nclose', 'incoming': ['Payment\nReport'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-DF1AB4E1-12B6-4AAF-B110-F47523BFBBAD', 'name': 'Payment request\nCreating', 'incoming': ['Regression\nReport'], 'outgoing': ['sid-67CAA3AE-1BD6-488A-AF51-210CE00B5140']}
+
+Gateways:
+{'id': 'sid-8CAF4D3D-EBAD-47A6-98D8-FD5C6EEED9CB', 'name': 'consists of:\nRegress\npossibility', 'incoming': ['Regression\nReport'], 'outgoing': ['Payment request\nCreating', 'ExclusiveGateway2']}
+{'id': 'sid-BE7C52D4-1E0F-41C9-B454-F409ECE78D7B', 'name': 'Justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-781B1726-0440-413F-8B0B-70929ACA32D8', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Regression\nCheck', 'Reasons\nCheck'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-37B2A947-53E7-44F8-9BBD-19A862D40B83', 'name': 'ExclusiveGateway3', 'incoming': ['Reasons\nReport', 'EventBasedGateway4'], 'outgoing': ['Tax on debt collection office']}
+{'id': 'sid-9BCF9487-447F-46DB-A776-2BE368F21589', 'name': 'EventBasedGateway4', 'incoming': ['sid-3F5C7236-0AB4-43C5-B8C7-4FEF47127BDC'], 'outgoing': ['Justified?', 'EndEvent0', 'ExclusiveGateway3']}
+{'id': 'sid-27E78107-F93F-413F-8870-7CC39434A615', 'name': 'Payment\nReport', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Case\nclose']}
+{'id': 'sid-DCF09C3F-066A-471E-B22A-46AB9A1731FE', 'name': 'Reasons\nReport', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-0FC527D5-D0B5-4DBD-B609-5CDBB5A8FF8F', 'name': 'Reimbursement\n48 hours', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Tax on debt collection office']}
+
+Start Events:
+{'id': 'sid-46BF4C8B-21D4-4AB5-A58E-4F4DA1EA305B', 'name': 'Regression\nReport', 'incoming': [], 'outgoing': ['Payment request\nCreating']}
+
+End Events:
+{'id': 'sid-3DC2915E-460A-4CDE-9587-61A7DD5062A0', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-11990317-8EC8-4A59-8387-A347E42BD453', 'name': 'Tax on debt collection office', 'incoming': ['Reimbursement\n48 hours'], 'outgoing': []}

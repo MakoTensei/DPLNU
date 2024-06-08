@@ -1,0 +1,13 @@
+ Upon receiving a 'Request', the process begins with the 'ParallelGateway4' which routes the request to 'ExclusiveGateway0'. This exclusive gateway then directs the request to 'ParallelGateway5' and simultaneously to 'Request a quote'.
+
+ParallelGateway5, upon receiving the request, routes it to 'ExclusiveGateway3'. Meanwhile, 'ParallelGateway6' is also activated by 'ExclusiveGateway0' to handle the 'Request a quote'. This parallel gateway sends the request to 'ExclusiveGateway3' and also to 'ParallelGateway5'.
+
+'ExclusiveGateway3' receives both requests and sends the 'Request' to 'ParallelGateway7', while 'Request a quote' is directed to 'ParallelGateway5'.
+
+ParallelGateway5, handling the 'Request a quote', sends it to 'ExclusiveGateway3' and also to 'ParallelGateway7'.
+
+'ExclusiveGateway3' receives both requests and sends the 'Request' to 'EndEvent0', while 'Request a quote' is directed to 'ParallelGateway7'.
+
+ParallelGateway7, handling the 'Request' and 'Request a quote', sends both to 'EndEvent0'.
+
+'EndEvent0' receives both requests and completes the process.

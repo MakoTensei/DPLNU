@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-5043C767-93DC-4514-83D7-4B5B911CCBCB', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-592490CE-5FA4-459F-A91A-932FDCEAF080', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-45423E83-3B2F-4D5B-887A-4D73CEA81FCE', 'name': 'Clearing the shipping mode', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B1ABEA25-A93E-4267-8E93-62AFA3939637', 'name': 'Filling the package note', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-37F31746-1BE3-4A39-B600-9EB82C68AFF0', 'name': 'Pick up offers', 'incoming': ['Special shipment necessary?'], 'outgoing': ['Select your offer']}
+{'id': 'sid-F0C0C7BE-1915-4C85-999B-B7D086CDC4C5', 'name': 'Select your offer', 'incoming': ['Special shipment necessary?'], 'outgoing': ['Specialist']}
+{'id': 'sid-DCA55177-18DF-4141-9759-7D38A0795FFC', 'name': 'Specialist', 'incoming': ['Special shipment necessary?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-03AC0EB7-801D-412D-9DE2-D242E7E47C98', 'name': 'Insurance close', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-A1EED0B0-4552-4B9C-AB6D-696929B7B84C', 'name': 'Special shipment necessary?', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway3', 'Insurance necessary?']}
+{'id': 'sid-539E62D9-88ED-4C40-8D8D-054DB8F4DDD2', 'name': 'Insurance necessary?', 'incoming': ['Clearing the shipping mode'], 'outgoing': ['ExclusiveGateway3', 'Insurance close']}
+{'id': 'sid-E1AB1042-7785-46A7-B43E-5CBB7DC8EF64', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance close', 'ParallelGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-C870ED21-B4CE-490F-A205-FE0699511286', 'name': 'ExclusiveGateway3', 'incoming': ['Clearing the shipping mode', 'Special shipment necessary?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9B6E293A-B25A-422F-84E1-83FA25CB369C', 'name': 'ParallelGateway4', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway5', 'ParallelGateway5', 'ParallelGateway5']}
+{'id': 'sid-877D4305-375E-4A0F-A36F-D86D8262D105', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'StartEvent0', 'ParallelGateway4'], 'outgoing': ['Provide goods for collection']}
+
+Start Events:
+{'id': 'sid-5CAC9266-F0CA-4774-B84D-28BA091EFE15', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ParallelGateway5']}
+
+End Events:
+{'id': 'sid-1B48DE56-F148-4C8D-A3B7-E7DAF158F686', 'name': 'EndEvent0', 'incoming': ['Clearing the shipping mode'], 'outgoing': []}

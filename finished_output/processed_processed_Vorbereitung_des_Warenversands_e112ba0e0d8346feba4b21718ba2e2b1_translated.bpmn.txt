@@ -1,0 +1,10 @@
+ Upon receiving an order, the process begins with the 'Receive your order' event, which triggers the 'ExclusiveGateway0' to determine the appropriate offer and 'ParallelGateway6' to handle the order. If insurance is required, the 'Insurance required?' event leads to 'InclusiveGateway3', which then connects to 'ParallelGateway5' to close the insurance process and prepare the goods for shipping.
+
+
+Simultaneously, 'ParallelGateway4' picks up offers from Spedieuren and determines the quantity needed for the order. Once the quantity is determined, 'InclusiveGateway3' is again involved to handle the insurance and quantity determination, leading to 'ParallelGateway5' for the insurance close and preparing the goods for shipping.
+
+
+The 'Pick up offers from Spedieuren' task is followed by 'Determine quantity' to ensure the correct amount of goods is packaged. After the goods are packaged, 'ParallelGateway4' sends the packaged goods to 'ParallelGateway5', which then sends the goods ready for shipping to the end of the process.
+
+
+In summary, the order process involves a series of tasks and gateways that work together to determine the appropriate offer, handle insurance, determine quantity, package the goods, and finally, prepare the goods for shipping.

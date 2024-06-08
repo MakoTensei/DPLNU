@@ -1,0 +1,21 @@
+ Let's describe the flow of events in a more natural paragraph:
+
+1. When a guest feels hungry, the system triggers the process to pick up food.
+2. Upon receiving an order, the system adjusts the Pieper, which is a server or a food preparation device.
+3. The guest then triggers the Pieper, initiating the food preparation process.
+5. Five minutes after the meal is ready, the Pieper is triggered again, indicating that the meal is ready to be served.
+6. The guest appears on the issue, prompting the system to deliver the food.
+7. After the food is delivered, the system retrieves the guest.
+8. The system informs the employees that the meal is finished.
+9. The system then collects the payment from the guest.
+10. Finally, the system orders the next meal, completing the cycle.
+
+The events are connected through the Gateways as follows:
+
+- The 'Feeling hungry' event leads to 'Pick up food' and 'Get Pieper' events, which are connected to 'Get money' and 'Pieper triggered' Gateways.
+- The 'Order received' event leads to 'Adjust Pieper' and 'Ordered' events, which are connected to 'Get money' and 'EventBasedGateway0' Gateways.
+- The 'Ordered' event is connected to 'Get money' and 'Order to receive' events, which are connected to 'Amount to be paid' and 'EventBasedGateway0' Gateways.
+- The 'Food collected' event is connected to the 'Amount to be paid' Gateway.
+- The 'Ordered' event is connected to the 'Order to receive' Gateway.
+
+This flow ensures that the system efficiently handles the process of receiving an order, preparing and delivering food, and collecting payment, while also managing the overall workflow through the use of Gateways.

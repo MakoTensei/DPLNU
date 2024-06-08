@@ -1,0 +1,11 @@
+ When a case is flagged as "VN in Regress," it triggers a series of tasks and gateways to handle the situation. First, the case is checked by the "Take VN to Regress?" gateway, which has the ID'sid-604CB59A-49C3-43A6-90ED-BD1F06D943EA'. This gateway has two outgoing paths: one leading to the "ExclusiveGateway3" and another to the "Process" task.
+
+If the case is deemed to be in regress, it is then sent to the "ExclusiveGateway3" with the ID'sid-E2FDD069-2947-4DBC-8693-98C2779D3A72'. This gateway has three incoming paths: "EventBasedGateway4," "Check the case," and "VN." The outgoing path from "ExclusiveGateway3" leads to the "Process" task.
+
+Meanwhile, the "Check the case" task with the ID'sid-F8162814-CA78-4834-965F-E4C4BF3619B9' is initiated, which has an incoming path from "VN in Regress" and an outgoing path to "ExclusiveGateway3."
+
+If the case is not in regress, it is sent to the "Send a message" task with the ID'sid-F7D0C428-17B4-4FB2-86B3-76AAB1A53E23', which has an incoming path from "VN in Regress" and an outgoing path to "Payment."
+
+The "Book your entrance" task with the ID'sid-46081FBA-5C66-4BA1-A564-45C725702BB9' is also initiated, which has an incoming path from "Payment" and an outgoing path to "ExclusiveGateway3."
+
+If the case is deemed to be

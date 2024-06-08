@@ -1,0 +1,13 @@
+ When a possible regression is detected, the system initiates a series of tasks and interactions between various components and gateways to address the issue. The process begins with the 'possible regression' event, which triggers the 'Regress possible' gateway. This gateway then sends a 'Check regression' task to the 'Send a message' service, as well as to the 'ExclusiveGateway2'.
+
+Simultaneously, the 'Regress possible' gateway also sends the 'Check regression' task to the 'ExclusiveGateway5' gateway. This gateway, in turn, sends the 'Check VN' task to the 'Check VN' service.
+
+As the 'Check VN' service completes its task, it sends the 'Cash receipt' task to the 'ExclusiveGateway3', which then sends the 'Book money receipt' task to the 'Book money receipt' service.
+
+Meanwhile, the 'ExclusiveGateway2' receives the 'Check regression' task from the 'Send a message' service and sends it to the 'Close' service, which then closes the 'closed regression' task.
+
+The 'ExclusiveGateway5' receives the 'Check VN' task from the 'Check VN' service and sends it to the 'Debt collection service provider' service, which then sends the 'Not justified' task to the 'Close' service.
+
+The 'Close' service receives the 'Not justified' task and sends the 'closed regression' task to the 'ExclusiveGateway5', which then closes the 'closed regression' task.
+
+In summary, the system handles a possible regression by sending tasks to various services and gateways, ultimately closing the regression once it has been addressed.

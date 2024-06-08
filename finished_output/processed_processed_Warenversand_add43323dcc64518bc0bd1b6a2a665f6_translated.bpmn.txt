@@ -1,0 +1,9 @@
+ The process begins with the 'Shipping goods' event, which triggers the 'ExclusiveGateway0' to handle the incoming goods. This gateway then routes the goods to 'ParallelGateway4' for further processing. 'ParallelGateway4' sends the goods to 'ExclusiveGateway2' for insurance and filling the package note. 'ExclusiveGateway2' then sends the goods to 'ExclusiveGateway3' for final processing. 'ExclusiveGateway3' sends the goods to 'ParallelGateway5', which then sends the goods to the 'Goods sent' event, marking the end of the process.
+
+Simultaneously, the 'Pick up offers at 3 carriers' event triggers 'ExclusiveGateway0', which routes the incoming offers to 'Select a quote and order forwarders'. This gateway sends the offers to 'ExclusiveGateway3', which then sends the offers to 'ParallelGateway5'. 'ParallelGateway5' sends the offers to the 'Goods sent' event, completing the process.
+
+The 'Filling the package note' task is triggered by 'ExclusiveGateway0' and 'ParallelGateway5', sending the package note to 'ExclusiveGateway3', which then sends it to 'ParallelGateway5'. 'ParallelGateway5' sends the package note to the 'Goods sent' event, completing the process.
+
+Lastly, the 'Insurance close' task is triggered by 'Shipping goods' and 'ExclusiveGateway2', sending the insurance close to 'ExclusiveGateway3', which then sends it to 'ParallelGateway5'. 'ParallelGateway5' sends the insurance close to the 'Goods sent' event, completing the process.
+
+In summary, the process involves multiple tasks and gateways, with goods being shipped, picked up by carriers, and insured, while package notes are filled and sent along with the goods. The process concludes with the goods being sent to their final destination.

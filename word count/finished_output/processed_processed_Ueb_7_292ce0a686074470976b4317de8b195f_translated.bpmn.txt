@@ -1,0 +1,11 @@
+ In a financial services system, a series of tasks and gateways work together to process scoring requests and reports. The process begins with a 'Scoring request\nReport' event, which triggers a 'Report delay' task. This task sends the request to the 'EventBasedGateway2', which then forwards it to the 'Delay message\nobtained' task.
+
+Meanwhile, a 'Schufa request\nincoming' event initiates a 'Report delay' task, which also sends the request to 'EventBasedGateway2'. The 'EventBasedGateway2' sends the request to the 'Delay message\nobtained' task, which in turn sends a 'Scoring request\nFinished' event back to the 'Scoring request\nReport' task.
+
+Simultaneously, a 'Schufa request\nincoming' event triggers a 'Level 1 Scoring' task, which sends the request to the 'ExclusiveGateway1'. The 'ExclusiveGateway1' forwards the request to the 'Result\npresent?' task, which sends a 'Scoring' event back to the 'Schufa request\nincoming' task.
+
+The 'Result\npresent?' task also triggers a 'Level 2 Scoring' task, which sends the request to the 'ExclusiveGateway1'. The 'ExclusiveGateway1' forwards the request to the 'Schufa request\nFinished' task, which sends a 'Scoring request\nFinished' event back to the 'Result\npresent?' task.
+
+The 'Result\npresent?' task also sends a 'Scoring' event to the 'Scoring request\nFinished' task, which completes the process.
+
+In summary, the system processes scoring requests and reports by sending them through a series of tasks and gateways, ensuring that each request is handled efficiently and accurately.

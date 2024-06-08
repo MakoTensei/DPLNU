@@ -1,0 +1,26 @@
+ The process begins with the event 'VN can be taken in regress', which triggers the task 'Check the case' to be initiated. This task has an incoming link from 'VN can be taken in regress' and an outgoing link to 'Regression'.
+
+Upon reaching 'Regression', the task 'Send a message' is triggered, which has an incoming link from 'Regression' and an outgoing link to 'Set on re-submission'.
+
+The 'Set on re-submission' task, in turn, has an incoming link from 'Regression' and an outgoing link to 'Money received'.
+
+When 'Money received' is triggered, it leads to the task 'Book the entrance', which has an incoming link from 'Money received' and an outgoing link to 'Complete the process'.
+
+The 'Complete the process' task, with incoming links from 'Money received' and 'Rejection of payment justified?', has outgoing links to 'EndEvent1' and 'ExclusiveGateway2'.
+
+The 'ExclusiveGateway2' task, with incoming links from 'Regression' and 'Rejection of payment justified?', has an outgoing link to 'EndEvent2'.
+
+The 'EndEvent2' task, with incoming link from 'Regression', leads to the 'Debt collection office' task, which has an incoming link from 'Rejection of payment justified?' and an outgoing link to 'EndEvent3'.
+
+The 'EndEvent3' task, with an incoming link from 'Reimbursement deadline expired', concludes the process.
+
+In summary, the process flow is as follows:
+
+1. 'VN can be taken in regress' triggers 'Check the case'
+2. 'Check the case' triggers 'Send a message'
+3. 'Send a message' triggers 'Set on re-submission'
+4. 'Set on re-submission' triggers 'Money received'
+5. 'Money received' triggers 'Book the entrance'
+6. 'Book the entrance' triggers 'Complete the process'
+7. 'Complete the process' triggers 'ExclusiveGateway2'
+8. 'ExclusiveGateway2' triggers 'EndEvent2'

@@ -1,0 +1,7 @@
+ In the banking system, a scoring process is initiated when a 'Scoring\nRequired' event occurs, which triggers the forwarding of results to the frontend via 'IntermediateCatchEvent6'. This event is connected to 'ExclusiveGateway0', which then forwards the results to 'ParallelGateway2'. Meanwhile, 'Scoring requested' events lead to 'perform scoring level 1' and 'perform scoring level 2' tasks, with the former sending immediate results to 'Result' and the latter forwarding results to 'ParallelGateway3'.
+
+The 'Scoring' process is further divided into two levels. 'Level 1' sends immediate results to the frontend, while 'Level 2' sends a message to the scoring system via 'ParallelGateway3'. Once the scoring is complete, the 'Delay' event sends the final scoring result to the bank via 'Send Scoring result to Bank'.
+
+The 'Scoring' process is managed by 'ExclusiveGateway1', which receives results from 'IntermediateCatchEvent6' and 'Scoring requested'. It forwards immediate results to 'Result' and sends scoring results to 'Scoring'.
+
+In summary, the scoring process starts with a 'Scoring\nRequired' event, which triggers a series of tasks and gateways to perform scoring at different levels and forward results to the frontend and bank. The process is managed by 'ExclusiveGateway1', which ensures that the scoring results are correctly forwarded to the appropriate destinations.

@@ -1,0 +1,31 @@
+Tasks:
+{'id': 'sid-AC3F5753-6A7F-47E7-A3B8-FF833B8DFABE', 'name': 'Examination', 'incoming': ['Suspicion\nReport'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-39AE28B8-1351-42FD-8BCC-1D1A7A2DD33E', 'name': 'Send payment request\n', 'incoming': ['ParallelGateway4'], 'outgoing': ['Opposition\nReport']}
+{'id': 'sid-D3B1E0E4-9B0D-4B59-819A-525B579F553B', 'name': 'Reimbursement required', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-3FB3A689-6B41-4CBB-B9EB-1DFFAF5EED92', 'name': 'End the process', 'incoming': ['Suspicion\nReport'], 'outgoing': ['End of procedure']}
+{'id': 'sid-A0937003-7405-487D-A223-7D0C25409DFE', 'name': 'Cash receipt\nCheck', 'incoming': ['ParallelGateway4'], 'outgoing': ['Book GE']}
+{'id': 'sid-4E74DCFB-CC37-4235-9B66-03808735234D', 'name': 'Book GE', 'incoming': ['EventBasedGateway3'], 'outgoing': ['End the process']}
+{'id': 'sid-50000A84-2E48-4D6B-B55B-FC4F97F3CCF2', 'name': 'Examination', 'incoming': ['Opposition\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-6773246E-D43A-4386-9479-EA200D2297F7', 'name': 'Return OK', 'incoming': ['Opposition\nReport'], 'outgoing': ['End the process']}
+{'id': 'sid-8358FFD5-2F0B-480F-9B6F-6F476186EE10', 'name': 'Debt collection', 'incoming': ['Date of expiry'], 'outgoing': ['Open']}
+{'id': 'sid-63A3003E-CA1B-47B6-8563-89DCFBFF0F07', 'name': 'End the process', 'incoming': ['EventBasedGateway3'], 'outgoing': ['End of procedure']}
+{'id': 'sid-54291F82-E0A7-4708-965F-8FE724DFA935', 'name': 'End the process', 'incoming': ['Reasons\njustifiable?\n'], 'outgoing': ['End of procedure']}
+
+Gateways:
+{'id': 'sid-BC623A07-9EF4-42C6-82CE-B9DE54699036', 'name': 'Possibility?', 'incoming': ['Suspicion\nReport'], 'outgoing': ['ParallelGateway5', 'End of procedure']}
+{'id': 'sid-919729EE-A965-4F4D-AA3C-7805AE40C91D', 'name': 'Reasons\njustifiable?\n', 'incoming': ['EventBasedGateway3'], 'outgoing': ['End of procedure', 'Open']}
+{'id': 'sid-EE94DD14-FB9F-496F-90AA-77C88BAA4158', 'name': 'ExclusiveGateway2', 'incoming': ['Examination', 'Date of expiry'], 'outgoing': ['Open']}
+{'id': 'sid-E34697E3-7076-47BA-9696-5212E5255569', 'name': 'EventBasedGateway3', 'incoming': ['ParallelGateway4'], 'outgoing': ['End of procedure', 'Open']}
+{'id': 'sid-E9A53CA5-5A9F-4A9C-A05B-CCF282C17CBE', 'name': 'ParallelGateway4', 'incoming': ['Examination'], 'outgoing': ['Cash receipt\nCheck', 'ParallelGateway5']}
+{'id': 'sid-5ACEAF29-54D2-4325-B769-D82A901E9004', 'name': 'ParallelGateway5', 'incoming': ['Possibility?', 'ParallelGateway4'], 'outgoing': ['Opposition\nReport']}
+{'id': 'sid-8048D217-9CC1-4DDD-87D5-6934BF2DDF44', 'name': 'Opposition\nReport', 'incoming': ['Send payment request\n'], 'outgoing': ['Return OK']}
+{'id': 'sid-7C1275E1-0A60-4951-8E93-06D3D0914F04', 'name': 'Date of expiry', 'incoming': ['sid-5D319102-6A7C-4832-937A-4E14E4E5A40A'], 'outgoing': ['Debt collection']}
+
+Start Events:
+{'id': 'sid-74854555-7D1D-4A54-B27D-4C8F1B121FF6', 'name': 'Suspicion\nReport', 'incoming': [], 'outgoing': ['End the process']}
+
+End Events:
+{'id': 'sid-7F2FAC0D-D0A3-498B-84E3-9D9F85D43A67', 'name': 'End of procedure', 'incoming': ['Possibility?'], 'outgoing': []}
+{'id': 'sid-5C968A6F-12C2-43AE-AC9D-9974BE0BFECF', 'name': 'End of procedure', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-5198AF7B-A513-4F39-BD6D-1AB835B29862', 'name': 'End of procedure', 'incoming': ['Reasons\njustifiable?\n'], 'outgoing': []}
+{'id': 'sid-FFD2463B-7037-4B12-991E-2433A75B4785', 'name': 'Open', 'incoming': ['EventBasedGateway3'], 'outgoing': []}

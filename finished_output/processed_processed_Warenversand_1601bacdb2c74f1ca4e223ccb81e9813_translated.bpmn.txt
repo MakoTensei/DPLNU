@@ -1,0 +1,15 @@
+ The process begins with the 'Shipping preparation necessary' event, which triggers the 'ExclusiveGateway0' to handle the incoming task. This gateway then sends the goods for shipping to the 'Goods for shipping' event, marking the end of the process.
+
+In parallel, the 'Shipping preparation necessary' event also triggers the 'ParallelGateway5' to handle the incoming task. This gateway sends the 'fill in standard form' task to the 'Goods for shipping' event and the 'Goods for shipping' task to the 'ExclusiveGateway0'.
+
+Meanwhile, the 'Special shipment?' event, triggered by the 'Shipping preparation necessary' event, sends the task to 'ExclusiveGateway2' and 'Check insurance cover' to the 'Provide goods for collection' event.
+
+The 'Check insurance cover' task, triggered by the 'Special shipment?' event, sends the task to 'ExclusiveGateway4' and 'Insurance coverage necessary?' to the 'Provide goods for collection' event.
+
+The 'Insurance coverage necessary?' event, triggered by the 'Check insurance cover' task, sends the task to 'ExclusiveGateway0' and 'ExclusiveGateway4'.
+
+The 'Provide goods for collection' event, triggered by the 'ExclusiveGateway2' and 'ExclusiveGateway4' tasks, sends the task to the 'Fill in standard form' event and the 'Goods for shipping' event.
+
+Lastly, the 'Fill in standard form' event, triggered by the 'ParallelGateway5' task, sends the task to the 'Goods for shipping' event.
+
+In summary, the process involves multiple tasks and gateways, with the 'Shipping preparation necessary' event initiating the process and the 'Goods for shipping' event marking its completion. The tasks flow through various gateways, ensuring that goods are packaged, provided for collection, and shipped with the necessary insurance coverage.

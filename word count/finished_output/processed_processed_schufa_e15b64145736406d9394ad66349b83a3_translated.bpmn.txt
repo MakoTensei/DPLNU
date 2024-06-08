@@ -1,0 +1,7 @@
+ In a seamless workflow, employees initiate a Schufa query, which triggers an IntermediateCatchEvent4. This event is then passed to ExclusiveGateway0, where it is processed and results in a Question completed. Concurrently, a Scoring request is obtained, leading to a Results available? event. This event connects to ExclusiveGateway2, where the Scoring (level 1) and (level 2) events are executed in sequence, ultimately resulting in a Scoring carried out.
+
+Meanwhile, the Scoring Send query event is routed to EventBasedGateway3, which in turn sends IntermediateCatchEvent5 to ExclusiveGateway0. This event completes the question and also feeds into the Results available? event.
+
+Once the Scoring carried out event is completed, it triggers the Interim result report event, which then concludes the process by completing the Question event.
+
+In summary, the workflow begins with a Schufa query by employees, followed by a series of events and gateways that lead to the final Scoring carried out event. The process concludes with the completion of the Question event, providing the desired result of scoring.

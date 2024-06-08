@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-21A7BD46-BB80-4DEB-8DD8-1AD1F82044B2', 'name': 'Standar\nfill disassembled parcel certificate\n', 'incoming': ['Type of transport'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-EC70F16A-5440-4444-ADC2-C9B182A80F67', 'name': 'Shipping\nExamination\n', 'incoming': ['Goods ready for dispatch'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-412DA4DF-A7AF-41A9-95F6-391F2CA15A0B', 'name': 'Pick up offers', 'incoming': ['Type of transport'], 'outgoing': ['Select your offer']}
+{'id': 'sid-237C63C4-4CBE-4C2C-84FE-0BF49D94130A', 'name': 'Select your offer', 'incoming': ['Type of transport'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-EA67BC94-F4FB-4C34-8152-D765B4EC9182', 'name': 'Order Spediteur A', 'incoming': ['Type of transport'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-E5618145-D99F-415F-93BE-351242996857', 'name': 'Order Spediteur B', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-B55BF088-8C4A-40D3-A2FA-384CE0A401AA', 'name': 'Order Spediteur C', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-D048BDE8-92FC-4087-A115-B2A70BD85B8C', 'name': 'Packaging goods', 'incoming': ['ParallelGateway6'], 'outgoing': ['sid-6EC3E51C-D6CD-42A7-8975-78E6098CF291']}
+{'id': 'sid-EE5AF02A-E613-4381-A964-EC9DCB1A0E8B', 'name': 'Provide goods for collection\n', 'incoming': ['ParallelGateway7'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C983BC99-8258-4294-9966-53A599FEAD09', 'name': 'Insurance close', 'incoming': ['ParallelGateway6'], 'outgoing': ['ExclusiveGateway4']}
+
+Gateways:
+{'id': 'sid-13652145-9A19-45A7-8F59-B7C6EC78F134', 'name': 'Insurance of goods required?', 'incoming': ['Goods ready for dispatch'], 'outgoing': ['Insurance close', 'ExclusiveGateway3']}
+{'id': 'sid-F1BCD707-BF7E-4220-AF4D-A5E86D7125A5', 'name': 'ExclusiveGateway1', 'incoming': ['Type of transport'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-5A87309E-0B60-4F35-ADC8-6DA1A934D723', 'name': 'ExclusiveGateway2', 'incoming': ['Type of transport', 'ExclusiveGateway1', 'ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-679FE43E-040E-421B-90F9-75DFCC0726BE', 'name': 'ExclusiveGateway3', 'incoming': ['ExclusiveGateway1', 'Type of transport'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-8CF9597D-2CFC-4F92-B255-30A118B70698', 'name': 'ExclusiveGateway4', 'incoming': ['ParallelGateway6', 'Standar\nfill disassembled parcel certificate\n'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-61270512-4576-406E-85C0-692F6A96F18D', 'name': 'Type of transport', 'incoming': ['ParallelGateway6'], 'outgoing': ['ExclusiveGateway2', 'EndEvent0']}
+{'id': 'sid-E0F8547D-DCD7-4776-A0BB-14B06354AEEC', 'name': 'ParallelGateway6', 'incoming': ['Goods ready for dispatch'], 'outgoing': ['Packaging goods', 'ExclusiveGateway4']}
+{'id': 'sid-B545F804-A583-4C7B-AC1F-AD392C9AC80F', 'name': 'ParallelGateway7', 'incoming': ['Standar\nfill disassembled parcel certificate\n', 'sid-BE5C1628-A40C-4481-8579-92DA3D6C466B'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-BF2D21F3-D789-4622-BCB9-6B5FF092A57E', 'name': 'Goods ready for dispatch', 'incoming': [], 'outgoing': ['Insurance of goods required?']}
+
+End Events:
+{'id': 'sid-CE1EE886-0FF9-4CC5-B00C-48F19FC1A0AD', 'name': 'EndEvent0', 'incoming': ['Type of transport'], 'outgoing': []}

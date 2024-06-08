@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-048C95A7-CFBA-4FBA-A4A5-F988C40B125A', 'name': 'Case', 'incoming': ['Regressive thought\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-BB80E422-C478-4A12-8DA0-AF56459FCC1D', 'name': 'Send a message', 'incoming': ['Regressive thought\nReport'], 'outgoing': ['Set process to WV']}
+{'id': 'sid-3D869DAF-6A14-4643-A5A8-F0B370D07666', 'name': 'Close process', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Closed']}
+{'id': 'sid-3460F0D4-43BE-406B-9D3D-A55BEF0BBE76', 'name': 'Set process to WV', 'incoming': ['Regress possible?'], 'outgoing': ['WV-Frist']}
+{'id': 'sid-2EB6B9DD-B65D-4CE5-8447-4210EA889858', 'name': 'Book payment receipt', 'incoming': ['Incoming payment'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-F0A9BD94-9F87-4CEF-B046-D59513BB1065', 'name': 'Pronounce contradiction', 'incoming': ['Notification'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-10061D6D-9E69-4246-AAAF-89C99AA5D926', 'name': 'Transfer process to debt collection companies', 'incoming': ['Notification'], 'outgoing': ['Open']}
+{'id': 'sid-41D29F9C-4917-4E22-A5DB-DBF8B4B3FC34', 'name': 'Transfer process to debt collection companies', 'incoming': ['WV-Frist'], 'outgoing': ['Open']}
+
+Gateways:
+{'id': 'sid-8D3959DA-5E63-45B6-9AEB-3CD3DB4943DB', 'name': 'Regress possible?', 'incoming': ['Regressive thought\nReport'], 'outgoing': ['Open', 'Closed']}
+{'id': 'sid-18440281-5ACC-4D6F-9F21-7A9609CCBC8A', 'name': 'Objection justified?', 'incoming': ['Regress possible?'], 'outgoing': ['Open', 'ExclusiveGateway2']}
+{'id': 'sid-F5C05BA2-80D0-4C0A-B4F2-9289E72EA204', 'name': 'ExclusiveGateway2', 'incoming': ['Case', 'EventBasedGateway3', 'Pronounce contradiction'], 'outgoing': ['Closed']}
+{'id': 'sid-7334F6FB-119B-422D-B108-875A0F199671', 'name': 'EventBasedGateway3', 'incoming': ['Regress possible?'], 'outgoing': ['WV-Frist', 'Notification', 'ExclusiveGateway2']}
+{'id': 'sid-5A7D5431-156C-4D4D-B552-2197765F5186', 'name': 'WV-Frist', 'incoming': ['Set process to WV'], 'outgoing': ['Open']}
+{'id': 'sid-5C458FC4-6107-48AC-AE80-A056A415A758', 'name': 'Notification', 'incoming': ['Regress possible?'], 'outgoing': ['Transfer process to debt collection companies']}
+{'id': 'sid-FEA899AB-C8B0-4265-B232-AFB22E4C95B6', 'name': 'Incoming payment', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-D0A898FE-2165-4A6A-93DE-ADEEA8C3F9B8', 'name': 'Regressive thought\nReport', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-B77E20C3-DD57-4DD2-A8D5-682EFEA68942', 'name': 'Closed', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-184BE8B6-723E-48D5-86E6-7E0173135D44', 'name': 'Open', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-30324B3F-A263-4B00-9CC2-C5ACC51D064B', 'name': 'Open', 'incoming': ['WV-Frist'], 'outgoing': []}

@@ -1,0 +1,9 @@
+ In the case of a possible regressive situation involving Vietnam (VN), the workflow begins with the event 'VN possibly in Regressible' which triggers the 'Book money receipt' task. This task is connected to the 'ExclusiveGateway1', which can lead to either a 'Closed' state if the 'VN contradicts' event occurs or to the 'Process transferred to debt collection companies' task if the 'EventBasedGateway4' is triggered.
+
+Simultaneously, the 'VN possibly in Regressible' event also initiates the 'Send a payment request and register a reimbursement' task, which is linked to 'ExclusiveGateway1'. This task can result in a 'Closed' state if 'VN contradicts' event is triggered.
+
+The 'VN possibly in Regressible' event also leads to the 'Proceedings' task, which is connected to 'ExclusiveGateway3'. This task can result in an 'Open' state if 'EventBasedGateway4' is triggered, or it can lead to a 'Closed' state if 'VN contradicts' event occurs.
+
+The 'EventBasedGateway4' is triggered by the 'VN possibly in Regressible' event and can lead to either 'Process transferred to debt collection companies' or 'Closed' state, depending on the incoming events.
+
+In summary, the workflow starts with the 'VN possibly in Regressible' event, which triggers multiple tasks and gateways, leading to various outcomes based on the incoming and outgoing events.

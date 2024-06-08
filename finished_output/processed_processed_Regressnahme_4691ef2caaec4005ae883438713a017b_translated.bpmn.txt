@@ -1,0 +1,11 @@
+ When a regression case is submitted, the system initiates a sequence of tasks to ensure the process is handled correctly. The first task, identified by'sid-310CBEF8-6939-4594-A760-C559BAD000C0', is to send a message to the team, tagged as 'Send a message' with the incoming trigger 'Regression\nsubmitted\n'. This message is directed towards 'ExclusiveGateway3'.
+
+Upon receiving the notification, 'ExclusiveGateway3' evaluates the situation and determines if the regression is justified. This decision is made by the 'justified?' gateway, which receives the notification and directs the process to 'ExclusiveGateway2' and 'ExclusiveGateway3' for further processing.
+
+If the process is deemed justified, the system proceeds to 'Proceedings', which is triggered by 'EventBasedGateway4'. This task, identified by'sid-DE4D88FD-2AF2-47F3-A9BB-A6CC22F707DB', completes the process and sends a notification to 'Process\ncompleted'.
+
+In the case where the process is not justified, the system transfers the process to debt collection, as indicated by the 'Transfer process to debt collection' task, identified by'sid-5D91615D-1C81-4BDB-B943-995448169C8D'. This task is triggered by 'EventBasedGateway4' and directs the process forward.
+
+If the process is justified, the system then checks for the possibility of a regression, which is handled by the 'Check regression case' task, identified by'sid-sid-4B665337-DE26-4024-B3A3-3B9A85298932'. This task receives the notification and directs the process to 'ExclusiveGateway3'.
+
+Upon reaching 'ExclusiveGateway3', the system determines if the

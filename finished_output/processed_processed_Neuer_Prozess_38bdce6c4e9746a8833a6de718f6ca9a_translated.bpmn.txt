@@ -1,0 +1,11 @@
+ In the process of handling a regress case, the workflow begins with the event 'Take notification in Regress', which triggers the 'Send a message' task. This message is sent to 'Regress?', an exclusive gateway that determines the next step in the process. If the notification in Regress is received, the 'Set process for re-submission' task is initiated, leading to a representation.
+
+Simultaneously, the 'Take notification in Regress' event also triggers the 'Book the entrance' task, which sends a notification to 'ExclusiveGateway3'. This gateway then forwards the notification to the 'Enter the process' task, which is dependent on the 'EventBasedGateway5'.
+
+If the regress case is justified, the 'Objection' event leads to the 'Objection justified?' gateway, which can either result in the 'Finished' task or forward the case to 'ExclusiveGateway4'.
+
+The 'ExclusiveGateway3' gateways receive notifications from both 'Regress?' and 'Objection' events, and can either close the case or forward it to 'ExclusiveGateway4'.
+
+The 'ExclusiveGateway4' gateways receive notifications from both 'EventBasedGateway5' and 'EventBasedGateway5' events, and can either forward the case or send a representation.
+
+Finally, the 'Finished' task is triggered by the 'Objection justified?' event, and the 'forwarded' task is triggered by the 'EventBasedGateway5' event.

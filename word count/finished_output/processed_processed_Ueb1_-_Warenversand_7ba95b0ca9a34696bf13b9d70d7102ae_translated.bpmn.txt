@@ -1,0 +1,7 @@
+ When a shipment is requested, the process begins with the 'Shipment requested' event, which triggers the '3 Pick up a quote' task. This task is initiated by the 'ParallelGateway4' and requires the selection of an offer, which is facilitated by the 'Select your offer' task. The 'Select your offer' task is triggered by the 'Lot?' gateway and leads to the 'ExclusiveGateway3'.
+
+Once the offer is selected, the 'Filling the package note' task is triggered by the 'Lot?' gateway, which requires checking insurance requirements. This task is then passed to the 'Check insurance requirements' task, which is also triggered by the 'Lot?' gateway and leads to the 'ExclusiveGateway2'.
+
+After the insurance requirements are checked, the 'Complete insurance' task is triggered by the 'Need?' gateway, which requires the 'ExclusiveGateway2'. The 'Complete insurance' task then leads to the 'ParallelGateway5'.
+
+The 'ParallelGateway5' gateway triggers the 'Delivering goods' task, which makes the goods available. This task is the final step in the process, and the 'Goods made available' event marks the end of the shipment process.

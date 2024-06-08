@@ -1,0 +1,13 @@
+ In the process of handling goods, the journey begins with the dispatch of goods, which triggers the 'Goods dispatched they are' event, leading to the 'ParallelGateway4' where the 'Packaging of goods' task is initiated. This task is dependent on the 'ParallelGateway5' and results in the 'ParallelGateway4' for further processing.
+
+Simultaneously, the 'Goods dispatched they are' event also leads to the 'Pick up quotes' task, which is dependent on 'ParallelGateway5' and results in the 'Choose the cheapest offer' task. This task is dependent on the 'who takes over Shipment?' event, which in turn leads to the 'Specialist' task.
+
+Meanwhile, the 'Goods dispatched they are' event also triggers the 'Determining the quantity of goods' task, which is dependent on 'ParallelGateway5' and results in the 'InclusiveGateway3' task. This task is dependent on the 'Insurance necessary?' event, which leads to the 'Filling the parcel note' task.
+
+The 'Filling the parcel note' task is dependent on the 'Insurance necessary?' event and results in the 'ParallelGateway4'. The 'Choose the cheapest offer' task is dependent on the 'who takes over Shipment?' event and results in the 'ExclusiveGateway1'.
+
+The 'Packaging of goods' task is dependent on 'ParallelGateway4' and results in the'sid-23F291E3-5B08-4A86-B6C5-6720A17AB0CA', which represents the collection of goods.
+
+The 'Goods made available' event marks the end of the process, which is dependent on the 'Goods are provided for collection' event and results in no further tasks.
+
+In summary, the process involves the dispatch of goods, determining the quantity, packaging, and insurance, followed by the collection of goods. The process is coordinated through various gateways and tasks, ensuring a smooth flow of goods from dispatch to collection.

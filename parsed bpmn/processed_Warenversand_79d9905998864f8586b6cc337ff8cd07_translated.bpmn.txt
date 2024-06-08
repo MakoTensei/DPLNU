@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-F8DF83D4-5D46-470C-8700-0572E586AF18', 'name': 'Package tickets\nfilling', 'incoming': ['Scope'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-41A713FC-AA32-4410-A2D9-C0C5CFF9D75D', 'name': 'Offers\nenroll\n\nSupplement\ngrant', 'incoming': ['Order\nobtained'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-43EDF577-6FDD-417C-989A-B2AFD148FA62', 'name': 'Goods\nready for dispatch', 'incoming': ['ParallelGateway5'], 'outgoing': ['Goods\nready for dispatch']}
+{'id': 'sid-B67F2AA3-4960-4FE4-B780-54DE4E6991FE', 'name': 'Goods\npackaging', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods\nprovide']}
+{'id': 'sid-76F9F75A-61B2-4948-8149-0DEE5F9D3290', 'name': 'Goods\nprovide', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-13812C23-D272-432A-A8A8-DAC9CC7B1151', 'name': 'Insurance\nclose', 'incoming': ['Insurance\nnecessary'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-86D0FC16-5DE5-4AA4-BC62-9F98558CAD6B', 'name': 'Scope', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway1', 'Offers\nenroll\n\nSupplement\ngrant']}
+{'id': 'sid-0BF07761-E3D6-42A0-A82D-C1F4305DBBCE', 'name': 'ExclusiveGateway1', 'incoming': ['ParallelGateway4', 'Scope'], 'outgoing': ['Goods\nready for dispatch']}
+{'id': 'sid-0E9628D5-B53D-40FC-9D8B-254710D84638', 'name': 'Insurance\nnecessary', 'incoming': ['Package tickets\nfilling'], 'outgoing': ['Goods\nready for dispatch', 'Insurance\nclose']}
+{'id': 'sid-290C3734-9191-4E49-861C-8AEF688DBCF1', 'name': 'ExclusiveGateway3', 'incoming': ['Insurance\nclose', 'Package tickets\nfilling'], 'outgoing': ['Goods\nready for dispatch']}
+{'id': 'sid-D44C1DBD-BB42-419B-95F4-021475193E3D', 'name': 'ParallelGateway4', 'incoming': ['Order\nobtained'], 'outgoing': ['ParallelGateway5', 'Goods\nready for dispatch']}
+{'id': 'sid-78A80CB1-E1BC-4341-B51E-38929F63DF75', 'name': 'ParallelGateway5', 'incoming': ['Package tickets\nfilling', 'ParallelGateway4'], 'outgoing': ['Goods\nready for dispatch']}
+
+Start Events:
+{'id': 'sid-60D54AEF-1CE8-4CB7-BF51-5C8135A5C4F0', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['Offers\nenroll\n\nSupplement\ngrant']}
+
+End Events:
+{'id': 'sid-C2D60D3F-0E43-483B-B134-730A4AABCF75', 'name': 'Goods\nready for dispatch', 'incoming': ['ParallelGateway4'], 'outgoing': []}

@@ -1,0 +1,21 @@
+ In the bustling world of financial transactions, a series of tasks and gateways work in harmony to ensure the smooth processing of payments, reimbursements, and other financial activities. Let's dive into the intricate flow of these processes:
+
+1. When a payment is applicable in a regression scenario, the 'if applicable in Regression take' event triggers the 'Payment on request send' task. This task sends a payment request to the 'ExclusiveGateway1' to further process the payment.
+
+2. The 'Case Check' task, upon receiving an applicable regression case, is directed to 'ExclusiveGateway1'. This gateway is responsible for handling cases and forwarding them to the appropriate path.
+
+3. The 'Payment on request send' task, upon receiving an incoming payment, is directed to 'Incoming payment'. This task then sends the payment to 'ExclusiveGateway1' for further processing.
+
+4. The 'Reimbursement set' task, upon receiving a reimbursement, is directed to 'Incoming payment'. This task sends the reimbursement to 'ExclusiveGateway1' for processing.
+
+5. The 'Opposition Check' task, upon receiving an event from 'EventBasedGateway4', is directed to 'ExclusiveGateway3'. This gateway handles opposition cases and directs them to the appropriate path.
+
+6. The 'Debt collection agency perform' task, upon receiving an event from 'EventBasedGateway4', initiates the process of debt collection.
+
+7. The 'Process close' task, upon receiving an event from 'EventBasedGateway4', marks the completion of the process.
+
+8. The 'ExclusiveGateway1' task, upon receiving a 'Case Check' or 'VN' event, sends the case to 'Process completed'.
+
+9. The 'ExclusiveGateway3' task, upon receiving an 'EventBasedGateway4' or 'Opposition Check' event, directs the case to '?'.
+
+10. The 'EventBasedGateway4' task, upon receiving a 'Reimbursement set' event, initiates the process of re

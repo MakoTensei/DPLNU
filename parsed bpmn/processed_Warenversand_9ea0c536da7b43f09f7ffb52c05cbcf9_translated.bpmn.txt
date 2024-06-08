@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-1947A629-B804-4B4F-9F87-2758188B1437', 'name': 'Examination Order Size', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-432B37A6-2F0A-4F17-9A58-ADE39B8B130B', 'name': 'Order acceptance', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-6E16EAB6-237D-45B1-927E-36AAA6FDCFB5', 'name': 'Search forwarder', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-4E7AE7D2-A992-4AC9-BE43-0C3F37F2AF41', 'name': 'Specify the shipping method', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-0466E57A-4FCB-4B8A-9832-789F51D8097B', 'name': 'Complete insurance', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-99B86CFF-1533-457D-B557-DD114EE3306A', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+
+Gateways:
+{'id': 'sid-DB439F12-2AE2-480B-A128-95D71A648B66', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-12212B21-E441-451E-AF71-8597866BA79C', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent0', 'ParallelGateway3', 'ExclusiveGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-46B5F52C-3577-4B77-AE67-0D918B372CDB', 'name': 'ExclusiveGateway2', 'incoming': ['Examination Order Size'], 'outgoing': ['ExclusiveGateway1', 'ParallelGateway4']}
+{'id': 'sid-7A0C234A-6F69-4701-A932-F8AE650AEF2F', 'name': 'ParallelGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'Packaging goods']}
+{'id': 'sid-C1D73E5E-D277-4F60-97CF-C07D2C0FD3AF', 'name': 'ParallelGateway4', 'incoming': ['Packaging goods', 'ExclusiveGateway2'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-1BD6FC6C-1854-41E9-8ADB-2EF1A0337F01', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-90213FA8-A013-462C-B1AB-C75F7ACB2D5C', 'name': 'EndEvent0', 'incoming': ['ParallelGateway3'], 'outgoing': []}

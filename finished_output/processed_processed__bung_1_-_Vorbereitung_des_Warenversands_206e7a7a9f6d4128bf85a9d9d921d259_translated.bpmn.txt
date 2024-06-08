@@ -1,0 +1,7 @@
+ When goods are to be shipped, the process begins with the task of selecting an offer, which can be done through the '3 offers' gateway. This gateway receives the incoming event of 'Goods are to be shipped' and directs the user to 'Select your offer'. Once the offer is selected, the process continues through the 'ExclusiveGateway2', which handles the 'Big crowd?' scenario and directs the flow to 'ParallelGateway4'.
+
+If the event 'Big crowd?' is triggered, the process diverges to the 'Big crowd?' gateway, which also leads to 'ExclusiveGateway2'. This gateway then connects to 'ParallelGateway4', which is responsible for handling the 'Insurance necessary?' scenario. If insurance is deemed necessary, the process proceeds to 'ParallelGateway4' again, which then connects to the 'Packaging goods' gateway.
+
+If the event 'Insurance necessary?' is triggered, the process flows through the 'Insurance necessary?' gateway, which connects to 'ParallelGateway4'. This gateway then leads to the 'Packaging goods' gateway, which handles the incoming event of 'ParallelGateway3' and directs the flow to 'Packaging goods'.
+
+After the goods are packaged, the process moves to the 'Provide goods for collection' gateway, which receives the incoming event of 'ParallelGateway4' and directs the flow to 'Goods shipped', marking the end of the process.

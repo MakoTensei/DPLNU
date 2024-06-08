@@ -1,0 +1,7 @@
+ Upon receiving a regression report, the system initiates a sequence of tasks to address the issue. First, the 'Check regression' task is triggered, which sends a request to ExclusiveGateway2. If the regression is confirmed, the 'Set process for resubmission' task is activated, leading to a deadline expiration event that transitions to 'Subject matter'. Conversely, if the regression is not confirmed, the 'Send payment request to VN' task is executed, which also routes to ExclusiveGateway2.
+
+Simultaneously, the 'Proceedings' task is initiated when VN contradicts the report, sending it to ExclusiveGateway3. Meanwhile, the 'Get money' task is triggered, which, upon receiving a regression report, sends the request to Close.
+
+The 'Dispense process to Inkasso-DL' task is activated when IntermediateCatchEvent4 occurs, directing the process to the subject matter.
+
+The system concludes with the 'Finished' event, which is reached through the 'Proceedings' task or the 'Subject matter' event, depending on the preceding tasks' outcomes.

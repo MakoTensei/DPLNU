@@ -1,0 +1,39 @@
+Tasks:
+{'id': 'sid-984AF894-EEA2-481E-9FD3-15923DC64DF7', 'name': 'Court of Justice\nSelect', 'incoming': ['Hunger\nfelt'], 'outgoing': ['on the\nSeries']}
+{'id': 'sid-E1E9500C-AD57-43AD-A27D-01853FF2813F', 'name': 'Add your order', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Request\nFigures\nobtained']}
+{'id': 'sid-76776192-17FF-49B1-AE5D-DA9133EC90E4', 'name': 'Goods\nPay', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Pieper\ntriggered']}
+{'id': 'sid-0B522DAE-E65F-4C4E-B2FD-7A49908FD746', 'name': 'Food\nretrieval', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Food\nobtained']}
+{'id': 'sid-E64DF27F-3E62-476D-8D8B-FFA8FBC6D6E1', 'name': 'Meals\nbeeping', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-498F40A6-B500-42A3-B754-CBF7C16C8CC9', 'name': 'Order in\nCash system\nEnter', 'incoming': ['Order\nDate'], 'outgoing': ['Money\ncassing']}
+{'id': 'sid-2BFF5E76-2B3A-4E51-BAC6-5D7C1799C2C2', 'name': 'Money\ncassing', 'incoming': ['Order\nDate'], 'outgoing': ['Payments\n:']}
+{'id': 'sid-58B8A2C3-5588-4DF3-B57C-AAF41E83F728', 'name': 'Pieper\nAdjust\nand hand over', 'incoming': ['Order\nDate'], 'outgoing': ['Order\nforward']}
+{'id': 'sid-DFFF1221-5C6B-459E-8124-C7C491996373', 'name': 'Order\nforward', 'incoming': ['Payments\n:'], 'outgoing': ['Court of Justice\nPrepared']}
+{'id': 'sid-A0B7E1AA-FD01-4B25-863A-E8466124E95C', 'name': 'Pieper\ntrigger', 'incoming': ['Payments\n:'], 'outgoing': ['Guest\npublished']}
+{'id': 'sid-526CB37F-D78D-4E1B-AFFA-B08BE64ADFC9', 'name': 'Guest\nexcl.', 'incoming': ['Court of Justice\nPrepared'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-1B0DA8A8-7211-4528-BCA4-2A4C22060E02', 'name': 'Food\noutput', 'incoming': ['Payments\n:'], 'outgoing': ['Order\ncompleted']}
+{'id': 'sid-A8C5AB7A-0117-4318-84E4-6659D42B241A', 'name': 'Next\nCustomer\nto order\nRequest', 'incoming': ['StartEvent1'], 'outgoing': ['Order\nDate']}
+{'id': 'sid-EC93521D-F1B3-46B8-A253-CF0D7E9A3B5B', 'name': 'Court of Justice\nto prepare', 'incoming': ['Order\nobtained'], 'outgoing': ['In passing\nstelllen']}
+{'id': 'sid-3B6FF752-F06A-4EBE-BB8E-C114AE20E4A3', 'name': 'In passing\nstelllen', 'incoming': ['Order\nobtained'], 'outgoing': ['Service\ninformation']}
+{'id': 'sid-5AE463F5-1D8D-4677-92AE-E81BCADAFA0F', 'name': 'Service\ninformation', 'incoming': ['Order\nobtained'], 'outgoing': ['Preparation\nFinished']}
+
+Gateways:
+{'id': 'sid-28BBF7C5-6D8A-4713-ADA1-7358963F3A5F', 'name': 'EventBasedGateway0', 'incoming': ['Court of Justice\nPrepared', 'after 5 minutes'], 'outgoing': ['Order\ncompleted', 'Order\ncompleted']}
+{'id': 'sid-53525D6B-4E99-4DEC-AE7F-B56E40E25F57', 'name': 'on the\nSeries', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Add your order']}
+{'id': 'sid-3BDD7D68-A80F-4757-B6F7-A753E4CFB6C7', 'name': 'Request\nFigures\nobtained', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Goods\nPay']}
+{'id': 'sid-F378CDBC-2822-4D8F-88B1-5DDE8871C666', 'name': 'Pieper\ntriggered', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Food\nretrieval']}
+{'id': 'sid-93795C9D-A87A-494D-8C16-18C503823CB2', 'name': 'Food\nobtained', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-2F95365B-70A3-4FE5-B72C-990DBE2A5C99', 'name': 'Guest\npublished', 'incoming': ['StartEvent1'], 'outgoing': ['Order\ncompleted']}
+{'id': 'sid-4756F4ED-6D93-4B2D-AEEC-C040C643BD96', 'name': 'after 5 minutes', 'incoming': ['Court of Justice\nPrepared'], 'outgoing': ['Order\ncompleted']}
+{'id': 'sid-6DA74FB2-8E0C-4199-A598-611E979A2D83', 'name': 'Court of Justice\nPrepared', 'incoming': ['Payments\n:'], 'outgoing': ['Guest\nexcl.']}
+{'id': 'sid-35BF4839-99C9-4C9B-9B69-CA8060C6E16E', 'name': 'Payments\n:', 'incoming': ['StartEvent1'], 'outgoing': ['Food\noutput']}
+{'id': 'sid-B794C03A-03F2-45BE-87D8-01B5FE1315F3', 'name': 'Order\nDate', 'incoming': ['StartEvent1'], 'outgoing': ['Pieper\nAdjust\nand hand over']}
+
+Start Events:
+{'id': 'sid-8A5B97F9-E6B6-4AA1-9582-77AEB5E6E5C4', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Meals\nbeeping']}
+{'id': 'sid-AF3C834C-C897-4A23-9831-40720363C4A0', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Guest\npublished']}
+{'id': 'sid-6359E274-474B-4291-8A45-35FBF88D90BB', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['Service\ninformation']}
+
+End Events:
+{'id': 'sid-7E2F4503-4039-4CD1-B346-7CD0B5091E62', 'name': 'Hunger\ndistilled', 'incoming': ['Food\nobtained'], 'outgoing': []}
+{'id': 'sid-75702AB6-22DE-47CA-ABD9-7BEC3D66F78C', 'name': 'Order\ncompleted', 'incoming': ['after 5 minutes'], 'outgoing': []}
+{'id': 'sid-90A6F97D-77FF-4597-8AA0-AD73CC2A782C', 'name': 'Preparation\nFinished', 'incoming': ['Service\ninformation'], 'outgoing': []}

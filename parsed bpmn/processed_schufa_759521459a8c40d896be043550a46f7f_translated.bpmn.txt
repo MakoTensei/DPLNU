@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-8E091569-3215-425E-858F-FB7610988A39', 'name': 'Send inquiry to Schufa', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Score get']}
+{'id': 'sid-F108A839-E15B-4B4E-BC37-E7A1B231EE28', 'name': 'Scoring Level 1\nperform', 'incoming': ['StartEvent0'], 'outgoing': ['Share delay']}
+{'id': 'sid-EE0F9DE7-4C4E-4859-8F97-1D9446F9C9C3', 'name': 'Scoring Level 2\nperform', 'incoming': ['ParallelGateway4'], 'outgoing': ['Share Score']}
+
+Gateways:
+{'id': 'sid-E4A7C030-F9A3-4DFF-885A-D9F40604C465', 'name': 'Score determined?', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway4', 'EndEvent0']}
+{'id': 'sid-D0C0E255-3677-4EB8-8AEE-4271F3618F18', 'name': 'EventBasedGateway1', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Share Score', 'Staff']}
+{'id': 'sid-C0C53552-650B-42CA-9D0D-18499613188B', 'name': 'EventBasedGateway2', 'incoming': ['ParallelGateway3'], 'outgoing': ['Share Score']}
+{'id': 'sid-ED30FF63-9158-44AC-B044-C87742EB5385', 'name': 'ParallelGateway3', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Staff', 'Score get']}
+{'id': 'sid-F2EC7ECA-4302-4993-B35E-9755384C0EDA', 'name': 'ParallelGateway4', 'incoming': ['Scoring Level 1\nperform'], 'outgoing': ['Share Score', 'Share delay']}
+{'id': 'sid-FBF6FFB8-5E24-4A5B-A177-AA9D1AE4852A', 'name': 'IntermediateCatchEvent5', 'incoming': [], 'outgoing': ['Share Score']}
+{'id': 'sid-D2D9A24C-3B60-4575-8DE6-4938CA455111', 'name': 'Share Score', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-1D7FDF28-DC01-489A-908E-A4E805C5B746', 'name': 'Notification\nDelay', 'incoming': ['Send inquiry to Schufa'], 'outgoing': ['Score get']}
+{'id': 'sid-6ADC6F32-8EE5-4E3A-B2B4-A192B3772EE1', 'name': 'Score get', 'incoming': ['Send inquiry to Schufa'], 'outgoing': ['Share Score']}
+
+Start Events:
+{'id': 'sid-341B2344-7A57-466B-8339-23CC6B0CDEC0', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Score determined?']}
+
+End Events:
+{'id': 'sid-41913D93-F5BA-4E59-8DAE-2E111FB1C846', 'name': 'EndEvent0', 'incoming': ['Score determined?'], 'outgoing': []}
+{'id': 'sid-F1EB0250-C1FC-4793-8A70-BDE1720A0105', 'name': 'Staff', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-15F4DB6D-16BA-4274-B1A6-9F51DBBCCA01', 'name': 'Share Score', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-609A384E-6F6E-4E0B-89C6-16DC58915601', 'name': 'Share delay', 'incoming': ['Scoring Level 1\nperform'], 'outgoing': []}
+{'id': 'sid-9542D649-C403-43E5-887D-29119F6F71A0', 'name': 'Share Score', 'incoming': ['Score determined?'], 'outgoing': []}
+{'id': 'sid-85ED26EB-D247-476E-B90D-32BCF7BB1919', 'name': 'Share Score', 'incoming': ['ParallelGateway4'], 'outgoing': []}

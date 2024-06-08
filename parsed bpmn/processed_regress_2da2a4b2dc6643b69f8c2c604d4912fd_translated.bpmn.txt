@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-8C25EAAC-2A90-4948-A594-F09D55E310B1', 'name': 'Check case for regress', 'incoming': ['Possible regression'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-F10E53E8-0768-4C65-BA67-28777ED56868', 'name': 'Close the process', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B146B155-59DB-4AAA-8133-091B791D0D27', 'name': 'Creating payment request for VN', 'incoming': ['Possible regression'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-0A928EF0-B9AC-409F-BDF1-2AE20D42C31E', 'name': 'Reimbursement process', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-40834354-56E0-4914-A2F8-C0CC4D7194F3', 'name': 'Book money receipt', 'incoming': ['Incoming payment'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-74C00D32-E99B-4596-B7C3-EA85FDD51440', 'name': 'Proceedings', 'incoming': ['Objection of VN'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-F1DA6E8B-0BF1-4570-914B-FA530B337511', 'name': 'Regress possible?', 'incoming': ['Possible regression'], 'outgoing': ['ParallelGateway7', 'EndEvent0']}
+{'id': 'sid-ED18A897-1327-4CF1-85F7-F4191B44071E', 'name': 'Denial of payment\njustified?', 'incoming': ['Objection of VN'], 'outgoing': ['sid-446D5476-CE54-4D65-A196-592CDC8BBED0', 'ExclusiveGateway3']}
+{'id': 'sid-98E55359-AE60-4AFD-93CC-2E1719BEB159', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'EventBasedGateway5'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-0C98C76F-1677-4CCA-96A2-29B23552D8D6', 'name': 'ExclusiveGateway3', 'incoming': ['Objection of VN', 'Check case for regress'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-18F4193D-B914-48E2-BF61-DAD66B1D47EC', 'name': 'ExclusiveGateway4', 'incoming': ['sid-F5193A26-B045-4CDF-B51F-433C1A53A74F'], 'outgoing': []}
+{'id': 'sid-EF85E0E2-C27C-41A7-9368-9631976D7393', 'name': 'EventBasedGateway5', 'incoming': [], 'outgoing': ['Objection of VN', 'Default period\nExpired', 'ExclusiveGateway2']}
+{'id': 'sid-64A37D58-45C2-4739-BD69-7EF8CFAC3BA9', 'name': 'ParallelGateway6', 'incoming': ['Possible regression'], 'outgoing': ['Creating payment request for VN', 'ParallelGateway7']}
+{'id': 'sid-1C53B7B3-2FA3-444F-BDD7-CB2635C465EA', 'name': 'ParallelGateway7', 'incoming': ['Possible regression', 'Regress possible?'], 'outgoing': ['sid-757DA56F-CDA5-4F3C-A713-0EE752B4E85B']}
+{'id': 'sid-D797879D-2E94-48B0-B7BC-C486C8E75D0D', 'name': 'Objection of VN', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-60CD7093-9E91-4706-957A-AFF3BBA06546', 'name': 'Default period\nExpired', 'incoming': ['EventBasedGateway5'], 'outgoing': ['sid-0ED1B7FE-CCE4-410A-8FCC-32246090DEFE']}
+{'id': 'sid-457A512E-57B4-4086-93DD-E2268912465D', 'name': 'Incoming payment', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-01653BF4-F9F2-4776-8570-99AD58DD8E78', 'name': 'Possible regression', 'incoming': [], 'outgoing': ['ParallelGateway7']}
+
+End Events:
+{'id': 'sid-0330B67E-4AA8-4B18-8AF0-1D259266B959', 'name': 'EndEvent0', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-FF22A65B-F4B2-4C15-AE3F-C98BF7E03FB6', 'name': 'EndEvent1', 'incoming': ['sid-C5BE7BA9-19ED-4FC8-A1FB-EA886A5FB644'], 'outgoing': []}

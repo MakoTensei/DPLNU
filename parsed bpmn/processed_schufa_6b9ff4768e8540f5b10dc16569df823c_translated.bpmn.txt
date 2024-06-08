@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-C33ACEE6-F488-4EC6-A776-2743EC1177EE', 'name': 'Create scoring request to Schufa', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring result\nobtained']}
+{'id': 'sid-5964848A-EF2D-4178-843C-F043B5E34F83', 'name': 'Scoring\nFollow-up', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Schufa Scoring\ncompleted']}
+{'id': 'sid-6406E2FA-553A-42A9-AB6B-E5985BC3E849', 'name': 'perform scoring level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring Level 1\nsuccessful?']}
+{'id': 'sid-0B820527-5350-4F1B-8A05-09D57ECE1A9B', 'name': 'Send Scoring Result', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring\ncompleted']}
+{'id': 'sid-20484965-C7DA-4132-B38B-B361EA00BA00', 'name': 'Delay detected', 'incoming': ['Scoring Level 1\nsuccessful?'], 'outgoing': ['Scoring Level 2\nperform']}
+{'id': 'sid-FDDF8014-46F3-4A08-B07D-CFE659EE695B', 'name': 'Scoring Level 2\nperform', 'incoming': ['Scoring Level 1\nsuccessful?'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-178F5267-D355-4393-9120-AEF2263F8343', 'name': 'Scoring Level 1\nsuccessful?', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring\ncompleted', 'Scoring Level 2\nperform']}
+{'id': 'sid-519F5386-C9F2-483D-8686-5C1CC3CF2087', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent1', 'Scoring Level 2\nperform'], 'outgoing': ['Scoring\ncompleted']}
+{'id': 'sid-EC72BF79-CF7C-4ECC-8F98-AF8F91AA9D0A', 'name': 'Scoring result\nobtained', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Schufa Scoring\ncompleted']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['Scoring\nFollow-up']}
+{'id': 'sid-DE2BDFED-E908-4D83-8ACC-EDF61EAE12AE', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-20590BBF-B160-4170-8C11-A7824F43C3E6', 'name': 'Schufa Scoring\ncompleted', 'incoming': ['Scoring result\nobtained'], 'outgoing': []}
+{'id': 'sid-0B477C0E-438D-4448-9B7A-964E0C097DFF', 'name': 'Scoring\ncompleted', 'incoming': ['Scoring Level 1\nsuccessful?'], 'outgoing': []}

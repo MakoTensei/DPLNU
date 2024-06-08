@@ -1,0 +1,7 @@
+ The process begins with an 'Order pending' event, which triggers the 'Select your offer' task. This task has an incoming link from 'Order pending' and outgoing links to 'Specialist'. The 'Specialist' task then connects to 'ParallelGateway4' and leads to 'Offer 1' and 'Offer 2' tasks. Both 'Offer 1' and 'Offer 2' tasks have incoming links from 'ParallelGateway4' and outgoing links to 'ParallelGateway4'.
+
+Once the customer selects an offer, the process continues with 'ParallelGateway4' sending an 'Order pending' event to 'Packaging goods'. This task has an incoming link from 'ParallelGateway4' and an outgoing link to 'Delivering goods'. The 'Delivering goods' task then connects to 'ParallelGateway5' and leads to 'Pick up goods' and 'EndEvent0'.
+
+The 'Pick up goods' task has an incoming link from 'ExclusiveGateway2' and an outgoing link to 'Goods collected'. The 'Goods collected' task then connects to 'ExclusiveGateway2' and leads to the final 'EndEvent0'.
+
+In summary, the process starts with an 'Order pending' event, leading to the selection of an offer, packaging of goods, delivery, pick-up, and finally, the collection of goods.

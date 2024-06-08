@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-CF8EC8A9-34E2-490D-92FF-FBECF12B3CD2', 'name': 'Regression check', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-AB3B3B7A-5958-4CFA-98FA-95C87EA87B7C', 'name': 'Payment request', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-47A9E9A6-7FED-4D7B-8ACC-E409A29A43A3', 'name': 'in case of VN', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['EventBasedGateway3']}
+{'id': 'sid-7801EA64-8B1F-4C5E-854B-6A8ED9C164E6', 'name': 'Proceedings', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-3B6ADAC5-2091-45CF-A3D3-50C693970024', 'name': 'Book money', 'incoming': ['Get money'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-8D7C2FFA-02AC-493D-B8BF-C320DE498BAD', 'name': 'Dispense case to debt collection service providers', 'incoming': ['EventBasedGateway3', 'ExclusiveGateway1'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-49DAC4D5-217E-4C54-821E-1AB693F1ACF3', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1', 'EndEvent0']}
+{'id': 'sid-C33B0751-225B-4A61-B7FE-D2DF2732DEB1', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['EndEvent0', 'ExclusiveGateway2', 'Dispense case to debt collection service providers']}
+{'id': 'sid-8DC359EE-35B9-47B9-ADB8-6D8B1F5E08FB', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Dispense case to debt collection service providers', 'EndEvent0']}
+{'id': 'sid-4BAAE06A-F708-4A21-8514-CBFBF6AF7AF3', 'name': 'EventBasedGateway3', 'incoming': ['StartEvent0', 'ExclusiveGateway0'], 'outgoing': ['Dispense case to debt collection service providers', 'Opposition\n']}
+{'id': 'sid-E17D4032-8D43-4F71-8E53-5DE3E1920171', 'name': 'IntermediateCatchEvent4', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Get money']}
+{'id': 'sid-54DA30B8-BEFA-4E1C-9429-53F8613B8DAC', 'name': 'Opposition\n', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-3467D89B-2F61-47D2-B2D2-DC93164BB15A', 'name': 'Get money', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-91B6B4C3-3972-4693-91F0-8392C8DC39B7', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Proceedings']}
+
+End Events:
+{'id': 'sid-B6AF4ED4-38B1-4001-B665-7AA9E1EB7BC1', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway1', 'ExclusiveGateway0', 'Proceedings'], 'outgoing': []}

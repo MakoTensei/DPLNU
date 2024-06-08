@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-5B988E10-8718-4EDA-B120-3A0FEB2536CD', 'name': 'Logistics manager closes insurance', 'incoming': ['Insurance required?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-4B38EE88-69EA-48D3-957A-A2593F7ED18C', 'name': 'Packaging goods', 'incoming': ['Goods\ndispatched\nthey are'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-55A6BB1E-C1F9-48C9-A60B-69439CEC1D79', 'name': 'Secretariate checks who takes delivery', 'incoming': ['ParallelGateway4'], 'outgoing': ['large quantity']}
+{'id': 'sid-C498CE5B-5C16-42EE-9108-34C0316A1F1D', 'name': 'Secretariat\nexclusivity\nof 3\nSeditions', 'incoming': ['ParallelGateway4'], 'outgoing': ['Select offers']}
+{'id': 'sid-79B72460-FE86-4B21-9C11-26C761C8B2D6', 'name': 'Select offers', 'incoming': ['large quantity'], 'outgoing': ['Specialist']}
+{'id': 'sid-40D5291D-3630-4874-8545-4DC8AB55DF00', 'name': 'Specialist', 'incoming': ['large quantity'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-06E47486-0C85-4901-B08C-93B45D6EE9BF', 'name': 'Goods ready for dispatch', 'incoming': ['Goods\ndispatched\nthey are'], 'outgoing': ['Goods are shipped']}
+{'id': 'sid-81B25C43-B884-4A6D-A0D9-72D390DACAF3', 'name': 'normal mail order', 'incoming': ['large quantity'], 'outgoing': ['Secretary fills\nPackage certificate']}
+{'id': 'sid-9EF9EA71-9B46-4A05-B566-E79BC25B4883', 'name': 'Secretary fills\nPackage certificate', 'incoming': ['large quantity'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-E881918B-836B-44DD-8FB6-88C72E5418DD', 'name': 'Insurance required?', 'incoming': ['large quantity'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-DB6C0F57-3B4A-4DD8-9624-16CD113E43BF', 'name': 'ExclusiveGateway1', 'incoming': ['Secretary fills\nPackage certificate', 'large quantity'], 'outgoing': ['Goods are shipped']}
+{'id': 'sid-92C5E570-FBE7-45AE-97BC-23F853384E72', 'name': 'large quantity', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods are shipped', 'ExclusiveGateway3']}
+{'id': 'sid-75B888E1-FC7C-459F-868D-08C218D96798', 'name': 'ExclusiveGateway3', 'incoming': ['large quantity', 'Logistics manager closes insurance'], 'outgoing': ['Goods are shipped']}
+{'id': 'sid-A7BCF1B1-E0C8-45E2-A71F-C41197F27A29', 'name': 'ParallelGateway4', 'incoming': ['Goods\ndispatched\nthey are'], 'outgoing': ['Secretariat\nexclusivity\nof 3\nSeditions', 'Packaging goods']}
+{'id': 'sid-97CE2B9C-431C-4960-A683-FA019BCC1C9A', 'name': 'ParallelGateway5', 'incoming': ['Goods\ndispatched\nthey are', 'Logistics manager closes insurance'], 'outgoing': ['Goods are shipped']}
+
+Start Events:
+{'id': 'sid-87582D0A-E9FA-410C-AA32-C75EB52C1F76', 'name': 'Goods\ndispatched\nthey are', 'incoming': [], 'outgoing': ['Goods ready for dispatch']}
+
+End Events:
+{'id': 'sid-38F7554C-D85F-433A-92D3-D086737F1EDA', 'name': 'Goods are shipped', 'incoming': ['large quantity'], 'outgoing': []}

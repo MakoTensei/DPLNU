@@ -1,0 +1,13 @@
+ The process begins with obtaining shipping costs, which triggers the start event 'Shipping costs\nobtained'. This event leads to two parallel gateways, ParallelGateway6 and ParallelGateway7, which are responsible for obtaining shipping costs.
+
+Once the shipping costs are obtained, the process moves to the 'Type of shipping?' gateway. This gateway has two incoming paths: one from ParallelGateway5 and another from the start event 'Shipping costs\nobtained'. The 'Type of shipping?' gateway has two outgoing paths: one to the 'Specialist' gateway and another to the 'ExclusiveGateway2' gateway.
+
+The 'Specialist' gateway has two incoming paths: one from 'Type of shipping?' and another from 'Insurance?'. It has one outgoing path to 'ExclusiveGateway3'.
+
+The 'ExclusicveGateway2' gateway has two incoming paths: one from 'decide on insurance' and another from 'Type of shipping?'. It has two outgoing paths: one to 'Goods collected' and another to 'ExclusiveGateway3'.
+
+The 'ExclusiveGateway3' gateway has two incoming paths: one from 'Insurance?' and another from 'Specialist'. It has one outgoing path to 'ParallelGateway4'.
+
+The 'ParallelGateway4' gateway has two incoming paths: one from 'Insurance?' and another from 'ParallelGateway5'. It has one outgoing path to 'Goods collected'.
+
+The process concludes with the 'Goods collected' event, which has one incoming path from 'Insurance?' and no outgoing paths. This event signifies the completion of the process.

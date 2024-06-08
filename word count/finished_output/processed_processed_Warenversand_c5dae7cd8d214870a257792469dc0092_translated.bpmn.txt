@@ -1,0 +1,7 @@
+ The process begins with the event 'Goods for shipping', which triggers the request for offers for forwarders through 'ExclusiveGateway0'. This gateway receives the incoming 'Goods for shipping' and sends out offers to 'ExclusiveGateway3' and 'Filling standardised packaging paper'. Once an offer is selected, the 'Answer request' event is triggered, which sends the request to 'ExclusiveGateway3'.
+
+Simultaneously, 'ExclusiveGateway2' is activated to fill standardised packaging paper for the goods. This gateway receives the 'Goods for shipping' and sends the filled goods to 'ParallelGateway5'.
+
+The 'Insurance required?' event is also triggered, which sends the request to 'ExclusiveGateway2'. This gateway receives the 'Insurance required?' and sends the goods to 'ExclusiveGateway3' and 'Insurance close'.
+
+The 'Insurance close' event sends the goods to 'ParallelGateway5', which then sends the goods ready for collection. The process concludes with the 'Goods ready for collection' event, which receives the 'Insurance required?' and sends the goods to the end of the process.

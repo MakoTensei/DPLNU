@@ -1,0 +1,7 @@
+ In the scoring process, a Scoring order initiates the sequence by sending a Scoring order event to the EventBasedGateway2. This event triggers the ExclusiveGateway1, which then directs the Scoring Level 1 to the ExclusiveGateway1. The Scoring Level 1, upon completion, sends a Scoring result back to the EventBasedGateway2, which in turn sends an EndEvent0.
+
+Simultaneously, the Scoring order event also triggers a Report delay event, which is sent to the EventBasedGateway2. This event then leads to the Scoring Level 2 being directed to the ExclusiveGateway1. The Scoring Level 2, upon completion, sends a Scoring result back to the ExclusiveGateway1, which then sends an EndEvent1.
+
+Meanwhile, the Scoring Level 1 event also triggers an Information on Delay event, which is sent to the EventBasedGateway2. This event then leads to the EndEvent0.
+
+In summary, the Scoring order event initiates the scoring process, triggering a series of events and interactions between the different gateways and end events. The process involves the Scoring Level 1 and Scoring Level 2, as well as the Report delay event, all working together to ensure the scoring process is completed successfully.

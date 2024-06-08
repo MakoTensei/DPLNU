@@ -1,0 +1,44 @@
+Tasks:
+{'id': 'sid-BCDF809D-E75F-4A1B-8497-E77A8CE73C8F', 'name': 'Visit the restaurant', 'incoming': ['Guest feels hungry'], 'outgoing': ['Select a court']}
+{'id': 'sid-FA72642B-FCC9-447C-8725-0ABCD5600332', 'name': 'Select a court', 'incoming': ['Guest feels hungry'], 'outgoing': ['Waiting']}
+{'id': 'sid-AABE0EB3-8924-4AFE-B621-68DBD90FB593', 'name': 'Waiting', 'incoming': ['Guest feels hungry'], 'outgoing': ['Guest is in line']}
+{'id': 'sid-B52FFB29-F58C-4F74-93E9-5F831754A8AF', 'name': 'Add your order', 'incoming': ['Guest feels hungry'], 'outgoing': ['Payment']}
+{'id': 'sid-35F12788-7AB3-43CB-A0D7-3FEFAC5CBAF1', 'name': 'Payment', 'incoming': ['Guest is in line'], 'outgoing': ['Piper']}
+{'id': 'sid-3FE79630-9744-4FD2-8C50-094F012DD21C', 'name': 'Piper', 'incoming': ['Guest is in line'], 'outgoing': ['Piper piept']}
+{'id': 'sid-762C475A-66C1-4306-B002-83CC94C8DE82', 'name': 'Go to output', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Piper return and take food']}
+{'id': 'sid-CE8F5352-CE66-47B7-8802-16047DD09FC9', 'name': 'Piper return and take food', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Hunger can be breasted']}
+{'id': 'sid-D597FB2C-DD98-4F01-8033-D1EA7972FA3A', 'name': 'Accept your order', 'incoming': ['Customer is on the line'], 'outgoing': ['Enter your order in the cash register system']}
+{'id': 'sid-D2064582-DDA0-4A62-BC95-549E6084D373', 'name': 'Enter your order in the cash register system', 'incoming': ['Customer is on the line'], 'outgoing': ['Paying']}
+{'id': 'sid-E41CBA9C-E017-4954-8A25-508CC4674638', 'name': 'Paying', 'incoming': ['Customer is on the line'], 'outgoing': ['Set Piper']}
+{'id': 'sid-6C731A17-019C-4940-A587-81A2A6600F31', 'name': 'Set Piper', 'incoming': ['Customer is on the line'], 'outgoing': ['inform Koch about the order']}
+{'id': 'sid-129B6F6B-BF0F-4733-9A45-E6A47CF6CBF8', 'name': 'Trigger', 'incoming': ['meal is ready'], 'outgoing': ['5 minutes later']}
+{'id': 'sid-07232C1A-94DF-4667-9A35-148A732B4A1E', 'name': 'Take Piper and give out meal', 'incoming': ['EventBasedGateway5'], 'outgoing': ['Order completed']}
+{'id': 'sid-AEBB401E-5E52-4EFD-9457-0FE1C2206820', 'name': 'Retrieve guest', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-5DA390A4-D776-48D5-83AC-AAB1985EAD10', 'name': 'inform Koch about the order', 'incoming': ['Customer is on the line'], 'outgoing': ['Guest appears on the issue']}
+{'id': 'sid-14D87D5C-2793-4ED2-AE1C-1B695BF789B0', 'name': 'Preparation of meal', 'incoming': ['Staff order a meal'], 'outgoing': ['Putting the meal into the reach']}
+{'id': 'sid-EC9EEA22-B1BC-4374-96AE-CC4B25F00406', 'name': 'Putting the meal into the reach', 'incoming': ['Staff order a meal'], 'outgoing': ['Staff']}
+{'id': 'sid-E30D02D7-4387-4A47-A8DB-81F535616B30', 'name': 'Staff', 'incoming': ['Staff order a meal'], 'outgoing': ['meal is prepared']}
+
+Gateways:
+{'id': 'sid-9EF7368E-6645-4A79-8BEA-3EFA1DD82CDB', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway4', 'EventBasedGateway4'], 'outgoing': ['Hunger can be breasted']}
+{'id': 'sid-D15AFC20-7516-4D3C-9DC4-846176266BD1', 'name': 'Does the customer appear on the issue?', 'incoming': ['5 minutes later'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-1ACD2283-D6BD-4BE5-8522-0A0592BAB339', 'name': 'ExclusiveGateway2', 'incoming': ['Customer is on the line', 'EventBasedGateway5'], 'outgoing': ['Order completed']}
+{'id': 'sid-BAC3A60C-9334-40D8-A389-0FB21EEA57A3', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway5', '5 minutes later'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-39D63F64-2EC2-4577-9554-AB72AB672A89', 'name': 'EventBasedGateway4', 'incoming': ['Guest is in line'], 'outgoing': ['Go to output', 'Piper return and take food']}
+{'id': 'sid-92DCC19E-7B65-40EA-BBE0-A863B69EC12D', 'name': 'EventBasedGateway5', 'incoming': ['Customer is on the line'], 'outgoing': ['Take Piper and give out meal', 'ExclusiveGateway2']}
+{'id': 'sid-040734C4-98DA-4ECE-93B0-85B8AA5071E6', 'name': 'Piper piept', 'incoming': ['Piper'], 'outgoing': ['Hunger can be breasted']}
+{'id': 'sid-4B7CFD1B-2869-4F14-86C6-42F173918713', 'name': 'Guest is in line', 'incoming': ['Guest feels hungry'], 'outgoing': ['Guest will be called']}
+{'id': 'sid-6FDD2AF4-66AC-400D-915F-CBDFF2CD74A3', 'name': 'Guest will be called', 'incoming': ['Guest is in line'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-7958F00A-87AE-4C5C-A9BA-111F6BB2A27C', 'name': 'meal is ready', 'incoming': ['Customer is on the line'], 'outgoing': ['Order completed']}
+{'id': 'sid-E1FFE520-388C-4B04-AE1B-D7EA5395241C', 'name': 'Guest appears on the issue', 'incoming': ['inform Koch about the order'], 'outgoing': ['Order completed']}
+{'id': 'sid-CBA92798-3FE2-49AB-9069-D235B979E8A1', 'name': '5 minutes later', 'incoming': ['Trigger'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-C2A197B4-ED89-43C9-88F4-7BA387A43A24', 'name': 'Guest feels hungry', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-1083D50C-3942-4A0B-A839-95A35C2C2BBB', 'name': 'Customer is on the line', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C88C77E3-22B3-4DD3-B365-56560FF7BEFC', 'name': 'Staff order a meal', 'incoming': [], 'outgoing': ['Staff']}
+
+End Events:
+{'id': 'sid-56FF74AD-8B22-44AC-B12B-8E7A2B0CBBE9', 'name': 'Hunger can be breasted', 'incoming': ['Piper piept'], 'outgoing': []}
+{'id': 'sid-44423B91-1C9D-4AC8-AC38-D2478B371C1C', 'name': 'Order completed', 'incoming': ['meal is ready'], 'outgoing': []}
+{'id': 'sid-1CC3644C-4B7A-48E7-B148-7282F44F8E45', 'name': 'meal is prepared', 'incoming': ['Staff'], 'outgoing': []}

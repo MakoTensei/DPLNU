@@ -1,0 +1,29 @@
+Tasks:
+{'id': 'sid-B826A05C-07C4-491B-93DF-8EB160ED629D', 'name': 'scoring inquiries', 'incoming': ['Request started'], 'outgoing': ['Results obtained']}
+{'id': 'sid-56D88626-4B0A-4667-893A-BF056EA09EFE', 'name': 'Report delay', 'incoming': ['Request started'], 'outgoing': ['Results obtained']}
+{'id': 'sid-8C71B6B1-D9AC-4753-A2F5-E561AF07F384', 'name': 'Report to Frontend', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-35C69EED-605A-431A-B669-F6081E12829D', 'name': 'Determination of final scoring', 'incoming': ['Transfer to Level 2\n'], 'outgoing': ['Transfer to Bank\n']}
+{'id': 'sid-1DAD5B99-6447-49AD-9537-54C3A312DB5E', 'name': 'Transfer to Bank\n', 'incoming': ['Transfer to Level 2\n'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-62C7F94A-4815-426D-8ACA-8B5E8216A23D', 'name': 'perform first scoring', 'incoming': ['Request request'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-F4307E7E-4AD1-4A0B-A950-55A30FCAC066', 'name': 'Share result', 'incoming': ['Request request'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-D8B67E77-3DFD-4BA2-B264-B28251EF2501', 'name': 'Delay of the bank', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-1FF5145B-DD02-4EBE-911B-72882F9CAC20', 'name': 'Transfer to Level 2\n', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+
+Gateways:
+{'id': 'sid-8050992B-3053-472C-BAE4-039AF33DE857', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'Request started'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-51F8384D-8A73-4CCC-B256-82E068C7F27A', 'name': 'immediately\nResult?', 'incoming': ['Request request'], 'outgoing': ['EndEvent1', 'ParallelGateway3']}
+{'id': 'sid-6A794C9D-1BF5-467B-AE5C-753147934E15', 'name': 'EventBasedGateway2', 'incoming': ['Request started'], 'outgoing': ['Report to Frontend', 'Result delayed']}
+{'id': 'sid-85CC3653-BAF6-4B45-A152-8E1C0BC02539', 'name': 'ParallelGateway3', 'incoming': ['perform first scoring'], 'outgoing': ['ParallelGateway4', 'Transfer to Level 2\n']}
+{'id': 'sid-B32F8C80-2E49-41FE-86FC-0076E5C230E8', 'name': 'ParallelGateway4', 'incoming': ['Transfer to Level 2\n', 'ParallelGateway3'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-7C61DCD7-846A-4BE6-9627-7393FB6C4C21', 'name': 'Results obtained', 'incoming': ['scoring inquiries'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-133B7173-8E04-4429-BD1B-654BD20493FA', 'name': 'Result delayed', 'incoming': ['Request started'], 'outgoing': ['Report delay']}
+{'id': 'sid-270EC174-38D9-4D04-B356-E8D9142111DD', 'name': 'Results obtained', 'incoming': ['Request started'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-77251FE1-ABA9-4BCD-B6D5-145DEC2523E2', 'name': 'Request started', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-B2EA27A5-7D20-4ECB-A187-81C982B34F31', 'name': 'Request request', 'incoming': [], 'outgoing': ['Share result']}
+
+End Events:
+{'id': 'sid-ECDA25F4-196B-425A-88E9-51A4179A9851', 'name': 'EndEvent0', 'incoming': ['Results obtained'], 'outgoing': []}
+{'id': 'sid-BA76D2B9-5A86-4345-BEFC-DFE59C5B8F4C', 'name': 'EndEvent1', 'incoming': ['immediately\nResult?'], 'outgoing': []}
+{'id': 'sid-7FD2D682-8932-4284-B9ED-0F70B6E03BFA', 'name': 'EndEvent2', 'incoming': ['Transfer to Bank\n'], 'outgoing': []}

@@ -1,0 +1,9 @@
+ In a scoring system, the process begins with the 'StartEvent0' which triggers the 'interpret message' task. This task interprets the incoming 'StartEvent0' and sends it to 'ExclusiveGateway0'. The 'ExclusiveGateway0' then sends the 'Result message' to 'Level 1 score\nback to frontend' task, which calculates the score and sends it back to the frontend.
+
+Simultaneously, 'ExclusiveGateway0' also sends the 'Result message' to 'Level 2 score\nresult' task, which calculates the second level score and sends it to 'ExclusiveGateway1'. The 'ExclusiveGateway1' then sends the 'Level 2 score\nresult' to 'Level 2 Scoring' task, which calculates the final score and sends it to 'ExclusiveGateway3'.
+
+The 'ExclusiveGateway3' then sends the 'Level 2 score\nresult' to 'Feedback result\nto Bank' task, which sends the feedback to the bank. The 'Feedback result\nto Bank' task also sends the 'Level 1 or delay' event to 'Level 2 Scoring' task, which calculates the final score and sends it to 'ExclusiveGateway3'.
+
+The 'ExclusiveGateway3' then sends the 'Level 2 score\nresult' to 'Level 2 score to report to Bank' task, which sends the final score to the bank. The 'Level 2 score to report to Bank' task also sends the 'Level 1 or delay' event to 'EndEvent1', which marks the end of the process.
+
+In summary, the scoring system starts with 'StartEvent0', interprets the message, calculates the scores, sends feedback to the bank, and finally ends with 'EndEvent1'.

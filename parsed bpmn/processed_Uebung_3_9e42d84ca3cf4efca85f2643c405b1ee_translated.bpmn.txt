@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-640672E9-8449-43C8-8B3F-836B6A8D7849', 'name': 'Check the case', 'incoming': ['Regression possibility\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-323A1932-3D2E-4C16-B481-5883E3FC9320', 'name': 'Order of payment Ship merchandise', 'incoming': ['Regression possibility\nReport'], 'outgoing': ['Set process in WV']}
+{'id': 'sid-ABA6C75B-1434-420E-B3FA-6FA5EB874F14', 'name': 'Close', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Regression\nwithout result\nclosed']}
+{'id': 'sid-7B3ADD41-50F5-4D1F-BBBD-6949F7D49EE5', 'name': 'Set process in WV', 'incoming': ['Regression possibility\ngiven?'], 'outgoing': ['WV-Frist expired']}
+{'id': 'sid-108D5A82-5B8C-4AB0-87EB-823AC14A2B28', 'name': 'Book money receipt', 'incoming': ['Cash receipt\nNot applicable'], 'outgoing': ['Close']}
+{'id': 'sid-FC193544-5BE8-47C2-A609-234BC407ADDA', 'name': 'Close', 'incoming': ['Cash receipt\nNot applicable'], 'outgoing': ['Regression\nwith payment receipt\nclosed']}
+{'id': 'sid-DFB214C8-A081-471E-9A07-0677224E2BCB', 'name': 'Proceedings', 'incoming': ['Notification'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-57EAA0A2-45E8-492D-94C5-939209261674', 'name': 'forward process to Inkasso-DL', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Regression\ndebt collection\nforwarded']}
+
+Gateways:
+{'id': 'sid-962E5F20-0ECB-448C-A2CF-0AAE1B64EB7E', 'name': 'Regression possibility\ngiven?', 'incoming': ['Regression possibility\nReport'], 'outgoing': ['Regression\nwith payment receipt\nclosed', 'Regression\nwithout result\nclosed']}
+{'id': 'sid-42CE7E04-060D-4DE2-9FA1-334011C08D87', 'name': 'justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-987C857E-0026-432F-BD2F-D24710243957', 'name': 'ExclusiveGateway2', 'incoming': ['Check the case', 'Proceedings'], 'outgoing': ['Regression\nwithout result\nclosed']}
+{'id': 'sid-5A6F1EB8-1EBA-41CB-84A6-B62C16A0252E', 'name': 'ExclusiveGateway3', 'incoming': ['Notification', 'EventBasedGateway4'], 'outgoing': ['Regression\ndebt collection\nforwarded']}
+{'id': 'sid-575CCAE1-6903-4B94-8F27-DD07C57A93DD', 'name': 'EventBasedGateway4', 'incoming': ['Regression possibility\ngiven?'], 'outgoing': ['forward process to Inkasso-DL', 'justified?', 'Cash receipt\nNot applicable']}
+{'id': 'sid-0D172CCB-A3D1-4C6D-B88C-1BD59742A8AE', 'name': 'WV-Frist expired', 'incoming': ['Set process in WV'], 'outgoing': ['Regression\ndebt collection\nforwarded']}
+{'id': 'sid-8021BC99-1D6D-4198-87B4-FA9C34405613', 'name': 'Cash receipt\nNot applicable', 'incoming': ['Regression possibility\ngiven?'], 'outgoing': ['Regression\nwith payment receipt\nclosed']}
+{'id': 'sid-608EE484-0D98-4BF9-B699-22225CFC2EF5', 'name': 'Notification', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-A7334CEB-E0C5-46D7-8BDE-B2FE9180110B', 'name': 'Regression possibility\nReport', 'incoming': [], 'outgoing': ['Order of payment Ship merchandise']}
+
+End Events:
+{'id': 'sid-790F5EF2-4025-493E-A88B-F23B87D9E6EC', 'name': 'Regression\nwith payment receipt\nclosed', 'incoming': ['Regression possibility\ngiven?'], 'outgoing': []}
+{'id': 'sid-935B5355-C193-4169-9AB9-19FD033B901B', 'name': 'Regression\ndebt collection\nforwarded', 'incoming': ['WV-Frist expired'], 'outgoing': []}
+{'id': 'sid-5E4D941A-A041-4A80-8198-C5A78503ACC7', 'name': 'Regression\nwithout result\nclosed', 'incoming': ['Regression possibility\ngiven?'], 'outgoing': []}

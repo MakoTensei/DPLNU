@@ -1,0 +1,14 @@
+ The process begins with the 'Goods for shipping' event, which triggers the 'ExclusiveGateway1' to handle the incoming 'Quantity'. This gateway then sends the 'Quantity' to the 'ParallelGateway5' and 'InclusiveGateway1'. The 'InclusiveGateway1' further sends the 'Quantity' to 'ParallelGateway5' and 'ExclusiveGateway1'.
+
+Meanwhile, the 'Goods for shipping' event also triggers the 'InclusiveGateway2' to handle the incoming 'ParallelGateway4'. This gateway sends the 'ParallelGateway4' to 'InclusiveGateway3' and 'ExclusiveGateway1'. The 'InclusiveGateway3' then sends the 'ParallelGateway4' to 'ParallelGateway5'.
+
+The 'ParallelGateway5' receives the 'Quantity' from 'ExclusiveGateway1' and 'ParallelGateway4' from 'InclusiveGateway3'. It then sends the 'Goods ready for collection' event to the end of the process.
+
+In summary, the process involves the following steps:
+
+1. 'Goods for shipping' event triggers 'ExclusiveGateway1' and 'InclusiveGateway2'.
+2. 'ExclusiveGateway1' sends 'Quantity' to 'ParallelGateway5' and 'InclusiveGateway1'.
+3. 'InclusiveGateway1' sends 'Quantity' back to 'ParallelGateway5' and 'ExclusiveGateway1'.
+4. 'InclusiveGateway2' sends 'ParallelGateway4' to 'InclusiveGateway3' and 'ExclusiveGateway1'.
+5. 'InclusiveGateway3' sends 'ParallelGateway4' to 'ParallelGateway5'.
+6. 'ParallelGateway5' sends 'Goods ready for collection' event to the end of the process.

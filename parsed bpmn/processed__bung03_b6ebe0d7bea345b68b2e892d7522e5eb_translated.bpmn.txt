@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-07041F5A-1763-4FAD-ABCE-01BAA521349C', 'name': 'Check the case', 'incoming': ['Regressname\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-BDB3EB16-BE7A-4876-83AB-124D7552C77F', 'name': 'Send a message', 'incoming': ['Regressname\nReport'], 'outgoing': ['Representation\nset']}
+{'id': 'sid-0B34C0CB-24E9-4D10-B945-8B5869236414', 'name': 'Case\nclose', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-A7808930-4BEC-4255-99AD-5AFEBFDEC700', 'name': 'Cash receipt\nbook', 'incoming': ['Money\nReport'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-2C7E2C99-26F6-4F6D-9DA9-17A47B857137', 'name': 'Reasons\nCheck', 'incoming': ['Opposition\nobtained'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-E96FD4D7-0CB2-431F-8A48-B315495FA73B', 'name': 'Debt service provider\ncommission', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Case\ndelivered']}
+{'id': 'sid-11BE9333-086C-4401-B134-707B7F3E8657', 'name': 'Representation\nset', 'incoming': ['Possibility?'], 'outgoing': ['Money\nReport']}
+
+Gateways:
+{'id': 'sid-E45376A0-8B1C-44AF-9C16-287F186187F3', 'name': 'Possibility?', 'incoming': ['Regressname\nReport'], 'outgoing': ['Representation\nset', 'ExclusiveGateway2']}
+{'id': 'sid-8C59E9BB-AD9B-4306-88A1-569360305C6E', 'name': 'Justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-CB428F91-A77A-43C7-B19C-529F6DE95CAA', 'name': 'ExclusiveGateway2', 'incoming': ['Check the case', 'Reasons\nCheck', 'EventBasedGateway4'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-11A83BB0-140C-4578-8060-9A22646818C9', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Opposition\nobtained'], 'outgoing': ['Case\ndelivered']}
+{'id': 'sid-B255B0B0-E7EA-4D8C-8FEC-6D172FBFBF92', 'name': 'EventBasedGateway4', 'incoming': ['Representation\nset'], 'outgoing': ['Justified?', 'Debt service provider\ncommission', 'ExclusiveGateway2']}
+{'id': 'sid-C7BE1A0E-0AC0-44A0-B44D-CE9D8F6CDE66', 'name': 'Money\nReport', 'incoming': ['Representation\nset'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-3AB76157-3C07-4DCA-9D0F-9CE30DA7BB08', 'name': 'Opposition\nobtained', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Case\ndelivered']}
+{'id': 'sid-CCBEB62F-DB9E-4A32-89E7-7CF0CBD85D59', 'name': 'Representation\nExpired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-AF1D8C4A-CEC5-4AF2-9903-E12138917062', 'name': 'Regressname\nReport', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-70212911-3B4B-4F93-959B-369E877203E3', 'name': 'Process\nclosed', 'incoming': ['Cash receipt\nbook'], 'outgoing': []}
+{'id': 'sid-D487EAF4-7BD0-49CC-BF11-78BD06FE8F2C', 'name': 'Case\ndelivered', 'incoming': ['Opposition\nobtained'], 'outgoing': []}

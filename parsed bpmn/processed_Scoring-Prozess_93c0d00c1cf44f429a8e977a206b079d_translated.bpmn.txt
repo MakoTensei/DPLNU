@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-701FD755-CF52-4F7E-8926-B63054497B9D', 'name': 'Scoring request sent', 'incoming': ['Scoring query\nstarted'], 'outgoing': ['Level 1 scoring\nobtained']}
+{'id': 'sid-C0D197DD-62F3-4662-AFFF-43D2EBAD0FBA', 'name': 'View Level 1-Scoring', 'incoming': ['Level 1 scoring\nobtained'], 'outgoing': ['Question\ncompleted']}
+{'id': 'sid-95D757A2-EB3D-4603-B589-6F5892004197', 'name': 'Display delay information', 'incoming': ['Scoring query\nstarted'], 'outgoing': ['Level 2 scoring\nobtained']}
+{'id': 'sid-86AFABA3-C672-4146-B12C-7F4A249C1107', 'name': 'View Level 2 scoring', 'incoming': ['Delay\nMessage received'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-373B8F12-FC8C-43D6-8841-F6389D944D98', 'name': 'Conducting First Scoring', 'incoming': ['Scoring request\nreceived'], 'outgoing': ['Result\ndetermined?']}
+{'id': 'sid-3FFEE093-56BD-447A-914B-F24BB5191E4C', 'name': 'Perform further scoring', 'incoming': ['Send delay'], 'outgoing': ['Sending Level-2 scoring']}
+{'id': 'sid-0D37934E-A6AD-4628-9539-001E5839E19E', 'name': 'Send Level 1 scoring', 'incoming': ['Scoring request\nreceived'], 'outgoing': ['Calculation\ncompleted']}
+{'id': 'sid-CA77F4BB-AF92-49D0-AB4A-2CE4D7AE8B0B', 'name': 'Sending Level-2 scoring', 'incoming': ['Send delay'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-9FF250C7-1F9D-43E0-ABF4-A7B88AC7B8E1', 'name': 'Send delay', 'incoming': ['Result\ndetermined?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-125521A5-B25D-40FF-B8A8-40043FD517D2', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'EventBasedGateway3'], 'outgoing': ['Question\ncompleted']}
+{'id': 'sid-1EB45197-7F6F-4EF6-8FDC-814DFE30B3E7', 'name': 'Result\ndetermined?', 'incoming': ['Scoring request\nreceived'], 'outgoing': ['Calculation\ncompleted', 'Send delay']}
+{'id': 'sid-C2BC7273-53C5-4B57-B0DA-96ED95DF4006', 'name': 'ExclusiveGateway2', 'incoming': ['Send delay', 'Scoring request\nreceived'], 'outgoing': ['Calculation\ncompleted']}
+{'id': 'sid-5D6F69AF-1999-4772-9A05-B021B398AF6E', 'name': 'EventBasedGateway3', 'incoming': ['Scoring query\nstarted'], 'outgoing': ['ExclusiveGateway0', 'ExclusiveGateway0']}
+{'id': 'sid-2475734F-C9E4-47F5-BAC0-01E574F3F8CD', 'name': 'Level 2 scoring\nobtained', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-BA26963E-B976-4E76-8411-041054230666', 'name': 'Level 1 scoring\nobtained', 'incoming': ['Scoring request sent'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-1F5587D2-83BE-4C94-85EB-2CBB07F2FD0E', 'name': 'Delay\nMessage received', 'incoming': ['Scoring query\nstarted'], 'outgoing': ['View Level 2 scoring']}
+
+Start Events:
+{'id': 'sid-45FD3A5B-2F76-466B-A4CA-1197F785DAE5', 'name': 'Scoring query\nstarted', 'incoming': [], 'outgoing': ['Display delay information']}
+{'id': 'sid-27BD7774-D83D-41C6-9513-138E9C332720', 'name': 'Scoring request\nreceived', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-83FF2F4D-B686-4C90-A779-9CF6B81D9259', 'name': 'Question\ncompleted', 'incoming': ['View Level 1-Scoring'], 'outgoing': []}
+{'id': 'sid-DC182908-9AB7-4E0B-BA0B-BB55BDC9201B', 'name': 'Calculation\ncompleted', 'incoming': ['Result\ndetermined?'], 'outgoing': []}

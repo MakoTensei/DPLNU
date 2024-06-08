@@ -1,0 +1,11 @@
+ The process begins with the initiation of a scoring query, which triggers the 'Display delay information' task, indicating that the system is preparing to show the delay message. Concurrently, the 'Scoring request received' event kicks off the 'ExclusiveGateway2' task, which is responsible for conducting the first level of scoring.
+
+As the scoring process progresses, the 'Level 1 scoring obtained' event is triggered, prompting the 'View Level 1-Scoring' task to display the obtained score. Meanwhile, the 'Scoring request sent' event leads to the 'Display delay information' task, which is likely to show the delay message to the user.
+
+Following the first level of scoring, the 'Conducting First Scoring' task is initiated, which sends a request to 'ExclusiveGateway2' to perform further scoring. This task is closely linked to the 'Scoring request received' event, as it is part of the scoring process.
+
+Once the further scoring is completed, the 'Perform further scoring' task sends a 'Send delay' event, which triggers the 'ExclusiveGateway2' task to send the Level 2 scoring. This is followed by the 'Send delay' event, which sends the Level 2 scoring to 'ExclusiveGateway2'.
+
+The 'Send delay' event also triggers the 'Result determined?' event, which sends a 'Calculation completed' event to 'ExclusiveGateway0'. This indicates that the result has been determined and the calculation is complete.
+
+Finally, the 'Question completed' event is triggered, which is linked to the 'View Level 1-Scoring' task. This signifies the end of the scoring process and the completion of the task flow.

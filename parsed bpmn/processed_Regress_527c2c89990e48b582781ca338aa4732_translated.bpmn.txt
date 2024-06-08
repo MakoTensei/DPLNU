@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-327602D3-878D-4925-BAC9-E0A3DC4F6C00', 'name': 'Regressive flexibility', 'incoming': ['Regression case reported'], 'outgoing': ['Mogility exists']}
+{'id': 'sid-A2E0EA7E-0893-4701-8154-F9FB7EDF9DA9', 'name': 'VN payment request', 'incoming': ['Regression case reported'], 'outgoing': ['Determine the repository']}
+{'id': 'sid-C05C9D0A-C054-4AB6-BCF9-BD71176EF213', 'name': 'Accounting', 'incoming': ['Payment'], 'outgoing': ['Close the process']}
+{'id': 'sid-B2E31DCA-F680-45E4-A509-AA18244680DF', 'name': 'Determine the repository', 'incoming': ['Mogility exists'], 'outgoing': ['Payment']}
+{'id': 'sid-DBD29E88-7164-4FA8-AF69-D1784BB1CAFD', 'name': 'Speaking', 'incoming': ['Notification'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-3F74CB9F-8D58-4572-9E64-A207FC4E4302', 'name': 'Disclosure of debt collection', 'incoming': ['Notification'], 'outgoing': ['Regresfall passed on to Inkasse']}
+{'id': 'sid-22BF6211-E9F8-49D1-8C34-C6D35853908B', 'name': 'Close process', 'incoming': ['Mogility exists'], 'outgoing': ['Regression finished']}
+{'id': 'sid-7DDC017C-0ED5-4A33-AEE0-3569FE44EB1E', 'name': 'Close the process', 'incoming': ['Payment'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-AEB85C17-DBBA-49E5-87B7-062918ECA4E3', 'name': 'Mogility exists', 'incoming': ['Regression case reported'], 'outgoing': ['Regresfall passed on to Inkasse', 'Regression finished']}
+{'id': 'sid-5BF832D7-8BC5-4D03-934D-1E452D33F0A5', 'name': 'Not justified', 'incoming': ['Mogility exists'], 'outgoing': ['EndEvent2', 'Regresfall passed on to Inkasse']}
+{'id': 'sid-29A218CC-D37D-4DDD-AE72-2BC3142CE70B', 'name': 'EventBasedGateway2', 'incoming': ['Mogility exists'], 'outgoing': ['Payment', 'Notification', 'WV expired']}
+{'id': 'sid-A1F07EE4-1559-431E-B33E-D048503B9E49', 'name': 'Payment', 'incoming': ['Determine the repository'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6AB65217-401E-44EC-8821-24AB48A4AC54', 'name': 'Notification', 'incoming': ['Mogility exists'], 'outgoing': ['Disclosure of debt collection']}
+{'id': 'sid-AF040788-8973-4564-9549-0A1B9C965343', 'name': 'WV expired', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+
+Start Events:
+{'id': 'sid-7561F7A3-50FE-4C97-A913-A27FE9C5C76B', 'name': 'Regression case reported', 'incoming': [], 'outgoing': ['VN payment request']}
+
+End Events:
+{'id': 'sid-6DFC23DB-6496-401A-A818-6F17FFD0142F', 'name': 'EndEvent0', 'incoming': ['Payment'], 'outgoing': []}
+{'id': 'sid-839EB219-FC62-4210-925D-3287C12CC823', 'name': 'EndEvent1', 'incoming': [], 'outgoing': []}
+{'id': 'sid-803B7761-9E5D-41DC-A6DD-A907E0F1247E', 'name': 'EndEvent2', 'incoming': ['Speaking'], 'outgoing': []}
+{'id': 'sid-78957250-E95D-45DF-B115-BA1281DCFE27', 'name': 'Regression finished', 'incoming': ['Mogility exists'], 'outgoing': []}
+{'id': 'sid-4B0A1253-853F-499F-ACC5-F8A1AE0B616B', 'name': 'Regresfall passed on to Inkasse', 'incoming': ['Mogility exists'], 'outgoing': []}

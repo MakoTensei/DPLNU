@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-6923A5CC-3030-451C-8216-381D2062EB12', 'name': 'Check regression', 'incoming': ['Regression report\n\n'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-7F2D8715-83B7-48DE-989B-A2E3F6D91421', 'name': 'Ship payment request for VN\n', 'incoming': ['Regression report\n\n'], 'outgoing': ['Set on re-submission\n']}
+{'id': 'sid-8E1363A9-0EEE-443C-A636-43A1889409AA', 'name': 'Close', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Closed\n']}
+{'id': 'sid-2A32C840-F5E9-4275-9C2F-ADCAA7262681', 'name': 'Book the entrance\n', 'incoming': ['Payment received?\n'], 'outgoing': ['Closed\n']}
+{'id': 'sid-0972B8BF-FE28-45FB-B564-F53F29895BA7', 'name': 'Examination\n', 'incoming': ['VN contradicts'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-4338FF06-DB4B-4DE7-BDC2-538687E5BDBD', 'name': 'Disclosure of debt collection', 'incoming': ['VN contradicts', 'EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-FD464A49-3F82-496D-AE61-B5B4C09DA66A', 'name': 'Set on re-submission\n', 'incoming': ['Regress possible?'], 'outgoing': ['Payment received?\n']}
+
+Gateways:
+{'id': 'sid-AF43DCB8-5F8E-46BE-B348-828DD7E2BEC3', 'name': 'Regress possible?', 'incoming': ['Regression report\n\n'], 'outgoing': ['ExclusiveGateway2', 'Set on re-submission\n']}
+{'id': 'sid-561F2863-7EA9-4FAB-8F61-8720E0C8F8CB', 'name': 'Objection justified?\n', 'incoming': ['VN contradicts'], 'outgoing': ['Disclosure of debt collection', 'ExclusiveGateway2']}
+{'id': 'sid-687CA4A2-9169-4FA1-957E-09D44CD56027', 'name': 'ExclusiveGateway2', 'incoming': ['Payment received?\n', 'Check regression', 'Examination\n'], 'outgoing': ['Closed\n']}
+{'id': 'sid-AFB66ABB-9D52-4648-A66C-E9D79C57238F', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'EventBasedGateway4', 'EventBasedGateway4'], 'outgoing': ['Disclosure of debt collection']}
+{'id': 'sid-D9C03CAB-6D65-40D0-A4D6-395EBA61256B', 'name': 'EventBasedGateway4', 'incoming': ['Set on re-submission\n'], 'outgoing': ['Disclosure of debt collection', 'ExclusiveGateway3', 'ExclusiveGateway3']}
+{'id': 'sid-61458EE7-D5EE-47EC-9FDD-E02EBBAB6EB5', 'name': 'Payment received?\n', 'incoming': ['Set on re-submission\n'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-FF9EA094-38F7-4B2F-93B1-D866F2462D7F', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-594BD70B-FDE4-4BC8-AA19-D815913B1CA7', 'name': 'VN contradicts', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3', 'Disclosure of debt collection']}
+
+Start Events:
+{'id': 'sid-882DC43A-DEDA-4BFF-A663-63568836B090', 'name': 'Regression report\n\n', 'incoming': [], 'outgoing': ['Ship payment request for VN\n']}
+
+End Events:
+{'id': 'sid-D42DCDAF-A8F4-4521-B485-9456E6D2482F', 'name': 'Closed\n', 'incoming': ['Book the entrance\n'], 'outgoing': []}

@@ -1,0 +1,13 @@
+ The process begins with the 'StartEvent0' which triggers the 'Clearing the shipping mode' task, where goods are cleared for shipping. This task has an incoming connection to 'ParallelGateway4' and an outgoing connection to 'InclusiveGateway2'. The 'InclusiveGateway2' then receives goods from 'ParallelGateway4' and sends them to 'EndEvent0'.
+
+Next, the 'Filling the package note' task is initiated, which also has an incoming connection to 'InclusiveGateway2' and an outgoing connection to 'ParallelGateway5'. The 'ParallelGateway5' receives the package note and sends it to 'EndEvent0'.
+
+The 'commission external freight forwarders' task is triggered by 'ParallelGateway4' and has an outgoing connection to 'ExclusiveGateway1'. The 'ExclusiveGateway1' then receives goods from 'InclusiveGateway2' and sends them to 'EndEvent0'.
+
+The 'Packaging goods' task is initiated by 'ParallelGateway4' and has an outgoing connection to 'ParallelGateway5'. The 'ParallelGateway5' receives the packaged goods and sends them to 'EndEvent0'.
+
+The 'Complete insurance' task is triggered by 'InclusiveGateway2' and has no outgoing connections.
+
+Finally, the 'Special shipment necessary?' task is initiated by 'StartEvent0' and has an outgoing connection to 'commission external freight forwarders' and 'InclusiveGateway3'. The 'InclusiveGateway3' then receives goods from 'StartEvent0' and sends them to 'ParallelGateway5'.
+
+The entire process concludes with the 'EndEvent0', which receives goods from 'InclusiveGateway2', 'ExclusiveGateway1', and 'ParallelGateway5', and has no outgoing connections.

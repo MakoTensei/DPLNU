@@ -1,0 +1,25 @@
+ In a system designed to handle scoring requests and delays, the following sequence of events and gateways work together to process and report information:
+
+1. The process begins with the 'StartEvent0' which triggers the 'Share delay information' task. This task sends a message to the 'ExclusiveGateway0' to initiate the process.
+
+2. The 'ExclusiveGateway0' receives the message and forwards it to the 'Determining scoring (level 1)' task, which is responsible for determining the initial scoring level.
+
+3. The 'Determining scoring (level 1)' task sends a message to the 'ExclusiveGateway2' to continue the process.
+
+4. The 'ExclusiveGateway2' receives the message and forwards it to the 'Determining scoring (level 2)' task, which further refines the scoring information.
+
+5. The 'Determining scoring (level 2)' task sends a message to the 'EndEvent1' to complete the scoring process.
+
+6. Concurrently, the 'Share delay information' task sends a message to the 'ExclusiveGateway0' to report any delay information.
+
+7. The 'ExclusiveGateway0' receives the message and forwards it to the 'Delay reported' task.
+
+8. The 'Delay reported' task sends a message to the 'EndEvent0' to conclude the delay reporting process.
+
+9. The 'EndEvent0' receives the message and sends a response back to the 'EventBasedGateway3', which was initially triggered by the 'StartEvent0'.
+
+10. The 'EventBasedGateway3' receives the response and sends a message to the 'Scoring reported' task to report the final scoring information.
+
+11. The 'Scoring reported' task sends a message to the 'EndEvent0' to complete the scoring reporting process.
+
+12. The 'EndEvent0' receives the message and sends a response back to the 'EventBasedGateway3', completing the entire process.

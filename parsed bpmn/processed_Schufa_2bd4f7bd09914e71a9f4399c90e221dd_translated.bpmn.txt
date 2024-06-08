@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-59C67ADA-B855-4E12-86C0-619F943462F4', 'name': 'Scoring request', 'incoming': ['Banking process\nStart'], 'outgoing': ['Get Level 1 scoring']}
+{'id': 'sid-B90D878F-A75A-4BEC-90B8-FA75C1C776A4', 'name': 'Send Level 2 Score to Frontend', 'incoming': ['Level 2\nScoring'], 'outgoing': ['Scoring\nLevel 2 finished']}
+{'id': 'sid-1ACD165D-182C-4A03-BD2E-FE3B24DD97E2', 'name': 'Level 1 Score', 'incoming': ['Get Level 1 scoring'], 'outgoing': ['Scoring\nLevel 1 finished']}
+{'id': 'sid-B731D82D-0B1E-4745-8B45-F3ABBF498317', 'name': 'Information about delay', 'incoming': ['Banking process\nStart'], 'outgoing': ['Scoring\nLevel 2 finished']}
+{'id': 'sid-75BD89C7-28F4-4B1E-8F00-CB0D9B9DFFDF', 'name': 'Level 1 Scoring', 'incoming': ['Scoring service\nStart'], 'outgoing': ['Level 1\nScoring\npossible?']}
+{'id': 'sid-39B85208-42AC-43AD-A581-748423BCA6B3', 'name': 'Level 2 Scoring', 'incoming': ['Scoring service\nStart'], 'outgoing': ['sid-B16F4662-7976-4EDA-9496-865BA504CCFF']}
+{'id': 'sid-083C3A21-6925-4F22-8DB3-F3C1BDD79EF3', 'name': 'Level 2 scoring completed', 'incoming': ['sid-F3761296-DF5B-4E59-B567-6A6DB5DB2315'], 'outgoing': ['sid-04C8909C-FB0E-41B6-8EFD-7795E2B31DF5']}
+
+Gateways:
+{'id': 'sid-FDB5DAF7-9716-49DC-B26D-3801332CDBD4', 'name': 'Level 1\nScoring\npossible?', 'incoming': ['Scoring service\nStart'], 'outgoing': ['Level 2 Scoring', 'sid-618F6D28-CB23-408F-80EA-672AA22FD89A']}
+{'id': 'sid-7DEC9738-9E46-41DB-B33B-849E4C1FE2CD', 'name': 'EventBasedGateway1', 'incoming': ['Banking process\nStart'], 'outgoing': ['Scoring\nLevel 1 finished', 'Scoring\nLevel 2 finished']}
+{'id': 'sid-4647C711-1B2C-4E3A-B6F2-12EA031EE888', 'name': 'Get Level 1 scoring', 'incoming': ['Scoring request'], 'outgoing': ['Scoring\nLevel 1 finished']}
+{'id': 'sid-19CCDBCC-47D9-4277-9B4F-D138DC1EE0D3', 'name': 'Delay notification\nobtained', 'incoming': ['Banking process\nStart'], 'outgoing': ['Scoring\nLevel 2 finished']}
+{'id': 'sid-B03F2ACF-AAA3-4E03-9FBC-4878DE09ABD2', 'name': 'Level 2\nScoring', 'incoming': ['Banking process\nStart'], 'outgoing': ['Scoring\nLevel 2 finished']}
+
+Start Events:
+{'id': 'sid-3D8A6605-6E8F-4D7A-BC48-610F94086454', 'name': 'Banking process\nStart', 'incoming': [], 'outgoing': ['Level 2\nScoring']}
+{'id': 'sid-AB162DEC-3649-498E-B68F-8EE527C37C01', 'name': 'Scoring service\nStart', 'incoming': [], 'outgoing': ['Level 2 Scoring']}
+
+End Events:
+{'id': 'sid-9ACBC7F2-26F8-41FE-882A-E58D70818908', 'name': 'Scoring\nLevel 1 finished', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-A371B75B-5FED-49C2-9F53-CE4DEC854E26', 'name': 'Scoring\nLevel 2 finished', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-04D9BD1F-31C2-4E48-AD02-4F42CFF5CB17', 'name': 'Scoring\nLevel 1 finished', 'incoming': ['sid-C4545A60-6EB1-44E4-B0E9-D850F9EFDFFA'], 'outgoing': []}
+{'id': 'sid-5112E7CB-6541-49A2-ABF4-B4290C45CC3A', 'name': 'Scoring\nLevel 2 finished', 'incoming': ['sid-74E8398F-D07F-4366-B3F1-C28481A8F0D9'], 'outgoing': []}

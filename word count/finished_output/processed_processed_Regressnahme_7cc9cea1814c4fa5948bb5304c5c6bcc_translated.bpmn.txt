@@ -1,0 +1,14 @@
+ In the case of a possible regression, the process begins with the 'Possible regression' event, which triggers the 'Payment method send' task. This task is then followed by the 'EventBasedGateway3' event, which can lead to multiple outcomes. If the 'EventBasedGateway3' event is triggered, it can result in the 'Opposition by VN' event, which subsequently leads to the 'Close' event. Alternatively, the 'EventBasedGateway3' event can also lead to the 'Debt collection hand over' event, which then results in the 'Case delivered' event.
+
+On the other hand, if the 'Possible regression' event is not triggered, the process can still proceed with the 'Payment method send' task, but it will not lead to the 'Opposition by VN' event. Instead, the 'Payment method send' task can be followed by the 'Incoming payment' event, which ultimately leads to the 'Process closed' event.
+
+In summary, the process flow can be described as follows:
+
+1. 'Possible regression' event triggers the 'Payment method send' task.
+2. 'Payment method send' task can lead to either 'EventBasedGateway3' or 'Incoming payment' event.
+3. 'EventBasedGateway3' event can result in either 'Opposition by VN' or 'Debt collection hand over' event.
+4. 'Opposition by VN' event leads to the 'Close' event.
+5. 'Debt collection hand over' event leads to the 'Case delivered' event.
+6. 'Incoming payment' event leads to the 'Process closed' event.
+
+The process can be closed through either the 'Close' event or the 'Process closed' event, depending on the path taken.

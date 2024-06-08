@@ -1,0 +1,17 @@
+ In the bustling world of logistics, a series of tasks and gateways intertwine to ensure the smooth delivery of goods. The journey begins with the 'Goods are to be shipped' event, which triggers a cascade of actions.
+
+Firstly, the 'Goods are to be shipped' event initiates the 'Choose the cheapest offer' task, where the system requests quotes from Spediteur 1 and Spediteur 2. Spediteur 1's quote is requested through 'ParallelGateway4', while Spediteur 2's offer is solicited via 'ParallelGateway5'.
+
+ParallelGateway4, in turn, connects to Spediteur 1 and Spediteur 2, and also sends a request to 'Request offer of Spediteur 2' to ParallelGateway5. Meanwhile, ParallelGateway5 receives the incoming requests from both Spediteur 1 and Spediteur 2, and also sends out a request to 'Choose the cheapest offer' to the 'Specialist' gateway.
+
+The 'Specialist' gateway, upon receiving the request, connects to 'ParallelGateway5' and evaluates the offers from Spediteur 1 and Spediteur 2 to determine the most cost-effective option.
+
+Simultaneously, the 'Goods are to be shipped' event also triggers the 'Packaging goods' task, which sends a request to 'ParallelGateway6' for packaging services.
+
+ParallelGateway6, in turn, connects to 'ParallelGateway7' for the packaging process and also sends a request to 'Fill in package form for normal mail' to 'ParallelGateway7'.
+
+Once the packaging is complete, the 'Goods delivered' event is triggered, and the goods are sent to 'ParallelGateway5' for delivery. ParallelGateway5 then connects to 'ExclusiveGateway3' to complete the insurance process.
+
+Finally, the goods are delivered to the recipient, marking the end of the logistics journey.
+
+In summary, the 'Goods are to be sh

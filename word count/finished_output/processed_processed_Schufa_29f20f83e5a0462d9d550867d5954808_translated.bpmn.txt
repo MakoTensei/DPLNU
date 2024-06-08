@@ -1,0 +1,15 @@
+ In a financial services system, a series of tasks and gateways work together to process credit information and report results. The process begins with a 'Schufa request' initiated by the 'StartEvent0'. This request is sent to the 'Answer obtained' gateway, which then directs the process to the 'Credit award directing' task.
+
+Simultaneously, the 'StartEvent0' also triggers the 'Report delay' task, which sends a delay notification to the 'Delay obtained' gateway. This gateway then sends the delay notification to the 'Level 1 scoring Execution' task, which awaits a 'Result found?' signal to proceed.
+
+The 'Result found?' signal is received by the 'Result found?' gateway, which then directs the process to the 'Report the result' task for Level 1 scoring. This task sends a report back to the 'EndEvent1'.
+
+Meanwhile, the 'Schufa request' also triggers the 'Exclusive Gateway0', which routes the process to the 'Delay obtained' gateway. This gateway sends the delay notification to the 'Report delay' task.
+
+The 'Report delay' task sends a report back to the 'EndEvent0', completing the Level 1 scoring process.
+
+The 'StartEvent1' initiates the 'Level 1 scoring Execution' task, which awaits a 'Result found?' signal to proceed. Upon receiving the signal, the task directs the process to the 'Report the result' task for Level 2 scoring.
+
+The 'Result found?' signal is received by the 'Result found?' gateway, which then directs the process to the 'EndEvent2'.
+
+In summary, the system processes credit information requests, handles delays, and reports results through a series of tasks and gateways, ensuring efficient and accurate credit scoring.

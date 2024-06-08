@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-6A3DE901-2815-4F52-A6D8-D6162660E6DE', 'name': 'Check regression', 'incoming': ['Regress reported\n'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-1F4AA9F9-689B-4970-A7B2-128CD1604D9A', 'name': 'Close', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Regress edited']}
+{'id': 'sid-3A7A8138-8131-41DF-ADE2-600D544A5A6A', 'name': 'Send payment request to VN', 'incoming': ['Regress reported\n'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-AE985619-D8DC-4EF7-8FD1-A4639E727C89', 'name': 'Reimbursement', 'incoming': ['Regress possible?'], 'outgoing': ['ExclusiveGateway7']}
+{'id': 'sid-B5A8C5F2-5D95-4516-824D-45DD552C647F', 'name': 'Book money', 'incoming': ['Money received?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-512AAE78-B5DD-4ECC-B477-671193CC6C11', 'name': 'Proceedings', 'incoming': ['Any objection?'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-EF41AB30-7937-4227-9A16-56489BD7E390', 'name': 'at debt collection office\nthey are', 'incoming': ['Reimbursement period expired?'], 'outgoing': ['Regress edited']}
+{'id': 'sid-794A9B13-3F58-401A-B0F5-446CEEF551C1', 'name': 'Re-examination', 'incoming': ['Any objection?'], 'outgoing': ['ExclusiveGateway7']}
+{'id': 'sid-42DA1D77-59B1-42E5-ADD9-71543CA1530A', 'name': 'Check the receipt of funds', 'incoming': ['ExclusiveGateway7'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-6F07D9BE-8C92-43CE-8932-035120C2F6C2', 'name': 'Regress possible?', 'incoming': ['Regress reported\n'], 'outgoing': ['Regress edited', 'ExclusiveGateway7']}
+{'id': 'sid-C7B6DD5F-BF71-4EBB-8903-46824BE9759B', 'name': 'Money received?', 'incoming': ['ExclusiveGateway7'], 'outgoing': ['ExclusiveGateway2', 'Regress edited']}
+{'id': 'sid-E6D141B1-9E01-4541-91AB-68BE5010FB3B', 'name': 'ExclusiveGateway2', 'incoming': ['Check regression', 'Check the receipt of funds'], 'outgoing': ['Regress edited']}
+{'id': 'sid-3293144F-F61B-45E5-ADCA-83EBCFB8AAC2', 'name': 'Any objection?', 'incoming': ['ExclusiveGateway7'], 'outgoing': ['Objection justified?', 'Reimbursement period expired?']}
+{'id': 'sid-DF36D5A1-BF12-4ECC-A666-A9688FD83E74', 'name': 'Objection justified?', 'incoming': ['Money received?'], 'outgoing': ['Regress edited', 'sid-A7A0B1FF-ECDF-473B-97C0-4DB899A7712E']}
+{'id': 'sid-F16EA067-9DAD-4C01-9C3A-E146ACB8B61D', 'name': 'ExclusiveGateway5', 'incoming': ['Proceedings', 'Reimbursement period expired?'], 'outgoing': ['Regress edited']}
+{'id': 'sid-C59E79E8-E025-4F5E-9264-AF5CEF5961CD', 'name': 'Reimbursement period expired?', 'incoming': ['ExclusiveGateway7'], 'outgoing': ['ExclusiveGateway7', 'at debt collection office\nthey are']}
+{'id': 'sid-EAD74A0B-0A44-4E31-B03E-650D7C11E845', 'name': 'ExclusiveGateway7', 'incoming': ['Regress possible?', 'Re-examination'], 'outgoing': ['Reimbursement period expired?']}
+
+Start Events:
+{'id': 'sid-A76C2230-C08B-49ED-9614-121E98200CB7', 'name': 'Regress reported\n', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:
+{'id': 'sid-A1D19D00-2750-4C9A-ADC6-D9415A54E3C2', 'name': 'Regress edited', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-EB8D06A1-BFD0-4363-A1E1-C47347AE2638', 'name': 'Regress edited', 'incoming': ['Money received?'], 'outgoing': []}

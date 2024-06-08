@@ -1,0 +1,7 @@
+ Upon receiving a 'Regression requirement possible' event, the system initiates a series of tasks and interactions. Firstly, a 'Send payment request to VN' task is triggered, which is dependent on the 'Regression requirement possible' event. Concurrently, the system checks for the possibility of the requirement being met by initiating a 'possibility is there?' event, which has an outgoing link to the 'Send payment request to VN' task.
+
+As the 'EventBasedGateway3' event is triggered, it leads to multiple outcomes. If the 'Claim WV set' task is successful, it results in a 'Regression requirement successful carried out' event, indicating the successful completion of the regression requirement. Additionally, the 'EventBasedGateway3' event also leads to the 'Regression requirement rejected' event if the 'Opposition Report' event is triggered.
+
+Furthermore, the 'EventBasedGateway3' event can also result in a 'Collection Mission' task if the 'WV-Frist Expired' event is triggered. This task is responsible for carrying out the collection mission.
+
+In summary, the system processes a 'Regression requirement possible' event by initiating a 'Send payment request to VN' task and checking the possibility of the requirement being met. The 'EventBasedGateway3' event triggers multiple outcomes, including successful completion of the regression requirement, rejection of the requirement, and carrying out the collection mission.

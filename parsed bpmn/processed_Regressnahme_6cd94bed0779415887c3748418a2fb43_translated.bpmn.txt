@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-53E5A749-AF4E-4C4E-A523-D8EA10220FF2', 'name': 'Examination', 'incoming': ['Reasons\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-F4C4EC92-C0AB-418C-AB0C-1478261CCCA2', 'name': 'Introduction', 'incoming': ['Reasons\nReport'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-E565335F-393D-4F27-80ED-A9FA7F326D4B', 'name': 'Check Regress Claim', 'incoming': ['VN in Regress\ntake'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-685AAF11-F503-4DA1-89FD-05172EE34CE9', 'name': 'Send payment request', 'incoming': ['VN in Regress\ntake'], 'outgoing': ['Reimbursement case']}
+{'id': 'sid-80B87114-7ED8-484E-97F7-CE8574CFBC5D', 'name': 'Reimbursement case', 'incoming': ['Claim\nis there?'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-6AE49B6C-37FC-47C6-BB53-A71AB7110F3A', 'name': 'Close', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-C53E71B1-D7F4-4F54-B822-6E65B4DF1C62', 'name': 'Book money receipt', 'incoming': ['Money\nReport'], 'outgoing': ['Process\nclosed']}
+
+Gateways:
+{'id': 'sid-E419C129-81B9-4BB0-9B50-978665CFF85D', 'name': 'Reasons\nRight?', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway4']}
+{'id': 'sid-CD0CFED2-BE0A-43E5-A1CE-E957AF8636A5', 'name': 'Claim\nis there?', 'incoming': ['VN in Regress\ntake'], 'outgoing': ['ExclusiveGateway4', 'ExclusiveGateway2']}
+{'id': 'sid-9A3DE1CE-2DE2-44DC-A5C6-90FC03076302', 'name': 'ExclusiveGateway2', 'incoming': ['Money\nReport', 'Examination', 'Check Regress Claim'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-20C13303-E420-4E19-B3DE-9E254B70DAE3', 'name': 'ExclusiveGateway3', 'incoming': ['Claim\nis there?'], 'outgoing': ['Reasons\nRight?', 'Money\nReport', 'ExclusiveGateway4']}
+{'id': 'sid-4A38AECE-6208-437E-BB68-D37BAAF3DC0B', 'name': 'ExclusiveGateway4', 'incoming': ['Claim\nis there?', 'Reimbursement case'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-DE803B5A-2AD1-4B39-A85B-F0C36E5AC958', 'name': 'Reasons\nReport', 'incoming': ['Claim\nis there?'], 'outgoing': ['Introduction']}
+{'id': 'sid-7D36A9C2-3AC8-452C-B15F-68B4CA872921', 'name': 'Money\nReport', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-5861C246-4DB4-4246-B2B0-4F61EF49F60B', 'name': 'Reimbursement period\nExpired', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-9BA93939-08DC-4B8D-98B5-900986060768', 'name': 'VN in Regress\ntake', 'incoming': [], 'outgoing': ['Send payment request']}
+
+End Events:
+{'id': 'sid-4D95FEEC-DDD6-45AC-83FA-BCB0233DA87A', 'name': 'Process\nclosed', 'incoming': ['Book money receipt'], 'outgoing': []}
+{'id': 'sid-043AC691-5A82-4689-9D98-5551E440F852', 'name': 'EndEvent1', 'incoming': ['Reimbursement period\nExpired'], 'outgoing': []}

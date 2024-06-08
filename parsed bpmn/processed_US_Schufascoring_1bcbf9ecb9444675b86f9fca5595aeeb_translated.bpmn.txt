@@ -1,0 +1,17 @@
+Tasks:
+{'id': 'sid-2EBABFEF-E73F-4F60-AC99-8AE22B27BC2B', 'name': 'Scoring 1 remedy and check', 'incoming': ['Schufaservice\nStart'], 'outgoing': ['Exemption available?']}
+
+Gateways:
+{'id': 'sid-DC78A5E5-8DA9-4C96-9056-5C87399B6EEB', 'name': 'Exemption available?', 'incoming': ['Schufaservice\nStart'], 'outgoing': ['sid-E87C7F26-5A10-4BA9-8D8F-B860CBF926A7', 'sid-339F873B-7092-45B3-B2AE-BFDCBCEEAB51']}
+{'id': 'sid-82698B16-A6B7-467D-A150-0140E9001B22', 'name': 'ExclusiveGateway1', 'incoming': ['sid-BD4388D3-FAAF-4F43-BB42-6C80D6A07338', 'sid-816BED1E-AD83-4ED8-8FA8-7127DA32D9A3'], 'outgoing': ['Schufascoring\ndetermined']}
+{'id': 'sid-8997B646-00EB-47A0-ACC8-0F30CDDC1214', 'name': 'IntermediateCatchEvent2', 'incoming': ['sid-50872D79-8806-4621-9B5A-FF4FC11228CF', 'sid-EE72ED6A-2B84-4126-8A65-C2249A0C41EF'], 'outgoing': ['receiving results', 'Delay message\nreceived']}
+{'id': 'sid-00A9D60F-95D6-4634-8100-25409C9A69A9', 'name': 'receiving results', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['sid-7BBAD203-2118-46FD-9E99-5D0EB671BB2E']}
+{'id': 'sid-5B78B236-A2BD-446F-8FD8-8EAC2D3A1B23', 'name': 'Delay message\nreceived', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['sid-82F5038B-9EC1-446A-9E34-0D6345C0E52B']}
+
+Start Events:
+{'id': 'sid-9FF50BEF-083C-4DB1-A5AC-742048EC8A83', 'name': 'Schufa request\nStart', 'incoming': [], 'outgoing': ['sid-F9032F61-76F9-4EBF-8BBD-DA2C5C8A86A0']}
+{'id': 'sid-2AB8D9E9-8D88-4F9C-88DC-AD0EA4D64914', 'name': 'Schufaservice\nStart', 'incoming': [], 'outgoing': ['Exemption available?']}
+
+End Events:
+{'id': 'sid-CF423F1A-0BFB-4C3D-9228-3A8A6147A7BC', 'name': 'Schufascoring\nrequested', 'incoming': ['sid-35F64B50-BF11-4B01-9214-F944A069724B'], 'outgoing': []}
+{'id': 'sid-ACB7E4FB-5833-4212-88AD-278EDF73C5EA', 'name': 'Schufascoring\ndetermined', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}

@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-3F3B6300-122E-4E27-8ABD-B3A9AB55D5F9', 'name': 'Packaging goods', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-9C088340-ACCF-49B4-9719-7498709282C3', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway3'], 'outgoing': ['Goods ready for collection']}
+{'id': 'sid-E4AD04CA-A6C5-45F6-A803-D2844C42EE65', 'name': 'Transport insurance', 'incoming': ['Transport insurance?'], 'outgoing': ['Goods ready for collection']}
+{'id': 'sid-D51E248C-4552-4F54-9EA3-664F24D73B42', 'name': 'Order of dispatch', 'incoming': ['ParallelGateway2'], 'outgoing': ['Type of shipping?']}
+{'id': 'sid-F3997D96-0A7A-4D84-8129-845FD706FFCF', 'name': '3 Spediteur offers to get', 'incoming': ['ParallelGateway2'], 'outgoing': ['sid-BFDF6CCE-F1F7-4FDF-BAD2-48FD009F91E5']}
+{'id': 'sid-4DC2846C-01EE-4F07-9422-215838EAD1F1', 'name': 'Check offer and commission forwarder', 'incoming': ['sid-EB14884A-319E-4F28-91F4-BD0AA90DEFC8'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-2B8BA822-598F-446C-9166-701CE3D70F8B', 'name': 'Filling the package note', 'incoming': ['Type of shipping?'], 'outgoing': ['Check whether transport insurance is required']}
+{'id': 'sid-DAA12312-3867-4A55-9724-688EB5228CC2', 'name': 'Check whether transport insurance is required', 'incoming': ['Type of shipping?'], 'outgoing': ['ParallelGateway3']}
+
+Gateways:
+{'id': 'sid-D323BE3D-FDDC-48C7-9BE6-C8A4A785FFAD', 'name': 'Type of shipping?', 'incoming': ['ParallelGateway2'], 'outgoing': ['3 Spediteur offers to get', 'Check whether transport insurance is required']}
+{'id': 'sid-EA88C41E-AA30-4BA3-9B73-10BFE5BF047A', 'name': 'Transport insurance?', 'incoming': ['Check whether transport insurance is required'], 'outgoing': ['Goods ready for collection', 'ParallelGateway3']}
+{'id': 'sid-C1754AA9-74BC-49A9-8DE1-A04C34F6C1D6', 'name': 'ParallelGateway2', 'incoming': ['Goods must be shipped'], 'outgoing': ['3 Spediteur offers to get', 'ParallelGateway3']}
+{'id': 'sid-C51CC700-6798-470E-BB11-C25069A95FA6', 'name': 'ParallelGateway3', 'incoming': ['Goods must be shipped', 'Check offer and commission forwarder', 'Transport insurance', 'Check whether transport insurance is required'], 'outgoing': ['Goods ready for collection']}
+
+Start Events:
+{'id': 'sid-4C721B7A-F5A2-4886-9293-047E930FE7EC', 'name': 'Goods must be shipped', 'incoming': [], 'outgoing': ['ParallelGateway3']}
+
+End Events:
+{'id': 'sid-9BF1D407-9B24-44D2-B933-589591A83134', 'name': 'Goods ready for collection', 'incoming': ['Transport insurance?'], 'outgoing': []}

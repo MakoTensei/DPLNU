@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-E195C918-A631-4AC7-90EE-976F3DB6C482', 'name': 'Competent authority', 'incoming': ['ParallelGateway4'], 'outgoing': ['Big crowd?']}
+{'id': 'sid-C2AFFC67-04B4-477B-9288-600C4E72DBAF', 'name': 'Package tickets\nfilling', 'incoming': ['Goods ready for dispatch'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-88DDDE6B-4B12-41A7-A9A6-FD1B65B5CE9D', 'name': 'Select a quote and order forwarders', 'incoming': ['Pick up offers'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-87C98E06-D87D-439E-A55D-99418D969FE0', 'name': 'Pick up offers', 'incoming': ['Big crowd?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-921AF147-3281-4945-88C4-27335E06ADED', 'name': 'Insurance close', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-E2EAB2F7-4BA4-4BF9-B068-BF689AA6A5CF', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-30F412FB-47D7-419F-BCCD-1D3C2FF52787', 'name': 'Provide packaged goods for collection', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods for collection\nready']}
+
+Gateways:
+{'id': 'sid-24949341-1B03-4F5A-9FCC-FB891865D2D5', 'name': 'Big crowd?', 'incoming': ['ParallelGateway4'], 'outgoing': ['Package tickets\nfilling', 'ExclusiveGateway2']}
+{'id': 'sid-5C4CB2D7-DF79-498C-AF9E-28169725D44B', 'name': 'Insurance necessary?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-5C61ED52-BB29-4AC6-A144-75BD5C3B831D', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance necessary?', 'Big crowd?', 'Goods ready for dispatch'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-DBC638B0-5B8D-4EF0-BB74-CFA7F00885B9', 'name': 'ParallelGateway3', 'incoming': ['ParallelGateway4', 'ParallelGateway4'], 'outgoing': ['Goods for collection\nready']}
+{'id': 'sid-D2B2FAAF-A214-4255-87E4-76C137142569', 'name': 'ParallelGateway4', 'incoming': ['Goods ready for dispatch'], 'outgoing': ['Provide packaged goods for collection', 'Goods for collection\nready']}
+
+Start Events:
+{'id': 'sid-ED5212D3-9D64-4CC6-B9F6-BCFB76969319', 'name': 'Goods ready for dispatch', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-E32BD737-2873-4682-AAFF-D49FCA764BD7', 'name': 'Goods for collection\nready', 'incoming': ['ParallelGateway4'], 'outgoing': []}

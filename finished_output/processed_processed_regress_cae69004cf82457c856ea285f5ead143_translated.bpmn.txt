@@ -1,0 +1,24 @@
+ When a regressive report is received, the process begins at the ExclusiveGateway1, where the possibility of a regression is assessed. If the report suggests a regression, the task is then forwarded to ExclusiveGateway3, which handles the rejection of payment justification. Concurrently, the report is also sent to EventBasedGateway4, which triggers the dispensation of the process to debt collection service providers if the opposition period has expired.
+
+
+If the regressive report indicates that the opposition period has expired, the process is directly delivered to the debt collection service providers. However, if the report suggests that the opposition period is still valid, the process is sent to ExclusiveGateway1 for further evaluation.
+
+
+In the case of a rejection of payment justification, the process is closed, and the task is completed.
+
+
+Additionally, if the regressive report leads to the possibility of a regression, the process is also closed, and the task is completed.
+
+
+In summary, the flow of events when a regressive report is received is as follows:
+
+1. The report is received and sent to ExclusiveGateway1.
+2. ExclusiveGateway1 assesses the possibility of a regression and either sends the report to ExclusiveGateway3 or closes the task.
+3. If ExclusiveGateway1 sends the report to ExclusiveGateway3, the process is also sent to EventBasedGateway4.
+4. EventBasedGateway4 triggers the dispensation of the process to debt collection service providers if the opposition period has expired.
+5. If the opposition period has not expired, the process is sent back to ExclusiveGateway1 for further evaluation.
+6. If ExclusiveGateway3 determines that the rejection of payment justification is justified, the process is closed.
+7. If ExclusiveGateway1 determines that the opposition period is still valid, the process is also closed.
+8. If the opposition period has expired, the process is directly delivered to debt collection service providers.
+
+This flow ensures that the appropriate actions are taken based on the regress

@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-17948026-7C15-46CD-9844-5F7486A46D6D', 'name': 'Specify quantity', 'incoming': ['gk goods dispatch'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-20721546-9503-499D-B446-7A05586EBDB8', 'name': 'Filling the postcard', 'incoming': ['gk goods dispatch'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-0A86869F-1E31-4BA4-81A4-6C7E4E8B37FF', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-7CA466C5-3CF6-4A0B-A33D-6DC482E9A2D5', 'name': 'Delivering goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['Goods delivered']}
+{'id': 'sid-6A1850C2-B3A0-46BB-B825-728B25D15FC8', 'name': 'Insurance close', 'incoming': ['Insurance required?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-7BBA0CE2-D7BB-4407-886A-1D953F1B3118', 'name': 'Quantity category?', 'incoming': ['ParallelGateway4'], 'outgoing': ['sid-B8A16595-1B6B-426A-8C5B-43648A71BAD6', 'Filling the postcard']}
+{'id': 'sid-25FA696F-55B4-4BC9-9D18-68F8D8A1BECE', 'name': 'Insurance required?', 'incoming': ['ParallelGateway4'], 'outgoing': ['Insurance close', 'Goods delivered']}
+{'id': 'sid-C8937073-90DE-497B-9DA1-76C4D83443D2', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance close', 'gk goods dispatch'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-4496B83D-8EC3-4A7D-8070-A898BF6A5AA5', 'name': 'ExclusiveGateway3', 'incoming': ['sid-71F79A7F-B564-4E5F-9D06-7B5AD45B4402', 'ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-61FDDD9A-B592-41BE-9296-D5020E10C29D', 'name': 'ParallelGateway4', 'incoming': ['gk goods dispatch'], 'outgoing': ['ParallelGateway5', 'ExclusiveGateway3']}
+{'id': 'sid-54C0B967-DB4E-4A7F-92CD-776D1CDE08A7', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'Insurance required?'], 'outgoing': ['Goods delivered']}
+
+Start Events:
+{'id': 'sid-D6BD0AB9-0833-4E35-8E46-2EE2CDBF7AD2', 'name': 'gk goods dispatch', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-DEFF2FC8-E181-4508-A9E3-988DA53EF025', 'name': 'Goods delivered', 'incoming': ['Insurance required?'], 'outgoing': []}

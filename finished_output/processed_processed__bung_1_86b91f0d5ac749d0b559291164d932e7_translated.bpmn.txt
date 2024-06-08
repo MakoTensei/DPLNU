@@ -1,0 +1,11 @@
+ When a shipment event occurs, it triggers a series of tasks and gateways to ensure the package is prepared and dispatched correctly. The process begins with the 'Shipment' event, which initiates the 'Select your offer' task. This task leads to a conversation with a 'Specialist' who guides the user through the available offers. Once the offer is selected, the 'Specialist' connects to 'ExclusiveGateway1', which handles the shipping way inquiries.
+
+Simultaneously, the 'Shipment' event also triggers the 'Filling the package note' task, which connects to 'ParallelGateway5'. This task is responsible for completing the necessary documentation for the package.
+
+If insurance is required, the 'Insurance required' task is initiated, which connects to 'ExclusiveGateway1' and 'ExclusiveGateway3'. The 'ExclusiveGateway1' handles the shipping way inquiries, while 'ExclusiveGateway3' manages the insurance-related tasks.
+
+Once the offer is selected, the 'Packaging goods' task is triggered, which connects to 'ParallelGateway4'. This task ensures that the package is properly packaged for shipping.
+
+After the goods are packaged, the 'Prepare for collection' task is initiated, which connects to 'ParallelGateway5'. This task ensures that the package is ready for dispatch and sends a notification that the goods are ready for collection.
+
+In summary, the shipment event initiates a series of tasks and gateways, including selecting an offer, packaging the goods, and preparing for collection, to ensure the package is dispatched efficiently and accurately.

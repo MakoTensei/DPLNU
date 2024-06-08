@@ -1,0 +1,37 @@
+Tasks:
+{'id': 'sid-6EDC45B7-72C9-4A10-BB32-87218B7F2707', 'name': 'Select a court\n', 'incoming': ['Visit the restaurant'], 'outgoing': ['Waiting period']}
+{'id': 'sid-E078011C-6555-4BFE-A2BB-535D73112328', 'name': 'Visit the restaurant', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Waiting period']}
+{'id': 'sid-64D765CC-90BF-4985-8CAB-D9F30FF67130', 'name': 'Add your order\n', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Pay money\n']}
+{'id': 'sid-D9F80CB8-BAF9-4376-A79A-CDA7DA4EEE98', 'name': 'Pay money\n', 'incoming': ['Waiting period'], 'outgoing': ['Contains Pieper\n']}
+{'id': 'sid-C9A2D96A-31BA-455C-AB35-206EBC57AEBF', 'name': 'Contains Pieper\n', 'incoming': ['Waiting period'], 'outgoing': ['Piepser releases']}
+{'id': 'sid-EEB2916F-F32C-4A04-92A7-BF18F16FFF61', 'name': 'Pick up food\n', 'incoming': ['Waiting period'], 'outgoing': ['Return Piepser']}
+{'id': 'sid-4B7FFE4A-5DFD-4886-805E-E17067761656', 'name': 'Return Piepser', 'incoming': ['Piepser releases'], 'outgoing': ['Eat food']}
+{'id': 'sid-80BE8139-0436-46BC-87DF-02E755B33CDC', 'name': 'Eat food', 'incoming': ['Piepser releases'], 'outgoing': ['Sat']}
+{'id': 'sid-10726D9E-2D8E-4376-BDA2-83787B4A9C06', 'name': 'Enter your order in cash system\n', 'incoming': ['Order to receive'], 'outgoing': ['Cash']}
+{'id': 'sid-0D66C77F-DF48-4DE4-811C-D6A07227E654', 'name': 'Cash', 'incoming': ['Order to receive'], 'outgoing': ['Adjust Pieper and hand over to guest']}
+{'id': 'sid-F209F8A8-E876-47B7-A51A-3DBF79706FE2', 'name': 'Adjust Pieper and hand over to guest', 'incoming': ['Order to receive'], 'outgoing': ['Order payment request delivered to VN Koch']}
+{'id': 'sid-07086783-0191-465F-9F2D-CD696166C557', 'name': 'Order payment request delivered to VN Koch', 'incoming': ['Order to receive'], 'outgoing': ['Food is ready\n']}
+{'id': 'sid-792C0E54-7EF8-471A-AA24-AE49E9DE20B9', 'name': 'Notifies customers about Piepser', 'incoming': ['Order to receive'], 'outgoing': ['Customer appears?']}
+{'id': 'sid-2613F0F0-2AED-473D-8F78-68034A48604B', 'name': 'Pick up Pieper\n', 'incoming': ['Leave food'], 'outgoing': ['Ordered']}
+{'id': 'sid-77C1AE74-7F89-4781-8D0D-8A8AD823DD0F', 'name': 'Leave food', 'incoming': ['Customer appears?'], 'outgoing': ['Ordered']}
+{'id': 'sid-822A23D4-BD48-4F5C-A297-372C5B270D67', 'name': 'Retrieve customer', 'incoming': ['5 minutes waiting'], 'outgoing': ['Ordered']}
+{'id': 'sid-D6569062-EE26-4644-8DF0-D10D1E81B4B5', 'name': 'Cook your order', 'incoming': ['Order to receive'], 'outgoing': ['Putting meal in vain']}
+{'id': 'sid-346442E4-8680-45DA-8270-CFFAB373F2D7', 'name': 'Putting meal in vain', 'incoming': ['Order to receive'], 'outgoing': ['inform employees about completion']}
+{'id': 'sid-585AFD79-DD82-4609-A20F-4FCC170C0B0B', 'name': 'inform employees about completion', 'incoming': ['Order to receive'], 'outgoing': ['Prepared food']}
+
+Gateways:
+{'id': 'sid-98AE0A53-DAF1-4EB9-AA80-6C1A0D3E8F9A', 'name': 'Customer appears?', 'incoming': ['Food is ready\n', 'Food is ready\n'], 'outgoing': ['Customer appears?', 'Ordered']}
+{'id': 'sid-B36596B7-73FC-480E-B6C4-A74E564D6F5B', 'name': 'Piepser releases', 'incoming': ['Waiting period'], 'outgoing': ['Sat']}
+{'id': 'sid-8BF20EAC-D519-4D8D-88B2-6936C7A4E144', 'name': 'Waiting period', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Pick up food\n']}
+{'id': 'sid-764CF8C9-5278-43D0-BFA8-A3B9D01A697E', 'name': 'Food is ready\n', 'incoming': ['Order to receive'], 'outgoing': ['Customer appears?']}
+{'id': 'sid-17478005-377C-4646-B073-077414307270', 'name': '5 minutes waiting', 'incoming': ['Food is ready\n'], 'outgoing': ['Customer appears?']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Add your order\n']}
+{'id': 'sid-DA6E4AD3-ADF9-4886-991F-B1FACA5D5319', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Notifies customers about Piepser']}
+{'id': 'sid-3EECFF28-7739-4FBB-936F-73274A019CA3', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['inform employees about completion']}
+
+End Events:
+{'id': 'sid-33487DE7-335A-4D74-82FE-D770E1FE97C7', 'name': 'Sat', 'incoming': ['Piepser releases'], 'outgoing': []}
+{'id': 'sid-FD0724C5-8EB2-49B6-944A-F964A2D1284A', 'name': 'Ordered', 'incoming': ['Retrieve customer'], 'outgoing': []}
+{'id': 'sid-E65DDCA3-A521-47E9-8158-E1316EE95503', 'name': 'Prepared food', 'incoming': ['inform employees about completion'], 'outgoing': []}

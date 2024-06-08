@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-7BFD0A66-BF1E-4ABA-AA87-E35A4EEAA587', 'name': 'forward query', 'incoming': ['Question\nobtained'], 'outgoing': ['Schufascoring\nimmediately determined']}
+{'id': 'sid-8A83D112-1532-4C29-A5D7-BA7654B3E7DB', 'name': 'Scoring result\nforward', 'incoming': ['final\nScoring result\nobtained'], 'outgoing': ['Scoring\ndetermined']}
+{'id': 'sid-CB46D6E5-1A25-460E-937E-21381A65E431', 'name': 'Conduct scoring (level 1)', 'incoming': ['Scoring\nQuestion\nobtained'], 'outgoing': ['Scoring\ndetermined']}
+{'id': 'sid-656830A1-D88E-469E-833C-00D24B1D8477', 'name': 'more scoring\n(level 2)', 'incoming': ['sid-88377DB9-BD78-4109-8FC3-D8161DE06839'], 'outgoing': ['final\nScoring result\ndetermined']}
+
+Gateways:
+{'id': 'sid-8B280DF9-E78D-4B58-8621-91EC4BA6C799', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'final\nScoring result\nobtained'], 'outgoing': ['Scoring\ndetermined']}
+{'id': 'sid-10601932-5E55-4672-A342-00BE7FEBD6FF', 'name': 'immediate result\navailable?', 'incoming': ['Scoring\nQuestion\nobtained'], 'outgoing': ['sid-184CB2D0-962E-4A4B-A638-DD80C975917F', 'Scoring\ndetermined']}
+{'id': 'sid-C69B2AC3-9987-4BC9-BDA9-86346E97A532', 'name': 'EventBasedGateway2', 'incoming': ['Question\nobtained'], 'outgoing': ['Scoring\ndetermined', 'Schufascoring\ndelayed']}
+{'id': 'sid-CE6D2F91-765D-4854-9F73-AC97F9D244D9', 'name': 'final\nScoring result\nobtained', 'incoming': ['sid-0DC9CDD3-C623-4308-B815-A86EFB797152'], 'outgoing': ['Scoring result\nforward']}
+{'id': 'sid-12E3CCA1-969B-4EA9-834E-73DBA5386132', 'name': 'Schufascoring\nimmediately determined', 'incoming': ['forward query'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-CFBCB5EB-34B5-4201-B545-58B0B018ADDB', 'name': 'Schufascoring\ndelayed', 'incoming': ['Question\nobtained'], 'outgoing': ['sid-28699A3E-EED6-40CC-8752-7A9BD3204015']}
+
+Start Events:
+{'id': 'sid-1A64D42A-9BFA-4131-9FB8-7B6D4079567C', 'name': 'Question\nobtained', 'incoming': [], 'outgoing': ['Schufascoring\ndelayed']}
+{'id': 'sid-BA0929A0-EF9F-4D09-B554-B9DF03EC5F88', 'name': 'Scoring\nQuestion\nobtained', 'incoming': [], 'outgoing': ['immediate result\navailable?']}
+
+End Events:
+{'id': 'sid-378AE527-CEC7-49F0-92AB-EACBFD8249B0', 'name': 'Scoring\ndetermined', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-5BA587FC-8871-4097-8FF8-21CFF40623B8', 'name': 'final\nScoring result\ndetermined', 'incoming': ['more scoring\n(level 2)'], 'outgoing': []}
+{'id': 'sid-8D9F0C3F-D8E2-4A57-98B5-D8C2BB2647D8', 'name': 'Scoring\ndetermined', 'incoming': ['Conduct scoring (level 1)'], 'outgoing': []}

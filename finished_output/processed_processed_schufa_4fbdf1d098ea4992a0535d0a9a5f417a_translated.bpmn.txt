@@ -1,0 +1,13 @@
+ In a financial services workflow, a request for a Sufa (a type of credit check) triggers a series of events and interactions between various systems and gateways. Here's a natural flow description of the process:
+
+1. A user initiates a Sufa request, which is captured by the 'Scoring requests you have, they are' start event.
+2. The request is then sent to the 'Scoring request Report' gateway, which is responsible for processing the request and determining if a second level of scoring is needed.
+3. The 'Delay of the bank' event is triggered, indicating that the bank will take some time to process the request.
+4. The 'perform second scoring (level 2)' event is triggered, which involves a second level of scoring to determine the creditworthiness of the user.
+5. The 'perform second scoring (level 2)' event is routed to the 'ExclusiveGateway0' to continue the process.
+6. The 'Result obtained' event is triggered, indicating that the second level of scoring has been completed and the result is ready.
+7. The 'Result is fixed' event is triggered, signaling that the result is finalized and ready to be sent to the user.
+8. The 'Sending result to Bank' event is triggered, which involves sending the result to the bank for further processing.
+9. The 'EndEvent1' event is triggered, marking the completion of the process.
+
+Throughout this process, there are also intermediate events and gateways involved, such as 'IntermediateCatchEvent4' and 'ExclusiveGateway1', which handle various tasks and decision points in the workflow.

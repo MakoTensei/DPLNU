@@ -1,0 +1,13 @@
+ In the case of a regression possibility before a payment request, the system initiates a 'Case Check' process, which is directed towards 'ExclusiveGateway2'. If the case is deemed justified, the system proceeds to reject the request and sets up a rejection process. Concurrently, an 'Opposition Check' is triggered due to a contradiction from the Vendor Number (VN), also leading to 'ExclusiveGateway2'.
+
+
+Meanwhile, the 'Payment on request' task is set in motion, sending a message to the debtor. If the 'Regression case' is confirmed, the system routes the payment request to 'ExclusiveGateway2'. However, if the rejection process is established, the system sends a message to 'ExclusiveGateway3' for further action.
+
+
+As the payment request is processed, a 'Payment Book' event is triggered, which is directed towards 'ExclusiveGateway2'. If the rejection process is in place, the system sends a message to 'ExclusiveGateway3'.
+
+
+Upon successful processing of the payment request, the system closes the 'Process Debtor Delivered' task, which is triggered by the 'Regression possible?' event.
+
+
+Simultaneously, the 'Process Closed' task is initiated, which is triggered by the 'Payment Book' event. This task concludes the entire sequence of events, marking the end of the process.

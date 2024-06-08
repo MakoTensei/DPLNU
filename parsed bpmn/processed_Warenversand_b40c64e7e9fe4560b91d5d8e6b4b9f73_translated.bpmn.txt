@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-026F0FF1-94A2-4BB9-9137-0944F6C647DC', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-DBF66607-5329-4524-B5C1-03F920360E1A', 'name': 'Delivering goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E42E33CA-6AA7-4CE6-A6B5-5E590795C7BC', 'name': 'Goods are to be shipped', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-99C3DEE9-D806-4F0C-9650-924616CC5E15', 'name': 'diverging shipping', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-74550377-9E88-41C8-BB86-B7FC31CCF5A9', 'name': 'Filling the package note', 'incoming': ['ParallelGateway3'], 'outgoing': ['check whether insurance is necessary']}
+{'id': 'sid-E9D878E7-C738-4854-B2EE-000B851C6022', 'name': 'check whether insurance is necessary', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-DC36943E-8E73-4058-AD0F-7BDD947854FA', 'name': 'Pick up offers from 3 forwardings\n', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Choose the cheapest offer']}
+{'id': 'sid-644BBF76-484A-41C2-85A8-12B31CB095D0', 'name': 'Choose the cheapest offer', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Specialist\n']}
+{'id': 'sid-16DA43B2-94DE-497F-9E3C-A49CDAED383D', 'name': 'Specialist\n', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-286BAA73-F0F5-48C5-A91C-FB702A30BA91', 'name': 'Complete insurance', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ParallelGateway2']}
+
+Gateways:
+{'id': 'sid-A604247F-3E92-4E97-A745-166F9214CE67', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent0', 'ParallelGateway2']}
+{'id': 'sid-27F12DCD-E78E-44EA-8DFC-7A976F9222BB', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Complete insurance', 'EndEvent0']}
+{'id': 'sid-C209E29A-90B0-49BA-ADAE-62B2CB25C36B', 'name': 'ParallelGateway2', 'incoming': ['ParallelGateway3', 'Complete insurance', 'ExclusiveGateway0', 'check whether insurance is necessary'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-FD258FC4-29D5-4F83-B3CF-8941E0DF494E', 'name': 'ParallelGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['Delivering goods', 'Filling the package note']}
+
+Start Events:
+{'id': 'sid-624BB71B-BE9E-4B60-9ABD-4B4518381E0F', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['diverging shipping']}
+
+End Events:
+{'id': 'sid-11554EBA-6F4B-405D-B58D-6EC489C7F5A1', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

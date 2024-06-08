@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-AF85F1D2-717E-4A7E-B0DE-E170BB1ABC1C', 'name': 'Select a court', 'incoming': ['Visit the restaurant'], 'outgoing': ['On the row']}
+{'id': 'sid-A7BD8006-61AD-4F81-9883-2753FE625656', 'name': 'Visit the restaurant', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['On the row']}
+{'id': 'sid-145DD319-ED52-40E6-AC10-D84E77EBBC0E', 'name': 'Add your order', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Order payment']}
+{'id': 'sid-512EFE32-C624-4845-9F0A-12C25E8D8404', 'name': 'Order payment', 'incoming': ['On the row'], 'outgoing': ['Pieper piept']}
+{'id': 'sid-202EE5AF-5C3D-4952-9304-17C2C77C28EA', 'name': 'Pick up meal', 'incoming': ['Pieper piept'], 'outgoing': ['Eat meal']}
+{'id': 'sid-4E2ACC17-1824-4579-BA44-0B80BBE15B25', 'name': 'Eat meal', 'incoming': ['Pieper piept'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-505B5D29-BDE1-4A11-AF81-D56731FB4664', 'name': 'Enter your order', 'incoming': ['Ordering\narrived'], 'outgoing': ['Cash']}
+{'id': 'sid-A9832053-123C-4FB2-ABBE-C240F830EFAD', 'name': 'Cash', 'incoming': ['Ordering\narrived'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-A24BFAC5-5038-4A17-AD67-C65DE99B9032', 'name': 'Adjust Pieper', 'incoming': ['Ordering\narrived'], 'outgoing': ['Pieper over']}
+{'id': 'sid-CA8AF64D-E7B6-4EF3-925F-32B15F1F5191', 'name': 'Pieper over', 'incoming': ['Ordering\narrived'], 'outgoing': ['Koch inform']}
+{'id': 'sid-A81DC6BB-1FB0-4986-8137-32D003C74321', 'name': 'Koch inform', 'incoming': ['Ordering\narrived'], 'outgoing': ['meal is prepared']}
+{'id': 'sid-2F1DBE39-C56E-4C73-AE18-93EDE10F49E5', 'name': 'Trigger Pieper', 'incoming': ['Ordering\narrived'], 'outgoing': ['5 minutes']}
+{'id': 'sid-DC44656F-A161-48E9-9531-2186455DEA4D', 'name': 'Hand over meal', 'incoming': ['Customer\nappears'], 'outgoing': ['Processed']}
+{'id': 'sid-8BD0EB8B-7861-4705-987A-E7278172D6D9', 'name': 'Retrieve customers', 'incoming': ['Ordering\narrived'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-2BA8456D-EB34-4D91-BC76-9AC95CDE10A9', 'name': 'Preparation of meal', 'incoming': ['StartEvent2'], 'outgoing': ['Putting the meal into the reach']}
+{'id': 'sid-274D4455-59AF-4FFA-ACC9-5B6BB63441AE', 'name': 'Putting the meal into the reach', 'incoming': ['StartEvent2'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-66BC30AA-692D-4E69-B041-2A819932CB9D', 'name': 'EventBasedGateway0', 'incoming': ['meal is prepared', 'EventBasedGateway0'], 'outgoing': ['Processed', 'EventBasedGateway0']}
+{'id': 'sid-AB8F447D-0302-4DEF-A1F0-EED8F759E762', 'name': 'On the row', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-5A0A75DF-D015-4416-B48A-BF8A6078CE0E', 'name': 'Pieper is\nagainst\ntaken', 'incoming': ['On the row'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E46AE35F-F5E3-4513-9B38-81F8F5166BBB', 'name': 'Pieper piept', 'incoming': ['Order payment'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-EDAEA1D3-E637-4973-8D3C-905EE3AB98E0', 'name': 'meal is prepared', 'incoming': ['Ordering\narrived'], 'outgoing': ['Customer\nappears']}
+{'id': 'sid-DEE5995C-E833-4EAF-B1E4-66C07FF1A428', 'name': 'Customer\nappears', 'incoming': ['meal is prepared'], 'outgoing': ['Processed']}
+{'id': 'sid-8AD9EDF6-C3B7-46CD-996B-49AC14331A90', 'name': '5 minutes', 'incoming': ['Ordering\narrived'], 'outgoing': ['Processed']}
+
+Start Events:
+{'id': 'sid-48510919-9154-4092-B019-72B89FC2146A', 'name': 'Hunger\nNot applicable', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-F5371514-E5CF-4A3B-908B-2F3118AADCB1', 'name': 'Ordering\narrived', 'incoming': [], 'outgoing': ['Retrieve customers']}
+{'id': 'sid-7D5A776D-7006-4804-B170-E85F42451813', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['Putting the meal into the reach']}
+
+End Events:
+{'id': 'sid-79908B60-85C3-4D80-9A1B-6201A01371C8', 'name': 'EndEvent0', 'incoming': ['On the row'], 'outgoing': []}
+{'id': 'sid-6CFD2511-EA87-472B-815D-8E41A4E33FDB', 'name': 'Processed', 'incoming': ['5 minutes'], 'outgoing': []}
+{'id': 'sid-EE7302BD-AE90-409D-91FF-F8D0B0A500EC', 'name': 'EndEvent2', 'incoming': ['Putting the meal into the reach'], 'outgoing': []}

@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-53396495-9261-4C46-A5F6-C242BCB9BA9A', 'name': 'Check the case', 'incoming': ['VN may be\nbe taken in regress'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-BF906D37-8FDA-4868-880A-3FCB4411906C', 'name': 'Send payment request to VN', 'incoming': ['VN may be\nbe taken in regress'], 'outgoing': ['Money received']}
+{'id': 'sid-3371C8D8-A602-44A8-88FF-2FB266DBDB9D', 'name': 'Close the case', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Case closed']}
+{'id': 'sid-F986E23C-0FB0-4342-9455-36C265740B66', 'name': 'Book money receipt', 'incoming': ['Money received'], 'outgoing': ['Money\nReport']}
+{'id': 'sid-3D6D321E-E11E-49FB-B633-E931E1EC19F3', 'name': 'Proceedings', 'incoming': ['VN may be\nbe taken in regress'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-7A68D4A9-956B-4DE3-A1CD-80A6172E0A71', 'name': 'Debt collection companies', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Debt collection']}
+
+Gateways:
+{'id': 'sid-B0BDDBD7-769B-40A4-B328-A784C74F1DD4', 'name': 'Regression\npossible?', 'incoming': ['VN may be\nbe taken in regress'], 'outgoing': ['Money\nReport', 'Case closed']}
+{'id': 'sid-6B8B1693-6F28-4B24-A0DC-E2B0EF90EC16', 'name': 'Revocation justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-9B38D939-1096-43A2-B003-638F0B21CC18', 'name': 'ExclusiveGateway2', 'incoming': ['VN may be\nbe taken in regress', 'Check the case'], 'outgoing': ['Case closed']}
+{'id': 'sid-E4DFA1E7-3217-4960-B3C9-CB353C2BF50C', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Notification'], 'outgoing': ['Debt collection']}
+{'id': 'sid-84AFFF93-926A-481B-B9BE-58D7026A3665', 'name': 'EventBasedGateway4', 'incoming': ['VN may be\nbe taken in regress'], 'outgoing': ['Money received', 'Revocation justified?', 'Debt collection companies']}
+{'id': 'sid-05981108-0A5D-4EBC-9E41-63DF7992F04C', 'name': 'Money received', 'incoming': ['Regression\npossible?'], 'outgoing': ['Money\nReport']}
+{'id': 'sid-C57C0627-467C-47AA-A930-64850AFC6AF6', 'name': 'Notification', 'incoming': ['VN may be\nbe taken in regress'], 'outgoing': ['Debt collection']}
+{'id': 'sid-2AB81F92-246E-45D4-A6AD-AE6E2BCCB6B8', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-13F1D99F-625E-440B-9DEC-58B9071B16A1', 'name': 'VN may be\nbe taken in regress', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-E452AD30-7CE1-47F7-A1AE-A5F3BA461A78', 'name': 'Case closed', 'incoming': ['Regression\npossible?'], 'outgoing': []}
+{'id': 'sid-BE8E1493-E1C1-4712-8BC3-5284B5A51426', 'name': 'Debt collection', 'incoming': ['Notification'], 'outgoing': []}
+{'id': 'sid-1B919F47-7603-45E9-A2AF-9FF901F4F8A8', 'name': 'Money\nReport', 'incoming': ['Regression\npossible?'], 'outgoing': []}

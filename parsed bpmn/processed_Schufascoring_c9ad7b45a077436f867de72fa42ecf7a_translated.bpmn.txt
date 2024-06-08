@@ -1,0 +1,16 @@
+Tasks:
+{'id': 'sid-3BEF9C80-BE92-49A0-B24C-349B551E90F9', 'name': 'Request the consent of the customer', 'incoming': ['Schufa show\nrequired'], 'outgoing': ['Incomplete clarification\nis there?']}
+{'id': 'sid-3D6FFC04-4E0A-41D9-B97A-4E5ADA46D9A4', 'name': 'Scoring request\nsend', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-B3EE7521-0006-42B3-9AA6-A4C7D7CE2CA3', 'name': 'Determine final scoring result', 'incoming': ['sid-DAC67121-1081-4431-8863-D7449A7AB3DB'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-699DF1AB-8C4A-4F6B-B551-604445DC2DA0', 'name': 'Incomplete clarification\nis there?', 'incoming': ['Schufa show\nrequired'], 'outgoing': ['sid-390C47EB-74D7-4FED-BA01-113537ECA54E']}
+{'id': 'sid-6A8F936D-8C44-4335-96C0-DAB816337972', 'name': 'ExclusiveGateway1', 'incoming': ['Determine final scoring result', 'Scoring request\nobtained'], 'outgoing': ['sid-2BF2B2D6-FDDA-4CF4-974B-9418B1BD8068']}
+{'id': 'sid-F1AE31AC-6BD8-4A9B-8A9E-843FF156B03E', 'name': 'Scoring result\nobtained', 'incoming': [], 'outgoing': ['sid-00341310-7890-4D74-AD67-1006CC5C7386']}
+
+Start Events:
+{'id': 'sid-CB1BF917-6BEA-428F-BC06-145C60FF42AD', 'name': 'Schufa show\nrequired', 'incoming': [], 'outgoing': ['Incomplete clarification\nis there?']}
+{'id': 'sid-FCBD8C6F-C610-4A12-A47B-5CAA87614BCB', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-91AD6DFA-592E-4CFF-8A97-A1E100C9C12E', 'name': 'Scoring request\nFinished', 'incoming': ['sid-B4152D0E-3F91-4FCE-9E91-3481DD2E7957'], 'outgoing': []}

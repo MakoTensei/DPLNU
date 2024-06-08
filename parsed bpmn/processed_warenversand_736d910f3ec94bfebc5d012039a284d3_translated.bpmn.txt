@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-16AFBE76-3D89-4C33-AC7D-629B1001305C', 'name': 'Closes insurance', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-E53DA7A0-3B26-418C-A620-CD9EABA287B4', 'name': 'Examination of the quantity of goods', 'incoming': ['Goods to be shipped\n\nthey are'], 'outgoing': ['How large is quantity of goods?']}
+{'id': 'sid-F0F60120-31D4-4290-9BE7-4B95C4E0A905', 'name': 'fill out standard package tickets', 'incoming': ['ParallelGateway6'], 'outgoing': ['Examination whether insurance is necessary']}
+{'id': 'sid-6E0D4147-0D68-466D-8D65-E0A7161C29B9', 'name': 'Examination whether insurance is necessary', 'incoming': ['How large is quantity of goods?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-7BA0D0CA-C040-4CC4-A33E-DBD8F6C6BCD2', 'name': 'Pick up 3 offers', 'incoming': ['How large is quantity of goods?'], 'outgoing': ['Choose the cheapest offer']}
+{'id': 'sid-090E3A9A-298D-4E8C-81EF-60F9BE6609A6', 'name': 'Choose the cheapest offer', 'incoming': ['How large is quantity of goods?'], 'outgoing': ['What offer\nselected?']}
+{'id': 'sid-67876F38-3750-455B-9001-7664092CDE52', 'name': 'commissioned by Spediteur 1', 'incoming': ['What offer\nselected?'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-28EA36D7-15CB-4A20-A90E-49C0DAF0E4E9', 'name': 'commission Spediteur 2', 'incoming': ['What offer\nselected?'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-4E8ACC02-B0EF-4536-B120-6D43352BFCF6', 'name': 'commissioned by Spediteur 3', 'incoming': ['What offer\nselected?'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-D5C4E1A0-686D-47C6-A5E2-BA890CAF7F98', 'name': 'Packaging goods', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-5AABEC01-F26B-4EB4-B442-F793A6E073BE', 'name': 'Product is provided', 'incoming': ['ParallelGateway7'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-88D263CC-3E95-435B-BD75-31F57B14F574', 'name': 'How large is quantity of goods?', 'incoming': ['ParallelGateway6'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway5']}
+{'id': 'sid-377C0311-CC64-4A14-B34E-02F7D38EC030', 'name': 'Insurance necessary?', 'incoming': ['How large is quantity of goods?'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-D3028D52-A5A7-4DFD-AB7E-2F921F5361B2', 'name': 'ExclusiveGateway2', 'incoming': ['Examination whether insurance is necessary', 'How large is quantity of goods?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-393C0E90-9A84-4FFA-8FFF-B7289879FFDE', 'name': 'ExclusiveGateway3', 'incoming': ['What offer\nselected?', 'Closes insurance'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-FCDBC2E2-FF04-45FE-A920-A6BC29A069CB', 'name': 'What offer\nselected?', 'incoming': ['How large is quantity of goods?'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway5', 'ExclusiveGateway5']}
+{'id': 'sid-672E0FE3-7097-47C8-88B0-E2B22F4605D5', 'name': 'ExclusiveGateway5', 'incoming': ['How large is quantity of goods?', 'What offer\nselected?', 'What offer\nselected?'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-8BF0061B-1882-4695-BCD2-6EED0A3A96D8', 'name': 'ParallelGateway6', 'incoming': ['Goods to be shipped\n\nthey are'], 'outgoing': ['fill out standard package tickets', 'ParallelGateway7']}
+{'id': 'sid-3786EB6E-4B61-46D4-AAB8-31A503365171', 'name': 'ParallelGateway7', 'incoming': ['ParallelGateway6', 'commissioned by Spediteur 1'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-39427B8C-C0A9-4DCD-9EE0-D0F2A2006844', 'name': 'Goods to be shipped\n\nthey are', 'incoming': [], 'outgoing': ['Examination of the quantity of goods']}
+
+End Events:
+{'id': 'sid-851259F3-7AF0-48AD-8BEF-AE13EC6F13B3', 'name': 'EndEvent0', 'incoming': ['ParallelGateway7'], 'outgoing': []}

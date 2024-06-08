@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-AD8A1DF0-C366-4198-A40E-BAC6ED8B15FC', 'name': 'Select a court', 'incoming': ['Feeling hungry'], 'outgoing': ['sid-B1F23032-9215-49E1-8390-D8B3889FA941', 'Guest\ninformed']}
+{'id': 'sid-DE6F7D0F-8DC3-4A7F-92FA-348511250375', 'name': 'Pick up food', 'incoming': ['Guest\ninformed'], 'outgoing': []}
+{'id': 'sid-C09BAE46-FD4D-4FA6-AB1F-1D4394D03B65', 'name': 'Enter your order', 'incoming': ['Order\nadopted'], 'outgoing': ['sid-D70E13DB-4A9B-4A25-BED3-2688FAC86074']}
+{'id': 'sid-6ACCF6ED-801D-442E-A2FA-DAA900AAF009', 'name': 'Trigger Pieper', 'incoming': ['Court of Justice\nprepared'], 'outgoing': ['5 minutes']}
+{'id': 'sid-E65E313D-5ACD-4E59-8136-AE5351551C4E', 'name': 'Deliver food', 'incoming': ['Court of Justice\nprepared'], 'outgoing': []}
+{'id': 'sid-15FE2D03-E8C1-496F-BA5D-CC12FED3C9FB', 'name': 'prepare court', 'incoming': ['Order\nReport'], 'outgoing': ['Introduce']}
+{'id': 'sid-12E18E0B-3A80-4DB4-A214-B3646B619044', 'name': 'Introduce', 'incoming': ['Order\nReport'], 'outgoing': ['sid-834461D7-A4A7-4109-9E5A-857F2710E836']}
+
+Gateways:
+{'id': 'sid-CAB25FB1-FF87-47D7-A7D4-3C904FE93BE4', 'name': 'EventBasedGateway0', 'incoming': ['Court of Justice\nprepared'], 'outgoing': ['Deliver food', '5 minutes']}
+{'id': 'sid-D7E3B4FC-C8A0-4C05-8C4B-8D9C5F6A49DC', 'name': 'Money\npaid', 'incoming': ['Feeling hungry'], 'outgoing': ['Guest\ninformed']}
+{'id': 'sid-0E860420-2090-41DE-A7AE-41DB52CD96EE', 'name': 'Guest\ninformed', 'incoming': ['Select a court'], 'outgoing': ['Pick up food']}
+{'id': 'sid-B2C3507B-1860-4D04-99A8-E1CFE7A2A481', 'name': 'Order\nadopted', 'incoming': [], 'outgoing': ['Enter your order']}
+{'id': 'sid-C5C515F5-24E9-4FBB-BD4E-E592C32B1833', 'name': '5 minutes', 'incoming': ['Trigger Pieper'], 'outgoing': []}
+{'id': 'sid-736CD3CC-3E14-47DC-AD7D-B9606216967F', 'name': 'Court of Justice\nprepared', 'incoming': ['sid-7EDD4529-4703-48EB-B953-D189903DB9CD'], 'outgoing': ['Deliver food']}
+
+Start Events:
+{'id': 'sid-C597483B-0E17-40A1-ADA0-E931F2812E33', 'name': 'Feeling hungry', 'incoming': [], 'outgoing': ['Money\npaid']}
+{'id': 'sid-226F595C-4ABF-4C79-A9BE-053732C83F51', 'name': 'Order\nReport', 'incoming': [], 'outgoing': ['Introduce']}
+
+End Events:

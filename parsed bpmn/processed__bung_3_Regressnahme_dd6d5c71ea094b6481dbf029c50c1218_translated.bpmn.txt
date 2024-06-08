@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-C35D557A-D321-4B17-83EC-658A5570D2F7', 'name': 'Check the case', 'incoming': ['Regression possibility\nNot applicable'], 'outgoing': ['Regression?']}
+{'id': 'sid-A526D713-8DEF-4E8D-A29B-1657B267A60B', 'name': 'Send a message', 'incoming': ['Regression possibility\nNot applicable'], 'outgoing': ['Debt collection']}
+{'id': 'sid-F442DCAD-8179-4456-A3D1-28D1C3EEB8FC', 'name': 'Examination', 'incoming': ['Regression possibility\nNot applicable'], 'outgoing': ['Debt collection']}
+{'id': 'sid-55D869BA-775A-40BD-A4C1-DC67B3585906', 'name': 'Book the process', 'incoming': ['Money received'], 'outgoing': ['Process']}
+
+Gateways:
+{'id': 'sid-0A4DBDE8-1EFA-4C40-B31B-B391492014E5', 'name': 'Regression?', 'incoming': ['Regression possibility\nNot applicable'], 'outgoing': ['Debt collection', 'Process']}
+{'id': 'sid-CAC5BC55-9B8A-4410-9092-E1184F73AD4F', 'name': 'justified?', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['Process', 'Debt collection']}
+{'id': 'sid-1E69F06E-C2FA-4EA8-A18E-38F869AE2ED4', 'name': 'IntermediateCatchEvent2', 'incoming': ['Regression possibility\nNot applicable'], 'outgoing': ['2 days\nReimbursement', 'justified?', 'Money received']}
+{'id': 'sid-CB2F69C9-A2DA-430E-BC79-2D78FBC037DD', 'name': '2 days\nReimbursement', 'incoming': ['Send a message'], 'outgoing': ['Debt collection']}
+{'id': 'sid-1B07DD19-35FD-4934-A8DD-41503633E130', 'name': 'References', 'incoming': ['Regression possibility\nNot applicable'], 'outgoing': ['Process']}
+{'id': 'sid-109ABE77-2819-4A24-875C-D07877D5B2CB', 'name': 'Money received', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['Process']}
+
+Start Events:
+{'id': 'sid-11B93A9A-FCB7-42CB-89F7-65D2EBFE2C3B', 'name': 'Regression possibility\nNot applicable', 'incoming': [], 'outgoing': ['Examination']}
+
+End Events:
+{'id': 'sid-DC49AD39-127A-4434-81B5-CDAF64EC20B3', 'name': 'Debt collection', 'incoming': ['Regression?', 'Examination'], 'outgoing': []}
+{'id': 'sid-95E62CA1-E65A-4AC8-8BF6-618AD9F80276', 'name': 'Process', 'incoming': ['Money received', 'References', 'Regression?'], 'outgoing': []}

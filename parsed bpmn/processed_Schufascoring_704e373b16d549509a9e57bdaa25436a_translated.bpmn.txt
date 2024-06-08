@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-56C78B1E-5C0D-4036-8DE2-302B338F646E', 'name': 'Scoring request', 'incoming': ['Scoring\nQuestion\nstarted'], 'outgoing': ['Delay?']}
+{'id': 'sid-B282FB7C-C91D-4415-9429-5B153236B2DA', 'name': 'forward scoring result', 'incoming': ['Scoring\nQuestion\nstarted'], 'outgoing': ['Scoring\nFinished']}
+{'id': 'sid-E8F63023-2F24-4D2C-832C-22369F771A51', 'name': 'forwarding delay message', 'incoming': ['Delay?'], 'outgoing': ['Scoring result\nobtained']}
+{'id': 'sid-8AD8EE05-14B3-42C2-92F4-8F30E98CA2F9', 'name': 'Scoring\nresult\nforward', 'incoming': ['Scoring result\nobtained'], 'outgoing': ['Scoring\nFinished']}
+{'id': 'sid-EC7C19EB-BEDA-464B-A7C2-DB2EAF862955', 'name': 'Scoring\n(level 1)', 'incoming': ['Scoring\nQuestion\nstarted'], 'outgoing': ['Scoring result\navailable']}
+{'id': 'sid-56A12F91-306B-4D7A-A4DC-1B05C1198C49', 'name': 'Scoring\n(level 2)', 'incoming': ['sid-C6EB9915-DF30-45A0-9588-EC49F8CB96DE'], 'outgoing': ['Scoring\ncompleted']}
+
+Gateways:
+{'id': 'sid-FC68C0DB-2F87-428D-890D-C3C9566F9CD3', 'name': 'Delay?', 'incoming': ['Scoring\nQuestion\nstarted'], 'outgoing': ['Scoring\nFinished', 'Scoring\nFinished']}
+{'id': 'sid-13ED8909-D25D-480D-8D4F-A7575DCAFD2A', 'name': 'EventBasedGateway1', 'incoming': ['Scoring\nQuestion\nstarted'], 'outgoing': ['Scoring\ncompleted', 'Scoring\ndelays']}
+{'id': 'sid-86A55EE5-9D8A-49A1-B0CE-3F9BE3502815', 'name': 'Scoring result\nobtained', 'incoming': ['Delay?'], 'outgoing': ['Scoring\nFinished']}
+{'id': 'sid-07F819CE-2E22-4A06-87AC-991072F5C0E2', 'name': 'Scoring result\navailable', 'incoming': ['Scoring\n(level 1)'], 'outgoing': ['Scoring\ncompleted']}
+{'id': 'sid-2AF19B56-8A8F-494B-A9FE-9B8FCAA7DD34', 'name': 'Scoring\ndelays', 'incoming': ['Scoring\nQuestion\nstarted'], 'outgoing': ['sid-BB0B4D2A-E456-4C18-AC7C-EBCD54095277']}
+{'id': 'sid-D21BF0A9-F20D-4621-AAA0-946ABFD093A0', 'name': 'Scoring result\nthe', 'incoming': ['Scoring\n(level 2)'], 'outgoing': ['Scoring\ncompleted']}
+
+Start Events:
+{'id': 'sid-9BF50450-3EBC-4428-8054-315FE780D947', 'name': 'Scoring\nQuestion\nstarted', 'incoming': [], 'outgoing': ['forward scoring result']}
+{'id': 'sid-FC3DAD72-6802-4E9A-AB8B-1F35A9ED34FE', 'name': 'Scoring\nQuestion\nstarted', 'incoming': [], 'outgoing': ['Scoring\ndelays']}
+
+End Events:
+{'id': 'sid-989E9BE2-1602-46B9-82F5-4F91AE823120', 'name': 'Scoring\nFinished', 'incoming': ['Delay?', 'Delay?'], 'outgoing': []}
+{'id': 'sid-9DB2A271-E65A-4D57-86B5-EE81A51DBF0E', 'name': 'Scoring\ncompleted', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-F0DDCB7A-73F6-4C76-99BE-E60F48F26EEA', 'name': 'Scoring\ncompleted', 'incoming': ['Scoring\n(level 2)'], 'outgoing': []}

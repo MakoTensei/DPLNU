@@ -1,0 +1,11 @@
+ In the event of a scoring requirement, the system initiates a series of tasks to ensure a successful scoring process. The process begins with the 'Scoring\nRequired' event, which triggers the 'ExclusiveGateway0' to forward the request to the 'Successful scoring' task. This task, identified by'sid-4DC7E8C5-4FCD-4E83-BFAA-B96A3C503A01', is responsible for performing the scoring request and subsequently forwarding the successful result to the 'Scoring\nforwarded' task.
+
+Simultaneously, the 'Scoring - Request' event initiates the 'ExclusiveGateway2' to report the result. This task, identified by'sid-2CD536A2-10EF-49E2-86B8-F3792FF8B61C', is responsible for reporting the successful scoring result.
+
+In case of any delays during the scoring process, the 'Scoring\nRequired' event triggers the 'EventBasedGateway3' to report the delay. This task, identified by'sid-6CF2DA13-71E1-4F8C-8102-A11C0635D89D', is responsible for reporting the delay and forwarding the request to the 'Report delay' task.
+
+The 'Report delay' task, identified by'sid-B8C503DE-D12D-40B8-999D-F219789AD39A', is responsible for forwarding the delay request to the 'perform scoring L2' task.
+
+The 'perform scoring L2' task, identified by'sid-6433E134-5DA5-45D8-8550-58C305F07B54', is responsible for performing the scoring at the L2 level and forwarding the result to the 'Scoring\nReport' task.
+
+The 'Scoring\nReport' task, identified by'sid-9CC40B09-3EAA-

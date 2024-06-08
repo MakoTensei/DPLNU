@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-CC9917D7-04B4-4DAD-9A48-0365FFECD408', 'name': 'Send request', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-247A5EA3-5F48-4D34-ACE7-48D656E85152', 'name': 'View result', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-3AB53AE3-CCC9-44DD-9C5D-A720115351EC', 'name': 'Share delay', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-CE7A30B0-75C6-4D9C-8154-32A716128303', 'name': 'Test\nLevel 1', 'incoming': ['StartEvent1'], 'outgoing': ['final\nResult']}
+{'id': 'sid-07D810CF-0DAB-47C7-BF74-C8D1718BC4A7', 'name': 'Test\nConduct Level 2', 'incoming': ['sid-47120969-E9F8-4F13-A44E-90EBCD26399E'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-4412529B-9F7C-4128-8170-28F38CFC1F2C', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9A54DECD-FA80-4655-929C-4FD2BE9E96FF', 'name': 'final okay?', 'incoming': ['StartEvent1'], 'outgoing': ['sid-75665E69-424E-423D-B798-2C3DBC94C4FB', 'final\nResult']}
+{'id': 'sid-6EDA75F6-B000-4204-BDA1-F71D7C0F2362', 'name': 'EventBasedGateway2', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'IntermediateCatchEvent4']}
+{'id': 'sid-BF8AA403-C9FC-4CFB-8704-9F68F1D9F906', 'name': 'IntermediateCatchEvent3', 'incoming': ['Send request'], 'outgoing': ['View result']}
+{'id': 'sid-51D9AC6D-0E4F-4832-AD85-D379A0B382D8', 'name': 'IntermediateCatchEvent4', 'incoming': ['StartEvent0'], 'outgoing': ['Share delay']}
+{'id': 'sid-6A7FA0C2-F24F-40DB-BE88-7A2315597B01', 'name': 'IntermediateCatchEvent5', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-7FA20A43-2E0F-472B-A8DF-2E2F9E69ACDA', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-15ABD92C-1097-4CC0-8CC0-BFD865C9647F', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['final okay?']}
+
+End Events:
+{'id': 'sid-FAD73B10-8508-422D-BE9E-1DF10FC1F3F5', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-9D87184B-D5FF-422C-BB0C-E7967D98AAF2', 'name': 'final\nResult', 'incoming': ['Test\nLevel 1'], 'outgoing': []}
+{'id': 'sid-C448F73D-5D36-4A19-B4D7-CB252D6C2B4D', 'name': 'EndEvent2', 'incoming': ['Test\nConduct Level 2'], 'outgoing': []}

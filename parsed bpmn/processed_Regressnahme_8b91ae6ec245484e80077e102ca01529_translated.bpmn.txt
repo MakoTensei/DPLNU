@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-A3E8A8A3-5ED9-4D47-B4D5-52CCBC5345A3', 'name': 'Check regression case', 'incoming': ['Regression report\nwe are'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-F64E997D-CAA8-4379-A790-9E2BEF39170F', 'name': 'VN payment request', 'incoming': ['ParallelGateway4'], 'outgoing': ['VN contradicts?']}
+{'id': 'sid-6BF5AA08-CFB3-4D49-852A-499563A5C1E4', 'name': 'Reimbursement', 'incoming': ['ParallelGateway4'], 'outgoing': ['Reimbursement period\nExpired']}
+{'id': 'sid-4E64F805-CC4F-4BF6-8149-6CA9A71F6918', 'name': 'Book money', 'incoming': ['Cash receipt from the VN'], 'outgoing': ['Regression case\ncompleted']}
+{'id': 'sid-167D3058-1F37-447C-8C1A-6910F60E2958', 'name': 'Complete regression', 'incoming': ['is Regress\nRight?'], 'outgoing': ['Regression case completed']}
+{'id': 'sid-72449A44-0153-4995-B910-7DD80F9FC785', 'name': 'Proceedings', 'incoming': ['Regression report\nwe are'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-9AE50D53-C201-4A7F-B8F4-3DF36C8A3300', 'name': 'Close', 'incoming': ['Regression report\nwe are'], 'outgoing': ['Regression case\ncompleted']}
+{'id': 'sid-00C45940-FEB6-4C00-B438-F49AEDA4D9F0', 'name': 'Submit case to Inkasso-DL', 'incoming': ['ParallelGateway4'], 'outgoing': ['Regression case\ndelivered']}
+
+Gateways:
+{'id': 'sid-AA680332-42D2-4E49-9BB5-C8804B8CE418', 'name': 'is Regress\nRight?', 'incoming': ['Regression report\nwe are'], 'outgoing': ['Regression case\ncompleted', 'Regression case completed']}
+{'id': 'sid-92945503-0FAC-4BD2-B159-A2704218159D', 'name': 'VN contradicts?', 'incoming': ['Regression report\nwe are'], 'outgoing': ['Regression case\ncompleted', 'ExclusiveGateway3']}
+{'id': 'sid-3FE17320-FBBB-49DD-8380-C39B5F9A113A', 'name': 'Payment\nrefusal\njustified?', 'incoming': ['Regression report\nwe are'], 'outgoing': ['Regression case\ncompleted', 'ExclusiveGateway3']}
+{'id': 'sid-084BA462-D13E-4566-ACD2-4AFA518FC527', 'name': 'ExclusiveGateway3', 'incoming': ['ParallelGateway4', 'VN contradicts?'], 'outgoing': ['Regression case\ndelivered']}
+{'id': 'sid-36976FEB-0512-4F7D-8DB1-BF5E4EC8582A', 'name': 'ParallelGateway4', 'incoming': ['Check regression case'], 'outgoing': ['Cash receipt from the VN', 'Submit case to Inkasso-DL']}
+{'id': 'sid-3290FE69-DC4F-4EC7-931C-D3921DB7FD1D', 'name': 'Cash receipt from the VN', 'incoming': ['ParallelGateway4'], 'outgoing': ['Regression case\ncompleted']}
+{'id': 'sid-8BAF868B-1C0E-451C-A371-3DBFBE91B5CD', 'name': 'Reimbursement period\nExpired', 'incoming': ['ParallelGateway4'], 'outgoing': ['Regression case\ndelivered']}
+
+Start Events:
+{'id': 'sid-70BBDF0F-3993-48FD-AA77-E48989787BA5', 'name': 'Regression report\nwe are', 'incoming': [], 'outgoing': ['Close']}
+
+End Events:
+{'id': 'sid-6A184E56-EEE8-4DEC-B4F1-77DC490E39B9', 'name': 'Regression case\ncompleted', 'incoming': ['is Regress\nRight?'], 'outgoing': []}
+{'id': 'sid-986757EC-42C2-4044-B5AF-3A84ED7CC3AF', 'name': 'Regression case completed', 'incoming': ['is Regress\nRight?'], 'outgoing': []}
+{'id': 'sid-ADC88BA7-B927-4924-B650-C9BC4160CFEC', 'name': 'Regression case\ndelivered', 'incoming': ['Reimbursement period\nExpired'], 'outgoing': []}
+{'id': 'sid-D9D3A6CA-A074-43EC-9D6E-EB4AAD023458', 'name': 'Regression case\ncompleted', 'incoming': ['Payment\nrefusal\njustified?'], 'outgoing': []}

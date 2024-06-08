@@ -1,0 +1,21 @@
+ When a frontend request is received, the system initiates a sequence of tasks to process the scoring request. The process begins at the ExclusiveGateway0, which receives the frontend request and forwards it to EventBasedGateway3. EventBasedGateway3 then triggers the creation of a Scoring Report.
+
+Simultaneously, the Scoring 1 positive? event is triggered, which sends a notification to the ExclusiveGateway2. This event also initiates the 1. receive scoring task, which sends a Scoring Report to the Frontend request.
+
+Once the Scoring Report is received, the Frontend request is marked as completed. The Scoring Request is also marked as completed, and the Scoring 1 positive? event sends a notification to the ExclusiveGateway2.
+
+The ExclusiveGateway2 then completes the Scoring Request and sends a notification of delay if necessary. The 1. receive scoring task is also completed, and the Frontend request is marked as completed.
+
+In summary, the sequence of events and tasks for processing a frontend request and scoring request is as follows:
+
+1. Frontend request received at ExclusiveGateway0
+2. Frontend request forwarded to EventBasedGateway3
+3. EventBasedGateway3 triggers Scoring Report creation
+4. Scoring 1 positive? event triggered, sending notification to ExclusiveGateway2
+5. 1. receive scoring task initiated, sending Scoring Report to Frontend request
+6. Frontend request completed
+7. Scoring Request completed
+8. Scoring 1 positive? event completes, sending notification to ExclusiveGateway2
+9. ExclusiveGateway2 completes Scoring Request and sends delay notification if necessary
+10. 1. receive scoring task completed
+11. Frontend request completed

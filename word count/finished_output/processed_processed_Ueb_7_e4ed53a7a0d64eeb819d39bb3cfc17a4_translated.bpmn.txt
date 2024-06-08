@@ -1,0 +1,11 @@
+ In the world of scoring and reporting, various tasks and gateways work together to ensure a smooth process. Let's dive into the flow of this system:
+
+When a scoring request with a report arrives, it triggers a 'Report delay' task, which sends the report to the 'EventBasedGateway2'. This gateway then forwards the report to the 'Level 1 Scoring' task, which processes the report and sends a 'Scoring obtained' message to the 'Scoring\nobtained' gateway.
+
+Meanwhile, the 'Schufa request\nReport' task also triggers a 'Report delay' task, which sends the report to the 'EventBasedGateway2'. This gateway forwards the report to the 'Level 2 Scoring' task, which processes the report and sends a 'Scoring request\nFinished' message to the 'ExclusiveGateway1'.
+
+The 'ExclusiveGateway1' receives the 'Scoring request\nFinished' message and sends it to the 'Scoring request\nFinished' task, which marks the completion of the scoring process.
+
+Additionally, the 'Result\npresent?' gateway receives the 'Schufa request\nReport' and 'Level 2 Scoring' messages, and sends the 'Scoring request\nFinished' message to the 'Scoring request\nFinished' task.
+
+In summary, the system handles scoring requests and reports by passing them through various tasks and gateways, ensuring that the scoring process is completed efficiently and accurately.

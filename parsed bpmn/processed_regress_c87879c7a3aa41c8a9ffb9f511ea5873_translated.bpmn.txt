@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-0B8360A8-3D44-496E-BBF6-C7894F2418F3', 'name': 'Review whether Regress is entitled', 'incoming': ['possible regression against VN'], 'outgoing': ['Regress is entitled']}
+{'id': 'sid-58E1FB78-DEA8-45EB-8E24-7889EC0614E2', 'name': 'Send payment request to insurance companies', 'incoming': ['possible regression against VN'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-1DCFA60E-8673-4EFE-8A53-419A8E7AA395', 'name': 'set to reimbursement', 'incoming': ['VN contradicts'], 'outgoing': ['Reimbursement period expired']}
+{'id': 'sid-11AF5FDF-AF2E-4E88-93E5-33925860D83C', 'name': 'Book money receipt', 'incoming': ['Money received'], 'outgoing': ['Close']}
+{'id': 'sid-FFCDD7AC-B1C9-459A-AD24-7CDECEC5B181', 'name': 'Proceedings', 'incoming': ['Objection'], 'outgoing': ['Close']}
+{'id': 'sid-DE68A98D-9D1F-41A6-936E-CE4DAFA82B42', 'name': 'Dispense process for debt collection service providers', 'incoming': ['Not justified'], 'outgoing': ['Process delivered to debt collection service provider']}
+{'id': 'sid-E17DBFDA-CAA7-4D5E-9787-B72EB716DCA6', 'name': 'Objection', 'incoming': ['possible regression against VN'], 'outgoing': ['Process delivered to debt collection service provider']}
+
+Gateways:
+{'id': 'sid-EDB9A0ED-69E8-4BC4-8E8F-89E71630F09B', 'name': 'Regress is entitled', 'incoming': ['possible regression against VN'], 'outgoing': ['ExclusiveGateway4', 'Close']}
+{'id': 'sid-C2764FC0-FE04-4A71-A7D8-119F752384F3', 'name': 'VN contradicts', 'incoming': ['possible regression against VN'], 'outgoing': ['Close', 'ExclusiveGateway4']}
+{'id': 'sid-FB90AD1F-79D5-4346-85C3-6236D4687389', 'name': 'VN contradicts', 'incoming': ['VN contradicts'], 'outgoing': ['Money received', 'ExclusiveGateway4']}
+{'id': 'sid-569448E3-4D80-43AF-98BA-8AB0EF8823E6', 'name': 'Not justified', 'incoming': ['ExclusiveGateway4'], 'outgoing': ['Close', 'Process delivered to debt collection service provider']}
+{'id': 'sid-A9C5F0C1-09E9-40AE-86FB-3509D1D1E830', 'name': 'ExclusiveGateway4', 'incoming': ['Regress is entitled', 'possible regression against VN'], 'outgoing': ['Not justified']}
+{'id': 'sid-644F0D14-3B00-41E2-A2ED-7F73D5259974', 'name': 'EventBasedGateway5', 'incoming': ['set to reimbursement'], 'outgoing': ['Money received', 'Reimbursement period expired']}
+{'id': 'sid-0AC9676D-BC43-4E0C-A6B0-BC3CAE651A18', 'name': 'Money received', 'incoming': ['VN contradicts'], 'outgoing': ['Close']}
+{'id': 'sid-525070C7-7022-444D-B63D-2000BB9139CA', 'name': 'Reimbursement period expired', 'incoming': ['set to reimbursement'], 'outgoing': []}
+
+Start Events:
+{'id': 'sid-A93BDBF1-0345-4C6E-A9A7-A2132BAE6659', 'name': 'possible regression against VN', 'incoming': [], 'outgoing': ['Objection']}
+
+End Events:
+{'id': 'sid-9EEFC59B-506C-4BCB-A299-C6DD3DB8BEC9', 'name': 'Close', 'incoming': ['VN contradicts', 'Proceedings', 'Regress is entitled'], 'outgoing': []}
+{'id': 'sid-1C26A190-666C-4257-B332-E6054F209DDB', 'name': 'Process delivered to debt collection service provider', 'incoming': ['Objection'], 'outgoing': []}

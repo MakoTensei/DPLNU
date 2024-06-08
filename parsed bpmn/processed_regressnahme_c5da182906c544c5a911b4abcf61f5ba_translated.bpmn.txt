@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-186A4AEF-E6D5-448F-9330-CFCC395EBEC8', 'name': 'Regress possibility check', 'incoming': ['Regression possibilities\nweeded'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-8908A882-5A03-4FC2-8EC1-A24D9AECB274', 'name': 'Send payment request', 'incoming': ['Regression possibilities\nweeded'], 'outgoing': ['Opposition\nwe are']}
+{'id': 'sid-6EA1DD7F-F626-4D72-B3F8-ECF687E6CB91', 'name': 'Proceedings', 'incoming': ['Opposition\nwe are'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-3D9328FD-954F-49DE-B98F-6C931C4377F7', 'name': 'Check the receipt of funds', 'incoming': ['Regression possibilities\nweeded'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-C00B2DF3-44E4-4865-B944-8F7E6CE261EE', 'name': 'Preparing collection service provider assignment', 'incoming': ['Regression possibilities\nweeded'], 'outgoing': ['debtor\nMission']}
+
+Gateways:
+{'id': 'sid-504F980F-573D-435B-9D87-69B1E1E3DB34', 'name': 'Regression possibility\navailable?', 'incoming': ['Regression possibilities\nweeded'], 'outgoing': ['Reasons\njustified?', 'ExclusiveGateway4']}
+{'id': 'sid-EC1EC913-C02A-4FA1-AA76-FDDE51C96369', 'name': 'Reasons\njustified?', 'incoming': ['Regression possibility\navailable?'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway4']}
+{'id': 'sid-10C4045C-AFA7-4AAE-813F-09C1D339B357', 'name': 'Cash receipt\navailable?', 'incoming': ['EventBasedGateway6'], 'outgoing': ['ExclusiveGateway3', 'Closed']}
+{'id': 'sid-C8B3E712-6C87-4B76-B3CB-76333E7940FA', 'name': 'ExclusiveGateway3', 'incoming': ['Regression possibilities\nweeded', 'Proceedings'], 'outgoing': ['debtor\nMission']}
+{'id': 'sid-DE8055C0-29F1-4E78-8AEE-0F0BC23BDC60', 'name': 'ExclusiveGateway4', 'incoming': ['Regress possibility check', 'EventBasedGateway6'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-ED03F960-F024-475B-9889-59304BFD37EC', 'name': 'ExclusiveGateway5', 'incoming': ['Regress possibility check', 'Repayment period\nExpired'], 'outgoing': ['Closed']}
+{'id': 'sid-0583C1D3-1597-4EB6-A7DC-1828D6DE1D67', 'name': 'EventBasedGateway6', 'incoming': ['Regression possibilities\nweeded'], 'outgoing': ['ExclusiveGateway4', 'Closed']}
+{'id': 'sid-2BB6EF14-549E-4D05-8535-F8F14EF610B4', 'name': 'Opposition\nwe are', 'incoming': ['Regression possibility\navailable?'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-3A539DD9-679C-479C-A64D-0CEE18ABA3C9', 'name': 'Repayment period\nExpired', 'incoming': ['Regression possibilities\nweeded'], 'outgoing': ['ExclusiveGateway5']}
+
+Start Events:
+{'id': 'sid-AA43C398-E1C4-493F-ACCB-228B3DEF93A9', 'name': 'Regression possibilities\nweeded', 'incoming': [], 'outgoing': ['Preparing collection service provider assignment']}
+
+End Events:
+{'id': 'sid-BE072ED7-318B-429B-B44F-6EF406988CED', 'name': 'debtor\nMission', 'incoming': ['ExclusiveGateway3'], 'outgoing': []}
+{'id': 'sid-AA03E288-B6F5-4C1F-A8BC-F5247283CB98', 'name': 'Closed', 'incoming': ['EventBasedGateway6'], 'outgoing': []}

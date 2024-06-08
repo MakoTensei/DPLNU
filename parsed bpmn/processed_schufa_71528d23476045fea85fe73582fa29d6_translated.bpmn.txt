@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-F3B8071F-40CB-4180-9343-C27B93529BEF', 'name': 'Send scoring request', 'incoming': ['Scoring\nRequirement\nreceived'], 'outgoing': ['receive result']}
+{'id': 'sid-34C3A61D-7454-4FDC-885B-73B3927301B1', 'name': 'perform scoring level 1', 'incoming': ['receive scoring request'], 'outgoing': ['sid-78AA4CAB-8956-4F9C-9175-97EF838E84DE']}
+{'id': 'sid-626E48E4-EF65-46FB-84EE-549DCBA38D52', 'name': 'perform scoring level 2', 'incoming': ['Scoring\nRequirement\nreceived'], 'outgoing': ['Send a final result']}
+
+Gateways:
+{'id': 'sid-C22DF3E6-4E97-4E37-A964-FDDC1B2BBD2C', 'name': 'Testing successful', 'incoming': ['Scoring\nRequirement\nreceived'], 'outgoing': ['sid-2F86E292-12C5-4695-883B-AA0B8E62F04A', 'EndEvent0']}
+{'id': 'sid-31C8DC3F-08A1-489C-B2B6-C9180CBCDB01', 'name': 'Testing successful', 'incoming': ['sid-F3A8489F-FE33-45ED-8137-2C84132F1E6A'], 'outgoing': ['Send a final result', 'EndEvent3']}
+{'id': 'sid-A9B75E9F-9337-47A8-AFD7-CC451424501E', 'name': 'End result obtained', 'incoming': ['sid-F18BACD6-F8E7-41D0-A500-A5B8D5B7C019'], 'outgoing': ['Send a final result']}
+{'id': 'sid-BD47BD09-D25C-436A-BE6A-FABEAC1E21FB', 'name': 'receive result', 'incoming': ['Scoring\nRequirement\nreceived'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-B36199C7-7816-4F03-AE1F-28CCF1798B5C', 'name': 'Scoring\nRequirement\nreceived', 'incoming': [], 'outgoing': ['perform scoring level 2']}
+{'id': 'sid-394BAD3A-4D79-4439-A5F2-2DCA2E2CD065', 'name': 'receive scoring request', 'incoming': [], 'outgoing': ['perform scoring level 1']}
+
+End Events:
+{'id': 'sid-D636B667-272C-4805-95FA-243B98E6889F', 'name': 'EndEvent0', 'incoming': ['receive result'], 'outgoing': []}
+{'id': 'sid-F71BB606-5F99-4F73-BD7B-4985E7469FBE', 'name': 'Send a final result', 'incoming': ['End result obtained'], 'outgoing': []}
+{'id': 'sid-2259B48B-D19F-4B4B-B67F-8BBADB42E71E', 'name': 'Send a final result', 'incoming': ['Testing successful'], 'outgoing': []}
+{'id': 'sid-ECE40D03-8E7E-4249-9BCD-91CB0C9A2C35', 'name': 'EndEvent3', 'incoming': ['Testing successful'], 'outgoing': []}

@@ -1,0 +1,9 @@
+ In the scoring process, the system initiates with a 'StartEvent0' that triggers the 'Transmission\nWait Info' task, which waits for the necessary information before proceeding. Once the information is received, the 'Scoring request\nat Schufa\nsend' task is activated, sending a scoring request to Schufa. Concurrently, the 'Finals\nScoring' task is set to send scoring information to Fontend.
+
+Simultaneously, the 'EventBasedGateway3' receives the 'StartEvent0' and directs the flow to 'Finals\nScoring'. The 'Finals\nScoring' task then sends the scoring information to Fontend and also sends it back to Schufa.
+
+Meanwhile, the 'StartEvent1' initiates the 'ExclusiveGateway2' task, which waits for a 'Result\nalready?' message. Upon receiving this message, the 'Send a message' task is triggered, and the 'EndEvent1' is reached.
+
+The 'Result\nalready?' message is also received by 'ExclusiveGateway2', which sends the flow to 'EndEvent1'. The 'EndEvent1' concludes the process, and the system sends a message back to the initiator.
+
+In summary, the scoring process involves multiple tasks and gateways working together to send scoring requests to Schufa and Fontend, wait for necessary information, and handle the results accordingly.

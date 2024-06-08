@@ -1,0 +1,9 @@
+ When a "Schuaf request" is initiated, the process begins with the "Start Schufascoring request" event, which triggers the "Start Schufascoring request" gateway. This gateway then sends an "Information about delay" to the "Information about delay" gateway due to the "Result not available" status. Meanwhile, the "Scoring request" event leads to the "Scoring request" gateway, which in turn sends an "Information about delay" to the "Information about delay" gateway.
+
+Once the delay information is received, the "Information about delay" gateway sends a "Scoring result obtained" message to the "Scoring result obtained" gateway, indicating that the scoring result is now available. Consequently, the "Scoring result obtained" gateway sends the result to the "Result" gateway, which then sends the result to the "Schuaf request" initiator.
+
+If the scoring result is immediately possible, the "Scoring immediately possible?" gateway sends a "perform further scoring" message to the "perform further scoring" gateway, which then performs the scoring and sends a "Scoring performed" message to the "Scoring performed" gateway.
+
+Alternatively, if the scoring result is not immediately possible, the "Scoring immediately possible?" gateway sends a "perform scoring" message to the "perform scoring" gateway, which performs the scoring and sends a "Scoring performed" message to the "Scoring performed" gateway.
+
+In summary, the process starts with a "Schuaf request," which triggers a series of events and gateways, leading to the eventual delivery of the scoring result to the request initiator.

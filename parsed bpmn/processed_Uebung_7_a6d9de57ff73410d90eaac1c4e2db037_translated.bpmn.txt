@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-099C40D3-7136-4C3B-8902-F084B68AB885', 'name': 'Send scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['Result Report']}
+{'id': 'sid-00E3D0BD-8DEB-4584-BF7D-835335FC6343', 'name': 'Send a reply', 'incoming': ['Result Report'], 'outgoing': ['Finished']}
+{'id': 'sid-22527E19-56A8-4AA5-8369-11D7D0230DBB', 'name': 'Send delay notice', 'incoming': ['StartEvent0'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-46D91789-F13D-44C8-8C25-10088E0534C3', 'name': 'Scoring Level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring\ncompleted?']}
+{'id': 'sid-1CCCD026-CABA-4C0A-B743-F985982934CD', 'name': 'Answer scoring request', 'incoming': ['StartEvent1'], 'outgoing': ['Finished']}
+{'id': 'sid-1A5B0670-9DC0-4B51-AE17-3CE7D36FE424', 'name': 'Report delay', 'incoming': ['Scoring\ncompleted?'], 'outgoing': ['Scoring Level 2']}
+{'id': 'sid-C6D8E7F5-1871-44AA-90F8-B9555A564BE0', 'name': 'Scoring Level 2', 'incoming': ['Scoring\ncompleted?'], 'outgoing': ['Answer scoring request']}
+{'id': 'sid-593DA20A-6D1F-4677-ADA3-CC6D7063D7D4', 'name': 'Answer scoring request', 'incoming': ['Scoring\ncompleted?'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-92AF76DD-75BF-46EC-B337-02A04490D476', 'name': 'Scoring\ncompleted?', 'incoming': ['StartEvent1'], 'outgoing': ['Answer scoring request', 'Finished']}
+{'id': 'sid-3672BD71-D1F7-47B5-A57D-733042236011', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent1', 'Answer scoring request'], 'outgoing': ['Finished']}
+{'id': 'sid-DCFBA4D7-AEF0-445C-85B8-6807F8361437', 'name': 'EventBasedGateway2', 'incoming': ['StartEvent0', 'EventBasedGateway2'], 'outgoing': ['Finished', 'EventBasedGateway2']}
+{'id': 'sid-A9CBAABF-63DB-4744-A67F-9B4052CB7AC0', 'name': 'Result Report', 'incoming': ['Send scoring request'], 'outgoing': ['Finished']}
+{'id': 'sid-BAC0CBBE-0455-4ECF-ACAF-CA2CF62A0B02', 'name': 'Delay message', 'incoming': ['StartEvent0'], 'outgoing': ['Finished']}
+
+Start Events:
+{'id': 'sid-2FFB6C82-99C9-438F-BC67-544D3FD12109', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Send delay notice']}
+{'id': 'sid-35D4D2F9-B9AA-45DB-9D48-6EE48F32EF20', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-7394E48B-4716-44EC-8229-930EE7407DE2', 'name': 'Finished', 'incoming': ['Delay message'], 'outgoing': []}
+{'id': 'sid-2A605CC3-E6E1-429E-A17C-CBA1F903746B', 'name': 'Finished', 'incoming': ['Scoring\ncompleted?'], 'outgoing': []}

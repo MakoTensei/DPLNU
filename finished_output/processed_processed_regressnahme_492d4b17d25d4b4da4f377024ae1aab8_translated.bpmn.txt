@@ -1,0 +1,13 @@
+ Upon receiving a report of a regression order, the system initiates the process by directing the event to ExclusiveGateway0. This gateway, identified by the ID'sid-48D2F38E-70C8-4B8A-8051-60DFE039AC4B', is responsible for handling such incoming reports. Once the event passes through ExclusiveGateway0, it is forwarded to ExclusiveGateway3, as indicated by the outgoing path 'ExclusiveGateway3'.
+
+
+Simultaneously, another event, 'Incoming payment confirmed', is received by EventBasedGateway4. This event triggers the system to close the case by sending it to ExclusiveGateway3, which is also the endpoint for the 'Check the case' task.
+
+
+As the 'Check the case' task progresses, it encounters an objection, which is also received by EventBasedGateway4. The objection is then directed to ExclusiveGateway3, as per the outgoing path 'ExclusiveGateway3'.
+
+
+Finally, the 'Process forwarded' event, which is triggered by the 'Date of expiry' event received by EventBasedGateway4, completes the workflow. This event does not have any outgoing path, indicating that it marks the end of the process.
+
+
+In summary, the workflow begins with a regression order report, which is processed through ExclusiveGateway0 and then ExclusiveGateway3. Concurrently, an incoming payment confirmation event is processed and closed through ExclusiveGateway3. An objection encountered during the 'Check the case' task is also directed to ExclusiveGateway3. Lastly, the 'Process forwarded' event, triggered by the 'Date of expiry', signifies the completion of the workflow.

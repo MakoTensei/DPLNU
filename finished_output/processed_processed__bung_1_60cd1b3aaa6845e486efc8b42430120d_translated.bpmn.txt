@@ -1,0 +1,19 @@
+ Upon receiving a product order, the system initiates a series of tasks to ensure the order is processed efficiently. The process begins with checking the quantity of goods ordered, which is facilitated by the 'Check quantity' task. This task is triggered by the 'Product ordered' event and connects to 'ParallelGateway6'.
+
+
+Once the quantity is confirmed, the system proceeds to prepare for the request, which involves setting up the necessary parameters for the order. This is handled by the 'Prepare for your request' task, which also connects to 'ParallelGateway6'.
+
+
+Next, the system assesses whether insurance is necessary for the order. If insurance is required, the 'Insurance necessary?' task is triggered, which connects to 'ParallelGateway4'. This task is linked to the 'Product ordered' event and the 'Check quantity' task, ensuring that the insurance decision is made based on the order details.
+
+
+For orders that require insurance, the system then moves to select a special offer. The 'Select your offer' task is triggered by the 'Insurance necessary?' task and connects to 'ParallelGateway5'. This task is also linked to the 'ParallelGateway4' task, ensuring that the special offer is chosen based on the insurance requirement.
+
+
+After selecting the special offer, the system assigns a specialist to handle the order. The 'Specialist' task is triggered by the 'Select your offer' task and connects to 'ExclusiveGateway1'. This task is also linked to 'ParallelGateway5', ensuring that the specialist is assigned based on the chosen special offer.
+
+
+For orders that do not require insurance, the system fills in the parcel form and clears insurance. The 'Fill in parcel form & Clear insurance' task is triggered by the 'Check quantity' task and connects to 'ExclusiveGateway3'. This task is also linked to 'ParallelGateway7', ensuring that the parcel form is filled and insurance is cleared based on the order details.
+
+
+The system then prepares the order for shipment by providing the goods for collection. The 'Provide goods for collection' task is triggered by the 'Fill in

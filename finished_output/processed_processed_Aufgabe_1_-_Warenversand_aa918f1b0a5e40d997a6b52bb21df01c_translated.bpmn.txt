@@ -1,0 +1,9 @@
+ The process begins with the 'Shipment' start event, which triggers the 'ExclusiveGateway3' to handle the shipment. From there, the shipment is directed to 'ParallelGateway4', which then sends the shipment to 'Filling standard package voucher'. The 'Filling standard package voucher' gateway sends the shipment to 'Insurance audits', which in turn sends the shipment to 'ExclusiveGateway2'.
+
+At the same time, the 'Shipment' start event also triggers 'Insurance necessary?' start event. The 'Insurance necessary?' event sends the shipment to both 'ParallelGateway5' and 'ExclusiveGateway2'. The 'ParallelGateway5' sends the shipment to 'Delivering goods', which then sends the shipment to 'ParallelGateway5' again.
+
+Meanwhile, the 'Insurance necessary?' event also sends the shipment to 'ExclusiveGateway2', which sends the shipment to 'ExclusiveGateway3'. The 'ExclusiveGateway3' sends the shipment to 'ParallelGateway5', which then sends the shipment to 'EndEvent0'.
+
+On the other hand, the 'Goods ready for shipping' start event sends the shipment to 'ParallelGateway5', which then sends the shipment to 'EndEvent1'.
+
+In summary, the shipment process involves multiple gateways and events, with the shipment being routed through various gateways based on the incoming and outgoing connections. The process ends with the 'EndEvent0' and 'EndEvent1' events, which signify the completion of the shipment process.

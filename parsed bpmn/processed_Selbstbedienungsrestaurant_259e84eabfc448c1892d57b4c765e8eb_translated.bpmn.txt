@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-1E05035C-ABD1-48FF-83AF-9A36A26BBD00', 'name': 'Select a court', 'incoming': ['Hunger'], 'outgoing': ['Guest customer is on line']}
+{'id': 'sid-A215DDB7-EFC7-4A4F-82D6-9BD8631D7CED', 'name': 'Add your order\n', 'incoming': ['Hunger'], 'outgoing': ['Order payment']}
+{'id': 'sid-1BBA0CB6-C8B4-434E-A054-A04E8D2CFFBE', 'name': 'Order payment', 'incoming': ['Guest customer is on line'], 'outgoing': ['Get Pieper']}
+{'id': 'sid-6C3F330D-FAE1-412D-87D5-E6FD061E58F1', 'name': 'Pick up food', 'incoming': ['Pieper triggered'], 'outgoing': ['Eat meal']}
+{'id': 'sid-52EA3A68-153E-44BB-A277-96DF32987B58', 'name': 'Eat meal', 'incoming': ['Pieper triggered'], 'outgoing': ['Hunger satisfied']}
+{'id': 'sid-AECC733C-72B7-49FA-A5F5-2F47ED515238', 'name': 'Get Pieper', 'incoming': ['Guest customer is on line'], 'outgoing': ['Hunger satisfied']}
+{'id': 'sid-E809FC1B-5EF1-455C-92D1-A1C5FA3ED600', 'name': 'Enter your order in the cash register system', 'incoming': ['Order to receive'], 'outgoing': ['Cash\n']}
+{'id': 'sid-26633FF7-17CD-4A87-AA75-C2F79C2C336D', 'name': 'Cash\n', 'incoming': ['Order to receive'], 'outgoing': ['Get money']}
+{'id': 'sid-4CBDBD5D-9162-45F2-BF9D-EFBDF889EF75', 'name': 'Pieper over', 'incoming': ['Order to receive'], 'outgoing': ['Koch inform']}
+{'id': 'sid-C6ACC8A2-FA47-4015-B49C-47DA39CEFD78', 'name': 'Trigger Pieper', 'incoming': ['Food is prepared\n\n'], 'outgoing': ['5 minutes']}
+{'id': 'sid-141BFC3F-4DEA-4309-8FE8-7E4968884EF4', 'name': 'Hand over meal', 'incoming': ['Guest coming'], 'outgoing': ['Order']}
+{'id': 'sid-E504D662-96D1-4495-9A6E-915E897D407E', 'name': 'Retrieve guest', 'incoming': ['5 minutes'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-3A4186D1-A613-4F5E-A578-165BA75CF14A', 'name': 'Koch inform', 'incoming': ['Get money'], 'outgoing': ['Guest coming']}
+{'id': 'sid-B8DEEB3E-96AC-4A04-A1E7-8ABD37A71752', 'name': 'Preparation of meal\n', 'incoming': ['Order meal ordered'], 'outgoing': ['Putting meal in vain']}
+{'id': 'sid-3BB6839F-7B20-4340-86BF-C395F385B899', 'name': 'Putting meal in vain', 'incoming': ['Order meal ordered'], 'outgoing': ['inform employees']}
+{'id': 'sid-F39B32D1-4D3A-415A-B635-859502BD2969', 'name': 'inform employees', 'incoming': ['Order meal ordered'], 'outgoing': ['Preparation completed']}
+
+Gateways:
+{'id': 'sid-202F2159-A5FF-42C8-8B90-E417DE86A23F', 'name': 'EventBasedGateway0', 'incoming': ['Get money', 'Get money'], 'outgoing': ['EventBasedGateway0', 'Order']}
+{'id': 'sid-3F830498-28E4-43BA-88D7-3B604FB99293', 'name': 'Guest customer is on line', 'incoming': ['Hunger'], 'outgoing': ['Hunger satisfied']}
+{'id': 'sid-E068A2A9-2928-4A5E-AFEB-D13567BC3DCF', 'name': 'Pieper triggered', 'incoming': ['Get Pieper'], 'outgoing': ['Hunger satisfied']}
+{'id': 'sid-74E72DBB-5B7D-4991-8D69-EFB026941F8B', 'name': 'Get money', 'incoming': ['Order to receive'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-A36F89F9-6C90-46E6-8123-168340F87874', 'name': 'Food is prepared\n\n', 'incoming': ['Get money'], 'outgoing': ['Guest coming']}
+{'id': 'sid-7ED05D1E-6DED-496A-93B5-D1BF5F3D946D', 'name': 'Guest coming', 'incoming': ['Koch inform'], 'outgoing': ['Order']}
+{'id': 'sid-5CF6A6FD-63A9-4068-A37B-BB35EBC4703D', 'name': '5 minutes', 'incoming': ['Trigger Pieper'], 'outgoing': ['Order']}
+
+Start Events:
+{'id': 'sid-831D643C-FF38-481F-A82C-E78339EEC065', 'name': 'Hunger', 'incoming': [], 'outgoing': ['Add your order\n']}
+{'id': 'sid-B2DC6147-2FD2-46A1-82AB-0D01DCB24AA9', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Pieper over']}
+{'id': 'sid-61C93795-97DB-420B-9CB6-F0B2ACC77F84', 'name': 'Order meal ordered', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-80EF091E-8118-4B7C-80BF-DC3EF1FD5915', 'name': 'Hunger satisfied', 'incoming': ['Guest customer is on line'], 'outgoing': []}
+{'id': 'sid-7DC8D30E-E3F8-42D8-8FB4-14D62533FC1B', 'name': 'Order', 'incoming': ['5 minutes'], 'outgoing': []}
+{'id': 'sid-E25B3B4B-74B6-4A62-A345-BBD33CD3F9A1', 'name': 'Preparation completed', 'incoming': ['inform employees'], 'outgoing': []}

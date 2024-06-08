@@ -1,0 +1,10 @@
+ When a "Schufascoring requested" event occurs, it triggers the "EventBasedGateway3" to route the request to "ExclusiveGateway0", which then determines the "Schufascore" and sends it back as "Schufascore available". If a "Scoring request" event is initiated, it goes to "ExclusiveGateway2", which determines the "Schufascore" and sends it back as "Schufascore immediately determined". If a "Scoring available?" event is received, it is directed to "Scoring available?" which determines the "Schufascore" and sends it back as "Schufascore immediately determined". In case of a "Schufascore delay" event, it is routed to "Report delay". When a "Schufascore determined" event is triggered, it is sent to "ExclusiveGateway0".
+
+
+The process starts with a "Schufascoring requested" event, which is sent to "EventBasedGateway3". This event is then routed to "ExclusiveGateway0", which determines the "Schufascore" and sends it back as "Schufascore available". This event is then sent to the "End Events" with an "incoming" of ["EventBasedGateway3"] and "outgoing" of [].
+
+
+Next, a "Scoring request" event is initiated, which is sent to "ExclusiveGateway2". This event is then routed to "Scoring available?", which determines the "Schufascore" and sends it back as "Schufascore immediately determined". This event is then sent to the "End Events" with an "incoming" of ["Scoring request"] and "outgoing" of [].
+
+
+Lastly, a "Scoring available?" event is received, which is directed to "Scoring available?" that determines the "Schufascore" and sends it back as "Schufascore immediately determined". This event is then sent to the "End Events" with an "incoming" of ["Scoring available?"] and "outgoing" of [].

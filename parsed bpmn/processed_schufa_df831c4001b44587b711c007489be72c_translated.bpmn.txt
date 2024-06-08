@@ -1,0 +1,17 @@
+Tasks:
+{'id': 'sid-06C5D2F8-BFDC-40AE-8214-72B6230AF6DD', 'name': 'Schufa Service Call', 'incoming': ['Schufa-Auskunft\nStart\n'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-70D95FF5-8C05-4FFA-B970-DD4B33F63CD7', 'name': 'Scoring\n', 'incoming': ['Schufa-Request'], 'outgoing': ['sid-EF265ACE-B538-4958-BB04-D9574D5AB881']}
+{'id': 'sid-F6A25EC9-4C70-4DF5-B57A-28ECA28D3B48', 'name': 'Level 2 scoring', 'incoming': ['sid-112D854F-5FF1-43B3-853C-45336B84F2BF'], 'outgoing': ['sid-051F3940-D1B4-4727-B7FC-AD154A358B72']}
+
+Gateways:
+{'id': 'sid-8A4B9830-2701-4F97-8A7D-B8F454C63861', 'name': 'Level?', 'incoming': ['Schufa-Auskunft\nStart\n'], 'outgoing': ['sid-ACDC6EF9-BEDA-41BF-96B5-EC35CA477FC5', 'IntermediateCatchEvent1']}
+{'id': 'sid-37CC5904-68BD-42BD-861D-45CAB86BFCF3', 'name': 'IntermediateCatchEvent1', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['sid-40E5FAD1-B651-4F1E-952F-DA6888E91978']}
+{'id': 'sid-1135579A-5B45-4F2A-8F68-122FA93CFDEE', 'name': 'IntermediateCatchEvent2', 'incoming': ['Schufa-Auskunft\nStart\n'], 'outgoing': ['IntermediateCatchEvent1']}
+
+Start Events:
+{'id': 'sid-16E3BF8D-4D59-4F94-B423-3845FDD6C932', 'name': 'Schufa-Auskunft\nStart\n', 'incoming': [], 'outgoing': ['Level?']}
+{'id': 'sid-02B68B33-BEEC-4DFC-A0E5-F4B5E8502832', 'name': 'Schufa-Request', 'incoming': [], 'outgoing': ['Scoring\n']}
+
+End Events:
+{'id': 'sid-254758E2-DFBB-433F-A4CE-7ED6BBF190F1', 'name': 'EndEvent0', 'incoming': ['sid-40DEED41-E75A-4338-9E07-9FC9B9106A5D'], 'outgoing': []}
+{'id': 'sid-F16F5101-3006-49A4-9DEC-09ECCF433BC8', 'name': 'EndEvent1', 'incoming': ['sid-C0131441-36E8-43DB-831F-77916062BD24'], 'outgoing': []}

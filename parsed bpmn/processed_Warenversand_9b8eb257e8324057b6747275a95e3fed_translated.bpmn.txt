@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-3024D3AA-5000-486D-89EA-68BB6E312F7C', 'name': 'clarification, who takes delivery', 'incoming': ['Goods are to be shipped'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-3A5E09BD-0461-47DF-8AC1-4EDD2DC807FB', 'name': 'fill out standard package tickets', 'incoming': ['ParallelGateway3'], 'outgoing': ['Goods delivered']}
+{'id': 'sid-436C6A4B-0D13-4EAB-BEE9-574318AEDE15', 'name': 'Check insurance', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-E489CF8D-1427-48A6-8689-0B1DC0B7C054', 'name': '3 Offers from forwarders', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Select the Spediteur']}
+{'id': 'sid-15CAFB9D-EFC8-486B-8495-2BDC837B4BA7', 'name': 'Select the Spediteur', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Specialist']}
+{'id': 'sid-BCDAA159-B91C-4D0F-8AB3-36E1A7827011', 'name': 'Specialist', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Specialist']}
+{'id': 'sid-70665972-C230-43DD-B219-7A2F0B4C54AF', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['Provide goods for collection']}
+{'id': 'sid-9C8741C8-CC24-4322-AAA1-E47DB22D3AA8', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-AC4B8D61-979B-4BB4-A5EB-179586EB1D30', 'name': 'Complete insurance', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-C9C36178-36E9-4943-8AAE-FE818C345911', 'name': 'ExclusiveGateway0', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Goods delivered', 'Specialist']}
+{'id': 'sid-C61960A8-C4A2-42A2-91E2-EAAB8F90E02B', 'name': 'ExclusiveGateway1', 'incoming': ['ParallelGateway3'], 'outgoing': ['Complete insurance', 'ParallelGateway4']}
+{'id': 'sid-C59242DB-6902-4C1B-B6AA-25D57263B726', 'name': 'ExclusiveGateway2', 'incoming': ['Check insurance', 'Complete insurance'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-B8F35412-DCF8-4385-A903-EE0BB767C25F', 'name': 'ParallelGateway3', 'incoming': ['clarification, who takes delivery'], 'outgoing': ['Goods delivered', 'ParallelGateway4', 'ParallelGateway4']}
+{'id': 'sid-DE666DB4-1E9D-4C02-91F7-9923717A21B9', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway3', 'ParallelGateway3', 'fill out standard package tickets'], 'outgoing': ['Goods delivered']}
+
+Start Events:
+{'id': 'sid-F025336C-9402-41A2-B6A8-C08D5331EDC7', 'name': 'Goods are to be shipped', 'incoming': [], 'outgoing': ['3 Offers from forwarders']}
+
+End Events:
+{'id': 'sid-05ACE067-4047-46BA-B434-3507A92C11B7', 'name': 'Specialist', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-7ADFEABB-36C5-4795-B61C-218E1F9A78C7', 'name': 'Goods delivered', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

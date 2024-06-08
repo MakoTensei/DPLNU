@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-131C7EBE-5000-408B-934C-BE33AA1D438B', 'name': 'Review Regression case available', 'incoming': ['Regression against VN possible'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-FEF1801C-F797-4BAB-B85F-C52117ED43C6', 'name': 'VN receives payment request', 'incoming': ['sid-5B036BD3-FA70-469B-A557-0E05C1989692'], 'outgoing': ['When money is received', '30 days']}
+{'id': 'sid-6B7D4F89-7855-4333-B970-6014E77277E7', 'name': 'Payment receipt is posted', 'incoming': ['When money is received'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6F3125F1-AB73-45E2-A476-752E9D82CF6B', 'name': 'Objection justified?', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['sid-12A8541F-D3C9-44BB-867E-05232FB27A52', 'EndEvent0']}
+{'id': 'sid-60243C1F-1BF6-4A30-AD23-501CB98BC773', 'name': 'debtor', 'incoming': ['sid-8EC4748E-3C42-4E60-8226-07A8C4E42C42'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-ECDEEB34-4DD4-46D3-B06F-7E066C660BD0', 'name': 'No payment receipt', 'incoming': ['30 days'], 'outgoing': ['sid-257712AF-5563-419D-AFF4-C2EEBD6BC38C']}
+{'id': 'sid-89C2DEDE-F8B0-4FE0-9D3F-C5AF7B77B6BC', 'name': 'debtor', 'incoming': ['sid-74FB9DC5-55CC-48E2-85F5-B1BAE8100867'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-7AC13144-23B9-4135-8E47-A1E4D1CD743C', 'name': 'ExclusiveGateway0', 'incoming': ['Regression against VN possible'], 'outgoing': ['sid-0F7DEBFC-F28D-4689-83FA-4EBC225A2026', 'EndEvent0']}
+{'id': 'sid-FAD58870-CE0A-4E74-BEDA-68D185181A11', 'name': 'ExclusiveGateway1', 'incoming': ['VN receives payment request'], 'outgoing': ['EndEvent0', 'EndEvent0']}
+{'id': 'sid-948F09A9-1D92-4814-B659-939483F1B224', 'name': 'When money is received', 'incoming': ['VN receives payment request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-723A7007-E596-4F53-B13A-9725B99E1EB9', 'name': 'IntermediateCatchEvent3', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-11ED2DD3-5ED3-4B83-BD5E-A51373567D2A', 'name': '30 days', 'incoming': ['VN receives payment request'], 'outgoing': ['No payment receipt']}
+
+Start Events:
+{'id': 'sid-7C393E86-1B5B-41A1-855A-0E95EEFB8027', 'name': 'Regression against VN possible', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-EF287908-BEC7-470E-AF94-796AF540BDC8', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway1', 'debtor', 'debtor', 'ExclusiveGateway0', 'ExclusiveGateway1'], 'outgoing': []}

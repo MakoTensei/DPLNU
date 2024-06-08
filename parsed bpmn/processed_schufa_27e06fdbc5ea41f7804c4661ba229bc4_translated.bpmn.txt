@@ -1,0 +1,19 @@
+Tasks:
+{'id': 'sid-FC3D8794-76A5-480E-A696-E29647DB6D0E', 'name': 'Request to the Schufa', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-59F378E8-A63D-4AD4-8462-5CBE7B6E069B', 'name': 'Level 1 scoring', 'incoming': ['StartEvent1'], 'outgoing': ['sid-E49DD2A3-CDBC-4B12-A8ED-E58E59A2963A']}
+{'id': 'sid-E322F8D1-B3AF-4C68-95FE-886F93EEC1A8', 'name': 'Level2 scoring', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['sid-70E1B44E-A1DA-4C89-BB3D-B5B09B143367']}
+
+Gateways:
+{'id': 'sid-2C9BB397-76E3-4B01-ADA0-0CC0A38E00E5', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent0'], 'outgoing': ['sid-719F11F2-2313-42C4-8F0B-E7608910D02D', 'sid-3AB495E1-D64A-4B1C-8485-4CBC65AB203D']}
+{'id': 'sid-083DF3C5-46A4-4B6F-9318-F136D9807B5D', 'name': 'ExclusiveGateway1', 'incoming': ['sid-C4356609-6158-4384-A6AA-F42E01FB2428', 'sid-8F394A03-87EF-42A5-96B1-33B85B9E2EAF'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-69C735A6-9573-4F43-A116-27C1DC898854', 'name': 'ExclusiveGateway2', 'incoming': ['sid-A3AFEF13-4E02-49E9-BA14-27BC73821635'], 'outgoing': ['Level2 scoring', 'EndEvent1']}
+{'id': 'sid-786C929B-436A-4702-9E01-63299E785A7E', 'name': 'ExclusiveGateway3', 'incoming': ['ExclusiveGateway2', 'sid-221F451A-BD3C-4D67-87EF-E015AD08E38C'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-CAAB6344-51D1-4C14-A92F-CF1B427F5CE7', 'name': 'IntermediateCatchEvent4', 'incoming': ['sid-EB7A3EF7-7217-4FE2-B400-7829133D0388'], 'outgoing': ['sid-353F731E-5547-41EB-98B0-7D80C2B14FF7']}
+
+Start Events:
+{'id': 'sid-C53FB154-B2D7-4C2C-AE91-0C5E8C495819', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-C455FAF9-A252-4279-96AD-DC0DC6C7CB64', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Level 1 scoring']}
+
+End Events:
+{'id': 'sid-A1F05E2D-7C23-4A09-BC71-C70FDBC647FF', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}
+{'id': 'sid-80498A65-C8F4-4A43-8A6E-1907AC96102A', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}

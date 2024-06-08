@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-D3546E1B-627C-4776-BDCC-9FF161266866', 'name': 'perform scoring (level 1)', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring is delayed?']}
+{'id': 'sid-0FFFE562-EC93-4316-9969-5273DEB39FED', 'name': 'Report delay of the bank', 'incoming': ['StartEvent1'], 'outgoing': ['Determine final scoring result']}
+{'id': 'sid-AA61E816-5BBA-450E-8939-C859AF76ABC5', 'name': 'Determine final scoring result', 'incoming': ['Scoring is delayed?'], 'outgoing': ['IntermediateCatchEvent4']}
+
+Gateways:
+{'id': 'sid-7EBAC23E-7FD4-40A9-87CB-0F5AC3CEC08E', 'name': 'Scoring is delayed?', 'incoming': ['StartEvent1'], 'outgoing': ['sid-65A90DE3-C714-4D76-89AD-462596B139D8', 'Determine final scoring result']}
+{'id': 'sid-783CE3BC-1B78-4FF8-8B0F-C260B67FA48C', 'name': 'EventBasedGateway1', 'incoming': ['sid-AC9B9DBA-6FD0-4C51-8423-E2508BEEB1C2'], 'outgoing': ['IntermediateCatchEvent2', 'IntermediateCatchEvent3']}
+{'id': 'sid-A1B8228C-AB7C-4D44-9C06-D11AEA11DD8F', 'name': 'IntermediateCatchEvent2', 'incoming': ['EventBasedGateway1'], 'outgoing': ['sid-9917262C-9087-46FA-818F-DE58BCECCE81']}
+{'id': 'sid-7688344D-45C1-48EF-893E-930A6CFC7370', 'name': 'IntermediateCatchEvent3', 'incoming': ['EventBasedGateway1'], 'outgoing': ['sid-F2752414-6593-43AC-A156-4FF523505DAC']}
+{'id': 'sid-4BB84A49-8F9B-4E36-B65F-807759992C3B', 'name': 'IntermediateCatchEvent4', 'incoming': ['Determine final scoring result'], 'outgoing': ['sid-77D9C27D-BC5F-44B7-A07F-976B71E7A0FE']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['sid-D4E3E1B9-4156-41C3-A9EB-0E88C00D33F1']}
+{'id': 'sid-0108049C-C44B-4771-8578-4A3F7A44851A', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Report delay of the bank']}
+
+End Events:
+{'id': 'sid-989A82DA-A1DE-4881-8359-C2207A3A9E21', 'name': 'EndEvent0', 'incoming': ['sid-0BE22469-FB1A-48ED-9A6F-85C4D73E0250', 'sid-B8B4BEEB-A493-492C-BEF5-CD863AA32BE1'], 'outgoing': []}
+{'id': 'sid-6FFE2232-F496-4570-8EFE-8D50FAA83A1B', 'name': 'EndEvent1', 'incoming': ['sid-3FEA5821-C878-46D3-9D14-883CC4D1A762'], 'outgoing': []}
+{'id': 'sid-5935836D-8A23-4464-B054-D611BB4CDD3F', 'name': 'EndEvent2', 'incoming': ['sid-41817FD3-CCF2-47A3-AB10-01662B651CE1'], 'outgoing': []}

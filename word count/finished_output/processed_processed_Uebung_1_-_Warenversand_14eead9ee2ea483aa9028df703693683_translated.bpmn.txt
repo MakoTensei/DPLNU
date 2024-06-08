@@ -1,0 +1,9 @@
+ The process begins with the 'Shipping goods' event, which triggers the 'ParallelGateway5' to initiate the packaging of goods. This leads to the 'Packaging goods' task, which then sends a request to 'ParallelGateway4' for the goods to be ready for shipment. Concurrently, the 'ParallelGateway5' also sends a request to 'Request 3 forwarders' task to select a quote for the shipping process.
+
+The 'Request 3 forwarders' task sends a request to 'Select a quote' task, which in turn sends a request to 'Specialist' task. The 'Specialist' task then sends the goods to 'ExclusiveGateway1' for further processing.
+
+Meanwhile, the 'Fill standardised parcel certificate' task sends the goods to 'ExclusiveGateway0' for filling the parcel certificate. The 'Insurance necessary?' task also sends a request to 'ExclusiveGateway0' to determine if insurance is necessary for the shipment.
+
+If insurance is deemed necessary, the 'Insurance necessary?' task sends a request to 'InclusiveGateway3' to handle the insurance process. The 'InclusiveGateway3' then sends the goods to 'ParallelGateway4' for final preparation before shipment.
+
+Once all tasks are completed, the goods are ready for shipment, and the process ends with the'ready for shipment' event.

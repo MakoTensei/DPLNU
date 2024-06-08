@@ -1,0 +1,7 @@
+ In the workflow, the process begins with the 'Possible regessfall Regress' event, which triggers the 'Book payment receipt' task. This task is then routed to the 'ExclusiveGateway2' through the 'EventBasedGateway3'. The 'EventBasedGateway3' receives the 'Take VN to Regress?' event and the 'EventBasedGateway3' itself, and subsequently sends the 'Incoming payment' task to 'ExclusiveGateway2'. The 'WV deadline expired' event is also routed to 'ExclusiveGateway2'.
+
+The 'ExclusiveGateway2' then sends the 'Request payment' task to 'EventBasedGateway3'. The 'EventBasedGateway3' sends the 'End of regression\n' task to 'IntermediateCatchEvent6', 'ExclusiveGateway1', 'ExclusiveGateway1', 'ExclusiveGateway1', and 'WV deadline expired'. The 'End of regression\n' task is also routed back to the 'Possible regessfall Regress' event.
+
+The 'End of regression\n' task is also routed to the 'no regression' event, which has no outgoing tasks.
+
+In summary, the process starts with the 'Possible regessfall Regress' event, which triggers the 'Book payment receipt' task. This task is then routed through various gateways and tasks, ultimately leading to the 'End of regression\n' event, which is routed to both the 'no regression' event and the 'Possible regessfall Regress' event.

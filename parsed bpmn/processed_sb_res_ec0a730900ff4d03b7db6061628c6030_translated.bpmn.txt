@@ -1,0 +1,38 @@
+Tasks:
+{'id': 'sid-13CC700D-0951-479E-9E8A-05B75D7374F5', 'name': 'Restaurant with hunger', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Select menu']}
+{'id': 'sid-4A2764F4-3F66-4CF8-8340-DAB019DB14D8', 'name': 'Select menu', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Set the queue']}
+{'id': 'sid-235A23B0-2AD9-4F85-8208-16F5DC711C9C', 'name': 'Set the queue', 'incoming': ['Hunger\nfelt'], 'outgoing': ['1. in queue']}
+{'id': 'sid-7BC01232-770B-42F7-9A5C-7BF31BBAFC35', 'name': 'Add your order', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Price information']}
+{'id': 'sid-77C25491-6B46-474D-B87D-C3CA669EED94', 'name': 'Pay menu', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Pieper take']}
+{'id': 'sid-F006485B-BAB4-4B42-9F78-AD9576ECC841', 'name': 'Pieper take', 'incoming': ['Price information'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-E6FBF845-6B76-4C88-B243-78A752440CC1', 'name': 'Go to output', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Take food']}
+{'id': 'sid-690DE90E-8C0F-49CC-A0CE-12E13000E68C', 'name': 'Take food', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Eat meal']}
+{'id': 'sid-A7FB26C4-9DEB-4549-9990-2862414C92D9', 'name': 'Eat meal', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Sat']}
+{'id': 'sid-B8E4D7B2-1E83-4860-9866-45AEB5181B9D', 'name': 'Enter your order in cash system', 'incoming': ['Order accepted'], 'outgoing': ['sid-B8FD22B0-836C-4FF7-AC9E-EF89CE2CA84D']}
+{'id': 'sid-4C67588B-2D94-4087-86E0-60720CC8531D', 'name': 'Cash', 'incoming': ['sid-A168793F-82F0-4A5C-A10E-E32D009E13C9'], 'outgoing': ['Set Pieper and handed over to guest with info']}
+{'id': 'sid-1CC140E5-2F8F-4277-BB49-8701CB5FC738', 'name': 'Set Pieper and handed over to guest with info', 'incoming': ['Cash'], 'outgoing': ['inform Koch about order']}
+{'id': 'sid-F0CBB7E1-CDF2-468F-92FA-C7E6DBC3F138', 'name': 'Trigger Pieper', 'incoming': ['Info about finished meal'], 'outgoing': ['Guest at issue']}
+{'id': 'sid-6593BCAC-3AE8-44E5-892C-D24B704B2E87', 'name': 'inform Koch about order', 'incoming': ['Set Pieper and handed over to guest with info'], 'outgoing': ['5 minutes']}
+{'id': 'sid-7E825FBE-9B5D-4203-BD58-A4D01FFB21F2', 'name': 'Retrieve guest', 'incoming': ['5 minutes'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-29A96A32-7B11-4056-9A9F-EC75B61D34A6', 'name': 'Deliver food to guest', 'incoming': ['Guest at issue'], 'outgoing': ['Completed']}
+{'id': 'sid-1DE6A576-B0D2-45A6-AD8B-78159201FF3D', 'name': 'Preparation of meal', 'incoming': ['Entrance order'], 'outgoing': ['Putting meal in vain']}
+{'id': 'sid-8268B070-8B6B-4673-89E5-6BA1AD743CE6', 'name': 'Putting meal in vain', 'incoming': ['Entrance order'], 'outgoing': ['Information to employees']}
+
+Gateways:
+{'id': 'sid-F3B6E859-1E60-41C8-9153-EF4D3023B296', 'name': 'EventBasedGateway0', 'incoming': ['Info about finished meal', 'Info about finished meal'], 'outgoing': ['EventBasedGateway0', 'Completed']}
+{'id': 'sid-5001803C-CF0F-47B1-B755-2F3133C19B45', 'name': '1. in queue', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Add your order']}
+{'id': 'sid-5F823483-C669-4AE4-9122-211D57137597', 'name': 'Price information', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Sat']}
+{'id': 'sid-E7503376-5F73-42E6-9852-41AA7D157167', 'name': 'IntermediateCatchEvent3', 'incoming': ['Price information'], 'outgoing': ['Sat']}
+{'id': 'sid-FEBCFB46-6DA4-4E58-B448-971DFFF2D2DD', 'name': 'Info about finished meal', 'incoming': ['inform Koch about order'], 'outgoing': ['Completed']}
+{'id': 'sid-0438E91C-705C-4BD3-AA10-33E7CCED5BD9', 'name': '5 minutes', 'incoming': ['inform Koch about order'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-C0A61F50-796B-45CB-9CDE-D92094C426DC', 'name': 'Guest at issue', 'incoming': ['Trigger Pieper'], 'outgoing': ['Completed']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Pay menu']}
+{'id': 'sid-A33977C3-517D-4C0A-B517-76F468BC10F5', 'name': 'Order accepted', 'incoming': [], 'outgoing': ['Enter your order in cash system']}
+{'id': 'sid-987F0C9D-71EF-4B8C-B787-CE979F591EB3', 'name': 'Entrance order', 'incoming': [], 'outgoing': ['Putting meal in vain']}
+
+End Events:
+{'id': 'sid-39F6F7EE-3B5B-4A30-9034-63E3DE4D7DC8', 'name': 'Sat', 'incoming': ['Price information'], 'outgoing': []}
+{'id': 'sid-BEE84F87-4AEE-4D68-B003-F60EA99A3139', 'name': 'Completed', 'incoming': ['Info about finished meal'], 'outgoing': []}
+{'id': 'sid-3F17E5DC-0466-4B6D-87ED-425F8E92E636', 'name': 'Information to employees', 'incoming': ['Putting meal in vain'], 'outgoing': []}

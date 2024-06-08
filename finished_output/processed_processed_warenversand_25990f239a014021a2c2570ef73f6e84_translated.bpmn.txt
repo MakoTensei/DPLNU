@@ -1,0 +1,27 @@
+ In a logistics workflow, various tasks are assigned to different gateways to ensure efficient processing of goods. Here's a natural flow description of the tasks and their corresponding gateways:
+
+1. When the need for a quote arises, the 'Pick up a quote for forwarders' task is initiated, which connects to 'ParallelGateway5'. This task is followed by 'Filling the package note', which is routed to 'ExclusiveGateway2'.
+
+2. The 'Specialist' task, which requires expertise, is linked to 'ParallelGateway6'. This task is also connected to 'ExclusiveGateway2'.
+
+3. To ensure the safety of the goods, the 'Complete insurance' task is triggered, which connects to 'ExclusiveGateway3'.
+
+4. The 'Packaging goods' task is initiated, which is routed to 'ParallelGateway7'.
+
+5. To arrange for the collection of goods, the 'Provide goods for collection' task is executed, which connects to 'EndEvent0'.
+
+6. The 'Books' task, which involves offering books, is connected to 'ParallelGateway5' and subsequently to 'ParallelGateway6'.
+
+7. The 'Offer' task, which also requires a quote, is connected to 'ParallelGateway5' and then to 'EndEvent0'.
+
+8. The 'Offer' task, which is again connected to 'ParallelGateway5', is routed to 'ParallelGateway6'.
+
+Start Events:
+- The 'Start 1' event initiates the workflow, which connects to 'ExclusiveGateway2'.
+
+End Events:
+- The 'EndEvent0' event concludes the workflow, which is connected to 'ParallelGateway5'.
+
+Gateways:
+- 'A lot?' event connects 'Start 1' to 'Filling the package note' and 'ParallelGateway6'.
+- 'Insurance\nnecessary?' event connects 'Start 1' and 'ParallelGateway4' to 'ExclusiveGateway2' and 'ExclusiveGateway

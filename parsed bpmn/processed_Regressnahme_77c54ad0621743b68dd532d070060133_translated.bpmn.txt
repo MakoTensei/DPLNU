@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-39CE736B-A395-42C8-999C-37BA37CB6CA8', 'name': 'Insurance\ncase check', 'incoming': ['possible\nRegression claim\nReport'], 'outgoing': ['Regression claim\nRight']}
+{'id': 'sid-BBC88EDA-8D86-4EA1-9472-94F05C937615', 'name': 'Creating payment request', 'incoming': ['possible\nRegression claim\nReport'], 'outgoing': ['Re-adjust']}
+{'id': 'sid-68D5CC35-C7B3-4C9C-AEF6-42ABE3CDFD85', 'name': 'Re-adjust', 'incoming': ['Regression claim\nRight'], 'outgoing': ['Deadline for opposition\nExpired']}
+{'id': 'sid-84DA237D-19BB-46E3-BB2A-114BFA5F7E76', 'name': 'Close', 'incoming': ['Regression claim\nRight'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-04E33EF6-0D63-42E6-BD36-323E25C789BF', 'name': 'Book money receipt', 'incoming': ['Money received'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-FC9F071D-232B-42FC-9C9A-D738718E69C7', 'name': 'Proceedings', 'incoming': ['Objection'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C6AED573-771E-433F-B15C-00D2638A3095', 'name': 'Process transferred to collection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process\nDebt collection']}
+
+Gateways:
+{'id': 'sid-9791B005-F56C-4ED7-924C-5DC9ED976EFF', 'name': 'Regression claim\nRight', 'incoming': ['possible\nRegression claim\nReport'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway3']}
+{'id': 'sid-64E70146-E20A-41F2-9965-B9EA99EB716E', 'name': 'Opposition\nRight', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'Process\ncompleted']}
+{'id': 'sid-E738A8C9-2A5F-4F37-857A-1690CDAEF4B1', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['Process\nDebt collection']}
+{'id': 'sid-5E368188-32C0-464A-8DB6-8994E9192178', 'name': 'ExclusiveGateway3', 'incoming': ['Regression claim\nRight', 'Regression claim\nRight', 'Objection'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-D1AF118C-5D73-4ED0-96AA-F24E8C2BAA2A', 'name': 'EventBasedGateway4', 'incoming': ['Regression claim\nRight'], 'outgoing': ['Money received', 'Process transferred to collection', 'Process\ncompleted']}
+{'id': 'sid-E8BDB176-14BD-4F93-A2F4-9C686C931D25', 'name': 'Deadline for opposition\nExpired', 'incoming': ['Re-adjust'], 'outgoing': ['Process\nDebt collection']}
+{'id': 'sid-141289B6-5059-4234-97E5-8734C9BFE3FA', 'name': 'Money received', 'incoming': ['Regression claim\nRight'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-65F297B8-C47B-4C60-87A4-63213B186E5C', 'name': 'Objection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-10EC4780-7637-411E-AF2B-E9A742405466', 'name': 'possible\nRegression claim\nReport', 'incoming': [], 'outgoing': ['Creating payment request']}
+
+End Events:
+{'id': 'sid-0A8D9F37-F7E0-4B36-981C-7EB190D60153', 'name': 'Process\nDebt collection', 'incoming': ['Deadline for opposition\nExpired'], 'outgoing': []}
+{'id': 'sid-27C5FF2D-423C-41A1-9FAB-572871CD97A0', 'name': 'Process\ncompleted', 'incoming': ['EventBasedGateway4'], 'outgoing': []}

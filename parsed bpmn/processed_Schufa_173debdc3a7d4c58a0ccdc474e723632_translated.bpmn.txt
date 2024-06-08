@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-439AC579-6049-4FF3-B7E4-E45A3ECFB326', 'name': 'Send inquiry to Schufa', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring result received']}
+{'id': 'sid-9BBE319D-A814-4C1F-B9B6-67EE4C69CF3B', 'name': 'Follow-up', 'incoming': ['Scoring result received'], 'outgoing': ['Scoring request']}
+{'id': 'sid-56F44700-8288-46B1-A595-693257DFCCED', 'name': 'deceleration', 'incoming': ['StartEvent0'], 'outgoing': ['Results received']}
+{'id': 'sid-9B877958-F2C2-43BB-854B-DD84EDADFEBC', 'name': 'Result (level 2) forward', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-845CC88F-7ADC-4D71-A8C0-1FE4CC2FF63A', 'name': 'perform scoring (level 1)', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring result available?']}
+{'id': 'sid-6216FC82-E41D-44D5-B886-2722C585C42B', 'name': 'Report result to Bank', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring performed']}
+{'id': 'sid-289ACCAA-5EEA-4FFE-AC10-1F01E9A3F43C', 'name': 'Report delay', 'incoming': ['Scoring result available?'], 'outgoing': ['Perform scoring (level 2)']}
+{'id': 'sid-2B9557AC-D934-4376-A6C1-2BD0190058AE', 'name': 'Perform scoring (level 2)', 'incoming': ['Scoring result available?'], 'outgoing': ['Report the result to Bank']}
+{'id': 'sid-9AEEF860-AE0A-4841-82F2-B40A3627A967', 'name': 'Report the result to Bank', 'incoming': ['Scoring result available?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-A3EBD4F0-D916-472D-B676-7A90D6210DBA', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'Results received'], 'outgoing': ['Scoring request']}
+{'id': 'sid-76BC5F02-0B0C-4CC1-BD97-3C8F90AD96A5', 'name': 'Scoring result available?', 'incoming': ['StartEvent1'], 'outgoing': ['Report the result to Bank', 'Scoring performed']}
+{'id': 'sid-5824A805-5469-403F-9AD5-2546E9A431BC', 'name': 'ExclusiveGateway2', 'incoming': ['Report the result to Bank', 'StartEvent1'], 'outgoing': ['Scoring performed']}
+{'id': 'sid-1BBDD587-3D91-4ABC-B90E-79E7CEE67668', 'name': 'EventBasedGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['Delay reported', 'ExclusiveGateway0']}
+{'id': 'sid-6003A257-8AC5-443E-AFD4-B00F4B09BF02', 'name': 'Scoring result received', 'incoming': ['Send inquiry to Schufa'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-5CE39908-68E0-4F51-8B82-B7FB269E4831', 'name': 'Delay reported', 'incoming': ['StartEvent0'], 'outgoing': ['deceleration']}
+{'id': 'sid-A63E76B8-7203-43BD-BE9D-1771E1A01671', 'name': 'Results received', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-E658F578-6835-4099-B6EC-47DBD473DC79', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Result (level 2) forward']}
+{'id': 'sid-FCC7E6D4-7BAE-46D0-BAEB-E4C7CC1FBA86', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-4D94CDA7-9DBB-4098-B593-BFF2B0E411D0', 'name': 'Scoring request', 'incoming': ['Follow-up'], 'outgoing': []}
+{'id': 'sid-E95D1A7D-82D4-4E9F-8B2F-9C5398AC7B96', 'name': 'Scoring performed', 'incoming': ['Scoring result available?'], 'outgoing': []}

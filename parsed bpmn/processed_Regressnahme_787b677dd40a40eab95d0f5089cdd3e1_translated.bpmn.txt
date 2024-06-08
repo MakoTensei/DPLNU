@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-DE09C4EE-CE6A-45C1-91FC-3CFB42F4ACE6', 'name': 'Regression possibility', 'incoming': ['Regression check'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-F99D068A-9BA5-4D5F-A406-F32D56F86D7D', 'name': 'Creating a payment order', 'incoming': ['Regression check'], 'outgoing': ['4 weeks waiting']}
+{'id': 'sid-B0FAC409-0062-4437-B2F0-8632BF1EA75A', 'name': 'Proceedings', 'incoming': ['VN'], 'outgoing': ['Closed']}
+{'id': 'sid-70E665F1-C86F-4389-A7CB-31F8B15746AD', 'name': 'Dispense process to debt collection office', 'incoming': ['VN'], 'outgoing': ['Debt collection office, process closed']}
+{'id': 'sid-4E35CC2A-2195-4D0A-8AD1-1E2CA9B58C17', 'name': 'Book money receipt', 'incoming': ['Regression check'], 'outgoing': ['Regress successfully, process closed']}
+
+Gateways:
+{'id': 'sid-54B49B9B-6853-4510-864B-C15C7F5F9C8B', 'name': 'ExclusiveGateway0', 'incoming': ['Regression check'], 'outgoing': ['No regression', '4 weeks waiting']}
+{'id': 'sid-26946354-6247-407F-9521-B672B184723F', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Debt collection office, process closed', 'Closed']}
+{'id': 'sid-4AE1BA2C-7E2E-4EE4-8E23-60B60DDFE455', 'name': 'EventBasedGateway2', 'incoming': ['Regression check'], 'outgoing': ['4 weeks waiting', 'Money received', 'Debt collection office, process closed']}
+{'id': 'sid-E3C66326-AC4E-420A-86CD-148C4E7DB9C7', 'name': '4 weeks waiting', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['sid-2C0FFFBA-7DA1-4D04-A187-83C5711282B8']}
+{'id': 'sid-49A0E815-3AB5-417C-92FF-0745880CB8A9', 'name': 'Money received', 'incoming': ['Regression check'], 'outgoing': ['Regress successfully, process closed']}
+{'id': 'sid-0C587513-304D-4667-95A2-417E250F24D2', 'name': 'VN', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Dispense process to debt collection office']}
+
+Start Events:
+{'id': 'sid-3639447D-450B-4883-B94B-E2A50DC63208', 'name': 'Regression check', 'incoming': [], 'outgoing': ['Book money receipt']}
+
+End Events:
+{'id': 'sid-FCB6E8DA-73A6-4CCE-9C0F-D1A9218C45B9', 'name': 'No regression', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-0BCFB6E8-2A5E-4BB9-8EBA-E357DCFCAE6C', 'name': 'Closed', 'incoming': ['Proceedings'], 'outgoing': []}
+{'id': 'sid-4B37E131-3C21-45EA-8BF7-F87785E1880F', 'name': 'Regress successfully, process closed', 'incoming': ['Money received'], 'outgoing': []}
+{'id': 'sid-B192DE8A-69A4-4F52-9530-C0EB9B67A4CA', 'name': 'Debt collection office, process closed', 'incoming': ['EventBasedGateway2'], 'outgoing': []}

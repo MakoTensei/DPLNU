@@ -1,0 +1,34 @@
+Tasks:
+{'id': 'sid-BD43AFBD-27DA-4DAC-9A7C-C5FC14DD17EC', 'name': 'Request credit', 'incoming': ['Credit\nexamination\nrequested'], 'outgoing': ['Credit\nEvaluation\nobtained']}
+{'id': 'sid-F6716FBC-9B1D-49A8-9B3E-741B2C548BA3', 'name': 'forward credit assessment', 'incoming': ['Credit\nexamination\nrequested'], 'outgoing': ['Credit assessment\ncompleted']}
+{'id': 'sid-1E338158-6F3C-462E-B6C2-9EA16EA05110', 'name': 'perform scoring level 1', 'incoming': ['Scoring\nQuestion\nobtained'], 'outgoing': ['Transfer scoring level 1']}
+{'id': 'sid-9F93EBFD-5F17-4B7D-B260-E11D70AC7593', 'name': 'Transfer scoring level 1', 'incoming': ['Scoring\nQuestion\nobtained'], 'outgoing': ['Scoring order\nfinished']}
+{'id': 'sid-5FB66ED1-6E1B-4FCC-BF49-9A674254D5BD', 'name': 'Request credit', 'incoming': ['Credit\nexamination\nrequested'], 'outgoing': ['Delay\nDivision\nobtained']}
+{'id': 'sid-F16BB9A5-0CFE-469D-89F1-8B76004541BB', 'name': 'forward credit assessment', 'incoming': ['Credit\nEvaluation\nobtained'], 'outgoing': ['Credit assessment\ncompleted']}
+{'id': 'sid-0176C2D4-4648-4AAE-A5C7-157811E4CE60', 'name': 'Information', 'incoming': ['Delay\nDivision\nobtained'], 'outgoing': []}
+{'id': 'sid-E5732859-4B8D-4870-8A5B-77326169FB3F', 'name': 'Run other tasks', 'incoming': ['Credit\nexamination\nrequested'], 'outgoing': []}
+{'id': 'sid-D00F9FA7-B5B8-4463-838A-291A894F0ABC', 'name': 'Level 1 Scoring', 'incoming': ['Scoring\nQuestion\nobtained'], 'outgoing': ['Level 1 scoring\nmisplaced']}
+{'id': 'sid-45DAF87B-39CE-4A94-A83C-1AB777E023CD', 'name': 'Transfer scoring level 2', 'incoming': ['Level 2 scoring\nthe'], 'outgoing': ['Scoring order\nfinished']}
+{'id': 'sid-81A98C60-C36F-4AA1-839B-3F35CF7AEE6B', 'name': 'Level 2 Scoring', 'incoming': ['Level 1 scoring\nmisplaced'], 'outgoing': ['Scoring order\nfinished']}
+{'id': 'sid-3412CF47-EA7A-4822-8E07-9D22F6EDE1D0', 'name': 'Customer information', 'incoming': ['Scoring\nQuestion\nobtained'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-931DA54A-D53E-47F6-8E25-BF56EB16E1A5', 'name': 'ParallelGateway0', 'incoming': ['Credit\nexamination\nrequested'], 'outgoing': ['Run other tasks', 'Information']}
+{'id': 'sid-324E49D9-EBDC-4794-B855-0257EF4723CB', 'name': 'ParallelGateway1', 'incoming': ['Scoring\nQuestion\nobtained'], 'outgoing': ['Scoring order\nfinished', 'Customer information']}
+{'id': 'sid-DA96C43A-8C48-4EC1-9C16-D07D3E0BD494', 'name': 'Credit\nEvaluation\nobtained', 'incoming': ['Credit\nexamination\nrequested'], 'outgoing': ['Credit assessment\ncompleted']}
+{'id': 'sid-40FBD618-E184-4C14-927E-8F729C27FAD8', 'name': 'Credit\nEvaluation\nobtained', 'incoming': ['sid-BDC0266D-57ED-48DB-8848-A8990E2B01BF'], 'outgoing': ['Credit assessment\ncompleted']}
+{'id': 'sid-49A01F56-E972-40ED-A673-B0E26673E64F', 'name': 'Delay\nDivision\nobtained', 'incoming': ['Credit\nexamination\nrequested'], 'outgoing': ['Information']}
+{'id': 'sid-BF2ADA75-1770-47F9-B5C8-B4FE991ADF74', 'name': 'Level 1 scoring\nmisplaced', 'incoming': ['Scoring\nQuestion\nobtained'], 'outgoing': ['Level 2 scoring\nthe']}
+{'id': 'sid-63B63C03-8DE8-4DDA-9EC2-453D517F3FD4', 'name': 'Level 2 scoring\nthe', 'incoming': ['Level 1 scoring\nmisplaced'], 'outgoing': ['Scoring order\nfinished']}
+
+Start Events:
+{'id': 'sid-AEDE4156-AEE6-4B74-9704-0E3932D70D09', 'name': 'Credit\nexamination\nrequested', 'incoming': [], 'outgoing': ['forward credit assessment']}
+{'id': 'sid-84E764F6-91AD-4C7C-ABC8-4964B7174519', 'name': 'Scoring\nQuestion\nobtained', 'incoming': [], 'outgoing': ['Transfer scoring level 1']}
+{'id': 'sid-DD184223-A8A1-44B7-BBD0-CBF96DA2EDED', 'name': 'Credit\nexamination\nrequested', 'incoming': [], 'outgoing': ['Run other tasks']}
+{'id': 'sid-B7EEAFFD-815D-4C3A-A2DA-318E03C02DA7', 'name': 'Scoring\nQuestion\nobtained', 'incoming': [], 'outgoing': ['Customer information']}
+
+End Events:
+{'id': 'sid-482D0EC7-EDBA-4913-BA41-69F61ADA2496', 'name': 'Credit assessment\ncompleted', 'incoming': ['Credit\nEvaluation\nobtained'], 'outgoing': []}
+{'id': 'sid-E9C39487-1278-42A1-9B14-1CB03FC3608C', 'name': 'Scoring order\nfinished', 'incoming': ['Transfer scoring level 1'], 'outgoing': []}
+{'id': 'sid-19343C1C-8C16-4770-A434-49F18110A0AC', 'name': 'Credit assessment\ncompleted', 'incoming': ['Credit\nEvaluation\nobtained'], 'outgoing': []}
+{'id': 'sid-AB80811A-A337-4669-9506-BE86C5A29485', 'name': 'Scoring order\nfinished', 'incoming': ['ParallelGateway1'], 'outgoing': []}

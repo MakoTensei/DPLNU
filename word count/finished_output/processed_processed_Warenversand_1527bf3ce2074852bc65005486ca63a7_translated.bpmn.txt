@@ -1,0 +1,5 @@
+ In the process of handling freight forwarding tasks, the workflow begins with the 'StartEvent0' which triggers the 'Pick up offers for freight forwarders' task, which in turn connects to 'ParallelGateway3'. This task then leads to 'Select your offer' which is linked to 'ExclusiveGateway0'. The 'Select your offer' task further connects to 'ExclusiveGateway2', which is responsible for 'Filling the package note'. This task has two incoming connections from 'ExclusiveGateway0' and 'ParallelGateway3'. The 'Filling the package note' task then connects to 'ParallelGateway4'.
+
+Meanwhile, the 'Pick up offers for freight forwarders' task also connects to 'ParallelGateway4' through 'ParallelGateway3'. This task is followed by the 'Insurance close' task, which is linked to 'ExclusiveGateway0'. The 'Insurance close' task also connects to 'ExclusiveGateway2'.
+
+The 'ParallelGateway4' task, which is the endpoint for both 'Pick up offers for freight forwarders' and 'Insurance close', connects to the 'EndEvent0'. This marks the completion of the process.

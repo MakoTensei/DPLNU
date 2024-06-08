@@ -1,0 +1,17 @@
+ In a system designed to manage various tasks and events, we have a series of interconnected components that work together to process and respond to incoming data. Here's a natural flow description of the system using the provided data:
+
+When a'receive regression' event occurs, it triggers a sequence of actions. First, the system checks if a regression is possible by sending the event to the 'is regression possible?' gateway. If the gateway determines that a regression is possible, it sends the 'Reimbursement period expired' message to the 'Reimbursement period expired' gateway, and also sends the 'Check the case' task to the 'ExclusiveGateway1'.
+
+The 'Check the case' task is then processed by the 'ExclusiveGateway1', which sends the 'EndEvent1' message to the 'EndEvent1' event and also forwards the task to the 'Book the entrance' event.
+
+Simultaneously, the 'Reimbursement period expired' message is processed by the 'Reimbursement period expired' gateway, which sends the 'EndEvent0' message to the 'EndEvent0' event.
+
+The 'Book the entrance' event is then processed by the 'Book the entrance' gateway, which sends the 'EndEvent1' message to the 'EndEvent1' event.
+
+In another scenario, when a'receive regression' event occurs, the system sends the event to the 'EventBasedGateway4'. This gateway processes the event and sends the 'donate to debtors' task to the 'donate to debtors' gateway, and also forwards the event to the 'ExclusiveGateway1'.
+
+The 'donate to debtors' task is then processed by the 'donate to debtors' gateway, which sends the 'EndEvent0' message to the 'EndEvent0' event.
+
+The 'ExclusiveGateway1' receives the 'donate to debtors' task and sends the 'EndEvent1' message to the 'EndEvent1' event.
+
+In summary, the system processes incoming'receive regression' events by sending them to the 'EventBasedGateway4'. The 'EventBasedGateway4' then forwards the event to

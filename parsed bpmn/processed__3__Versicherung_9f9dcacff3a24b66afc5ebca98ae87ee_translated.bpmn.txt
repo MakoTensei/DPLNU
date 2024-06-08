@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-6234DECD-BF55-4A09-8C6B-5C9D912F205B', 'name': 'Check whether Regress is entitled', 'incoming': ['Report\nPossibility of\nRegression'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-0DE6FFE5-5C31-433D-95D7-8036FC61D48D', 'name': 'Close', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-F497550E-391A-45E6-8064-9532A44BF891', 'name': 'Book the entrance', 'incoming': ['Cash receipt'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-819B7255-9335-4DD2-BA2E-E06DD94BA075', 'name': 'Proceedings', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-74F47684-8D25-4D29-8B64-FACD5ED57852', 'name': 'Transfer Debt collection service provider', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-5B696BEB-10C8-4F69-931D-9CD5B0D3D8DE', 'name': 'Claim\nis there?', 'incoming': ['Report\nPossibility of\nRegression'], 'outgoing': ['sid-50AA0EE9-2600-4A71-BCDE-0D5870CAEC99', 'ExclusiveGateway3']}
+{'id': 'sid-D1EA4E54-0A84-4E6C-AA3F-38CF96291A91', 'name': 'Right?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-3ED5B3A1-CC2F-4B6F-9603-DBE545A32D57', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-0F7F7595-3027-43F2-BE1B-DEB8BE819F28', 'name': 'ExclusiveGateway3', 'incoming': ['Check whether Regress is entitled', 'EventBasedGateway4', 'Opposition'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-75017A9D-203E-492A-B88B-CBEAB5A6BD7F', 'name': 'EventBasedGateway4', 'incoming': ['sid-EE916BE4-D202-4465-A676-114D2D882D2C'], 'outgoing': ['Transfer Debt collection service provider', 'ExclusiveGateway3', 'Right?']}
+{'id': 'sid-7C122BE6-9634-4EAE-8856-2AC832EA7B4C', 'name': 'Reimbursement', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-05C5E1C0-7E10-42C4-921A-32D2103A3BF6', 'name': 'Cash receipt', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-38B350C9-E518-4760-BF7B-1B10B2D7A75F', 'name': 'Opposition', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-BD22ACB0-18AC-415C-A298-FDB67D6C07FC', 'name': 'Report\nPossibility of\nRegression', 'incoming': [], 'outgoing': ['Claim\nis there?']}
+
+End Events:
+{'id': 'sid-3634ED5D-58BF-4C05-BBE6-D1CC86E367B0', 'name': 'Regression\ncompleted', 'incoming': ['Book the entrance'], 'outgoing': []}
+{'id': 'sid-8F509CE6-F559-4CE4-9B22-E46CA7717FB1', 'name': 'EndEvent1', 'incoming': ['Reimbursement'], 'outgoing': []}

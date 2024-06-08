@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-972D0B70-4DF1-4609-B47C-B09E50807392', 'name': 'Info Get delay', 'incoming': ['Check payment defaults'], 'outgoing': ['Claim\nRight?']}
+{'id': 'sid-060372E3-13E5-495D-87A5-48A0E97BB997', 'name': 'Payment request sent', 'incoming': ['Expect deadline'], 'outgoing': ['Payment request']}
+{'id': 'sid-E56CB628-9BC8-4ADE-BB0D-B850B53F7E84', 'name': 'Close', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Regress unauthorized']}
+{'id': 'sid-E10AFAEE-3E15-4432-A2F1-D48051336161', 'name': 'Payment booked', 'incoming': ['Check payment defaults'], 'outgoing': ['Regress completed']}
+{'id': 'sid-E4967AC4-B101-4151-BB59-C2D575388411', 'name': 'Disclosure of debt collection', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Regress Transfer']}
+{'id': 'sid-752195AE-2B7A-458E-A1FE-514DAB5D8FB9', 'name': 'Disclosure of debt collection', 'incoming': ['Claim\nRight?'], 'outgoing': ['Regress completed']}
+{'id': 'sid-2279B68F-5D71-416F-9AD4-E5ACDC67A82C', 'name': 'Close', 'incoming': ['Claim\nRight?'], 'outgoing': ['Regress unauthorized']}
+
+Gateways:
+{'id': 'sid-F858DF29-8913-433E-AE9F-71D95DCFB045', 'name': 'Claim\nRight?', 'incoming': ['Check payment defaults'], 'outgoing': ['Regress unauthorized', 'Regress completed']}
+{'id': 'sid-7093DAEB-C971-424B-8F10-85F6DB9228A0', 'name': 'Insurance\nagain', 'incoming': ['Expect deadline', 'EventBasedGateway3'], 'outgoing': ['Regress Transfer', 'Payment request sent']}
+{'id': 'sid-9658F438-0D09-4A2C-BE79-B1624B0F7A9E', 'name': 'Claim\nRight?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Regress unauthorized', 'Regress completed']}
+{'id': 'sid-D10505C3-A482-417B-8BB7-56052BF29066', 'name': 'EventBasedGateway3', 'incoming': ['Expect deadline'], 'outgoing': ['Payment request', 'Disclosure of debt collection', 'Close']}
+{'id': 'sid-37D8EFB0-FB2A-4B88-BA04-68A70F4B7383', 'name': 'Payment request', 'incoming': ['Check payment defaults'], 'outgoing': ['Regress completed']}
+{'id': 'sid-6D4FEE63-AE48-4EE2-8D9D-5744F0015815', 'name': 'Expect deadline', 'incoming': ['Expect deadline'], 'outgoing': ['Regress Transfer']}
+
+Start Events:
+{'id': 'sid-AD37BB50-94A8-42DB-BD98-7075902C1987', 'name': 'Check payment defaults', 'incoming': [], 'outgoing': ['Payment booked']}
+
+End Events:
+{'id': 'sid-086DA6A8-6DB4-4239-AA64-148DD9A63C61', 'name': 'Regress unauthorized', 'incoming': ['Claim\nRight?'], 'outgoing': []}
+{'id': 'sid-D78FE2D8-A55B-433E-87BD-216A41BD284F', 'name': 'Regress completed', 'incoming': ['Claim\nRight?'], 'outgoing': []}
+{'id': 'sid-0B04F08A-8D2F-451E-A38C-0211E5EDCF69', 'name': 'Regress Transfer', 'incoming': ['Expect deadline'], 'outgoing': []}
+{'id': 'sid-ECE41431-AC1C-41F6-8787-EE17DD28BB34', 'name': 'Regress unauthorized', 'incoming': ['Claim\nRight?'], 'outgoing': []}
+{'id': 'sid-86B77B13-6440-4C57-8DAC-4B3CF644B639', 'name': 'Regress completed', 'incoming': ['Claim\nRight?'], 'outgoing': []}

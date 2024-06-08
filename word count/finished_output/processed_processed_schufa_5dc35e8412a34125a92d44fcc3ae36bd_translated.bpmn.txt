@@ -1,0 +1,13 @@
+ When a "Scoring request" is initiated, it triggers a series of events and interactions between various components in the system. The process begins with the "Schufascoring requested" event, which sends a request for scoring. This event has an outgoing connection to the "forward scoring result" gateway, indicating that the scoring process will be forwarded to this gateway.
+
+The "Scoring request" event then connects to the "Result?" gateway, which is responsible for handling the results of the scoring process. This gateway has incoming connections from the "Schufascoring requested" event, indicating that it will receive the scoring request.
+
+The "EventBasedGateway2" gateway receives the "Schufascoring requested" event and forwards it to the "ExclusiveGateway0" and "EndEvent0" gateways. The "ExclusiveGateway0" has incoming connections from both the "EventBasedGateway2" and "Result?" gateways, indicating that it will receive both the scoring request and the results.
+
+The "Conducting First Scoring" event is triggered by the "Scoring request" event and has an outgoing connection to the "Result?" gateway, indicating that it will send the results of the first scoring process.
+
+The "Second scoring" event is triggered by the "Result?" gateway and has an outgoing connection to the "sid-9471A7B8-55CE-431B-A659-60049B211430" gateway, indicating that it will forward the results of the second scoring process.
+
+Finally, the "EndEvent0" event has incoming connections from the "EventBasedGateway2" and "ExclusiveGateway0" gateways, indicating that it will receive the results of the scoring processes.
+
+In summary, when a "Scoring request" event is initiated, it triggers a series of events and interactions between various components in the system, ultimately leading to the "EndEvent0" event receiving the results of the scoring processes.

@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-5869875A-C08D-4E44-AEA9-02A503F4F56E', 'name': 'Test\n', 'incoming': ['possible regress request'], 'outgoing': ['Regression\nYES/NO']}
+{'id': 'sid-EAD7E5EE-03BA-4C33-8099-BE73B271DB9D', 'name': 'Request\nInsurance', 'incoming': ['possible regress request'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-8B91A195-0BC2-4585-BB7B-D43DE6415A43', 'name': 'no regression', 'incoming': ['Regression\nYES/NO'], 'outgoing': ['sid-53A3E7F2-4423-48A1-BE21-48A5961C2D74']}
+{'id': 'sid-79710E56-8152-4F68-ABB1-153F885F2BA8', 'name': 'Reimbursement', 'incoming': ['Regression\nYES/NO'], 'outgoing': []}
+{'id': 'sid-0AF24AAB-5512-48FF-9CDC-AF8C819A82B6', 'name': 'Processing\nOpposition', 'incoming': ['Reasons\nby VN'], 'outgoing': ['Opposition\nYES/NO']}
+{'id': 'sid-B6737D9F-1506-427F-B405-C4B01FC62020', 'name': 'Booking', 'incoming': ['Incoming payment'], 'outgoing': ['Finished']}
+{'id': 'sid-0A9021C2-61DB-49B5-8E2C-61D028D5A662', 'name': 'Transfer to debt collection', 'incoming': ['Result'], 'outgoing': ['Message from Inkasso']}
+{'id': 'sid-A6DA8FAC-C577-433A-A469-2495A0F71631', 'name': 'Finished', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Finished']}
+
+Gateways:
+{'id': 'sid-73361860-C6CB-4067-8E58-8A99A185E9C4', 'name': 'Regression\nYES/NO', 'incoming': ['possible regress request'], 'outgoing': ['Reimbursement', 'no regression']}
+{'id': 'sid-7FA0D447-8CB3-45A7-93BA-9460B0F170B5', 'name': 'Opposition\nYES/NO', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Finished', 'sid-94941D36-477C-4A42-ABF9-436E8B52BB18']}
+{'id': 'sid-1A0D20FC-30E3-4185-99CD-B8B36B3205E4', 'name': 'EventBasedGateway2', 'incoming': ['sid-E4983933-573F-4648-8ABB-F8D3A9507468'], 'outgoing': ['Message from Inkasso', 'Finished']}
+{'id': 'sid-FEE31EA2-17E7-4E65-98F8-E44C419ED848', 'name': 'Reasons\nby VN', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Finished']}
+{'id': 'sid-F9DBA8A8-427F-4623-8BFD-D92CCC1F2E55', 'name': 'Result', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Message from Inkasso']}
+{'id': 'sid-D82D03A8-3509-4FFF-ADEF-06CB3AD60CB9', 'name': 'Incoming payment', 'incoming': ['sid-1A30B6ED-7403-4E86-B956-3E1B1E4E7A8D'], 'outgoing': ['Finished']}
+
+Start Events:
+{'id': 'sid-7A43929B-8CB7-46DA-B13E-80C52BEB3D92', 'name': 'possible regress request', 'incoming': [], 'outgoing': ['Request\nInsurance']}
+
+End Events:
+{'id': 'sid-2A3FEF5A-B0B2-42FF-84C4-B1F2A96CBBC7', 'name': 'Finished', 'incoming': [], 'outgoing': []}
+{'id': 'sid-FFE91FD8-C589-4DC1-9092-B1AA41C531BF', 'name': 'Finished', 'incoming': ['Incoming payment'], 'outgoing': []}
+{'id': 'sid-1A56B99E-F6EE-431C-952A-A14588300B3C', 'name': 'Finished', 'incoming': ['Reasons\nby VN'], 'outgoing': []}
+{'id': 'sid-E36B5139-3FF7-4791-8EA7-ED861BC62B55', 'name': 'Message from Inkasso', 'incoming': ['EventBasedGateway2'], 'outgoing': []}

@@ -1,0 +1,37 @@
+Tasks:
+{'id': 'sid-74971981-BB1F-44F6-8BC8-F6F8EE401F7E', 'name': 'Choose food', 'incoming': ['Guest enters\nRestaurant'], 'outgoing': ['Customer is on the line']}
+{'id': 'sid-163591E6-C9C4-4102-B00B-1C910F7D19CB', 'name': 'Add your order', 'incoming': ['Guest enters\nRestaurant'], 'outgoing': ['Order payment']}
+{'id': 'sid-45903D2F-DDEB-4772-9C86-D3295E101498', 'name': 'Order payment', 'incoming': ['Customer is on the line'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-801F2A8F-2FE8-43D7-9283-53EFEFAB1538', 'name': 'Pick up food', 'incoming': ['Pieper piept'], 'outgoing': ['Eat food']}
+{'id': 'sid-733257D0-4EA6-408A-860C-7E24A22EC011', 'name': 'Eat food', 'incoming': ['Pieper piept'], 'outgoing': ['Famine']}
+{'id': 'sid-DFE804EF-B5A4-4BC3-8B35-F70F3879ACD8', 'name': 'Pick up Pieper', 'incoming': ['Customer is on the line'], 'outgoing': ['Famine']}
+{'id': 'sid-59CC3173-4112-4293-A057-15087A6FDA67', 'name': 'Enter your order in the cash register system', 'incoming': ['Order\nrecord'], 'outgoing': ['Cash from customers']}
+{'id': 'sid-F7DC3DC5-DE33-4979-A72E-7C0C99DA87AC', 'name': 'Cash from customers', 'incoming': ['Order\nrecord'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-4A1E103C-1957-437F-AF3B-7D3FF100F61B', 'name': 'Adjust Pieper', 'incoming': ['Order\nrecord'], 'outgoing': ['Pieper\nhand over']}
+{'id': 'sid-73AAF42E-95DD-4651-AA70-E8D5D5CDB4F0', 'name': 'Pieper\nhand over', 'incoming': ['Order\nrecord'], 'outgoing': ['Send order to Koch']}
+{'id': 'sid-AD73A409-C63D-4ABA-BF9D-7AD7D4946128', 'name': 'Send order to Koch', 'incoming': ['Order\nrecord'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-B19F5B62-F06C-450B-A1DA-8C8CA58B66F1', 'name': 'Trigger Pieper', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Visit to Theke']}
+{'id': 'sid-24035C00-C5BE-445D-B965-061F35E394F6', 'name': 'Deliver food', 'incoming': ['Visit to Theke'], 'outgoing': ['Order completed']}
+{'id': 'sid-76B62549-3E9C-44AF-847E-3ED75D7F64B3', 'name': 'Retrieve customers', 'incoming': ['on display\nthe customer waiting'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-7AAD7372-3452-4777-BFDC-4783DFD38717', 'name': 'Prepare food', 'incoming': ['Order\nTake over'], 'outgoing': ['Put food in abundance']}
+{'id': 'sid-887418D3-51E2-435D-95FE-89E0C4A3B7DB', 'name': 'Put food in abundance', 'incoming': ['Order\nTake over'], 'outgoing': ['inform employees about finished food']}
+{'id': 'sid-0D955BD3-8BB2-484F-BEB4-CA0A51275C60', 'name': 'inform employees about finished food', 'incoming': ['Order\nTake over'], 'outgoing': ['Preparation\nfinished']}
+
+Gateways:
+{'id': 'sid-C9907D7C-D0AA-4594-A713-F1F0742401CC', 'name': 'EventBasedGateway0', 'incoming': ['Order\nrecord', 'IntermediateCatchEvent4'], 'outgoing': ['Order completed', 'EventBasedGateway0']}
+{'id': 'sid-116C9128-DFB6-4766-B853-E0B9976339D9', 'name': 'Pieper piept', 'incoming': ['Customer is on the line'], 'outgoing': ['Famine']}
+{'id': 'sid-FE75DF24-1A58-477E-B24E-F5B64DABB6A7', 'name': 'Customer is on the line', 'incoming': ['Guest enters\nRestaurant'], 'outgoing': ['Pieper piept']}
+{'id': 'sid-3A2B4832-34AC-4E91-A9BC-E869E3324437', 'name': 'on completion\nwaiting for food', 'incoming': ['Order\nrecord'], 'outgoing': ['Order completed']}
+{'id': 'sid-06CF383E-0E47-4FFF-A0F0-5C111E21ACC4', 'name': 'IntermediateCatchEvent4', 'incoming': ['Send order to Koch'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-AF3B904B-E7A6-419D-BD90-C4985F836459', 'name': 'on display\nthe customer waiting', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-62B5DB3C-FF53-4D73-B5FD-AA8C82F92D72', 'name': 'Visit to Theke', 'incoming': ['Trigger Pieper'], 'outgoing': ['Order completed']}
+
+Start Events:
+{'id': 'sid-87918B88-8A76-4E57-842F-0FEB737932FD', 'name': 'Guest enters\nRestaurant', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-7847C2EA-44B8-4D9C-9913-2BBB1CA21A15', 'name': 'Order\nrecord', 'incoming': [], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-EC863FEE-A52D-41D6-BFBB-DAFD7C579D44', 'name': 'Order\nTake over', 'incoming': [], 'outgoing': ['inform employees about finished food']}
+
+End Events:
+{'id': 'sid-A241B86D-FF36-4C86-B85A-FFCC28ADB049', 'name': 'Famine', 'incoming': ['Pick up Pieper'], 'outgoing': []}
+{'id': 'sid-81D7C3FC-7DF0-4E96-9066-8AB651DD6635', 'name': 'Order completed', 'incoming': ['on completion\nwaiting for food'], 'outgoing': []}
+{'id': 'sid-7EDBE904-5BC7-4DAC-A1B5-C7F0FB06F3C2', 'name': 'Preparation\nfinished', 'incoming': ['inform employees about finished food'], 'outgoing': []}

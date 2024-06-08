@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-5BF0919A-A19C-42FC-BD17-7062736551F9', 'name': 'forward request to Schufasystem', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring\nobtained\n']}
+{'id': 'sid-8B1647DB-2477-498D-9328-1419C5CA2ADA', 'name': 'Report delay', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring\nobtained']}
+{'id': 'sid-46BE43F7-9C8A-4FE6-A11E-FEEF0B158DF9', 'name': 'perform scoring levels 1', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Scoring Level 1\nsuccessful?']}
+{'id': 'sid-0D312338-9B02-4345-96FE-FEB0E45F4DC3', 'name': 'perform scoring level 2', 'incoming': ['sid-3267A065-5FC9-4352-A070-4E733F4FC49E'], 'outgoing': ['sid-3E51833A-C65E-40EB-B6A1-A08C51DC6567']}
+
+Gateways:
+{'id': 'sid-6AE27FD9-C6FA-402C-A5F7-BDB2B5029E1D', 'name': 'Scoring Level 1\nsuccessful?', 'incoming': ['Scoring request\nReport'], 'outgoing': ['sid-367B1D26-C29E-4768-8B5F-5278741B808A', 'sid-FA3FC654-CD5F-4396-8B65-10B947EADADE']}
+{'id': 'sid-9AEE95F0-136C-4D76-9EE2-F8370A70586B', 'name': 'EventBasedGateway1', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring\nobtained\n', 'Scoring\nobtained']}
+{'id': 'sid-927BD332-AA7E-4128-BC1E-187DF78C717D', 'name': 'Scoring\nobtained', 'incoming': ['EventBasedGateway1'], 'outgoing': ['sid-84E4E007-4AF9-49F6-B6FA-53D938E7EC4C']}
+{'id': 'sid-0D15CD5A-85C2-4131-B6B4-B6B4919BCCF8', 'name': 'Scoring\nobtained\n', 'incoming': ['forward request to Schufasystem'], 'outgoing': ['sid-48852410-EE6B-4CED-B566-A604C4A4886E']}
+{'id': 'sid-4B7FEBC7-6082-4443-8B24-A27F62C7AD13', 'name': 'Delay\nReport\nobtained', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring\nobtained']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['Report delay']}
+{'id': 'sid-C5F791E7-B7BD-4040-8E4A-0281F33381A2', 'name': 'Scoring request\nReport', 'incoming': [], 'outgoing': ['Scoring Level 1\nsuccessful?']}
+
+End Events:
+{'id': 'sid-6CB79794-562E-44A0-8B1C-906D36F9D34D', 'name': 'End process', 'incoming': ['sid-711E9A57-E440-4428-8111-5F454FCE766D', 'sid-6BF12959-EAD0-4EA7-A3E5-7C77A895FE99'], 'outgoing': []}
+{'id': 'sid-B6832A77-6842-451B-B1CE-5750791B40D4', 'name': 'End process', 'incoming': ['sid-B67BEA17-BE87-44ED-A946-F014A5D9AD16'], 'outgoing': []}
+{'id': 'sid-0CF4143D-480F-4CDF-9E70-F44D4C250A36', 'name': 'Final result', 'incoming': ['sid-C40BDA67-BE9F-4D08-B654-012A679EA1F0'], 'outgoing': []}

@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-4B6D74F2-2DF8-4127-BC5E-AEBC4E152258', 'name': 'Check regression', 'incoming': ['VN regress possible'], 'outgoing': ['InclusiveGateway4']}
+{'id': 'sid-A2C7AFCF-E829-49F3-B870-5ADD303D39B3', 'name': 'Set process for re-submission', 'incoming': ['InclusiveGateway4'], 'outgoing': ['Default period expired']}
+{'id': 'sid-FE882B5F-6DC7-442A-B6FC-2C98FBE6CFB2', 'name': 'Book money receipt', 'incoming': ['sid-887CB0B5-5656-4B8C-B9F3-B0005B6926F3'], 'outgoing': ['Close']}
+{'id': 'sid-5EC73E51-B31D-4C6D-88DD-EC359D39F7FA', 'name': 'Proceedings', 'incoming': ['sid-2A496622-7F10-4208-ADD8-436417BE5300'], 'outgoing': ['Close']}
+{'id': 'sid-7C1E37F3-91DC-4C11-A1D0-8984264FFF36', 'name': 'Check the receipt of funds', 'incoming': ['VN regress possible'], 'outgoing': ['Money received']}
+{'id': 'sid-3D64ABBA-E54B-4A79-AA0D-754EBBB0443F', 'name': 'VN payment request', 'incoming': ['InclusiveGateway4'], 'outgoing': ['Payment\non request\nto VN']}
+{'id': 'sid-5CFA671E-0B61-4426-9035-9DC25FB1EDCB', 'name': 'Close', 'incoming': ['Regress is entitled'], 'outgoing': ['Closed']}
+
+Gateways:
+{'id': 'sid-0E4AE25B-1C46-443F-8C6D-473FDB8705AA', 'name': 'Regress is entitled', 'incoming': ['VN regress possible'], 'outgoing': ['Money received', 'Closed']}
+{'id': 'sid-5E3A6BC8-98BE-4873-BEE6-21FA64CDCFD6', 'name': 'Not justified', 'incoming': ['Proceedings'], 'outgoing': ['sid-08045466-793A-4879-84C7-1F2236505B97', 'Close']}
+{'id': 'sid-82F690CC-60F1-45FF-AB2F-580506D8F9C9', 'name': 'Money received', 'incoming': ['Regress is entitled'], 'outgoing': ['sid-F2B45819-9751-4AE2-8719-A58738EDA640', 'sid-07E18876-1422-408C-8628-2D622D49D7D6']}
+{'id': 'sid-A22A73FD-E50E-4A54-8361-C6ABC059E716', 'name': 'VN contradicts', 'incoming': ['Payment\non request\nto VN'], 'outgoing': ['sid-F58AF7EA-EC54-4504-9584-8C88408EC7B8', 'sid-A37CAFDE-5F9B-496C-BE7B-C4C088CD207B']}
+{'id': 'sid-B2797A13-7D59-4D85-96FF-23E68382A9E6', 'name': 'InclusiveGateway4', 'incoming': ['Check regression'], 'outgoing': ['Default period expired', 'Payment\non request\nto VN']}
+{'id': 'sid-DFC44EFD-A2E9-4C7B-B0D2-739AA6A1AED2', 'name': 'Payment\non request\nto VN', 'incoming': ['InclusiveGateway4'], 'outgoing': ['VN contradicts']}
+{'id': 'sid-3E1312CE-78B5-44D1-A288-7AD07923DB20', 'name': 'Default period expired', 'incoming': ['VN regress possible'], 'outgoing': ['Money received']}
+
+Start Events:
+{'id': 'sid-47FB9B15-110A-4498-9006-E26BC56C1DBD', 'name': 'VN regress possible', 'incoming': [], 'outgoing': ['Check the receipt of funds']}
+
+End Events:
+{'id': 'sid-F92974F3-2FA3-479B-8C42-F48F3D6C8CAB', 'name': 'Close', 'incoming': ['Proceedings'], 'outgoing': []}
+{'id': 'sid-1B111BE4-7542-4D5B-A536-0415D464929A', 'name': 'Closed', 'incoming': ['Regress is entitled'], 'outgoing': []}
+{'id': 'sid-089111B8-8E9F-4810-AD14-9AACEB0BBC9C', 'name': 'Close', 'incoming': ['Book money receipt'], 'outgoing': []}

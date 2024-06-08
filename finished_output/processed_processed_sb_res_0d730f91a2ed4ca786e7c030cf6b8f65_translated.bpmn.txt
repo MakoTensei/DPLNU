@@ -1,0 +1,11 @@
+ Let's describe the flow of events in a more natural and descriptive way, fitting them into a single paragraph:
+
+When a customer feels hungry, they can choose from available options and place their order, which triggers the 'Add your order' event. Once the order is received, the 'Pick up food' event is initiated, and the customer is informed that their meal will be ready within 14 minutes. If the meal is not collected within the specified time, the'meal not collected' event is triggered.
+
+Simultaneously, the 'Food is collected within 14 minutes' event is activated when the customer is on the line, and it leads to the 'Meal time picked up' event if the meal is collected on time. If the meal is not collected, the 'Pieper piept' event is triggered, indicating that the meal was not picked up.
+
+The 'EventBasedGateway1' event is triggered when the customer is on the line or when the milling time stands in passing, leading to the 'Deliver food' event. This event can occur multiple times, depending on the number of guests waiting.
+
+The 'Putting meal in vain' event occurs when the meal is not collected, and it leads to the 'Prepared food' event, indicating that the meal was prepared but not delivered.
+
+In summary, the flow of events starts with the customer feeling hungry and placing an order, followed by the collection and delivery of the meal. If the meal is not collected within the specified time, the system triggers appropriate events to handle the situation.

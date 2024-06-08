@@ -1,0 +1,13 @@
+ In the logistics process, a shipment desired initiates the workflow, triggering a series of tasks and interactions between various entities. The shipment desired leads to the Competent Authority, which assesses the necessity of insurance. If insurance is deemed necessary, the Insurance Close task is activated, which in turn requires a Special Delivery Necessary check. This check connects to the Special Delivery Necessary Gateway, which then routes the process to ExclusiveGateway2.
+
+
+Parallel to this, the shipment desired also prompts the Pick Up Offers task, which connects to ParallelGateway4. This gateway leads to the Special Offer Select task, which also requires a Special Delivery Necessary check, connecting to ExclusiveGateway3.
+
+
+Once the Special Delivery Necessary check is passed, the process diverges into two paths: one leading to ExclusiveGateway2, which is responsible for filling the package note, and the other to ExclusiveGateway3, which handles the insurance close process.
+
+
+The Insurance Close task, upon completion, connects to ParallelGateway5, which is responsible for the final step of the process, delivering the goods.
+
+
+In summary, the workflow begins with a shipment desired, leading to a competent authority that checks for insurance necessity. If insurance is needed, the process involves a special delivery check, which diverges into two paths: one for filling the package note and another for insurance close. Both paths eventually converge at ParallelGateway5, which delivers the goods.

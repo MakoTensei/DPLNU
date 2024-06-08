@@ -1,0 +1,7 @@
+ The process begins with a 'Shipment' event, which triggers the 'ExclusiveGateway3' to determine if insurance is necessary. If insurance is required, the 'Complete insurance' process is initiated, which then leads to 'ParallelGateway5'. Concurrently, the 'Shipment' event also triggers 'ParallelGateway4' to ask for the 'What type of shipping?' information.
+
+Once the 'What type of shipping?' information is received, it leads to 'ExclusiveGateway1', where the 'Determining the shipping mode' process is initiated. After determining the shipping mode, the process proceeds to 'Goods sent' through 'ExclusiveGateway3'.
+
+If insurance is not necessary, the 'Need to check insurance' process is initiated, which also leads to 'ParallelGateway5'. After receiving the 'Need to check insurance' information, the process proceeds to 'Goods sent' through 'ParallelGateway5'.
+
+In both scenarios, the 'Goods sent' event is triggered, which has an incoming link to 'ParallelGateway4'. This signifies the completion of the process, where the goods are sent out for collection.

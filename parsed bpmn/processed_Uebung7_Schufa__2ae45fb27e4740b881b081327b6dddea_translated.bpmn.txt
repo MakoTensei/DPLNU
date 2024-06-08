@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-4AC23E3F-FCA6-4FA0-9357-9E319E9212C9', 'name': 'Communication with Schufasystem\nrecord', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Scoring\nResult\navailable']}
+{'id': 'sid-1567B9C5-12C9-458F-A19F-78F45E8096E6', 'name': 'forward scoring result to frontend', 'incoming': ['Scoring\nResult\navailable'], 'outgoing': ['Scoring\nResult\nsupplied']}
+{'id': 'sid-A763D53B-8FD8-4899-8C85-E24F4DCE72D6', 'name': 'Send delay proof', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-BF1FEDC9-4F48-48E8-9334-E610ACE34119', 'name': 'Conduct Level1 scoring\n', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-FE88D412-E6CA-423E-A2E0-58706CB27CB3', 'name': 'Report the result', 'incoming': ['Result\navailable'], 'outgoing': ['Result\nReported back']}
+{'id': 'sid-2B707587-186E-42D8-89B7-95A39DA9C57F', 'name': 'Report delay', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Level2 scoring']}
+{'id': 'sid-6D28390E-E68F-4809-83F1-74987C53DE22', 'name': 'Level2 scoring', 'incoming': ['Result\n?'], 'outgoing': ['Result\navailable']}
+
+Gateways:
+{'id': 'sid-A3AC0294-8D57-4601-A08F-E8EF6B9C27EC', 'name': 'Result\n?', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Result\nReported back', 'Level2 scoring']}
+{'id': 'sid-29B89063-D7EC-4556-82FC-D6894F7D8526', 'name': 'ExclusiveGateway1', 'incoming': ['Conduct Level1 scoring\n', 'Result\navailable'], 'outgoing': ['Result\nReported back']}
+{'id': 'sid-C0CB2B6E-FB80-4916-B560-28322B005D99', 'name': 'EventBasedGateway2', 'incoming': ['Scoring request\nobtained', 'EventBasedGateway2'], 'outgoing': ['Scoring\nResult\nsupplied', 'EventBasedGateway2']}
+{'id': 'sid-CF6925B4-7540-43C7-894F-81FD1C2C5A52', 'name': 'Scoring\nResult\navailable', 'incoming': ['Communication with Schufasystem\nrecord'], 'outgoing': ['Scoring\nResult\nsupplied']}
+{'id': 'sid-A1001C22-A1F2-44A1-B5F7-561709F20BC3', 'name': 'Delay\nReport', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Scoring\nResult\nsupplied']}
+{'id': 'sid-5CBD7E89-1034-4B2E-B609-E7AB9C95B664', 'name': 'Result\navailable', 'incoming': ['Level2 scoring'], 'outgoing': ['Report the result']}
+
+Start Events:
+{'id': 'sid-F1F01B7B-0060-44DB-B46F-09DE7B788885', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['Send delay proof']}
+{'id': 'sid-587498B2-C26F-40EB-AB1D-65408C2E7AF7', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['Report delay']}
+
+End Events:
+{'id': 'sid-10F1C23B-CD84-4A41-9522-4B955AC93713', 'name': 'Scoring\nResult\nsupplied', 'incoming': ['Delay\nReport'], 'outgoing': []}
+{'id': 'sid-99464017-42F4-4FC2-869D-25D39A392DB4', 'name': 'Result\nReported back', 'incoming': ['Result\n?'], 'outgoing': []}

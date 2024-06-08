@@ -1,0 +1,12 @@
+ In a legal case management system, the following tasks and gateways are interconnected to handle various stages of a case:
+
+1. When the case starts, the 'StartEvent0' triggers the 'Regress?' gateway, which can set the case to 'WV' (Waiting Verification) if needed.
+2. If the case is set to 'WV', the 'Set case to WV' task is executed.
+3. The 'Incoming payment' task is triggered when a payment is received, and it connects to the 'ExclusiveGateway3' to process the payment.
+4. The 'Check the case' task is also connected to 'ExclusiveGateway3' to verify the case status.
+5. The 'EventBasedGateway4' receives an 'Opposition' event and connects to the 'EndEvent0' to conclude the proceedings.
+6. The 'Justified?' gateway is triggered by 'EventBasedGateway4' and can either proceed to 'ExclusiveGateway2' or end the case.
+7. The 'Proceedings' task is connected to 'ExclusiveGateway2' to initiate the next steps in the case.
+8. The 'WV-Frist expired' task is triggered by 'EventBasedGateway4' and connects to 'Payment request' to handle the expired waiting verification.
+
+Overall, the system ensures that each task and gateway is connected to the appropriate incoming and outgoing events, allowing for a smooth and efficient case management process.

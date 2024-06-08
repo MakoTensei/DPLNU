@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-D43E82D9-FB7D-41BD-ACFE-81379A8540DB', 'name': 'Visit the restaurant', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Selection']}
+{'id': 'sid-D19AB192-B679-46FC-980F-8DA17039FE2A', 'name': 'Selection', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Add your order']}
+{'id': 'sid-E32EE093-63F1-4A38-AF0C-3202F7503ADD', 'name': 'Add your order', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Pay']}
+{'id': 'sid-DEE20BC3-1469-4A0F-8C84-DF9FDA905A8F', 'name': 'Pay', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Get Pieper']}
+{'id': 'sid-64B367CD-1A50-4707-AF43-0CAC5A3B9AC8', 'name': 'Food collection', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Eat meal']}
+{'id': 'sid-993D228E-634A-4C12-8EEE-C352AB652FB7', 'name': 'Eat meal', 'incoming': ['Pieper reports'], 'outgoing': ['Famine']}
+{'id': 'sid-7E8C9C15-470E-4D90-B05A-BE131BB44059', 'name': 'Recording', 'incoming': ['Customer orders'], 'outgoing': ['Entering order in cash register system']}
+{'id': 'sid-112148E9-2853-45E5-AB7E-50E0F496B07D', 'name': 'Entering order in cash register system', 'incoming': ['Customer orders'], 'outgoing': ['Cash']}
+{'id': 'sid-7CDA7ED1-7B5A-429D-88B3-98E69BAE3F9C', 'name': 'Cash', 'incoming': ['Customer orders'], 'outgoing': ['Handover pieper']}
+{'id': 'sid-7550651E-4361-46E5-9A21-E77277D42EB9', 'name': 'Handover pieper', 'incoming': ['Customer orders'], 'outgoing': ['Information to Koch']}
+{'id': 'sid-2B99416F-1FB0-49FE-944F-C94AF22455AD', 'name': 'Information to Koch', 'incoming': ['Customer orders'], 'outgoing': ['Info from Koch']}
+{'id': 'sid-F777BAA8-443F-466A-A465-1F3A799CAC5B', 'name': 'Trigger Pieper', 'incoming': ['Customer orders'], 'outgoing': ['Customer coming']}
+{'id': 'sid-7EE33D8A-4792-42C3-A1F3-E0E50DE35F0E', 'name': 'Leave food', 'incoming': ['Customer orders'], 'outgoing': ['food spent,\nOrder completed']}
+{'id': 'sid-FC92CB61-F53B-486B-9FE7-C45202FA426C', 'name': 'Retrieve customers', 'incoming': ['5 minutes'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-725FD56D-7675-4E6A-8519-BEE025A6F886', 'name': 'Preparation of meal', 'incoming': ['Info of employees'], 'outgoing': ['Place meal zit in vain']}
+{'id': 'sid-8F023E23-E0C4-40B0-B9F3-6D4FF9A20069', 'name': 'Place meal zit in vain', 'incoming': ['Info of employees'], 'outgoing': ['inform employees']}
+{'id': 'sid-98DFF221-7955-464A-8C41-243317F8D6A1', 'name': 'inform employees', 'incoming': ['Info of employees'], 'outgoing': ['meal done']}
+
+Gateways:
+{'id': 'sid-F81B1097-87DE-49D3-8EAC-39825E1EA929', 'name': 'EventBasedGateway0', 'incoming': ['Info from Koch', 'EventBasedGateway0'], 'outgoing': ['EventBasedGateway0', 'food spent,\nOrder completed']}
+{'id': 'sid-A776212D-50DE-41EF-AD0C-BC8481597787', 'name': 'Pieper reports', 'incoming': ['Get Pieper'], 'outgoing': ['Famine']}
+{'id': 'sid-861F8049-A848-491C-8EC8-69EADE5E6164', 'name': 'Get Pieper', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Food collection']}
+{'id': 'sid-B3B56CC1-2A60-4C92-BCAB-8EA6F8EA81BC', 'name': 'Info from Koch', 'incoming': ['Customer orders'], 'outgoing': ['food spent,\nOrder completed']}
+{'id': 'sid-27AAEB7F-42C2-4CDC-A342-AD661414397F', 'name': '5 minutes', 'incoming': ['Info from Koch'], 'outgoing': ['food spent,\nOrder completed']}
+{'id': 'sid-248F8721-1C28-475D-AC9A-348A96A35713', 'name': 'Customer coming', 'incoming': ['Customer orders'], 'outgoing': ['food spent,\nOrder completed']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Food collection']}
+{'id': 'sid-BA1DDB81-2BF9-4B9C-B0BD-76F47ECD73F3', 'name': 'Customer orders', 'incoming': [], 'outgoing': ['Leave food']}
+{'id': 'sid-678B905A-191F-408B-834F-FD4E47BC8729', 'name': 'Info of employees', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-AC3B800A-98A4-4DA8-9CCC-745BF68FC430', 'name': 'Famine', 'incoming': ['Pieper reports'], 'outgoing': []}
+{'id': 'sid-0EA2F707-3B87-45BA-A48D-66B86346A981', 'name': 'food spent,\nOrder completed', 'incoming': ['Info from Koch'], 'outgoing': []}
+{'id': 'sid-FB525CB6-AFD5-4E92-97D7-59173E7A7D7A', 'name': 'meal done', 'incoming': ['inform employees'], 'outgoing': []}

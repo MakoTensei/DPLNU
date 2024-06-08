@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-F0E58960-4C10-4316-AA63-6F5B907F5DAF', 'name': 'Check insurance case', 'incoming': ['Regression report\navailable'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-9EEBC031-265F-402C-BD81-8DFDD6F87372', 'name': 'VN payment request', 'incoming': ['Regression report\navailable'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-11C18F69-73F9-4053-82F5-8D4D600F93F2', 'name': 'Book payment', 'incoming': ['Incoming payment VN'], 'outgoing': ['Insurance case completed']}
+{'id': 'sid-D89CCD9F-B5EE-4BBD-96F5-D28A12E49B38', 'name': 'Verify your objection', 'incoming': ['VN received'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-893A00E3-B61F-4789-B782-22CC0CDF2608', 'name': 'Close the process', 'incoming': ['VN received'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-0279AF31-CC2D-456D-A3F0-7BD78CFDF652', 'name': 'Invite collection office', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Insurance case unsuccessful']}
+{'id': 'sid-5A62346F-6D2D-410C-ACB5-F5FFAA51756E', 'name': 'Set process for resubmission', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Incoming payment VN']}
+{'id': 'sid-29DAE676-1D95-49D9-BB86-BB93ECE29BCD', 'name': 'Insurance case close', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Insurance case completed']}
+
+Gateways:
+{'id': 'sid-DE50396F-96EB-4CA7-A75D-E9723440ED1A', 'name': 'ExclusiveGateway0', 'incoming': ['Regression report\navailable'], 'outgoing': ['Insurance case unsuccessful', 'Insurance case completed']}
+{'id': 'sid-EF763F98-B319-4F8C-A3AA-C75F8208B418', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Close the process', 'ExclusiveGateway3']}
+{'id': 'sid-71C3022C-4CBA-46FF-B54E-6CA2DDAC4C28', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'VN received'], 'outgoing': ['Insurance case completed']}
+{'id': 'sid-AD709836-B85B-440A-BCF3-DB9B30C1202A', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Verify your objection'], 'outgoing': ['Insurance case unsuccessful']}
+{'id': 'sid-0B691FA7-568E-45A6-A60A-E2909CC9925B', 'name': 'EventBasedGateway4', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway1', 'Invite collection office']}
+{'id': 'sid-6CC96B62-23CA-42AB-A51A-85FCE4A333E6', 'name': 'Incoming payment VN', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-AD4BB09B-5BFF-4DAE-A096-7FCCEFABEDE4', 'name': 'Default period expired', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Insurance case unsuccessful']}
+{'id': 'sid-FF0DA782-1359-44EA-BA97-C598807C583C', 'name': 'VN received', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-F4DFA6FD-C4BE-49CE-9773-458994F8D178', 'name': 'Regression report\navailable', 'incoming': [], 'outgoing': ['VN payment request']}
+
+End Events:
+{'id': 'sid-4A9ACB46-B923-42FC-B1D4-EC2B7323CB69', 'name': 'Insurance case completed', 'incoming': ['Book payment', 'ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-9E80C4EB-D13A-47B1-9EAE-217029B0AB45', 'name': 'Insurance case unsuccessful', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

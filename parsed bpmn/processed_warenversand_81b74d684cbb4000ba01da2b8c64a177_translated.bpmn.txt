@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-ED047704-66A4-4BB2-9D2C-031BD3ED11E6', 'name': 'Offers 3 companies', 'incoming': ['who takes delivery?\n'], 'outgoing': ['ExclusiveGateway1', 'Company 3', 'Company 1\n', 'Company 2']}
+{'id': 'sid-A5DEB510-99DD-486A-951A-AF33C3667FAA', 'name': 'Company 3', 'incoming': ['Start\n'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-823EC39B-7618-44AD-9577-7980279FD18A', 'name': 'Company 2', 'incoming': ['Offers 3 companies'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-B88610F1-5AAD-4655-9531-9DFB82413FAD', 'name': 'Company 1\n', 'incoming': ['Offers 3 companies'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-9A40F0E4-C96E-4EA0-AC38-EB72C441FE84', 'name': 'Create a package ticket', 'incoming': ['who takes delivery?\n'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-21EB6E82-96C5-40E5-9BCB-930C6962934F', 'name': 'Postal mail\n', 'incoming': ['ParallelGateway7'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-D8ED57C3-E9B3-4B48-9D02-B5418124F722', 'name': 'Decision for forwarder plus order', 'incoming': ['ParallelGateway6'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-7A99294B-4207-4B63-A23E-0162D694B1E7', 'name': 'Packing', 'incoming': ['ParallelGateway6'], 'outgoing': ['Provision']}
+{'id': 'sid-06B502BC-B2DC-47B6-B517-6431FA8FADD3', 'name': 'Provision', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway7', 'ParallelGateway4']}
+{'id': 'sid-468B0CBC-3CDC-432A-A822-5E08C13849E2', 'name': 'Insurance\nclose', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-46319199-93C4-4FA6-A4C7-96B8E999C0CE', 'name': 'who takes delivery?\n', 'incoming': ['ParallelGateway6'], 'outgoing': ['EndEvent0', 'Company 3']}
+{'id': 'sid-304C95F0-3355-417E-A3FB-70FF9CB5FC4E', 'name': 'ExclusiveGateway1', 'incoming': ['Offers 3 companies'], 'outgoing': []}
+{'id': 'sid-E90514FB-9A24-4202-8479-7D06CC7D1B06', 'name': 'ExclusiveGateway2', 'incoming': ['who takes delivery?\n'], 'outgoing': ['ParallelGateway7', 'Insurance\nclose']}
+{'id': 'sid-8F18A7F0-9930-4D7A-8AB7-17EA7D28E799', 'name': 'ExclusiveGateway3', 'incoming': ['Create a package ticket', 'Insurance\nclose'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-386FD50F-6078-46CD-BAFF-DE7A88E5C154', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway5', 'ParallelGateway6'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-CEEBC448-03DA-47A1-AE99-CE124D7400BA', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway6', 'Company 2', 'Company 1\n'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-F9170659-F83C-4244-BBA4-1F7D6EDC0CF5', 'name': 'ParallelGateway6', 'incoming': ['Start\n'], 'outgoing': ['EndEvent1', 'ParallelGateway4']}
+{'id': 'sid-E80E71A6-7F3E-47FC-84FD-D0AAC432E07D', 'name': 'ParallelGateway7', 'incoming': ['who takes delivery?\n', 'Provision'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-BC4A253E-E26E-483C-948C-5710F4306E52', 'name': 'Start\n', 'incoming': [], 'outgoing': ['Company 3']}
+
+End Events:
+{'id': 'sid-8F10BE72-C60A-453E-8505-B360C0C6E16C', 'name': 'EndEvent0', 'incoming': ['who takes delivery?\n'], 'outgoing': []}
+{'id': 'sid-2B4160E9-CE2E-4AA6-9E8E-5F65B629FFEC', 'name': 'EndEvent1', 'incoming': ['ParallelGateway6'], 'outgoing': []}

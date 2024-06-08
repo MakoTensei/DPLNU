@@ -1,0 +1,9 @@
+ In the process of packaging goods, the system begins with the 'ParallelGateway4' which receives the incoming data and sends it to 'ExclusiveGateway3'. This is followed by the 'Filling the package note' task, which also receives data from 'Volume of goods?' and sends it to 'ExclusiveGateway2'. The 'Order' task then selects a shipper based on the 'Volume of goods?' data and sends it to 'ExclusiveGateway3'.
+
+Simultaneously, '3 offers' task receives the 'Volume of goods?' data and sends it to 'Select a shipper'. The 'Separation of invoice Shipping type' task receives data from 'ParallelGateway4' and sends it to 'insurance', which in turn sends it to 'EndEvent0'.
+
+The 'Provide for collection' task receives data from 'StartEvent0' and sends it to 'EndEvent0'. Meanwhile, the 'insurance' task receives data from 'Separation of invoice Shipping type' and sends it to 'ExclusiveGateway2'.
+
+The 'ParallelGateway5' receives data from 'Separation of invoice Shipping type' and 'StartEvent0' and sends it to 'EndEvent0'. The 'ExclusiveGateway3' receives data from 'Volume of goods?', 'ParallelGateway4', and 'Select a shipper' and sends it to 'ParallelGateway5'.
+
+In summary, the process starts with the 'StartEvent0' and ends with 'EndEvent0', with various tasks and gateways working together to ensure the smooth packaging and shipping of goods.

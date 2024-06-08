@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-6C0B7689-6B46-4B74-AD16-8F026B37A6FB', 'name': 'Goods are to be shipped', 'incoming': ['ParallelGateway4'], 'outgoing': ['Quantity']}
+{'id': 'sid-D4473768-F9D1-447B-91D3-E35D2ECB7E54', 'name': 'fill out standard package tickets', 'incoming': ['Shipping costs'], 'outgoing': ['Check insurance requirements']}
+{'id': 'sid-8089AFEF-6945-4DA9-B8D8-A3BDD6C56546', 'name': 'get three offers from Spedition', 'incoming': ['Quantity'], 'outgoing': ['Select a quote']}
+{'id': 'sid-E3BDCEF2-A123-4365-9DEB-08C75CE8973D', 'name': 'Select a quote', 'incoming': ['Quantity'], 'outgoing': ['Specialist']}
+{'id': 'sid-C2492F12-9E33-45E7-B8DC-C9A5EAE085D1', 'name': 'Specialist', 'incoming': ['Quantity'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-82FAC3FA-3C5C-4F5B-A601-CC898BE12A50', 'name': 'Check insurance requirements', 'incoming': ['Quantity'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-55F691BA-E812-446C-9756-85EF04535BF9', 'name': 'Complete insurance', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-5F2B1083-48BD-40F6-8F9D-72E78772962C', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-0C681A21-81B5-4BCC-8782-71CAC27E694B', 'name': 'Delivering goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['Shipping costs\nFinished']}
+
+Gateways:
+{'id': 'sid-BDBCD3C5-9E52-4238-9450-94659F3D21D5', 'name': 'Quantity', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway3']}
+{'id': 'sid-0311CA55-1ED0-415B-B1D9-9DB290313736', 'name': 'Insurance\nnecessary?', 'incoming': ['Quantity'], 'outgoing': ['ExclusiveGateway2', 'ParallelGateway5']}
+{'id': 'sid-88635206-994F-484C-BDFB-64C5691FC7AC', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance\nnecessary?', 'Check insurance requirements'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-97E08504-76AB-42EF-AB0C-944915C15243', 'name': 'ExclusiveGateway3', 'incoming': ['Quantity', 'Quantity'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-C44146F1-571C-4CCD-915E-1C9CC08436EE', 'name': 'ParallelGateway4', 'incoming': ['Shipping costs'], 'outgoing': ['fill out standard package tickets', 'ParallelGateway5']}
+{'id': 'sid-679E4980-916B-40F7-8893-18DF4EF424CC', 'name': 'ParallelGateway5', 'incoming': ['Insurance\nnecessary?', 'ParallelGateway4'], 'outgoing': ['Shipping costs\nFinished']}
+
+Start Events:
+{'id': 'sid-BB3EEE38-DBCE-48A0-BFF3-AA5F008C977F', 'name': 'Shipping costs', 'incoming': [], 'outgoing': ['fill out standard package tickets']}
+
+End Events:
+{'id': 'sid-CF9B0C42-2D3B-4956-9FD9-135FA9398B93', 'name': 'Shipping costs\nFinished', 'incoming': ['ParallelGateway5'], 'outgoing': []}

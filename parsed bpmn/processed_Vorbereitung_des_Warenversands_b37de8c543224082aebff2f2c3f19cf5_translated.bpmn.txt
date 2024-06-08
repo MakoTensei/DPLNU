@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-38D199AB-28E7-42D7-87E0-0428F5639CC1', 'name': 'Determine the quantity', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-E6420578-684B-470E-BACC-1D0ACC69F014', 'name': 'Pick up offers', 'incoming': ['Send a message'], 'outgoing': ['Select your offer']}
+{'id': 'sid-B2FC781E-7750-450F-8027-52F97E4D976B', 'name': 'Filling the package note', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-84581AA9-61B8-43CB-9884-BC060F1D14D2', 'name': 'Select your offer', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Specialist']}
+{'id': 'sid-9B8CD627-8764-479F-B968-98975D2149D1', 'name': 'Specialist', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C83853B6-763D-4617-9866-A66703FCE009', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-C0F5C70C-E55E-407C-B2A2-00F7037C090E', 'name': 'Provide for collection', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-ACCE224E-978C-4380-86C1-FC2C0F2324FA', 'name': 'Insurance close', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-6499C126-1EC3-4744-8FC8-B8F2ECF027D4', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent0', 'EndEvent0']}
+{'id': 'sid-CB55A61B-8898-45E0-BAA0-5D3FDD6C5624', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Insurance close', 'ParallelGateway4']}
+{'id': 'sid-49234301-3EB0-4A52-ACDE-7ABB37B429E9', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance close', 'Filling the package note'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-E442E3FF-CAC5-48E8-8BEC-407096066116', 'name': 'ParallelGateway3', 'incoming': ['Send a message'], 'outgoing': ['Pick up offers', 'ParallelGateway4']}
+{'id': 'sid-4C426AEC-0AA7-44D3-90B2-40D7A5D08F23', 'name': 'ParallelGateway4', 'incoming': ['ExclusiveGateway0', 'ParallelGateway3'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-87D3B6A5-BF35-4C3F-9D51-4CB11847A5E8', 'name': 'Send a message', 'incoming': [], 'outgoing': ['Pick up offers']}
+
+End Events:
+{'id': 'sid-52CA6DCA-18D8-4CF8-8C6F-58D3B6155BC1', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0', 'ExclusiveGateway0'], 'outgoing': []}

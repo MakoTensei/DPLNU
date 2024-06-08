@@ -1,0 +1,13 @@
+ When a scoring request is initiated, it triggers the 'Scoring request processing' task with the ID'sid-B5F2C410-A2F6-4E21-B7E0-D1D3FC59CD99'. This task then leads to the '1. perform scoring' task, identified by'sid-1DB9FE10-B2DE-483B-985F-3BEDB8B5CBD2', which is the first step in the scoring process. Upon completion of the scoring, the 'EndEvent1' task is triggered, signifying the end of the first scoring phase.
+
+
+Simultaneously, if there is a delay in the scoring process, the 'Report delay' task, with the ID'sid-1523A011-EA7C-4C6F-8D43-35349181BD5C', is initiated. This task is connected to the 'Two. Scoring result' task, which is responsible for providing the outcome of the delayed scoring.
+
+
+The 'Result is there?' gateway, identified by'sid-1C7232FF-F27D-4514-8AD7-7A07D7E47221', acts as a checkpoint to determine if the scoring result is available. It receives the 'EndEvent1' from the '1. perform scoring' task and the 'Two. Scoring result' from the 'Two. Scoring result' task. If the result is present, it proceeds to the 'EndEvent1' task, and if not, it leads to the 'Two. Scoring result' task.
+
+
+The 'IntermediateCatchEvent1' gateway, with the ID'sid-17F169ED-EED3-4CE7-9C16-F2C37E8E2B37', is designed to catch any intermediate events that may occur during the scoring process. It receives the 'EndEvent0' from the 'EndEvent0' task and directs it to the 'Result' gateway.
+
+
+Finally, the 'EndEvent0' task, identified by '

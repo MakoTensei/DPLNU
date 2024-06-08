@@ -1,0 +1,5 @@
+ When a shipment is initiated, the process begins with the 'Goods be sent' event, which triggers a request for a quote to determine the shipping mode. If a special delivery is deemed necessary, the process flows to the 'Special delivery necessary?' gateway, which then connects to the 'Filling the package note' task. This task is followed by the 'ExclusiveGateway2', which leads to the 'ExclusiveGateway3' for further processing.
+
+If a special delivery is not required, the process proceeds directly to the 'Request a quote' task, which is connected to the 'ParallelGateway4'. The 'Goods be sent' event also triggers the 'Insurance necessary?' event, which connects to the 'Insurance necessary?' gateway. This gateway leads to the 'Complete insurance' task and subsequently to the 'ExclusiveGateway2'.
+
+Once the insurance is completed, the process moves to the 'ParallelGateway5', which is responsible for packaging the goods. After packaging, the 'Goods for collection provide' task is triggered, which connects to the 'ParallelGateway5' and leads to the 'product sent/received' event, marking the end of the shipment process.

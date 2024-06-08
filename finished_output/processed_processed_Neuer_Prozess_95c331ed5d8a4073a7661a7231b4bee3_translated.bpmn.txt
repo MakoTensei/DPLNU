@@ -1,0 +1,5 @@
+ In the scoring process, a request is obtained and sent to the EventBasedGateway3, which then forwards it to the ExclusiveGateway1. The ExclusiveGateway1 checks the scoring request and sends it to the PerformScoringLevel1 for level 1 scoring. Once the scoring level 1 is completed, the result is shared with the PerformScoringLevel2, which is also located at the ExclusiveGateway2. The scoring level 2 is then performed, and the result is delivered to the RequestFinished endpoint.
+
+If there is a delay in the scoring process, a ScoringDelayReport is generated and sent to the EventBasedGateway3. This report is then forwarded to the ExclusiveGateway2, which shares the delay with the PerformScoringLevel2. The PerformScoringLevel2 then performs the scoring level 2, and the result is delivered to the RequestFinished endpoint.
+
+In both scenarios, the scoring request is initially obtained from the StartEvents, and the process concludes with the RequestFinished endpoint in the EndEvents.

@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-1C0E273B-1249-4088-A1E5-0B66E0201AED', 'name': 'Explanation for shipping', 'incoming': ['ParallelGateway3'], 'outgoing': ['Lot?']}
+{'id': 'sid-B38830CB-1415-4B02-B721-FD7F215F7048', 'name': 'triggering normal mail delivery', 'incoming': ['StartEvent0'], 'outgoing': ['fill out standard package voucher']}
+{'id': 'sid-3CC14DFA-1BAA-4687-93F6-28732806F7A0', 'name': 'Selection of freight forwarders', 'incoming': ['Lot?'], 'outgoing': ['Specialist']}
+{'id': 'sid-11742300-4FC3-4289-A56D-FABA0801489E', 'name': 'Specialist', 'incoming': ['Lot?'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-9464905D-D955-474C-AC6B-311A24CB6E51', 'name': 'fill out standard package voucher', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-D2E4663F-B55E-490C-BD93-51BC4B384045', 'name': 'Insurance close', 'incoming': ['Insurance necessary?'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-86A6236B-50BE-4E40-BE16-A0886CFC02FD', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-CD613882-7D9F-4724-85AE-7129988A1495', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-41F6B100-6FC5-45E2-BE00-50890A310928', 'name': 'Lot?', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4', 'ExclusiveGateway2']}
+{'id': 'sid-47244236-5350-473C-9264-7A17F4A8809C', 'name': 'Insurance necessary?', 'incoming': ['Lot?'], 'outgoing': ['ParallelGateway4', 'ParallelGateway4']}
+{'id': 'sid-CAABDAB7-DE23-44AA-80B1-4CCFBB4352F3', 'name': 'ExclusiveGateway2', 'incoming': ['Lot?', 'Lot?'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-844951E0-2BA2-4132-B5C9-09D139C51C84', 'name': 'ParallelGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['triggering normal mail delivery', 'ParallelGateway4']}
+{'id': 'sid-B01FB6CD-395C-47B4-9002-E43174A21292', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway3', 'Lot?', 'Specialist'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-27D1F618-38F0-4DFB-A3B9-CE8D141F7686', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['triggering normal mail delivery']}
+
+End Events:
+{'id': 'sid-5CB29B72-E9EE-423C-9397-98DB8AA3520C', 'name': 'EndEvent0', 'incoming': ['ParallelGateway4'], 'outgoing': []}

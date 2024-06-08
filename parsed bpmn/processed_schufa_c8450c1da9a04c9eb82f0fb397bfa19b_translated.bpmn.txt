@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-158B8944-8330-4A05-A239-F616B31CC1EB', 'name': 'Schufa query\nStart', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-48808FDF-2A80-4A34-BAF8-AED2681331E1', 'name': 'Leave a reply', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-1676BBD6-04F3-45F7-9374-D3C4AF2C1ECD', 'name': 'Scoring Level 1', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-A39CE755-EC18-427F-9006-E1B9FCA1E996', 'name': 'Scoring Level 2', 'incoming': ['Share delay'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-0459FB3E-D070-48D5-9578-C32B0D4EF9CA', 'name': 'Share delay', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-BCA1D58D-DB26-4F2A-B743-3C730A58619A', 'name': 'Result there?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'Share delay']}
+{'id': 'sid-AAF91794-8CA8-413D-9405-FE35AA7AE4E6', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring Level 1', 'StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-826C70EE-F2DB-4AFA-A7F7-80E36207BC48', 'name': 'EventBasedGateway2', 'incoming': ['StartEvent0', 'StartEvent0'], 'outgoing': ['EndEvent0', 'EndEvent0']}
+{'id': 'sid-EF30C5DC-195B-4B07-8C15-4BB21B8D51BF', 'name': 'IntermediateCatchEvent3', 'incoming': ['Schufa query\nStart'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-11E01ADA-28C6-4BDF-8FA5-756ABB3F20B5', 'name': 'IntermediateCatchEvent4', 'incoming': ['Schufa query\nStart'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-B0CDB636-26E3-4F22-9EC1-28F9D6B37704', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-41E90E8A-5B9E-4F33-8C5C-17A25DCF3B58', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-C5E007A2-DFCB-4679-B1DB-32C67B7AF674', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-ED5732A3-AB01-4D56-A1C4-F25034BF085F', 'name': 'EndEvent1', 'incoming': ['Result there?'], 'outgoing': []}

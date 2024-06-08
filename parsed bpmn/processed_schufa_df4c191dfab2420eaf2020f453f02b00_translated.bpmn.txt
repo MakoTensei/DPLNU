@@ -1,0 +1,30 @@
+Tasks:
+{'id': 'sid-355C87AB-AD12-4DEA-AD50-4041033FD757', 'name': 'Trigger scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring request\nsend']}
+{'id': 'sid-68AAF601-C1FA-46FF-9D34-479A7B376782', 'name': 'Conducting activities', 'incoming': ['Create message about required level 2 scoring'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-FF9CD330-4DE9-4564-9370-7EE2FBE48190', 'name': 'Scoring result', 'incoming': ['give results to sales staff'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-7F0FFBCD-47A6-421C-857B-D8D001BAE2C1', 'name': 'Scoring request\nsend', 'incoming': ['StartEvent0'], 'outgoing': ['Sufa response\nobtained']}
+{'id': 'sid-C8D561C4-2F9F-462D-BA11-67A1A15BA42D', 'name': 'Create message about required level 2 scoring', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-443C76F9-00AA-46A5-8048-2DD66B3E7C3D', 'name': 'give results to sales staff', 'incoming': ['Message Level 2 scoring\nare required?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E9F8B32E-0AC3-4836-ACED-FD8F31C08FEB', 'name': 'Process Level1 scoring', 'incoming': ['StartEvent1'], 'outgoing': ['Level 1 scoring\nsufficient?']}
+{'id': 'sid-CDA0A187-2A34-42D5-946E-BF3E43D358CD', 'name': 'Create scoring result Level 1', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-92C6C95D-B86F-42CF-A19E-1D877712408D', 'name': 'Create message "Level-2-Scoring required"', 'incoming': ['Level 1 scoring\nsufficient?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-D9EA54EA-90E3-4FFE-92D8-D3280ABA1097', 'name': 'Send a reply to Bank', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-DBE1107A-EF12-4B1D-A17F-43C71453AA1F', 'name': 'Create scoring result Level 2', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-C0481765-5ABF-4B22-B057-D9E7BC25BBA8', 'name': 'Message Level 2 scoring\nare required?', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent1', 'EndEvent0']}
+{'id': 'sid-827EF3C7-0161-4723-9081-2DD24910186F', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent0', 'ParallelGateway4'], 'outgoing': ['Create message about required level 2 scoring']}
+{'id': 'sid-A1437302-47D9-4569-85E8-99F936D5C2C4', 'name': 'Level 1 scoring\nsufficient?', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway3', 'Create scoring result Level 1']}
+{'id': 'sid-8EDD02D5-A065-4574-90BF-8188F0B18FF8', 'name': 'ExclusiveGateway3', 'incoming': ['StartEvent1', 'Level 1 scoring\nsufficient?', 'ParallelGateway5', 'ParallelGateway5'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-62CEC32E-6FB0-4B24-B231-24A032359F53', 'name': 'ParallelGateway4', 'incoming': ['Scoring request\nsend'], 'outgoing': ['EndEvent1', 'Sufa response\nobtained']}
+{'id': 'sid-CB17BDDC-297B-4A24-A9F4-503BD8F98922', 'name': 'ParallelGateway5', 'incoming': ['Level 1 scoring\nsufficient?'], 'outgoing': ['Send a reply to Bank', 'EndEvent2', 'ExclusiveGateway3']}
+{'id': 'sid-3A63AE16-325E-4B29-BBED-DA4634D96B60', 'name': 'Sufa response\nobtained', 'incoming': ['Scoring request\nsend'], 'outgoing': ['Sufa response\nobtained']}
+
+Start Events:
+{'id': 'sid-1433C140-382C-40F5-8271-411EBD86022A', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Create message about required level 2 scoring']}
+{'id': 'sid-405C1DD7-A053-45E9-A5AA-D959B87D1DE2', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['ExclusiveGateway3']}
+
+End Events:
+{'id': 'sid-E846EF6F-599F-4285-A8E1-5B3B751F2895', 'name': 'EndEvent0', 'incoming': ['Message Level 2 scoring\nare required?'], 'outgoing': []}
+{'id': 'sid-8CABA204-6BAE-4A27-9E54-2AEB5D9CEE4B', 'name': 'EndEvent1', 'incoming': ['ParallelGateway4'], 'outgoing': []}
+{'id': 'sid-C5980FEB-167A-4CF4-8273-A9D2FC9418F9', 'name': 'EndEvent2', 'incoming': ['ParallelGateway5'], 'outgoing': []}

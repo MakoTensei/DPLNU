@@ -1,0 +1,23 @@
+ The process begins with the event 'Goods are to be shipped', which triggers the following sequence of tasks:
+
+1. The 'Goods are to be shipped' event initiates the 'Check for special shipment' task, which is routed through 'ParallelGateway8'.
+
+2. Concurrently, the 'Goods are to be shipped' event also triggers the 'Fill out standard package tickets' task, which is routed through 'ParallelGateway6'.
+
+3. The 'Check for special shipment' task, upon completion, sends the goods to 'ExclusiveGateway4' for insurance processing.
+
+4. The 'Fill out standard package tickets' task, upon completion, sends the goods to 'ParallelGateway7' for further processing.
+
+5. The 'Pick up offers with three freight forwarders' task, initiated by 'ParallelGateway8', sends the goods to 'Select the Spediteur' through 'ExclusiveGateway0'.
+
+6. The 'Select the Spediteur' task, upon completion, sends the goods to 'Spediteur 1 commission' through 'ExclusiveGateway2'.
+
+7. The 'Spediteur 1 commission' task, upon completion, sends the goods to 'ExclusiveGateway5'.
+
+8. The 'Spediteur 2' task, initiated by 'ExclusiveGateway2', sends the goods to 'ExclusiveGateway3'.
+
+9. The 'Spediteur 3' task, also initiated by 'ExclusiveGateway2', sends the goods to 'ExclusiveGateway3'.
+
+10. The 'Complete insurance' task, initiated by 'ExclusiveGateway4', sends the goods to 'Goods ready for sale' through 'ParallelGateway9'.
+
+This sequence of tasks ensures that the goods are shipped, insured, and ready for sale, with the involvement of multiple gateways and spediteurs.

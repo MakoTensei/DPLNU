@@ -1,0 +1,9 @@
+ In a system designed to process scoring requests, various tasks and gateways work together to ensure efficient and accurate scoring. When a 'Schufascoring\nRequest' is initiated, it first reaches the 'Get scoring?' gateway, which then directs the request to 'ExclusiveGateway1' for Scoring Level 1 processing. Concurrently, another instance of 'Schufascoring\nRequest' is routed to 'Information about Vgeneratoren' gateway to gather additional data.
+
+For Scoring Level 1, the 'ExclusiveGateway1' sends the results to 'ParallelGateway4', which then forwards the results to the 'Scoring result send' endpoint. Meanwhile, Scoring Level 2 is handled by 'ParallelGateway4' after receiving the request from 'Schufascoring\nRequest'. The results of Scoring Level 2 are sent to the 'Scoring result send' endpoint as well.
+
+If a delay is required for Scoring Level 2, the 'Schufascoring\nRequest' is directed to 'EventBasedGateway2', which sends the results to 'End' and also triggers a delay notification.
+
+Additionally, the 'Schufascoring\nRequest' can be routed to'receives Schufascoring' gateway, which sends the results to the 'End' endpoint.
+
+In summary, the system processes scoring requests through a series of gateways and endpoints, ensuring that each request is handled appropriately and efficiently.

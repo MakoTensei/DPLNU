@@ -1,0 +1,17 @@
+ In the process of handling Schufa requests and scoring, the system follows a series of interconnected tasks and gateways.
+
+1. The process begins with the 'Pick up Schufascoring' event, which triggers the 'Continue to the Frontend' task. This task is responsible for forwarding the request to the frontend.
+
+2. The 'Schufa request' event initiates the 'Transfer scoring level 1' task. This task transfers the request to the scoring process.
+
+3. The 'Scoring Level 1 reported' event triggers the 'Scoring ends' task, which concludes the scoring process for level 1.
+
+4. The 'Identification level 1 possible?' event leads to the 'Report delay to the frontend' task, which communicates a delay to the frontend.
+
+5. The 'Scoring Level 2 reported' event triggers the 'Scoring ends' task, which concludes the scoring process for level 2.
+
+6. The 'Identification level 1 possible?' event also leads to the 'Scoring Level 2 finished' task, which finalizes the scoring process for level 2.
+
+The system also includes gateways that manage the flow of information between tasks. For example, the 'Identification level 1 possible?' gateway connects the 'Schufa request' task to the 'Scoring Level 2 finished' and 'Scoring ends' tasks.
+
+Overall, the system efficiently processes Schufa requests, performs scoring, and communicates the results to the frontend, ensuring a smooth and accurate credit assessment process.

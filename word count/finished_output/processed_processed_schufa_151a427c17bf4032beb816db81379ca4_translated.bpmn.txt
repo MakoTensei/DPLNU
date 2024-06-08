@@ -1,0 +1,7 @@
+ When a Schufa request is received, the process begins at the 'Schufa request' Start Event, which triggers the 'Start scoring request' Task. This task takes the incoming Schufa request and sends it to the 'ExclusiveGateway0', which then directs the request to the 'Result\nvalues' Outgoing Task. The 'Result\nvalues' Task processes the Schufa request and sends the result back to the 'Result\nsend out' End Event.
+
+Simultaneously, the 'Scoring request\nobtained' Start Event triggers the 'Level 1\nScoring\nperform' Task, which processes the scoring request and sends the result to the 'Result\nsend' Outgoing Task. This task then sends the result to the 'Result\nsend out' End Event.
+
+The 'Scoring\ndetermined' Task, triggered by the 'Scoring request\nobtained' Start Event, processes the scoring request and sends the result to the 'Sending result' Outgoing Task. This task then sends the result to the 'Result\nsend out' End Event.
+
+Finally, the 'On final result\nLevel 2 waiting' Start Event triggers the 'Result\nsend out' Task, which sends the result to the 'Result\nsend out' End Event. This completes the process of scoring and sending the result.

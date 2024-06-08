@@ -1,0 +1,9 @@
+ The logistics process begins with the event 'Goods are to be shipped', which triggers the 'fill standard package voucher' task. This task is connected to 'ParallelGateway6', which in turn connects to 'Packaging goods' task. The 'Packaging goods' task is linked to 'ParallelGateway7', leading to the'ready for shipment' event.
+
+Simultaneously, the 'Goods are to be shipped' event also initiates the 'Pick up forwarding offers' task, which is connected to 'ExclusiveGateway0'. This task then leads to 'ParallelGateway4', which is connected to 'Request offer 1', 'Request offer 2', and 'Request offer 3'. These tasks are all connected to 'ParallelGateway5', which finally leads to 'ExclusiveGateway2', resulting in the'ready for shipment' event.
+
+Meanwhile, the 'Insurance?' event, triggered by 'Goods are to be shipped', connects to 'ExclusiveGateway0'. This event leads to 'Check the insurance obligation' task, which is connected to 'ExclusiveGateway2', also resulting in the'ready for shipment' event.
+
+Lastly, the 'Check the insurance obligation' task is connected to 'Insurance?', and 'ExclusiveGateway2' is connected to'ready for shipment'.
+
+In summary, the logistics process involves packaging goods, checking insurance obligations, and picking up forwarding offers, all leading to the'ready for shipment' event.

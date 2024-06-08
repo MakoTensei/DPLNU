@@ -1,0 +1,9 @@
+ When a request for scoring inquiry to Schufa is initiated, the system first sends a message to ExclusiveGateway0, which is responsible for determining if the inquiry can be answered immediately. If the answer is affirmative, the system proceeds to send the scoring results to sales through ExclusiveGateway2. If the answer is negative, the system reports a delay and sends the inquiry to Level 2 - perform scoring.
+
+Upon receiving a Schufascoring\nrequested event, the system first checks if it can be answered immediately by the Answer\nimmediately possible? event. If the answer is affirmative, the system sends the scoring benefits to the bank and then to ExclusiveGateway2. If the answer is negative, the system reports a delay and moves to Level 2 - perform scoring.
+
+In Level 2 - perform scoring, the system sends the scoring benefits to the bank and then to ExclusiveGateway2.
+
+If the inquiry cannot be answered immediately, the system reports a delay and moves to Level 2 - perform scoring. In Level 2 - perform scoring, the system sends the scoring benefits to the bank and then to ExclusiveGateway2.
+
+In summary, the system handles scoring inquiries to Schufa by first determining if the inquiry can be answered immediately. If it can, the system sends the scoring results to sales and then to the bank. If it cannot, the system reports a delay and moves to Level 2 - perform scoring, where it sends the scoring benefits to the bank and then to the bank's exclusive gateway.

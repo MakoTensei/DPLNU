@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-B94BD0AA-19B5-4974-BC76-AB958CED21D4', 'name': 'Complete insurance (logistics manager)', 'incoming': ['Insurance required?'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-FE4C13E2-E95A-41DC-B4C2-1605F688ECEE', 'name': 'Provide packaged goods for collection', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods shipped']}
+{'id': 'sid-EF8C29F8-85F2-485C-AA9D-E5DBC20D4C9D', 'name': 'Packaging goods', 'incoming': ['Shipment'], 'outgoing': ['Goods shipped']}
+{'id': 'sid-C3614021-7F56-4D0E-A241-5707B9DF595E', 'name': 'Check insurance obligation', 'incoming': ['Filling the package note'], 'outgoing': ['Insurance required?']}
+{'id': 'sid-32F779CF-D416-4B1E-A7A2-D3E802CD7FDD', 'name': 'Select the Spediteur', 'incoming': ['Pick up the offer of 3 carriers'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-4C2F30F6-06E2-40AE-8660-C24B0E9C2562', 'name': 'Pick up the offer of 3 carriers', 'incoming': ['Big crowd?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-2F876C1D-F695-495E-BD3A-27CCADE8C53B', 'name': 'Check shipping scope', 'incoming': ['ParallelGateway5'], 'outgoing': ['Big crowd?']}
+{'id': 'sid-BCC01D4C-99C5-4DFF-A435-C348EEB5CCB7', 'name': 'Filling the package note', 'incoming': ['ParallelGateway5'], 'outgoing': ['Insurance required?']}
+
+Gateways:
+{'id': 'sid-6BCB8793-C8ED-4C79-B51E-F9008557B7D0', 'name': 'ExclusiveGateway0', 'incoming': ['Insurance required?', 'Insurance required?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-52ECFDD1-65D6-4105-900F-D0AB021FC7FA', 'name': 'ExclusiveGateway1', 'incoming': ['Big crowd?', 'Complete insurance (logistics manager)'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-0F9D54B2-F1F8-4C86-A6F6-A88B8F3D5AE2', 'name': 'Insurance required?', 'incoming': ['Big crowd?'], 'outgoing': ['ExclusiveGateway0', 'ExclusiveGateway0']}
+{'id': 'sid-CA3EF206-2C87-42A6-B4E1-92DD918999E3', 'name': 'Big crowd?', 'incoming': ['ParallelGateway5'], 'outgoing': ['Insurance required?', 'ExclusiveGateway1']}
+{'id': 'sid-CFD1ECAF-3475-4B35-85D9-40942CFA9016', 'name': 'ParallelGateway4', 'incoming': ['Complete insurance (logistics manager)', 'ParallelGateway5'], 'outgoing': ['Goods shipped']}
+{'id': 'sid-1CF0558F-E7A4-4AB3-9B7E-8E9E37FD76F4', 'name': 'ParallelGateway5', 'incoming': ['Shipment'], 'outgoing': ['Filling the package note', 'ParallelGateway4']}
+
+Start Events:
+{'id': 'sid-2C15B57B-4901-4E3F-9F9D-9223DEBA77F9', 'name': 'Shipment', 'incoming': [], 'outgoing': ['Packaging goods']}
+
+End Events:
+{'id': 'sid-99F7A62F-72A2-43D4-B7E7-3F6A925E0067', 'name': 'Goods shipped', 'incoming': ['Packaging goods'], 'outgoing': []}

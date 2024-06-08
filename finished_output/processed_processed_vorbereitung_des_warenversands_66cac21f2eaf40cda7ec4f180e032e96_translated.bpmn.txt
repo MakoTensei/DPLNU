@@ -1,0 +1,19 @@
+ In the shipping process, the following tasks are performed:
+
+1. Determine the quantity of items to be shipped. This task is triggered by the 'Shipping costs' event and has an outgoing connection to 'Filling the package note'.
+
+2. Fill the package note with the determined quantity. This task is triggered by the 'Determine the quantity' task and has outgoing connections to 'ParallelGateway4' and 'ExclusiveGateway2'.
+
+3. Check if insurance is necessary for the shipment. This task is triggered by the 'Shipping costs' event and has an outgoing connection to 'Insurance necessary?' gateway.
+
+4. Insurance necessary? is a decision-making task that determines if insurance is needed for the shipment. It has incoming connections from 'Shipping costs' and 'ParallelGateway4' and outgoing connections to 'ExclusiveGateway2' and 'ParallelGateway7'.
+
+5. Select the appropriate offer for the shipment. This task is triggered by the 'Lot?' event and has outgoing connections to 'ParallelGateway6' and 'ParallelGateway7'.
+
+6. Complete the insurance process for the shipment. This task is triggered by the 'Insurance necessary?' task and has an outgoing connection to 'ExclusiveGateway2'.
+
+7. Packaging goods for shipment. This task is triggered by the 'Shipping costs' event and has an outgoing connection to 'ParallelGateway4'.
+
+8. Deliver the goods. This task is triggered by the 'ParallelGateway7' event and has an outgoing connection to 'Ship ready'.
+
+The process starts with the 'Shipping costs' event, which triggers the 'Determine the quantity' task. The determined quantity is then used to fill the package note. The 'Shipping costs' event also triggers the 'Insurance necessary?' task, which decides if insurance is needed. If insurance is necessary, the 'Complete insurance' task is triggered. The 'Lot?' event triggers the 'Select your offer' task, which selects the appropriate offer for the shipment. The 'ParallelGateway6' and '

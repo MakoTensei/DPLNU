@@ -1,0 +1,9 @@
+ When a customer makes a request, the system initiates a sequence of events to process the request. The process begins with a 'Customer request' event, which triggers the 'Send delay message' task to handle the request with a delay. This task is linked to both 'Customer request' and 'Schufa request' start events.
+
+Simultaneously, a 'Schufa request' event also initiates a 'Send delay message' task. The 'Level 1 Scoring' task, triggered by the 'Schufa request', sends the results to the 'ExclusiveGateway1'. This gateway then directs the results to the 'EndEvent1' task.
+
+The 'Level 2 Scoring' task, triggered by the 'Results immediately\nfound?' event, also sends the results to the 'ExclusiveGateway1'. This gateway, in turn, sends the results to the 'EndEvent1' task.
+
+The 'EndEvent1' task is the final step in the process, receiving inputs from both 'ExclusiveGateway1' and 'Results immediately\nfound?' events.
+
+In summary, the system processes a customer's request by sending a delay message, performing level 1 and level 2 scoring, and finally concluding the process with an end event.

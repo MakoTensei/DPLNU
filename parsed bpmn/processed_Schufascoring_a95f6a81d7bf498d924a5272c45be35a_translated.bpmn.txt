@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-16EB6566-5828-4BCB-8991-CAB0ECC4E094', 'name': 'Start scoring request', 'incoming': ['Scoring request'], 'outgoing': ['Results obtained']}
+{'id': 'sid-7A48BDB0-2748-486A-9DFA-A82FCF28705E', 'name': 'View result', 'incoming': ['Results obtained'], 'outgoing': ['Request completed']}
+{'id': 'sid-D607B1C4-D9E8-4FA0-9E54-4A3C5D5DA711', 'name': 'Display delay note', 'incoming': ['Scoring request'], 'outgoing': ['Results available']}
+{'id': 'sid-3B948BFF-E3FB-4C09-829C-DACD84AB6D41', 'name': 'Level 1 Scoring', 'incoming': ['Request from Bank'], 'outgoing': ['Is Scoring earnings fixed?']}
+{'id': 'sid-E6C9B963-7E57-4498-A91D-30ACA71CBDE2', 'name': 'Follow-up', 'incoming': ['Request from Bank'], 'outgoing': ['Question answered']}
+{'id': 'sid-B4080ECE-E6AC-4E00-A3A7-0DA1925716E1', 'name': 'Report delay', 'incoming': ['Is Scoring earnings fixed?'], 'outgoing': ['determine final scoring']}
+{'id': 'sid-44168E6E-AE4C-449F-A2DD-A4B35E895048', 'name': 'determine final scoring', 'incoming': ['Is Scoring earnings fixed?'], 'outgoing': ['forward scoring result']}
+{'id': 'sid-64652AB1-363E-4206-A898-1A69FBE908E6', 'name': 'forward scoring result', 'incoming': ['Is Scoring earnings fixed?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-BF41CB50-39F1-4158-878D-EC68906D09D8', 'name': 'ExclusiveGateway0', 'incoming': ['sid-32A53FA9-3FF2-4DA8-9CD7-5BA3A849092C', 'EventBasedGateway3'], 'outgoing': ['Request completed']}
+{'id': 'sid-C3BA511A-0FCB-40BA-97B7-A06F6C04F211', 'name': 'Is Scoring earnings fixed?', 'incoming': ['Request from Bank'], 'outgoing': ['forward scoring result', 'Question answered']}
+{'id': 'sid-9C287ACA-3A0E-4C8B-9626-4B203D9E34DD', 'name': 'ExclusiveGateway2', 'incoming': ['forward scoring result', 'Request from Bank'], 'outgoing': ['Question answered']}
+{'id': 'sid-C96DE75C-7FF8-4F43-8F22-19A28475807F', 'name': 'EventBasedGateway3', 'incoming': ['Scoring request'], 'outgoing': ['Request completed', 'Get delay notice']}
+{'id': 'sid-F458B8B0-2EC9-43EC-A979-53F327BEE4C3', 'name': 'Results obtained', 'incoming': ['Start scoring request'], 'outgoing': ['View result']}
+{'id': 'sid-278E369D-D9F2-48BD-A464-7C5A409EE42C', 'name': 'Get delay notice', 'incoming': ['Scoring request'], 'outgoing': ['Display delay note']}
+{'id': 'sid-79F1167C-0ABA-4963-B208-14900D0FF32C', 'name': 'Results available', 'incoming': ['Scoring request'], 'outgoing': []}
+
+Start Events:
+{'id': 'sid-CA871412-2D95-45D3-9537-2FB977F310D0', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Results available']}
+{'id': 'sid-38291CE4-2B1D-4911-B5EF-4216E9EC30AD', 'name': 'Request from Bank', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-2CA773D3-7691-48A1-B93D-A62546612F80', 'name': 'Request completed', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-D4BA04D3-36BF-49B3-8F53-5B17AB207B4B', 'name': 'Question answered', 'incoming': ['Is Scoring earnings fixed?'], 'outgoing': []}

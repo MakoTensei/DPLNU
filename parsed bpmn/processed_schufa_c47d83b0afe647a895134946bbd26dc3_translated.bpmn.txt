@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-9C236EDF-EBCB-4B33-BEAC-018B738648C7', 'name': 'forward scoring to the front end', 'incoming': ['Scoring result\nReported back'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C3E8E93A-180E-443E-AA81-20D16C04AB5E', 'name': 'Report delay to the frontend', 'incoming': ['Delay\nNotification\nobtained'], 'outgoing': ['Scoring result obtained']}
+{'id': 'sid-AEF08588-38A0-4B68-A27D-523DF4EB31D2', 'name': 'Transfer scoring result to the frontend', 'incoming': ['Scoring result obtained'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-45AD4CED-A634-4DEA-B003-152275C4328C', 'name': 'perform scoring level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring result\nthe']}
+{'id': 'sid-BCF5704F-3897-40A5-9746-F61CFEDCAE9F', 'name': 'Return scoring to the bank', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-EA8C5E36-B230-483F-B13D-E8D818BDE578', 'name': 'perform scoring level 2', 'incoming': ['Information about delay'], 'outgoing': ['Transfer scoring result to the bank']}
+{'id': 'sid-79ECD6F5-1DD0-450F-8CEA-63BA3D17688A', 'name': 'Information about delay', 'incoming': ['Scoring result\nthe'], 'outgoing': ['Transfer scoring result to the bank']}
+{'id': 'sid-31395429-5B5A-4AFE-B3BD-81B9F79024F2', 'name': 'Transfer scoring result to the bank', 'incoming': ['Scoring result\nthe'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-1BA0C673-5BC5-4E81-9885-8AC2EB1BBBC3', 'name': 'Scoring result\nthe', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent3', 'EndEvent2']}
+{'id': 'sid-CDB95713-533D-47B3-A821-870B6AE7ECF7', 'name': 'EventBasedGateway1', 'incoming': ['sid-C45F2E6D-B487-4815-AE96-EAA8590FA749'], 'outgoing': ['EndEvent1', 'EndEvent0']}
+{'id': 'sid-4DDCAF88-D3C4-40F5-9557-5AB50E740C56', 'name': 'Scoring result\nReported back', 'incoming': ['EventBasedGateway1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-D249CAAF-9572-4748-999D-2E68125DF234', 'name': 'Delay\nNotification\nobtained', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Scoring result obtained']}
+{'id': 'sid-5A1633AB-5E4F-45E8-BA14-80530B89649B', 'name': 'Scoring result obtained', 'incoming': ['EventBasedGateway1'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-7D0462E0-6CBD-4D59-A1DE-F2F33AB97ADB', 'name': 'Schufascoring\nnot available', 'incoming': [], 'outgoing': ['sid-9AB990D9-1488-4B1B-9D9D-4C88392C720C']}
+{'id': 'sid-DD3C221E-B2BF-4C09-B995-3B82306542E8', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Return scoring to the bank']}
+
+End Events:
+{'id': 'sid-C4C15848-2A8E-4196-BD7F-6D14906CCD44', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-6B801D03-794B-4AA8-8494-541FA258B67E', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-F09FCE16-3F23-4C2D-814F-EC9E368E467E', 'name': 'EndEvent2', 'incoming': ['Scoring result\nthe'], 'outgoing': []}
+{'id': 'sid-3F2F6A1E-0243-4B11-BCB6-B1C1C41D5BE2', 'name': 'EndEvent3', 'incoming': ['Scoring result\nthe'], 'outgoing': []}

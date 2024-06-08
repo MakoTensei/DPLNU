@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-0AD3B610-418F-4B19-AB1F-53921897AFFB', 'name': 'Check the case', 'incoming': ['Regress'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-AE077361-300E-44DA-83BA-7B1129A38841', 'name': 'Send a message', 'incoming': ['Regress'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-1297767A-E0DD-41CD-B35C-EE4BA71AB405', 'name': 'Set process for resubmission', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Incoming payment']}
+{'id': 'sid-63DC9193-17D3-4DF4-82E9-C00EA07455E1', 'name': 'Close', 'incoming': ['Incoming payment'], 'outgoing': ['sid-9FFC4449-2D0B-4C05-A258-AE659F317658']}
+{'id': 'sid-552DE712-ADF4-4DA8-BDB2-74B3879682C8', 'name': 'Proceedings', 'incoming': ['Opposition'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-2B346FF0-A3ED-4A55-A2EF-41B48EE8C9FF', 'name': 'Case handed over to debt collection', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-692E7487-EEEC-4534-9870-F2C39970E22A', 'name': 'ExclusiveGateway0', 'incoming': ['Regress'], 'outgoing': ['EndEvent0', 'Date of expiry']}
+{'id': 'sid-04B7E1A7-AADF-4C0A-A243-88E2AB6325C0', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent2', 'sid-710E2937-5EA4-4338-B1EA-79A54A87724C']}
+{'id': 'sid-9D29179A-EE62-4FC7-805F-0455B1ADA17E', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-5BD13FD7-FF23-4C22-B972-1F9EAF40DEA1', 'name': 'EventBasedGateway3', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Incoming payment', 'Case handed over to debt collection', 'ExclusiveGateway1']}
+{'id': 'sid-1D094DD8-7A55-4E35-9B62-F8995F6BB612', 'name': 'Incoming payment', 'incoming': ['Set process for resubmission'], 'outgoing': ['Close']}
+{'id': 'sid-F3A5FFF8-155D-422E-83DC-D4E250C0B972', 'name': 'Date of expiry', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-A7AFF1B8-DE35-4A3A-892C-E1B32D1BAFC9', 'name': 'Opposition', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-10317595-8CF7-45AC-A378-6F675F378957', 'name': 'Regress', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-24B3ECA7-8E40-4EE6-98A8-D4D65A77A123', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-11F82E99-2D38-4A63-BA28-BF94619C777B', 'name': 'EndEvent1', 'incoming': [], 'outgoing': []}
+{'id': 'sid-9D011F9A-0777-4B50-B4ED-AD74DAB154C4', 'name': 'EndEvent2', 'incoming': ['Proceedings'], 'outgoing': []}
+{'id': 'sid-E65F6270-90B5-4D25-953D-27CD518EDFA3', 'name': 'EndEvent3', 'incoming': ['Date of expiry'], 'outgoing': []}

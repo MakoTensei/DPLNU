@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-EDC56CB6-2775-4CA9-AC22-5165EDA8871A', 'name': 'Packaging goods', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-814C650F-D67C-4BD3-9E43-95E4D1930D56', 'name': 'Provide for collection', 'incoming': ['Insurance necessary?'], 'outgoing': ['Goods shipped']}
+{'id': 'sid-0ECDA320-2E2C-4F09-85FC-098C6A0D240F', 'name': 'Insurance close', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Goods shipped']}
+{'id': 'sid-34C3A85C-90ED-497F-AB42-4DEA73ED4B79', 'name': 'Filling the package note', 'incoming': ['Lot?'], 'outgoing': ['Insurance necessary?']}
+{'id': 'sid-7F228FE7-0FE9-4A72-BE83-A0BC67256DB4', 'name': 'Pick up offers', 'incoming': ['Lot?'], 'outgoing': ['Select your offer']}
+{'id': 'sid-625EBAF3-CDE8-4073-A540-29E175AD35E9', 'name': 'Select your offer', 'incoming': ['Lot?'], 'outgoing': ['Specialist']}
+{'id': 'sid-29328EE7-A975-4D1B-AAB6-B34AF9349274', 'name': 'Specialist', 'incoming': ['Lot?'], 'outgoing': ['Shipyard']}
+{'id': 'sid-760C3B99-45CB-48E1-8DA1-F016A270FEC7', 'name': 'Check insurance', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-ECCE19D3-485F-4705-B91F-B43A0C6B12D3', 'name': 'Check quantity', 'incoming': ['Shipping goods'], 'outgoing': ['Insurance necessary?']}
+
+Gateways:
+{'id': 'sid-A39B0F2A-8276-430C-BABA-CD3C6DB28F5F', 'name': 'ExclusiveGateway0', 'incoming': ['Lot?', 'Insurance necessary?', 'sid-C3767FF1-18E1-4492-A9E2-B46CFD30140E'], 'outgoing': ['Goods shipped']}
+{'id': 'sid-C58FDDCB-C510-4D13-8157-605201DE4A3B', 'name': 'Lot?', 'incoming': ['Shipping goods'], 'outgoing': ['Shipyard', 'ExclusiveGateway0']}
+{'id': 'sid-D0EFBB95-B0DA-4ED4-A88A-EDB5FD0F3DD1', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-6A34A407-EC47-4699-8466-C0381880DE22', 'name': 'Insurance necessary?', 'incoming': ['Check quantity'], 'outgoing': ['Provide for collection', 'ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-E4BC40C6-B685-4D9C-A8A8-6E512A4142A9', 'name': 'Shipping goods', 'incoming': [], 'outgoing': ['Lot?']}
+
+End Events:
+{'id': 'sid-4C13769C-8510-4C18-ACAA-EB7C058A6CB6', 'name': 'Goods shipped', 'incoming': ['Insurance close'], 'outgoing': []}
+{'id': 'sid-A7E430D7-F417-4A20-9771-27450E18F8F4', 'name': 'Shipyard', 'incoming': ['Lot?'], 'outgoing': []}

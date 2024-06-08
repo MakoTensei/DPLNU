@@ -1,0 +1,27 @@
+ Let's start with the event where a regression possibility report is received:
+
+1. The 'Regression possibility\nReport' event triggers the 'Send payment prompt' task, which is connected to the 'Possibility?' gateway.
+
+2. The 'Possibility?' gateway then directs the task to the 'Set case on WV' gateway, which in turn sends a 'Money received' event to the 'Book money' task.
+
+3. The 'Book money' task, upon receiving the 'Money received' event, sends a 'Close' event to the 'Case processed without cash receipt' task.
+
+4. The 'Case processed without cash receipt' task, after being closed, sends an 'ExclusiveGateway3' event to the 'Close' task.
+
+5. The 'Close' task, upon receiving the 'ExclusiveGateway3' event, closes the case.
+
+Now, let's consider the event where a case is forwarded to debt collection:
+
+1. The 'EventBasedGateway4' event triggers the 'forward case to debt collection' task, which is connected to the 'ExclusiveGateway3' gateway.
+
+2. The 'ExclusiveGateway3' gateway then directs the task to the 'Case processed without cash receipt' task.
+
+3. The 'Case processed without cash receipt' task, after being processed, sends a 'Case further' event to the 'ExclusiveGateway2' gateway.
+
+4. The 'ExclusiveGateway2' gateway, upon receiving the 'Case further' event, sends a 'Case further' event to the 'Case further' task.
+
+5. The 'Case further' task, after being forwarded, sends a 'Case edited with cash receipt' event to the 'Close' task.
+
+6. The 'Close' task, upon receiving the 'Case edited with cash receipt' event, closes the case.
+
+This flow ensures that the case is processed and closed appropriately, with the necessary actions taken based on the incoming events and the connections between tasks and gateways.

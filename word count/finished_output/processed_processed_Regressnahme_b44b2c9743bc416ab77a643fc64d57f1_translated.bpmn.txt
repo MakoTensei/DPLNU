@@ -1,0 +1,11 @@
+ When a 'Regression claim notification' event occurs, the system initiates a series of tasks to address the claim. First, the 'Check regression claim' task is triggered, which examines the claim to determine if it is justified. If the claim is justified, the process moves to the 'Regression claim\njustified' gateway, which then sends the claim to the 'Process delivered to debt collection' task.
+
+If the claim is not justified, the 'Book payment receipt' task is initiated, which records the claim and sends it to the 'ExclusiveGateway4' for further processing.
+
+In parallel, the 'Opposition\nReport' task is also triggered, which sends the claim to the 'ExclusiveGateway3' for proceedings. If the proceedings are justified, the claim is sent to the 'Process delivered to debt collection' task.
+
+Additionally, the 'Turn on debt collection office' task is activated, which sends the claim to the 'Process delivered to debt collection' task.
+
+Once the claim is delivered to the debt collection office, the 'Close the process' task is executed, marking the end of the process.
+
+In summary, when a 'Regression claim notification' event occurs, the system checks the claim, books a payment receipt if necessary, proceeds with opposition proceedings, activates the debt collection office, and finally closes the process.

@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-B97806E2-1ECD-4CEA-9E31-37E0EEB35A6C', 'name': 'closes insurance', 'incoming': ['Insurance necessary?'], 'outgoing': ['sid-1DD0DA53-ADFE-4679-9B4F-8786D8DEFC44']}
+{'id': 'sid-9E9F43AA-3827-4EE8-861A-FA6758BFF8EC', 'name': 'Special delivery', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Request a quote']}
+{'id': 'sid-8E095F5A-8C83-40CB-A6D3-25874EF6500B', 'name': 'Postal mail', 'incoming': ['Quantity'], 'outgoing': ['sid-54CEF3E9-9003-4CCE-A833-42CB8A0EA007']}
+{'id': 'sid-025DBAF5-25F5-40F3-8864-4337628E198A', 'name': 'Standardised parcel certificate', 'incoming': ['Insurance necessary?'], 'outgoing': ['sid-A0DF38C6-02D6-4F07-AA62-C6A25A574745']}
+{'id': 'sid-DEBCE8F8-B573-4614-B332-A2A50AA8DACB', 'name': 'Special offer Spediteur 1', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-D72259A6-1483-4762-8B9E-DE52B6FE6A38', 'name': 'Specified forwarder 2', 'incoming': ['Request a quote'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-E956CC34-A300-4B4E-83E4-FE2A59FDBB68', 'name': 'Special offer Spediteur 3', 'incoming': ['Request a quote'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-C4FBF6B2-81A6-4105-9BEF-29E703BC2FEF', 'name': 'Selection of freight forwarders', 'incoming': ['ParallelGateway5'], 'outgoing': ['Ordering']}
+{'id': 'sid-68F26A75-7D0D-40B6-A33E-45CE3FC40BCD', 'name': 'Ordering', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-AA133BF4-176D-47C4-8CEC-C86F9BA652B6', 'name': 'Provides goods for collection', 'incoming': ['ParallelGateway6'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-FF8A800C-EF1D-41C8-90D3-37E444EAC015', 'name': 'Product is packaged', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-36612DF0-403C-4F39-8B95-65C8BA1EAF46', 'name': 'ExclusiveGateway0', 'incoming': ['sid-DD399362-81D0-48E5-92DA-4121D4D6288E', 'Request a quote'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-8F8346D2-9757-4B67-A117-CBF6D90BEE5F', 'name': 'Quantity', 'incoming': ['ParallelGateway5'], 'outgoing': ['Special delivery', 'Postal mail']}
+{'id': 'sid-58FA5C8B-00F0-42C3-8C3E-9CBC5DF16406', 'name': 'Insurance necessary?', 'incoming': [], 'outgoing': ['Standardised parcel certificate', 'closes insurance']}
+{'id': 'sid-5BAA3771-53EA-45B5-B642-BF834513FB05', 'name': 'Request a quote', 'incoming': ['ParallelGateway5'], 'outgoing': ['Special offer Spediteur 1', 'ExclusiveGateway0', 'ParallelGateway6']}
+{'id': 'sid-0B694C63-AFC4-4678-AACC-96C875233311', 'name': 'ParallelGateway4', 'incoming': ['Request a quote', 'ParallelGateway5', 'Request a quote'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-5DAB9A02-CFEA-4B3B-A8F4-691F73F871D2', 'name': 'ParallelGateway5', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Selection of freight forwarders', 'EndEvent0']}
+{'id': 'sid-60855A6F-4459-47A7-915D-5B887FC114A1', 'name': 'ParallelGateway6', 'incoming': ['Product is packaged', 'Request a quote'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-3F049A48-DE77-4CCD-AE64-591B02AFEDE8', 'name': 'Goods are to be shipped', 'incoming': [], 'outgoing': ['Special delivery']}
+
+End Events:
+{'id': 'sid-C67468EA-2073-4495-80ED-1C13F9DE3B91', 'name': 'EndEvent0', 'incoming': ['ParallelGateway5'], 'outgoing': []}

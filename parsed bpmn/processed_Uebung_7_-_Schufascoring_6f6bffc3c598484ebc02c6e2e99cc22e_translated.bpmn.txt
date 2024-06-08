@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-42804027-5AF5-407B-A467-354A3F3DF7A4', 'name': 'Send a request', 'incoming': ['StartEvent0'], 'outgoing': ['Result']}
+{'id': 'sid-0E2CA8AC-6496-4397-84F5-57DCA6B8C225', 'name': 'Send result to the frontend', 'incoming': ['Result'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-AABD1AD0-C2E7-497B-8671-E262337EEE73', 'name': 'Send delay to Frontend', 'incoming': ['StartEvent0'], 'outgoing': ['Result']}
+{'id': 'sid-416A0D87-E053-4341-9AA8-DFED88D1036A', 'name': 'Level 1 Scoring', 'incoming': ['StartEvent1'], 'outgoing': ['Results available?']}
+{'id': 'sid-F662A226-A616-47B7-AB3B-8318A2F985BC', 'name': 'Send result to the bank', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-0CDA22E7-D31D-4CFE-8B90-9ABCF60F5CBA', 'name': 'Report delay to Bank', 'incoming': ['Results available?'], 'outgoing': ['perform scoring level 2']}
+{'id': 'sid-55BAB1C1-6327-40C4-85B5-B2D16119BAA9', 'name': 'perform scoring level 2', 'incoming': ['Results available?'], 'outgoing': ['Send result to the bank']}
+{'id': 'sid-3FE5C578-7B2E-4CBA-BBFB-FD497632DF04', 'name': 'Send result to the bank', 'incoming': ['Results available?'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-9A3C0E10-8F88-4230-9F74-6B47FDACD062', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-17A0D832-B67A-41DF-9D4F-2702047B4D36', 'name': 'Results available?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'EndEvent2']}
+{'id': 'sid-C081CCEC-B985-4903-B3EC-C4E834B1F4E0', 'name': 'EventBasedGateway2', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'Delay']}
+{'id': 'sid-CA6C7B68-BCEE-4AB5-A8BB-9E83C64CDB92', 'name': 'Result', 'incoming': ['Send a request'], 'outgoing': ['Send result to the frontend']}
+{'id': 'sid-7C3BFFF3-5C68-4BB1-BF19-BE38B637B8BC', 'name': 'Delay', 'incoming': ['StartEvent0'], 'outgoing': ['Send delay to Frontend']}
+{'id': 'sid-CD896BE9-2572-4FA8-B79E-1CAEDA94E988', 'name': 'Result', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-BFDF6657-46F5-4AD0-9919-DC89EE8DDBBD', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-1D2C91D3-32AC-4676-9858-34DA49C5EB68', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Send result to the bank']}
+
+End Events:
+{'id': 'sid-95F3E8CF-8907-4A25-8F2C-9BAFDD28936C', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-5CBDCC8A-E1CE-4140-BBE8-9474FB5327C7', 'name': 'EndEvent1', 'incoming': ['Results available?'], 'outgoing': []}
+{'id': 'sid-B0BC08E2-9C27-4C85-B0B7-9FF3533AC899', 'name': 'EndEvent2', 'incoming': ['Results available?'], 'outgoing': []}

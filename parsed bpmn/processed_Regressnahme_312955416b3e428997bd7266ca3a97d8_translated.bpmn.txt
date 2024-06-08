@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-4430C409-3C5E-46C8-A0D1-C7E5A6932E15', 'name': 'Check the procedure', 'incoming': ['Insurance company reported'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-342EA608-456B-47E6-B2FB-378A82FE5751', 'name': 'Payment\nSend a message', 'incoming': ['Insurance company reported'], 'outgoing': ['Set up a new template']}
+{'id': 'sid-67CB3172-A182-4696-B9BB-58CAE246AE21', 'name': 'Book payment', 'incoming': ['Payment'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-606B596D-D3F8-496C-B141-E0E876F5BA29', 'name': 'Proceedings', 'incoming': ['Notification'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-1B324000-8236-407A-A436-C5488027403E', 'name': 'Dispense process of collection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-DE768C2C-15DB-4534-B1EC-A6D27E1038FF', 'name': 'Complete the process', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process completed']}
+{'id': 'sid-F1C1574A-E36E-4263-BBA7-0110CD5DBC88', 'name': 'Set up a new template', 'incoming': ['Regression claim possible'], 'outgoing': ['Reimbursement period\nExpired']}
+
+Gateways:
+{'id': 'sid-2718BE4B-FC73-45BA-AB27-B6A92B7FFBF8', 'name': 'Regression claim possible', 'incoming': ['Insurance company reported'], 'outgoing': ['Set up a new template', 'ExclusiveGateway3']}
+{'id': 'sid-39BBE790-EEAE-4466-B5FC-9BF47CFDE51B', 'name': 'Not justified', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-18373FB7-03B9-4A4C-A80C-D1DC36A9F02C', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['Dispense process of collection']}
+{'id': 'sid-2C0CE207-7657-4E30-9B67-4DEE9A2D7031', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'EventBasedGateway4', 'Notification', 'Check the procedure'], 'outgoing': ['Process completed']}
+{'id': 'sid-7FDF0814-4BE0-4CAD-B75B-82F6E028D599', 'name': 'EventBasedGateway4', 'incoming': ['Set up a new template'], 'outgoing': ['Complete the process', 'Not justified', 'Process completed']}
+{'id': 'sid-BD72CDA4-0646-4714-B910-10EE627BDE99', 'name': 'Reimbursement period\nExpired', 'incoming': ['Set up a new template'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-D12046EF-14D3-400F-A74F-CBA3E532F072', 'name': 'Payment', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-AC34551F-B872-48E8-B5B7-14022D29700F', 'name': 'Notification', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-203FA45E-F413-4985-B778-0B2BB438105B', 'name': 'Insurance company reported', 'incoming': [], 'outgoing': ['Payment\nSend a message']}
+
+End Events:
+{'id': 'sid-4CBD2229-520C-49FA-9443-AACE3CC9D623', 'name': 'Process completed', 'incoming': ['EventBasedGateway4'], 'outgoing': []}

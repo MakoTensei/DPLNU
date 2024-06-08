@@ -1,0 +1,30 @@
+Tasks:
+{'id': 'sid-D72F24C3-3600-4222-A8A5-6CF5B2B7FA97', 'name': 'Select a court', 'incoming': ['Hunger\nfelt'], 'outgoing': ['To be taken']}
+{'id': 'sid-E8D26212-B97A-4629-A310-E1A8D07B21D3', 'name': 'Order at the employee', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Guest paid']}
+{'id': 'sid-BA53D408-E9EF-40F3-A4C1-C1E550973183', 'name': 'Guest paid', 'incoming': ['To be taken'], 'outgoing': ['Guest takes Pieper']}
+{'id': 'sid-92FFCEC6-8468-42A6-B176-189084D23BC6', 'name': 'Guest takes Pieper', 'incoming': ['To be taken'], 'outgoing': ['Get message about Pieper']}
+{'id': 'sid-A96AD31D-E288-44F9-99F6-CBED05330C03', 'name': 'Guest picks up his food', 'incoming': ['To be taken'], 'outgoing': []}
+{'id': 'sid-3863C1F4-82E2-470C-ABEF-82C2D8169189', 'name': 'Enter the payment system', 'incoming': ['Order\naccepted'], 'outgoing': ['Cash from the guest']}
+{'id': 'sid-676D5782-9B1B-46AC-8DB8-E3A256BB07EB', 'name': 'Cash from the guest', 'incoming': ['Order\naccepted'], 'outgoing': ['Adjust Pieper and hand over to guest']}
+{'id': 'sid-B4EC4E5A-2BC5-4D4D-895C-80F79F1AD8A6', 'name': 'Adjust Pieper and hand over to guest', 'incoming': ['Order\naccepted'], 'outgoing': ['Send information to Koch']}
+{'id': 'sid-9637A4D1-DE84-48E2-8BD8-D66C7CAA92BC', 'name': 'Send information to Koch', 'incoming': ['Order\naccepted'], 'outgoing': ['Message to customers about Pieper']}
+{'id': 'sid-AA8415D6-FF86-4299-A505-BE33B411A58F', 'name': 'Gastronomy', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-F9D809CF-D66A-4B11-B68C-568BD550ACF8', 'name': 'Cook begins with preparation of meal', 'incoming': ['To prepare food'], 'outgoing': ['Judgment is placed in the Empire']}
+{'id': 'sid-C0FEF4D9-9F62-4D7F-B950-4378062DD6E6', 'name': 'Judgment is placed in the Empire', 'incoming': ['To prepare food'], 'outgoing': ['Food is prepared']}
+{'id': 'sid-3E36C522-FF6E-416F-80BB-511228DFAEB9', 'name': 'Food is prepared', 'incoming': ['To prepare food'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-2A33ED55-B482-4A01-B9F4-02EEC4F90E77', 'name': 'EventBasedGateway0', 'incoming': ['Get message from Koch'], 'outgoing': ['Gastronomy', 'Get message about Pieper']}
+{'id': 'sid-E515F939-2B5B-41BA-BF09-8A557C6F0F87', 'name': 'Get message about Pieper', 'incoming': ['To be taken', 'EventBasedGateway0'], 'outgoing': ['Guest picks up his food']}
+{'id': 'sid-327DF639-F709-4460-AFC0-DE9D393BCB55', 'name': 'To be taken', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Guest picks up his food']}
+{'id': 'sid-1FF74966-0162-482D-89EB-FB7717114FFC', 'name': 'Get message from Koch', 'incoming': ['Order\naccepted'], 'outgoing': ['Customer does not react after 5 minutes']}
+{'id': 'sid-0B7DA557-3912-424F-956E-03BA06F60762', 'name': 'Message to customers about Pieper', 'incoming': ['Send information to Koch', 'Order\naccepted'], 'outgoing': ['Get message about Pieper', 'Customer does not react after 5 minutes']}
+{'id': 'sid-C5BB9F96-575D-43CD-8C98-81124FF3FE59', 'name': 'Customer does not react after 5 minutes', 'incoming': ['Get message from Koch'], 'outgoing': ['Customer does not react after 5 minutes']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Order at the employee']}
+{'id': 'sid-008268B6-BC4E-412F-B66F-4AE1345DE4DD', 'name': 'Order\naccepted', 'incoming': [], 'outgoing': ['Message to customers about Pieper']}
+{'id': 'sid-057721E4-9416-48F5-AA9C-90C35271C0F9', 'name': 'To prepare food', 'incoming': [], 'outgoing': ['Food is prepared']}
+
+End Events:
+{'id': 'sid-49C4FB92-7945-4213-B9F7-84ED0A7D44B7', 'name': 'EndEvent0', 'incoming': ['Food is prepared'], 'outgoing': []}

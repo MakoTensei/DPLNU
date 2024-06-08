@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-CC7405B1-35EA-4DD0-AB7A-B883CC4E10C8', 'name': 'Determining partner data', 'incoming': ['Start SchufaScoring'], 'outgoing': ['Request Level1 scoring']}
+{'id': 'sid-5E368669-886D-44F6-A486-B7B4928CB6E2', 'name': 'Request Level1 scoring', 'incoming': ['Start SchufaScoring'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-753F4344-B631-4EE9-9E16-41D8BA3CA123', 'name': 'Edition Schufa Result', 'incoming': ['Start SchufaScoring'], 'outgoing': ['Score performed']}
+{'id': 'sid-5E0EFF09-C5F4-43D3-A86F-C61803CC7BA5', 'name': 'Output result is not yet available', 'incoming': ['Are there any results?'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-C48A3386-54DE-476B-873C-1CC9F5E060F2', 'name': 'Schufa edition\nresults', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Score performed']}
+{'id': 'sid-81966061-C636-49E5-BD6B-3B12B7B764AB', 'name': 'Implementation of scoring for partners', 'incoming': ['Start SchufaScore for partners'], 'outgoing': ['Feedback Result']}
+{'id': 'sid-EBD3A39C-49A4-4C32-A900-843F0D5DC447', 'name': 'Implementation Level 2 scoring', 'incoming': ['Is the result already fixed?'], 'outgoing': ['Feedback Result']}
+{'id': 'sid-FF776C65-2413-48B9-99AA-C9C9F5167BBE', 'name': 'Feedback Result', 'incoming': ['Is the result already fixed?'], 'outgoing': ['Score-led']}
+{'id': 'sid-41E14BBB-C2C7-4179-9C21-1B4CB876A0DC', 'name': 'Feedback Result', 'incoming': ['Start SchufaScore for partners'], 'outgoing': ['Score performed']}
+
+Gateways:
+{'id': 'sid-B5584D13-8C7A-4632-801E-F87E77B8E095', 'name': 'Are there any results?', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['Score performed', 'Score performed']}
+{'id': 'sid-4178A38F-67F0-4D1B-B150-7C3024DE40C6', 'name': 'Is the result already fixed?', 'incoming': ['Start SchufaScore for partners'], 'outgoing': ['Score performed', 'Score-led']}
+{'id': 'sid-E19C3C49-E612-4E99-9746-D08648F75215', 'name': 'IntermediateCatchEvent2', 'incoming': ['Start SchufaScoring'], 'outgoing': ['Edition Schufa Result']}
+{'id': 'sid-1955262E-1215-4708-9ABB-882A7CF9CEAA', 'name': 'IntermediateCatchEvent3', 'incoming': ['Are there any results?'], 'outgoing': ['Score performed']}
+
+Start Events:
+{'id': 'sid-A7C52DF0-7DA9-4EFB-8A09-0CF8371D5862', 'name': 'Start SchufaScoring', 'incoming': [], 'outgoing': ['Edition Schufa Result']}
+{'id': 'sid-AF877E4D-EFDB-48C1-B436-90EF2B70B50D', 'name': 'Start SchufaScore for partners', 'incoming': [], 'outgoing': ['Is the result already fixed?']}
+
+End Events:
+{'id': 'sid-14F60E8A-ACF6-435B-986F-AA73E4A1B963', 'name': 'Score performed', 'incoming': ['Are there any results?'], 'outgoing': []}
+{'id': 'sid-EC94C070-2FF1-4F2D-B0E4-CEDC7E81BEEE', 'name': 'Score performed', 'incoming': ['Are there any results?'], 'outgoing': []}
+{'id': 'sid-5461DDCD-B2F2-4B98-9A4F-8EEF10B3017E', 'name': 'Score performed', 'incoming': ['Feedback Result'], 'outgoing': []}
+{'id': 'sid-9F026A38-80DA-4C61-A146-08AB6269E5DD', 'name': 'Score-led', 'incoming': ['Is the result already fixed?'], 'outgoing': []}

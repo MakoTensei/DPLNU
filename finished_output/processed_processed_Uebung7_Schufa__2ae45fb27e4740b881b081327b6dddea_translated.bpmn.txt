@@ -1,0 +1,17 @@
+ In a system designed to handle scoring requests and results, various tasks and gateways work together to ensure efficient communication and processing. Here's a natural flow description of the system's operations:
+
+1. When a scoring request is obtained, the system initiates the process by sending a 'Send delay proof' message to the 'EventBasedGateway2'. This gateway is responsible for handling the delay proof and forwarding the request to the appropriate level of scoring.
+
+2. Concurrently, another scoring request is received, and the system sends a 'Report delay' message to the 'Delay\nReport' gateway. This gateway is responsible for reporting any delays in the scoring process.
+
+3. The 'EventBasedGateway2' receives the scoring request and forwards it to the 'Level2 scoring' gateway. This gateway processes the request and generates the 'Scoring\nResult\navailable' message.
+
+4. The 'Scoring\nResult\navailable' message is then sent to the 'Result\n?' gateway, which is responsible for reporting the result back to the system.
+
+5. The 'ExclusiveGateway1' receives the 'Conduct Level1 scoring' message and the 'Result\navailable' message. It then sends the 'Result\nReported back' message to the system.
+
+6. The 'Scoring\nResult\nsupplied' message is sent from the 'Level2 scoring' gateway to the 'Delay\nReport' gateway, which reports any delays in the scoring process.
+
+7. Finally, the 'Result\nReported back' message is sent from the 'ExclusiveGateway1' to the system, indicating that the scoring process has been completed and the result has been reported.
+
+In summary, the system efficiently handles scoring requests and results by utilizing various gateways and tasks to ensure smooth communication and processing.

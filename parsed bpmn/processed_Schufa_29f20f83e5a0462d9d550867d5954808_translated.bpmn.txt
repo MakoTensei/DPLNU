@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-413D7304-ABF0-4347-896C-C50899B504D2', 'name': 'Schufa request\nsend', 'incoming': ['StartEvent0'], 'outgoing': ['Answer\nobtained']}
+{'id': 'sid-BDC5034E-E7BA-4B36-980C-9459C97406D4', 'name': 'Credit award\ndirecting', 'incoming': ['Answer\nobtained'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-310F3325-5405-4118-AF32-E270592F61A5', 'name': 'Report delay', 'incoming': ['StartEvent0'], 'outgoing': ['Answer\nobtained']}
+{'id': 'sid-E5C30092-3260-4633-A9E1-DA6CCBB2DE6A', 'name': 'Level 1 scoring\nExecution', 'incoming': ['StartEvent1'], 'outgoing': ['Result\nfound?']}
+{'id': 'sid-627E1774-3AAE-484B-B22C-542F7AC88795', 'name': 'Report the result', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-F35B9D8F-8B65-4CC8-B1D3-A6EEC552104A', 'name': 'Delay\nReport back', 'incoming': ['Result\nfound?'], 'outgoing': ['Level 2 scoring\nExecution']}
+{'id': 'sid-202166D1-F180-4080-8AB5-A289D0BACC34', 'name': 'Level 2 scoring\nExecution', 'incoming': ['Result\nfound?'], 'outgoing': ['Report the result']}
+{'id': 'sid-EE9002F3-0284-4FA3-9C3B-70BAE69B6049', 'name': 'Report the result', 'incoming': ['Result\nfound?'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-72CC62E0-791A-436F-8D4C-EEA8B27D7EC0', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9DF77BB4-BDD5-4184-8920-E95EFB369292', 'name': 'Result\nfound?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'EndEvent2']}
+{'id': 'sid-A6CF126D-07C2-410B-8F4D-BC4F9DB14AB1', 'name': 'EventBasedGateway2', 'incoming': ['StartEvent0'], 'outgoing': ['Delay\nobtained', 'EndEvent0']}
+{'id': 'sid-7BDA6D83-CDDE-42E1-9D2F-A5C6C97BCFEF', 'name': 'Answer\nobtained', 'incoming': ['Schufa request\nsend'], 'outgoing': ['Credit award\ndirecting']}
+{'id': 'sid-27F5A655-76E9-46D9-B72B-578B62992C43', 'name': 'Delay\nobtained', 'incoming': ['StartEvent0'], 'outgoing': ['Report delay']}
+{'id': 'sid-215BFE2F-B739-43C7-8E95-64310C8BC169', 'name': 'Answer\nobtained', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-3EE0378F-C2F1-4D53-8792-F1BAF9506EC6', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-A6D1D91B-E30F-4CE4-9FE8-0DDAAECB6A52', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Report the result']}
+
+End Events:
+{'id': 'sid-873F69EF-60FB-4062-916A-8B924AFC7606', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-AAE88D1F-9C17-4DD3-B66D-0A4DC9773584', 'name': 'EndEvent1', 'incoming': ['Result\nfound?'], 'outgoing': []}
+{'id': 'sid-3F9045EF-B89D-4DA8-9525-D49A1EA93EFC', 'name': 'EndEvent2', 'incoming': ['Result\nfound?'], 'outgoing': []}

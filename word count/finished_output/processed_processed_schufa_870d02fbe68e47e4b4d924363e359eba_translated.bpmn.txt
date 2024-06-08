@@ -1,0 +1,13 @@
+ In a system designed to handle financial data processing, a series of tasks and gateways work together to ensure the timely and accurate delivery of information. The process begins with the 'StartEvent0', which triggers the 'Scoring\nsend result' task. This task is responsible for sending the result level 1 to the 'Results level 1' gateway.
+
+Simultaneously, the 'StartEvent0' also initiates the 'Scoring\nsend result' task to send the result level 1 to the 'EndEvent1' gateway. This gateway, named 'ExclusiveGateway0', has two outgoing connections: one to 'Send scoring result' and another to 'EndEvent2'.
+
+The 'Send scoring result' task, which is connected to 'ExclusiveGateway0', sends the scoring result to the 'ExclusiveGateway1'. This gateway, named 'ExclusiveGateway1', has two incoming connections: one from 'StartEvent1' and another from 'Send scoring result'. It also has an outgoing connection to 'EndEvent2'.
+
+Meanwhile, the 'StartEvent1' task sends the event to the 'ExclusiveGateway0', which has two outgoing connections: one to 'Send scoring result' and another to 'EndEvent2'. The 'Send scoring result' task, connected to 'ExclusiveGateway0', sends the scoring result to the 'EndEvent2'.
+
+The 'EndEvent2' gateway, named 'ExclusiveGateway0', has two incoming connections: one from 'StartEvent1' and another from 'Send scoring result'. It also has an outgoing connection to 'EndEvent2'.
+
+The 'Delay message' task, triggered by 'StartEvent0', sends a message about delay to the 'Send information about delay' task. This task, in turn, sends the delay information to the 'IntermediateCatchEvent5' task.
+
+The 'IntermediateCatchEvent5' task, triggered by 'StartEvent0', sends the event to the 'EndEvent0' gateway. The 'EndEvent0' gateway, named 'ExclusiveGateway0', has two incoming connections: one from 'IntermediateCatchEvent5' and another from 'Scoring\nsend result'. It also

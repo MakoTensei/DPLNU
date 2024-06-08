@@ -1,0 +1,11 @@
+ In the logistics process, a series of tasks and gateways work together to ensure the efficient handling of orders and delivery of goods. The process begins with the 'Send order received' event, which triggers the 'Pick up offers from forwarders' task. This task is connected to the 'ExclusiveGateway0', which then forwards the task to 'Contractor' and 'Package tickets'. The 'Contractor' task is linked to 'ExclusiveGateway3', while 'Package tickets' goes to 'ExclusiveGateway2'.
+
+The 'Pruefen ob Insurance required' task, which checks if insurance is needed, is connected to 'Package tickets' and also to 'ExclusiveGateway2'. Once the insurance requirement is determined, the task is forwarded to 'ExclusiveGateway3'.
+
+The 'Insurance close' task, which finalizes the insurance process, is connected to 'ExclusiveGateway1'. This task is then forwarded to 'ExclusiveGateway2'.
+
+Meanwhile, the 'Packaging goods' task, which prepares the goods for shipment, is connected to 'ParallelGateway4'. This task is then forwarded to 'ParallelGateway5'.
+
+Finally, the 'Delivering goods' task, which handles the delivery of the goods, is connected to 'ParallelGateway5' and concludes the process with the 'EndEvent0'.
+
+In summary, the logistics process starts with the 'Send order received' event, which triggers a series of tasks and gateways to ensure the order is processed, insurance is determined, goods are packaged, and ultimately delivered. The process ends with the 'EndEvent0' event, marking the successful completion of the order delivery.

@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-94B86943-1618-410C-B3D3-8CE6B3AD7309', 'name': 'Check regression', 'incoming': ['StartEvent0'], 'outgoing': ['sid-1F38D7EC-B5A7-4405-88C3-DAD653085E83']}
+{'id': 'sid-9BD8E310-5AAA-4CC5-98E5-28FC7A22B501', 'name': 'Send payment request to VN', 'incoming': ['Regress possible?'], 'outgoing': ['Record process in dei Revolage']}
+{'id': 'sid-CE1E6D01-430C-4F87-B339-76EB2FE64CF2', 'name': 'Record process in dei Revolage', 'incoming': ['Regress possible?'], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-FA16B059-708E-4087-BD1A-C786D5EF86B3', 'name': 'Book payment receipt', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-B39F6CC0-C166-4D2E-AF93-CFBE60BA23B5', 'name': 'Proceedings', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-7A531A3B-FD60-4905-A62D-5BA20A14BC36', 'name': 'forwarding debt collection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-C79FD36B-FDC1-4671-AB9F-8CF346F4FD77', 'name': 'Close', 'incoming': ['Objection'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-A6E4E001-8B5E-4649-A1D6-B46EB13195DF', 'name': 'Regress possible?', 'incoming': ['sid-BA3538A0-C477-4D95-92F6-7B38D05BA843'], 'outgoing': ['Objection', 'ExclusiveGateway1']}
+{'id': 'sid-FDE0B35E-96CF-4A5F-B735-AD40ECB554E4', 'name': 'ExclusiveGateway1', 'incoming': ['Regress possible?', 'EventBasedGateway4', 'EventBasedGateway4', 'IntermediateCatchEvent7'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9BE86262-27F9-4515-A392-4C13C8D342A5', 'name': 'Objection', 'incoming': ['Regress possible?'], 'outgoing': ['Close', 'ExclusiveGateway3']}
+{'id': 'sid-73EF2177-33E1-420C-9EDE-FB991A0BC54C', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-EBEBB0E7-1AB2-427F-AB6C-BB0AA715A19D', 'name': 'EventBasedGateway4', 'incoming': ['Regress possible?'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1', 'forwarding debt collection']}
+{'id': 'sid-59553CA8-FA1D-4377-9537-8635D43B0615', 'name': 'IntermediateCatchEvent5', 'incoming': ['Record process in dei Revolage'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-5D148691-C2B4-407D-8C40-2DA9E5F96D83', 'name': 'IntermediateCatchEvent6', 'incoming': ['Regress possible?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-4D942887-D746-42D3-89A9-54B337784B4E', 'name': 'IntermediateCatchEvent7', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-19AA548F-DE68-4468-9582-829A14B0344A', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Check regression']}
+
+End Events:
+{'id': 'sid-1984F5E5-9D0A-478F-850B-7B341DB62DC2', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway3'], 'outgoing': []}

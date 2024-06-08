@@ -1,0 +1,34 @@
+Tasks:
+{'id': 'sid-98E4B3E2-45ED-45CC-A74F-EDFAC36EE6A5', 'name': 'Select a court\n', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Waiting period']}
+{'id': 'sid-2FC301C0-5E12-45B8-B4A8-3E680AF959BD', 'name': 'Add your order\n', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Order payment']}
+{'id': 'sid-57E0017C-8F47-48A5-82E3-C2C2578944BC', 'name': 'Order payment', 'incoming': ['Waiting period'], 'outgoing': ['Get Pieper']}
+{'id': 'sid-851F192B-E143-4B92-A0A4-BAC3DD4FD11A', 'name': 'Get Pieper', 'incoming': ['Waiting period'], 'outgoing': ['Pieper triggers']}
+{'id': 'sid-7B40D0F4-CE60-4A15-BAAE-372946F318E3', 'name': 'Pick up food\n', 'incoming': ['Pieper triggers'], 'outgoing': ['Food collected']}
+{'id': 'sid-B8C7BBBD-6E5C-4F8E-98A7-1F2896EF14A2', 'name': 'Recording\n', 'incoming': ['Order\nobtained'], 'outgoing': ['Cash']}
+{'id': 'sid-C91F82F6-1952-4553-995B-98844E0BC6A6', 'name': 'Cash', 'incoming': ['Order\nobtained'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-9B66D1FC-EEF0-4B02-9F61-7B3E4A3CBCB6', 'name': 'Adjust Pieper', 'incoming': ['Order\nobtained'], 'outgoing': ['Pieper over']}
+{'id': 'sid-7C002813-B50A-4594-96BF-F3570643C00F', 'name': 'Pieper over', 'incoming': ['Order\nobtained'], 'outgoing': ['Koch inform']}
+{'id': 'sid-35AA53D5-B795-46AE-BD97-94318A2C6F8D', 'name': 'Koch inform', 'incoming': ['Order\nobtained'], 'outgoing': ['Message from Koch']}
+{'id': 'sid-5C188491-3BE1-452F-BA82-47FDFE8581C4', 'name': 'Leave food', 'incoming': ['Customer will appear\nat the issue\n'], 'outgoing': ['Issued']}
+{'id': 'sid-C74B3533-739A-46BA-A557-B8979839662F', 'name': 'Trigger Pieper', 'incoming': ['Order\nobtained'], 'outgoing': ['5 minutes']}
+{'id': 'sid-9D5B9BD9-E73C-418F-81A4-99274075D35B', 'name': 'Prepare food\n\n', 'incoming': ['Order received'], 'outgoing': ['Put food into the empires\n']}
+{'id': 'sid-3BE1069C-2671-451E-8BF3-28DFD634576E', 'name': 'Put food into the empires\n', 'incoming': ['Order received'], 'outgoing': ['inform employees\n']}
+{'id': 'sid-8D7AB9F1-E75C-4EE0-8699-AB4BFC16EE2E', 'name': 'inform employees\n', 'incoming': ['Order received'], 'outgoing': ['Issued']}
+
+Gateways:
+{'id': 'sid-C2C446C6-8E18-4836-A81C-BA3BA77DDB3C', 'name': 'EventBasedGateway0', 'incoming': ['Message from Koch', 'sid-B06EB285-0788-47E3-BB1F-143CC224BB8B'], 'outgoing': ['Issued', '5 minutes']}
+{'id': 'sid-3AA38ED7-BD89-4FD0-8D51-87943551A3D5', 'name': 'Waiting period', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Food collected']}
+{'id': 'sid-12FFE55B-2C41-4E94-A383-ECF8FAE42BF5', 'name': 'Pieper triggers', 'incoming': ['Waiting period'], 'outgoing': ['Food collected']}
+{'id': 'sid-49D27637-EA5B-4617-BE39-E43D4B100F51', 'name': 'Message from Koch', 'incoming': ['Order\nobtained'], 'outgoing': ['Customer will appear\nat the issue\n']}
+{'id': 'sid-16ADD53B-DDFF-4659-8106-98F9457F93B1', 'name': 'Customer will appear\nat the issue\n', 'incoming': ['Message from Koch'], 'outgoing': ['Issued']}
+{'id': 'sid-67293F43-38B7-42C4-BC3A-8BFCA79B838E', 'name': '5 minutes', 'incoming': ['Order\nobtained'], 'outgoing': ['sid-7D858DB8-3C8A-4CB3-9916-A2A0DA3864BA']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Add your order\n']}
+{'id': 'sid-A7CDCD62-29EC-454F-8B4D-38C5FECC6DF6', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['5 minutes']}
+{'id': 'sid-044D1EBE-CD06-4B21-A5E6-73455330A243', 'name': 'Order received', 'incoming': [], 'outgoing': ['inform employees\n']}
+
+End Events:
+{'id': 'sid-EB9B1797-9486-416D-A929-56648FC17182', 'name': 'Food collected', 'incoming': ['Waiting period'], 'outgoing': []}
+{'id': 'sid-36156D6D-3E11-4349-9DF4-5392F985CC5C', 'name': 'Issued', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-D0D4A390-A3FE-462B-B564-17643CCC4325', 'name': 'Issued', 'incoming': ['inform employees\n'], 'outgoing': []}

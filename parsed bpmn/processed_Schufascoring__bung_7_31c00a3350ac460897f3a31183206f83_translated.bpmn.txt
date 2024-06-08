@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-DE7DB5E0-EBFC-488F-B75A-3E084BB753E0', 'name': 'Send scoring request to the Schufa', 'incoming': ['Credit award request\nwe have discussed'], 'outgoing': ['Scoring 1\nResult\narrived']}
+{'id': 'sid-B7398AFD-B9F8-407A-BB14-3687F30A794F', 'name': 'Redirecting the result', 'incoming': ['Scoring 2\nResult\narrived'], 'outgoing': ['Result\nforwarded']}
+{'id': 'sid-45F987A3-BCA3-4C1B-8EA2-7760A50707E9', 'name': 'Note\nforward', 'incoming': ['Credit award request\nwe have discussed'], 'outgoing': ['Result\nforwarded']}
+{'id': 'sid-4AEF0EF6-02BA-45C6-BA83-41C9417DE3B9', 'name': 'Scoring 1\nforward', 'incoming': ['Scoring 1\nResult\narrived'], 'outgoing': ['Result\nforwarded']}
+{'id': 'sid-2D4A338D-1F80-4142-BABB-9996440A1040', 'name': 'perform scoring level 1', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-CE786780-3B2D-437F-8D1C-3130EBBD67E8', 'name': 'Feedback of the result to Schufascoring', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['Scoring 1 result\ncarried out']}
+{'id': 'sid-1C6D0443-4E77-46BB-979C-332CCDF990CA', 'name': 'Share delay', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['perform scoring level 2']}
+{'id': 'sid-B06E4A84-E839-4AE4-BC93-CA06F6945CCD', 'name': 'perform scoring level 2', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Feedback of results to Schufascoring']}
+{'id': 'sid-043391F2-B525-4CCB-894E-B4735BA59F71', 'name': 'Feedback of results to Schufascoring', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Scoring 2 result\ncarried out']}
+
+Gateways:
+{'id': 'sid-EEC221E0-DE7E-482B-ACF4-7CBBF68F6DCC', 'name': 'ExclusiveGateway0', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['Scoring 2 result\ncarried out', 'Scoring 1 result\ncarried out']}
+{'id': 'sid-2413F6E1-3488-4A9C-AE1A-71E051D10EAF', 'name': 'EventBasedGateway1', 'incoming': ['Credit award request\nwe have discussed'], 'outgoing': ['Result\nforwarded', 'Result\nforwarded']}
+{'id': 'sid-4F90CE16-BDD4-473D-B846-91A00119302F', 'name': 'Scoring 1\nResult\narrived', 'incoming': ['Send scoring request to the Schufa'], 'outgoing': ['Result\nforwarded']}
+{'id': 'sid-FC7F0DEE-D90F-4CE5-BAC4-8BD08091EA5D', 'name': 'Delay\narrived', 'incoming': ['Credit award request\nwe have discussed'], 'outgoing': ['Result\nforwarded']}
+{'id': 'sid-4AB3176B-FBBE-4C64-A8A7-47FC38C41E78', 'name': 'Scoring 2\nResult\narrived', 'incoming': ['Credit award request\nwe have discussed'], 'outgoing': ['Result\nforwarded']}
+
+Start Events:
+{'id': 'sid-83DB4026-F508-41A9-8695-520793CA8191', 'name': 'Credit award request\nwe have discussed', 'incoming': [], 'outgoing': ['Scoring 2\nResult\narrived']}
+{'id': 'sid-B44DFAFB-9BB8-4FBF-90FF-E2EF834F4D17', 'name': 'Schufascoring request\nwe have discussed', 'incoming': [], 'outgoing': ['Feedback of the result to Schufascoring']}
+
+End Events:
+{'id': 'sid-410CE076-938D-4AEE-B18F-4923A19CA78C', 'name': 'Result\nforwarded', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-7FA1C7BC-3BE1-4494-AC90-FE15DB3F27A7', 'name': 'Result\nforwarded', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-96676B2D-5795-434C-B5CA-81BB6E314B91', 'name': 'Scoring 1 result\ncarried out', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-F66D9C9E-E520-42CD-9BCA-947F3F38EB2E', 'name': 'Scoring 2 result\ncarried out', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

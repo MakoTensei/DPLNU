@@ -1,0 +1,9 @@
+ The scoring process begins with a "Scoring request" event, which triggers the "Level 1 scoring" task. This task is responsible for processing the incoming scoring request and then sends the result to the "Result fixed" gateway.
+
+The "Result fixed" gateway receives the result and then sends it to two tasks: "Scoring Level 2" and "End". The "Scoring Level 2" task processes the result and sends the outcome to the "Timeout" gateway. The "Timeout" gateway, in turn, sends the outcome to the "Is earnings solid?" task.
+
+The "Is earnings solid?" task receives the outcome from the "Timeout" gateway and sends it to the "Timeout" gateway again. This creates a loop, where the "Is earnings solid?" task keeps sending the outcome to the "Timeout" gateway until it receives a different outcome.
+
+Meanwhile, the "End" task is triggered when the "Result fixed" gateway receives the outcome from the "Scoring Level 2" task. The "End" task sends the outcome to the "on scoring\nLevel 2 waiting" gateway, which then sends the outcome to the "sid-351F2CFC-1348-49DA-B088-1D780D44ED69" task.
+
+In summary, the scoring process starts with a "Scoring request" event, which triggers the "Level 1 scoring" task. The task sends the result to the "Result fixed" gateway, which then sends the result to the "Scoring Level 2" task. The "Scoring Level 2" task sends the outcome to the "Timeout" gateway, which sends the outcome to the "Is earnings solid?" task. The "Is earnings solid?" task sends the outcome back to the "Timeout" gateway, creating a loop. The "End" task is triggered when the "Result fixed" gateway receives the outcome from the "Scoring Level 2" task, and it sends the outcome to the "on scoring\nLevel 2 waiting" gateway, which then sends the outcome to the "sid-351F2CFC-1348-49DA-B088-1D780D44ED69"

@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-F439A8B8-69D1-4482-84A3-E4199D6386AB', 'name': 'Scoring request', 'incoming': ['Scoring request'], 'outgoing': ['Scoring successful?']}
+{'id': 'sid-529B3241-D7F1-479C-83E0-78E8B2DAD464', 'name': 'Message', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-4CB0D65C-9461-4C0C-8FD7-6D27F7BA7DD3', 'name': 'Report delay', 'incoming': ['Scoring successful?'], 'outgoing': ['waiting for Schufa']}
+{'id': 'sid-5F4F6CC1-2854-4E9A-9667-6A1660847971', 'name': 'Message', 'incoming': ['waiting for Schufa'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-128C8C5E-85C0-4BFA-889F-C644C072E1E8', 'name': 'Conduct Level1 scoring', 'incoming': ['Scoring request'], 'outgoing': ['waiting for Schufa']}
+{'id': 'sid-753B66D1-07FC-477C-8BB5-B8D6D6D04E22', 'name': 'Notify Bank', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-CF0EC6E8-A110-4637-9164-BE2BDF3BBFAE', 'name': 'Report delay', 'incoming': ['Scoring successful?'], 'outgoing': ['Level2 scoring']}
+{'id': 'sid-FCE0E41D-49E2-46EB-81F5-48B0649452BF', 'name': 'Level2 scoring', 'incoming': ['Scoring successful?'], 'outgoing': ['Notify Bank']}
+{'id': 'sid-BCA69680-EB95-421A-B6A3-E200DE8BFC04', 'name': 'Notify Bank', 'incoming': ['Scoring successful?'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-4C25A15C-DB94-4BB3-B2F0-411954C0FE8F', 'name': 'Scoring successful?', 'incoming': ['Scoring request'], 'outgoing': ['ExclusiveGateway1', 'EndEvent0']}
+{'id': 'sid-BB3E29DF-3B27-4F97-BFA7-0F97DF71F3CB', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring request', 'Scoring successful?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-95DB7E64-4AC2-4DBC-A4D6-60351E2304E1', 'name': 'Scoring successful?', 'incoming': ['Scoring request'], 'outgoing': ['Notify Bank', 'EndEvent1']}
+{'id': 'sid-CDBA148D-8EEA-4B8E-83FE-269E155C7040', 'name': 'ExclusiveGateway3', 'incoming': ['Scoring request', 'Notify Bank'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-8A2F9177-DA0B-44F9-B6CF-403148C88E63', 'name': 'waiting for Schufa', 'incoming': ['Conduct Level1 scoring'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-C4B3499C-86F8-4B65-ABC2-68FB6BAE84FE', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-F25F925A-0032-4A80-995D-D5146DBB6A83', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['ExclusiveGateway3']}
+
+End Events:
+{'id': 'sid-F1AE5029-A4E8-497F-94AF-4695D060D3D9', 'name': 'EndEvent0', 'incoming': ['Scoring successful?'], 'outgoing': []}
+{'id': 'sid-23DA529B-E1E1-4B5D-836B-EAD9AA627D82', 'name': 'EndEvent1', 'incoming': ['Scoring successful?'], 'outgoing': []}

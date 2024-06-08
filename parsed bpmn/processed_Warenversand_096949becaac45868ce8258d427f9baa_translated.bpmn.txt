@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-903711F9-B17C-4253-8DCB-E6E8628EF08B', 'name': 'Check shipping mode', 'incoming': ['Shipment'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-5CC26B20-BDA0-4B3B-8A2B-BD607C44B4B9', 'name': 'Pick up offers', 'incoming': ['sid-97674F63-D817-4D8D-92FF-EB91E4CA4B8B'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-709B64D5-331D-4F2C-A633-4462053C9038', 'name': 'Check the offer', 'incoming': ['ParallelGateway4'], 'outgoing': ['Specialist']}
+{'id': 'sid-4B6AC576-2D05-44DF-9D94-DDEA7DC14123', 'name': 'Specialist', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-4F905C23-4CF1-4B06-AA9A-F58157579B62', 'name': 'Filling the package note', 'incoming': ['Shipment'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-01D4EB20-C6F8-4074-BCD9-2DD1A534EBE3', 'name': 'Offer A', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-A5D0A1F9-14C3-4367-9C0F-7EF3C1924E6E', 'name': 'Offer B', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-034D2972-9E91-4260-80B1-E9606C0C3EE6', 'name': 'Offer C', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-5DAD09C4-FA8C-41A9-8DDB-4289B5217F51', 'name': 'Insurance close', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-3A1806DC-9B10-4F49-82DD-E6F7E90816BD', 'name': 'Packaging goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-0E858F66-79CE-4267-A5CB-9DB815105021', 'name': 'Delivering goods', 'incoming': ['ParallelGateway6'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-178ECBA9-ED41-4A5F-8C64-10CA5A7DE332', 'name': 'ExclusiveGateway0', 'incoming': ['Shipment'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-9123CC1E-5834-4F40-99B1-54A0B94F0A4E', 'name': 'ExclusiveGateway1', 'incoming': ['Shipment'], 'outgoing': ['Insurance close']}
+{'id': 'sid-A58DAF4B-7016-4926-A2F0-C5ED6AE20A5C', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-E4E1EFE8-B0A4-452B-AE1A-E039FB793DE9', 'name': 'ParallelGateway3', 'incoming': ['Pick up offers'], 'outgoing': ['EndEvent0', 'ParallelGateway4', 'ParallelGateway4']}
+{'id': 'sid-92A2683E-DADD-4651-BE6B-4B017BEFB301', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway3', 'ParallelGateway3', 'Offer A'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-038B11E0-B23F-41A8-8B75-31CBE355AD45', 'name': 'ParallelGateway5', 'incoming': ['Shipment'], 'outgoing': ['ParallelGateway6', 'ParallelGateway6', 'ParallelGateway6']}
+{'id': 'sid-5495D4A6-E9DD-4D2E-98F3-3658E1D1657E', 'name': 'ParallelGateway6', 'incoming': ['ParallelGateway5', 'ExclusiveGateway0', 'ParallelGateway5'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-E638E90F-D5AE-4BF4-BDF5-B0F2B34DA86B', 'name': 'Shipment', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-F2F56AAF-544A-43D4-8B1C-CF2A53C5E256', 'name': 'EndEvent0', 'incoming': ['ParallelGateway3'], 'outgoing': []}
+{'id': 'sid-BE9BD228-CF35-441A-99F0-61DC646AE463', 'name': 'EndEvent1', 'incoming': ['ParallelGateway6'], 'outgoing': []}

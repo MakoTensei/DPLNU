@@ -1,0 +1,34 @@
+Tasks:
+{'id': 'sid-48A295AD-9397-40D2-9498-C4A48BAC0401', 'name': 'Selection of the court', 'incoming': ['Restaurant'], 'outgoing': ['Order of the court']}
+{'id': 'sid-D364EA75-8501-4704-A2D4-21A923914E3D', 'name': 'Order of the court', 'incoming': ['Restaurant'], 'outgoing': ['Order payment/\nGet Piepers']}
+{'id': 'sid-6DBBC0DB-670C-47E4-8496-069B9AD7E1C2', 'name': 'Order payment/\nGet Piepers', 'incoming': ['Restaurant'], 'outgoing': ['Pieper vibrates']}
+{'id': 'sid-A54AE894-1518-4F19-8A9A-C5C0A0F74618', 'name': 'Collection of the court', 'incoming': ['Restaurant'], 'outgoing': ['Consumption of the court']}
+{'id': 'sid-795F97EF-10C3-4B86-828E-600F81D7E180', 'name': 'Consumption of the court', 'incoming': ['Pieper vibrates'], 'outgoing': ['Guest is full']}
+{'id': 'sid-338EA746-E437-48A3-8EA5-ED366C6D2850', 'name': 'Order entry\nCash system', 'incoming': ['Order to receive'], 'outgoing': ['Cash and cash\nProcurement of Piepers']}
+{'id': 'sid-E3BE78B8-7084-4AD5-AEF2-3AE530E5CCE1', 'name': 'Cash and cash\nProcurement of Piepers', 'incoming': ['Order to receive'], 'outgoing': ['forwarding the order']}
+{'id': 'sid-2A84A821-CD9D-44A2-9B28-804F33F704F6', 'name': 'forwarding the order', 'incoming': ['Order to receive'], 'outgoing': ['Court of Justice']}
+{'id': 'sid-FEADCD14-6694-4153-982F-7433EFC464E0', 'name': 'Redemption Pieper, court is ready', 'incoming': ['Order to receive'], 'outgoing': ['Guest appears']}
+{'id': 'sid-B22DD6B9-E548-4EC3-A10D-E4114EC41134', 'name': 'Guest will be called', 'incoming': ['5 minutes'], 'outgoing': ['IntermediateCatchEvent6']}
+{'id': 'sid-036DF5E1-AEB2-414F-B255-9C902D0B6424', 'name': 'Transfer of the court', 'incoming': ['Order to receive'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-260A633B-1F63-4A80-9C36-2F6B602C7A01', 'name': 'Preparation of the court', 'incoming': ['Get the order'], 'outgoing': ['Court ready for pickup (full)']}
+{'id': 'sid-F0152A37-5870-4A9C-9C2B-A41AEB9CB9CB', 'name': 'Court ready for pickup (full)', 'incoming': ['Get the order'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-519CC575-B0FF-43C8-B7F8-AAB5CE394AD1', 'name': 'EventBasedGateway0', 'incoming': ['Court of Justice', 'EventBasedGateway0'], 'outgoing': ['EndEvent1', 'EndEvent2', 'EndEvent2']}
+{'id': 'sid-CCEF2E5E-ED77-4AE6-8CC3-3D8A268354B2', 'name': 'Pieper vibrates', 'incoming': ['Restaurant'], 'outgoing': ['Guest is full']}
+{'id': 'sid-9B18068E-BD2D-4782-B174-8B540F49441B', 'name': 'Court of Justice', 'incoming': ['Order to receive'], 'outgoing': ['3 times']}
+{'id': 'sid-36346649-B9F2-42AA-87A1-9EE104AE08FE', 'name': '5 minutes', 'incoming': ['Court of Justice'], 'outgoing': ['3 times']}
+{'id': 'sid-E6AA1E04-E213-47A9-B003-7DF2CE844431', 'name': 'Guest appears', 'incoming': ['Order to receive'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-C70355D5-2C71-4D0B-88DC-3D5AE878C512', 'name': '3 times', 'incoming': ['Court of Justice'], 'outgoing': ['IntermediateCatchEvent6']}
+{'id': 'sid-6B411EDE-7C6C-4F4E-ACA0-F86837FCDD35', 'name': 'IntermediateCatchEvent6', 'incoming': ['Guest will be called'], 'outgoing': ['EndEvent2']}
+
+Start Events:
+{'id': 'sid-8EA0852E-2D34-413B-A77E-7E3969FD3351', 'name': 'Restaurant', 'incoming': [], 'outgoing': ['Collection of the court']}
+{'id': 'sid-0C7C7827-FFAC-4408-B71C-AD06E175D00C', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Transfer of the court']}
+{'id': 'sid-86327818-90A9-4EE4-AC46-952463D930BE', 'name': 'Get the order', 'incoming': [], 'outgoing': ['Court ready for pickup (full)']}
+
+End Events:
+{'id': 'sid-F4CC0147-65E2-45A6-A901-6F9B18B1D02D', 'name': 'Guest is full', 'incoming': ['Pieper vibrates'], 'outgoing': []}
+{'id': 'sid-E4DDAE82-1C85-47F9-A94D-ED4D39B8FBDF', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-AA33E572-B286-45CF-BCE7-B90A36DBE18C', 'name': 'EndEvent2', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-6711759A-77C2-4C72-875F-937E05DC2F0C', 'name': 'EndEvent3', 'incoming': ['Court ready for pickup (full)'], 'outgoing': []}

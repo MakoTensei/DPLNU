@@ -1,0 +1,31 @@
+ In the logistics process, the following tasks are interconnected through various gateways and events:
+
+1. When goods are ready for dispatch, they trigger the 'Select your offer' event, which connects to 'Offer 1' and 'Offer 2'. 'Offer 1' sends the goods to 'ParallelGateway5', while 'Offer 2' also sends the goods to 'ParallelGateway5'.
+
+2. 'ParallelGateway5' then connects to 'EndEvent1', which is triggered when goods are ready for dispatch or when a special shipment is requested.
+
+3. 'ParallelGateway5' also connects to 'ParallelGateway3', which is responsible for packaging the goods.
+
+4. 'ParallelGateway3' sends the packaged goods to 'Goods ready for collection'.
+
+5. When goods are ready for collection, they trigger the 'Goods ready for collection' event, which connects to 'ParallelGateway6'.
+
+6. 'ParallelGateway6' sends the goods to 'Filling the package note' and 'Insurance close' tasks.
+
+7. 'Filling the package note' sends the goods to 'ParallelGateway3', which is responsible for packaging the goods.
+
+8. 'Insurance close' connects to 'Insurance?', which is triggered when goods are ready for dispatch.
+
+9. 'Insurance?' connects to 'ExclusiveGateway2', which handles insurance-related tasks.
+
+10. 'ExclusiveGateway2' connects to 'ParallelGateway3', which is responsible for packaging the goods.
+
+11. 'ParallelGateway3' sends the packaged goods to 'Goods ready for collection'.
+
+12. 'Goods ready for collection' triggers the 'Goods ready for collection' event, which connects to 'ParallelGateway6'.
+
+13. 'ParallelGateway6' sends the goods to 'EndEvent1'.
+
+14. 'EndEvent1' triggers the 'EndEvent1' event, which is the final step in the logistics process.
+
+In

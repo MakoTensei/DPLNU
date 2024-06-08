@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-FA5F78A2-391E-41C4-B173-9D1B765F7F71', 'name': 'Customer data\ncompilation', 'incoming': ['Schufascoring\nrequested'], 'outgoing': ['sid-DA10A690-2311-4010-9D53-44870917646B']}
+{'id': 'sid-9321D9BD-F78E-4732-9C57-323FBFBFC114', 'name': 'Scoring\nresult 1\nforward', 'incoming': ['Scoring 1\narrived'], 'outgoing': ['Scoring\nsupplied']}
+{'id': 'sid-672F79BC-373D-4255-A129-8648FB288798', 'name': 'Delay\nMessage\nforward', 'incoming': ['Delay\nMessage\narrived'], 'outgoing': ['Scoring 2\narrived']}
+{'id': 'sid-71C221C8-E693-4555-A79C-B930EF08F4F2', 'name': 'Scoring\nresult 2\nforward', 'incoming': ['Scoring 2\narrived'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-912361C8-B312-4B2A-976A-173588B73259', 'name': 'Schufascoring 1\nperform', 'incoming': ['Request\nSchufa.\nscoring'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-4EF30AC2-2F7E-4EBF-AC2C-FF45999B1889', 'name': 'Result\nScoring 1\ntogether--\nthe', 'incoming': ['Request\nSchufa.\nscoring'], 'outgoing': ['sid-5B006039-A4AE-47A8-8252-253659F2B93C']}
+{'id': 'sid-52092649-F09E-4AAA-B28C-C2AC5BC21F1B', 'name': 'Delay\nMessage\nCreating', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['sid-1F5738CD-CCFE-49C2-9255-4F6E2C33674A']}
+{'id': 'sid-0E750F1F-D49C-486C-AF89-3BEBAD45AE90', 'name': 'Create scoring 2', 'incoming': ['sid-C2DE3029-CC39-401D-8D57-FD36AF96C671'], 'outgoing': ['sid-BA5EA550-0265-4DC1-BD32-05C6FD1A6997']}
+
+Gateways:
+{'id': 'sid-6AEF4B72-E8F3-43FD-B30F-01E36642A11E', 'name': 'ExclusiveGateway0', 'incoming': ['IntermediateCatchEvent3', 'Delay\nMessage\narrived'], 'outgoing': ['Scoring\nsupplied']}
+{'id': 'sid-BA659052-6F0F-4CE9-A223-88F0712F4162', 'name': 'ExclusiveGateway1', 'incoming': ['Request\nSchufa.\nscoring'], 'outgoing': ['Delay\nMessage\nCreating', 'Result\nScoring 1\ntogether--\nthe']}
+{'id': 'sid-8B761850-3CF4-46E3-9D3F-ADD78E9085CE', 'name': 'ExclusiveGateway2', 'incoming': ['sid-13C04799-98A7-43B0-8208-3AC5BD2A3906', 'sid-32BF299A-7744-4AD2-BCA0-77798D3DF9E4'], 'outgoing': ['Request\nfinished']}
+{'id': 'sid-4FC5A35E-8F85-491C-A9D1-92C92DDC1401', 'name': 'IntermediateCatchEvent3', 'incoming': ['sid-21C4A4B0-DCA9-4A43-BA7C-9270696F8141'], 'outgoing': ['ExclusiveGateway0', 'Scoring 2\narrived']}
+{'id': 'sid-69F3A995-C547-46A6-9344-6E87E8E67276', 'name': 'Scoring 1\narrived', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-D1629807-4DE0-4E29-B2FD-D1AB45D713AA', 'name': 'Delay\nMessage\narrived', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-5DE21F28-FBB0-4786-AC7A-94C2DBBC09E4', 'name': 'Scoring 2\narrived', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-86FCF443-455B-4667-89E3-870BD4F094F0', 'name': 'Schufascoring\nrequested', 'incoming': [], 'outgoing': ['Customer data\ncompilation']}
+{'id': 'sid-7153804F-7F88-444E-BF51-4391453C24A5', 'name': 'Request\nSchufa.\nscoring', 'incoming': [], 'outgoing': ['Result\nScoring 1\ntogether--\nthe']}
+
+End Events:
+{'id': 'sid-ADB76ED8-148B-430F-B798-A0931D021CBE', 'name': 'Scoring\nsupplied', 'incoming': ['Scoring\nresult 1\nforward'], 'outgoing': []}
+{'id': 'sid-5CAC8B30-9EED-4BAF-AFC5-2462B2CBDCA0', 'name': 'Request\nfinished', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}

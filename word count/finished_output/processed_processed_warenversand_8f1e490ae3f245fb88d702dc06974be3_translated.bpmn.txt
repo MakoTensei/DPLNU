@@ -1,0 +1,7 @@
+ The process begins with the 'Order\nReport' event, which triggers the 'Filling the package note' task. This task is connected to the 'ParallelGateway6' and sends out a request to 'Check special shipment'. The 'Check special shipment' task, in turn, connects to 'ParallelGateway4' and 'ParallelGateway5', which are responsible for handling the incoming 'Order\nReport' and 'Check special shipment' respectively.
+
+Simultaneously, 'ParallelGateway4' also connects to 'ExclusiveGateway3' and 'ParallelGateway5', which are responsible for handling the 'Insurance?' and 'Check insurance' tasks respectively. The 'Insurance?' task is triggered by the 'Special shipment?' event, which is connected to 'ParallelGateway6' and 'ExclusiveGateway2'.
+
+The 'Specialist' task is triggered by the 'Check special shipment' task and connects to 'ParallelGateway7' and 'ExclusiveGateway3'. The 'ParallelGateway7' task is triggered by the 'Insurance?' and 'ParallelGateway6' tasks and connects to 'Good quality'.
+
+Finally, the process concludes with the 'Good quality' event, which is triggered by the 'ParallelGateway7' task and has no outgoing connections.

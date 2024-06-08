@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-A5287418-7CFB-4DA7-B6E1-E87740962DD6', 'name': 'Check the case for the possibility', 'incoming': ['Get the info'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-74F9DB3E-C6A2-49F4-83D4-315B77C0B055', 'name': 'send request for payment', 'incoming': ['Get the info'], 'outgoing': ['money received']}
+{'id': 'sid-63B02CFB-3CCF-44BC-9EFE-464F78511805', 'name': 'Close the case', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['case closed']}
+{'id': 'sid-71E6D22C-C086-4C1D-9B6F-13165323073E', 'name': 'Make booking & Close the case', 'incoming': ['money received'], 'outgoing': ['case closed']}
+{'id': 'sid-F35AD6C0-A285-43B0-82F6-414BBD1BBE31', 'name': 'Check the reasoning if acceptable', 'incoming': ['Get the info'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-7CE8EF78-AC11-4056-AF64-C9E2D98AF644', 'name': 'Close the case', 'incoming': ['insurant disaggrees'], 'outgoing': ['case closed']}
+{'id': 'sid-39357A3F-59F2-4DF4-AB84-EDDB0B89FC48', 'name': 'Forward to collection agency', 'incoming': ['EventBasedGateway3'], 'outgoing': ['case sent to coll agency']}
+
+Gateways:
+{'id': 'sid-B3D58038-28E3-4083-84D2-6FE7F7820DF8', 'name': 'ExclusiveGateway0', 'incoming': ['Get the info'], 'outgoing': ['case closed', 'case closed']}
+{'id': 'sid-ECA2FCE2-681B-47EA-B2B9-B111FE1C1078', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway3'], 'outgoing': ['case closed', 'ExclusiveGateway2']}
+{'id': 'sid-92F0A1A1-FA98-4821-B480-B4DBE8DB93E4', 'name': 'ExclusiveGateway2', 'incoming': ['Get the info', 'EventBasedGateway3'], 'outgoing': ['case sent to coll agency']}
+{'id': 'sid-D83495B2-6C70-4D39-A69F-72DA32D2E713', 'name': 'EventBasedGateway3', 'incoming': ['Get the info'], 'outgoing': ['money received', 'Forward to collection agency', 'case closed']}
+{'id': 'sid-7686A7E7-AEE9-452B-BC1C-AEA71509DE7F', 'name': 'money received', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['case closed']}
+{'id': 'sid-E484E692-DD6D-4B6B-907E-D071EF22CFA9', 'name': 'insurant disaggrees', 'incoming': ['Get the info'], 'outgoing': ['Close the case']}
+{'id': 'sid-CA18E50B-5C68-425B-868A-A13AC3D64604', 'name': 'Date', 'incoming': ['EventBasedGateway3'], 'outgoing': ['case sent to coll agency']}
+
+Start Events:
+{'id': 'sid-956A2D52-2F43-484F-830A-83151342B093', 'name': 'Get the info', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-CFFDAEB2-5AF9-4DD4-8BB3-B82AA0E4D661', 'name': 'case closed', 'incoming': ['EventBasedGateway3', 'ExclusiveGateway0', 'ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-093C9E4D-6658-47FB-82D1-BDBC971A6288', 'name': 'case sent to coll agency', 'incoming': ['Date'], 'outgoing': []}

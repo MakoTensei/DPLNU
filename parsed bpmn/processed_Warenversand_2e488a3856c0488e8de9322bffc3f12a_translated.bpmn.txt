@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-15F5F333-4633-49CD-9386-0E48D0808EA5', 'name': 'Packaging of goods', 'incoming': ['ParallelGateway6'], 'outgoing': ['sid-9CC7B4DE-6F10-4923-BF2B-F6CEEFE29EF7']}
+{'id': 'sid-961EAC74-045D-4996-A327-624F9D72C210', 'name': 'Goods are provided by LAgerarbeiter', 'incoming': ['sid-A0A7DFCA-9222-46B4-B643-767A3FD992EC'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6D47BFAD-3686-467A-901B-729FF95B50D4', 'name': 'Secretariat clears shipping', 'incoming': ['Product ordered'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-7B56B916-89DE-4F7B-8591-5449553F6025', 'name': 'Offer Sped 1\n', 'incoming': ['ParallelGateway3'], 'outgoing': ['sid-C4899C29-A26D-4E51-8139-4C9854C6852B']}
+{'id': 'sid-9484CEF1-96BD-495E-89C9-CBCF761B5456', 'name': 'Special offer Sped2', 'incoming': ['ParallelGateway3'], 'outgoing': ['sid-E76F71B0-563B-4AE8-A99D-947A88835A9C']}
+{'id': 'sid-AE5B0201-5422-4F8D-AC14-6B5826F2C541', 'name': 'Special offer Sped 3', 'incoming': ['ParallelGateway3'], 'outgoing': ['sid-F5B84A00-0F09-4C72-95BC-2DB2D6380213']}
+{'id': 'sid-FC5325ED-E578-46B1-A6E7-E07028362C9E', 'name': 'Selection', 'incoming': ['sid-D55ADC62-E18E-411F-80DA-1D75A104E131'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-33056A40-6637-40C7-AEDD-159E6A2F80F3', 'name': 'Border Spediteur', 'incoming': ['ParallelGateway4'], 'outgoing': ['sid-130E7939-58B5-4D09-8B7E-92BEFCD99BA9']}
+{'id': 'sid-53382BFB-D5D2-4EE2-8B6F-CD42708FAE64', 'name': 'Package ticket filling', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-954F47F8-260F-439A-87C9-71B0AFDCF8A4', 'name': 'Insurance Logistics Manager', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-156B45E7-6547-4E89-97B8-0A62ECEC8DD6', 'name': 'ExclusiveGateway0', 'incoming': ['Product ordered'], 'outgoing': ['ParallelGateway3', 'ParallelGateway5', 'ParallelGateway6']}
+{'id': 'sid-8F0712D7-A5DD-4A3E-AA68-47861C77CFD8', 'name': 'ExclusiveGateway1', 'incoming': ['ParallelGateway6'], 'outgoing': ['Insurance Logistics Manager', 'ExclusiveGateway2']}
+{'id': 'sid-7B5F5F28-91EF-4781-8A49-2E6AA94A9B4F', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance Logistics Manager', 'ParallelGateway6'], 'outgoing': ['sid-DDBD8B63-E4FA-41E6-9DC3-2E14F44D7593']}
+{'id': 'sid-7F2AD5C2-F676-4579-9E2B-FB936BC5133E', 'name': 'ParallelGateway3', 'incoming': ['Secretariat clears shipping'], 'outgoing': ['Offer Sped 1\n', 'Special offer Sped2', 'Special offer Sped 3']}
+{'id': 'sid-943A6879-1AD2-4519-8252-E32AD535B229', 'name': 'ParallelGateway4', 'incoming': ['Selection'], 'outgoing': ['Border Spediteur', 'sid-2F3881D6-0334-4523-AAB4-75C797D5BD33']}
+{'id': 'sid-65A77B97-F123-48AC-B62C-D7E7EF021DEB', 'name': 'ParallelGateway5', 'incoming': ['Product ordered'], 'outgoing': []}
+{'id': 'sid-5840B7B1-5B1F-4F65-8E31-10E36745D174', 'name': 'ParallelGateway6', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2', 'Packaging of goods']}
+
+Start Events:
+{'id': 'sid-19DD1B11-A7FB-40F7-B9D8-4DA6B09AABF2', 'name': 'Product ordered', 'incoming': [], 'outgoing': ['ParallelGateway5']}
+
+End Events:
+{'id': 'sid-46C81D73-2DCF-47D6-A1AE-13A8CC7A381C', 'name': 'EndEvent0', 'incoming': ['Goods are provided by LAgerarbeiter'], 'outgoing': []}

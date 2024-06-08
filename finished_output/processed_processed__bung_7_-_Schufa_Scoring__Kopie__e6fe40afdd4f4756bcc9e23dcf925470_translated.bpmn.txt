@@ -1,0 +1,17 @@
+ In the system, we have a series of tasks and gateways that handle the flow of inquiries and scoring processes. Here's a natural flow description of the system:
+
+1. The process starts with the 'Scoring\nRequired' event, which triggers the 'forward scoring' task. This task is responsible for initiating the scoring process.
+
+2. The 'forward scoring' task receives the 'inquiries to schufa' input and sends a'scoring 1 result' output. This result is then forwarded to the'scoring 1 result' task.
+
+3. The'scoring 1 result' task, upon receiving the'scoring 1 result' input, sends a 'level 1 scoring' output to the 'EventBasedGateway2'.
+
+4. The 'EventBasedGateway2' receives the 'level 1 scoring' input and sends an 'EndEvent2' output, which triggers the 'ergenis return' task.
+
+5. The 'ergenis return' task, upon receiving the 'ergenis return' input, sends a'scoringergenmis is fixed?' output to the'sid-EDCA0831-A58D-414D-952B-F5100B97607C' gateway.
+
+6. The'sid-EDCA0831-A58D-414D-952B-F5100B97607C' gateway, upon receiving the'scoringergenmis is fixed?' input, sends an 'EndEvent2' output and an 'ergenis return' output.
+
+7. The 'ergenis return' output is then received by the 'ExclusiveGateway1' gateway, which triggers the 'EndEvent2' output and sends an 'EndEvent2' output to the'sid-9522C536-3341-40A9-9F82-40C8731A7C51' gateway.
+
+8. The'sid-9522C536-3341-40A9-9F82-40C

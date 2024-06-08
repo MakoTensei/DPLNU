@@ -1,0 +1,11 @@
+ The process begins with the 'Potential Regression Report' which triggers the 'Check Regression Case' task. This task then sends a 'Payment Request' to the 'ExclusiveGateway1'. If the 'Payment Request' is justified, it leads to the 'Regression Procedure Completed' task, which in turn closes the process.
+
+Alternatively, if the 'Payment Request' is not justified, the 'Again Template Date Set' task is triggered, which sends a 'Payment Report' to 'ExclusiveGateway3'. This task can also be triggered by an 'Opposition Report', which also sends the 'Payment Report' to 'ExclusiveGateway3'.
+
+Meanwhile, the 'Regression Possible?' task checks for a 'Potential Regression Report' and sends a 'Payment Refusal Justified?' to 'ExclusiveGateway1'. If the refusal is justified, it leads to the 'Debt Collection Process Service Provider' task, which sends a 'Regression Procedure Completed' task to 'ExclusiveGateway3'.
+
+The 'Opposition Report' task can also trigger the 'Debt Collection Process Service Provider' task, which sends a 'Regression Procedure Completed' task to 'ExclusiveGateway3'.
+
+Lastly, the 'Event Based Gateway 5' task checks for a 'Regression Possible?' task and sends a 'Payment Refusal Justified?' to 'ExclusiveGateway4'. If the refusal is justified, it leads to the 'Regression Procedure Completed' task, which closes the process.
+
+In summary, the process starts with a 'Potential Regression Report' and can end in two ways: either with a 'Regression Procedure Completed' task or with a 'Debt Collection Process Service Provider' task. The process can also be interrupted by a 'Payment Refusal Justified?' task, which can lead to a 'Regression Procedure Completed' task or a 'Debt Collection Process Service Provider' task.

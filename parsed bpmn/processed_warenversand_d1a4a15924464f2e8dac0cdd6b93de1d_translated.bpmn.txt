@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-6294E68F-94E0-44AD-9546-FAE252F6B89D', 'name': 'Pick the offer of Speditur 2', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-7280DAF2-773D-4121-86D3-5ACFBB3E7704', 'name': 'Get the offer of Speditur 3', 'incoming': ['Goods\ndispatched\nthey are'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-2FE73311-7030-45F0-B9DB-C4CC8ECFB30A', 'name': 'Choose the cheapest offer', 'incoming': ['ParallelGateway6'], 'outgoing': ['speditur commission']}
+{'id': 'sid-D5C9A617-F63B-48E4-B1BF-C3704AB9D2B2', 'name': 'speditur commission', 'incoming': ['ParallelGateway5'], 'outgoing': ['Goods are ready for collection']}
+{'id': 'sid-59CFFDB6-A6D0-41E2-83CF-27BA84CAF607', 'name': 'Send a normal mail', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-A3F81817-8F78-4B6C-8736-024EB9269990', 'name': 'fill out standard package voucher', 'incoming': ['I\nSpecial delivery\nnecessary?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-37C8F860-3C87-4A72-B6F1-0FF3B3F1FE8F', 'name': 'Pick a quote from Speditur 1', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-1503748D-6D57-45F7-AB57-354B7DC040B5', 'name': 'Complete insurance', 'incoming': ['is\nInsurance\nnecessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-E91DD507-69ED-47CA-9B70-FF8B54DF07BD', 'name': 'Packaging goods', 'incoming': ['ParallelGateway6'], 'outgoing': ['Delivering goods']}
+{'id': 'sid-CAFB64FD-24D0-4529-AD73-5BA7FF199F81', 'name': 'Delivering goods', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway7']}
+
+Gateways:
+{'id': 'sid-1F5B11BF-9DC6-49D6-9534-CAFF1F6DC49C', 'name': 'I\nSpecial delivery\nnecessary?', 'incoming': ['ParallelGateway6'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-05FEBB8A-127B-4BE4-8F21-A282E05F4F94', 'name': 'is\nInsurance\nnecessary?', 'incoming': ['I\nSpecial delivery\nnecessary?'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-3E29D599-A542-48DA-835C-49C39027D916', 'name': 'ExclusiveGateway2', 'incoming': ['fill out standard package voucher', 'I\nSpecial delivery\nnecessary?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-B17244C3-D96F-47C9-9AB0-CC6987BEFC01', 'name': 'ExclusiveGateway3', 'incoming': ['fill out standard package voucher', 'I\nSpecial delivery\nnecessary?'], 'outgoing': ['Goods are ready for collection']}
+{'id': 'sid-9E1F0D13-9854-45F0-8BC5-8D596B297471', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway5', 'ParallelGateway7', 'Get the offer of Speditur 3']}
+{'id': 'sid-640CD3B3-95F3-4241-B4A9-E5397AE63020', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'I\nSpecial delivery\nnecessary?', 'ParallelGateway6'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-20B6CB49-7D64-41B2-AC06-252EA627AFFE', 'name': 'ParallelGateway6', 'incoming': ['Goods\ndispatched\nthey are'], 'outgoing': ['Choose the cheapest offer', 'Delivering goods']}
+{'id': 'sid-098B2E5D-2202-4A67-BB2C-E2CE9A8F0445', 'name': 'ParallelGateway7', 'incoming': ['Delivering goods', 'ParallelGateway4'], 'outgoing': ['Goods are ready for collection']}
+
+Start Events:
+{'id': 'sid-C80D388A-C7F5-410C-8746-90289261CF25', 'name': 'Goods\ndispatched\nthey are', 'incoming': [], 'outgoing': ['Get the offer of Speditur 3']}
+
+End Events:
+{'id': 'sid-389D2A3B-7279-48AF-ADAB-C67E2DB96DAB', 'name': 'Goods are ready for collection', 'incoming': ['speditur commission'], 'outgoing': []}

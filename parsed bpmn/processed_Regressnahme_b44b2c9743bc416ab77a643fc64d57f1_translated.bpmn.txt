@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-B8426F6C-887F-46F4-86DC-3474F5B44A87', 'name': 'Check regression claim', 'incoming': ['Regression claim notification'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-5AC35DD6-3DCC-461F-9D30-B1CF0FBDD655', 'name': 'Send payment request', 'incoming': ['Regression claim notification'], 'outgoing': ['14 X Days Reimbursement']}
+{'id': 'sid-D83DA1A3-168C-462A-AF7F-2222D7EBBC73', 'name': 'Book payment receipt', 'incoming': ['Regression claim notification'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-A4DF16C1-B0D8-48DD-BF31-56B5797CA65F', 'name': 'Proceedings', 'incoming': ['Opposition\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-99D96101-19AF-433A-B46A-A3FC45BF9CAC', 'name': 'Turn on debt collection office', 'incoming': ['EventBasedGateway5'], 'outgoing': ['Process delivered to debt collection']}
+{'id': 'sid-803F6170-DE12-407A-9AB0-00E0FDC4DDBC', 'name': 'Close the process', 'incoming': ['EventBasedGateway5'], 'outgoing': ['Process\nclosed\n']}
+
+Gateways:
+{'id': 'sid-E57B1762-8CCA-49E5-808F-2C4A05614BCD', 'name': 'Regression claim\njustified', 'incoming': ['Regression claim notification'], 'outgoing': ['Process delivered to debt collection', 'ExclusiveGateway4']}
+{'id': 'sid-3B892B5E-2660-4D4D-B3D7-C750E1EAD645', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway4', 'ExclusiveGateway2']}
+{'id': 'sid-57A57A33-677B-4F49-9AA8-E014DD00CE94', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway5', 'Proceedings'], 'outgoing': ['Process delivered to debt collection']}
+{'id': 'sid-0DFDEE56-726B-4ADF-A4F7-90E6F91EBA34', 'name': 'ExclusiveGateway3', 'incoming': ['Opposition\nReport', 'EventBasedGateway5'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-0EF7E283-83FF-4677-9B2A-377A67680F08', 'name': 'ExclusiveGateway4', 'incoming': ['EventBasedGateway5', 'Check regression claim'], 'outgoing': ['Process\nclosed\n']}
+{'id': 'sid-A13CCA4B-772E-4B70-B27A-65DE31B0CA17', 'name': 'EventBasedGateway5', 'incoming': ['Regression claim notification'], 'outgoing': ['ExclusiveGateway3', 'Turn on debt collection office', 'Close the process']}
+{'id': 'sid-66703A39-2119-47EB-B8D4-A0EE18E869D2', 'name': '14 X Days Reimbursement', 'incoming': ['Regression claim\njustified'], 'outgoing': ['Process delivered to debt collection']}
+{'id': 'sid-0F15903B-B356-46C1-B8F1-9CFB09A0267F', 'name': 'Payment received', 'incoming': ['Regression claim notification'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-53684185-F8D7-4332-9AE8-CD86356E7D48', 'name': 'Opposition\nReport', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-52E873DC-860F-41C7-904F-3D90A4623303', 'name': 'Regression claim notification', 'incoming': [], 'outgoing': ['Book payment receipt']}
+
+End Events:
+{'id': 'sid-E9D8BE05-8DD1-4E7B-A35A-175CFAFC0679', 'name': 'Process delivered to debt collection', 'incoming': ['Regression claim\njustified'], 'outgoing': []}
+{'id': 'sid-0616EF0C-0F1E-4D0F-9944-52C30F8649C1', 'name': 'Process\nclosed\n', 'incoming': ['ExclusiveGateway4'], 'outgoing': []}

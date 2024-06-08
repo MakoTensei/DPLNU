@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-09632497-F703-42FA-9075-8D921283BB8A', 'name': 'Check regression', 'incoming': ['Possible regression'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-C781FAEA-54F4-49F0-B534-07258A6748C4', 'name': 'Send a message', 'incoming': ['Possible regression'], 'outgoing': ['Set on re-submission']}
+{'id': 'sid-F377A99E-5570-4EB6-95C2-FFDB45B8682B', 'name': 'Book payment', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-C9171BC2-BC68-4D7A-BCBD-2E30EF4EE681', 'name': 'Deletion of debt service providers', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Open']}
+{'id': 'sid-8326CF44-9C48-4F85-BD49-D0824643183B', 'name': 'Proceedings', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-A06B32FC-54C7-452E-8B32-10CD38B5EA9A', 'name': 'Set on re-submission', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Opposition']}
+{'id': 'sid-FE6070A8-1088-4653-A9CD-47B2C0DCFD07', 'name': 'Close', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Process']}
+
+Gateways:
+{'id': 'sid-C3E78F0D-A0BD-45ED-B43C-ED9E88C7CEC2', 'name': 'ExclusiveGateway0', 'incoming': ['Possible regression'], 'outgoing': ['Open', 'ExclusiveGateway1']}
+{'id': 'sid-D0334DDD-B1CC-42AA-8D5E-0EA108C4A333', 'name': 'ExclusiveGateway1', 'incoming': ['Payment', 'Opposition', 'Check regression'], 'outgoing': ['Process']}
+{'id': 'sid-EA8F34F5-BD89-4717-9A6C-7A012C1974DA', 'name': 'ExclusiveGateway2', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Close', 'ExclusiveGateway3']}
+{'id': 'sid-F0B222C9-68D7-4255-BE08-54102E5BC41C', 'name': 'ExclusiveGateway3', 'incoming': ['IntermediateCatchEvent5', 'Proceedings'], 'outgoing': ['Open']}
+{'id': 'sid-09AD5DBA-F8D8-4887-8FBA-22832BDE2198', 'name': 'Payment', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Process']}
+{'id': 'sid-22187092-4442-4C0F-8342-20877FE5C112', 'name': 'IntermediateCatchEvent5', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Deletion of debt service providers', 'Book payment', 'Close']}
+{'id': 'sid-121F4697-31C3-424D-8389-363E719561FC', 'name': 'Opposition', 'incoming': ['Set on re-submission'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-56B7182C-DCFB-4516-A900-2A4C40B5D474', 'name': 'Frisst run', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Open']}
+
+Start Events:
+{'id': 'sid-6594D7B4-A5C1-4D62-BF83-97FF9E6EB1B4', 'name': 'Possible regression', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-5B8E297E-E4CB-4FF7-A18F-17FCC66D3A0B', 'name': 'Process', 'incoming': ['Payment'], 'outgoing': []}
+{'id': 'sid-B8635944-76F1-49C0-86C9-9FF617EE69CF', 'name': 'Open', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

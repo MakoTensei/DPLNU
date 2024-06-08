@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-2998C8F3-1A78-4194-AC1C-4162B36D4F8A', 'name': 'Filling the package note', 'incoming': ['Size of quantity'], 'outgoing': ['Check insurance requirements']}
+{'id': 'sid-62914A2D-8659-4BEB-8A3A-6594AB738A6B', 'name': 'Pick up offers for freight forwarders', 'incoming': ['Size of quantity'], 'outgoing': ['sid-F8FEB49B-EA5D-4A2F-BBDE-E6552D8CDD73']}
+{'id': 'sid-0ED43688-3F1B-474C-B4D3-5C293A4F6145', 'name': 'Choose a cheap offer', 'incoming': ['sid-C49B2555-68B4-4001-8307-3CDEE2880782'], 'outgoing': ['Order Cheapest Spediteur']}
+{'id': 'sid-EDEE416D-0364-4726-B7B4-3947F100F021', 'name': 'Order Cheapest Spediteur', 'incoming': ['Choose a cheap offer'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-012BB1BD-80C3-4531-9FCB-FCE829076DFE', 'name': 'Check quantity', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Size of quantity']}
+{'id': 'sid-6F2CF64C-3738-45C3-A7BF-5EC532CD8532', 'name': 'Check insurance requirements', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-4F618342-C8B8-48D3-91DE-8782F14BDD2A', 'name': 'Complete insurance', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods delivered']}
+{'id': 'sid-E9009BF6-3DBB-4AF3-9A2C-D30650E233E1', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['Delivering goods']}
+{'id': 'sid-DEDEBB04-696B-4011-A328-5C6895468CCB', 'name': 'Delivering goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+
+Gateways:
+{'id': 'sid-DBFC7285-7363-4F9F-811B-2F2A35CAC4FB', 'name': 'Size of quantity', 'incoming': ['ParallelGateway4'], 'outgoing': ['Pick up offers for freight forwarders', 'ExclusiveGateway3']}
+{'id': 'sid-425676BC-2D51-43B4-AC3B-34043691DDBA', 'name': 'ExclusiveGateway1', 'incoming': ['Insurance necessary?', 'Insurance necessary?'], 'outgoing': ['Goods delivered']}
+{'id': 'sid-D166C9A0-8601-4D96-8EC7-ACE4FE504DF3', 'name': 'Insurance necessary?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5', 'ExclusiveGateway3']}
+{'id': 'sid-9E5A3D05-7E6E-4BAA-B14A-FCE65C8DEF8D', 'name': 'ExclusiveGateway3', 'incoming': ['Size of quantity', 'Order Cheapest Spediteur'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-1A422A70-CBDB-443C-B13F-8B7E7936998D', 'name': 'ParallelGateway4', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Delivering goods', 'Goods delivered']}
+{'id': 'sid-3A8C02CE-3CDA-4464-8A8C-BB89F85FB4E8', 'name': 'ParallelGateway5', 'incoming': ['Insurance necessary?', 'Delivering goods'], 'outgoing': ['Goods delivered']}
+
+Start Events:
+{'id': 'sid-A2BB8415-3B9B-4A11-B801-4AA5B5C7F239', 'name': 'Goods are to be shipped', 'incoming': [], 'outgoing': ['Check quantity']}
+
+End Events:
+{'id': 'sid-D9E12F55-4ECA-43FE-B114-F37DA7D01953', 'name': 'Goods delivered', 'incoming': ['ParallelGateway4'], 'outgoing': []}

@@ -1,0 +1,7 @@
+ In the scoring process, a request for scoring is initiated by the 'Pick up Schufascoring' event, which triggers the 'ExclusiveGateway0'. This gateway then directs the request to the 'EventBasedGateway2', which handles the incoming 'Pick up Schufascoring' event and sends it to the 'Score' task. The 'Score' task determines the score immediately and sends the result to the 'Return Score' task.
+
+Simultaneously, a 'Soring request' event triggers the 'Scoring available?' task, which checks if scoring is available. If scoring is available, it sends the result to the 'EndEvent1' and 'EndEvent2' tasks. If scoring is not available, it sends the result to the 'Report delay' task.
+
+The 'EndEvent0' task is triggered by the 'EventBasedGateway2' and signifies the completion of the initial scoring process. The 'EndEvent1' and 'EndEvent2' tasks signify the completion of the scoring availability check.
+
+In summary, the scoring process starts with a 'Pick up Schufascoring' event, which leads to a series of tasks and gateways that determine the score and check the availability of scoring. The process concludes with the 'EndEvent0', 'EndEvent1', and 'EndEvent2' tasks, indicating the completion of the scoring process.

@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-391B9C65-9CF0-49B3-8C7A-82B1CC8835B5', 'name': 'Send scoring inquiry to Schufa', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring result']}
+{'id': 'sid-7B0289DC-F47F-4D7D-A7B3-E33BD1A393FB', 'name': 'forward scoring result to frontend', 'incoming': ['Scoring result'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6009204A-9DCC-48C0-9A74-79988F4FBE45', 'name': 'Notice of delay', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring result']}
+{'id': 'sid-FA45A105-3021-4493-8ACC-ACB1F24D6A96', 'name': 'Level 1 Scoring', 'incoming': ['Scoring request\nby Bank'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-63B7B954-EBC7-4BA0-87E5-98476370B28D', 'name': 'Return Scoring result to Bank', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-456ED3CC-8133-4DBB-B51A-57D78A1F4378', 'name': 'Report delay', 'incoming': ['Scoring request\nby Bank'], 'outgoing': ['Level 2 Scoring']}
+{'id': 'sid-373121A1-36AA-4D07-BC98-A5BBD7639F2E', 'name': 'Level 2 Scoring', 'incoming': ['Results Level 1\navailable?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-A31EC50D-50CB-445C-8E70-A7729353F421', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'Scoring\nRequired'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B910A51C-BB56-4B75-AD80-D32B87228239', 'name': 'Results Level 1\navailable?', 'incoming': ['Scoring request\nby Bank'], 'outgoing': ['EndEvent1', 'Level 2 Scoring']}
+{'id': 'sid-1A104326-1B2B-4A28-AEF5-9614FCA2A241', 'name': 'ExclusiveGateway2', 'incoming': ['Level 1 Scoring', 'Level 2 Scoring'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-DCF54886-5E91-4FFA-88ED-7CC4DC189EB3', 'name': 'EventBasedGateway3', 'incoming': ['Scoring\nRequired'], 'outgoing': ['IntermediateCatchEvent5', 'EndEvent0']}
+{'id': 'sid-D446CA43-A02B-4A9E-8865-ED3CAD408ED4', 'name': 'Scoring result', 'incoming': ['Send scoring inquiry to Schufa'], 'outgoing': ['forward scoring result to frontend']}
+{'id': 'sid-A25C86E7-21EA-46E3-A6CD-D4D9CEDB0C91', 'name': 'IntermediateCatchEvent5', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Notice of delay']}
+{'id': 'sid-82E668B9-4B0C-4E67-9DD2-C4D6868DA15B', 'name': 'Scoring result', 'incoming': ['Scoring\nRequired'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-5DE13B6F-7BC2-4F1C-BA53-E103D34B2855', 'name': 'Scoring request\nby Bank', 'incoming': [], 'outgoing': ['Report delay']}
+
+End Events:
+{'id': 'sid-78CC2959-B605-433D-BD96-1C3211D66919', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-F7E5D3E2-ABE3-470A-9752-0B4ADC311991', 'name': 'EndEvent1', 'incoming': ['Results Level 1\navailable?'], 'outgoing': []}

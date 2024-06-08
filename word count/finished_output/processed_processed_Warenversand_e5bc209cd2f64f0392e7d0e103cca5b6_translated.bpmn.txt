@@ -1,0 +1,9 @@
+ The shipping process begins with the 'Shipping' start event, which triggers the 'Filling the package note' task through the 'ParallelGateway4'. This task then sends an 'Outgoing' message to 'Filling the package note'. The 'Filling the package note' task, in turn, sends an 'Outgoing' message to 'ExclusiveGateway0', which leads to the 'Calculation offers enroll' task. This task sends an 'Outgoing' message to 'Offers check and select one', which then sends an 'Outgoing' message to 'Spedition commission'. The 'Spedition commission' task, with no incoming tasks, sends an 'Outgoing' message to itself.
+
+Meanwhile, the 'Shipping' start event also triggers the 'Delivering goods' task through 'ParallelGateway4', which sends an 'Outgoing' message to 'EndEvent0'. The 'EndEvent0' task, with no incoming tasks, sends an 'Outgoing' message to itself.
+
+The 'ExclusiveGateway0' task, with incoming tasks from 'ParallelGateway4', sends an 'Outgoing' message to 'Filling the package note' and 'Spedition commission'. The 'Filling the package note' task sends an 'Outgoing' message to 'ExclusiveGateway2', which has no incoming tasks. The 'Spedition commission' task sends an 'Outgoing' message to itself.
+
+The 'ExclusiveGateway1' task, with no incoming tasks, sends an 'Outgoing' message to 'Insurance close'. The 'Insurance close' task, with no incoming tasks, sends an 'Outgoing' message to itself.
+
+Lastly, the 'ExclusiveGateway3' task, with incoming tasks from 'ParallelGateway4', sends an 'Outgoing' message to 'EndEvent0'. The 'EndEvent0' task, with incoming tasks from 'ExclusiveGateway3', sends an 'Outgoing' message to itself.

@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-09923A3F-6AA6-4411-A091-41B25EAC608A', 'name': 'Examination of facts', 'incoming': ['Conduct regression'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-F365BDB6-BC2C-4C05-8D07-9DFF29AE7D3E', 'name': 'Send a message', 'incoming': ['Conduct regression'], 'outgoing': ['Money received']}
+{'id': 'sid-6623576E-15C8-4CD7-961A-A87F54EAA9A6', 'name': 'Complete the process', 'incoming': ['Right to object?'], 'outgoing': ['Process']}
+{'id': 'sid-64A94AB1-59C3-487E-8D41-DADDB68123DE', 'name': 'Book money', 'incoming': ['Money received'], 'outgoing': ['Process']}
+{'id': 'sid-BF2D3410-B657-47F5-9769-111822195F78', 'name': 'Process of debt collection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-67AC7032-C0AC-43C9-B331-4ABAF339C8A8', 'name': 'Proceedings', 'incoming': ['VN contradicts'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-DF1652AB-82EE-4F02-9431-0BD663AD3D15', 'name': 'Regression possible?', 'incoming': ['Conduct regression'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-51A126E0-A0DF-405B-AEEB-CABDCF8BCD08', 'name': 'ExclusiveGateway1', 'incoming': ['Regression possible?', 'Examination of facts', 'Conduct regression', 'Right to object?'], 'outgoing': ['Process']}
+{'id': 'sid-76047540-F932-4DCD-8745-FF46B75D2E35', 'name': 'Right to object?', 'incoming': ['VN contradicts'], 'outgoing': ['Complete the process', 'ExclusiveGateway3']}
+{'id': 'sid-C2A4B910-4D12-40DB-BC55-17468D4274B9', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-0D32532F-466F-44BA-A780-93DFB5FD7FDF', 'name': 'EventBasedGateway4', 'incoming': ['Conduct regression'], 'outgoing': ['Money received', 'Process of debt collection', 'VN contradicts']}
+{'id': 'sid-6F487F26-412A-41A3-95BD-F328B656408A', 'name': 'Money received', 'incoming': ['Regression possible?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-98725EC9-4B98-43A9-81A7-B444829984FF', 'name': 'Reimbursement deadline expired', 'incoming': ['Conduct regression'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-3E6F8B8A-A388-4D83-A337-2D4891FD807D', 'name': 'VN contradicts', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Right to object?']}
+
+Start Events:
+{'id': 'sid-A4A76ADF-3968-4887-A241-B4E05C29C942', 'name': 'Conduct regression', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-317379E4-B2DC-401F-84A7-999C207BF968', 'name': 'Process', 'incoming': ['Book money'], 'outgoing': []}

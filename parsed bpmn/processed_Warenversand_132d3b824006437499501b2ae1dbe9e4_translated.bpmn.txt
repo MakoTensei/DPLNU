@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-A6A3A7CB-D8CF-4C41-9706-69E00EC9B5F4', 'name': 'Complete insurance', 'incoming': ['InclusiveGateway3'], 'outgoing': ['InclusiveGateway2']}
+{'id': 'sid-990ED680-372C-47BD-AF11-6418D208B738', 'name': 'Record shipping data', 'incoming': ['Goods\ndispatched\nthey are'], 'outgoing': ['Separation who takes delivery']}
+{'id': 'sid-9C50DD95-3DF2-42B5-918D-E570FDDE3294', 'name': 'Separation who takes delivery', 'incoming': ['Goods\ndispatched\nthey are'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-6A8427F7-A271-4DF1-9096-B34032C03355', 'name': 'Pick up a quote from spediteurs', 'incoming': ['InclusiveGateway3'], 'outgoing': ['InclusiveGateway2']}
+{'id': 'sid-3A87114C-88B0-442D-9CF1-951616453651', 'name': 'Postal shipping - fill in parcel', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-C27CB608-FEC7-4DC3-824E-B80387ECD55B', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-3158095E-71D9-4D48-ABBB-85092A7C5AF3', 'name': 'Delivering goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['Goods\nmade available']}
+
+Gateways:
+{'id': 'sid-B417B6EB-5591-40A0-B958-381AEBF5B32B', 'name': 'ExclusiveGateway0', 'incoming': ['Goods\ndispatched\nthey are'], 'outgoing': ['ExclusiveGateway1', 'InclusiveGateway2']}
+{'id': 'sid-B2A959DD-2ABB-48AD-AE05-160CE067CED0', 'name': 'ExclusiveGateway1', 'incoming': ['InclusiveGateway3', 'ExclusiveGateway0'], 'outgoing': ['InclusiveGateway2']}
+{'id': 'sid-112F61CC-17CD-456C-8327-600A756E227D', 'name': 'InclusiveGateway2', 'incoming': ['InclusiveGateway3', 'Goods\ndispatched\nthey are'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-F58D1E46-9A74-4EA2-9BE7-B572F1024885', 'name': 'InclusiveGateway3', 'incoming': ['Goods\ndispatched\nthey are'], 'outgoing': ['ParallelGateway5', 'ExclusiveGateway1']}
+{'id': 'sid-51FC3A07-3797-4475-8453-13C1BBA8CF7A', 'name': 'ParallelGateway4', 'incoming': ['Goods\ndispatched\nthey are'], 'outgoing': ['ParallelGateway5', 'ParallelGateway5']}
+{'id': 'sid-CAF7CC66-C66E-4408-A82D-B1DC304A85F2', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'Separation who takes delivery'], 'outgoing': ['Goods\nmade available']}
+
+Start Events:
+{'id': 'sid-E2D01BBD-AAE4-4168-9881-E2E66CD20722', 'name': 'Goods\ndispatched\nthey are', 'incoming': [], 'outgoing': ['InclusiveGateway2']}
+
+End Events:
+{'id': 'sid-CB15E413-282E-4D97-A908-2423DDA66001', 'name': 'Goods\nmade available', 'incoming': ['ParallelGateway5'], 'outgoing': []}

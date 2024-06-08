@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-952CBDC5-02F4-4FC1-AFD7-8F852755D846', 'name': 'Case check if regression is possible', 'incoming': ['Regression VN possible'], 'outgoing': ['yes']}
+{'id': 'sid-3A872D4E-B8DA-4783-8BE9-BC133E836303', 'name': 'Close the case', 'incoming': ['Regression VN possible'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-5563C73C-1F1F-49AA-80C0-80837945DCB8', 'name': 'Send payment request and set process to reimburse', 'incoming': ['yes'], 'outgoing': ['30 days']}
+{'id': 'sid-81D20276-DFC6-4911-944A-69BF9461D5D3', 'name': 'Book and complete payment', 'incoming': ['Payment received'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-E600932A-154D-4A7F-ADB3-B29315A734BD', 'name': 'Examination whether opposition is justified', 'incoming': ['Customer makes an objection'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-14BA924F-B88D-4A59-934D-BD1C4868001F', 'name': 'Close the process', 'incoming': ['Customer makes an objection'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-11A22A33-CCCB-4649-8BD5-E5F18C0B9599', 'name': 'Disclosure of debtors', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent4']}
+{'id': 'sid-291BC9E4-8066-4EE5-A9C1-FF1809138EA6', 'name': 'Disclosure of debtors', 'incoming': ['30 days'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-F1242BF7-C4BE-4C07-A45D-9F6567D31E6D', 'name': 'yes', 'incoming': ['Regression VN possible'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-5F4C7FD9-0E7F-4801-AF54-6FD395C8B86C', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent4', 'EndEvent2']}
+{'id': 'sid-DD7F9A5B-A13A-468B-802F-B1EB9B26EFE1', 'name': 'EventBasedGateway2', 'incoming': ['yes'], 'outgoing': ['30 days', 'Payment received', 'EndEvent2']}
+{'id': 'sid-47667FFA-36C0-4D86-8142-0336037BE19B', 'name': '30 days', 'incoming': ['Send payment request and set process to reimburse'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-B04C7B4B-E3B5-47F2-B7FB-1ACBC39C7D5F', 'name': 'Payment received', 'incoming': ['yes'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-1B47244C-A19E-4B66-A55D-DD7A663519D3', 'name': 'Customer makes an objection', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Close the process']}
+
+Start Events:
+{'id': 'sid-9FF59BD0-EA15-4019-89C3-C5A0832C16F4', 'name': 'Regression VN possible', 'incoming': [], 'outgoing': ['Close the case']}
+
+End Events:
+{'id': 'sid-61AF8DA3-2227-4087-BC61-CB3A6F0DD60A', 'name': 'EndEvent0', 'incoming': ['yes'], 'outgoing': []}
+{'id': 'sid-87150F93-0C85-4EE8-9FB2-AFBEE94A8984', 'name': 'EndEvent1', 'incoming': ['yes'], 'outgoing': []}
+{'id': 'sid-96DDDEE7-BFE6-4CFA-976B-08401985BDBE', 'name': 'EndEvent2', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-AD7EB94B-8BAB-44FB-8A55-DF3999B07822', 'name': 'EndEvent3', 'incoming': ['30 days'], 'outgoing': []}
+{'id': 'sid-BA80414A-C958-4D60-8E0A-57EED396204C', 'name': 'EndEvent4', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}

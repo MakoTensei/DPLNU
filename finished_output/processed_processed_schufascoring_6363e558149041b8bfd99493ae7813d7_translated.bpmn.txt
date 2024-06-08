@@ -1,0 +1,7 @@
+ When a "Call for proposals" event occurs, it triggers a "Schufascoring request" event, which then leads to a query for scoring availability. The "Scoring available?" event receives the request and connects to the "Scoring available?" gateway, which in turn provides the "Scoring available?" response. Following this, the "Schufascoring request" event proceeds to the "Conduct Level 1-Scoring" task, which requires incoming data from the "Schufascoring request" event. The task then sends an "Available?" message to the "Scoring available?" gateway.
+
+Simultaneously, the "Schufascoring request" event also connects to the "Conduct Level 2 scoring" gateway, which is not applicable in this scenario. The "Conduct Level 1-Scoring" task receives the incoming data and sends the "Schufascoring results" message to the "Schufascoring results\nNot applicable" gateway.
+
+Meanwhile, the "Schufascoring results\nNot applicable" gateway, upon receiving the "Schufascoring results" message, connects to the "Delay notification\nmeets" gateway. The "Delay notification\nmeets" gateway then sends a response to the "Schufascoring results\nNot applicable" gateway.
+
+In summary, the "Call for proposals" event initiates a chain of events and interactions between tasks, gateways, and incoming/outgoing messages, ultimately leading to the "Schufascoring results\nNot applicable" event.

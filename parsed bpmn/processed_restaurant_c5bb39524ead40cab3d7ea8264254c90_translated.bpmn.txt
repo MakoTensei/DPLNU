@@ -1,0 +1,33 @@
+Tasks:
+{'id': 'sid-A9DA0D51-736F-442C-9376-49F6867EAED1', 'name': 'Court of Justice\nchoose', 'incoming': ['Hunger\nfelt'], 'outgoing': ['queue']}
+{'id': 'sid-E7BB96B1-50DC-4D58-9FC1-CD3167D11DA9', 'name': 'Order\ngive up', 'incoming': ['Hunger\nfelt'], 'outgoing': ['waiting for\nPayment method']}
+{'id': 'sid-49D522C6-D545-447C-BD85-386376A416D9', 'name': 'Piper\nobtained', 'incoming': ['sid-D6A60629-08A7-42DB-BC4E-E66F7B8B36AA'], 'outgoing': ['On food\nwait']}
+{'id': 'sid-D82A9D52-9F8E-4494-B5D5-EC4B29A0FF3E', 'name': 'Food\nretrieval', 'incoming': ['On food\nwait'], 'outgoing': ['Food\nbeeping']}
+{'id': 'sid-006C484F-3B3C-4229-BF91-7C87B1CDEC25', 'name': 'Order\nrecord', 'incoming': ['Customer\nOrder'], 'outgoing': ['sid-726118B3-059C-40CA-9053-3775B5A99AEB']}
+{'id': 'sid-F13B5B05-F990-4378-9D35-C70FF949327F', 'name': 'Piper\nAdjust', 'incoming': ['Payment\n:'], 'outgoing': ['Piper to customers']}
+{'id': 'sid-BA889094-1538-4AC9-933B-F7783FAE0E1A', 'name': 'Piper to customers', 'incoming': ['Payment\n:'], 'outgoing': ['IntermediateCatchEvent6']}
+{'id': 'sid-A9BFEA17-63FE-4C8D-B36E-5446CECF339B', 'name': 'Piper\ntrigger', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': ['Food collected']}
+{'id': 'sid-2F9952D9-F6DC-4198-9E1C-5F6FC533BB10', 'name': 'Customers\nexcl.', 'incoming': ['5 min wait'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-069967C9-8459-4CB1-865E-376F5A263F1C', 'name': 'Meals\nto prepare', 'incoming': ['Order to receive'], 'outgoing': ['Delivery to\nEnriched']}
+{'id': 'sid-B0563860-4225-49B7-BD81-05006EAE21E0', 'name': 'Delivery to\nEnriched', 'incoming': ['Order to receive'], 'outgoing': ['Employees\nNotification']}
+
+Gateways:
+{'id': 'sid-2F3CFCC0-8AD3-493C-95D3-DF5922BC0350', 'name': 'ExclusiveGateway0', 'incoming': ['Payment\n:', 'Payment\n:'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-6481D79B-0182-445E-84C6-28AA7383586D', 'name': 'EventBasedGateway1', 'incoming': ['Piper\ntrigger'], 'outgoing': ['5 min wait', 'EndEvent1']}
+{'id': 'sid-F4743096-CEAF-4B90-8B97-C57014774ED4', 'name': 'queue', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Order\ngive up']}
+{'id': 'sid-73AD5E7B-3C87-4CD5-AAB2-A47672A50D48', 'name': 'waiting for\nPayment method', 'incoming': ['Hunger\nfelt'], 'outgoing': ['sid-48D41C81-73BD-4030-B6E9-8C190F5A0151']}
+{'id': 'sid-CDB82035-0941-4113-BBE4-5C87142F3522', 'name': 'On food\nwait', 'incoming': ['Piper\nobtained'], 'outgoing': ['Food\nbeeping']}
+{'id': 'sid-2666B1B5-0623-44B2-87D0-5DF5BAEA24B5', 'name': 'Payment\n:', 'incoming': ['sid-FD1D7D47-6AA0-4248-AED4-900AE00A700B'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-A8DBEAE6-90D7-4EB0-BC12-486D9931AE72', 'name': 'IntermediateCatchEvent6', 'incoming': ['Payment\n:'], 'outgoing': ['5 min wait']}
+{'id': 'sid-11043608-B336-4077-94B6-6FE843FEE6C7', 'name': '5 min wait', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-334BDFCA-E449-4447-A958-B8CF181C1E10', 'name': 'Food collected', 'incoming': ['Piper\ntrigger'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-E432F1C2-8A90-4C70-A591-33C5A78D538D', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['waiting for\nPayment method']}
+{'id': 'sid-F9BA423C-5558-4FBF-A582-99D39B7C4F35', 'name': 'Customer\nOrder', 'incoming': [], 'outgoing': ['Order\nrecord']}
+{'id': 'sid-5D1C5A63-3915-4F6E-9D53-AAF1D4251516', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Delivery to\nEnriched']}
+
+End Events:
+{'id': 'sid-05245D78-A1C6-440C-8F48-A8B6EA785C08', 'name': 'Food\nbeeping', 'incoming': ['On food\nwait'], 'outgoing': []}
+{'id': 'sid-1299BC2A-BC25-4266-AE97-3BDAC9F3123A', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-1F4FF05C-E7C3-445C-8979-D196C6F97392', 'name': 'Employees\nNotification', 'incoming': ['Delivery to\nEnriched'], 'outgoing': []}

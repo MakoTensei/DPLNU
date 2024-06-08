@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-F46211CF-1D67-437F-AD23-DE009BD22E38', 'name': 'Check the case', 'incoming': ['Regression report'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-19C210B3-F9DC-4F67-B2DF-B9E04FD568E3', 'name': 'Send a message', 'incoming': ['Regression report'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-FD88B68B-0935-4E8C-8A73-BC13E4D5D35D', 'name': 'Set process for resubmission', 'incoming': ['Is there a chance?'], 'outgoing': ['Date of expiry']}
+{'id': 'sid-D638D4FF-D46F-4221-BCD8-FE6B2A5D51FE', 'name': 'Book the entrance', 'incoming': ['Get money'], 'outgoing': ['Close']}
+{'id': 'sid-FA1E8405-7516-4FFE-91FE-02C0E467E403', 'name': 'Close', 'incoming': ['Get money'], 'outgoing': ['Fal successfully edited']}
+{'id': 'sid-2093DBF2-5772-4B3F-8FD0-522DB5FE93F3', 'name': 'Proceedings', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-F30BEA21-E4AE-438F-A77F-66E19981CB82', 'name': 'Close', 'incoming': ['Opposition'], 'outgoing': ['Fal unsuccessfully edited']}
+{'id': 'sid-5B296EE9-7243-4FEF-AB36-20B9385D9739', 'name': 'Submitting debt service managers', 'incoming': ['Waiting for feedback'], 'outgoing': ['Case forwarded']}
+
+Gateways:
+{'id': 'sid-FF362B91-C77A-43CC-A4E2-CC261475DBAE', 'name': 'Is there a chance?', 'incoming': ['Regression report'], 'outgoing': ['Justified?', 'ExclusiveGateway3']}
+{'id': 'sid-5B3EBE15-C6BA-4899-A3CB-D98770DD954B', 'name': 'Justified?', 'incoming': ['Is there a chance?'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-6B7480AF-98F2-4107-95AB-6558CD70101B', 'name': 'ExclusiveGateway2', 'incoming': ['Waiting for feedback', 'Proceedings'], 'outgoing': ['Case forwarded']}
+{'id': 'sid-209E5F2E-4DC9-4933-95A5-9045240D9815', 'name': 'ExclusiveGateway3', 'incoming': ['Waiting for feedback', 'Check the case'], 'outgoing': ['Fal unsuccessfully edited']}
+{'id': 'sid-1AF6D6F3-EAC0-4A3E-858C-677A6ECDCE1C', 'name': 'Waiting for feedback', 'incoming': ['Is there a chance?'], 'outgoing': ['Submitting debt service managers', 'Fal successfully edited', 'Fal unsuccessfully edited']}
+{'id': 'sid-384719A0-5472-4CFE-A99B-F8963214758B', 'name': 'Date of expiry', 'incoming': ['Set process for resubmission'], 'outgoing': ['Case forwarded']}
+{'id': 'sid-1F22FDBC-5860-4B9E-BDB4-22189F2496B4', 'name': 'Opposition', 'incoming': ['Is there a chance?'], 'outgoing': ['Close']}
+{'id': 'sid-C2C748E0-5851-4430-939D-E7F29309DD96', 'name': 'Get money', 'incoming': ['Waiting for feedback'], 'outgoing': ['Fal successfully edited']}
+
+Start Events:
+{'id': 'sid-425588DF-A9EF-4120-86C1-F16CCC490BEC', 'name': 'Regression report', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-1AD5A8A3-089D-4AE6-8E81-7D8B55D76DB7', 'name': 'Fal successfully edited', 'incoming': ['Waiting for feedback'], 'outgoing': []}
+{'id': 'sid-2E4FE78B-34F8-4935-BBA4-8E231B33BF04', 'name': 'Fal unsuccessfully edited', 'incoming': ['Waiting for feedback'], 'outgoing': []}
+{'id': 'sid-CBE6BD3D-BABB-496E-9B93-4CDD97EBE165', 'name': 'Case forwarded', 'incoming': ['Date of expiry'], 'outgoing': []}

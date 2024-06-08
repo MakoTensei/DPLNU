@@ -1,0 +1,15 @@
+ The process begins with the 'Receive your order' start event, which triggers the 'Insurance required' task. This task, in turn, initiates the 'Insurance?' task, which is connected to the 'Lot?' gateway. The 'Lot?' gateway then leads to the 'ExclusiveGateway1' and 'EndEvent0'. 
+
+Simultaneously, the 'Insurance required' task also connects to the 'ParallelGateway3', which leads to the 'Add a package ticket' task. This task is linked to the 'ExclusiveGateway1' and 'EndEvent0' as well.
+
+The 'Add a package ticket' task is followed by the 'Complete insurance' task, which is connected to the 'ParallelGateway3'. This task leads to the 'EndEvent1'.
+
+Meanwhile, the 'Insurance?' task also connects to the 'Delivering goods' task, which is linked to the 'Insurance?' task and 'EndEvent1'.
+
+The 'Complete insurance' task is connected to the 'EndEvent0' task, which is linked to the 'Lot?' gateway.
+
+The 'Packaging goods' task is triggered by the 'Receive your order' start event and is connected to the 'ParallelGateway3'. This task leads to the 'EndEvent2'.
+
+Lastly, the 'Delivering goods' task is connected to the 'EndEvent1' task, which is linked to the 'Insurance?' task.
+
+In summary, the process starts with the 'Receive your order' event, leading to the 'Insurance required' task, which triggers the 'Insurance?' task. The 'Insurance?' task connects to the 'Lot?' gateway, leading to the 'ExclusiveGateway1' and 'EndEvent0'. Simultaneously, the 'Insurance?' task also connects to the 'ParallelGateway3', leading to the 'Add a package ticket' task, which in turn leads to the 'Complete insurance' task and 'EndEvent1'. The 'Complete insurance' task connects to the 'EndEvent0' task, which is linked to the 'Lot?' gateway. The 'Packaging goods

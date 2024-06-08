@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-B678593D-4B33-423A-AABF-7715CA90462A', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-FA4D94BB-29CF-45BC-9CAC-51F0851D0BAB', 'name': 'Deliver packaged goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['End']}
+{'id': 'sid-4095C85E-DBE6-41DB-86F2-FD29F2D00A4D', 'name': 'Filling the package note', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C9D806CB-FB24-4590-AACB-877971950080', 'name': 'Pick up offers from three freight forwarders', 'incoming': ['Shipment\nrequested'], 'outgoing': ['Specialist with best offer']}
+{'id': 'sid-0B413238-4F01-414C-8980-8E64EC37271E', 'name': 'Specialist with best offer', 'incoming': ['Special shipping\nQuantity required?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-2799A0E7-061B-48E8-A102-1D8352CE7270', 'name': 'Complete insurance', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-FE43E8F1-CD9C-4B33-A2B8-9017AB5E842E', 'name': 'Special shipping\nQuantity required?', 'incoming': ['Shipment\nrequested'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-07FBCE55-1C1D-4786-9C02-55E2A8507AB1', 'name': 'Insurance\nnecessary?', 'incoming': ['ParallelGateway3'], 'outgoing': ['End', 'Complete insurance']}
+{'id': 'sid-7EC35CEA-C114-418C-8B5F-88E2D9FF6CEC', 'name': 'ExclusiveGateway2', 'incoming': ['Special shipping\nQuantity required?', 'Complete insurance', 'Special shipping\nQuantity required?'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-92E43C3D-D209-421B-BB12-BD20C2C19B73', 'name': 'ParallelGateway3', 'incoming': ['Shipment\nrequested'], 'outgoing': ['ParallelGateway4', 'ParallelGateway4']}
+{'id': 'sid-2D6BD22C-C3B0-487F-9DF0-2F2AF2640050', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway3', 'ParallelGateway3'], 'outgoing': ['End']}
+
+Start Events:
+{'id': 'sid-B8E51846-8417-4DA3-AB53-6429A83860B5', 'name': 'Shipment\nrequested', 'incoming': [], 'outgoing': ['Pick up offers from three freight forwarders']}
+
+End Events:
+{'id': 'sid-CE777B28-4D43-4EB4-BCCE-0A17103CF927', 'name': 'End', 'incoming': ['Insurance\nnecessary?'], 'outgoing': []}

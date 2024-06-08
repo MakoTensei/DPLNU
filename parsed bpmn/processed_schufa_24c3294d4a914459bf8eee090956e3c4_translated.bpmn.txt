@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-96E1735A-C488-46CE-A41B-CF906BD2685D', 'name': 'Scoring Level 1', 'incoming': ['Schufascoring\nRequest'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-01A3B8B8-2B38-446E-9347-439E10A5F12D', 'name': 'Scoring result send', 'incoming': ['ParallelGateway4'], 'outgoing': ['End']}
+{'id': 'sid-4B000E25-C378-4785-8128-E605095D90B0', 'name': 'Scoring Level 2', 'incoming': ['Schufascoring\nRequest'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-229A66DA-2EFA-4582-AC62-81D1DAB84E35', 'name': 'Info about delay', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-5231684C-482F-4FF9-B3EB-CE6F5C06C97D', 'name': 'Request to Schufa', 'incoming': ['Schufascoring\nRequest'], 'outgoing': ['receives Schufascoring']}
+{'id': 'sid-3F7C3E16-2577-4BFE-96D2-4934D7DEE3A0', 'name': 'Sent Schufascoring', 'incoming': ['receives Schufascoring'], 'outgoing': ['End']}
+{'id': 'sid-E363FBEC-27BB-430B-8F48-958846269796', 'name': 'Information about Vgeneratoren', 'incoming': ['Schufascoring\nRequest'], 'outgoing': ['EventBasedGateway2']}
+
+Gateways:
+{'id': 'sid-D3E93045-95B1-46A9-B798-0BC0E94E2238', 'name': 'Get scoring?', 'incoming': ['Schufascoring\nRequest'], 'outgoing': ['ParallelGateway4', 'End']}
+{'id': 'sid-13CBF9A8-F37D-4432-9D98-75A969CBB8F1', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring Level 1', 'Schufascoring\nRequest'], 'outgoing': ['End']}
+{'id': 'sid-D913E0E9-9083-473F-8724-77B868101792', 'name': 'EventBasedGateway2', 'incoming': ['Schufascoring\nRequest', 'Delay: Level 2 required'], 'outgoing': ['End', 'Delay: Level 2 required']}
+{'id': 'sid-DA392EC2-A089-4A4A-B594-6420C209DF12', 'name': 'ParallelGateway3', 'incoming': ['Schufascoring\nRequest'], 'outgoing': ['Scoring Level 2', 'ParallelGateway4']}
+{'id': 'sid-7631B506-507C-460B-85ED-5573303EA801', 'name': 'ParallelGateway4', 'incoming': ['Schufascoring\nRequest', 'Get scoring?'], 'outgoing': ['Scoring result send']}
+{'id': 'sid-669683A1-B9D8-4685-8803-1CAC2897D58B', 'name': 'receives Schufascoring', 'incoming': ['Request to Schufa'], 'outgoing': ['End']}
+{'id': 'sid-DDA6A184-F14D-44D8-8D07-CF121B2E15F6', 'name': 'Delay: Level 2 required', 'incoming': ['Schufascoring\nRequest'], 'outgoing': ['End']}
+
+Start Events:
+{'id': 'sid-B1AE22CB-5311-44A5-A5ED-5636131904AB', 'name': 'Schufascoring\nRequest', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-2DB11AEB-AEAF-4DC0-8A9E-24F1583FAC0D', 'name': 'Schufascoring\nRequest', 'incoming': [], 'outgoing': ['Information about Vgeneratoren']}
+
+End Events:
+{'id': 'sid-C20AAFA2-1C0D-4CD5-9F79-C2A21A9D3F16', 'name': 'End', 'incoming': ['Get scoring?'], 'outgoing': []}
+{'id': 'sid-9E7CAAEC-219E-4C46-B173-0D2CEFAA281D', 'name': 'End', 'incoming': ['Delay: Level 2 required'], 'outgoing': []}

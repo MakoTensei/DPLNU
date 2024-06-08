@@ -1,0 +1,9 @@
+ In the scoring process, a request for scoring is initiated when the 'Schufascoring\nrequired' event occurs, triggering the 'Create an alert' gateway. This alert is then followed by the 'Scoring request\nobtained' event, which leads to the 'perform first scoring (level 1)' task. The task determines the scoring result, which is then reported back through the 'Results obtained?' gateway.
+
+If the results are obtained, the 'Report the result' event is triggered, marking the completion of the first scoring level. However, if the results are not yet available, the 'Delay\nReport\nobtained' event is triggered, which in turn activates the 'perform second scoring (level 2)' task.
+
+Once the second scoring level is completed, the 'Results obtained?' gateway is triggered again, and if the results are obtained, the 'Scoring request\nfinished' event is triggered, marking the completion of the scoring process.
+
+Throughout this process, the 'EventBasedGateway1' is also involved, making the 'Schufascoring\nmade available' result available after the first scoring level and triggering the 'Delay\nReport\nobtained' event if the results are not yet available.
+
+In summary, the scoring process begins with a request for scoring, followed by the first and second scoring levels, and ends with the completion of the scoring process, with the 'EventBasedGateway1' playing a crucial role in making the results available and triggering the appropriate events.

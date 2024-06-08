@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-5DB3E06B-18ED-4879-8E11-D865CE074068', 'name': 'Scoring request\ninitiate', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Delay\nSentence\nthe']}
+{'id': 'sid-DE44DD4A-2348-473B-BEF2-49638D859FD9', 'name': 'forward delay message to Frontend', 'incoming': ['Delay\nSentence\nthe'], 'outgoing': ['EventBasedGateway1']}
+{'id': 'sid-E814A545-6992-4A93-A03D-FCBB7D4A1D85', 'name': 'Scoring result\nforward to frontend', 'incoming': ['Scoring\nRequired'], 'outgoing': ['scoring successful\ncompleted']}
+{'id': 'sid-703976ED-0B27-487B-AD3B-1136DBA48B3A', 'name': '1. perform scoring', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Scoring\nReported back']}
+{'id': 'sid-83930C4D-AE4C-49F1-8FEB-ADD6A626281E', 'name': 'Two. perform scoring', 'incoming': ['sid-B88989CA-9C4F-4AE8-B163-38ED86319431'], 'outgoing': ['Scoring\nReported back']}
+
+Gateways:
+{'id': 'sid-8173F2E0-DBCE-452D-A7FA-A612B1DED8FA', 'name': 'lies\nResults\nbefore?', 'incoming': ['Scoring request\nReport'], 'outgoing': ['sid-CB71CDBE-58B3-4C41-B0B6-97F2C590EB72', 'Scoring\nReported back']}
+{'id': 'sid-F99AB74C-900F-4AC8-AA57-635C09958A39', 'name': 'EventBasedGateway1', 'incoming': ['Scoring\nRequired', 'Delay\nSentence\nthe'], 'outgoing': ['EventBasedGateway1', 'scoring successful\ncompleted']}
+{'id': 'sid-02743403-33D3-448F-9133-1998BC9F8E41', 'name': 'Delay\nSentence\nthe', 'incoming': ['Scoring request\ninitiate'], 'outgoing': ['scoring successful\ncompleted']}
+{'id': 'sid-2B1A7954-CD8B-46B4-9F52-5E22A270D4EB', 'name': 'Scoring result\nthe', 'incoming': ['Scoring\nRequired'], 'outgoing': ['scoring successful\ncompleted']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['Scoring result\nforward to frontend']}
+{'id': 'sid-0303D0FB-5F7C-4A14-87D1-23025A0DC751', 'name': 'Scoring request\nReport', 'incoming': [], 'outgoing': ['lies\nResults\nbefore?']}
+
+End Events:
+{'id': 'sid-19355836-8CC2-4823-991E-333CC6168052', 'name': 'scoring successful\ncompleted', 'incoming': ['Delay\nSentence\nthe'], 'outgoing': []}
+{'id': 'sid-C445A802-66A5-4A70-8A8B-DC1D47AB8610', 'name': 'Scoring\nReported back', 'incoming': ['1. perform scoring', 'Two. perform scoring'], 'outgoing': []}

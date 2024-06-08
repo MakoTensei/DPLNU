@@ -1,0 +1,37 @@
+Tasks:
+{'id': 'sid-DB0F06CB-0F9A-401F-9A53-791797C9C291', 'name': 'Visit the restaurant', 'incoming': ['Feeling hungry'], 'outgoing': ['Search court']}
+{'id': 'sid-7843FDE3-8F04-4D03-8411-DE074E22693B', 'name': 'Search court', 'incoming': ['Feeling hungry'], 'outgoing': ['Order at checkout']}
+{'id': 'sid-448259D1-1EAC-4337-814F-F733F733BE5B', 'name': 'Order at checkout', 'incoming': ['Feeling hungry'], 'outgoing': ['Order payment']}
+{'id': 'sid-9C253014-79DC-458F-BD52-B3B475DC2A35', 'name': 'Order payment', 'incoming': ['Feeling hungry'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-D4701BE8-8C50-4CB5-AD3C-AEF001FFA4E5', 'name': 'Pick up Pieper', 'incoming': ['Feeling hungry'], 'outgoing': ['Pieper triggered']}
+{'id': 'sid-646203D0-FC5C-4831-9146-7AF51DCED986', 'name': 'Pick up food', 'incoming': ['Go to output'], 'outgoing': ['Eat meal']}
+{'id': 'sid-615846ED-ECB7-4A23-949E-4D4607C480B6', 'name': 'Eat meal', 'incoming': ['Go to output'], 'outgoing': ['Famine']}
+{'id': 'sid-45D81471-105D-46F4-9273-011BD978C54A', 'name': 'Go to output', 'incoming': ['Feeling hungry'], 'outgoing': ['Famine']}
+{'id': 'sid-8B072AC2-28A9-46C7-B195-DB8F94FC8A24', 'name': 'Enter your order to the cash register system', 'incoming': ['Receive your order'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-31C3F93F-99B9-44DA-B5DF-5D93B5D6366C', 'name': 'Cash', 'incoming': ['ParallelGateway1'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-18DC50F1-BC50-459E-9AED-D6F458B800AC', 'name': 'Adjust Pieper', 'incoming': ['Receive your order'], 'outgoing': ['Pieper transferred to the guest']}
+{'id': 'sid-828EC71F-5591-4C3A-BB11-59F34DE807C1', 'name': 'Pieper transferred to the guest', 'incoming': ['ParallelGateway2'], 'outgoing': ['inform Koch about ordered meal']}
+{'id': 'sid-68D0E31F-A030-4E0D-AE60-4085FACA6346', 'name': 'inform Koch about ordered meal', 'incoming': ['ParallelGateway2'], 'outgoing': ['Trigger Pieper']}
+{'id': 'sid-267B1992-FA5F-4D0B-80E9-21568797EAAF', 'name': 'Trigger Pieper', 'incoming': ['ParallelGateway2'], 'outgoing': ['5 min']}
+{'id': 'sid-C0AC4B62-7064-447B-9674-8FE479C13FDA', 'name': 'Deliver food to the guest', 'incoming': ['Guest at the issue'], 'outgoing': ['Hand over']}
+{'id': 'sid-A5FE8B02-152F-4016-BC06-B9CF40205344', 'name': 'Retrieve guest', 'incoming': ['5 min'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-7CE9B825-6C26-496D-9685-B6118A88C413', 'name': 'Preparation of meal', 'incoming': ['Receive your order'], 'outgoing': ['Putting the meal into the reach']}
+{'id': 'sid-145A293A-B365-4EB8-8C5E-A322F81C4022', 'name': 'Putting the meal into the reach', 'incoming': ['Receive your order'], 'outgoing': ['Employees informed']}
+
+Gateways:
+{'id': 'sid-DFFF1B18-624D-4EA6-8734-976C75EC0224', 'name': 'EventBasedGateway0', 'incoming': ['ParallelGateway1', '5 min'], 'outgoing': ['Hand over', 'EventBasedGateway0']}
+{'id': 'sid-30C916FB-6C4E-4A89-A0AB-436EE4CE59FE', 'name': 'ParallelGateway1', 'incoming': ['Receive your order'], 'outgoing': ['Enter your order to the cash register system', 'Hand over']}
+{'id': 'sid-DC5E0731-67C0-4580-9CA5-A778F3FAFA95', 'name': 'ParallelGateway2', 'incoming': ['Receive your order', 'ParallelGateway1'], 'outgoing': ['Guest at the issue']}
+{'id': 'sid-3F9D5407-2CDF-4E46-978B-BE4A14C56AF0', 'name': 'Pieper triggered', 'incoming': ['Feeling hungry'], 'outgoing': ['Famine']}
+{'id': 'sid-5EB1CD42-CC74-4BD8-A18F-81E8198654EE', 'name': 'Guest at the issue', 'incoming': ['ParallelGateway2'], 'outgoing': ['Hand over']}
+{'id': 'sid-4A147775-0C0A-4FFD-8CE7-DD876DD7D5BC', 'name': '5 min', 'incoming': ['Trigger Pieper'], 'outgoing': ['EventBasedGateway0']}
+
+Start Events:
+{'id': 'sid-806FE05D-9351-415A-B335-B20E43C1FA6C', 'name': 'Feeling hungry', 'incoming': [], 'outgoing': ['Go to output']}
+{'id': 'sid-54099A9F-0CEA-40BA-A35E-9D31E46DFB7D', 'name': 'Receive your order', 'incoming': [], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-41CCDA94-48FA-40E8-B9F6-A97F9FAA4C09', 'name': 'Receive your order', 'incoming': [], 'outgoing': ['Putting the meal into the reach']}
+
+End Events:
+{'id': 'sid-40205DFF-CCDC-4C4A-9978-2BCE50F91F42', 'name': 'Famine', 'incoming': ['Pieper triggered'], 'outgoing': []}
+{'id': 'sid-3395880F-C969-4E02-86E0-E232A6BB4BB6', 'name': 'Hand over', 'incoming': ['ParallelGateway1'], 'outgoing': []}
+{'id': 'sid-99453E06-D028-4CCE-8801-EED41B2057D5', 'name': 'Employees informed', 'incoming': ['Putting the meal into the reach'], 'outgoing': []}

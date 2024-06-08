@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-4B27258B-2952-4F07-BAE3-7CB31F7CB981', 'name': 'Insurance close', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-3C19FDFE-DC42-4ECE-9BB6-B548501D12BF', 'name': 'Pick up an offer for forwarding', 'incoming': ['Goods for shipping'], 'outgoing': ['Select your offer']}
+{'id': 'sid-A37E94BB-0A4F-4F6A-9FB7-76ACF80950B4', 'name': 'Fill in parcel form for mail delivery', 'incoming': ['Type of shipping?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-3902BBFF-FEFA-4C2B-AFB5-597C1E86C103', 'name': 'Select your offer', 'incoming': ['Type of shipping?'], 'outgoing': ['Specialist']}
+{'id': 'sid-D12FEECB-22CB-49D8-BF55-508656A82980', 'name': 'Specialist', 'incoming': ['Type of shipping?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-C461482A-11CA-4B14-9BD4-F93A7019C344', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+
+Gateways:
+{'id': 'sid-7961285C-BECB-4E8F-85D5-6A9DF65A4575', 'name': 'Insurance\nnecessary?', 'incoming': ['Type of shipping?'], 'outgoing': ['Goods ready for dispatch', 'ExclusiveGateway1']}
+{'id': 'sid-64A0FDE3-BF8A-482D-AC32-D2C4ACB69FE0', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway3', 'Type of shipping?'], 'outgoing': ['Goods ready for dispatch']}
+{'id': 'sid-6A41E092-0087-4283-8B15-148EDE6E7149', 'name': 'Type of shipping?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway1']}
+{'id': 'sid-4D78850B-CFEC-485C-9A47-F67EA610068A', 'name': 'ExclusiveGateway3', 'incoming': ['Type of shipping?', 'Type of shipping?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-8985CEF0-0C27-4DA0-A7F7-9F3C7BAFCE1E', 'name': 'ParallelGateway4', 'incoming': ['Goods for shipping'], 'outgoing': ['Pick up an offer for forwarding', 'Packaging goods']}
+{'id': 'sid-262F983C-963C-4DA2-886A-D9DB9AFB4822', 'name': 'ParallelGateway5', 'incoming': ['Packaging goods', 'Fill in parcel form for mail delivery'], 'outgoing': ['Goods ready for dispatch']}
+
+Start Events:
+{'id': 'sid-655E8529-6EE6-49BC-BDE6-E1B7BB8F3679', 'name': 'Goods for shipping', 'incoming': [], 'outgoing': ['Pick up an offer for forwarding']}
+
+End Events:
+{'id': 'sid-CCD7C66A-5F38-4626-96E1-F4DD73B08342', 'name': 'Goods ready for dispatch', 'incoming': ['Insurance\nnecessary?'], 'outgoing': []}

@@ -1,0 +1,14 @@
+ The process begins with a 'Shipment' event, which triggers the 'Request a quote' task. This task is dependent on the 'Type of transport' gateway, which in turn is triggered by the 'Type of transport' event. Once the quote is created, the 'Create a quote' task is completed, and the 'Product ready' task is initiated, which is dependent on the 'Type of transport' gateway.
+
+Simultaneously, the 'Filling the package note' task is triggered by the 'Type of transport' gateway, and it is dependent on the 'ParallelGateway4' event. This task is completed, and the 'Product ready' task is initiated, which is dependent on the 'Filling the package note' task.
+
+The 'Product ready' task is then passed to the 'ParallelGateway5' gateway, which triggers the 'Delivering goods' task. This task is dependent on the 'ParallelGateway5' event and is completed, leading to the 'EndEvent0' task.
+
+In summary, the process involves the following steps:
+
+1. 'Shipment' event triggers 'Request a quote' task.
+2. 'Type of transport' event triggers 'Create a quote' task.
+3. 'Type of transport' gateway triggers 'Filling the package note' task.
+4. 'Product ready' task is initiated and passed to 'ParallelGateway5' gateway.
+5. 'ParallelGateway5' gateway triggers 'Delivering goods' task.
+6. 'Delivering goods' task is completed, leading to the 'EndEvent0' task.

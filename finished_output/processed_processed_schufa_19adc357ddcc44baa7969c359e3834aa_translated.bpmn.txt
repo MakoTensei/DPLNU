@@ -1,0 +1,7 @@
+ The process begins with the 'StartEvent0' triggering the 'interpret message' task, which determines whether the result is ready or delayed. If the result is ready, the 'Return result to Bank' task is initiated, and if it's delayed, the 'Report delay in sales' task is triggered. The 'Report delay in sales' task then sends the delay information to the 'ExclusiveGateway1', which can either continue with other work and wait for results or report the delay back to the Bank.
+
+Meanwhile, the 'interpret message' task also sends the result status to the 'Is result or delay?' gateway. If the result is ready, the 'EndEvent0' is triggered, and the 'Return result to Bank' task is executed. If the result is delayed, the 'Determine Final Scoring' task is initiated, which then sends the final scoring to the 'Return Final Scoring to Bank' task.
+
+The 'StartEvent1' triggers the 'Level 1 Scoring' task, which processes the scoring and sends the fixed result to the 'EndEvent1'. The 'EndEvent1' then triggers the 'Return Final Scoring to Bank' task, which sends the final score to the Bank.
+
+In summary, the process involves interpreting the message to determine the result status, handling the result or delay accordingly, processing the scoring, and finally returning the final score to the Bank.

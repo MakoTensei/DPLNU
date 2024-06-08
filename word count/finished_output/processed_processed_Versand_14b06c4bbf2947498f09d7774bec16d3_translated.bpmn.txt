@@ -1,0 +1,7 @@
+ When checking an order, the system first queries if there is a special shipment using the 'Is there a special shipment?' event. If the answer is affirmative, the process diverges into two paths: one leads to the 'Spedition1' event, which is triggered by the 'StartEvent0' and handles special offers, while the other path leads to the 'ExclusiveGateway3', which further evaluates the special shipment and directs it to 'ParallelGateway5'.
+
+On the other hand, if there is no special shipment, the system checks if insurance is necessary using the 'Is insurance necessary?' event. If insurance is required, the order is routed to 'ExclusiveGateway2', which is connected to 'EndEvent0'. If insurance is not needed, the order proceeds to 'normal mail order', which also connects to 'ExclusiveGateway2' and eventually to 'ParallelGateway5'.
+
+For 'normal mail order' and 'packaged goods', the system also checks for special shipments. If there is a special shipment, the order is directed to 'ExclusiveGateway3' and then to 'ParallelGateway5'. If there is no special shipment, the order goes to 'ParallelGateway5' directly.
+
+In summary, the order checking process involves a series of events and gateways that determine the path the order takes based on the presence of a special shipment and the need for insurance.

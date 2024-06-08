@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-313B6E57-B1E5-4DB6-89B6-566263D18C60', 'name': 'Test', 'incoming': ['Regression claim'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-D1C94F18-E736-4F7F-A550-AB1FEE34CF91', 'name': 'Test', 'incoming': ['Opposition'], 'outgoing': ['Case closed']}
+{'id': 'sid-5FAFC58B-6585-417D-9B26-F5912F63FAF9', 'name': 'Booking', 'incoming': ['Cash receipt'], 'outgoing': ['Case closed']}
+
+Gateways:
+{'id': 'sid-43CDFDA0-BAC1-41DF-A9B9-AA4EFFAE59E0', 'name': 'ExclusiveGateway0', 'incoming': ['Regression claim'], 'outgoing': ['Case closed', 'sid-3A5E588F-AF7C-4D59-9E01-BFDFD1D0F83F']}
+{'id': 'sid-98306C5E-DF3B-4587-B682-4F817836BEDB', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Case closed', 'EndEvent3']}
+{'id': 'sid-B8F4ED6C-AEBF-48B9-B4CD-26F9E92C58F1', 'name': 'EventBasedGateway2', 'incoming': ['sid-73623F32-3D70-4B3D-A216-12EC1A6F4EB1'], 'outgoing': ['Cash receipt', 'EndEvent4', 'ExclusiveGateway1']}
+{'id': 'sid-FB8F9D95-3467-4907-B58D-0F2D0B7E189E', 'name': 'Opposition', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-72A1E483-F116-4BB9-AD4B-405A70AD2BB4', 'name': 'Cash receipt', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Case closed']}
+{'id': 'sid-CE913A81-6904-4444-A583-3EF3B1D288C2', 'name': 'X days', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent4']}
+
+Start Events:
+{'id': 'sid-E6B98072-457F-4923-A32B-7C51875D380F', 'name': 'Regression claim', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-F66BFF47-D37D-4853-862C-B202C4AD5414', 'name': 'Case closed', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-378A8B70-DB23-4F23-8110-CC926D427479', 'name': 'Case closed', 'incoming': ['Test'], 'outgoing': []}
+{'id': 'sid-67942332-DE9E-47CA-B18A-76E851F21B9D', 'name': 'Case closed', 'incoming': ['Cash receipt'], 'outgoing': []}
+{'id': 'sid-EBB0508B-98CD-48AC-8BC3-B758E217FA89', 'name': 'EndEvent3', 'incoming': ['Opposition'], 'outgoing': []}
+{'id': 'sid-72000080-30EF-41CB-AEBA-37EB03F3601E', 'name': 'EndEvent4', 'incoming': ['EventBasedGateway2'], 'outgoing': []}

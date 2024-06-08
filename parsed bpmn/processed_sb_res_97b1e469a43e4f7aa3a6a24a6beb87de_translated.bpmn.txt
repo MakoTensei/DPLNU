@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-2308EC27-04DB-4F6E-884E-8C34909D2DDD', 'name': 'Select a court', 'incoming': ['Feeling hungry'], 'outgoing': ['Guest is in line']}
+{'id': 'sid-2FE8CBC4-A28A-4288-9E76-DD7E61BE0EA2', 'name': 'Add your order', 'incoming': ['Feeling hungry'], 'outgoing': ['Paying']}
+{'id': 'sid-4D50A99C-250C-4C7C-826C-BCF0D3C9C177', 'name': 'Pieper counter-\ntake', 'incoming': ['Paying'], 'outgoing': ['Pieper reports']}
+{'id': 'sid-1002A789-96A9-426E-8BFC-701A402FE0D2', 'name': 'Take food', 'incoming': ['sid-040A11C4-06C1-47CE-B6F7-44E9DAB8686C'], 'outgoing': ['Eat meal']}
+{'id': 'sid-D0D664E1-66E2-4F54-B704-19266A4FA9AB', 'name': 'Eat meal', 'incoming': ['Take food'], 'outgoing': ['Guest sat']}
+{'id': 'sid-90FBD35E-EE74-48E4-881B-4349B183ACFB', 'name': 'Paying', 'incoming': ['Guest is in line'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-C914CF39-0DCA-4968-841B-2927A3BF9681', 'name': 'Accept order', 'incoming': ['Order ready'], 'outgoing': ['Enter the cash register system']}
+{'id': 'sid-E44774A2-D539-4524-A9FC-4A359C358ADC', 'name': 'Enter the cash register system', 'incoming': ['Order ready'], 'outgoing': ['Cash payment']}
+{'id': 'sid-BFA6E64E-27A2-48E7-93DB-0AEC7A6623B4', 'name': 'Cash payment', 'incoming': ['Order ready'], 'outgoing': ['Pieper over']}
+{'id': 'sid-8FE8A813-69C3-4A1A-9D2B-D7D97B16E372', 'name': 'Pieper over', 'incoming': ['Order ready'], 'outgoing': ['Food\nmade available']}
+{'id': 'sid-1F12082A-12A5-4B4E-959D-07271069EEE9', 'name': 'Deliver food', 'incoming': ['Guest reports'], 'outgoing': ['Deliver food']}
+{'id': 'sid-E0F44A19-56EB-463E-9EA1-A693A147E8E0', 'name': 'Prepare food', 'incoming': ['Order received'], 'outgoing': ['Provide food']}
+{'id': 'sid-92C78CF3-D6C1-480C-96CD-19FDCFC77424', 'name': 'Provide food', 'incoming': ['Order received'], 'outgoing': ['Information about provision']}
+
+Gateways:
+{'id': 'sid-3B0B11D1-3945-4577-B29E-F934B7F3CC67', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'EventBasedGateway2'], 'outgoing': ['sid-ACAB1F94-5347-4F80-9FD1-C529AAD76F1B']}
+{'id': 'sid-3A197F9A-B7B6-4A00-959D-525B63EA40A1', 'name': 'ExclusiveGateway1', 'incoming': ['sid-90B297B1-9A1F-428E-A3BA-04D749BCF7A1', 'sid-F556058E-FE87-4F61-92F5-4440AD54ECA0'], 'outgoing': ['5 min']}
+{'id': 'sid-9ECA15C7-7761-4B96-AF02-53199D1F84BC', 'name': 'EventBasedGateway2', 'incoming': ['Guest is in line'], 'outgoing': ['ExclusiveGateway0', 'ExclusiveGateway0']}
+{'id': 'sid-1E7067AC-F6B8-4452-AAD5-382F832AB5EE', 'name': 'EventBasedGateway3', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['5 min', 'Deliver food']}
+{'id': 'sid-8FD0A2A7-72EB-4513-9360-F4D24BB1E89D', 'name': 'Guest is in line', 'incoming': ['Feeling hungry'], 'outgoing': ['Retrieved']}
+{'id': 'sid-A5A27353-E547-4596-9F9F-19772F74B967', 'name': 'Pieper reports', 'incoming': ['Pieper counter-\ntake'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-B7AA8DB5-A7BF-4B92-94B7-2D6988329FB8', 'name': 'Retrieved', 'incoming': ['Guest is in line'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-7B0CA3F4-5F2B-48D2-A2EA-BEBBA9921A1C', 'name': 'Food\nmade available', 'incoming': ['Order ready'], 'outgoing': ['sid-2B75CE83-DAEF-4787-AD71-5E87C5925978']}
+{'id': 'sid-05192E9D-0B19-4D3D-8A7F-B8D3947A06F4', 'name': '5 min', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['sid-DB63436D-793D-4FCA-88BC-50DC4610F27B']}
+{'id': 'sid-78E33773-9F74-4A02-9943-92D3F56AFB24', 'name': 'Guest reports', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Deliver food']}
+
+Start Events:
+{'id': 'sid-059337E1-5A35-489A-BA56-4B0C2F9223FD', 'name': 'Feeling hungry', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-0D96E469-C4E2-40A1-821C-0784D1CD1192', 'name': 'Order ready', 'incoming': [], 'outgoing': ['Food\nmade available']}
+{'id': 'sid-A4E42407-79D3-476C-B421-2353F05706AF', 'name': 'Order received', 'incoming': [], 'outgoing': ['Provide food']}
+
+End Events:
+{'id': 'sid-B002A660-60FB-4BE9-9579-B4BA77C235F4', 'name': 'Guest sat', 'incoming': ['Eat meal'], 'outgoing': []}
+{'id': 'sid-BCAFC2BE-2A2A-4FD7-9830-1030B6B399C9', 'name': 'Deliver food', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-1F1C36DE-1ACA-4936-A402-CF4A8FFA8250', 'name': 'Information about provision', 'incoming': ['Provide food'], 'outgoing': []}

@@ -1,0 +1,11 @@
+ When goods are to be shipped, the system initiates a series of tasks and interactions through various gateways to ensure the process is completed efficiently. The workflow begins with the 'Goods are to be shipped' event, which triggers the 'Pick up offers' task. This task is connected to the 'ParallelGateway4', where offers for shipping goods are collected.
+
+Once offers are collected, the system evaluates them to find the cheapest option. This evaluation is handled by the 'Choose the cheapest offer' task, which receives input from the 'Big crowd?' event and communicates with the 'Spediteur inquiries' gateway. The 'Spediteur inquiries' gateway then connects to the 'ExclusiveGateway3', which is responsible for finalizing the cheapest offer.
+
+Simultaneously, the 'Big crowd?' event also triggers the 'Filling the package note' task, which is linked to the 'Clearing the insurance obligation' gateway. This gateway, in turn, connects to the 'ExclusiveGateway2', ensuring that any insurance requirements are met before the goods are dispatched.
+
+After the cheapest offer is chosen and the insurance obligation is cleared, the 'Packaging goods' task is initiated, which connects to the 'ParallelGateway5'. This gateway is responsible for coordinating the packaging of the goods.
+
+Finally, the 'Provide goods for collection' task is triggered, which connects to the 'ParallelGateway5' as well. This task signifies that the goods have been packaged and are ready for collection.
+
+The process concludes with the 'Product was provided for dispatch' event, which signifies the successful completion of the entire workflow. This event connects to the 'ParallelGateway5', which then connects to the 'ExclusiveGateway3', and finally, the 'ParallelGateway5' connects to the 'Product was provided for dispatch' gateway, completing the process.

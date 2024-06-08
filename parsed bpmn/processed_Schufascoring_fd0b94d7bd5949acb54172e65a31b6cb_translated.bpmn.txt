@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-456E4D51-29A3-4460-8104-F568E14894DD', 'name': 'perform scoring level 1', 'incoming': ['Schufa request\nreceived'], 'outgoing': ['Scoring\ncomplete?']}
+{'id': 'sid-CA409CE6-E0DB-47B4-BB86-AA74EFFCECBA', 'name': 'perform scoring level 2', 'incoming': ['sid-B83D491F-286E-4E9A-B241-201C489320B5'], 'outgoing': ['Result\nto Bank']}
+
+Gateways:
+{'id': 'sid-806DC292-917D-41C4-9323-793BEAF216E6', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'delayed\nResult\nobtained'], 'outgoing': ['Result to\nDistribution']}
+{'id': 'sid-767E511F-D444-4152-B267-48BD0AC31EF0', 'name': 'Scoring\ncomplete?', 'incoming': ['Schufa request\nreceived'], 'outgoing': ['sid-D4B4F2EF-97A1-4FC1-B13C-23B1F60A09B2', 'Instant result\nto Bank']}
+{'id': 'sid-80197481-F8DC-4A5B-AB72-8D729DDFA68E', 'name': 'EventBasedGateway2', 'incoming': ['sid-5CF2C1D8-EC34-4831-B47F-96F4138722B3'], 'outgoing': ['ExclusiveGateway0', 'Delay message\nobtained']}
+{'id': 'sid-A4AC1BC4-5036-4E4C-A447-26A03774251D', 'name': 'Instant result\nScoring result obtained', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Result to\nDistribution']}
+{'id': 'sid-A4AB26A2-819D-444A-8090-73ACAB984818', 'name': 'Delay message\nobtained', 'incoming': ['EventBasedGateway2'], 'outgoing': ['sid-C6BC3760-D2F8-473B-8D96-816DFD63156B']}
+{'id': 'sid-507475C0-0285-425C-ABF7-514EC7C589B5', 'name': 'delayed\nResult\nobtained', 'incoming': ['sid-9CC78BB0-2727-4598-9C70-914698B3F191'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-7DBD8EC0-9E1C-4A27-93E1-B5A7263896B2', 'name': 'Schufa Scoring\nrequested', 'incoming': [], 'outgoing': ['sid-02453160-97EC-4762-B30E-433E276EBC9F']}
+{'id': 'sid-D0FF7961-062C-451E-B296-B9BCBD12DC05', 'name': 'Schufa request\nreceived', 'incoming': [], 'outgoing': ['Scoring\ncomplete?']}
+
+End Events:
+{'id': 'sid-7D53F954-DD56-4776-A5AB-2E0F544C5958', 'name': 'Result to\nDistribution', 'incoming': ['Instant result\nScoring result obtained'], 'outgoing': []}
+{'id': 'sid-606603A3-A528-4D22-8A04-E4491CCB6F68', 'name': 'Result\nto Bank', 'incoming': ['perform scoring level 2'], 'outgoing': []}
+{'id': 'sid-D288E296-8EBA-4E43-8A21-688D1F1736ED', 'name': 'Instant result\nto Bank', 'incoming': ['Scoring\ncomplete?'], 'outgoing': []}

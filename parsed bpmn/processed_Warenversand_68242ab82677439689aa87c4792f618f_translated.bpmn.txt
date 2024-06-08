@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-4428E5E4-C2BB-4C4B-A71B-F7BF512C071C', 'name': 'Pick up offers', 'incoming': ['Shipping size?'], 'outgoing': ['Add to Cart']}
+{'id': 'sid-E54F3D1F-2352-4377-94CC-226E0D37A46B', 'name': 'Add to Cart', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-171E5AC7-4B65-408A-B532-E71BED86E9E9', 'name': 'Spediteur 1 commission', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-B6586A3F-53D3-4EB2-AD20-9F0C8CE436A8', 'name': 'Spediteur 2', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-284E2C4F-2328-4F81-AB82-2FDDECD53B64', 'name': 'Spediteur 3', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-05DBF5B2-7397-4FBC-A06C-0622A38188B7', 'name': 'Complete insurance', 'incoming': ['Vers. necessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-920A204B-FA9F-4D80-86B8-97A6E42515B6', 'name': 'Filling the package note', 'incoming': ['Shipping size?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-68C3F31A-8C6F-4AF3-84C9-45961ED1805C', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['Delivering goods']}
+{'id': 'sid-077E8A8C-6A5F-43F2-B936-4E56562C9010', 'name': 'Delivering goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+
+Gateways:
+{'id': 'sid-73DDFC36-FFF3-4716-AC39-1F9CA62EA98F', 'name': 'Shipping size?', 'incoming': ['ParallelGateway4'], 'outgoing': ['Add to Cart', 'ExclusiveGateway2']}
+{'id': 'sid-FA9285E9-17B4-43B4-BF1D-82D3B7192FE4', 'name': 'ExclusiveGateway1', 'incoming': ['ParallelGateway4'], 'outgoing': ['Spediteur 1 commission', 'ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-C1763143-9E65-4DE5-A21D-ABAFE374F69F', 'name': 'ExclusiveGateway2', 'incoming': ['ExclusiveGateway1', 'ParallelGateway4', 'ExclusiveGateway1', 'Shipping size?', 'Vers. necessary?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-4CF42109-6E45-4598-ADF7-A51AEA5F43ED', 'name': 'Vers. necessary?', 'incoming': ['Shipping size?'], 'outgoing': ['ExclusiveGateway2', 'ParallelGateway5']}
+{'id': 'sid-BBAD50DC-7392-461D-BE5E-3503A3F04D9F', 'name': 'ParallelGateway4', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway2', 'Delivering goods']}
+{'id': 'sid-AB024B27-05F7-422A-AE88-A789BC60BE48', 'name': 'ParallelGateway5', 'incoming': ['Delivering goods', 'Filling the package note'], 'outgoing': ['sid-8579E9E4-382A-483A-A0F0-9493DDE8D146']}
+
+Start Events:
+{'id': 'sid-BF610DE2-56E4-4768-9EE9-3866EB52EC13', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Add to Cart']}
+
+End Events:
+{'id': 'sid-1B3B4A7B-8ACD-4EE5-ACFA-FE909F6E94E3', 'name': 'EndEvent0', 'incoming': ['sid-7E6344CD-721D-4551-A22E-926319261019'], 'outgoing': []}

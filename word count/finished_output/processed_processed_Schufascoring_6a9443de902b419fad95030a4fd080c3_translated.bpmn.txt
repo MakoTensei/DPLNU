@@ -1,0 +1,13 @@
+ Upon receiving a Schufa request, the system first checks if immediate scoring is possible. If it is, the system proceeds to score the request and then confirms the completion of the scoring process. If immediate scoring isn't possible, the system delays the scoring and reports the delay.
+
+Here's a flow description of the process:
+
+1. The system receives a Schufa request, triggering the 'Schufa request triggered' event.
+2. The system checks if immediate scoring is possible by evaluating the 'Entrance Immediately / Delayed?' event.
+3. If immediate scoring is possible, the system carries out the scoring process and confirms its completion by triggering the 'Scoring request carried out' event.
+4. If immediate scoring isn't possible, the system delays the scoring process and reports the delay by triggering the 'Delay Report' event.
+5. After the delay, the system checks if immediate scoring is now possible.
+6. If immediate scoring is possible, the system carries out the scoring process and confirms its completion by triggering the 'Scoring request carried out' event.
+7. If immediate scoring isn't possible, the system reports that the Schufa request is not available by triggering the 'Schufa request not available' event.
+
+This flow ensures that the system handles Schufa requests efficiently, either by immediately scoring them or by delaying and reporting the process when necessary.

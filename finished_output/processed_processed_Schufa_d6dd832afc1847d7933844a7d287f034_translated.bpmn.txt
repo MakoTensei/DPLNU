@@ -1,0 +1,17 @@
+ In this system, we have a series of tasks and gateways that work together to process and score events. The process begins with the 'StartEvent0', which triggers the 'ExclusiveGateway0'. This gateway then directs the event to either 'EndEvent0' or 'EndEvent2', depending on the outcome of the task.
+
+The 'Scroring request' task is initiated by 'StartEvent0' and is directed to 'IntermediateCatchEvent5'. This event is then forwarded to 'EndEvent2' through the 'ExclusiveGateway1'.
+
+Simultaneously, 'StartEvent1' triggers the 'Share scoring results' task, which sends the event to 'EndEvent3' through 'ExclusiveGateway1'.
+
+The 'Scoring results\nparts' task, initiated by 'StartEvent1', is directed to 'EndEvent4' through 'ExclusiveGateway1'.
+
+The 'Scroring Level 1\nperform' task, initiated by 'StartEvent1', is directed to 'ExclusiveGateway1', which then sends the event to 'Scoring results\nparts' through 'Scroring Level 2\nperform'.
+
+The 'Delay\nparts' task, initiated by 'StartEvent1', is directed to 'EndEvent1' through 'ParallelGateway3'.
+
+The 'Delay\nReport' task, initiated by 'StartEvent1', is directed to 'Scroring Level 2\nperform' through 'ExclusiveGateway1'.
+
+Finally, the 'Scroring Level 2\nperform' task, initiated by 'StartEvent1', is directed to 'EndEvent4' through 'ExclusiveGateway1'.
+
+In summary, the system processes events through a series of tasks and gateways, with each task being directed to specific outgoing events based on the incoming events and the gateways' configurations.

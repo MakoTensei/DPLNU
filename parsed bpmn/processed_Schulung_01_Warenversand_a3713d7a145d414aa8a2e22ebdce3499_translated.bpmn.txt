@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-44DC7B8E-E3E2-4722-AD69-2709DBE0D2EB', 'name': 'Determine sender', 'incoming': ['Goods are to be shipped'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-0EBAF59F-973F-474D-B044-5189FD53FFD8', 'name': 'Filling the package note', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Check insurance']}
+{'id': 'sid-FA985F3F-1A2A-40B9-854F-3CD82160A4FE', 'name': 'Pick up offers', 'incoming': ['Is special shipment necessary?'], 'outgoing': ['Desired freight forwarder?']}
+{'id': 'sid-4598516D-B351-4BBB-8BED-E7824952863E', 'name': 'Spediteur 1 commission', 'incoming': ['Desired freight forwarder?'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-C11FA64B-9F00-4AE2-AFAB-09EF52848A8A', 'name': 'Spediteur 2', 'incoming': ['Desired freight forwarder?'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-B8630F86-9497-4582-8C98-7F865A51F2E5', 'name': 'Spediteur 3', 'incoming': ['Desired freight forwarder?'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-9F55507C-880C-45E1-9F10-3B7FC1489A06', 'name': 'Check insurance', 'incoming': ['Is special shipment necessary?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-38AAC3F5-F71F-4964-BE46-5CF293C0F97D', 'name': 'Complete insurance\n', 'incoming': ['Is insurance necessary?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-1B8A4D2B-9754-48F9-A772-D24D939D83E2', 'name': 'Packaging goods', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-05F838AE-9DE6-4C39-859E-E3E0B1EB25B6', 'name': 'Goods delivered', 'incoming': ['ParallelGateway7'], 'outgoing': ['Goods are ready for collection']}
+
+Gateways:
+{'id': 'sid-CBEA38D8-7BEF-4AC0-9247-920F417C840D', 'name': 'Is special shipment necessary?', 'incoming': ['ParallelGateway6'], 'outgoing': ['ExclusiveGateway4', 'ExclusiveGateway5']}
+{'id': 'sid-5D449BD3-13B7-40C8-AA82-00AB6A0DBC4C', 'name': 'Is insurance necessary?', 'incoming': ['Is special shipment necessary?'], 'outgoing': ['ExclusiveGateway3', 'ParallelGateway7']}
+{'id': 'sid-1C14A107-3D89-4D0A-80C8-64421246A0ED', 'name': 'Desired freight forwarder?', 'incoming': ['Is special shipment necessary?'], 'outgoing': ['ExclusiveGateway4', 'ExclusiveGateway4', 'ExclusiveGateway4']}
+{'id': 'sid-991A6EE3-A15E-4DD1-B972-D70EB0242D33', 'name': 'ExclusiveGateway3', 'incoming': ['Check insurance', 'Is insurance necessary?'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-89574C56-A7FE-406B-92D6-0BD001DBF3D0', 'name': 'ExclusiveGateway4', 'incoming': ['Desired freight forwarder?', 'Desired freight forwarder?', 'Is special shipment necessary?'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-D6E1DFF2-479E-442E-BE95-34840087CBAB', 'name': 'ExclusiveGateway5', 'incoming': ['Is special shipment necessary?', 'Spediteur 1 commission'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-92DB5106-D551-4C93-8A7F-432EEF3C8D1D', 'name': 'ParallelGateway6', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Filling the package note', 'ParallelGateway7']}
+{'id': 'sid-7DF92C51-F452-4BA6-8162-917AA146087E', 'name': 'ParallelGateway7', 'incoming': ['ParallelGateway6', 'Is insurance necessary?'], 'outgoing': ['Goods are ready for collection']}
+
+Start Events:
+{'id': 'sid-E007F434-258E-4D4B-BC0F-2C149E7B2638', 'name': 'Goods are to be shipped', 'incoming': [], 'outgoing': ['Filling the package note']}
+
+End Events:
+{'id': 'sid-762CE0C9-CAFF-4E94-8DCF-A2FD6BD520CB', 'name': 'Goods are ready for collection', 'incoming': ['ParallelGateway7'], 'outgoing': []}

@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-BD5F1BCE-F05C-4141-AB4F-1CF8114177AC', 'name': 'Check regression', 'incoming': ['Regression case reported'], 'outgoing': ['is wrong?']}
+{'id': 'sid-93C38B19-F719-4232-9580-77D1C757E82F', 'name': 'Set process for reproach', 'incoming': ['VN payment request'], 'outgoing': ['VN contradicts']}
+{'id': 'sid-F9120550-7F6E-4EC5-9033-100A589ECF4C', 'name': 'VN payment request', 'incoming': ['Regression case reported'], 'outgoing': ['Reimbursement period expired']}
+{'id': 'sid-BE3F077A-8D6C-4328-9610-773BBA80EE3A', 'name': 'Book payment receipt', 'incoming': ['Regression case reported'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-16F510C1-F096-4B45-BD61-1CC3975CB433', 'name': 'Proceedings', 'incoming': ['VN contradicts'], 'outgoing': ['Close']}
+{'id': 'sid-DFB7C901-4043-4F7C-8CDE-1216C8F6F5C7', 'name': 'Disclosure of debt collection', 'incoming': ['VN contradicts'], 'outgoing': []}
+{'id': 'sid-2F7CB4FE-0A66-472E-A0F7-62E248BF413A', 'name': 'Disclosure of debt collection', 'incoming': ['Reimbursement period expired'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-1396DD4F-B9F4-4E6E-AD3E-40D64A78BB2B', 'name': 'is wrong?', 'incoming': ['Regression case reported'], 'outgoing': ['Close', 'Reimbursement period expired']}
+{'id': 'sid-2B5D76F1-2B7F-4A52-9E9E-944F8367181C', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Disclosure of debt collection', 'Close']}
+{'id': 'sid-CCAECCF3-0C08-4EFD-9E7F-0EB433536006', 'name': 'EventBasedGateway2', 'incoming': ['Regression case reported'], 'outgoing': ['Reimbursement period expired', 'Objection justified?', 'EndEvent1']}
+{'id': 'sid-F248816B-E6F2-4C5E-A3FC-4C7C6FDC103A', 'name': 'VN contradicts', 'incoming': ['Set process for reproach'], 'outgoing': ['Disclosure of debt collection']}
+{'id': 'sid-810AD4D1-A524-4CC5-9799-DAEA518A0BC2', 'name': 'Reimbursement period expired', 'incoming': ['is wrong?'], 'outgoing': ['Disclosure of debt collection']}
+{'id': 'sid-0EF42892-BEAF-4156-9FD7-54391F4E82E5', 'name': 'Incoming payment', 'incoming': ['Regression case reported'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-13690048-A528-425F-86A1-AB8BEEBBFFA7', 'name': 'Regression case reported', 'incoming': [], 'outgoing': ['Book payment receipt']}
+
+End Events:
+{'id': 'sid-DDB08D2E-4DAB-4457-A54E-942B9F05C283', 'name': 'Close', 'incoming': ['is wrong?'], 'outgoing': []}
+{'id': 'sid-EFBEC882-C88E-4FAC-B0E4-F671A9BBE72C', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-B1D1075C-1F5D-4A29-845F-B3EEFD4B4175', 'name': 'Close', 'incoming': ['Proceedings'], 'outgoing': []}

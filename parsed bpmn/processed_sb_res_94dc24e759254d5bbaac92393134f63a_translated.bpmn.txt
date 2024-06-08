@@ -1,0 +1,39 @@
+Tasks:
+{'id': 'sid-212B31EE-A9D2-489F-8117-C0484E036204', 'name': 'Court of Justice\nchoose', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Court of Justice\nOrder']}
+{'id': 'sid-84A6D00B-EB8A-4126-A905-2F4D1383C6DE', 'name': 'Court of Justice\nOrder', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Buzzer\nthe']}
+{'id': 'sid-040173B8-CED2-411F-86A5-761C01524619', 'name': 'Food\nbeeping', 'incoming': ['Food\nretrieval'], 'outgoing': ['Food\nPay']}
+{'id': 'sid-863213A2-FC81-431E-8E38-A6747813BA7F', 'name': 'Food\nretrieval', 'incoming': ['Food\nready for collection'], 'outgoing': ['Food\nPay']}
+{'id': 'sid-BE2EB4C9-B685-4739-BA86-907D2F1E73BD', 'name': 'Food\nPay', 'incoming': ['Food\nready for collection'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-607689F1-C0CD-4CAA-9D73-5B78B3E5673F', 'name': 'Completion status\nQuestions', 'incoming': ['Waiting period\nexceeded'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-5AC5B0AE-BC04-4CDA-8073-6723813E79D5', 'name': 'Buzzer\nthe', 'incoming': ['Hunger\nfelt'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-149167B1-6A06-4228-979A-6EE31A93F030', 'name': 'Outputting Buzzer', 'incoming': ['Order\nobtained'], 'outgoing': ['Preparation order\ngrant']}
+{'id': 'sid-89BC6A9A-290B-4957-8BCE-5D877CBE7C42', 'name': 'Preparation order\ngrant', 'incoming': ['Order\nobtained'], 'outgoing': ['Demand']}
+{'id': 'sid-9CB2068F-3097-4AD7-9E59-350135998E6F', 'name': 'Request completion status', 'incoming': ['Demand'], 'outgoing': ['Report completed status']}
+{'id': 'sid-60A61FD6-0A7E-43E5-A5CA-4ED480A0B921', 'name': 'Enable Buzzer', 'incoming': ['Order\nobtained'], 'outgoing': ['Payment']}
+{'id': 'sid-E9A7A0D5-8364-40BF-AE0F-9783145343B7', 'name': 'Payment', 'incoming': ['Finishing food'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-226481C5-7EC8-471F-8DE5-582265BF4668', 'name': 'Report completed status', 'incoming': ['Demand'], 'outgoing': ['EventBasedGateway1']}
+{'id': 'sid-E23612D3-13B9-45D6-BE64-97FDE6F082A3', 'name': 'Prepare food', 'incoming': ['Preparation order\nobtained'], 'outgoing': ['Retrieved']}
+{'id': 'sid-5F7E4281-2789-45DC-8159-D2AC073AF98C', 'name': 'Report completion', 'incoming': ['sid-6B94E198-2037-4985-B4C1-F71BAB8E758B'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-80C6E1B4-ADD9-412A-9F01-1A2934BAEBD3', 'name': 'Report completed status', 'incoming': ['Retrieved'], 'outgoing': ['Eat food']}
+{'id': 'sid-0660DA23-18DE-49E5-A8BE-30270165290C', 'name': 'Eat food', 'incoming': ['Retrieved'], 'outgoing': ['EventBasedGateway2']}
+
+Gateways:
+{'id': 'sid-F5AC5102-8EC9-45A5-B107-7DB871E08944', 'name': 'EventBasedGateway0', 'incoming': ['Hunger\nfelt', 'Hunger\nfelt'], 'outgoing': ['EventBasedGateway0', 'Food\nready for collection']}
+{'id': 'sid-1212E9FA-5D06-4E1B-95F6-CEE5864C04E2', 'name': 'EventBasedGateway1', 'incoming': ['Order\nobtained', 'EventBasedGateway1'], 'outgoing': ['EventBasedGateway1', 'EndEvent1']}
+{'id': 'sid-847061DD-4C10-42AC-A06A-0A2EA47BE39A', 'name': 'EventBasedGateway2', 'incoming': ['Preparation order\nobtained', 'Retrieved'], 'outgoing': ['Prepared food', 'Retrieved']}
+{'id': 'sid-B3E530B8-10C3-4EDE-AFDB-13609AB3DF75', 'name': 'Waiting period\nexceeded', 'incoming': ['Completion status\nQuestions'], 'outgoing': ['Food\nready for collection']}
+{'id': 'sid-B960F8C8-DCF1-4AC9-B29C-B96C86328C0F', 'name': 'Food\nready for collection', 'incoming': ['Completion status\nQuestions'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-4C32A95E-6EA9-42DE-82FB-D2D21B411D95', 'name': 'Demand', 'incoming': ['Preparation order\ngrant'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-75C0145B-E851-4812-8C3F-1AE959782A18', 'name': 'Finishing food', 'incoming': ['Order\nobtained'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-703FC80F-ADFE-492C-92FC-20CE162F6EE8', 'name': 'Retrieved', 'incoming': ['Prepare food'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-8C7D755C-3D0A-4CCC-9FB5-16FC05636804', 'name': 'Prepared food', 'incoming': ['Preparation order\nobtained'], 'outgoing': ['sid-E0C87D1B-A1EC-4D76-A09C-AEED25A2BA97']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-47844522-5CBA-4324-990B-DCD0CD298F43', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['Enable Buzzer']}
+{'id': 'sid-9C271212-8434-4E98-ADAB-3856E800DC08', 'name': 'Preparation order\nobtained', 'incoming': [], 'outgoing': ['Prepared food']}
+
+End Events:
+{'id': 'sid-1405CD04-02B3-4177-AAE1-C5A60308B1ED', 'name': 'EndEvent0', 'incoming': ['Completion status\nQuestions'], 'outgoing': []}
+{'id': 'sid-1F77D020-53AC-4B25-81A4-C3467EFFB26A', 'name': 'EndEvent1', 'incoming': ['Demand'], 'outgoing': []}
+{'id': 'sid-B31AB13A-171E-4B27-B031-132E5085273B', 'name': 'EndEvent2', 'incoming': ['Report completion'], 'outgoing': []}

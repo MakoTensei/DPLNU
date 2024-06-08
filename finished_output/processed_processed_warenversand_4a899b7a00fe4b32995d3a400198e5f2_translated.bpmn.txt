@@ -1,0 +1,15 @@
+ In the logistics process, there are several tasks and gateways involved in handling the shipment of goods. Let's break down the flow of operations:
+
+1. The process begins with the 'Shipping goods' start event. This event triggers the selection of an offer, which is done through the 'Select your offer' task. This task has an incoming link to 'Shipping goods' and an outgoing link to 'Packaging goods'.
+
+2. The 'Packaging goods' task is responsible for packing the selected goods. It has an incoming link from 'Select your offer' and outgoing links to 'ParallelGateway6' and 'ParallelGateway7'.
+
+3. 'ParallelGateway6' is a gateway that handles the packaging of goods. It has incoming links from 'Packaging goods' and 'ParallelGateway5', and an outgoing link to 'Provide goods for collection'.
+
+4. 'ParallelGateway7' is another gateway that deals with the quantity check of the goods. It has incoming links from 'Check quantity' and 'Shipping goods', and an outgoing link to 'ExclusiveGateway3'.
+
+5. 'ExclusiveGateway3' is a gateway that handles the completion of the process. It has incoming links from 'ParallelGateway7' and 'ExclusiveGateway0', and an outgoing link to 'EndEvent0'.
+
+6. 'EndEvent0' is the final event that signifies the completion of the process. It has incoming links from 'ExclusiveGateway0' and 'ParallelGateway7', and no outgoing links.
+
+In summary, the process starts with selecting an offer for the shipped goods, which triggers the packaging of the goods. The packaged goods are then sent to 'ParallelGateway6' for further processing, and the quantity of the goods is checked at 'ParallelGateway7'. Once the process is complete, it is marked by the 'EndEvent0' event.

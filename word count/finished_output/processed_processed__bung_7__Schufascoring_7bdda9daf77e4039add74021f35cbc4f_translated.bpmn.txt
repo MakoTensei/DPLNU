@@ -1,0 +1,20 @@
+ The process begins with the 'Frontend requirement' Start Event, which triggers the 'Frontend requirement' Gateway. This gateway sends the incoming request to the 'Scoring request to Schufa' task, which is then forwarded to the 'IntermediateCatchEvent2'. The 'IntermediateCatchEvent2' Gateway receives this task and sends it to the 'Transfer Level 1 to Frontend' task.
+
+Simultaneously, the 'Frontend requirement' Start Event also triggers the 'Info about delay' Gateway. This gateway sends the incoming request to the 'is there a result?' task, which is then forwarded to the 'Info about delay' task.
+
+The 'Transfer Level 1 to Frontend' task receives the 'Scoring request to Schufa' task and sends it to the 'Result first scoring (level 1)' task. The 'Result first scoring (level 1)' task, upon completion, sends the result back to the 'is there a result?' task.
+
+Meanwhile, the 'Info about delay' task receives the 'Frontend requirement' task and sends it to the 'forward delay information' task.
+
+The 'is there a result?' task, upon completion, sends the result to the 'End' event. The 'End' event receives the 'Result first scoring (level 1)' and 'forward delay information' tasks and sends them to their respective outgoing tasks.
+
+The 'End' event also receives the 'IntermediateCatchEvent4' task and sends it to the 'End' event.
+
+In summary, the process flows as follows:
+
+1. 'Frontend requirement' Start Event triggers 'Frontend requirement' Gateway.
+2. 'Frontend requirement' Gateway sends 'Scoring request to Schufa' to 'IntermediateCatchEvent2'.
+3. 'Frontend requirement' Gateway also sends 'Frontend requirement' to 'Info about delay'.
+4. 'IntermediateCatchEvent2' sends 'Scoring request to Schufa' to 'Transfer Level 1 to Frontend'.
+5. 'Info about delay' sends 'Frontend requirement' to 'forward delay information'.
+6. 'Transfer Level 1 to Frontend' sends 'Scoring request to Schufa' to '

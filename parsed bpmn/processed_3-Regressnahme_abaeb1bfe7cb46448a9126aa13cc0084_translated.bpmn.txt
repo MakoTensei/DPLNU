@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-109CCB4C-4D99-44B1-B87B-74AA5FD708D3', 'name': 'Regress notification\nCheck', 'incoming': ['StartEvent0'], 'outgoing': ['Regression\nthe']}
+{'id': 'sid-7900280C-6717-4DF4-9673-0FCEA1140F94', 'name': 'Close', 'incoming': ['sid-5DC42DD2-2877-4658-96DE-DA6736DDC478'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-20990261-4582-4823-B3FA-128384F898B5', 'name': 'Send payment request', 'incoming': ['StartEvent0'], 'outgoing': ['set to reimbursement']}
+{'id': 'sid-8955057C-0DE8-4EF2-A69C-5107996C2C1B', 'name': 'set to reimbursement', 'incoming': ['Regression\nthe'], 'outgoing': ['Money\nReport']}
+{'id': 'sid-18AFC7FE-23F7-4667-AB29-C34DD837C507', 'name': 'forward to debt collection services', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['to debt collection service providers\ndelivered\n(open process)']}
+{'id': 'sid-BD319EA3-F8BE-4CFA-820D-76A7EA208D2C', 'name': 'Money\nbook', 'incoming': ['Money\nReport'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-94E0D50F-3FD2-4562-BCB7-BF450393E8C6', 'name': 'Proceedings', 'incoming': ['Opposition\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-30C7BA34-F2A4-4E15-B88B-8D067A86C3AC', 'name': 'Case\nforward', 'incoming': ['Reimbursement period\nExpired'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-2A6F3795-7EB7-4413-8100-BF115C78F711', 'name': 'Close', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process\ncompleted']}
+
+Gateways:
+{'id': 'sid-DBC43B82-3C83-4623-BC41-9CD38E6BE286', 'name': 'Regression\nthe', 'incoming': ['StartEvent0'], 'outgoing': ['to debt collection service providers\ndelivered\n(open process)']}
+{'id': 'sid-9A4CF566-FAF0-44DD-9348-84195FD92C70', 'name': 'Opposition\njustified?', 'incoming': ['Regression\nthe'], 'outgoing': ['to debt collection service providers\ndelivered\n(open process)', 'ExclusiveGateway3']}
+{'id': 'sid-7F13DED1-C621-43AA-AF00-F725EE88CE25', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['to debt collection service providers\ndelivered\n(open process)']}
+{'id': 'sid-056E2E1B-358A-4B63-8A53-3E86EDC2FDDF', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'EventBasedGateway4'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-79C7B4DB-0B63-4A28-91D0-4B80A89070DD', 'name': 'EventBasedGateway4', 'incoming': ['Regression\nthe'], 'outgoing': ['Process\ncompleted', 'Process\ncompleted', 'ExclusiveGateway2']}
+{'id': 'sid-64EBB703-65E8-4E7F-AE0B-2737FEBEBF87', 'name': 'Money\nReport', 'incoming': ['set to reimbursement'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-23A0D9F6-F65B-4C34-B397-7055DAB4F498', 'name': 'Opposition\nReport', 'incoming': ['Regression\nthe'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-2FBEBD65-1FB6-48FC-8886-D461BF7E5221', 'name': 'Reimbursement period\nExpired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-B4A06109-660C-47DC-8D56-3C613CB2E8A7', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Send payment request']}
+
+End Events:
+{'id': 'sid-CCF5C812-A300-4B13-893E-126E0E0481B8', 'name': 'Process\ncompleted', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-68A7B8B6-D4D9-492D-A801-5541C0AFCB31', 'name': 'Process\ncompleted', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-ED4858A2-C10F-4DB7-8671-BFC397A8D8DB', 'name': 'to debt collection service providers\ndelivered\n(open process)', 'incoming': ['Regression\nthe'], 'outgoing': []}

@@ -1,0 +1,7 @@
+ The system initiates with the 'StartEvent0' which triggers the 'Examination Regression' process, sending a message to the 'ExclusiveGateway0'. This gateway then directs the process to either 'Process' or 'Opposition' based on the outcome. Concurrently, the 'StartEvent0' also initiates the 'Payment Send a message' process, which sends a message to the 'Opposition'. The 'Opposition' then sends a message to the 'ExclusiveGateway2', which further directs the process to 'Process' or 'Transfer Inkasso' based on the outcome.
+
+The 'ExclusiveGateway2' also receives messages from the 'Proceedings' process, which is triggered by the 'Opposition'. The 'Proceedings' process can either lead to 'Process' or 'Transfer Inkasso'. The 'EventBasedGateway3' receives messages from the 'StartEvent0' and directs the process to 'Opposition', 'ExclusiveGateway2', or 'Process' based on the outcome.
+
+The 'Rejection\nDate of expiry' process is triggered by the 'StartEvent0' and sends a message to the 'Transfer Inkasso'. The 'Incoming payment' process receives messages from the 'EventBasedGateway3' and directs the process to 'Process'.
+
+In summary, the system starts with 'StartEvent0', which triggers multiple processes and gateways, leading to various outcomes and subsequent processes. The 'ExclusiveGateway0' and 'ExclusiveGateway2' serve as decision points, directing the processes to either 'Process' or 'Transfer Inkasso'. The 'Opposition' and 'EventBasedGateway3' also play crucial roles in directing the processes based on the outcomes.

@@ -1,0 +1,9 @@
+ In the scoring process, the workflow begins with the 'Scoring Required' event, which triggers the 'wait for Level 2 scoring result' task. This task is dependent on the 'Scoring result required' event, which in turn leads to the 'Result is fixed?' task. The 'Result is fixed?' task has two outcomes: if the result is fixed, it leads to the 'End result from level 1 is fixed' task, and if not, it sends a request to 'ExclusiveGateway1' for the 'Level 1 final result available?' event.
+
+The 'Level 1 final result available?' event, triggered by the 'Scoring result required' event, has two outcomes: if the result is available, it sends a request to 'ExclusiveGateway1' for the 'wait for Level 1 scoring result' task, and if not, it sends a request to 'ExclusiveGateway1' for the 'wait for Level 2 scoring result' task.
+
+The 'wait for Level 1 scoring result' task, triggered by the 'Scoring Required' event, sends a request to 'ExclusiveGateway1' for the 'Scoring sent' task. The 'Scoring sent' task, triggered by the 'wait for Level 1 scoring result' task, has an outcome of sending the scoring result to the 'Result is fixed?' task.
+
+The 'wait for Level 2 scoring result' task, triggered by the 'Scoring Required' event, sends a request to 'ExclusiveGateway1' for the 'Scoring sent' task. The 'Scoring sent' task, triggered by the 'wait for Level 2 scoring result' task, has an outcome of sending the scoring result to the 'End result from level 2 is fixed' task.
+
+In summary, the workflow starts with the 'Scoring Required' event, which triggers a series of tasks and events that lead to the final outcomes of 'End result from level 1 is fixed' and 'End result from level 2 is fixed'. The 'ExclusiveGateway1' acts as a decision point, determining the next steps based on the availability of the scoring results.

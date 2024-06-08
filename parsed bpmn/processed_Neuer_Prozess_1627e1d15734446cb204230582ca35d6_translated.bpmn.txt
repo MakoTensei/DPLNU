@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-5178C578-D5D2-4F69-AD3A-81503974A3FB', 'name': 'Send scoring inquiry to Schufa\n', 'incoming': ['StartEvent0'], 'outgoing': ['waiting on request\n']}
+{'id': 'sid-EAD7C656-509F-49C5-8D2A-487E2B859848', 'name': 'waiting on request\n', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-E6EC61E2-CABE-42A3-AE15-7177DDA408B1', 'name': 'forward scoring to KrediFrontend\n', 'incoming': ['StartEvent0'], 'outgoing': []}
+{'id': 'sid-8415A623-6C22-4B7C-85C5-D6062C94A13D', 'name': 'Doing other tasks', 'incoming': ['Scoring goes straight'], 'outgoing': []}
+{'id': 'sid-7D804A96-6AD6-483F-BDF6-DE143C3F7B2F', 'name': 'Level 1\nDetermining scoring', 'incoming': ['Scoring request'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-663222D8-E333-4103-894C-9779F6622BDC', 'name': 'Send feedback L1 scoring to bank scoring system\n', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E0416541-CD01-4C80-AEF9-B7EF67F2F1C6', 'name': 'Level 2 Scoring\n', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-4664666A-FA73-4168-85B2-38B1387F565A', 'name': 'Send L2 scoring to bank scoring system\n', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-6DFECAE7-CE76-4257-BEDE-77E7651AFC8C', 'name': 'Send notification to Sales Representative Bank\n', 'incoming': ['ParallelGateway2'], 'outgoing': ['sid-17B91BD7-02D7-4B68-B5EA-9DE68C3BD32B']}
+
+Gateways:
+{'id': 'sid-01A811BB-16D0-4563-A7EA-F230B8E5FFFA', 'name': 'Scoring goes straight', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['forward scoring to KrediFrontend\n', 'Doing other tasks']}
+{'id': 'sid-8916D81D-63E6-487F-96A7-6A7F069DCB94', 'name': 'Level 1 scoring\n', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-F5E3F10F-34AF-4A79-B3FF-339C3B8C1ADE', 'name': 'ParallelGateway2', 'incoming': ['Level 1\nDetermining scoring'], 'outgoing': ['ParallelGateway3', 'Send notification to Sales Representative Bank\n']}
+{'id': 'sid-5AC250F8-F76E-45E4-8F2F-7CEC45C3E93D', 'name': 'ParallelGateway3', 'incoming': ['Level 1 scoring\n'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-37B6D62C-BEF1-45EC-B127-E317ECAD561B', 'name': 'IntermediateCatchEvent4', 'incoming': ['StartEvent0'], 'outgoing': ['forward scoring to KrediFrontend\n']}
+
+Start Events:
+{'id': 'sid-EF47E269-FEFB-4352-8623-328DA6201C45', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['forward scoring to KrediFrontend\n']}
+{'id': 'sid-1E9C2F5F-8297-4C9D-B821-9FCB53469365', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Send feedback L1 scoring to bank scoring system\n']}
+
+End Events:
+{'id': 'sid-D4637B46-8B1F-4E33-8F5B-741165D96439', 'name': 'EndEvent0', 'incoming': ['Level 1 scoring\n'], 'outgoing': []}
+{'id': 'sid-E33E41A9-CC8C-4501-937D-3DC756FC5C8B', 'name': 'EndEvent1', 'incoming': ['Level 1 scoring\n'], 'outgoing': []}

@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-E02743CE-CE23-4304-8045-F870CABCB732', 'name': 'Check the case', 'incoming': ['VN must be in Regress'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-52362D0A-965A-46A4-BF00-02DA81EB3328', 'name': 'Send a message', 'incoming': ['VN must be in Regress'], 'outgoing': ['Set on re-submission']}
+{'id': 'sid-D1DB00BC-0477-4A57-BBC9-19012E83FF07', 'name': 'Set on re-submission', 'incoming': ['Regress?'], 'outgoing': ['Money received']}
+{'id': 'sid-03CDE626-34FC-436E-9865-C8292E96BF2A', 'name': 'Book the entrance', 'incoming': ['Money received'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-5D69D461-095D-4A35-BF03-05240F290669', 'name': 'Close the process', 'incoming': ['Money received'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-DA690D54-B6B3-4D2E-89D8-55C2FA7EE3F7', 'name': 'Examination', 'incoming': ['Reasons'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-3BB17362-2D6E-4327-AC4B-814E633FD3A5', 'name': 'Debt collection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-67474703-0889-4D5A-B96E-7B672B9FC5E5', 'name': 'Regress?', 'incoming': ['VN must be in Regress'], 'outgoing': ['Right?', 'ExclusiveGateway3']}
+{'id': 'sid-800219BC-B1CC-46DB-AE01-ADC950FD45D8', 'name': 'Right?', 'incoming': ['Regress?'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-E654EB5A-67AB-4944-B831-652588745862', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Examination'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-EEB55D8E-A726-4F28-A01E-AE5DA9AB3832', 'name': 'ExclusiveGateway3', 'incoming': ['Check the case', 'EventBasedGateway4', 'EventBasedGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-54E28F83-9952-43BB-8E3B-4F9140FBF1BC', 'name': 'EventBasedGateway4', 'incoming': ['Regress?'], 'outgoing': ['EndEvent0', 'ExclusiveGateway3', 'Debt collection']}
+{'id': 'sid-1830E1B7-D31D-484D-862F-09A9DB4189A9', 'name': 'Money received', 'incoming': ['Set on re-submission'], 'outgoing': ['Close the process']}
+{'id': 'sid-AE540EB0-BE70-435F-94F6-00EAC8020AC2', 'name': 'Reasons', 'incoming': ['Regress?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-1CB697A8-5DF5-4C51-A10C-093B21CE548B', 'name': 'Time limit', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-A76B8034-4932-4B82-B5E0-4C6196B73FB6', 'name': 'VN must be in Regress', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-75012C2A-102E-46E2-A002-7813C0E2BA1A', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway4', 'Time limit'], 'outgoing': []}

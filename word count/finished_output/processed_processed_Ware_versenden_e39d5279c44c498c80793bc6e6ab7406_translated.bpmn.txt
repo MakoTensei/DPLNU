@@ -1,0 +1,9 @@
+ The process begins with the dispatch of goods, which triggers the task of spreading goods. This task is facilitated by ExclusiveGateway0, which receives the incoming event and directs it to the Spreading goods task. Once the goods are spread, the process moves to the task of filling the package note. This task is also managed by ExclusiveGateway0, which receives the incoming event and directs it to the Check if insurance is required task.
+
+If insurance is deemed necessary, the process proceeds to the Complete insurance task, which is also managed by ExclusiveGateway0. Upon completion of the insurance process, the task is directed to ExclusiveGateway2, which then sends the goods to ParallelGateway4.
+
+ParallelGateway4, in turn, handles the incoming event of insurance necessity and directs it to the task of 3 offers for freight forwarders. This task is managed by ExclusiveGateway3, which receives the incoming event and directs it to the Select a quote task.
+
+The Select a quote task, managed by ExclusiveGateway3, receives the incoming event and directs it to the Specialist task. The Specialist task, managed by ExclusiveGateway3, receives the incoming event and directs it to ParallelGateway4.
+
+Finally, ParallelGateway4 handles the incoming event of selecting a quote and directs it to the task of Goods sent. This task, managed by ParallelGateway4, receives the incoming event and completes the process.

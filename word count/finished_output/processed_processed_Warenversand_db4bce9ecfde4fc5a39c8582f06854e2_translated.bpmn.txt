@@ -1,0 +1,19 @@
+ In the logistics process, the following sequence of tasks and gateways are involved:
+
+1. Goods are sent, triggering the 'Goods to be sent' start event. This leads to the 'Quantity > x' gateways, which in turn connects to 'ParallelGateway4'.
+
+2. 'ParallelGateway4' receives the 'Goods to be sent' event and forwards it to 'ParclusiveGateway2' and 'ParallelGateway7'.
+
+3. 'ParallelGateway2' processes the 'Goods to be sent' event and checks if insurance is required. If it is, it sends a 'Complete insurance' event to 'ExclusiveGateway2'.
+
+4. 'ExclusiveGateway2' receives the 'Goods to be sent' and 'Complete insurance' events and forwards them to 'ExclusiveGateway3'.
+
+5. 'ParallelGateway6' receives the 'ParallelGateway4' and 'ParallelGateway5' events and sends a 'Send a message' event to 'ParallelGateway6'.
+
+6. 'ParallelGateway6' processes the 'Send a message' event and forwards it to 'EndEvent0'.
+
+7. 'ParallelGateway7' receives the 'Filling the package note' event from 'ParallelGateway4' and sends an 'EndEvent0' event.
+
+8. 'EndEvent0' is the final event in the process, which is triggered by the 'Quantity > x' gateways.
+
+This flow ensures that goods are sent, insurance is completed if required, and the package is filled and sent, with all necessary events and gateways involved in the process.

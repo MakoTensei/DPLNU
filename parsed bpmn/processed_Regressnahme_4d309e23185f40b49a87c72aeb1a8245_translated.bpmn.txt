@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-0F880844-24CF-43C4-AA9C-B3711FF9F213', 'name': 'Check the case', 'incoming': ['Regression'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-186C7C1C-C348-4AC4-A6E8-51B8540222E4', 'name': 'Send payment request', 'incoming': ['Regression'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-7E420AC4-E25A-4087-9986-85003470827F', 'name': 'Reimbursement', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Incoming payment']}
+{'id': 'sid-463AA800-CBE7-4DBD-9DE7-0140D755D248', 'name': 'Process\nOf which:', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-8B3FA6BB-3600-4A90-8CB2-DDA1854788D1', 'name': 'Payment\nbook', 'incoming': ['Incoming payment'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-A3522DF0-3DC6-4BCC-9677-A8CAC0CD0703', 'name': 'Opposition\nCheck', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-2CE2ACA5-80DF-444B-9017-BC09980901D1', 'name': 'Collection\ncommission', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-9AD1532F-6CA6-48FE-A9A1-7FFC4691AE6B', 'name': 'ExclusiveGateway0', 'incoming': ['Regression'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway1']}
+{'id': 'sid-9DF8D56C-E050-41FD-B4C1-8526C02BA5C0', 'name': 'ExclusiveGateway1', 'incoming': ['Check the case', 'EventBasedGateway4', 'ExclusiveGateway3', 'EventBasedGateway4'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-D089C8F9-B08E-47ED-89CF-83F6EDFB092A', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'ExclusiveGateway3'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-2315F185-5244-4406-A7C0-415E7851226F', 'name': 'ExclusiveGateway3', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Collection\ncommission', 'Process\nOf which:']}
+{'id': 'sid-D8E33F83-2D4B-4813-AC7C-276500BDB729', 'name': 'EventBasedGateway4', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway1', 'Opposition', 'ExclusiveGateway1']}
+{'id': 'sid-E93CC11C-666D-45BA-8D4E-3163457EE5C8', 'name': 'Incoming payment', 'incoming': ['Reimbursement'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-41B40863-45BB-41DA-A3E2-3B87CA236788', 'name': 'Opposition', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Collection\ncommission']}
+{'id': 'sid-C2F18261-B242-415A-BB5B-6F2B80A8A4C1', 'name': 'Default period\nExpired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-549C87A8-3E11-41CB-BC88-E691E0AE02BA', 'name': 'Regression', 'incoming': [], 'outgoing': ['Send payment request']}
+
+End Events:
+{'id': 'sid-751255A9-A047-45AC-8C08-A7986860B302', 'name': 'Process\ncompleted', 'incoming': ['Payment\nbook'], 'outgoing': []}

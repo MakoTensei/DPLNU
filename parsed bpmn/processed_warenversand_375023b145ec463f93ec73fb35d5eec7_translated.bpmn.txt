@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-A94A5AED-3600-472C-B3F8-B4026320843A', 'name': 'Clearing the shipping mode', 'incoming': ['ParallelGateway4'], 'outgoing': ['sid-24DEAEA8-3436-4BE5-9989-EB3B71ECCDB7']}
+{'id': 'sid-4EAACB3E-197D-4240-BBD1-B31D04E90AD4', 'name': 'Offers three forwarders', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Spediteur assignment']}
+{'id': 'sid-DB6BDFCE-2A42-4F0F-9F41-742D830796A5', 'name': 'Spediteur assignment', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Provision of goods']}
+{'id': 'sid-BE4D6FA2-1BF2-4ECD-BE91-FC90665FDDEE', 'name': 'Create a package ticket', 'incoming': ['InclusiveGateway2'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-05688C08-54E3-467C-9E0D-11057E90314B', 'name': 'Close', 'incoming': ['InclusiveGateway2'], 'outgoing': ['InclusiveGateway3']}
+{'id': 'sid-34309C02-960B-4B72-99EF-D814A064A338', 'name': 'Packaging goods', 'incoming': ['Send a message'], 'outgoing': ['ParallelGateway5']}
+
+Gateways:
+{'id': 'sid-F9862595-2554-4DC5-9D75-BE003EE05292', 'name': 'ExclusiveGateway0', 'incoming': [], 'outgoing': ['Provision of goods', 'InclusiveGateway3']}
+{'id': 'sid-5228A8ED-2844-44EC-9A7B-044BCE56AF98', 'name': 'ExclusiveGateway1', 'incoming': ['InclusiveGateway2', 'Spediteur assignment'], 'outgoing': ['Provision of goods']}
+{'id': 'sid-AC58226E-09BC-4758-B671-884EF41EEAB7', 'name': 'InclusiveGateway2', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway1', 'InclusiveGateway3']}
+{'id': 'sid-9E4AB516-9445-44BB-AFBC-6F4056F69BFA', 'name': 'InclusiveGateway3', 'incoming': ['InclusiveGateway2', 'ExclusiveGateway0'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-447FF512-BFB0-42E1-A3B6-D7157BADB19C', 'name': 'ParallelGateway4', 'incoming': ['Send a message'], 'outgoing': ['Packaging goods', 'Clearing the shipping mode']}
+{'id': 'sid-BF0EFB59-BDC6-4D01-A777-10F711052F07', 'name': 'ParallelGateway5', 'incoming': ['Create a package ticket', 'Send a message'], 'outgoing': ['Provision of goods']}
+
+Start Events:
+{'id': 'sid-21D8FAA1-2773-4FC4-B2EA-9E5A6922EBE4', 'name': 'Send a message', 'incoming': [], 'outgoing': ['ParallelGateway5']}
+
+End Events:
+{'id': 'sid-E8BE7284-EFE5-4C0C-B554-3FB15F6004D5', 'name': 'Provision of goods', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

@@ -1,0 +1,14 @@
+ Let's trace the flow of events starting from the 'Regression possibility submitted' and ending with the 'Regression case unsuccessful closed':
+
+1. 'Regression possibility submitted' triggers 'Send a message' to initiate the process.
+2. 'Send a message' then connects to 'Check the case' to further investigate the possibility.
+3. 'Check the case' leads to 'ExclusiveGateway3', which determines if the case is justified.
+4. If the case is justified, 'ExclusiveGateway3' forwards the case to 'Regression case unsuccessful closed'.
+5. If the case is not justified, 'ExclusiveGateway3' sends the case to 'Regression case debt collection forwarded' if the reimbursement period has expired.
+6. 'Regression case debt collection forwarded' connects to 'Reimbursement period Expired' to check if the reimbursement period has expired.
+7. If the reimbursement period has expired, the case is forwarded to 'Regression case debt collection forwarded'.
+8. If the reimbursement period has not expired, the case is forwarded to 'Regression case successful completed' after receiving the 'Payment Report'.
+9. 'Regression case successful completed' marks the end of the successful case.
+10. If the case is not justified, it leads to 'Regression case unsuccessful closed' after being forwarded to 'EventBasedGateway4'.
+
+This flow of events ensures that the regression possibility is thoroughly investigated and handled appropriately, leading to either a successful completion or an unsuccessful closure of the case.

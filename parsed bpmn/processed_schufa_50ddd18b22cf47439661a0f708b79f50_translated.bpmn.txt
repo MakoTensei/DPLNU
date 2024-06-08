@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-51F83C9D-771D-4D56-8AAE-9128AD6D4168', 'name': 'Credit Transfer Frontend Bank', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-9240EB90-F187-4D5F-A510-7D9C512781BD', 'name': 'Activity 1', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-73EB4888-71E3-4DFF-87FC-0A45350F18EA', 'name': 'Activity 2', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-DBA45D0C-802F-4003-9795-422473F3D573', 'name': 'Scoring Level 1', 'incoming': ['StartEvent1'], 'outgoing': ['sid-A36BC48E-724D-49AF-AE31-BC9E240F85F6']}
+{'id': 'sid-7A2489C9-FCFD-41D1-9D35-B4E7B183CF15', 'name': 'Scoring Level 2', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-98BCC040-8B51-4D4E-B74B-E04F9C3E775B', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent0'], 'outgoing': ['Activity 1', 'EndEvent0', 'ParallelGateway2']}
+{'id': 'sid-A67B7709-5917-4FC7-A26E-4953779233D6', 'name': 'ExclusiveGateway1', 'incoming': ['sid-C229B368-2A51-4C1F-AC28-63D7873D31D7'], 'outgoing': ['EndEvent1', 'EndEvent1']}
+{'id': 'sid-6B11D3E2-6488-4EE0-9FD2-FE0C9D204734', 'name': 'ParallelGateway2', 'incoming': ['Activity 2', 'StartEvent0', 'Credit Transfer Frontend Bank'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-50C93521-2A53-4A5A-B1A0-1F94E9555F8B', 'name': 'IntermediateCatchEvent3', 'incoming': ['Credit Transfer Frontend Bank'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-B61FEA25-FBE5-433E-AA27-4208C1C8EB92', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-7692EA82-3A07-4DDE-B66C-5686B380B9A5', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Scoring Level 1']}
+
+End Events:
+{'id': 'sid-E7209BA0-6078-4A46-92C7-5A38E2FD66D5', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-896F1297-7597-4D39-A088-90D91C5D9BDD', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway1', 'ExclusiveGateway1'], 'outgoing': []}

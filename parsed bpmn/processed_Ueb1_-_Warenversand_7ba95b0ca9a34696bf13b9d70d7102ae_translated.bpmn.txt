@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-D23FBB35-9216-43CA-A6F0-B741F040B796', 'name': 'Check quantity', 'incoming': ['ParallelGateway4'], 'outgoing': ['Lot?']}
+{'id': 'sid-FBE9F6A3-BB19-48C1-A11B-9E387B2D423D', 'name': '3 Pick up a quote', 'incoming': ['Shipment\nrequested'], 'outgoing': ['Select your offer']}
+{'id': 'sid-DA4A2CCE-3D1B-4D76-969A-D8CC2C07092F', 'name': 'Filling the package note', 'incoming': ['Lot?'], 'outgoing': ['Check insurance requirements']}
+{'id': 'sid-9D795F45-FF25-4EB4-9672-36A480BB9DFC', 'name': 'Select your offer', 'incoming': ['Lot?'], 'outgoing': ['Specialist']}
+{'id': 'sid-E983AF13-861E-4E30-BC45-18C866AC0E6F', 'name': 'Specialist', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-4BB96E18-54D5-47A3-9821-B01155793869', 'name': 'Check insurance requirements', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-0F620CF5-C61C-4514-8598-392DC2F771A6', 'name': 'Complete insurance', 'incoming': ['Need?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-66055667-2A65-49D2-BFA7-636D72492D6B', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-15F76B3F-3BFF-40C1-9DB9-1330F5662ECE', 'name': 'Delivering goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['Goods\nmade available']}
+
+Gateways:
+{'id': 'sid-915C3F18-0152-47BB-8FDC-6FCC99127A91', 'name': 'Lot?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway3']}
+{'id': 'sid-6E1D7E34-0BDC-46A4-A8F5-436ADFC5FD9E', 'name': 'Need?', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway2', 'ParallelGateway5']}
+{'id': 'sid-04436D0B-D40D-4BAF-92BA-B99B25CEE33D', 'name': 'ExclusiveGateway2', 'incoming': ['Need?', 'Check insurance requirements'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-33751A31-950B-4B81-BFC4-535203A3C83B', 'name': 'ExclusiveGateway3', 'incoming': ['Lot?', 'Lot?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-75D12DB4-BF66-47BA-B9EC-9A7E3584860A', 'name': 'ParallelGateway4', 'incoming': ['Shipment\nrequested'], 'outgoing': ['3 Pick up a quote', 'ParallelGateway5']}
+{'id': 'sid-E7A990F9-5D36-464E-8E89-BC637FA682D6', 'name': 'ParallelGateway5', 'incoming': ['Need?', 'ParallelGateway4'], 'outgoing': ['Goods\nmade available']}
+
+Start Events:
+{'id': 'sid-DD20F878-0B87-45B9-860D-DA3B1EFFF5F0', 'name': 'Shipment\nrequested', 'incoming': [], 'outgoing': ['3 Pick up a quote']}
+
+End Events:
+{'id': 'sid-3AB3426D-98B7-4B13-ABF4-EC651AD1490C', 'name': 'Goods\nmade available', 'incoming': ['ParallelGateway5'], 'outgoing': []}

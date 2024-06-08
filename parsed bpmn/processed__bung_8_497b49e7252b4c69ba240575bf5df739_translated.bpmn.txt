@@ -1,0 +1,37 @@
+Tasks:
+{'id': 'sid-B025DAC7-2226-422D-AFDF-24480260037B', 'name': 'to choose from', 'incoming': ['Hunger'], 'outgoing': ['Waiting']}
+{'id': 'sid-2E42E7F6-AE7B-4453-89A9-F054DC9AD5BA', 'name': 'Waiting', 'incoming': ['Hunger'], 'outgoing': ['Add your order']}
+{'id': 'sid-3AA00A86-1DB2-4003-AEEB-75D2845C9D8C', 'name': 'Add your order', 'incoming': ['Hunger'], 'outgoing': ['Order payment']}
+{'id': 'sid-0314FB60-D473-48A9-B6AF-74427D62435B', 'name': 'Order payment', 'incoming': ['Hunger'], 'outgoing': ['Pick up beeps']}
+{'id': 'sid-808B9EDE-EF24-443C-98FE-DCB45535B58D', 'name': 'Pick up beeps', 'incoming': ['Hunger'], 'outgoing': ['Piepser or reputation perceived']}
+{'id': 'sid-F60C1893-07FD-47A6-84EE-E809CE0858C0', 'name': 'Piepser or reputation perceived', 'incoming': ['Hunger'], 'outgoing': ['Food accepted']}
+{'id': 'sid-3FAD8965-14F4-4F01-ABF1-17B190EF96C9', 'name': 'Food accepted', 'incoming': ['Hunger'], 'outgoing': ['beeping']}
+{'id': 'sid-983FFE01-57FD-4885-9637-73B4A2642203', 'name': 'beeping', 'incoming': ['Hunger'], 'outgoing': ['hunger still']}
+{'id': 'sid-DCC29F9C-3ACE-4DAE-9353-A71610A6076C', 'name': 'Input into the cash register system', 'incoming': ['StartEvent1'], 'outgoing': ['Cash']}
+{'id': 'sid-D946D72E-1FAE-40CD-B45C-B4B76D709244', 'name': 'Cash', 'incoming': ['StartEvent1'], 'outgoing': ['Amount of money']}
+{'id': 'sid-2D6D962E-DF3F-4EDA-8719-245B0201EDCC', 'name': 'Amount of money', 'incoming': ['StartEvent1'], 'outgoing': ['Set a beep']}
+{'id': 'sid-798FFAB2-5917-43C8-97DA-7FE0F93F06E2', 'name': 'Set a beep', 'incoming': ['StartEvent1'], 'outgoing': ['Iepser submit']}
+{'id': 'sid-8334F4A8-4C91-4141-A335-C237DB54C9A0', 'name': 'Iepser submit', 'incoming': ['StartEvent1'], 'outgoing': ['Teaching customer']}
+{'id': 'sid-BF84B43C-DAB4-4AFB-8857-05CCA8248512', 'name': 'Teaching customer', 'incoming': ['StartEvent1'], 'outgoing': ['Koch inform']}
+{'id': 'sid-88DD7F9F-9E18-4A1A-B940-D4FE41553D83', 'name': 'Koch inform', 'incoming': ['StartEvent1'], 'outgoing': ['Enable beeps']}
+{'id': 'sid-45D3CCA1-8663-4321-9675-EF13DAE51B50', 'name': 'Enable beeps', 'incoming': ['StartEvent1'], 'outgoing': ['5 min']}
+{'id': 'sid-9E930E7E-CD86-42B2-BFA4-D9D8FFDCBC5B', 'name': 'Food served', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-D76AEE1D-2594-4933-923E-72802DCC8CDB', 'name': 'Preparation', 'incoming': ['Order received'], 'outgoing': ['Food in Perennial']}
+{'id': 'sid-DBACB7B6-5FEB-406E-84B0-C0E05AF3221A', 'name': 'Food in Perennial', 'incoming': ['Order received'], 'outgoing': ['EndEvent2', 'Information to employees']}
+{'id': 'sid-0A7B3AA0-07F1-46CE-A5CB-DF45B02363A7', 'name': 'Information to employees', 'incoming': ['Order received'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-4DA9D07D-4CEB-41A5-AA82-D3EC91847B99', 'name': 'Retrieve customer', 'incoming': ['5 min'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-E9B20230-F4E1-419A-9217-3ABF8127B73D', 'name': 'IntermediateCatchEvent0', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', '5 min']}
+{'id': 'sid-5B05B791-4995-4D8D-8B96-A7FE16E8F39B', 'name': '5 min', 'incoming': ['Enable beeps'], 'outgoing': ['Retrieve customer']}
+
+Start Events:
+{'id': 'sid-47EB085A-C4DF-4B57-8B92-D298A674E37E', 'name': 'Hunger', 'incoming': [], 'outgoing': ['beeping']}
+{'id': 'sid-4F3DD868-9806-4AEC-8A5B-9C2248F5CB73', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Food served']}
+{'id': 'sid-82450D71-E0D0-472C-A4FD-21B50D8AF9AB', 'name': 'Order received', 'incoming': [], 'outgoing': ['Information to employees']}
+
+End Events:
+{'id': 'sid-7C697AF3-9912-4ADF-96CF-E0E31A11FEB9', 'name': 'hunger still', 'incoming': ['beeping'], 'outgoing': []}
+{'id': 'sid-1A384D22-D261-421B-905E-A376BEC4EAC7', 'name': 'EndEvent1', 'incoming': ['IntermediateCatchEvent0'], 'outgoing': []}
+{'id': 'sid-F5314DD2-9711-4F73-A08C-7A201331B2B8', 'name': 'EndEvent2', 'incoming': ['Food in Perennial'], 'outgoing': []}
+{'id': 'sid-24B85491-BEED-491E-BC0D-8891083D8BEC', 'name': 'EndEvent3', 'incoming': ['Information to employees'], 'outgoing': []}

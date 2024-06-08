@@ -1,0 +1,37 @@
+Tasks:
+{'id': 'sid-F98F114A-419F-4C4B-9D00-A7AD2B82C850', 'name': 'Visit the restaurant', 'incoming': ["I'm hungry"], 'outgoing': ['Select your target']}
+{'id': 'sid-3398F9D4-F998-475B-B214-B2EDF5C20043', 'name': 'Select your target', 'incoming': ["I'm hungry"], 'outgoing': ['Order can be discontinued']}
+{'id': 'sid-A5009804-6C22-4CEE-971C-7A9E50BB4943', 'name': 'Court of Justice', 'incoming': ['Add your order'], 'outgoing': ['Pieper took']}
+{'id': 'sid-21F55939-624F-46F4-8859-C81CB9D6459E', 'name': 'Pieper took', 'incoming': ['Add your order'], 'outgoing': ['Food ready']}
+{'id': 'sid-01DA0BC1-1CD8-4FEA-9407-B7A196C841CD', 'name': 'Go to output', 'incoming': ['Food ready'], 'outgoing': ['ParallelGateway0']}
+{'id': 'sid-EA9BA327-D4B5-42A3-90D0-23DA26365161', 'name': 'Leave a Pieper', 'incoming': ['Food ready'], 'outgoing': ['ParallelGateway1']}
+{'id': 'sid-C5A5D735-2959-422F-95A7-0C6492368E88', 'name': 'Food', 'incoming': ['Food ready'], 'outgoing': ['sid-2D892309-DF72-48C5-BF10-55593F442FB2']}
+{'id': 'sid-33C24E36-DE08-400B-94D3-F8C014FB392C', 'name': 'Approving the Court', 'incoming': ['ParallelGateway0'], 'outgoing': ['ParallelGateway1']}
+{'id': 'sid-62C22D22-1172-4CEF-9BFC-74DCD49B66FA', 'name': 'Leave a restaurant', 'incoming': ['sid-AB977D6F-FAC7-4986-B35D-9A79370CA97D'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B61BDA2B-DC2B-41D3-BDB2-970FE337171E', 'name': 'Add your order', 'incoming': ["I'm hungry"], 'outgoing': ['Food ready']}
+{'id': 'sid-1D3EEF1F-D065-494D-881E-44BE1591D3A7', 'name': 'Recording', 'incoming': ['StartEvent1'], 'outgoing': ['Enter your order in the cash register system\n']}
+{'id': 'sid-86273785-D6CD-45BB-A84A-2C9766AC7F9D', 'name': 'Enter your order in the cash register system\n', 'incoming': ['StartEvent1'], 'outgoing': ['demand money']}
+{'id': 'sid-51BD3C0E-1327-4F67-B759-E76BAC5C5CD4', 'name': 'demand money', 'incoming': ['StartEvent1'], 'outgoing': ['Put money in cash']}
+{'id': 'sid-0753C223-CE7E-4AFF-A7BB-CAC612799431', 'name': 'Put money in cash', 'incoming': ['StartEvent1'], 'outgoing': ['Adjust Pieger']}
+{'id': 'sid-34F2EFB7-7EA7-4449-AFAA-2284C0DC43FC', 'name': 'Adjust Pieger', 'incoming': ['StartEvent1'], 'outgoing': ['Add Pieper']}
+{'id': 'sid-A84CB3A1-C77E-46DB-8071-4F3D45B521F4', 'name': 'Add Pieper', 'incoming': ['StartEvent1'], 'outgoing': ['Food ready']}
+{'id': 'sid-F0460FF2-AE88-4A40-87C7-7D59EC539707', 'name': 'Trigger Pieper', 'incoming': ['StartEvent1'], 'outgoing': ['Guest coming']}
+{'id': 'sid-97462854-BAEB-4535-883D-BF815BD662A0', 'name': 'Court of First Instance', 'incoming': ['StartEvent1'], 'outgoing': ['Pieper took']}
+{'id': 'sid-C3236D40-2AD4-4EAB-A63F-2D26BC256239', 'name': 'Pieper took', 'incoming': ['Guest coming'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-D527527C-7B0A-40A4-884E-1D09A00CBC33', 'name': 'ParallelGateway0', 'incoming': ['Order can be discontinued'], 'outgoing': ['Leave a Pieper', 'ParallelGateway1']}
+{'id': 'sid-05B70E46-BE30-446F-9E55-91BC5FDEE219', 'name': 'ParallelGateway1', 'incoming': ['Food ready', 'Order can be discontinued'], 'outgoing': ['Food']}
+{'id': 'sid-B4ECB0ED-D66D-4F33-AF9B-13B92E26CC12', 'name': 'Food ready', 'incoming': ['Order can be discontinued'], 'outgoing': ['Food']}
+{'id': 'sid-D8E7EF23-588F-446F-9E70-F21428F5DB98', 'name': 'Order can be discontinued', 'incoming': ["I'm hungry"], 'outgoing': ['ParallelGateway1']}
+{'id': 'sid-934DA9BD-6C4B-4FE9-953B-12B59127E110', 'name': 'Food ready', 'incoming': ['StartEvent1'], 'outgoing': ['Trigger Pieper']}
+{'id': 'sid-B4D6D469-25B6-47CE-BD10-9320694DD8D2', 'name': 'Guest coming', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-7F5A6FC8-D1CB-48D2-B833-4536D9C6EB14', 'name': "I'm hungry", 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-93E5E346-36D7-4A07-B5E5-6DC95E361721', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Court of First Instance']}
+{'id': 'sid-57E04AFB-3262-4A29-83F1-B198B83371A8', 'name': 'StartEvent2', 'incoming': [], 'outgoing': []}
+
+End Events:
+{'id': 'sid-584D555F-C551-488D-83CC-DAA35C8EC366', 'name': 'EndEvent0', 'incoming': ['Leave a restaurant'], 'outgoing': []}
+{'id': 'sid-FA7C4C8F-E5A5-494A-B29F-544D17DB85CA', 'name': 'EndEvent1', 'incoming': ['Guest coming'], 'outgoing': []}

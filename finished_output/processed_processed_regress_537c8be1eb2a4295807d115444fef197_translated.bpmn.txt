@@ -1,0 +1,9 @@
+ The process begins with the 'Regression report\nReport' event, which triggers the 'Send a message' task. This task sends a message to the 'Reimbursement date' task, which in turn checks for a 'Regress?' query. If the query is affirmative, it proceeds to the 'Regression machining\ncompleted' task, which then sends a message to 'ExclusiveGateway1'.
+
+Meanwhile, the 'Regress?' query also triggers the 'Opposition\ninlaid' task, which sends a message to 'ExclusiveGateway4'. This task is connected to the 'Denial of payment\njustified?' event, which sends a message to 'ExclusiveGateway3'.
+
+The 'ExclusiveGateway1' task receives messages from both 'Send a message' and 'Regression machining\ncompleted', and sends a message to 'Book money receipt'. The 'Book money receipt' task then sends a message to 'ExclusiveGateway1'.
+
+The 'ExclusiveGateway3' task receives messages from 'Opposition\ninlaid' and 'Denial of payment\njustified?', and sends a message to 'Proceedings'. The 'Proceedings' task receives a message from 'EventBasedGateway5' and sends a message to 'ExclusiveGateway3'.
+
+Finally, the 'Regression machining\ncompleted' task sends a message to 'ExclusiveGateway4', which in turn sends a message to 'Regression machining\ncompleted'. This completes the process.

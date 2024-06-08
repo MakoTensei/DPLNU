@@ -1,0 +1,25 @@
+ In a complex logistics system, various tasks and events are interconnected through exclusive and inclusive gateways. Here's a natural flow description of the system:
+
+1. The process starts with 'Start 1' event, which triggers 'Task 1'. This task sends 'large\nQuantities' to 'Select your offer' event and also sends 'EndEvent0' to 'Task 1'.
+
+2. 'Select your offer' event receives 'large\nQuantities' and sends 'EndEvent1' to 'ExclusiveGateway4'.
+
+3. 'Task 1' sends 'EndEvent0' to 'ExclusiveGateway0', which in turn sends 'EndEvent1' to 'Task 1'.
+
+4. 'Task 2' receives 'Start 1' and sends 'Packaging goods' to 'ExclusiveGateway4'.
+
+5. 'ExclusiveGateway4' receives 'Select your offer', 'Insurance\nnecessary', and 'Filling standard package voucher' and sends 'InclusiveGateway5'.
+
+6. 'InclusiveGateway5' receives 'large\nQuantities' and 'Packaging goods' and sends 'EndEvent1'.
+
+7. 'Goods for shipping' event receives 'StartEvent1' and sends 'large\nQuantities' to 'Select your offer' and 'EndEvent1'.
+
+8. 'Secretariat:\n3 offers' event receives 'StartEvent1' and sends 'Select your offer' to 'ExclusiveGateway4'.
+
+9. 'Specialist' receives 'Select your offer' and sends 'ExclusiveGateway4'.
+
+10. 'Postal mail' event receives 'large\nQuantities' and sends 'Filling standard package voucher' to 'ExclusiveGateway4'.
+
+11. 'Delivery of the goods for collection' event receives 'InclusiveGateway5' and sends 'EndEvent1'.
+
+This interconnected system ensures that tasks and events are executed in a specific order, with data flowing through gateways to reach the desired outcomes.

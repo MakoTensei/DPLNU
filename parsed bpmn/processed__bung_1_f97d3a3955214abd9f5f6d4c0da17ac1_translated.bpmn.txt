@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-94FC1C2B-56F3-4DD2-A408-1E39A1376C1F', 'name': 'Explain the shipping method and possibly insurance', 'incoming': ['ParallelGateway5'], 'outgoing': ['Special shipment required?']}
+{'id': 'sid-11E8AE64-5A9F-47D9-A03A-3D5D5AC8E469', 'name': 'Pick up quotes', 'incoming': ['Shipment required'], 'outgoing': ['Choose the cheapest offer']}
+{'id': 'sid-615E654E-8FB8-48A0-98F5-0B6E7F8B7216', 'name': 'Choose the cheapest offer', 'incoming': ['Special shipment required?'], 'outgoing': ['Order the requested freight forwarder']}
+{'id': 'sid-DD22FB3B-14D1-4062-8126-071DB6CAB922', 'name': 'Order the requested freight forwarder', 'incoming': ['Special shipment required?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-EA26A341-FE0D-4EBA-A7E7-1B97C18BDCC5', 'name': 'Filling the package note', 'incoming': ['Special shipment required?'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-8F885B2D-73A4-42D5-9A0C-A15E465BFC54', 'name': 'Insurance close', 'incoming': ['Insurance required?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-2F5ACEA6-93EB-4892-881F-C8FBDF3EB30F', 'name': 'Packaging goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-6ACA8625-7735-433D-B4A6-12B5B37FE502', 'name': 'Prepare for collection', 'incoming': ['ParallelGateway5'], 'outgoing': ['Shipments']}
+
+Gateways:
+{'id': 'sid-314E9E21-93D8-4B2E-B78C-4BA69450E8E5', 'name': 'Special shipment required?', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-8A11E032-B104-436D-9474-42CB71A9584F', 'name': 'ExclusiveGateway1', 'incoming': ['Special shipment required?', 'Special shipment required?'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-EB6913DC-DB41-473B-A2A4-B910D6598A8F', 'name': 'Insurance required?', 'incoming': ['Special shipment required?'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway1']}
+{'id': 'sid-6336D6C3-304D-4805-9EB0-7A888C07E469', 'name': 'ExclusiveGateway3', 'incoming': ['Insurance required?', 'Filling the package note'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-A4848A0A-6B8B-426B-BF9D-5B40B1F6FB48', 'name': 'ExclusiveGateway4', 'incoming': ['ParallelGateway5', 'Filling the package note'], 'outgoing': ['Shipments']}
+{'id': 'sid-4695B249-9661-42BC-BDF1-67E804D918F6', 'name': 'ParallelGateway5', 'incoming': ['Shipment required'], 'outgoing': ['Prepare for collection', 'Pick up quotes']}
+
+Start Events:
+{'id': 'sid-20AF851C-4253-4F02-B348-58D10E83E7D7', 'name': 'Shipment required', 'incoming': [], 'outgoing': ['Pick up quotes']}
+
+End Events:
+{'id': 'sid-3BE70264-4D60-4574-AA10-49F7324D9264', 'name': 'Shipments', 'incoming': ['ExclusiveGateway4'], 'outgoing': []}

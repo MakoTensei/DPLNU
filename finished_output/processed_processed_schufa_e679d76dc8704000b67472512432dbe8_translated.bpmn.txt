@@ -1,0 +1,9 @@
+ In the system, a series of tasks and gateways are interconnected to process scoring and banking operations. The process begins with the 'Scoring\nRequired' start event, which triggers the 'Send delay message Frontend' task. This task is connected to the 'ExclusiveGateway0' gateway, which in turn sends a message to 'Send delay message Frontend' and 'EndEvent0'.
+
+The 'StartEvent1' task is also connected to the 'ExclusiveGateway1', which leads to the 'Results determined (level 1)' task. This task sends a message to 'EndEvent1' and'sid-0998E47F-1F73-4286-9741-0D05B9B865D8'.
+
+The 'Edit your bank' task is connected to the 'ParallelGateway2', which sends messages to 'ExclusiveGateway0' and 'Results determined (level 2)'. The 'Results determined (level 2)' task sends a message to 'EndEvent2'.
+
+The 'Request Schufaservice' task is connected to the 'IntermediateCatchEvent4', which sends a message to 'EndEvent0'. The 'IntermediateCatchEvent4' task is connected to the 'IntermediateCatchEvent3', which sends a message to 'EndEvent0'.
+
+In summary, the system processes scoring and banking operations through a series of tasks and gateways, with start and end events coordinating the flow of messages and tasks.

@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-5B6E647B-1F25-4BA1-A151-FDE97D3860BB', 'name': 'Check regression', 'incoming': ['Regress eventl.\nentered'], 'outgoing': ['lies Regress\nclaim?']}
+{'id': 'sid-98352E59-C9EA-42FB-92A8-67983DEB7885', 'name': 'Payment\nSend a message', 'incoming': ['Regress eventl.\nentered'], 'outgoing': ['Opposition\nobtained']}
+{'id': 'sid-23C8753F-938E-4B0A-AA1A-8C460547494F', 'name': 'Inkasso Heinzi commission', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Debt collection']}
+{'id': 'sid-5BE09864-CB89-4F6F-86F6-B6B1BCFA8DB9', 'name': 'Close', 'incoming': ['lies Regress\nclaim?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-2879B03F-7E6F-4925-9A3C-6171726933C2', 'name': 'Payment\nenrollment', 'incoming': ['Payment\nobtained'], 'outgoing': ['Get regression']}
+{'id': 'sid-022BC865-2CDA-479A-BEEA-0D99F3519573', 'name': 'Proceedings', 'incoming': ['Opposition\nobtained'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-811CFE07-B7CD-4C2C-8E45-3C7181FE65BB', 'name': 'lies Regress\nclaim?', 'incoming': ['Regress eventl.\nentered'], 'outgoing': ['ExclusiveGateway2', 'Opposition\nobtained']}
+{'id': 'sid-E75B0882-5ED5-4B9E-AC47-EF86B63E7E94', 'name': 'Opposition\njustified?', 'incoming': ['Opposition\nobtained'], 'outgoing': ['Regress rejected', 'ExclusiveGateway3']}
+{'id': 'sid-19BA8BBC-1391-4FAB-A541-974159641EBD', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'lies Regress\nclaim?'], 'outgoing': ['Regress rejected']}
+{'id': 'sid-09A4D798-D409-4C65-8DD9-53EDE239FDBF', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Opposition\nobtained'], 'outgoing': ['Debt collection']}
+{'id': 'sid-6720EB4E-7725-409F-A1C8-3BC6150AAED2', 'name': 'EventBasedGateway4', 'incoming': ['Regress eventl.\nentered'], 'outgoing': ['Inkasso Heinzi commission', 'Get regression', 'Opposition\nobtained']}
+{'id': 'sid-F7AC9985-87E8-48E1-B206-354C08101591', 'name': 'Opposition\nobtained', 'incoming': ['lies Regress\nclaim?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-EDF89E24-D308-40FE-93F8-044F6F54336A', 'name': 'Reimbursement\nExpired', 'incoming': ['Regress eventl.\nentered'], 'outgoing': ['Debt collection']}
+{'id': 'sid-4E2CF398-949C-4998-90B8-C5BA836B3B9B', 'name': 'Payment\nobtained', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Get regression']}
+
+Start Events:
+{'id': 'sid-7E8EECEF-7FD1-4DEC-A77D-689E3EC0D82F', 'name': 'Regress eventl.\nentered', 'incoming': [], 'outgoing': ['Reimbursement\nExpired']}
+
+End Events:
+{'id': 'sid-0FCC7062-2717-469A-B45B-4C94FE6F7DC7', 'name': 'Regress rejected', 'incoming': ['Opposition\njustified?'], 'outgoing': []}
+{'id': 'sid-4A5CCFD1-CBC6-480B-928D-5BB7197A80BB', 'name': 'Debt collection', 'incoming': ['Reimbursement\nExpired'], 'outgoing': []}
+{'id': 'sid-FA64CBAF-AE14-4077-AEAA-1C0C43A58967', 'name': 'Get regression', 'incoming': ['EventBasedGateway4'], 'outgoing': []}

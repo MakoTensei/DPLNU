@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-6F86E5E7-B337-48E2-B47B-E21D310D0D0D', 'name': 'Scoring request', 'incoming': ['Schufascoring requested'], 'outgoing': ['Schufascore immediately determined']}
+{'id': 'sid-9A7AB3AF-EAC4-473A-8BA0-1DF5D66B3121', 'name': 'Report back Schufascore', 'incoming': ['Schufascore immediately determined'], 'outgoing': ['Schufascore available']}
+{'id': 'sid-624F416B-ABCB-4A79-AE39-DCBBB0B4B38E', 'name': 'Report delay', 'incoming': ['Schufascoring requested'], 'outgoing': ['Schufascore determined']}
+{'id': 'sid-C9E99C97-36D8-41BD-B0FD-F049E45D91AA', 'name': 'perform scoring request (level 1)', 'incoming': ['Scoring request'], 'outgoing': ['Scoring available?']}
+{'id': 'sid-9A545358-9E89-43F8-B47C-CF6660CD1946', 'name': 'Report Schufascore', 'incoming': ['Scoring request'], 'outgoing': ['Schufascore immediately determined']}
+{'id': 'sid-66F161CD-80C1-4629-AC90-57563A4E1639', 'name': 'Report delay', 'incoming': ['Scoring available?'], 'outgoing': ['Scoring (level 2)']}
+{'id': 'sid-A90A3177-A2CD-4D43-B4A8-AAD18C4C6E3C', 'name': 'Scoring (level 2)', 'incoming': ['Scoring available?'], 'outgoing': ['Report Schufascore']}
+{'id': 'sid-57AEED1A-CAAB-4068-A7EB-E8134CB2B144', 'name': 'Report Schufascore', 'incoming': ['Scoring available?'], 'outgoing': ['Scoring request']}
+
+Gateways:
+{'id': 'sid-CDCAA191-A20A-4AB4-A0E7-BF31D62E807C', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'Schufascoring requested'], 'outgoing': ['Schufascore available']}
+{'id': 'sid-D690875A-3DCB-4E42-8156-3902CDB69E83', 'name': 'Scoring available?', 'incoming': ['Scoring request'], 'outgoing': ['Schufascore immediately determined', 'Scoring request']}
+{'id': 'sid-EBC1167E-5997-4620-B949-FCAB4F0345CC', 'name': 'ExclusiveGateway2', 'incoming': ['Scoring request', 'Report Schufascore'], 'outgoing': ['Schufascore immediately determined']}
+{'id': 'sid-768DE673-BC3B-4779-9305-CB7BB10E3AB6', 'name': 'EventBasedGateway3', 'incoming': ['Schufascoring requested'], 'outgoing': ['Schufascore delays', 'Schufascore available']}
+{'id': 'sid-ECB6DFCD-E807-4C04-B02F-11EBEA6E0A13', 'name': 'Schufascore immediately determined', 'incoming': ['Scoring available?'], 'outgoing': ['Report back Schufascore']}
+{'id': 'sid-988DC3A4-2B24-45BF-8B6A-CC1794C626A1', 'name': 'Schufascore delays', 'incoming': ['Schufascoring requested'], 'outgoing': ['Report delay']}
+{'id': 'sid-AA863B71-52E6-442B-B7D5-7E0968E0298F', 'name': 'Schufascore determined', 'incoming': ['Schufascoring requested'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-D488D300-503E-4703-ABBE-916C4F94592D', 'name': 'Schufascoring requested', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-7B738880-C549-42A6-AFAE-19ECB5B75024', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-FB7476DA-C32B-4343-B788-A1DA26BE89A9', 'name': 'Schufascore available', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-63B03621-CD9D-48E0-927A-A8869F74D907', 'name': 'Scoring request', 'incoming': ['Scoring available?'], 'outgoing': []}

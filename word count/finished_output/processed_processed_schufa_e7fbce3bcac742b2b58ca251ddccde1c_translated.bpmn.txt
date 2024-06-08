@@ -1,0 +1,21 @@
+ In a seamless workflow, the following tasks are orchestrated to handle scoring inquiries and results:
+
+1. When a scoring inquiry is required by the bank, the process begins with the 'Scoring\nRequired' start event. This event triggers the 'ExclusiveGateway0' to forward the request to the appropriate service.
+
+2. The 'ExclusiveGateway0' then sends the request to 'EventBasedGateway3', which is responsible for handling the incoming 'Scoring\nRequired' event.
+
+3. 'EventBasedGateway3' processes the request and, if necessary, sends a 'Notice of delay' event to inform the bank about any potential delays in the scoring process.
+
+4. Meanwhile, the 'Scoring\nRequired' event also triggers the 'Level 1 Scoring' task, which receives the request from the bank and forwards the results to 'ExclusiveGateway2'.
+
+5. 'ExclusiveGateway2' then directs the 'Level 1 Scoring' results to 'EndEvent1', which signifies the completion of the first level of scoring.
+
+6. If the 'Results Level 1\navailable?' event is received by 'ExclusiveGateway2', it triggers the 'Level 2 Scoring' task, which processes the results and sends the final scoring result to 'EndEvent1'.
+
+7. The 'Scoring result' task, initiated by the 'Scoring\nRequired' event, sends the inquiry to 'Schufa' and, upon receiving the results, forwards them to the 'frontend' through 'EndEvent0'.
+
+8. If a delay is reported, the 'Notice of delay' event is sent to the bank, and the 'Report delay' event is triggered, which then initiates the 'Level 2 Scoring' task.
+
+9. The 'Level 2 Scoring' task processes the results and sends them back to 'EndEvent1' through 'ExclusiveGateway2'.
+
+10. Finally, the 'EndEvent0' and 'EndEvent1' events mark the completion of the respective processes, ensuring a smooth and efficient scoring workflow.

@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-339FFD91-CBE9-496D-B616-20E16589D724', 'name': 'Scoring request', 'incoming': ['Scoring request goes\n'], 'outgoing': ['Delay detected']}
+{'id': 'sid-1067E53C-1716-4CBB-829D-70209692822F', 'name': 'forwarding to credit award Frontend', 'incoming': ['Scoring request goes\n'], 'outgoing': ['Scoring request carried out\n']}
+{'id': 'sid-7BE062D7-5E8C-476E-AD75-A026509450DF', 'name': 'Report delay', 'incoming': ['Delay detected'], 'outgoing': ['EventBasedGateway3']}
+{'id': 'sid-C9536C7F-4804-4B5E-A983-34522E6FF31F', 'name': 'Scoring levels', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-1CC0847C-7B2E-4A00-BDD5-6D68D90DB9D7', 'name': 'Delay detected', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['sid-319AB1C1-5724-43A4-AB0B-760CC9D3CA1A']}
+{'id': 'sid-F873147F-0741-4762-889C-010D8DCFE218', 'name': 'Conduct Level 2', 'incoming': ['sid-2D834E48-2D0D-4528-BBF0-211AE8E24813'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-E204889E-0DC7-4539-8126-3A20AA95124B', 'name': 'perform scoring', 'incoming': ['Scoring request'], 'outgoing': ['Scoring request carried out\n']}
+
+Gateways:
+{'id': 'sid-0CD0219C-A8C4-4AA7-9503-122D53A8B04E', 'name': 'ExclusiveGateway0', 'incoming': [], 'outgoing': []}
+{'id': 'sid-2B7D04EE-107A-4DAB-B04F-888E9185B14E', 'name': 'ExclusiveGateway1', 'incoming': ['Conduct Level 2', 'ExclusiveGateway2'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-F949EE75-2C0E-49B2-8198-3505DCD8AF10', 'name': 'ExclusiveGateway2', 'incoming': ['Scoring request'], 'outgoing': ['Scoring request carried out\n', 'Scoring levels']}
+{'id': 'sid-8496C32D-3286-41AA-9A29-0848FCB241DB', 'name': 'EventBasedGateway3', 'incoming': ['Scoring request goes\n', 'EventBasedGateway3'], 'outgoing': ['EventBasedGateway3', 'Scoring request carried out\n']}
+{'id': 'sid-19B9D901-EB2E-4A0D-83E8-AC53BC6E9A98', 'name': 'Delay detected', 'incoming': ['Scoring request'], 'outgoing': ['Scoring request carried out\n']}
+{'id': 'sid-026A3299-BDCA-4E07-943D-B0E0FF101702', 'name': 'IntermediateCatchEvent5', 'incoming': ['Scoring request goes\n'], 'outgoing': ['Scoring request carried out\n']}
+
+Start Events:
+{'id': 'sid-89E154A1-939C-404F-8DB6-97D97C20525D', 'name': 'Scoring request goes\n', 'incoming': [], 'outgoing': ['forwarding to credit award Frontend']}
+{'id': 'sid-54D34873-B035-4481-820A-475405239B4D', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-32DF1D33-6D47-45B9-B29E-E195683D6B19', 'name': 'Scoring request carried out\n', 'incoming': ['perform scoring'], 'outgoing': []}
+{'id': 'sid-6085046E-C4FE-4617-8D7B-0EEA0AF0E5F5', 'name': 'EndEvent1', 'incoming': ['Conduct Level 2'], 'outgoing': []}

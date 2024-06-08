@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-0EFB3216-35E4-44FF-B0E4-8C6D37AA0E0E', 'name': 'Check the case', 'incoming': ['Report VN\nwill be in\nRegressed\nobtained'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-472AE5F6-0A88-404F-8BA3-ACD9BA837854', 'name': 'Payment\nsend request to VN', 'incoming': ['Report VN\nwill be in\nRegressed\nobtained'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-74E8BF66-6AA5-4C46-BA55-24B4D3BE15B6', 'name': 'Set process for resubmission', 'incoming': ['Possibility\nRegression\nis there?'], 'outgoing': ['Money is\nReport']}
+{'id': 'sid-95191D79-F7F1-4FF6-BA05-78322E823FCC', 'name': 'Close', 'incoming': ['Opposition\njustified?'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-FD5A227C-6402-48B4-A7C8-1C0746A2D0F3', 'name': 'Book the entrance', 'incoming': ['Money is\nReport'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-1195E578-8513-41C2-91C7-75841235C25F', 'name': 'Proceedings', 'incoming': ['VN has\nreproach'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-13B24BC6-AB4B-4C02-A39D-70190D224B35', 'name': 'Dispense process to Inkasso-DL', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-E408872A-BAA4-4F39-A567-594AA6829100', 'name': 'Possibility\nRegression\nis there?', 'incoming': ['Report VN\nwill be in\nRegressed\nobtained'], 'outgoing': ['Opposition\njustified?', 'ExclusiveGateway1']}
+{'id': 'sid-2C324D33-DC48-49BF-889B-7C99A90CD9A4', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway4', 'VN has\nreproach', 'Check the case'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-CA2B01AC-A2C6-47C3-B3AC-A83591F5D77A', 'name': 'Opposition\njustified?', 'incoming': ['Possibility\nRegression\nis there?'], 'outgoing': ['Close', 'ExclusiveGateway3']}
+{'id': 'sid-EB93EB11-0248-4B8C-AB62-EC43AB434925', 'name': 'ExclusiveGateway3', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-BD1FA557-5E83-44AC-8F19-ACC99FD7D0D8', 'name': 'EventBasedGateway4', 'incoming': ['Possibility\nRegression\nis there?'], 'outgoing': ['Dispense process to Inkasso-DL', 'VN has\nreproach', 'ExclusiveGateway1']}
+{'id': 'sid-F44F8345-871C-42D7-A0C1-F4979B492D17', 'name': 'Money is\nReport', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-63C49D5C-E267-4F2F-ADDD-4D72B75B9587', 'name': 'VN has\nreproach', 'incoming': ['Possibility\nRegression\nis there?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-D8C182DA-5880-4BFA-A013-E880B2D9336A', 'name': 'Representation\nwithout cash receipt\nor object expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-B8E140B5-CC77-4B2F-A5B3-6556D40FF079', 'name': 'Report VN\nwill be in\nRegressed\nobtained', 'incoming': [], 'outgoing': ['Payment\nsend request to VN']}
+
+End Events:
+{'id': 'sid-BBB8C6F4-1AE3-4C0B-98EC-763CD07D09F1', 'name': 'EndEvent0', 'incoming': ['Representation\nwithout cash receipt\nor object expired'], 'outgoing': []}
+{'id': 'sid-5B79519E-6D15-4367-9B7B-7FA227E24606', 'name': 'EndEvent1', 'incoming': ['Book the entrance'], 'outgoing': []}

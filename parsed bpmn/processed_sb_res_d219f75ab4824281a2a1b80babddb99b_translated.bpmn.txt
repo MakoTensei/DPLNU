@@ -1,0 +1,43 @@
+Tasks:
+{'id': 'sid-B911CACE-8207-4797-8B42-6654BD99DC36', 'name': 'Visit the restaurant', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Select a court']}
+{'id': 'sid-539ED5B9-FDD7-4EEC-AB09-F784E25E37BB', 'name': 'Add your order', 'incoming': ['in the row'], 'outgoing': ['Payments']}
+{'id': 'sid-2D0B642E-FB6C-4220-9502-D5055508E01A', 'name': 'Select a court', 'incoming': ['Hunger\nfelt'], 'outgoing': ['in the row']}
+{'id': 'sid-C2AD6DFF-6CEE-4515-A835-F4939AB7116B', 'name': 'Payments', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Pieper counter-\ntake']}
+{'id': 'sid-BCCCEB1B-6C05-4621-8BBF-DEFAFECB7D47', 'name': 'Pieper counter-\ntake', 'incoming': ['in the row'], 'outgoing': ['Food can\nretrieved']}
+{'id': 'sid-D4CF24EB-2D41-4B74-BA96-DAE286916E94', 'name': 'Pick up food', 'incoming': ['Food can\nretrieved'], 'outgoing': ['Eat food']}
+{'id': 'sid-162BEEC4-C271-4814-81F9-2528F806C796', 'name': 'Eat food', 'incoming': ['Food can\nretrieved'], 'outgoing': ['Famine']}
+{'id': 'sid-C6373351-4094-44A3-97A2-D392492A4E01', 'name': 'Enter your order in the cash register system', 'incoming': ['Order\naccepted'], 'outgoing': ['Amount']}
+{'id': 'sid-CEC7CA8B-9F57-4E64-9F87-0309B1E60749', 'name': 'Amount', 'incoming': ['Order\naccepted'], 'outgoing': ['Set and hand out to guest']}
+{'id': 'sid-900E8243-90AA-428D-BE98-A30F375C4CF2', 'name': 'Set and hand out to guest', 'incoming': ['Order\naccepted'], 'outgoing': ['inform Koch about order']}
+{'id': 'sid-5D818C46-6F47-4748-944D-0E8C40F587CF', 'name': 'inform Koch about order', 'incoming': ['Order\naccepted'], 'outgoing': ['Food is ready']}
+{'id': 'sid-6A006942-5FD2-4A79-A085-6CA6F95719F9', 'name': 'Employee releases Pieper', 'incoming': ['Order\naccepted'], 'outgoing': ['Customer will appear']}
+{'id': 'sid-74B7443B-843D-4EC2-9214-EFED7976058B', 'name': 'Leave food', 'incoming': ['Order\naccepted'], 'outgoing': ['Order\nUnbound']}
+{'id': 'sid-3B4F17A2-2DF5-4D59-8A43-053AA60E3A75', 'name': 'Return food to the cook', 'incoming': ['EventBasedGateway4'], 'outgoing': ['sid-6A58D703-44BD-45DC-8BAC-C43D19EE15E9']}
+{'id': 'sid-1D3C6BF3-59BA-4D82-BB4C-E8A6B655C9FF', 'name': 'ideology', 'incoming': ['Food is ready'], 'outgoing': ['EventBasedGateway4']}
+{'id': 'sid-7E561BD7-37BE-442B-9918-6A0071FB075D', 'name': 'Preparation of a dish', 'incoming': ['Order for\nPreparation'], 'outgoing': ['make ready court into the empires']}
+{'id': 'sid-5017A0B3-CE51-410E-98B8-7FF0426EE19A', 'name': 'make ready court into the empires', 'incoming': ['Order for\nPreparation'], 'outgoing': ['Koch informed\nEmployees']}
+{'id': 'sid-F41BAD0D-28A6-4EEE-B3A6-3938F2665A1B', 'name': 'Koch informed\nEmployees', 'incoming': ['Order for\nPreparation'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-00C8C477-3088-4050-99F3-B92494C8E38E', 'name': 'Food is destroyed', 'incoming': ['Order for\nPreparation'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-1231C4BE-3DB4-4CAA-81A9-CD73C2653E9C', 'name': 'Three times?', 'incoming': ['5 minutes'], 'outgoing': ['Return food to the cook', 'ideology']}
+{'id': 'sid-B60628A1-DAC3-49F0-85CB-B98FD10F08DB', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Order\nUnbound']}
+{'id': 'sid-C95A50F1-F468-4681-96E3-0C6D00DC9FB5', 'name': 'Dinner picked up?', 'incoming': ['Order for\nPreparation'], 'outgoing': ['Food became\nreturned', 'Order completed']}
+{'id': 'sid-B1CB1D5B-B8A5-4C59-B434-A90FB0EE306D', 'name': 'ExclusiveGateway3', 'incoming': ['Food became\nreturned', 'Koch informed\nEmployees'], 'outgoing': ['Order completed']}
+{'id': 'sid-D1566295-0957-429B-8774-94C5390D2A15', 'name': 'EventBasedGateway4', 'incoming': ['Food is ready', '5 minutes'], 'outgoing': ['ExclusiveGateway1', 'Return food to the cook']}
+{'id': 'sid-71009758-3540-4504-B6FB-A13FF3D67A49', 'name': 'in the row', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Famine']}
+{'id': 'sid-A427F6B9-F8CE-40A4-96DF-631E614F9995', 'name': 'Food can\nretrieved', 'incoming': ['in the row'], 'outgoing': ['Famine']}
+{'id': 'sid-7EAB7016-DF00-4800-BF70-AE21A8B9C9AA', 'name': 'Customer will appear', 'incoming': ['Order\naccepted'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-A49D6F35-72B5-4FE5-A01E-133D6865ED34', 'name': '5 minutes', 'incoming': ['Food is ready'], 'outgoing': ['Three times?']}
+{'id': 'sid-6B5AB2C3-9C43-4AFF-9EAD-BB9C089BC988', 'name': 'Food is ready', 'incoming': ['Order\naccepted'], 'outgoing': ['ideology']}
+{'id': 'sid-CFF2ED79-DEA9-40E1-8577-EBF104CE927F', 'name': 'Food became\nreturned', 'incoming': ['Order for\nPreparation'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Payments']}
+{'id': 'sid-008268B6-BC4E-412F-B66F-4AE1345DE4DD', 'name': 'Order\naccepted', 'incoming': [], 'outgoing': ['Leave food']}
+{'id': 'sid-7B2BD742-10EA-4823-81BE-1BAC8F187152', 'name': 'Order for\nPreparation', 'incoming': [], 'outgoing': ['Food is destroyed']}
+
+End Events:
+{'id': 'sid-3D385D91-489D-410D-9044-F0FB639A768B', 'name': 'Famine', 'incoming': ['in the row'], 'outgoing': []}
+{'id': 'sid-493661B3-4524-4D17-B606-3DA53C6FD2F0', 'name': 'Order\nUnbound', 'incoming': ['Leave food'], 'outgoing': []}
+{'id': 'sid-374DEFB6-C796-4EF8-B561-9D2B809717EE', 'name': 'Order completed', 'incoming': ['Dinner picked up?'], 'outgoing': []}

@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-D9E56245-8185-449C-ABA3-377C2D1EDF84', 'name': 'Start scoring request', 'incoming': ['Scoring request'], 'outgoing': ['Results obtained']}
+{'id': 'sid-8624E39E-90D4-438D-A294-A177767B4733', 'name': 'Delay note', 'incoming': ['Scoring request'], 'outgoing': ['Scoring result obtained']}
+{'id': 'sid-E531CF38-CA54-4563-89C9-751F7AC035AA', 'name': 'Follow-up', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-A9290AE1-15F2-4235-A1E7-49095245B3A2', 'name': 'perform scoring level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Results obtained']}
+{'id': 'sid-6A4A5C28-91FE-468B-ACDA-F6D249A5FFD6', 'name': 'perform scoring level 2', 'incoming': ['Send delay notice'], 'outgoing': ['Send results from Scoringlevel2']}
+{'id': 'sid-51104D4F-AE79-48CC-9D28-ABA519B38C0F', 'name': 'Send results from Scoringlevel1', 'incoming': ['Results obtained'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-30B34695-8D0B-435E-9494-744044A7101E', 'name': 'Send results from Scoringlevel2', 'incoming': ['Send delay notice'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-2E3B3357-053E-4CB6-ABA2-0588FE3F19A6', 'name': 'Send delay notice', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-432CEBAF-2FBF-4506-9FC7-DAB10C3E6AE8', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'Scoring request'], 'outgoing': ['Follow-up']}
+{'id': 'sid-22C1107B-0447-43EA-82E9-E8B00DAC6128', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway3', 'Waiting period exceeded'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-8F22FDA1-F93E-4055-8D21-CFE54BD69FD1', 'name': 'EventBasedGateway2', 'incoming': ['Scoring request'], 'outgoing': ['Follow-up', 'Get delay message']}
+{'id': 'sid-7C71B730-718B-4B8E-8E59-924CD9FB44AD', 'name': 'EventBasedGateway3', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1', 'Waiting period exceeded']}
+{'id': 'sid-1996829B-971B-4B26-9433-A5A38FCD239D', 'name': 'Results obtained', 'incoming': ['Start scoring request'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-525A9D0C-2540-4935-A2FB-707B77850969', 'name': 'Get delay message', 'incoming': ['Scoring request'], 'outgoing': ['Delay note']}
+{'id': 'sid-FEF3ECA4-6239-44C9-872E-02B45F37BFD6', 'name': 'Scoring result obtained', 'incoming': ['Scoring request'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-86489407-132D-47EE-86EB-2F3BAAB35B6F', 'name': 'Results obtained', 'incoming': ['perform scoring level 1'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-308B9771-4F82-46C9-8E41-65E904DDD68E', 'name': 'Waiting period exceeded', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-E1484231-ED8B-4FA5-9F48-56FF22D4C918', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-6EEF27A2-734C-4A69-BCB8-B17C2D46B96C', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Send delay notice']}
+
+End Events:
+{'id': 'sid-604CB1D8-A6A2-4086-B6E6-4E18D246B42D', 'name': 'EndEvent0', 'incoming': ['Send results from Scoringlevel1'], 'outgoing': []}

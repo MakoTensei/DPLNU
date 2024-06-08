@@ -1,0 +1,9 @@
+ The process begins with the dispatch of goods, which triggers the 'Separation of the transit route' task. This task is responsible for separating the goods from the transit route and is connected to the 'ParallelGateway4'. Once the goods are separated, the 'Pick up quotes' task is initiated, which is linked to 'ParallelGateway4' as well. The task of 'Pick up quotes' aims to find the cheapest shipping quote for the large shipping quantity.
+
+After obtaining the cheapest quote, the 'Choose the cheapest offer' task is triggered, which is connected to the 'large Shipping Quantity' and leads to the 'Specialist' task. The 'Specialist' task is responsible for handling the large shipping quantity and is connected to 'ExclusiveGateway3'. Once the specialist has processed the large shipping quantity, the 'Filling the package note' task is initiated, which is also connected to 'ExclusiveGateway3'.
+
+Following the completion of the package note, the 'Provide merchandise for collection' task is triggered, which is connected to 'ParallelGateway5'. This task ensures that the goods are ready for shipping and collection.
+
+Throughout this process, the 'ExclusiveGateway0' gateway plays a crucial role in managing the insurance-related tasks. It receives the 'Insurance necessary?' inquiry and connects to 'ParallelGateway5' and 'ExclusiveGateway3'. This ensures that the insurance process is seamlessly integrated into the overall shipping and collection process.
+
+In summary, the process involves the dispatch of goods, separation of the transit route, obtaining the cheapest shipping quote, handling the large shipping quantity, filling the package note, and preparing the goods for shipping and collection. The 'ExclusiveGateway0' gateway ensures that the insurance process is efficiently managed throughout the entire process.

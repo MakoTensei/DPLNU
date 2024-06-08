@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-FB8C814A-6236-4807-8BA6-2F7DE48322FB', 'name': 'Scoring request', 'incoming': ['Schufa request received'], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-DBA7B403-1FB9-42DD-AF2B-E8EFF3C1AF59', 'name': 'Share result 1', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Question answered']}
+{'id': 'sid-2A637093-7830-438D-9234-29FA2BA4E5B8', 'name': 'Share result 2', 'incoming': ['Results 2'], 'outgoing': ['ExclusiveGateway0', 'ExclusiveGateway0']}
+{'id': 'sid-B75489BC-E108-4CCF-8678-041B6754AF96', 'name': 'forward delay', 'incoming': ['Schufa request received'], 'outgoing': ['Results 2']}
+{'id': 'sid-CDDDA576-C3E0-41CE-AED0-29227DBD9A0F', 'name': 'perform scoring 1', 'incoming': ['Scoring request received'], 'outgoing': ['Result OK?']}
+{'id': 'sid-A141072F-0ACA-48E7-B655-59F97A2FA866', 'name': 'Result 1', 'incoming': ['Scoring request received'], 'outgoing': ['Scoring request answered']}
+{'id': 'sid-8F8B4B4C-2113-4A2A-9479-9C6617400654', 'name': 'Share delay', 'incoming': ['Result OK?'], 'outgoing': ['perform scoring 2']}
+{'id': 'sid-361C20EC-8208-40BD-A092-366B4B11C307', 'name': 'perform scoring 2', 'incoming': ['Result OK?'], 'outgoing': ['Result 2']}
+{'id': 'sid-27254B83-7E5A-434B-8726-84C9824524AB', 'name': 'Result 2', 'incoming': ['Result OK?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-5FE52DFF-5D67-4B62-9C12-9B7F8AB304A7', 'name': 'ExclusiveGateway0', 'incoming': ['Feedback Schufa', 'Reporting', 'Share result 2'], 'outgoing': ['Question answered']}
+{'id': 'sid-449FDEA5-177E-494D-9CF6-8C6F1AEFA83E', 'name': 'Result OK?', 'incoming': ['Scoring request received'], 'outgoing': ['Scoring request answered', 'Result 2']}
+{'id': 'sid-649D1490-47C0-44BF-BC9C-5000041CBFFC', 'name': 'ExclusiveGateway2', 'incoming': ['Result 2', 'Scoring request received'], 'outgoing': ['Scoring request answered']}
+{'id': 'sid-28517F5E-532E-4761-BC48-CA1F5226EE19', 'name': 'Feedback Schufa', 'incoming': ['Schufa request received'], 'outgoing': ['Results 2', 'ExclusiveGateway0']}
+{'id': 'sid-D80420B9-1C84-4BBF-A889-83EC22CA0552', 'name': 'Results 2', 'incoming': ['Feedback Schufa'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-E8BA657C-4955-4172-910A-6A39A76ADC89', 'name': 'IntermediateCatchEvent5', 'incoming': ['Scoring request'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-04D12FD1-6C1A-4148-B7BE-C60DF95B9F81', 'name': 'Reporting', 'incoming': ['Schufa request received'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-5B00DF52-49FA-4BC1-B5A8-4ED71A3FF272', 'name': 'Schufa request received', 'incoming': [], 'outgoing': ['forward delay']}
+{'id': 'sid-540941B1-9D8E-4753-9FAD-A84239C1E7A8', 'name': 'Scoring request received', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-E47659A7-ED57-4116-9B66-AD54BA6138DC', 'name': 'Question answered', 'incoming': ['Share result 1'], 'outgoing': []}
+{'id': 'sid-679C500A-9754-499A-B22F-27B4BB663AE9', 'name': 'Scoring request answered', 'incoming': ['Result OK?'], 'outgoing': []}

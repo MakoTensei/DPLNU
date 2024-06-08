@@ -1,0 +1,9 @@
+ In the realm of scoring and data processing, a series of tasks and gateways work in harmony to ensure the seamless flow of information. Let's dive into the intricate dance of these tasks and gateways, starting with the initiation of a Schufascoring request and culminating in the availability of the Schufa score.
+
+The journey begins with the 'Request Schufascoring' event, which triggers the 'Send scoring inquiry to Schufa' task. This task, identified by'sid-55823C41-7AA-4960-B6F8-E94102BBA502', initiates a communication with Schufa, seeking their scoring service. As a result of this task, the 'Schufascore immediately determined' event is set in motion, leading to the 'Schufascore available' event.
+
+Simultaneously, the 'Scoring request' event, marked by'sid-F8F67AD8-B20B-4A60-B377-FA7D4D306B90', sets off the 'Send a scoring inquiry to Schufa' task. This task, identified by'sid-8E7CC699-6E9F-4891-8797-1BC686729D94', sends a message to Schufa, requesting their scoring service. The task's completion results in the 'Schufascore delays' event, which then triggers the 'ExclusiveGateway0' event.
+
+The 'ExclusiveGateway0' event, identified by'sid-F82CA990-E974-4791-8317-695E3DE538DC', acts as a decision point for the incoming 'Schufascore delays' event. It directs the flow to the 'Schufascore available' event, which is the endpoint for the 'Schufascore immediately determined' task.
+
+Meanwhile, the 'EventBasedGateway3' event, marked by'sid-17AE6C40-CD

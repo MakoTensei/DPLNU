@@ -1,0 +1,13 @@
+ In a system where various tasks and events are interconnected, the following scenario unfolds:
+
+When a 'Regress possible' event occurs, it triggers the 'ExclusiveGateway0' which then directs the flow to either'sid-524626EF-D8A9-4F34-9086-C3D05B39B7A1' or'sid-8D40B7A3-27C8-4838-81F8-22C9143A46B2'. If the task is to 'Check the case', it proceeds to 'EndEvent0'. If the task is to 'Book money receipt', it goes to 'EndEvent0' as well.
+
+The 'EventBasedGateway4' receives tasks like 'Check the receipt of funds' and 'Editing objection'. It then sends them to 'EndEvent1' and 'EndEvent2' respectively.
+
+The 'ExclusiveGateway1' receives tasks like 'Check the case' and 'Check the receipt of funds'. It sends 'Check the case' to 'EndEvent0' and 'Check the receipt of funds' to 'EndEvent1'.
+
+The 'ExclusiveGateway3' receives tasks like 'Proceedings' and 'Denial of payment'. It sends 'Proceedings' to 'EndEvent2' and 'Denial of payment' to 'EndEvent1'.
+
+The 'IntermediateCatchEvent5', 'IntermediateCatchEvent6', and 'IntermediateCatchEvent7' are all connected to 'EventBasedGateway4' and send their tasks to 'EndEvent1' and 'EndEvent2' respectively.
+
+In summary, the system handles various tasks and events, directing them to the appropriate gateways and end events based on their incoming and outgoing connections.

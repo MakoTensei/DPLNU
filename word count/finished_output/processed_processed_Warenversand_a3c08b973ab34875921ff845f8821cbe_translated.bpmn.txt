@@ -1,0 +1,7 @@
+ In the process of handling shipping offers, the system begins with the 'StartEvent0' which triggers the 'Pick up shipping offers' task, leading to the creation of a 'Special offer' and the initiation of a 'ParallelGateway4'. This gateway receives 'Quantities?' input and connects to 'ExclusiveGateway2'. Concurrently, the 'Packaging goods' task is activated through 'ParallelGateway3', which also receives 'StartEvent0' input.
+
+The 'Filling the package note' task, which requires 'Quantities?' input, connects to 'ExclusiveGateway2'. Meanwhile, the 'Choose the cheapest offer' task, triggered by 'StartEvent0', waits for the 'ParallelGateway4' to process the cheapest offer.
+
+The 'Create a quote' task, which requires 'Quantities?' input, is linked to 'ParallelGateway4'. The 'Insurance close' task, prompted by 'Is insurance necessary?', also connects to 'ExclusiveGateway2'.
+
+Finally, the 'Special offer' creation task, triggered by 'Pick up shipping offers', connects to 'ParallelGateway4'. The 'ParallelGateway4' serves as a critical hub, receiving inputs from 'Special offer\nCreating', 'ParallelGateway3', 'Quantities?\n', and 'StartEvent0', and directing them to the appropriate tasks.

@@ -1,0 +1,13 @@
+ The process begins with the 'Goods for shipping' event, which triggers the 'Filling the package note' task. This task is connected to the 'ParallelGateway3', which in turn leads to the 'Provide goods for collection' task. The 'Provide goods for collection' task is linked to the 'ParallelGateway2', resulting in the 'Goods ready for collection' event.
+
+Simultaneously, the 'Goods for shipping' event also initiates the 'Determine delivery quantity' task, which is connected to 'ParallelGateway3'. This task leads to the 'ParallelGateway5', where the 'Offer 2' task is triggered. The 'Offer 2' task is connected to 'ParallelGateway5', which then leads to the 'Select best offer' task. The 'Select best offer' task is connected to 'ParallelGateway2', resulting in the 'Goods ready for collection' event.
+
+Meanwhile, the 'Filling the package note' task is also connected to 'ParallelGateway2', which leads to the 'Insurance close' task. The 'Insurance close' task is connected to 'ParallelGateway2', resulting in the 'Goods ready for collection' event.
+
+Lastly, the 'Goods ready for collection' event is connected to 'ParallelGateway2', which leads to the 'Offer 1' task. The 'Offer 1' task is connected to 'ParallelGateway5', which then leads to the 'Select best offer' task. The 'Select best offer' task is connected to 'ParallelGateway2', resulting in the 'Goods ready for collection' event.
+
+In summary, the process involves the following sequence of tasks and gateways:
+
+1. 'Goods for shipping' event triggers 'Filling the package note' task (connected to 'ParallelGateway3')
+2. 'Filling the package note' task leads to 'Provide goods for collection' task (connected to 'ParallelGateway2')
+3. 'Determine delivery quantity' task (connected to 'ParallelGateway3') leads to 'Offer 2' task (connected

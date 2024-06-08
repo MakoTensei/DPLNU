@@ -1,0 +1,9 @@
+ The process begins with a 'Possible regression' event, which triggers the 'Send payment request' task. This task has an incoming trigger of 'Possible regression' and an outgoing trigger of 'Reimbursement'. The 'Reimbursement' task then connects to 'IntermediateCatchEvent6', which in turn leads to 'EndEvent1'.
+
+Simultaneously, 'EventBasedGateway5' is triggered by the 'Possible regression' event. This gateway has incoming triggers of 'Possibility?' and 'EventBasedGateway5'. It connects to 'ExclusiveGateway4', which has incoming triggers of 'Proceedings' and 'IntermediateCatchEvent8'. The 'ExclusiveGateway4' then leads to 'Debt collection', which is the final task in this process.
+
+Meanwhile, 'IntermediateCatchEvent8' is triggered by 'EventBasedGateway5' and connects to 'ExclusiveGateway4' and 'EndEvent1'. 'EndEvent1' is triggered by 'IntermediateCatchEvent6' and has no outgoing triggers.
+
+Lastly, 'EventBasedGateway5' also connects to 'Process', which is triggered by 'IntermediateCatchEvent7'. This task has incoming triggers of 'Possibility?' and 'IntermediateCatchEvent7', and no outgoing triggers.
+
+In summary, the process starts with a 'Possible regression' event, leading to 'Send payment request' and 'Reimbursement'. 'Reimbursement' connects to 'IntermediateCatchEvent6', which leads to 'EndEvent1'. Simultaneously, 'EventBasedGateway5' connects to 'ExclusiveGateway4' and 'Debt collection', and 'IntermediateCatchEvent8' connects to 'ExclusiveGateway4' and 'EndEvent1'. 'EventBasedGateway5' also connects to 'Process', which has incoming triggers of 'Possibility?' and 'IntermediateCatchEvent7'. The process concludes with 'Process' and 'EndEvent1'.

@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-E6F835FE-C8C6-4BD3-B770-2DE37C85A43D', 'name': 'V\nagainst', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Proceedings']}
+{'id': 'sid-1F8DFB3C-9AC9-4A35-BDC2-B62764CB63AF', 'name': 'Check the case', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-F37A597D-1B00-4A99-A84D-B984E4C5683E', 'name': 'Reimbursement', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-0DB6A133-8AA3-48A6-8E65-D5CC06D72063', 'name': 'Book incoming payment', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F4078501-7F85-4DA6-9447-F0F7F846347B', 'name': 'Proceedings', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-91D61998-B6D5-4E51-84F8-8303436C0FD5', 'name': 'forward to the debt collection institution', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-1CE26FDE-DAB9-4757-B349-9ECA6A4E2B69', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent1', 'EndEvent0']}
+{'id': 'sid-468A46FE-440F-4100-9463-E232F3BEDEC6', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway4', 'EndEvent3']}
+{'id': 'sid-5E2CF4BE-C9BB-43C8-AA16-BB530325DFA2', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent1', 'EndEvent2']}
+{'id': 'sid-4EED0AC7-C928-47C5-8D4E-3CFBB75FA2AE', 'name': 'ParallelGateway3', 'incoming': ['Check the case'], 'outgoing': ['ParallelGateway4', 'forward to the debt collection institution']}
+{'id': 'sid-EC8C206B-3430-4F17-B0D6-EDD8A400CBE4', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway3', 'ExclusiveGateway1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-5E80E4C4-1FA6-4CBC-BA20-8BA1006647C3', 'name': 'IntermediateCatchEvent5', 'incoming': ['StartEvent0'], 'outgoing': ['Book incoming payment']}
+
+Start Events:
+{'id': 'sid-37D968C8-9C7D-4BC9-BD55-27431069F91E', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Book incoming payment']}
+
+End Events:
+{'id': 'sid-4C64548E-F74F-4B27-BF29-5B1479378A14', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-2D968EDD-E7C0-452B-BC89-513472D3A418', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-B9602747-BDE7-482D-98C3-0BE3C772EC11', 'name': 'EndEvent2', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}
+{'id': 'sid-55B95601-B146-4106-A58F-D4FAE4B6FAD6', 'name': 'EndEvent3', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}

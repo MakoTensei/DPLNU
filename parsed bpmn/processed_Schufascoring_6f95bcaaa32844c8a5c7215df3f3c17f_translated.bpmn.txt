@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-58A945FE-711A-4A9C-8AA2-B3396B136D44', 'name': 'Send scoring inquiry to Schufa', 'incoming': ['Get Schufa request'], 'outgoing': ['Scoring']}
+{'id': 'sid-A1592164-CBF8-44DB-BFF3-AF8B20E8BC82', 'name': 'forward scoring results', 'incoming': ['Scoring'], 'outgoing': ['Scoring request completed']}
+{'id': 'sid-531BA0F0-1651-4B68-8F20-3C05691465AE', 'name': 'forward deceleration report', 'incoming': ['Get Schufa request'], 'outgoing': []}
+{'id': 'sid-0371558C-0F61-46AE-ACF8-99FBFB85B267', 'name': 'perform scoring level 1', 'incoming': ['Get Schufa request'], 'outgoing': ['Delay?']}
+{'id': 'sid-E9C30997-FB54-4542-A9F3-61A7B3E846AF', 'name': 'Make feedback to the bank', 'incoming': ['Get Schufa request'], 'outgoing': []}
+{'id': 'sid-651ECEAB-CC2E-4443-BE0A-376F8ACE6D56', 'name': 'Send delay message to the bank', 'incoming': ['Delay?'], 'outgoing': ['perform scoring level 2']}
+{'id': 'sid-49A49040-C9F2-4633-B255-7E3148311726', 'name': 'perform scoring level 2', 'incoming': ['Delay?'], 'outgoing': ['Task7']}
+{'id': 'sid-61F195A6-7BE9-489E-B70D-E3E055E178EA', 'name': 'Task7', 'incoming': ['Delay?'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-04D0A750-64FB-4706-BB9D-434A455E57D3', 'name': 'Delay?', 'incoming': ['Get Schufa request'], 'outgoing': ['Make feedback to the bank', 'Task7']}
+{'id': 'sid-631A8A4F-98AF-433A-8108-D672E6422F70', 'name': 'EventBasedGateway1', 'incoming': ['Get Schufa request'], 'outgoing': ['Scoring request completed', 'Delay detected']}
+{'id': 'sid-312833BE-113C-41E4-8525-D66B68193451', 'name': 'Scoring', 'incoming': ['Send scoring inquiry to Schufa'], 'outgoing': ['Scoring request completed']}
+{'id': 'sid-964C2617-188C-4DAE-80F5-751E8C763755', 'name': 'Delay detected', 'incoming': ['Get Schufa request'], 'outgoing': ['forward deceleration report']}
+
+Start Events:
+{'id': 'sid-F8B2CE0F-55DA-455C-8CAD-BC6EEB073F90', 'name': 'Get Schufa request', 'incoming': [], 'outgoing': ['forward deceleration report']}
+{'id': 'sid-8D0E7A13-3427-4170-9EB1-8DB610868830', 'name': 'Get Schufa request', 'incoming': [], 'outgoing': ['Make feedback to the bank']}
+
+End Events:
+{'id': 'sid-5CCEB2F4-A74F-4E33-9550-F159B233495E', 'name': 'Scoring request completed', 'incoming': ['EventBasedGateway1'], 'outgoing': []}

@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-CAED3731-C139-4907-ADA5-863C3F13958B', 'name': 'Request Schufaservice\n', 'incoming': ['Schufascoring\nRequest\nReport'], 'outgoing': ['Sufascoring']}
+{'id': 'sid-B7FCA894-439F-4002-ACE0-C7EE38BC9A11', 'name': 'Return Schufascoring\n', 'incoming': ['Sufascoring'], 'outgoing': ['Request completed']}
+{'id': 'sid-1CBDD5C2-715B-4E8E-851C-91D9E81C6035', 'name': 'Share delay\n', 'incoming': ['Schufascoring\nRequest\nReport'], 'outgoing': ['Sufascoring']}
+{'id': 'sid-6AE2D5A2-C875-4213-9BCB-1E5EEC6E2A9E', 'name': 'Determining schufascoring\n(level 1)', 'incoming': ['Schufascoring\nRequest\nReport'], 'outgoing': ['Schufascoring determined?\n']}
+{'id': 'sid-6E1CE17E-ABDF-471D-BDFD-E15F5C7372D9', 'name': 'Determining schufascoring (level 2)', 'incoming': ['Share delay'], 'outgoing': ['Transfer Level 2 scoring']}
+{'id': 'sid-35C2B2E5-9945-4B49-9224-6147D74A6EA5', 'name': 'Transfer Level 1-Scoring', 'incoming': ['Schufascoring\nRequest\nReport'], 'outgoing': ['Request completed']}
+{'id': 'sid-B8CC366B-B97A-4B16-96D6-CF0BEBA25D1E', 'name': 'Share delay', 'incoming': ['Schufascoring determined?\n'], 'outgoing': ['Transfer Level 2 scoring']}
+{'id': 'sid-43A39060-FB02-4887-8235-383ABCC2F1DB', 'name': 'Transfer Level 2 scoring', 'incoming': ['Schufascoring determined?\n'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-98302498-94F7-4FE8-B181-B0B9BA756BAC', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'No scoring'], 'outgoing': ['Request completed']}
+{'id': 'sid-4D723F97-BFCD-43AE-A046-AE7BA10A4402', 'name': 'Schufascoring determined?\n', 'incoming': ['Schufascoring\nRequest\nReport'], 'outgoing': ['Request completed', 'Transfer Level 2 scoring']}
+{'id': 'sid-970C3F0E-4B85-4D61-A37C-44534AD3010E', 'name': 'ExclusiveGateway2', 'incoming': ['Transfer Level 2 scoring', 'Schufascoring\nRequest\nReport'], 'outgoing': ['Request completed']}
+{'id': 'sid-E3705E76-1E47-40C9-A4A6-626284BCFA58', 'name': 'EventBasedGateway3', 'incoming': ['Schufascoring\nRequest\nReport'], 'outgoing': ['Sufascoring', 'Request completed']}
+{'id': 'sid-2235E836-0EFD-479D-9F10-B00E2D8A7A8B', 'name': 'Sufascoring', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Return Schufascoring\n']}
+{'id': 'sid-B7F3EC94-2889-45D7-9F2A-A7FDC866EC46', 'name': 'Sufascoring', 'incoming': ['Request Schufaservice\n'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-745C1B82-ABCA-40CC-A2C9-C2C0BA6156EA', 'name': 'No scoring', 'incoming': ['Schufascoring\nRequest\nReport'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-439EA285-0B32-43AE-AB0A-4999915F5395', 'name': 'Schufascoring\nRequest\nReport', 'incoming': [], 'outgoing': ['Share delay\n']}
+{'id': 'sid-EF7F2727-533E-4F4A-83E6-31AE5E233C63', 'name': 'Schufascoring\nRequest\nReport', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-5C4F54D6-CDA5-4B69-B49E-2E51A0B2CA0E', 'name': 'Request completed', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-1CE3EBE0-8FD3-403B-A6FD-1369FAABEA47', 'name': 'Request completed', 'incoming': ['Schufascoring determined?\n'], 'outgoing': []}

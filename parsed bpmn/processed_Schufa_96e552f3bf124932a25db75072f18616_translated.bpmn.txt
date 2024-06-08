@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-C6AEB601-F929-4D67-8173-DFE44B997AE5', 'name': 'Send scoring inquiry to Schufa', 'incoming': ['Schufascoring requested'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-A2C0B687-A0F6-4961-99E9-ACCC83EF4FC4', 'name': 'forwarding result to credit award Frontend', 'incoming': ['Schufascoring requested'], 'outgoing': ['Request edited']}
+{'id': 'sid-151ED6CA-D473-4B79-9829-1F3E83B65137', 'name': 'Report delay', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-2655371A-7546-4ABA-A110-044F86447AD8', 'name': 'Determining scoring (level 1)', 'incoming': ['Schufascoring request has been received'], 'outgoing': ['Value determined?']}
+{'id': 'sid-20FDB34F-26FF-4719-A961-C83966B6D6F8', 'name': 'Send a reply', 'incoming': ['Schufascoring request has been received'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-3B4A1A15-0A02-4BD7-908C-43422EC6A610', 'name': 'Report delay', 'incoming': ['Value determined?'], 'outgoing': ['Determining scoring (level 2)']}
+{'id': 'sid-1E4A0413-F5BD-4432-A717-25D1D9B7FDEA', 'name': 'Determining scoring (level 2)', 'incoming': ['Value determined?'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-0024ED42-E189-4D29-A6FC-2DC6C9245D55', 'name': 'Value determined?', 'incoming': ['Schufascoring request has been received', 'Value determined?'], 'outgoing': ['EndEvent1', 'Value determined?']}
+{'id': 'sid-E29F4EB1-106A-4C88-A52B-9522D24B24D0', 'name': 'Results obtained', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Request edited']}
+{'id': 'sid-3C2D7B08-2A6D-4084-9458-137326D356EF', 'name': 'Get information about delay', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Report delay']}
+{'id': 'sid-93EDA3D5-458A-4B87-8D53-4D0569BC6E6E', 'name': 'IntermediateCatchEvent3', 'incoming': ['Schufascoring requested', 'IntermediateCatchEvent3'], 'outgoing': ['forwarding result to credit award Frontend', 'Request edited']}
+
+Start Events:
+{'id': 'sid-568D7604-C1FA-4167-9881-664B0C9648F9', 'name': 'Schufascoring requested', 'incoming': [], 'outgoing': ['forwarding result to credit award Frontend']}
+{'id': 'sid-A143A352-5A1C-4443-B87B-42B914321450', 'name': 'Schufascoring request has been received', 'incoming': [], 'outgoing': ['Send a reply']}
+
+End Events:
+{'id': 'sid-B27613C1-0A49-4666-8169-584AEBB55FE5', 'name': 'Request edited', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': []}
+{'id': 'sid-4A51818F-1CB6-4A2C-8C29-F6686E2C8427', 'name': 'EndEvent1', 'incoming': ['Determining scoring (level 2)'], 'outgoing': []}

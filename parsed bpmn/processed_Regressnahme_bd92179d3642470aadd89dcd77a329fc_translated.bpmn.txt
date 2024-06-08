@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-5200F67B-6F1E-45A5-98DE-63985BD63DBE', 'name': 'Check the case', 'incoming': ['Regression possibility\nReport'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-7F14FE6F-EEEA-4A81-A84E-F9ABE7ED8AC8', 'name': 'Close', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-3C588FCC-C540-4317-8AF2-979A9E4F32CC', 'name': 'Send payment request', 'incoming': ['Regression possibility\nReport'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-5F46A3D4-35A1-4623-A88F-7510E3EAF6D8', 'name': 'Proceedings', 'incoming': ['Opposition\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-488445C8-9A7A-4F6E-8A12-3FB9F4883867', 'name': 'Book money receipt', 'incoming': ['Money\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-51DF1A8F-8C38-478B-BA76-5C7502775DED', 'name': 'donate to collection service providers', 'incoming': ['EventBasedGateway5'], 'outgoing': ['Process\ndelivered']}
+{'id': 'sid-3FCA7D7D-1863-4A57-B6E7-ED3790FD4142', 'name': 'Set process for resubmission', 'incoming': ['Regression\npossible?'], 'outgoing': ['Opposition\nReport']}
+
+Gateways:
+{'id': 'sid-CA768F25-A357-4D26-813F-5B42DE8F5C40', 'name': 'Regression\npossible?', 'incoming': ['Regression possibility\nReport'], 'outgoing': ['Process\ncompleted', 'Set process for resubmission']}
+{'id': 'sid-5D6F35C7-C472-4042-A049-9A470E3BE066', 'name': 'Denial of payment\njustified?', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway4']}
+{'id': 'sid-0BB16A93-15BC-41B1-98DE-6CEB4FFCB384', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway5', 'Proceedings'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-246899A4-23A7-4BC7-BDAA-0000A7C1D4D2', 'name': 'ExclusiveGateway3', 'incoming': ['Check the case', 'Opposition\nReport'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-64FBEE1E-213E-4B02-B1B3-7B55CC07D3E0', 'name': 'ExclusiveGateway4', 'incoming': ['EventBasedGateway5', 'EventBasedGateway5'], 'outgoing': ['Process\ndelivered']}
+{'id': 'sid-31B62100-83C9-4566-918C-2546B96D0C2F', 'name': 'EventBasedGateway5', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway2', 'donate to collection service providers', 'Process\ndelivered']}
+{'id': 'sid-4F0C3D5C-D900-4EA9-BEA6-A5D83FDAFA6C', 'name': 'Opposition\nReport', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-53AE6226-4970-49F6-BC6B-7C285C24C5A1', 'name': 'Money\nReport', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-5446226A-692E-4F1B-B50C-0218C5ECAA70', 'name': 'Default period\nExpired', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway4']}
+
+Start Events:
+{'id': 'sid-511B21E5-4180-451C-9469-D01866B9FD12', 'name': 'Regression possibility\nReport', 'incoming': [], 'outgoing': ['Send payment request']}
+
+End Events:
+{'id': 'sid-B3001BA6-B0A0-4A78-B5CE-81EDC1AD22F7', 'name': 'Process\ncompleted', 'incoming': ['Regression\npossible?'], 'outgoing': []}
+{'id': 'sid-E85D4F73-2BF1-44B6-B56F-26685E3B4D72', 'name': 'Process\ndelivered', 'incoming': ['EventBasedGateway5'], 'outgoing': []}

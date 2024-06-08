@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-0F5171D7-170C-4969-A800-395E1ACCE1E8', 'name': 'Start communication with Schufa', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-B9A0EEF8-28D7-4A38-901C-F7C399895545', 'name': 'Share Results Level 1', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-56F87039-02D3-4214-B48D-DF434A3ED864', 'name': 'forward delay', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-11FA4B34-4F25-49E4-8D56-66FCE1F049B7', 'name': 'Share Results Level 2', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-F78D67C8-8E70-4F25-A872-4F565661A373', 'name': 'forward delay', 'incoming': ['IntermediateCatchEvent7'], 'outgoing': ['Scoring Level 2 is fixed']}
+{'id': 'sid-3E7D9001-F05A-4E61-BE0D-EF4C030770B9', 'name': 'Scoring Level 2 is fixed', 'incoming': ['IntermediateCatchEvent7'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-F31C6B96-3161-48D9-9F28-25A2CEE7A3F9', 'name': 'perform scoring level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Is the result already fixed?']}
+{'id': 'sid-29CEEEB8-F04A-4952-9254-DDD5534B768F', 'name': 'Result can be transmitted immediately', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent4']}
+{'id': 'sid-B5741C6C-01C5-4FB8-ACBE-E733E191D0D2', 'name': 'Report delay', 'incoming': ['Is the result already fixed?'], 'outgoing': ['perform scoring level 2']}
+{'id': 'sid-6CC792DC-CAA7-4A48-9258-CF44940563A9', 'name': 'perform scoring level 2', 'incoming': ['Is the result already fixed?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-E1916869-7B14-46E7-9ACC-DCECB4FD7EBD', 'name': 'Result can be transmitted immediately', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent5']}
+{'id': 'sid-ACF52E8D-A271-43BA-9708-2E7EFCB0EB0C', 'name': 'Report delay', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Result Scoring 2 is fixed']}
+{'id': 'sid-089A911E-86AE-467B-8EBF-6F44E7FD61B3', 'name': 'Result Scoring 2 is fixed', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-992E663B-D6A6-4356-A830-4101B8C7BBD6', 'name': 'Is the result already fixed?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent4', 'EndEvent5']}
+{'id': 'sid-0DCD7FC9-21AC-4DDA-85C9-C247E58E40F2', 'name': 'ExclusiveGateway1', 'incoming': ['Is the result already fixed?'], 'outgoing': ['EndEvent5', 'EndEvent3']}
+{'id': 'sid-3F336945-6F44-45BA-AC90-E8DB8995D07F', 'name': 'EventBasedGateway2', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-B8A18779-7ECE-4879-9D51-CF81FEE63401', 'name': 'EventBasedGateway3', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent2', 'EndEvent1']}
+{'id': 'sid-EBDC14BE-E93B-4142-BC95-B4E66ABFE454', 'name': 'IntermediateCatchEvent4', 'incoming': ['Start communication with Schufa'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9F70F2F1-24A5-4E63-BBE8-B93A5741130F', 'name': 'IntermediateCatchEvent5', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-BF8F5206-3A46-47F7-80FF-464113AFF012', 'name': 'IntermediateCatchEvent6', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent7']}
+{'id': 'sid-AAF95C58-6683-473B-A8E9-C204532FCC40', 'name': 'IntermediateCatchEvent7', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': ['EndEvent2']}
+
+Start Events:
+{'id': 'sid-29206EBE-F4C5-418B-BCFC-7CE13A3229BD', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Share Results Level 2']}
+{'id': 'sid-2881C3B9-BEEB-4C2F-9A89-F2DF511A69BE', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Result can be transmitted immediately']}
+
+End Events:
+{'id': 'sid-150109A2-9917-429D-8756-F7525040F466', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-F19A9907-689F-408D-A487-EFA4D801EBB6', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-42624A85-E8CB-489A-A112-AE103868CD56', 'name': 'EndEvent2', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-18B19D78-2336-457F-824E-2E50B591C565', 'name': 'EndEvent3', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}
+{'id': 'sid-870CB7BF-4BC3-475B-AF3F-B9410B4A6237', 'name': 'EndEvent4', 'incoming': ['Is the result already fixed?'], 'outgoing': []}
+{'id': 'sid-359D508D-2E08-4E38-B8CC-E93AC99AB02C', 'name': 'EndEvent5', 'incoming': ['Is the result already fixed?'], 'outgoing': []}

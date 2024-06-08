@@ -1,0 +1,21 @@
+ In the process of handling goods, various tasks and gateways are involved to ensure a smooth flow of operations. Let's break down the tasks and their corresponding gateways:
+
+1. **Select offers**: When goods are sent, the task 'Select offers' is triggered. This task is connected to the 'StartEvent1' and has an outgoing connection to 'Create a quote'.
+
+2. **Create a quote**: This task is initiated by 'StartEvent1' and has no incoming connections.
+
+3. **Pick up offers**: After selecting offers, the task 'Pick up offers' is activated. It has an incoming connection from 'Select offers' and an outgoing connection to 'Specialist'.
+
+4. **Specialist**: The 'Specialist' task is triggered by 'Pick up offers' and has an incoming connection from 'IntermediateCatchEvent5'. It also has an outgoing connection to 'ExclusiveGateway2'.
+
+5. **Filling the package note**: When goods are sent, the task 'Filling the package note' is initiated. It has an incoming connection from 'ExclusiveGateway0' and an outgoing connection to 'ExclusiveGateway2'.
+
+6. **ParallelGateway3**: This gateway receives goods sent and has an outgoing connection to 'Pick up offers' and 'ParallelGateway4'.
+
+7. **Pick up goods**: The task 'Pick up goods' is triggered by 'IntermediateCatchEvent7' and has an outgoing connection to 'EndEvent1'.
+
+8. **Complete insurance**: When goods are dispatched for collection, the task 'Complete insurance' is activated. It has an incoming connection from 'ParallelGateway4' and an outgoing connection to 'ExclusiveGateway2'.
+
+9. **Packaging goods**: After dispatching goods, the task 'Packaging goods' is initiated. It has an incoming connection from 'ParallelGateway4' and an outgoing connection to 'ParallelGateway4'.
+
+10. **Provide goods for dispatch for collection**: This task is triggered by 'IntermediateCatchEvent6' and has an incoming connection from '

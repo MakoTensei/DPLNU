@@ -1,0 +1,9 @@
+ The process begins with the event 'Powerful regression reported to VN', which triggers the 'Regress possible?' gateway. This gateway has two outgoing paths:'sid-142AB7D6-1636-47CC-87FC-28BE2499257C' and 'ExclusiveGateway1'. The 'ExclusiveGateway1' then leads to the 'Close' task if the 'Opposition justified?' event occurs, which is triggered by the 'Objection of VN Report'. This event also has a path to 'Opposition justified?' gateway. If the 'Opposition justified?' event is triggered, it leads to the 'Close' task.
+
+Simultaneously, the 'Regress possible?' gateway also leads to the 'Proceedings' task if the 'Objection of VN Report' event occurs. The 'Proceedings' task then leads to the 'Opposition justified?' event.
+
+The 'EventBasedGateway3' is triggered by the 'Regress possible?' gateway and leads to the 'Close' task if the 'Opposition justified?' event occurs. It also leads to the 'Reimbursement period expired' task.
+
+The 'Reimbursement period expired' task, triggered by 'EventBasedGateway3', leads to the'sid-1A43F28B-453B-4D24-935F-27D4DF58459E' task.
+
+Finally, the 'Case completed' task is triggered by 'EventBasedGateway3' and leads to the end of the process.

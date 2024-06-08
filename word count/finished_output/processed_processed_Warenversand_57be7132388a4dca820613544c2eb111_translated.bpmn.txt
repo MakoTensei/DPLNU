@@ -1,0 +1,11 @@
+ The process begins with the 'Goods ready for dispatch' event, which triggers the 'Insurance of goods required?' gateway. This gateway has two outgoing paths: 'ExclusiveGateway3' and 'ExclusiveGateway4'. The 'ExclusiveGateway3' leads to 'ExclusiveGateway2' and then to 'EndEvent0', while 'ExclusiveGateway4' leads to 'ParallelGateway7'.
+
+The 'ExclusiveGateway2' gateway has two incoming paths: 'Type of transport' and 'ExclusiveGateway1'. The 'Type of transport' path leads to 'EndEvent0', and 'ExclusiveGateway1' leads back to 'ExclusiveGateway3'.
+
+The 'ExclusiveGateway3' gateway has three incoming paths: 'ExclusiveGateway1', 'Type of transport', and 'Standar\nfill disassembled parcel certificate\n'. The 'Type of transport' path leads to 'EndEvent0', and 'Standar\nfill disassembled parcel certificate\n' leads to 'Packaging goods'.
+
+The 'Packaging goods' event has one incoming path: 'ParallelGateway6'. This gateway has two outgoing paths: 'ParallelGateway7' and 'ExclusiveGateway4'. The 'ParallelGateway7' leads to 'EndEvent0', and 'ExclusiveGateway4' leads to 'ParallelGateway7'.
+
+The 'EndEvent0' event has two incoming paths: 'Type of transport' and 'Standar\nfill disassembled parcel certificate\n'. The 'Type of transport' path leads to 'EndEvent0', and 'Standar\nfill disassembled parcel certificate\n' leads to 'ParallelGateway7'.
+
+In summary, the process starts with 'Goods ready for dispatch', which can either go through 'Insurance of goods required?' to 'EndEvent0' or 'ExclusiveGateway4' to 'ParallelGateway7'. The 'ParallelGateway7' then leads to 'EndEvent0', completing the process.

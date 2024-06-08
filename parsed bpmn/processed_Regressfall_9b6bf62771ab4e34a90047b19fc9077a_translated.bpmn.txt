@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-656A9FF0-F9E5-44BF-A65C-DFDF9C615434', 'name': 'Check the case', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-AC67909E-97ED-4C17-AC03-FE2BD5E31CBF', 'name': 'Payment\non request', 'incoming': ['StartEvent0'], 'outgoing': ['Reimbursement 14 days']}
+{'id': 'sid-B7217BFC-0AFD-44EF-9E55-F6BF5663CCF9', 'name': 'Check the receipt of funds', 'incoming': ['Reimbursement 14 days'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-B6E2165B-C901-49FB-A787-B9D84C2A7368', 'name': 'Book money receipt', 'incoming': ['Reimbursement 14 days'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-28DBB289-093E-493B-8C1F-1E801ADAE07A', 'name': 'Proceedings', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-B9923F52-864D-4112-A70F-FFFD98909DD9', 'name': 'Disclosure of debt collection', 'incoming': ['ExclusiveGateway1', 'VN sends claim'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-399935B4-1AB9-43A7-9C00-D20B1391BF47', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-FC0C1BEA-B7BD-499B-96BD-2F932A59B76E', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['EndEvent0', 'Disclosure of debt collection']}
+{'id': 'sid-7E5B9CEF-F7B7-471E-BA2B-90112F2A41A6', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent2', 'Disclosure of debt collection']}
+{'id': 'sid-6774B4BA-5F6D-4E7F-B816-6E28D0136D7F', 'name': 'EventBasedGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['Reimbursement 14 days', 'ExclusiveGateway2']}
+{'id': 'sid-EBCFFA4B-3CB6-4D6E-96FC-F08FAD508CF1', 'name': 'Reimbursement 14 days', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Book money receipt']}
+{'id': 'sid-F2FA6DF9-AB24-4CF5-9886-E535D741392B', 'name': 'VN sends claim', 'incoming': ['StartEvent0'], 'outgoing': ['Disclosure of debt collection']}
+
+Start Events:
+{'id': 'sid-96A100F8-3100-4CFC-90DA-2C01B91DD0EB', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Proceedings']}
+
+End Events:
+{'id': 'sid-630E1F67-E286-466F-9F3F-71B452800FE9', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-3DDE776E-014A-457F-B6FF-25F22CEBFC34', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-431A9290-9B1C-4C0B-9DBA-15664556F034', 'name': 'EndEvent2', 'incoming': ['Proceedings'], 'outgoing': []}

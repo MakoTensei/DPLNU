@@ -1,0 +1,7 @@
+ The process begins with the 'StartEvent0' initiating the 'Start Schufa request' task, which is currently in the 'Result not final' state. This task then triggers the 'Creating Schufa results' task, which is also in the 'Result not final' state. Simultaneously, the 'StartEvent0' also triggers the 'Notify Bank' task, which is in the 'Scoring Leve 2' state.
+
+The 'Scoring Leve 2' task, upon completion, sends the 'Final result?' to the 'ExclusiveGateway1'. This gateway then directs the 'Scoring Leve 2' task to the 'EndEvent1' and the 'Final result?' task to the 'EndEvent1'.
+
+Meanwhile, the 'StartSchufa request' task, after being in the 'Result not final' state, transitions to the 'EndEvent0' state. Similarly, the 'Creating Schufa results' task also transitions to the 'EndEvent0' state.
+
+In summary, the process starts with the 'StartEvent0' triggering the 'Start Schufa request' and 'Notify Bank' tasks. The 'Creating Schufa results' task is also initiated but remains in the 'Result not final' state. The 'Scoring Leve 2' task is triggered and sends the 'Final result?' to the 'ExclusiveGateway1', which then directs the tasks to their respective 'EndEvent1' states. The 'StartSchufa request' and 'Creating Schufa results' tasks eventually reach their 'EndEvent0' states.

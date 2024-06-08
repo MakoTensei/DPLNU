@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-5B3268C3-ED0A-45D5-B557-6DBAF9ADF986', 'name': 'Check regression case', 'incoming': ['possible regression against VN'], 'outgoing': ['Regression possible?']}
+{'id': 'sid-54E2871E-393C-4BA0-B167-8D6C8A1FDBA1', 'name': 'VN payment request', 'incoming': ['possible regression against VN'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-0EA5CFA9-8706-4858-91EB-C9B96C2BB7DA', 'name': 'Book payment receipt', 'incoming': ['Money received'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-2790388C-70A2-4759-9A9F-7FF75DCB9298', 'name': 'Testing the contest', 'incoming': ['Reasons'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-72E4C2D1-C83D-4CE4-9167-FAA4EE4B0BBA', 'name': 'Inkasso Head of Service', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Open\n(no money)']}
+{'id': 'sid-022148F9-64ED-46A2-AC70-9F12DCDA02D5', 'name': 'Close', 'incoming': ['Regression possible?'], 'outgoing': ['Closed']}
+{'id': 'sid-FE679711-A59F-4C2D-B06A-1AB7E67FC269', 'name': 'Reimbursement', 'incoming': ['Regression possible?'], 'outgoing': ['Open\n(no money)']}
+{'id': 'sid-C4BD0A1F-23BE-40DB-B37C-9CD817001294', 'name': 'Close', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Closed\n(Money received)\n']}
+
+Gateways:
+{'id': 'sid-4616CAF1-6D06-48AE-AE55-32D6F9227AA0', 'name': 'Regression possible?', 'incoming': ['possible regression against VN'], 'outgoing': ['Open\n(no money)', 'Closed']}
+{'id': 'sid-A9DC53B8-5AA6-471E-A9AE-36C69528E079', 'name': 'Revocation justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-A217E70B-137B-4540-B2B2-0162219A8E5E', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Testing the contest'], 'outgoing': ['Open\n(no money)']}
+{'id': 'sid-28793CD1-C121-4193-8DB6-5D999D734BF0', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Reasons'], 'outgoing': ['Closed\n(Money received)\n']}
+{'id': 'sid-4638D620-29FE-48C8-BEF2-677C6CFC1B25', 'name': 'EventBasedGateway4', 'incoming': ['Reimbursement'], 'outgoing': ['Close', 'Revocation justified?', 'Inkasso Head of Service']}
+{'id': 'sid-AE3F4077-B563-4A89-BB57-6E49ADB66AF5', 'name': 'Reimbursement period expired', 'incoming': ['Reimbursement'], 'outgoing': ['Open\n(no money)']}
+{'id': 'sid-FC81CE15-A93A-4DC3-A3DD-2D7A73622C72', 'name': 'Money received', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Closed\n(Money received)\n']}
+{'id': 'sid-8EAB564D-534C-4D2D-BD61-82BFD5D07C71', 'name': 'Reasons', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-82D4E8A5-D077-4F2E-92BE-6031A1A3D816', 'name': 'possible regression against VN', 'incoming': [], 'outgoing': ['VN payment request']}
+
+End Events:
+{'id': 'sid-9558EE4F-BBF7-464D-810E-D455B24FC0B3', 'name': 'Closed', 'incoming': ['Regression possible?'], 'outgoing': []}
+{'id': 'sid-E04E8E73-D7D1-4BB8-A429-73FC8625C8B7', 'name': 'Closed\n(Money received)\n', 'incoming': ['Money received'], 'outgoing': []}
+{'id': 'sid-FAFB1063-171E-4E48-8318-99272F7329AA', 'name': 'Open\n(no money)', 'incoming': ['Regression possible?'], 'outgoing': []}

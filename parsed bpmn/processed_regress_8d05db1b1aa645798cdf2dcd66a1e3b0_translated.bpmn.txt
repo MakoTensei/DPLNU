@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-656DD360-6170-4658-BD83-29474B47BC41', 'name': 'Check Regress Claim', 'incoming': ['Regression claim\npossible'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-0EB8F40B-8AC7-486E-BC51-2C051541B4B4', 'name': 'Send payment request to VN', 'incoming': ['Regression claim\npossible'], 'outgoing': ['Set on re-submission']}
+{'id': 'sid-AA90D955-934A-4BBE-BF7C-3F54A1A3BEC9', 'name': 'Set on re-submission', 'incoming': ['Regression claim?'], 'outgoing': ['Payment received']}
+{'id': 'sid-A91754AC-9B68-4F79-9EB3-EF27F807E040', 'name': 'Examination of opposition', 'incoming': ['Objection of the UN'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-5B83CCD3-AA2C-4DFD-9E9F-C53451ACC831', 'name': 'Close', 'incoming': ['Objection of the UN'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-2DA24DDB-EE7C-4DA1-84A7-DBC50AA55693', 'name': 'forward to the debt collection office', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-F72C21D5-E63E-49EC-8FE3-202CFFBF88D9', 'name': 'Book payment', 'incoming': ['Payment received'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-9B6C3E64-3F4F-4A7F-B1D5-3C07074C028F', 'name': 'Regression claim?', 'incoming': ['Regression claim\npossible'], 'outgoing': ['ExclusiveGateway4', 'ExclusiveGateway3']}
+{'id': 'sid-13D8B8B7-8629-4094-B430-9156D9A1360B', 'name': 'Objection justified?', 'incoming': ['Regression claim?'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway4']}
+{'id': 'sid-D8C0607D-45DB-4DAC-8529-B96266D447B6', 'name': 'ExclusiveGateway2', 'incoming': ['Examination of opposition', 'Reimbursement period expired', 'Payment received'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-7B6BEEC7-EE28-46EB-AE1F-5DDD253439F3', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway5', 'Check Regress Claim'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-3F060E45-2661-49FF-8F57-2FE3F484672B', 'name': 'ExclusiveGateway4', 'incoming': ['EventBasedGateway5', 'Regression claim?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-779D24CE-295A-4FEC-B95C-69D48B348F6A', 'name': 'EventBasedGateway5', 'incoming': ['Regression claim?'], 'outgoing': ['Payment received', 'EndEvent0', 'forward to the debt collection office']}
+{'id': 'sid-68959700-8D3C-4B79-BB34-13D61128A4B6', 'name': 'Payment received', 'incoming': ['Set on re-submission'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-F8F2F35F-8E28-4D94-A971-AEC5A9DC14B4', 'name': 'Objection of the UN', 'incoming': ['Regression claim?'], 'outgoing': ['Close']}
+{'id': 'sid-C92CB1D8-3F50-4ADB-BA41-E41DFB1D3CD5', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-F80422D0-3180-447B-B3F2-BD46FA6889DA', 'name': 'Regression claim\npossible', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:
+{'id': 'sid-E34F7C18-4C15-4E16-B2A8-5055578C663A', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway5'], 'outgoing': []}

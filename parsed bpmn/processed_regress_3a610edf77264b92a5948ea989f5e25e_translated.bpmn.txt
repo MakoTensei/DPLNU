@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-6A3DE901-2815-4F52-A6D8-D6162660E6DE', 'name': 'Check regression', 'incoming': ['Regress reported\n'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-1F4AA9F9-689B-4970-A7B2-128CD1604D9A', 'name': 'Close', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Regress edited']}
+{'id': 'sid-3A7A8138-8131-41DF-ADE2-600D544A5A6A', 'name': 'Send payment request to VN', 'incoming': ['Regress reported\n'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-AE985619-D8DC-4EF7-8FD1-A4639E727C89', 'name': 'Reimbursement', 'incoming': ['Regress possible?'], 'outgoing': ['Money received']}
+{'id': 'sid-B5A8C5F2-5D95-4516-824D-45DD552C647F', 'name': 'Book money', 'incoming': ['Money received'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-512AAE78-B5DD-4ECC-B477-671193CC6C11', 'name': 'Proceedings', 'incoming': ['Notification'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-EF41AB30-7937-4227-9A16-56489BD7E390', 'name': 'at debt collection office\nthey are', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Regress edited']}
+
+Gateways:
+{'id': 'sid-6F07D9BE-8C92-43CE-8932-035120C2F6C2', 'name': 'Regress possible?', 'incoming': ['Regress reported\n'], 'outgoing': ['Regress edited', 'Objection justified?']}
+{'id': 'sid-E6D141B1-9E01-4541-91AB-68BE5010FB3B', 'name': 'ExclusiveGateway1', 'incoming': ['Check regression', 'EventBasedGateway4'], 'outgoing': ['Regress edited']}
+{'id': 'sid-DF36D5A1-BF12-4ECC-A666-A9688FD83E74', 'name': 'Objection justified?', 'incoming': ['Regress possible?'], 'outgoing': ['sid-A7A0B1FF-ECDF-473B-97C0-4DB899A7712E', 'ExclusiveGateway3']}
+{'id': 'sid-F16EA067-9DAD-4C01-9C3A-E146ACB8B61D', 'name': 'ExclusiveGateway3', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['Regress edited']}
+{'id': 'sid-70DF1C0F-7E17-4B7F-9B90-06B50FC3694C', 'name': 'EventBasedGateway4', 'incoming': ['Regress possible?'], 'outgoing': ['ExclusiveGateway1', 'Notification', 'at debt collection office\nthey are']}
+{'id': 'sid-53A798FB-1D17-4E5F-80CC-15F976570846', 'name': 'Money received', 'incoming': ['Reimbursement'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-5991F9F0-990C-48BA-B5CF-12412EB21A91', 'name': 'Notification', 'incoming': ['Regress possible?'], 'outgoing': ['Objection justified?']}
+{'id': 'sid-616E3663-B1DB-4105-A39C-DBE5E9B2EE1F', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Regress edited']}
+
+Start Events:
+{'id': 'sid-A76C2230-C08B-49ED-9614-121E98200CB7', 'name': 'Regress reported\n', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:
+{'id': 'sid-A1D19D00-2750-4C9A-ADC6-D9415A54E3C2', 'name': 'Regress edited', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-EB8D06A1-BFD0-4363-A1E1-C47347AE2638', 'name': 'Regress edited', 'incoming': ['Reimbursement period expired'], 'outgoing': []}

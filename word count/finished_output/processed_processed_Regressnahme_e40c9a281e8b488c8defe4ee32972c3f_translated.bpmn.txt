@@ -1,0 +1,13 @@
+ In the process of handling a case, the workflow begins with the 'StartEvent0' triggering the 'Check regression case' task, which is then directed to 'ExclusiveGateway1'. If the opposition is deemed justified, the process moves to the 'Close' task, otherwise, it proceeds to the 'Send payment request' task. The 'Send payment request' task is also connected to 'ExclusiveGateway1'.
+
+Simultaneously, 'EventBasedGateway4' is responsible for handling incoming events such as 'Cash receipt' and 'Objection\nVN received', which can lead to either 'ExclusiveGateway1' or 'Opposition\njustified?' tasks.
+
+If a regress is possible, the process moves to the 'Regress possible?' task, which can either lead to 'EndEvent0' or 'WV set'. The 'WV set' task is also connected to 'ExclusiveGateway1'.
+
+If the opposition is justified, the process moves to the 'Opposition\njustified?' task, which can lead to 'Close' or 'ExclusiveGateway3'. The 'ExclusiveGateway3' task is connected to 'EventBasedGateway4' and 'Transfer to debt collection companies'.
+
+The 'ExclusiveGateway1' task is the central hub, receiving inputs from 'Check regression case', 'EventBasedGateway4', 'Objection\nVN received', and 'WV set'. It directs the process to either 'EndEvent0' or 'WV expired'.
+
+The 'EndEvent0' task is the final step, receiving inputs from 'Regress possible?' and 'WV set'.
+
+In summary, the process starts with 'StartEvent0', which triggers 'Check regression case' and 'Send payment request'. Depending on the outcome, the process can either proceed to 'Close' or continue to 'WV set'. The 'ExclusiveGateway1' acts as the central hub, directing the process to the appropriate tasks based on the incoming events. The process concludes with 'EndEvent0'.

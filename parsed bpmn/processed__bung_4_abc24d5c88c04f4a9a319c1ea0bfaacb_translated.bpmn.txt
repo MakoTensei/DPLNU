@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-05E08C56-41A2-4F92-B3B3-58F5CDC0E835', 'name': 'Schufa show\nenroll', 'incoming': ['Credit\nApplication'], 'outgoing': ['Scoring request\nobtained']}
+{'id': 'sid-E30F0A4B-F3AC-4ABC-B513-D4FF5FBC7231', 'name': 'Information\nforwarding', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Close']}
+{'id': 'sid-9BD26ED9-01E5-4D53-94B9-C36355840651', 'name': 'forwarding information', 'incoming': ['Credit\nApplication'], 'outgoing': ['Close']}
+{'id': 'sid-5D97E457-4403-4ACE-8DDA-F7B91FF613FC', 'name': 'First scoring performed', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Approval']}
+{'id': 'sid-C2B16516-D3AA-4AB2-92D0-810CC36FEE08', 'name': 'Scoring 1 Ergenis', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Finished']}
+{'id': 'sid-101A79E1-074B-41C5-86D6-4742134C1B5F', 'name': 'Send delay', 'incoming': ['Approval'], 'outgoing': ['Scoring 2\nperform']}
+{'id': 'sid-4E11204E-4E4C-4802-A0AD-5926484568AA', 'name': 'Scoring 2\nperform', 'incoming': ['Approval'], 'outgoing': ['Notify Bank']}
+{'id': 'sid-266B0EAE-4CF8-42EF-8D37-17458E995EEB', 'name': 'Notify Bank', 'incoming': ['Approval'], 'outgoing': ['Close']}
+
+Gateways:
+{'id': 'sid-C1ABA564-9067-4433-9C3E-5B529E004EB6', 'name': 'Approval', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Finished', 'Close']}
+{'id': 'sid-05560949-C89F-48F1-B4A5-4FCB774D3D31', 'name': 'Scoring result\nobtained', 'incoming': ['Credit\nApplication'], 'outgoing': ['Close', 'Close']}
+{'id': 'sid-7C93C498-32D7-4CE3-8C55-3ED7886F85EB', 'name': 'Scoring request\nobtained', 'incoming': ['Schufa show\nenroll'], 'outgoing': ['Close']}
+{'id': 'sid-0BFD7C78-5627-4637-B769-A8F51561679A', 'name': 'IntermediateCatchEvent3', 'incoming': ['Credit\nApplication'], 'outgoing': ['Close']}
+{'id': 'sid-13F5D43F-3C14-4648-93C3-99185A89FFFB', 'name': 'Kreidit release\nobtained', 'incoming': ['Information\nforwarding'], 'outgoing': ['Close']}
+{'id': 'sid-20452E62-8831-406A-8318-7F24ED58D2C1', 'name': 'Loan release\nobtained', 'incoming': ['Credit\nApplication'], 'outgoing': ['Close']}
+
+Start Events:
+{'id': 'sid-1F9D8055-AEBC-4C56-BE98-E54D19C1F74F', 'name': 'Credit\nApplication', 'incoming': [], 'outgoing': ['Loan release\nobtained']}
+{'id': 'sid-2AA532A8-A761-4BAF-8387-6224C8DD66C0', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['Scoring 1 Ergenis']}
+
+End Events:
+{'id': 'sid-6F2DFFFC-2165-4733-9A7D-2D3CB8484660', 'name': 'Close', 'incoming': ['Scoring result\nobtained'], 'outgoing': []}
+{'id': 'sid-4E2A70ED-B6E9-4962-B4DA-879E504BFF17', 'name': 'Close', 'incoming': ['Scoring result\nobtained'], 'outgoing': []}
+{'id': 'sid-7C816A09-6ABE-4F5D-A8EA-F0112145579D', 'name': 'Close', 'incoming': ['Approval'], 'outgoing': []}
+{'id': 'sid-E6B0CDBF-6CD8-4C11-BDDE-C0B024E12CA3', 'name': 'Finished', 'incoming': ['Approval'], 'outgoing': []}

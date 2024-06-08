@@ -1,0 +1,19 @@
+Tasks:
+{'id': 'sid-0FF3F851-19EC-465A-8224-2FB2D969ACBA', 'name': 'Scoring request to Schufa', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-C53C9340-90B8-49D0-9C03-4B7672326EDE', 'name': 'Scoring Level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Return result']}
+{'id': 'sid-CBFA01AC-5F48-440F-B69C-C18AB445300E', 'name': 'Scoring Level 2', 'incoming': ['sid-786D0CAC-CCC4-47A2-9A1C-1B3497AB28EF'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-0C1A2704-5822-42E2-9A72-8317BD5C6D21', 'name': 'Schufa result available?', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1', 'sid-B0CCE64A-C1F7-4772-BC93-C24298DDD506']}
+{'id': 'sid-86D36DDC-1893-49B5-B68C-136E8E45CBDA', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring request to Schufa', 'receive delayed result'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-5DAE086A-B5A6-44E8-BC37-C6EBE029F049', 'name': 'Finished result?', 'incoming': ['StartEvent1'], 'outgoing': ['Return result', 'sid-2286AD58-EB11-4D58-B7EA-AD4CBD0E5447']}
+{'id': 'sid-AD0FF945-E2F9-4A50-B2D1-DFAFB3221D53', 'name': 'receive delayed result', 'incoming': ['sid-0675653C-638E-4EF7-B79D-12446660C14A'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-5F5882B2-12BE-4CE7-A776-3DD290860185', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Schufa result available?']}
+{'id': 'sid-EC4E22DD-9D55-4534-A237-8249138BF6EE', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Finished result?']}
+
+End Events:
+{'id': 'sid-75FAFA79-146B-40DD-BFCD-E85D8A65C2C2', 'name': 'EndEvent0', 'incoming': ['receive delayed result'], 'outgoing': []}
+{'id': 'sid-644E1D5A-3DE0-4531-83D1-2586E22CBAB6', 'name': 'Return result', 'incoming': ['Scoring Level 1'], 'outgoing': []}
+{'id': 'sid-1DE4A540-F098-41EF-9589-6D8278563410', 'name': 'EndEvent2', 'incoming': ['Scoring Level 2'], 'outgoing': []}

@@ -1,0 +1,19 @@
+ In a system designed to handle scoring requests and reporting results, the process begins with a StartEvent0, which triggers a sequence of events and interactions between different components.
+
+1. StartEvent0 initiates the process and sends a message to the Delay? gateway. The Delay? gateway then sends a message to EndEvent0, indicating that the delay has been processed.
+
+2. Simultaneously, StartEvent0 also sends a message to ExclusiveGateway1, which is responsible for routing the request to the appropriate next step.
+
+3. ExclusiveGateway1 sends a message to the Scoring 2 Result arrived gateway, which receives the message and sends a message to the Scoring 2 Result arrived component.
+
+4. The Scoring 2 Result arrived component processes the scoring result and sends a message to the Level 2 scoring gateway.
+
+5. The Level 2 scoring gateway receives the message and sends a message to the Scoring 2 results component.
+
+6. The Scoring 2 results component processes the results and sends a message to the ExclusiveGateway3.
+
+7. ExclusiveGateway3 receives the message and sends a message to the EndEvent1, indicating that the Level 2 scoring process is complete.
+
+8. EndEvent1 receives the message and completes the process.
+
+In summary, the StartEvent0 triggers a series of events and interactions between different components, including gateways and components, to process and report the scoring results. The process involves a delay, scoring, and reporting of results, with each step being handled by specific gateways and components.

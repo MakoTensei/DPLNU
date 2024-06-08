@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-FE18D25B-2E0D-4384-947E-81DDB1B1988F', 'name': 'Send Scoring request to Schufa', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Delay message\nobtained']}
+{'id': 'sid-FCE4DACA-067D-4D39-948A-497ED1ADF592', 'name': 'Report delay to sales staff', 'incoming': ['Delay message\nobtained'], 'outgoing': ['Scoring results\n(level 2)']}
+{'id': 'sid-9941FCBA-F8B2-4094-809A-CC6F44C00436', 'name': 'Transfer Scoring Results (Level 2) to Credit Transfer', 'incoming': ['Scoring results\n(level 2)'], 'outgoing': ['Scoring\ncompleted\n']}
+{'id': 'sid-01F8FA54-721E-4215-A261-CA8FF7A85508', 'name': 'Scoring result (level 1) on credit lending', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-215A582A-C5E3-48C2-A40F-BB1712A8D4A1', 'name': 'First scoring (level 1)', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Standing\nResult\nfixed?']}
+{'id': 'sid-F29E6D18-4591-4410-B278-4F813FAFF6CE', 'name': 'Report the result', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Scoring results\nreturned']}
+{'id': 'sid-A273B009-A0F4-4F5D-9FBC-1504EFBB48C6', 'name': 'Report delay', 'incoming': ['Standing\nResult\nfixed?'], 'outgoing': ['perform second scoring (level 2)']}
+{'id': 'sid-84B1E83A-01D4-4112-9C1A-513690574E5E', 'name': 'perform second scoring (level 2)', 'incoming': ['Standing\nResult\nfixed?'], 'outgoing': ['Report the result']}
+{'id': 'sid-9F655CB1-E830-4B39-A57C-C53BC4D55A4B', 'name': 'Report the result', 'incoming': ['Standing\nResult\nfixed?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-F55FCEE7-ABF6-451B-B938-C8BA967E3BA5', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'Delay message\nobtained'], 'outgoing': ['Scoring\ncompleted\n']}
+{'id': 'sid-486C04B9-FA26-44EF-AFD2-FC85924F832A', 'name': 'Standing\nResult\nfixed?', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Scoring results\nreturned', 'Report the result']}
+{'id': 'sid-DB4FA87D-3413-4091-97AE-4737D3B9C580', 'name': 'ExclusiveGateway2', 'incoming': ['Scoring request\nobtained', 'Report the result'], 'outgoing': ['Scoring results\nreturned']}
+{'id': 'sid-7859CF74-CC73-4146-BFBF-F289F42502B7', 'name': 'EventBasedGateway3', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ExclusiveGateway0', 'Scoring results\n(level 2)']}
+{'id': 'sid-C6D3F0AB-DA52-4453-889D-72440331C23F', 'name': 'Delay message\nobtained', 'incoming': ['Send Scoring request to Schufa'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-C06B7F0A-B8FD-446E-96C5-823D9014EEC9', 'name': 'Scoring results\n(level 1) obtained', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-025A7A6A-C85B-4EFB-B7F3-EA7483254F9F', 'name': 'Scoring results\n(level 2)', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-EC8A3486-2DAA-46E5-9757-0574650BBE33', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['Scoring result (level 1) on credit lending']}
+{'id': 'sid-9ACD3ABE-8668-47CA-9140-36BF476520ED', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-DEF525C0-C797-4FCF-BF1E-657577389DE6', 'name': 'Scoring\ncompleted\n', 'incoming': ['Transfer Scoring Results (Level 2) to Credit Transfer'], 'outgoing': []}
+{'id': 'sid-278213FD-B324-4D7F-95E5-95128B545AAA', 'name': 'Scoring results\nreturned', 'incoming': ['Standing\nResult\nfixed?'], 'outgoing': []}

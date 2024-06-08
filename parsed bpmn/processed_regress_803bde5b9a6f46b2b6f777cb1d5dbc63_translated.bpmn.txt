@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-2066F56B-DF7B-4CB5-A850-0225DD315753', 'name': 'Regression claim\nCheck', 'incoming': ['Regression\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C6D2CAB9-55A2-456F-8686-D381AAED3FE3', 'name': 'VN payment request\nShip', 'incoming': ['Regression\nReport'], 'outgoing': ['Reclaimed\nDuration\nExpired']}
+{'id': 'sid-39889240-C242-4030-A38D-EDBB81DC0B77', 'name': 'Cash receipt\nbook', 'incoming': ['Regression\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-00972F07-7418-42E0-954B-5EBEAD210D1B', 'name': 'Process\nclose', 'incoming': ['Money is\nReport'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-F65B607D-C197-4D57-8E2A-B027F797D218', 'name': 'Process transferred to debt collection service', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-F246DDF2-DB59-4995-AD65-6620130824EB', 'name': 'Reasons\nCheck', 'incoming': ['Reasons\nis\nReport'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-E75DD4AC-541E-4364-96F4-8415F4F499CC', 'name': 'Claim\njustified?', 'incoming': ['Regression\nReport'], 'outgoing': ['ExclusiveGateway2', 'Reclaimed\nDuration\nExpired']}
+{'id': 'sid-663CF2ED-5867-4E20-BDB1-DCE1AE733426', 'name': 'Reasons\njustified?', 'incoming': ['Reasons\nis\nReport'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-790D0BCD-AD25-4977-8672-104D5BF43766', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway5', 'Regression claim\nCheck', 'Reasons\nCheck'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-35BE3B68-4055-4D43-A3C8-A9A91625DE59', 'name': 'ExclusiveGateway3', 'incoming': ['Reasons\nis\nReport', 'EventBasedGateway5'], 'outgoing': ['Process transferred to debt collection service']}
+{'id': 'sid-756EB2D3-6794-4F1A-B490-32FD7BF5DF5D', 'name': 'ExclusiveGateway4', 'incoming': ['Money is\nReport', 'EventBasedGateway5'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-179A8A3F-F55E-4F7F-9B07-B381A2184975', 'name': 'EventBasedGateway5', 'incoming': ['Regression\nReport'], 'outgoing': ['ExclusiveGateway4', 'Process\ncompleted', 'Reasons\nis\nReport']}
+{'id': 'sid-DD753C01-117F-4130-ABB7-DAFD080B659D', 'name': 'Reclaimed\nDuration\nExpired', 'incoming': ['Claim\njustified?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-EE80DAF9-B20B-4F18-95C3-B32B61B4ACC5', 'name': 'Money is\nReport', 'incoming': ['Regression\nReport'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-26890B39-D0A9-4A09-98CF-647541766016', 'name': 'Reasons\nis\nReport', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-36B45B36-7786-4284-B5B4-5005A783AE3D', 'name': 'Regression\nReport', 'incoming': [], 'outgoing': ['Cash receipt\nbook']}
+
+End Events:
+{'id': 'sid-47F1A9D4-1B54-4B00-8108-FFA3C8A40BE8', 'name': 'Process\ncompleted', 'incoming': ['EventBasedGateway5'], 'outgoing': []}

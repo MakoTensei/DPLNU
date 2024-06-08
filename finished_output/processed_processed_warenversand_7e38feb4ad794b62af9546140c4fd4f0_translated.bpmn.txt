@@ -1,0 +1,15 @@
+ When a shipment is initiated, the process begins with the 'Shipment\ninitiate' event, which triggers the 'Insurance?' task to ensure the goods are insured. This task has an 'Insurance?' incoming and 'Complete insurance' outgoing.
+
+Next, the 'Insurance?' task leads to the 'Complete insurance' task, which has an 'ExclusiveGateway3' incoming and 'ExclusiveGateway3' outgoing. This task ensures that the shipment is properly insured.
+
+Following the insurance process, the 'Shipment\ninitiate' event also triggers the 'Lot?' task, which has an 'ExclusiveGateway4' incoming and 'ExclusiveGateway3' outgoing. This task is responsible for clarifying the shipment details.
+
+The 'Lot?' task then leads to the 'ExclusiveGateway4' task, which has an 'ExclusiveGateway3' incoming and 'ParallelGateway6' outgoing. This task ensures that the shipment is processed through the exclusive gateway.
+
+After the exclusive gateway, the 'ParallelGateway6' task is triggered, which has a 'ParallelGateway5' incoming and 'End' outgoing. This task is responsible for packaging the goods.
+
+The 'ParallelGateway5' task has an 'ExclusiveGateway4' incoming and 'ParallelGateway6' outgoing. This task ensures that the goods are packaged and ready for collection.
+
+The 'ParallelGateway6' task then leads to the 'Provide goods for collection' event, which has a 'ParallelGateway6' incoming and 'End' outgoing. This event marks the completion of the shipment process.
+
+In summary, the shipment process starts with the 'Shipment\ninitiate' event, followed by tasks for insurance, clarification, exclusive gateway processing, packaging, and finally, providing the goods for collection.

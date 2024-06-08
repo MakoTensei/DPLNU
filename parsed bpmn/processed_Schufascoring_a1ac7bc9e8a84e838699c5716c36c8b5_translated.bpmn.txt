@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-21510927-DFD1-4F75-833C-DBA6EED28EE0', 'name': 'forward scorin results to Frontend', 'incoming': ['Scoring result Level 1\nobtained'], 'outgoing': ['sid-ABFFB720-27FF-4095-98FE-AA6033575752']}
+{'id': 'sid-25B1B0A5-1AE0-4637-858D-00C175074339', 'name': 'Scoring request', 'incoming': ['Schufascoring\nobtained\n'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-D8D99362-E3F6-45F2-9184-DC72FD2EBD90', 'name': 'Delay\nsend', 'incoming': ['Schufascoring\nobtained\n'], 'outgoing': []}
+{'id': 'sid-DE543C9A-8504-49BE-9CA2-B1ECC91F4AD2', 'name': 'Conducting First Scoring Level 1', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Result\npresent?']}
+{'id': 'sid-D76DA752-3D5D-4591-9B88-05B831569791', 'name': 'Result\nLevel 1\nReport back', 'incoming': ['Scoring request\nReport'], 'outgoing': []}
+{'id': 'sid-67BAF2B9-690A-47D0-8BE5-00EE6F032513', 'name': 'Report delay to Bank', 'incoming': ['Result\npresent?'], 'outgoing': ['Determine final scoring result']}
+{'id': 'sid-A52DD17F-B5B8-4366-B36F-333314372D73', 'name': 'Determine final scoring result', 'incoming': ['Result\npresent?'], 'outgoing': ['Scoring result\nLevel 2\nReport to Bank']}
+{'id': 'sid-065992E1-2C07-413F-838E-922348E33916', 'name': 'Scoring result\nLevel 2\nReport to Bank', 'incoming': ['Result\npresent?'], 'outgoing': ['Schufa process\nFinished']}
+
+Gateways:
+{'id': 'sid-7BF474FF-4F24-4C3B-A04F-C2C910F57C6A', 'name': 'Result\npresent?', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Result\nLevel 1\nReport back', 'Schufa process\nFinished']}
+{'id': 'sid-542840BF-7EFE-453D-9163-68042FAA9B2F', 'name': 'Scoring result Level 1\nobtained', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['forward scorin results to Frontend']}
+{'id': 'sid-D90451EF-D7C5-4D82-8537-A4E83781E6F3', 'name': 'Delay message\nReport', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Delay\nsend']}
+{'id': 'sid-01B9E8EA-6F4F-4A86-9E5F-C26D7B9D0250', 'name': 'Scoring result Level 2\nobtained', 'incoming': [], 'outgoing': []}
+{'id': 'sid-609E797E-17E6-4ACF-9643-F0B95192E35B', 'name': 'IntermediateCatchEvent4', 'incoming': ['Schufascoring\nobtained\n'], 'outgoing': ['Delay\nsend', 'Scoring result Level 1\nobtained']}
+
+Start Events:
+{'id': 'sid-BD32B977-7C77-4A12-828A-CA43A4143F8D', 'name': 'Schufascoring\nobtained\n', 'incoming': [], 'outgoing': ['Delay\nsend']}
+{'id': 'sid-57D16EF6-7502-4431-B142-67B6CE963A67', 'name': 'Scoring request\nReport', 'incoming': [], 'outgoing': ['Result\nLevel 1\nReport back']}
+
+End Events:
+{'id': 'sid-7F6E5727-25E6-4133-8934-9523CFB76525', 'name': 'Schufa process\nFinished', 'incoming': ['Result\npresent?'], 'outgoing': []}

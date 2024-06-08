@@ -1,0 +1,40 @@
+ Let's walk through the process flow of the described tasks and gateways, starting from the initial event and ending with the final event:
+
+1. **Start Event**: Goods are to be shipped.
+   - Incoming: []
+   - Outgoing: ['Provide goods for collection']
+
+2. **ParallelGateway6**: Receives goods to be shipped.
+   - Incoming: ['Goods are to be shipped']
+   - Outgoing: ['ParallelGateway7', 'ExclusiveGateway3']
+
+3. **ExclusiveGateway0**: Decides if insurance is necessary.
+   - Incoming: ['ParallelGateway6']
+   - Outgoing: ['ExclusiveGateway3', 'EndEvent0']
+
+4. **Insurance necessary?**: Determines if insurance is needed.
+   - Incoming: ['ExclusiveGateway0']
+   - Outgoing: ['EndEvent0', 'ExclusiveGateway2']
+
+5. **EndEvent0**: Finalizes the insurance decision.
+   - Incoming: ['Insurance necessary?']
+   - Outgoing: []
+
+6. **ParallelGateway7**: Handles the insurance decision.
+   - Incoming: ['Insurance necessary?']
+   - Outgoing: ['EndEvent0']
+
+7. **ParallelGateway4**: Clears the shipping mode.
+   - Incoming: ['Goods are to be shipped']
+   - Outgoing: ['Request a quote', 'ParallelGateway5', 'ParallelGateway5']
+
+8. **Request a quote**: Asks for a quote.
+   - Incoming: ['ParallelGateway4']
+   - Outgoing: ['ParallelGateway5']
+
+9. **ParallelGateway5**: Selects an offer.
+   - Incoming: ['ParallelGateway4', 'Request a quote']
+   - Outgoing: ['ExclusiveGateway2']
+
+10. **Specialist**: Provides an offer.
+    - Incoming: ['Parallel

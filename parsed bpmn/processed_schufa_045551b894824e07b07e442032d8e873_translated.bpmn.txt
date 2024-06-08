@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-DE0EFC96-1256-4B91-AF18-F924ED191362', 'name': 'Scoring', 'incoming': ['StartEvent0'], 'outgoing': ['Scroing successfully']}
+{'id': 'sid-2F18B2F7-7F04-446E-9829-AF6EF14A4493', 'name': 'Submit scoring result\n', 'incoming': ['Scroing successfully'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-99D34A0A-E075-4CDD-B52A-A983A25A4AAA', 'name': 'Report delay', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring successfully']}
+{'id': 'sid-AAD59BF2-5E30-444A-BC57-CB4F5FC2512A', 'name': 'Scroing\nLevel 1', 'incoming': ['StartEvent1'], 'outgoing': ['Check scoring success']}
+{'id': 'sid-0019219E-FADC-4B6E-B08B-E5C07B0CED59', 'name': 'Check scoring success', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-A07AE6C7-DCA6-45F0-BC9F-4BED2BD927F5', 'name': 'Scoring\nLevel 2', 'incoming': ['sid-7465E806-C4BC-4E38-A4D3-F27D9CA2A252'], 'outgoing': ['Scoring successfully']}
+
+Gateways:
+{'id': 'sid-97D116B2-6416-4876-BE0D-0D7838B8A3DC', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent1', 'EventBasedGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9D25FAC0-DDD5-4BA4-9662-AAE6F8B7DCAF', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent1'], 'outgoing': ['sid-C3A7A18A-35E1-40CE-BDCE-68BAD104CCCF', 'EndEvent0']}
+{'id': 'sid-4085D147-80FB-4E57-8515-0B2A85713EAC', 'name': 'EventBasedGateway2', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0', 'Scroring delayed']}
+{'id': 'sid-7E82D3E9-5F96-4C11-BD8D-9201AE7D0318', 'name': 'Scroing successfully', 'incoming': ['Scoring'], 'outgoing': ['Submit scoring result\n']}
+{'id': 'sid-CB99A801-F47F-4480-A16D-6F7FD34C4683', 'name': 'Scroring delayed', 'incoming': ['StartEvent0'], 'outgoing': ['Report delay']}
+{'id': 'sid-D220C3BF-A69B-4964-902E-F261BAC7787F', 'name': 'Scoring successfully', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-3FB14CD3-77FA-487F-809E-E4741C79B20C', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Scoring successfully']}
+{'id': 'sid-A8C5F072-B510-4ED0-867D-71A38AEE90C3', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-A7429BB2-4379-4C14-AA1C-8DC46547A32E', 'name': 'EndEvent0', 'incoming': ['Check scoring success'], 'outgoing': []}
+{'id': 'sid-44F3262F-5B38-4085-ACCF-E455D4D8B678', 'name': 'Scoring successfully', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}
+{'id': 'sid-C17516D6-6ABD-4FEA-8A6E-E2D73301BBE5', 'name': 'Scoring successfully', 'incoming': ['Scoring\nLevel 2'], 'outgoing': []}

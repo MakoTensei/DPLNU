@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-79BF04C3-CC14-4194-9C5C-2E4E0DEB6C4A', 'name': 'Packaging goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-0DF07F32-CE58-47EE-A63C-CC850B844E95', 'name': 'Shipment', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-EA2C55EA-36BA-467E-BC12-0053CA4B9412', 'name': 'Specify quantity', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-84849C28-599A-4B62-9B64-3E84EC7BE5A9', 'name': 'Fill standard package voucher', 'incoming': ['StartEvent0'], 'outgoing': ['Determining the insurance requirement']}
+{'id': 'sid-06F87CAE-A156-478D-A0B4-404867073F17', 'name': 'Determining the insurance requirement', 'incoming': ['Special delivery'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C35AE32C-2C21-4767-AAF6-C47D4AB3A2EF', 'name': 'Request three forwarders\n', 'incoming': ['Special delivery'], 'outgoing': ['Add to Cart']}
+{'id': 'sid-1517E621-C0F4-4C81-8DAD-E8B25E143C08', 'name': 'Add to Cart', 'incoming': ['Special delivery'], 'outgoing': ['Specialist']}
+{'id': 'sid-7975397F-B0FB-473A-940E-3A1758585872', 'name': 'Specialist', 'incoming': ['Special delivery'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-049779BA-EF6A-4961-B911-44590ECC1661', 'name': 'Complete insurance', 'incoming': ['Insurance requirements\nNot applicable'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-3286C1B7-7C7F-4C4C-B237-E1CA1EE5D8D3', 'name': 'Special delivery', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-1DE13805-2A7F-40C1-9763-78C8493E1FE6', 'name': 'Insurance requirements\nNot applicable', 'incoming': ['Special delivery'], 'outgoing': ['Complete insurance', 'EndEvent0', 'ExclusiveGateway2']}
+{'id': 'sid-B1421917-2167-4D83-9DBC-E3771560365B', 'name': 'ExclusiveGateway2', 'incoming': ['Special delivery', 'Determining the insurance requirement', 'Special delivery'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-CB390A9E-A178-4948-8BDB-5ABA59DA2974', 'name': 'ExclusiveGateway3', 'incoming': ['Complete insurance', 'Insurance requirements\nNot applicable'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-1020CCC5-CCC6-4869-A84E-223EE90646F6', 'name': 'ParallelGateway4', 'incoming': ['Insurance requirements\nNot applicable', 'ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-DDC13AA6-BAEB-4E32-8DEF-43F657060585', 'name': 'ParallelGateway5', 'incoming': ['StartEvent0'], 'outgoing': ['Fill standard package voucher', 'Shipment']}
+
+Start Events:
+{'id': 'sid-508399AE-6C6A-4BE1-AFA8-E882BEC0AF93', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Fill standard package voucher']}
+
+End Events:
+{'id': 'sid-71CFE41B-33E7-46AB-AFDA-D66F9F954EBE', 'name': 'EndEvent0', 'incoming': ['Insurance requirements\nNot applicable'], 'outgoing': []}

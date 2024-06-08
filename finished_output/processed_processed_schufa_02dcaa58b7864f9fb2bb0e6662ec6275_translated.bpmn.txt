@@ -1,0 +1,9 @@
+ The workflow begins with the "StartEvent0" initiating the process. This event triggers the "Request scoring" task, which then leads to the "IntermediateCatchEvent4". The "IntermediateCatchEvent4" catches the event and subsequently sends the task to "Scoring immediately\nhand over" and "Delay".
+
+The "Scoring immediately\nhand over" task is responsible for handing over the scoring process to the "sid-864284B6-46B3-4189-9332-233035533662" task. This task, in turn, connects to the "ParallelGateway0" gateway, which then sends the task to "Waiting for L2 Scoring".
+
+The "Waiting for L2 Scoring" task is linked to the "IntermediateCatchEvent3" and "IntermediateCatchEvent4", which both lead to the "delay. Scoring" task. This task is responsible for delaying the scoring process and then handing it over to the "sid-A48972BC-96ED-447F-9CD2-EB7CA4C5D666" task.
+
+The "sid-A48972BC-96ED-447F-9CD2-EB7CA4C5D666" task prepares for scoring and connects to the "ParallelGateway1". This gateway then sends the task to "perform L2 scoring", which is responsible for the actual L2 scoring process.
+
+The "EndEvent0" marks the completion of the initial scoring process, while the "EndEvent1" signifies the determination of the scoring. The "EndEvent2" and "EndEvent3" are not directly involved in this workflow. The "EndEvent4" and "EndEvent5" are also not directly involved in this workflow.

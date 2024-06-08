@@ -1,0 +1,22 @@
+ Upon receiving a shipment commission, the process begins with checking the quantity of the goods, which is facilitated by the 'Check quantity' task. This task is triggered by the 'Shipment commissioned' event and connects with 'ParallelGateway3'. Once the quantity is verified, the process moves to the 'Filling the package note' task, which requires a confirmation that the shipment is indeed large. This task is linked to 'A lot big?' and is directed towards 'ParallelGateway5'.
+
+
+Following the confirmation of the shipment size, the 'Need to check insurance' task is initiated to ensure that the goods are adequately insured. This task is connected to 'A lot big?' and leads to 'ExclusiveGateway2'. After the insurance is confirmed, the goods are picked up by 'Pick up special delivery from Spediteur 1' and 'Pick up special delivery by Spediteur 2', both of which are directed to 'ParallelGateway5'.
+
+
+The 'Select an offer for special shipment' task is then triggered, which is associated with 'Shipment commissioned' and leads to 'freight forwarders commission'. This task is connected to 'ParallelGateway5' and subsequently leads to 'ExclusiveGateway2'.
+
+
+Once the goods are collected, the 'Packaging goods' task is executed, which is triggered by 'Provide goods for collection' and directed to 'ParallelGateway6'. After the goods are packaged, the 'Complete insurance' task is initiated, which is connected to 'Insurance necessary?' and leads to 'ExclusiveGateway2'.
+
+
+Finally, the 'Goods provided for collection' event concludes the process, which is triggered by 'Complete insurance' and has no outgoing connections.
+
+
+In summary, the process flow is as follows:
+
+1. Shipment commissioned
+2. Check quantity (ParallelGateway3)
+3. Fill package note (ParallelGateway5)
+4. Need to check insurance (ExclusiveGateway2)
+5. Pick up special delivery from Spediteur 1 (ParallelGateway5

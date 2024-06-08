@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-8BD40BF4-42D1-4F5C-80C3-2456E54F2FE3', 'name': 'perform scoring level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Immediate investigation possible']}
+{'id': 'sid-E8FF3947-BAD0-4AB8-B2EE-A2DA99BBA949', 'name': 'perform scoring level 2', 'incoming': ['sid-4CB81C58-6380-4676-9370-AA5EA6F2B846'], 'outgoing': ['Scoring Level 2 determined']}
+
+Gateways:
+{'id': 'sid-B1B83C70-456B-4C76-B0D0-378E410B5788', 'name': 'Immediate investigation possible', 'incoming': ['StartEvent1'], 'outgoing': ['sid-4D27715E-0A30-49AA-99AA-031B9F538AEC', 'Scoring Level 1 determined']}
+{'id': 'sid-8BE7446D-9A85-447F-BC2F-9EA4D8891A83', 'name': 'EventBasedGateway1', 'incoming': ['sid-9595C123-E91F-4698-AF3A-0211B6DFF480'], 'outgoing': ['EndEvent0', 'Delay']}
+{'id': 'sid-10824BDB-418D-48E9-8915-0E365ABB2889', 'name': 'Scoring Level 1 reached', 'incoming': ['EventBasedGateway1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-DBEA959F-293D-4516-B1E4-5754CD5914B1', 'name': 'Delay', 'incoming': ['EventBasedGateway1'], 'outgoing': ['sid-BAB9E82B-C87C-4875-BA42-56103F6E3430']}
+{'id': 'sid-BC454697-D75C-4E05-9C30-C92EC44F4552', 'name': 'Scoring Level 2 reached', 'incoming': ['sid-7CAC3B88-1441-4584-BF86-19E5B682BBCC'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-EC55028F-4362-49E5-8AC3-C3DD5394D23E', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['sid-04AD794A-2F61-4494-84F5-2FF005CFE712']}
+{'id': 'sid-9DDDFE3C-33FC-4EAE-A8BC-57727CC91ACB', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Immediate investigation possible']}
+
+End Events:
+{'id': 'sid-A4982AFD-F6AB-4C87-9351-6F60E9C2876C', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-C2445993-D6AC-4C20-9C91-61174B9F561A', 'name': 'EndEvent1', 'incoming': ['Scoring Level 2 reached'], 'outgoing': []}
+{'id': 'sid-72D07BDE-C701-4220-9B19-3848253B4BCB', 'name': 'Scoring Level 2 determined', 'incoming': ['perform scoring level 2'], 'outgoing': []}
+{'id': 'sid-49F8BF96-C9A8-46CA-B560-ECCF281D244B', 'name': 'Scoring Level 1 determined', 'incoming': ['Immediate investigation possible'], 'outgoing': []}

@@ -1,0 +1,66 @@
+ The flowchart describing the order of events in the given scenario is as follows:
+
+1. Start Event: Hunger felt
+   - Incoming: []
+   - Outgoing: Add your order (EventBasedGateway1)
+
+2. EventBasedGateway1: Order obtained
+   - Incoming: Hunger felt
+   - Outgoing: ExclusiveGateway1
+
+3. ExclusiveGateway1: Select a row
+   - Incoming: Order obtained
+   - Outgoing: Guest appears
+
+4. Guest appears
+   - Incoming: Select a row
+   - Outgoing: EventBasedGateway2
+
+5. EventBasedGateway2: Pick up food
+   - Incoming: Order obtained
+   - Outgoing: Pay money
+
+6. Pay money
+   - Incoming: Pick up food
+   - Outgoing: Pieper
+
+7. Pieper
+   - Incoming: Pick up food
+   - Outgoing: EventBasedGateway3
+
+8. EventBasedGateway3: Cooking order obtained
+   - Incoming: Pick up food
+   - Outgoing: Inform employees
+
+9. Inform employees
+   - Incoming: Cooking order obtained
+   - Outgoing: Cooking order finished
+
+10. Cooking order finished
+    - Incoming: Cooking order obtained
+    - Outgoing: Pieper over
+
+11. Pieper over
+    - Incoming: Cooking order finished
+    - Outgoing: ExclusiveGateway2
+
+12. ExclusiveGateway2: Preparation of meal
+    - Incoming: Cooking order finished
+    - Outgoing: Put meal in vain
+
+13. Put meal in vain
+    - Incoming: Cooking order finished
+    - Outgoing: Inform employees
+
+14. Inform employees
+    - Incoming: Put meal in vain
+    - Outgoing: Cooking order finished
+
+15. Cooking order finished
+    - Incoming: Cooking order finished
+    - Outgoing: Order finished
+
+16. Order finished
+    - Incoming: 5 minutes past
+    - Outgoing: Trigger Pieper
+

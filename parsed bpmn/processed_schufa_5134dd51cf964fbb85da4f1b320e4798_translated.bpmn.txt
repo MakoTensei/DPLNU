@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-C949E535-6D90-4493-B8D3-1D04ED346CBD', 'name': 'Send scoring inquiry to Schufa', 'incoming': ['Process start'], 'outgoing': ['Report of Schufa']}
+{'id': 'sid-E639F932-6693-4CFA-A939-6BD283A4EC27', 'name': 'forwarding results to Frontend', 'incoming': ['Process start'], 'outgoing': ['Process completed']}
+{'id': 'sid-CBF4DFFD-C061-4D44-9BE5-E4ED1E9867D1', 'name': 'Message to Frontend: other works', 'incoming': ['Delay?'], 'outgoing': ['Results received']}
+{'id': 'sid-6F904395-2504-4574-955E-CECEB6C556AC', 'name': 'Result Level 2 forward to Frontend', 'incoming': ['Results received'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-ED936519-042E-4C3B-8E4C-389CA85A9D7F', 'name': 'Level 1 Scoring', 'incoming': ['Scoring request'], 'outgoing': ['Level 1 successful?']}
+{'id': 'sid-53536724-276F-42DE-8A33-A3892998A4AE', 'name': 'Report delay of the bank', 'incoming': ['Scoring request'], 'outgoing': ['Level 2 Scoring']}
+{'id': 'sid-A0016526-BBEA-4E4F-867C-FFA99FF2676A', 'name': 'Level 2 Scoring', 'incoming': ['Level 1 successful?'], 'outgoing': ['Result Level 2 Report to Bank']}
+{'id': 'sid-2EC58C96-89C2-497F-8662-C0AAE894FCBA', 'name': 'Transfer Level 1 result to Bank', 'incoming': ['Level 1 successful?'], 'outgoing': ['Process completed']}
+{'id': 'sid-C811137E-D8CB-40D0-88D2-8F30F8A355BD', 'name': 'Result Level 2 Report to Bank', 'incoming': ['Level 1 successful?'], 'outgoing': ['Process completed']}
+
+Gateways:
+{'id': 'sid-465703A4-125E-433D-B354-6DDF2D07BE1B', 'name': 'Delay?', 'incoming': ['Report of Schufa'], 'outgoing': ['Process completed', 'ExclusiveGateway1']}
+{'id': 'sid-88AB0FA7-A7AA-4B5C-AD8C-FF3622BA809C', 'name': 'ExclusiveGateway1', 'incoming': ['Report of Schufa', 'Delay?'], 'outgoing': ['Process completed']}
+{'id': 'sid-7E6C6272-116D-47B7-9AA1-C404D9EAEDEB', 'name': 'Level 1 successful?', 'incoming': ['Scoring request'], 'outgoing': ['Process completed', 'Process completed']}
+{'id': 'sid-7CE388F7-8043-4E54-AB5C-995A557FB6D1', 'name': 'Report of Schufa', 'incoming': ['Process start'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-B4468525-3231-4604-B457-84BA92CDA2AF', 'name': 'Results received', 'incoming': ['Delay?'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-CEE2A7A1-53E4-489B-9725-0B49B21CF54D', 'name': 'Process start', 'incoming': [], 'outgoing': ['forwarding results to Frontend']}
+{'id': 'sid-5945F07A-F3B3-41D8-85F5-F73F2140BDC1', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Report delay of the bank']}
+
+End Events:
+{'id': 'sid-BA6B7C5D-8C70-4536-A536-1CC4A3EE64CB', 'name': 'Process completed', 'incoming': ['Delay?'], 'outgoing': []}
+{'id': 'sid-1AE4F316-9C9D-43F2-9FD0-39B00F6E9087', 'name': 'Process completed', 'incoming': ['Level 1 successful?', 'Level 1 successful?'], 'outgoing': []}

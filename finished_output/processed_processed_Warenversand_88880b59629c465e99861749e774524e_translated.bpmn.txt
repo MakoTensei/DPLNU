@@ -1,0 +1,7 @@
+ When a large lot of goods is shipped, the process begins with the 'Goods Ship' event, which triggers the 'ExclusiveGateway2' to handle the incoming goods. This gateway then sends the goods to the 'Filling the Package Note' task, where the details of the shipment are recorded. Following this, the 'Select your offer' task is initiated, allowing the customer to choose their preferred offer for the goods. Once the offer is selected, the 'Goods Sent' task is triggered, and the goods are dispatched for collection.
+
+During the process, the 'ParallelGateway4' receives the shipment details and sends the goods to the 'Provide goods for collection' task, which in turn sends the goods to the 'ParallelGateway5'. The 'ParallelGateway5' then sends the goods to the 'Goods Sent' task, completing the process.
+
+If insurance is deemed necessary, the 'Insurance Necessary?' event triggers the 'ExclusiveGateway2' to handle the insurance details, which then sends the goods to the 'Insurance Close' task.
+
+In summary, the process involves the 'Goods Ship' event, 'ExclusiveGateway2', 'Filling the Package Note', 'Select your offer', 'Goods Sent', 'ParallelGateway4', 'Provide goods for collection', 'ParallelGateway5', and 'Insurance Close' tasks, all working together to ensure the successful shipment and collection of goods.

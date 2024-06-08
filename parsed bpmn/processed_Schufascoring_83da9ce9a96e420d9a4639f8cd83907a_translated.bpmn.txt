@@ -1,0 +1,29 @@
+Tasks:
+{'id': 'sid-CA4DC478-D3EE-4DC5-8723-D37455AD7DE4', 'name': 'Request Schufascoring', 'incoming': ['Request scoring'], 'outgoing': ['Scoring']}
+{'id': 'sid-4AA25093-FE9C-404B-8495-8FFD6C3F009D', 'name': 'forward scoring result to credit lending frontend.', 'incoming': ['Scoring'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-503E60FF-FD5C-4305-935D-0B19BE7CA6F5', 'name': 'forward the delay message', 'incoming': ['Request scoring'], 'outgoing': ['Scoringergebn']}
+{'id': 'sid-AD6C24C7-9D87-42D5-AD98-3AE2B0487CF2', 'name': 'Scoringergebn', 'incoming': ['Get delay message'], 'outgoing': ['forward scoring result to Frontend']}
+{'id': 'sid-125DFA20-BC4E-4731-83A5-235A29E6AF0A', 'name': 'forward scoring result to Frontend', 'incoming': ['Get delay message'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F9D62AFE-5110-40C8-AD8B-3AAEA27E51C0', 'name': 'Level 1 Scoring', 'incoming': ['Schufaauskunft requested'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-B347C5B5-1BCA-46CE-89BD-073A175CE80E', 'name': 'Report result to Bank', 'incoming': ['Schufaauskunft requested'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-ADD7A359-61DF-4952-8683-3B1AFA9E21B5', 'name': 'Report delay to Bank', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['perform scoring level 2']}
+{'id': 'sid-C23ED50F-057B-4CC5-8B26-B804B43A7BFD', 'name': 'perform scoring level 2', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['a few minutes']}
+{'id': 'sid-82E050FC-ED79-485C-B12B-4C5AC108159A', 'name': 'Scoring result', 'incoming': ['a few minutes'], 'outgoing': ['Report Scoringergebns to Bank']}
+{'id': 'sid-254591AA-A509-4047-A1F6-0BC088CAADAF', 'name': 'Report Scoringergebns to Bank', 'incoming': ['a few minutes'], 'outgoing': ['Scoring ends']}
+
+Gateways:
+{'id': 'sid-861AF778-6166-4702-A1DD-647821A25014', 'name': 'ExclusiveGateway0', 'incoming': ['Schufaauskunft requested'], 'outgoing': ['EndEvent3', 'a few minutes']}
+{'id': 'sid-E19821C5-F6FB-47D0-9B0E-8CAD89189DAD', 'name': 'EventBasedGateway1', 'incoming': ['Request scoring'], 'outgoing': ['EndEvent1', 'EndEvent0']}
+{'id': 'sid-7E620283-D4EB-47CC-A3E3-7B533A1B3ED6', 'name': 'Scoring', 'incoming': ['Request Schufascoring'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-F41B79B8-6FE2-4A04-AA50-7751F43DD551', 'name': 'Get delay message', 'incoming': ['Request scoring'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-07050CEA-D4EF-4CD7-A84F-6255265973E7', 'name': 'a few minutes', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Scoring ends']}
+
+Start Events:
+{'id': 'sid-41F2C8BD-A37F-450F-8BE7-43736B915D40', 'name': 'Request scoring', 'incoming': [], 'outgoing': ['forward the delay message']}
+{'id': 'sid-B5BEECA3-7123-40F3-97D0-0F634E9419F6', 'name': 'Schufaauskunft requested', 'incoming': [], 'outgoing': ['Report result to Bank']}
+
+End Events:
+{'id': 'sid-1C002A20-C989-4461-B994-6635736DC53F', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-9E2C8509-36AD-4965-AFC0-FFBD7A5C37B6', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-27932471-B3FE-4899-9432-533B7B1A0AAC', 'name': 'Scoring ends', 'incoming': ['a few minutes'], 'outgoing': []}
+{'id': 'sid-506A3A40-1B7A-436D-86E0-30DD760F8E74', 'name': 'EndEvent3', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

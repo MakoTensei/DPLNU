@@ -1,0 +1,9 @@
+ In the scoring process, the workflow begins with a 'Scoring request\nReport' event, which triggers the 'Scoring 2 result forward' task. This task is managed by the 'EventBasedGateway1', which also handles the 'Scoring request\nReport' event.
+
+The 'Scoring 2 result forward' task then sends a 'Scoring query\nFinished' event to the 'Result\navailable?' gateway, which checks if the result is available. If the result is available, the 'forward delay' task is triggered, which sends a 'Scoring 2 result\nCalculation' event to the 'End of query' gateway.
+
+Meanwhile, the 'Scoring 1 result forward' task is also initiated by the 'Scoring request\nReport' event. This task sends a 'Scoring 1\nFollow-up' event to the 'Request request' gateway, which in turn triggers the 'Scoring request\nFinished' task.
+
+The 'Scoring 1\nFollow-up' task then sends a 'Scoring request\nFinished' event to the 'Result\navailable?' gateway, which checks if the result is available. If the result is available, the 'forward delay' task is triggered, which sends a 'Scoring 2 result\nCalculation' event to the 'End of query' gateway.
+
+Finally, the 'Schuf request\nFinished' task is triggered by the 'Final scoring\nResult\nReport' event, which sends a 'Schuf request\nFinished' event to the 'End of query' gateway, marking the end of the scoring process.

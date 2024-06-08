@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-2030CF40-CB5C-4F38-B51A-61F96B44A5AD', 'name': 'Check regression', 'incoming': ['Regression report'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-F9BDF16B-DCAC-4D43-82F0-CC7FA24B14DF', 'name': 'Send payment request to VN', 'incoming': ['Regression report'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-1E568E41-17B4-439E-84A8-1A6E178ADF4C', 'name': 'Set process for resubmission', 'incoming': ['Is there a regression?'], 'outgoing': ['Reimbursement deadline expired']}
+{'id': 'sid-208E629B-EB91-4DED-9DFF-F53F085B3F61', 'name': 'Book money receipt', 'incoming': ['Get money'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C35724A0-662D-40A3-BB9D-3278FA2F5B0D', 'name': 'Close', 'incoming': ['Get money'], 'outgoing': ['Finished']}
+{'id': 'sid-64C29625-1C0E-47BB-954E-F93B5D0D8154', 'name': 'Proceedings', 'incoming': ['VN contradicts'], 'outgoing': ['Finished']}
+{'id': 'sid-CA5620F1-148F-4D48-B92C-BD1906D571E4', 'name': 'Dispense process to Inkasso-DL', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Subject matter']}
+
+Gateways:
+{'id': 'sid-3ED59B4C-2A23-45D1-B2AE-C668D86D7CF0', 'name': 'Is there a regression?', 'incoming': ['Regression report'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-DB423900-3971-4A0F-83AC-0D76CC227DD2', 'name': 'Objection justified?', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-318580E8-06B6-4A67-BC66-02E57EF299CD', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'Check regression', 'Is there a regression?'], 'outgoing': ['Finished']}
+{'id': 'sid-D2A32680-E3EC-4D0E-8E59-8C5CADB93E11', 'name': 'ExclusiveGateway3', 'incoming': ['VN contradicts', 'IntermediateCatchEvent4'], 'outgoing': ['Subject matter']}
+{'id': 'sid-6CEE1195-9FBD-41CF-B69F-09DC87CF0DE3', 'name': 'IntermediateCatchEvent4', 'incoming': ['Is there a regression?'], 'outgoing': ['Get money', 'Objection justified?', 'Dispense process to Inkasso-DL']}
+{'id': 'sid-B3580C45-F95E-401C-8D1B-11886754B095', 'name': 'Reimbursement deadline expired', 'incoming': ['Set process for resubmission'], 'outgoing': ['Subject matter']}
+{'id': 'sid-63B006D6-E438-4F7E-BA82-AC3C583521EB', 'name': 'Get money', 'incoming': ['Is there a regression?'], 'outgoing': ['Close']}
+{'id': 'sid-E38A4D9C-0E89-4975-84A9-F7F57C059C8C', 'name': 'VN contradicts', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-4E551077-0339-40E9-BCC3-FD9EF4F9DCC9', 'name': 'Regression report', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:
+{'id': 'sid-B327FF3D-6EF2-497E-81E7-A48550BA9786', 'name': 'Finished', 'incoming': ['Proceedings'], 'outgoing': []}
+{'id': 'sid-7A5EEE35-CBD8-4D93-90B0-39DDD599D828', 'name': 'Subject matter', 'incoming': ['Reimbursement deadline expired'], 'outgoing': []}

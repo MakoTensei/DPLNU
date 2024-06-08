@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-17DD8A34-9A73-47D7-9269-C38CB8E9836B', 'name': 'Schufa.\nRequest\nsend', 'incoming': ['Schufa scoring-\nRequest is\nReport'], 'outgoing': ['Results received']}
+{'id': 'sid-CDD532BD-41B1-4DD8-BFFF-F24FCED40FFE', 'name': 'forward result to the frontend', 'incoming': ['Results received'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-2B1FA373-6E31-47B2-A616-D267173DE80C', 'name': 'forward level2 results to frontend', 'incoming': ['Schufa scoring-\nRequest is\nReport'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-BEE055CB-AC6D-49F7-80EE-2EA5A2D404DC', 'name': 'Scoring query (level1)\nperform', 'incoming': ['Schufa request\nReport'], 'outgoing': ['Results are available?']}
+{'id': 'sid-AF8B6434-C929-48E9-B6FE-105EAB4B7918', 'name': 'Determining Final Scoring Results (Level2)', 'incoming': ['forward delay'], 'outgoing': ['sid-02201C36-ECF8-4000-B51C-4D4F21AB04D7']}
+{'id': 'sid-DC9CACFA-D7D3-480E-B66A-B32F3BC4606B', 'name': 'forward delay', 'incoming': ['Schufa request\nReport'], 'outgoing': ['Determining Final Scoring Results (Level2)']}
+
+Gateways:
+{'id': 'sid-7C27AF7D-4EB8-4FF5-9573-68F7C4B570E3', 'name': 'Results are available?', 'incoming': ['Schufa request\nReport'], 'outgoing': ['sid-93D5F8FD-B1FA-4941-BA67-3BC0153E9A13', 'forward delay']}
+{'id': 'sid-27C45645-793B-40F5-AB19-ED5CFBC63C7A', 'name': 'EventBasedGateway1', 'incoming': ['Schufa scoring-\nRequest is\nReport'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-79DACA8F-1AAC-48EA-842C-6C0948ADEABF', 'name': 'Results received', 'incoming': ['Schufa.\nRequest\nsend'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-8AA08441-71BE-41F8-8D2C-4D856AC5A535', 'name': 'Delay', 'incoming': ['Schufa scoring-\nRequest is\nReport'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-A11CEF7D-A737-4818-B818-B035F3478963', 'name': 'Results Level2 pardon', 'incoming': ['Schufa scoring-\nRequest is\nReport'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-1BA04D9A-4166-4946-9546-35903951E72E', 'name': 'Schufa scoring-\nRequest is\nReport', 'incoming': [], 'outgoing': ['forward level2 results to frontend']}
+{'id': 'sid-A28F4ECC-9CF3-4DBF-97C0-834B29F4364D', 'name': 'Schufa request\nReport', 'incoming': [], 'outgoing': ['forward delay']}
+
+End Events:
+{'id': 'sid-387D56B7-546C-4C7E-94F7-23873BC8900A', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-1F6E0337-4956-4BA6-8740-77937CD2AFE5', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-C7B03BB2-4B00-44FF-A5FB-76E152BDD486', 'name': 'EndEvent2', 'incoming': ['sid-485D38A2-66EB-49EF-8BCA-42D32379B924'], 'outgoing': []}
+{'id': 'sid-C3E5BF12-1B77-46D3-8480-DB5A2C5B8200', 'name': 'EndEvent3', 'incoming': ['sid-AE76441D-F4BA-4EFD-9623-9A97C7B0D620'], 'outgoing': []}

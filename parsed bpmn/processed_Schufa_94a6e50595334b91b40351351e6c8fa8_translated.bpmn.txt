@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-6CD1DC05-FA64-4260-881F-4FCEB49C1CDA', 'name': 'Schufa scoring\nQuestions', 'incoming': ['Scoring\nhe is asking'], 'outgoing': ['Delay\nReport']}
+{'id': 'sid-FAF8CC7C-85A3-4E84-9452-EC519FF267F4', 'name': 'Delay\nReport', 'incoming': ['Delay\nReport'], 'outgoing': ['Scoring\nresult\nobtained']}
+{'id': 'sid-70EF7312-BBB2-4A48-B471-245E55F0C5A2', 'name': 'Schufascore\nReport', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-71A070B2-2AC2-47E2-9B39-2CCCD2B7B6CB', 'name': 'Scoring\n(level 1)\nDebt', 'incoming': ['Scoring\nQuestion\nobtained'], 'outgoing': ['Success?']}
+{'id': 'sid-8DBD1D1C-49D5-4921-B844-F3CD9116ED67', 'name': 'Scoring\nresult\nReport', 'incoming': ['Scoring\nQuestion\nobtained'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-AF7896B2-35D0-4466-8A58-420F17245268', 'name': 'Delay\nReport', 'incoming': ['Success?'], 'outgoing': ['Scoring\n(level 2)\nDebt']}
+{'id': 'sid-2C43F7A3-6FAA-43DF-95F0-8FE2F8AF78C3', 'name': 'Scoring\n(level 2)\nDebt', 'incoming': ['Delay\nReport'], 'outgoing': ['Scoring\nresult\nparts']}
+{'id': 'sid-C4275A78-C51D-4BA4-9A6E-78A5C58C2C1F', 'name': 'Scoring\nresult\nparts', 'incoming': ['Scoring\n(level 2)\nDebt'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-8FC4484E-CFB9-4650-A8E7-4E7D328621B2', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'Scoring\nhe is asking'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-322C5822-15D2-4F5E-A960-9AF2A98A28FC', 'name': 'Success?', 'incoming': ['Scoring\nQuestion\nobtained'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-063762E8-9155-421C-9F59-C30B2423B517', 'name': 'EventBasedGateway2', 'incoming': ['Scoring\nhe is asking'], 'outgoing': ['Scoring\nresult\nobtained', 'Schufascore\nReport']}
+{'id': 'sid-56CB7F67-8C79-4D7A-B71D-D9B0BEB4299E', 'name': 'Scoring\nresult\nobtained', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9482C1E2-C294-4F95-B6DC-95AEE3145B60', 'name': 'Delay\nReport', 'incoming': ['Schufa scoring\nQuestions'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-82198B60-8369-45A8-8F3A-586F12BDAF9D', 'name': 'Scoring\nresult\nobtained', 'incoming': ['Scoring\nhe is asking'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-FD7C14F7-2EB3-4436-9F0E-7E2FC609D3FD', 'name': 'Scoring\nhe is asking', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-96A9B7AE-CF35-4634-B274-372675DF8369', 'name': 'Scoring\nQuestion\nobtained', 'incoming': [], 'outgoing': ['Scoring\nresult\nReport']}
+
+End Events:
+{'id': 'sid-AD7DEA6B-D4B4-418E-9B06-3CEC82D1DF68', 'name': 'EndEvent0', 'incoming': ['Success?'], 'outgoing': []}
+{'id': 'sid-056D7B29-859E-4353-8DB7-E7FB6F212988', 'name': 'EndEvent1', 'incoming': ['Success?'], 'outgoing': []}
+{'id': 'sid-A4304EBB-C387-4450-A0F9-0E972840F1EB', 'name': 'EndEvent2', 'incoming': ['Scoring\nresult\nparts'], 'outgoing': []}

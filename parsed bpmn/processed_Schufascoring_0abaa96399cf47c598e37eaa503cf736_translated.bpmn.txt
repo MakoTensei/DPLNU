@@ -1,0 +1,30 @@
+Tasks:
+{'id': 'sid-A13250EB-C199-4FEC-BA34-BF3C62D058E4', 'name': 'Scoring request', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-66CBB9EB-9295-4CF8-BD9A-BDF623C5E965', 'name': 'forward scoring results', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Scoring request\nprocessed']}
+{'id': 'sid-3EE42B30-74A9-49E3-B63D-D6ECDE79A22D', 'name': 'Scoring currently not possible', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['IntermediateCatchEvent6']}
+{'id': 'sid-EEE6F82C-D150-4BA7-9ED3-F2DCBFD1FEFD', 'name': 'forward scoring results', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-9D783376-722E-40E9-8781-38EBFB97FBED', 'name': 'Conduct scoring (level 1)', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['Scoring determined']}
+{'id': 'sid-EEA09EDD-0B90-45C5-9196-8CF533289D38', 'name': 'Transfer scoring results', 'incoming': ['Scoring determined'], 'outgoing': ['Scoring is determined']}
+{'id': 'sid-AFC3B2D6-F467-4798-8ADF-07B82138FD1B', 'name': 'Scoring currently not possible', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['Conduct scoring (level 2)']}
+{'id': 'sid-55985447-63F2-4755-AC3D-998E8402ADE1', 'name': 'Conduct scoring (level 2)', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Scoring determined']}
+{'id': 'sid-F4FC34CA-2E0B-4944-AEDD-4264119A74B0', 'name': 'Transfer scoring results', 'incoming': ['Scoring determined'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-237D5E06-4189-4897-B0A5-534BE984C648', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'IntermediateCatchEvent6'], 'outgoing': ['Scoring request\nprocessed']}
+{'id': 'sid-687A4495-47DB-44BB-AF24-9A48411AEDC0', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway3', 'Scoring determined'], 'outgoing': ['Scoring is determined']}
+{'id': 'sid-D2FBE28A-8D44-4DCF-8F90-48307D8C786A', 'name': 'EventBasedGateway2', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['IntermediateCatchEvent5', 'ExclusiveGateway0']}
+{'id': 'sid-21169DEC-8FF5-4252-AA15-9765D278D9AC', 'name': 'EventBasedGateway3', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['Delay\nyou have entered', 'ExclusiveGateway1']}
+{'id': 'sid-52F15383-17FD-4AAE-A210-4634B412E43A', 'name': 'IntermediateCatchEvent4', 'incoming': ['Scoring request'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-9FDD5D3F-808C-45D8-BB51-AD2ACD466777', 'name': 'IntermediateCatchEvent5', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['Scoring determined']}
+{'id': 'sid-5DBDFCD1-3163-4D79-8488-2A2B82422375', 'name': 'IntermediateCatchEvent6', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-27292A20-19D5-4193-BDB8-3F70020FD87D', 'name': 'Scoring determined', 'incoming': ['Conduct scoring (level 1)'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-B5C3E3E8-0306-4F7D-9976-8C821544F00A', 'name': 'Delay\nyou have entered', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['Scoring currently not possible']}
+{'id': 'sid-2C1C8FC8-E584-4A8F-87F8-47F74A174A84', 'name': 'Scoring determined', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-7AA6E772-9533-48A1-80D1-E4C0EFED6791', 'name': 'Schufascoring request\nwe have discussed', 'incoming': [], 'outgoing': ['forward scoring results']}
+{'id': 'sid-EDB9E82B-462F-43C0-82A0-765FE95D5E8F', 'name': 'Schufascoring request\nwe have discussed', 'incoming': [], 'outgoing': ['Scoring currently not possible']}
+
+End Events:
+{'id': 'sid-3CEB86B1-AA6A-4C61-B094-0CA3DD24F739', 'name': 'Scoring request\nprocessed', 'incoming': ['forward scoring results'], 'outgoing': []}
+{'id': 'sid-7D13A005-43BC-499E-95FF-872C688DB713', 'name': 'Scoring is determined', 'incoming': ['Transfer scoring results'], 'outgoing': []}

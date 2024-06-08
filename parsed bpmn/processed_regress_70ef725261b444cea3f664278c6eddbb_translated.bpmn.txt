@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-F3D1413F-88FF-4BDE-83F4-F17BBBD4D63C', 'name': 'Check regression case', 'incoming': ['Regression'], 'outgoing': ['Regression?']}
+{'id': 'sid-1FD66F19-D968-43C7-8B94-468A3087E904', 'name': 'Send payment request', 'incoming': ['Regression'], 'outgoing': ['Set case for re-submission']}
+{'id': 'sid-9448840F-839F-4AEC-8130-673527685CC6', 'name': 'Set case for re-submission', 'incoming': ['Regression?'], 'outgoing': ['Money received']}
+{'id': 'sid-98946FA5-C861-40C3-80D4-2E363F6876C5', 'name': 'Book money receipt', 'incoming': ['Money received'], 'outgoing': ['sid-E979AD1C-76F9-4269-8FBF-4242D7B77078']}
+{'id': 'sid-FCCBCFCD-37CB-44C7-B5DC-6E90BE5EE180', 'name': 'Proceedings', 'incoming': ['Opposition\nwe have discussed'], 'outgoing': ['Opposition\njustified?']}
+{'id': 'sid-AB2E070D-2590-4452-BC43-83362577EC3F', 'name': 'Transfer order to debt collection', 'incoming': ['Opposition\nwe have discussed'], 'outgoing': ['Case closed']}
+{'id': 'sid-09C751AA-5CA5-4D8C-99CE-AC23A5C2F82C', 'name': 'Transfer order to debt collection', 'incoming': ['Reimbursement period\nit has expired\n(e.g. 14 days)'], 'outgoing': ['Case closed']}
+
+Gateways:
+{'id': 'sid-46CED6CC-667F-433E-9FFD-EAC74A2B1957', 'name': 'Regression?', 'incoming': ['Regression'], 'outgoing': ['Case closed', 'Case closed']}
+{'id': 'sid-8D51E94B-958F-48DC-B948-572C957E7613', 'name': 'Opposition\njustified?', 'incoming': ['Regression?'], 'outgoing': ['Case closed', 'sid-ED27A24E-5B46-4B79-B8F2-7D488CF7EB28']}
+{'id': 'sid-3A020369-F84E-4344-8EB2-7E5B59C9EEEC', 'name': 'EventBasedGateway2', 'incoming': ['Regression?'], 'outgoing': ['Money received', 'Opposition\nwe have discussed', 'Reimbursement period\nit has expired\n(e.g. 14 days)']}
+{'id': 'sid-B9489B4B-98B8-4F8D-B5C9-E1880689A65B', 'name': 'Money received', 'incoming': ['Set case for re-submission'], 'outgoing': ['Book money receipt']}
+{'id': 'sid-7D3938C3-E211-490B-89FE-A296BD7585BB', 'name': 'Opposition\nwe have discussed', 'incoming': ['Regression?'], 'outgoing': ['Case closed']}
+{'id': 'sid-12F30CE8-B3FB-4E92-8947-3438CE269A25', 'name': 'Reimbursement period\nit has expired\n(e.g. 14 days)', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Transfer order to debt collection']}
+
+Start Events:
+{'id': 'sid-70C03285-DD8C-407A-AEB6-F5BB3DC90E9A', 'name': 'Regression', 'incoming': [], 'outgoing': ['Send payment request']}
+
+End Events:
+{'id': 'sid-DE1DE8E7-6621-495C-9010-B119EE0B5F2E', 'name': 'Case closed', 'incoming': ['Regression?', 'Opposition\nwe have discussed', 'Regression?'], 'outgoing': []}

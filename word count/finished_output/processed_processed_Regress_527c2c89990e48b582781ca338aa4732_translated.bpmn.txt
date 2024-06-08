@@ -1,0 +1,9 @@
+ When a regression case is reported, it triggers a series of tasks and gateways to handle the case. The process begins with the 'Regression case reported' event, which leads to a 'VN payment request' task. This task is connected to the 'Mogility exists' gateway, which determines the next steps based on the incoming information.
+
+If Mogility exists, the gateway passes the case to the 'Determine the repository' task, which then leads to the 'Payment' gateway. The 'Payment' gateway, in turn, connects to the 'EndEvent0' task, signaling the completion of the process.
+
+Alternatively, if Mogility exists, the gateway can also pass the case to the 'Not justified' gateway, which leads to the 'EndEvent2' task. This task is connected to the 'Speaking' event, which concludes the process.
+
+Another pathway is when Mogility exists, the gateway connects to the 'EventBasedGateway2' task, which can lead to the 'Payment' gateway, 'Notification' gateway, or 'WV expired' gateway. The 'Payment' gateway connects to the 'EndEvent0' task, while the 'Notification' gateway leads to the 'Disclosure of debt collection' task. The 'WV expired' gateway has no outgoing connections.
+
+In summary, the process starts with a 'Regression case reported' event, which triggers a 'VN payment request' task. The task then connects to the 'Mogility exists' gateway, which determines the next steps based on the incoming information. The process can lead to different outcomes, such as 'EndEvent0', 'EndEvent2', or 'Regresfall passed on to Inkasse', depending on the pathway taken.

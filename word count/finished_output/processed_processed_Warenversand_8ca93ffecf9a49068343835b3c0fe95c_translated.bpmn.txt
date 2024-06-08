@@ -1,0 +1,9 @@
+ In the process of shipping goods, the journey begins with the 'Goods for shipping' event, which triggers the 'Fill out standard package voucher' task, utilizing the 'ParallelGateway5' as its incoming gateway. Following this, the 'Packing goods' task commences, with 'ParallelGateway5' as its incoming gateway and 'Goods ready for collection' as its outgoing gateway.
+
+As the goods are ready for collection, the 'Goods ready for collection' event is triggered, with 'Packing goods' as its incoming gateway. This marks the end of the process, with no outgoing gateways specified for this event.
+
+Throughout this process, the 'ExclusiveGateway0' serves as the initial gateway, connecting to 'ParallelGateway5' for the 'Fill out standard package voucher' task. It also connects to 'ExclusiveGateway2' and 'ExclusiveGateway3' for the 'Clearing the insurance obligation' and 'Complete insurance' tasks, respectively.
+
+The 'Insurance? notweng' event, which is triggered by 'Goods for shipping', connects to 'ExclusiveGateway0' and 'ExclusiveGateway3'. Meanwhile, 'ExclusiveGateway2' links to 'Clearing the insurance obligation' and 'Complete insurance', and 'ExclusiveGateway3' connects to 'Goods ready for collection' and 'ParallelGateway4'.
+
+In summary, the process of shipping goods involves several tasks and gateways, including 'Supplying goods', 'Packing goods', 'Specify quantity', 'Fill out standard package voucher', 'Pick up sender offers', 'Send mail order', 'Select your offer', 'Clearing the insurance obligation', and 'Complete insurance'. These tasks and gateways work together to ensure the smooth and efficient delivery of goods from the point of origin to the point of collection.

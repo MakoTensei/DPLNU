@@ -1,0 +1,31 @@
+Tasks:
+{'id': 'sid-BC212BBE-35A6-4D61-9116-3B1AEBE270E3', 'name': 'Select a court', 'incoming': ['Feeling hungry'], 'outgoing': ['Waiting up a row']}
+{'id': 'sid-8825C806-B962-4FB7-98CA-178CFFC11A9D', 'name': 'Payment', 'incoming': ['sid-8FE03AF8-8A09-453A-9A03-61F7BB9DEB96'], 'outgoing': ['Wait for Piperton']}
+{'id': 'sid-CC055BA6-1331-4427-AFD6-0364EB912138', 'name': 'Wait for Piperton', 'incoming': ['Payment'], 'outgoing': ['Piepton']}
+{'id': 'sid-9C913BD6-015D-483E-9703-8CA5F2DAF535', 'name': 'Pick up your order', 'incoming': ['Piepton'], 'outgoing': []}
+{'id': 'sid-B4152876-2387-4030-9471-F89EBDDE6688', 'name': 'Eat meal', 'incoming': ['sid-A23813FF-0902-46B3-AE95-12BD9E5EF355'], 'outgoing': ['Famine']}
+{'id': 'sid-4C537E3D-8256-4EDF-B737-02085C893B88', 'name': 'Enter your order in the cash register system', 'incoming': ['Order to receive'], 'outgoing': ['Cash']}
+{'id': 'sid-9ED90C50-1210-4AEC-8992-C19DE32EA2EB', 'name': 'Cash', 'incoming': ['Order to receive'], 'outgoing': ['sid-66B6E235-6591-43F1-9F04-EED0D10174C8']}
+{'id': 'sid-E057C78D-66A8-4075-8D7E-80CBD6D9BA04', 'name': 'Send a message to Piper', 'incoming': ['Information'], 'outgoing': ['sid-C338C773-6AA3-4E9A-A108-BA56141970C4']}
+{'id': 'sid-C23532F2-264E-451E-8782-AD8546767147', 'name': 'Retrieve customer', 'incoming': ['Waiting for customer longer 5 min'], 'outgoing': ['Customer appears under 5 min']}
+{'id': 'sid-909BFD6A-79DC-4076-B02C-1FEB455978DE', 'name': 'Preparation of meal', 'incoming': ['Info about order'], 'outgoing': ['Place your order in Hochreich']}
+{'id': 'sid-E920695B-761B-420E-81AB-D95704EB1CC9', 'name': 'Place your order in Hochreich', 'incoming': ['Info about order'], 'outgoing': ['sid-A99E3F42-738B-4958-994E-8B61105EA270']}
+
+Gateways:
+{'id': 'sid-5E8EDDFE-4DC8-4055-B09A-0818F0A8BA33', 'name': 'EventBasedGateway0', 'incoming': ['sid-C272CDDA-ECF3-4287-AD76-ECAB710A2B3E', 'EventBasedGateway0'], 'outgoing': ['EndEvent1', 'Arrival Guest']}
+{'id': 'sid-632632BB-C801-429E-A1BC-24AFD70ACE7D', 'name': 'Waiting up a row', 'incoming': ['Feeling hungry'], 'outgoing': ['sid-D3393E9F-6488-47C6-95B3-10FEE56A10C1']}
+{'id': 'sid-9007771A-0647-4559-9AAF-31552DA51D5F', 'name': 'Piepton', 'incoming': ['Wait for Piperton'], 'outgoing': ['Pick up your order']}
+{'id': 'sid-72B7178F-96E0-4164-A183-9A64596A32CA', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Cash']}
+{'id': 'sid-7B43E1FC-DD1F-4CF9-8701-9BB18FD99393', 'name': 'Information', 'incoming': ['sid-A5783069-F9EB-4FE2-9412-EDA605E204C1'], 'outgoing': ['Send a message to Piper']}
+{'id': 'sid-A7729990-8BC3-44D6-8D6A-65437CA1EE5A', 'name': 'Waiting for customer longer 5 min', 'incoming': ['Retrieve customer'], 'outgoing': ['Customer appears under 5 min']}
+{'id': 'sid-03478EC2-B2A4-4820-8152-FA18D5933FC8', 'name': 'Customer appears under 5 min', 'incoming': ['Retrieve customer'], 'outgoing': ['Arrival Guest']}
+{'id': 'sid-CD235EB3-D242-448D-8D76-9C90AF9981CE', 'name': 'Arrival Guest', 'incoming': ['EventBasedGateway0'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-FA586142-5F28-4E0E-A4D0-234B85A963F2', 'name': 'Info about order', 'incoming': [], 'outgoing': ['Place your order in Hochreich']}
+
+Start Events:
+{'id': 'sid-E2327129-9611-472E-8F06-6B1027D7E748', 'name': 'Feeling hungry', 'incoming': [], 'outgoing': ['Waiting up a row']}
+
+End Events:
+{'id': 'sid-7AEE9FCB-2999-436A-A9BD-F98A38EE3DC9', 'name': 'Famine', 'incoming': ['Eat meal'], 'outgoing': []}
+{'id': 'sid-5DF9334D-E77B-4064-AC11-EDDD4A98A935', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-8BE92E67-6CE4-4056-B694-4BBC78CC71BC', 'name': 'Cooking process completed', 'incoming': ['sid-50EC5D93-3730-46DF-8296-B2028AA79548'], 'outgoing': []}

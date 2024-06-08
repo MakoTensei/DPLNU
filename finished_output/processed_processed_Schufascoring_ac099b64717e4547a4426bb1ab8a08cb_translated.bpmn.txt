@@ -1,0 +1,13 @@
+ In the Scoring process, when a 'Schufascoring\nInquiry\ngangs' event occurs, it triggers the following sequence of interactions:
+
+1. The 'Schufascoring\nInquiry\ngangs' event initiates a request for a question from the Scoring system, which is handled by the 'Scoring\nobtained' gateway. This gateway sends a 'Request without\nDelay\nFinished' message to the next step in the process.
+
+2. The 'Scoring\nobtained' gateway then sends a 'Scoringer\nsend a message' event to the Scoring system, which sends a feedback message without delay. This feedback is handled by the 'Feedback\nwithout delay\ncompleted' gateway.
+
+3. If the feedback is delayed, the 'Scoring\nobtained' gateway sends a 'Question with\nDelay\nFinished' event to the Scoring system, which sends a delayed feedback message. This delayed feedback is handled by the 'Feedback\nwith delay\ncompleted' gateway.
+
+4. If the 'Schufascoring\nInquiry\ngangs' event results in a scoring result, the 'Scoring result\nobtained' gateway sends a 'Feedback\nwith delay\ncompleted' event to the Scoring system, which sends a delayed feedback message.
+
+5. If the 'Schufascoring\nInquiry\ngangs' event results in a waiting period exceeding the expected time, the 'Waiting period\nexceeded' gateway sends a 'Report delay' event to the Scoring system, which sends a delayed feedback message.
+
+In summary, the 'Schufascoring\nInquiry\ngangs' event initiates a series of interactions involving the 'Scoring\nobtained', 'Feedback\nwithout delay\ncompleted', 'Feedback\nwith delay\ncompleted', and 'Waiting period\nexceeded' gateways, ultimately leading to the appropriate feedback being sent to the Scoring system.

@@ -1,0 +1,5 @@
+ In the shipping process, the journey begins with the event 'Goods should be shipped', which triggers the 'Packaging goods' task. This task is connected to 'ExclusiveGateway2', and upon completion, it leads to the 'Need to consider insurance' event. If insurance is deemed necessary, the process continues to 'ExclusiveGateway3', which then connects to 'ParallelGateway4'. Here, the 'Fill in parcel form' task is initiated, and upon completion, the 'Goods shipped' event is triggered.
+
+Alternatively, if insurance is not required, the 'Packaging goods' task proceeds to 'ParallelGateway5'. This gateway initiates the 'Goods are provided for collection' task, which eventually leads to the 'Goods shipped' event.
+
+In both scenarios, the 'Goods shipped' event is the final step in the shipping process, with connections to 'ExclusiveGateway2' and 'ParallelGateway4'.

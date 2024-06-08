@@ -1,0 +1,20 @@
+ In the event of a "Request obtained," the system initiates a sequence of tasks to process the request. The first task, "Scoring request sent," triggers the L1 scoring process, which is then reported as "L1 scoring obtained." This outcome is then forwarded to the L1 scoring gateway, "L1 scoring forwarded."
+
+Subsequently, the "Possible?" gateway receives the "Scoring request obtained" event and sends a "Possible?" event back, which leads to the "Scoring L1 report back" task. This task reports the outcome of the L1 scoring process as "Scoring L1 request finished."
+
+Meanwhile, the "EventBasedGateway1" gateway receives the "Request obtained" event and forwards it to the "Request completed" task, which signifies the completion of the request processing.
+
+If the "Possible?" event is received, it triggers the "Scoring L2 obtained" task, which sends a "Scoring L2 forwarded" event to the L2 scoring gateway. The "Scoring L2 obtained" event is also sent to the "Scoring L2 report" gateway, which reports the outcome of the L2 scoring process as "Scoring L2 request finished."
+
+Finally, the "Request completed" task is triggered, which signifies the completion of the request processing. The "Scoring request finished" task is also triggered, indicating the completion of the scoring process.
+
+In summary, the sequence of events and tasks for processing a "Request obtained" event is as follows:
+
+1. "Scoring request sent" task initiates L1 scoring.
+2. "L1 scoring obtained" task reports L1 scoring outcome.
+3. "L1 scoring forwarded" task sends L1 scoring outcome to the L1 scoring gateway.
+4. "Possible?" gateway receives "Scoring request obtained" event and sends "Possible?" event back.
+5. "Scoring L1 request finished" task reports L1 scoring outcome.
+6. "EventBasedGateway1" gateway receives "Request obtained" event and forwards it to "Request completed" task.
+7. "Scoring L2 obtained" task initiates L2 scoring.
+8. "Scoring L

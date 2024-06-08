@@ -1,0 +1,31 @@
+Tasks:
+{'id': 'sid-06420F7B-0822-41B1-AC7C-65E8D0577EAB', 'name': 'Selection offer &amp; place order', 'incoming': ['Hunger'], 'outgoing': ['Court of Justice']}
+{'id': 'sid-13AE40BE-4C0B-4650-86B0-DBE901B77C31', 'name': 'Court of Justice', 'incoming': ['Hunger'], 'outgoing': ['Pieper piept']}
+{'id': 'sid-7088025D-737B-4760-AD9E-3BF76E8F250E', 'name': 'Court of Justice', 'incoming': ['Hunger'], 'outgoing': ['Eat court']}
+{'id': 'sid-5B1F2847-E714-4329-B0BF-2F01D154CB57', 'name': 'Eat court', 'incoming': ['Pieper piept'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-62404779-C86C-49EE-BE9F-1597FC18E3C4', 'name': 'Order', 'incoming': ['Order to receive'], 'outgoing': ['Cash']}
+{'id': 'sid-48BF1680-DC5E-4DBF-90F7-4BC282934C76', 'name': 'Cash', 'incoming': ['Order to receive'], 'outgoing': ['Adjust Pieper and hand over guest']}
+{'id': 'sid-11CB2115-C06C-45FD-A876-8B7C9B46AA08', 'name': 'Adjust Pieper and hand over guest', 'incoming': ['Order to receive'], 'outgoing': ['Koch inform']}
+{'id': 'sid-AACCF31C-B8D0-4B2D-8F00-26817075A656', 'name': 'Koch inform', 'incoming': ['Order to receive'], 'outgoing': []}
+{'id': 'sid-EAEC90E2-D56A-4E68-A456-D28C6779FAB8', 'name': 'Ready to pick up meal & Pieper', 'incoming': ['meal ready'], 'outgoing': ['5 min']}
+{'id': 'sid-E87ED713-75F7-428A-A83B-A06456CAB63D', 'name': 'Restart Pieper', 'incoming': ['5 min'], 'outgoing': []}
+{'id': 'sid-CDBD0268-7255-4EDC-B7F2-5E1256E32B81', 'name': 'Preparation', 'incoming': ['Order to receive'], 'outgoing': ['Prepared meals']}
+{'id': 'sid-21651C2B-1BA9-4772-A799-ADF519DCE3F8', 'name': 'Putting meal in vain', 'incoming': ['Order to receive'], 'outgoing': ['meal provided']}
+
+Gateways:
+{'id': 'sid-A27D4238-A3CF-44E5-A5C7-DA2955E6D87B', 'name': 'EventBasedGateway0', 'incoming': ['meal ready'], 'outgoing': ['5 min', 'EndEvent1']}
+{'id': 'sid-E2565C8B-14D0-4277-A8D8-16B6CA32C198', 'name': 'Pieper piept', 'incoming': ['Hunger'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6B7BBBBE-6110-4CA6-83A2-63F594217784', 'name': '5 min', 'incoming': ['Ready to pick up meal & Pieper'], 'outgoing': ['Restart Pieper']}
+{'id': 'sid-A88D4589-C4EB-44D0-A814-1D260674AFCA', 'name': 'Court was removed', 'incoming': ['meal ready'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-2512D738-E41A-40D2-9E6A-07C5515B9902', 'name': 'Prepared meals', 'incoming': ['Order to receive'], 'outgoing': ['meal provided']}
+
+Start Events:
+{'id': 'sid-FDB3AFD4-4F2E-4FCD-8049-DDBCFEC5E7AF', 'name': 'Hunger', 'incoming': [], 'outgoing': ['Court of Justice']}
+{'id': 'sid-B6E2246F-BA48-4A52-831B-FC1BCEF0EB21', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Koch inform']}
+{'id': 'sid-D8D22193-B694-483F-8421-7703A445CA54', 'name': 'meal ready', 'incoming': [], 'outgoing': ['Court was removed']}
+{'id': 'sid-E047C865-6C99-4725-8F44-03F8A65395F1', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Putting meal in vain']}
+
+End Events:
+{'id': 'sid-88794BA3-8BF1-41D0-91C3-A0CDE69CC1EF', 'name': 'EndEvent0', 'incoming': ['Pieper piept'], 'outgoing': []}
+{'id': 'sid-9B185ABD-D505-44E2-A2E4-DC54806969CE', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-3CD851F3-4128-40F0-82F2-A3A5D85DE368', 'name': 'meal provided', 'incoming': ['Prepared meals'], 'outgoing': []}

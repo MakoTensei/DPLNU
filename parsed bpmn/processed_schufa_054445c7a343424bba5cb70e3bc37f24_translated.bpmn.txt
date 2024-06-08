@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-6E2152C4-22A5-4A11-A2D9-A96E0D661758', 'name': 'Scoring request', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring L1']}
+{'id': 'sid-3169C3CF-BA31-4900-A0DF-B424C875D6D4', 'name': 'Share delay', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring L2']}
+{'id': 'sid-5BBC1CAF-2CF1-41D8-84D4-92FC61AEDCFA', 'name': 'Share Scoring Level 2\n', 'incoming': ['Scoring\nRequired'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-EDAF5A27-7E2A-4D16-9C4B-BDCFC2147BD0', 'name': 'Scoring Level 1\n', 'incoming': ['Scoring request\nto be preserved'], 'outgoing': ['EndEvent4']}
+{'id': 'sid-5EB685C0-4F2A-4925-AD4D-130E15E65052', 'name': 'Report delay to banking system', 'incoming': ['Scoring request\nto be preserved'], 'outgoing': ['Scoring Level 2']}
+{'id': 'sid-7DDAA56F-34F2-4216-B04A-2EF90CCF7C74', 'name': 'Scoring Level 2', 'incoming': ['Scoring calculable'], 'outgoing': ['Share Scoring Level 2']}
+{'id': 'sid-461921B1-8D95-4191-97D3-7F607BB163AA', 'name': 'Share Scoring Level 2', 'incoming': ['Scoring calculable'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-7EA7C2BE-744D-4203-BF25-CC92248C4C37', 'name': 'Scoring calculable', 'incoming': ['Scoring request\nto be preserved'], 'outgoing': ['EndEvent3', 'EndEvent4']}
+{'id': 'sid-AEEA5467-8FA3-433D-891D-C420BBB207C7', 'name': 'EventBasedGateway1', 'incoming': ['Scoring\nRequired'], 'outgoing': ['EndEvent1', 'Delay', 'Error message to Frontend']}
+{'id': 'sid-EA4BCFB2-FA86-4E88-BA6B-B639A40B31B1', 'name': 'Scoring L1', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-4533AD9F-44FC-4C46-B791-A197015EABD7', 'name': 'Delay', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Share delay']}
+{'id': 'sid-357ADE28-FE73-45AA-9A56-699A139B8678', 'name': 'Scoring L2', 'incoming': ['Scoring\nRequired'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6E9AC09E-F280-47F4-BE45-4F7CE9F0EFC4', 'name': 'timeout 30 sec', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Error message to Frontend']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['Share Scoring Level 2\n']}
+{'id': 'sid-F215E949-6517-4F81-8485-6892E173A96D', 'name': 'Scoring request\nto be preserved', 'incoming': [], 'outgoing': ['Report delay to banking system']}
+
+End Events:
+{'id': 'sid-4C7D187A-9C32-4806-A0AB-A2638D21B9CF', 'name': 'EndEvent0', 'incoming': ['Scoring L2'], 'outgoing': []}
+{'id': 'sid-A2CD61A8-D517-41FC-902D-7BDC7D2E13B7', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-83646FB7-0A56-42EC-8664-4A03FDE085B8', 'name': 'Error message to Frontend', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-04ED505E-BCCF-4793-B4B9-9AF5B4C95E63', 'name': 'EndEvent3', 'incoming': ['Scoring calculable'], 'outgoing': []}
+{'id': 'sid-F81458E0-EB2F-4504-90B4-FA549DBF355D', 'name': 'EndEvent4', 'incoming': ['Scoring Level 1\n'], 'outgoing': []}

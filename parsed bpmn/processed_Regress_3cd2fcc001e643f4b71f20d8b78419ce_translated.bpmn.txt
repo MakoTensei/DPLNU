@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-C95C8D8D-2C83-4941-AE59-CD8BDC3F0F91', 'name': 'Check\nthe case', 'incoming': ['StartEvent0'], 'outgoing': ['resource']}
+{'id': 'sid-67054FBC-49CE-4214-8BEA-F95BCBF24AF7', 'name': 'Check\nthe Reason\n', 'incoming': ['President'], 'outgoing': ['close the event']}
+{'id': 'sid-F9374DE8-A388-404C-8AA8-00C91C9CAF1D', 'name': 'Booked', 'incoming': ['Received Money'], 'outgoing': ['Closed\ncase']}
+{'id': 'sid-024E0BAD-98EF-439A-8FAB-303C41FF85E9', 'name': 'President', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Simple Case']}
+{'id': 'sid-CC1CE04E-4878-481C-80DB-253D3AC6E4CE', 'name': 'Close Case', 'incoming': ['StartEvent0'], 'outgoing': ['close the event']}
+{'id': 'sid-22EC2ADB-A360-4796-8EFC-227C88861FBA', 'name': 'Hand over to Coll', 'incoming': ['EventBasedGateway2'], 'outgoing': ['close the event']}
+{'id': 'sid-97B92A9E-7CF7-45CE-B4B9-A0B3B25819F4', 'name': 'Forward to Coll', 'incoming': ['due date'], 'outgoing': ['close the event']}
+
+Gateways:
+{'id': 'sid-B9B0EC1F-5566-4B1D-8F42-E57E8F316C5D', 'name': 'resource', 'incoming': ['StartEvent0'], 'outgoing': ['sid-086AD1FB-2DE1-4380-B3B5-4AF452550436', 'close the event']}
+{'id': 'sid-691EC1BB-785F-4D29-8FED-0502F20B2EBD', 'name': 'Simple Case', 'incoming': ['EventBasedGateway2'], 'outgoing': ['close the event', 'close the event']}
+{'id': 'sid-E1DF918E-7D79-4F79-9435-94EB645344CA', 'name': 'EventBasedGateway2', 'incoming': ['sid-C03AB662-422C-45F4-B3E6-98F9B0E25A7E'], 'outgoing': ['Hand over to Coll', 'sid-7413C40F-9B36-4201-A7D0-0B1AF5574E7E', 'sid-BEE83E5F-4B44-47D9-87D2-A82C723B443E']}
+
+Start Events:
+{'id': 'sid-598084E1-88F3-4DC5-A18B-AE8926B25A59', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Close Case']}
+{'id': 'sid-6BE20347-71C5-4162-9F0E-721B613D2656', 'name': 'Received Money', 'incoming': [], 'outgoing': ['Booked']}
+{'id': 'sid-2A204A21-BF4A-4432-9EDB-0DB93D1CA04C', 'name': 'due date', 'incoming': [], 'outgoing': ['Forward to Coll']}
+
+End Events:
+{'id': 'sid-2B3F9153-2E09-4A20-A8C3-46E4EF138735', 'name': 'close the event', 'incoming': ['Check\nthe Reason\n'], 'outgoing': []}
+{'id': 'sid-8966B96F-62D2-45AF-B7FC-D287B549128D', 'name': 'Closed\ncase', 'incoming': ['Booked'], 'outgoing': []}
+{'id': 'sid-C48F95F1-9C7D-4914-91E9-8FDAAFA05003', 'name': 'close the event', 'incoming': ['resource'], 'outgoing': []}
+{'id': 'sid-F5397E0F-71B1-4A6D-A497-997DEA4CD694', 'name': 'close the event', 'incoming': ['Forward to Coll'], 'outgoing': []}
+{'id': 'sid-06C567FE-7596-4D55-8B04-2409E80BF92C', 'name': 'close the event', 'incoming': ['Simple Case'], 'outgoing': []}

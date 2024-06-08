@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-575BC0A1-9412-4743-AC45-BADC08CA3EA1', 'name': 'Book the entrance', 'incoming': ['Money received'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-61C7528E-D35C-4179-93CF-0E20F7EA0A89', 'name': 'Proceedings', 'incoming': ['Notification'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-0F834497-F20A-4F0B-B8EA-ED1E4624D569', 'name': 'Inkasso Service Providers', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Debt collection']}
+{'id': 'sid-0323237F-41B2-41D6-9198-19D42141562E', 'name': 'Check Regress', 'incoming': ['Regress review'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-CBEE2EAC-0E91-4127-99E3-9D5415AFCAB4', 'name': 'Close', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Closed']}
+{'id': 'sid-0AB92079-53FF-492E-8E4B-9FEC21B017BC', 'name': 'Send a message', 'incoming': ['Regress review'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-15F5F94C-1C8D-416F-8028-0D2A5B8BE1AB', 'name': 'Reimbursement', 'incoming': ['Regress authorized?'], 'outgoing': ['Closed']}
+
+Gateways:
+{'id': 'sid-AED048A0-18E5-41DC-8F5E-9DDC8C42BCEF', 'name': 'Right to object?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-9F04639A-0EBB-4843-97DC-19958E7CEEB7', 'name': 'Regress authorized?', 'incoming': ['Regress review'], 'outgoing': ['ExclusiveGateway2', 'Closed']}
+{'id': 'sid-1EB49A26-3D19-4DB5-A5B7-74BB4F126826', 'name': 'ExclusiveGateway2', 'incoming': ['Check Regress', 'EventBasedGateway4', 'Proceedings'], 'outgoing': ['Closed']}
+{'id': 'sid-F26D9011-353F-49E3-8CCF-B5334E81799F', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Notification'], 'outgoing': ['Debt collection']}
+{'id': 'sid-1D2920BD-DD52-430F-8EF2-4605C2B21B4B', 'name': 'EventBasedGateway4', 'incoming': ['Reimbursement'], 'outgoing': ['Close', 'Right to object?', 'Inkasso Service Providers']}
+{'id': 'sid-893A9665-6FA7-4A78-BA94-5A3D20209C1B', 'name': 'Money received', 'incoming': ['Reimbursement'], 'outgoing': ['Closed']}
+{'id': 'sid-9CCD6D6A-4D50-43A9-9764-B94302AF47B4', 'name': 'Notification', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Debt collection']}
+{'id': 'sid-12317AB5-9B10-420C-A894-EB456A04C099', 'name': 'Counterfeit period expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-EE6784A4-94C2-4400-81EF-141B327ED2A2', 'name': 'Regress review', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-E00E620F-25BB-45E5-A651-E629287515E8', 'name': 'Debt collection', 'incoming': ['Notification'], 'outgoing': []}
+{'id': 'sid-DAD22A88-D19A-4110-9781-1E346E688F63', 'name': 'Closed', 'incoming': ['Regress authorized?'], 'outgoing': []}

@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-B5EDF212-72B0-4069-B156-3626E200087B', 'name': 'at the touch of a button\nSufa request', 'incoming': ['sid-074976E8-0F39-4CDE-B582-2E2A2CA09C12'], 'outgoing': ['waiting for Schufa results']}
+{'id': 'sid-E1EA6743-B8B6-4E35-9A14-87D40F8832B3', 'name': 'waiting for Schufa results', 'incoming': ['at the touch of a button\nSufa request'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-992246A7-7E47-4B31-801E-A2B1CE9F6D5C', 'name': 'perform other work', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Result\nobtained']}
+{'id': 'sid-6205C183-1513-427B-B0EA-85189B562CFF', 'name': 'first scoring (level 1)', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Result\nis fixed']}
+{'id': 'sid-45C80692-810E-4890-B704-51FD38CA10C1', 'name': 'Sending result to Bank', 'incoming': ['Result\nis fixed'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-24F0E35D-679F-4181-AFF2-48285E8B95DF', 'name': 'Check whether scoring can be determined immediately', 'incoming': ['Scoring request\nReport'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-BDDE27C8-20FE-4D1D-82F1-CF9C529A87F4', 'name': 'Delay of the bank', 'incoming': ['Scoring request\nReport'], 'outgoing': ['perform second scoring (level 2)']}
+{'id': 'sid-7B12A4F1-5EAC-4463-BE98-38CA634DAB0C', 'name': 'perform second scoring (level 2)', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-74E73A32-31C9-4841-B806-5D1063167360', 'name': 'ExclusiveGateway0', 'incoming': ['Scoring request\nReport'], 'outgoing': ['perform second scoring (level 2)', 'EndEvent1']}
+{'id': 'sid-77C362AA-89A6-43CC-AB7F-1E43DB9EE4D7', 'name': 'ExclusiveGateway1', 'incoming': ['Check whether scoring can be determined immediately', 'perform second scoring (level 2)'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-49EDA711-1E84-488C-A970-0EA89C604196', 'name': 'Note that\nThe result\ndelayed\nyou will be meeting\n', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['perform other work']}
+{'id': 'sid-F52E53D4-9A55-4936-99F8-6EFEB1479BD7', 'name': 'Result\nobtained', 'incoming': ['IntermediateCatchEvent4', 'IntermediateCatchEvent4'], 'outgoing': ['sid-57E8F5AA-4340-48B0-8D21-F449158AA8BF']}
+{'id': 'sid-BBDE812C-4948-4EA3-B04A-C691E18C6247', 'name': 'IntermediateCatchEvent4', 'incoming': ['waiting for Schufa results'], 'outgoing': ['Result\nobtained', 'Result\nobtained']}
+{'id': 'sid-AE0F3783-5655-4081-A3AB-1B0F2740A24E', 'name': 'Result\nis fixed', 'incoming': ['first scoring (level 1)'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-B0204A63-27B1-40DF-AE20-7495F5B57C6E', 'name': 'Scoring requests\nyou have\nthey are', 'incoming': [], 'outgoing': []}
+{'id': 'sid-32C40456-5704-4A4F-ACDA-0E2B29C15077', 'name': 'Scoring request\nReport', 'incoming': [], 'outgoing': ['Delay of the bank']}
+
+End Events:
+{'id': 'sid-EEF206A6-7E57-41DA-8686-68BF8DA34C14', 'name': 'EndEvent0', 'incoming': [], 'outgoing': []}
+{'id': 'sid-C7A6EC47-0370-4C97-ADF3-487AB1B16016', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

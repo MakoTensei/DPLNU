@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-62F15A59-0EA1-4533-BABD-101682F36980', 'name': 'Case of Regress\nCheck', 'incoming': ['Regressive thought\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-F04E8112-D425-4E12-95B3-89721F75E312', 'name': 'Send payment request', 'incoming': ['Regressive thought\nReport'], 'outgoing': ['Money\nReport']}
+{'id': 'sid-DEA8DE69-3AE7-40C9-A630-29A41F920743', 'name': 'Set case for resubmission', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-58910996-6967-4BDA-BFCA-C8EE5DE588D4', 'name': 'Payment receipt\nBook now', 'incoming': ['Money\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-47D4B6FD-989D-49CF-A42C-D7953D1EA84D', 'name': 'Close', 'incoming': ['Money\nReport'], 'outgoing': ['Case\nclosed']}
+{'id': 'sid-6B632EB7-F953-4336-9514-0DBC2ADDD76C', 'name': 'Case\nDispense debt service providers', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Case\nOpen']}
+{'id': 'sid-19EC0BD0-246B-44F3-8C30-A94A34B0CB1C', 'name': 'Proceedings', 'incoming': ['Opposition\nobtained'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-3071663D-6D57-4F40-B5F3-F749A72C6ADC', 'name': 'Regression\npossible?', 'incoming': ['Regressive thought\nReport'], 'outgoing': ['Case\nclosed', 'ExclusiveGateway2']}
+{'id': 'sid-318F4201-4CA6-4497-84C4-2E3B594435DB', 'name': 'Opposition\njustified?', 'incoming': ['Opposition\nobtained'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-6AFF1412-A196-44DC-A06F-C81255E59A98', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'Regression\npossible?', 'Case of Regress\nCheck'], 'outgoing': ['Case\nclosed']}
+{'id': 'sid-C89B9DB2-33D7-41B1-86EA-C8782D20BB06', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Opposition\nobtained'], 'outgoing': ['Case\nOpen']}
+{'id': 'sid-838BFC8E-7D64-4E86-A848-7A5695FECBDE', 'name': 'EventBasedGateway4', 'incoming': ['Regressive thought\nReport'], 'outgoing': ['Money\nReport', 'Case\nDispense debt service providers', 'Opposition\nobtained']}
+{'id': 'sid-D5A9C222-52D6-479C-ACF3-122897EC2D9E', 'name': 'ParallelGateway5', 'incoming': ['Regressive thought\nReport'], 'outgoing': ['ParallelGateway6', 'Money\nReport']}
+{'id': 'sid-93B6216E-830E-4333-9AAE-E07D52415CC1', 'name': 'ParallelGateway6', 'incoming': ['ParallelGateway5', 'Regressive thought\nReport'], 'outgoing': ['Money\nReport']}
+{'id': 'sid-2BBC24CF-4604-4682-AF51-42747AA46A56', 'name': 'Money\nReport', 'incoming': ['Regression\npossible?'], 'outgoing': ['Close']}
+{'id': 'sid-56CD9C5F-EE1D-496E-8480-73DAEBB03860', 'name': 'Date\nExpired', 'incoming': ['Regressive thought\nReport'], 'outgoing': ['Case\nOpen']}
+{'id': 'sid-3F72CF04-47B8-4CAE-937C-B4C9DF7AD3FA', 'name': 'Opposition\nobtained', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-433C7525-4F2A-455A-8325-55ECAEA9BFEA', 'name': 'Regressive thought\nReport', 'incoming': [], 'outgoing': ['Date\nExpired']}
+
+End Events:
+{'id': 'sid-E1D6FFB9-047C-4683-BFE5-B55355F095A5', 'name': 'Case\nclosed', 'incoming': ['Regression\npossible?'], 'outgoing': []}
+{'id': 'sid-DBA3EA45-EA82-418F-B4BE-E84FE813DD9C', 'name': 'Case\nOpen', 'incoming': ['Date\nExpired'], 'outgoing': []}

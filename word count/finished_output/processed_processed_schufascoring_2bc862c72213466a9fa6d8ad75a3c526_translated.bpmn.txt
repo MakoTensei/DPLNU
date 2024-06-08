@@ -1,0 +1,7 @@
+ In the scoring process, the task 'perform scoring level 1' is initiated with an incoming request and is directed towards 'ExclusiveGateway2'. Once the scoring level 1 task is completed, the 'Scoring Level 2\nperform' task is triggered, which also receives an incoming request from 'ExclusiveGateway0'. This task is then routed to 'ExclusiveGateway2', which finally sends the results to 'Report the result'.
+
+The process begins with the 'Scoring\nRequired' event, which triggers a request to 'ExclusiveGateway0'. This gateway receives the request and forwards it to 'ExclusiveGateway1'. 'ExclusiveGateway1' then receives the 'Scoring request\nobtained' event and sends it to 'ExclusiveGateway2'.
+
+Once 'ExclusiveGateway2' receives the 'perform scoring level 1' task, it completes the task and sends the results to 'Report the result'. Concurrently, 'ExclusiveGateway2' also handles the 'Scoring Level 2\nperform' task, which is initiated by 'ExclusiveGateway0'. After completing this task, 'ExclusiveGateway2' sends the results to 'Report the result'.
+
+The process concludes with the 'Scoring requested' event, which is triggered by 'ExclusiveGateway0' and results in the 'Report the result' task being sent to its destination.

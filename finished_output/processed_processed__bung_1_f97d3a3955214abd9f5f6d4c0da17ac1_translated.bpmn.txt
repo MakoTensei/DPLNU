@@ -1,0 +1,13 @@
+ When a shipment is required, the process begins with the 'Pick up quotes' task, which involves selecting the cheapest freight forwarder option. This task is triggered by the 'Shipment required' start event and has 'ParallelGateway5' as its incoming gateway. Once the cheapest offer is chosen, the 'Order the requested freight forwarder' task is initiated, also triggered by the 'Shipment required' start event and connected to 'ParallelGateway5'.
+
+Simultaneously, if the shipment requires special handling, the 'Special shipment required?' gateway is triggered, which leads to the 'ExclusiveGateway1' task. This task is responsible for handling special shipments and has two outgoing connections to 'ExclusiveGateway4' and 'ExclusiveGateway1' itself.
+
+If insurance is needed for the shipment, the 'Insurance required?' gateway is triggered, leading to the 'ExclusiveGateway3' task. This task is responsible for processing insurance-related tasks and has two outgoing connections to 'ExclusiveGateway4' and 'ExclusiveGateway1'.
+
+After the freight forwarder is ordered, the 'Filling the package note' task is triggered, which is connected to 'ExclusiveGateway4'. This task involves preparing the necessary documentation for the shipment.
+
+Once the package is filled and ready, the 'Insurance close' task is triggered, which is also connected to 'ExclusiveGateway4'. This task finalizes the insurance process for the shipment.
+
+Following the completion of the insurance process, the 'Packaging goods' task is triggered, which is connected to 'ExclusiveGateway4'. This task involves packaging the goods for shipment.
+
+Finally, the 'Prepare for collection' task is triggered, which is connected to 'ParallelGateway5'. This task prepares the shipment for collection and has 'Shipments' as its outgoing gateway, marking the end of the process.

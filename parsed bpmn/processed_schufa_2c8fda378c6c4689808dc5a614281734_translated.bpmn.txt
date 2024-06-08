@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-8B5A466D-D32C-49D6-9C86-6FAEB2CAF9C5', 'name': 'Send a request to Schufa', 'incoming': ['Schufascoring\nrequested'], 'outgoing': ['Delay\ninformed']}
+{'id': 'sid-02546417-4E05-4522-886F-1522EF62A68D', 'name': 'Scoring', 'incoming': ['Schufascoring\nrequested'], 'outgoing': ['Level 1\nscoring determined']}
+{'id': 'sid-F77B0FF0-0DCA-47D1-A1BD-1BC172F9BEC2', 'name': 'Share delay', 'incoming': ['Delay\ninformed'], 'outgoing': ['Level 2\nscoring']}
+{'id': 'sid-5AA7A933-403C-413A-B847-AC64CB0D90BB', 'name': 'Scoring', 'incoming': ['Level 2\nscoring'], 'outgoing': ['Level 2\nscoring determined']}
+{'id': 'sid-48FCC583-244A-40F6-B641-FC83000F2823', 'name': 'Level 1 scoring\nDebt', 'incoming': ['Schufa request\nobtained'], 'outgoing': ['Scoring\ndetermined?']}
+{'id': 'sid-B5986D5B-85DD-4781-B7BD-38F9F6AF59FA', 'name': 'Send Schufascoring result', 'incoming': ['Schufa request\nobtained'], 'outgoing': ['Schufa request with\nLevel 1 edited']}
+{'id': 'sid-3E0F7CE8-9CD1-4180-8535-F0AB6E16D3F4', 'name': 'Share delay', 'incoming': ['Scoring\ndetermined?'], 'outgoing': ['Level 2 scoring\nDebt']}
+{'id': 'sid-E63BFAC0-F198-44C2-A635-5ABCD870B942', 'name': 'Level 2 scoring\nDebt', 'incoming': ['Scoring\ndetermined?'], 'outgoing': ['Send Schufascoring result']}
+{'id': 'sid-2C9A4BAC-9823-4AAE-AEA4-1960A5740EED', 'name': 'Send Schufascoring result', 'incoming': ['Scoring\ndetermined?'], 'outgoing': ['Schufa request with\nLevel 2 edited']}
+
+Gateways:
+{'id': 'sid-7B77F9DC-4584-4562-BFC2-B752F098BEA4', 'name': 'Scoring\ndetermined?', 'incoming': ['Schufa request\nobtained'], 'outgoing': ['Schufa request with\nLevel 1 edited', 'Schufa request with\nLevel 2 edited']}
+{'id': 'sid-18182995-DD26-4F97-A83F-9E8089AAEF9F', 'name': 'EventBasedGateway1', 'incoming': ['Schufascoring\nrequested'], 'outgoing': ['Level 2\nscoring determined', 'Level 1\nscoring determined']}
+{'id': 'sid-E801ACC4-EEC3-4D88-ADC0-D6C25C0B4F53', 'name': 'Delay\ninformed', 'incoming': ['Send a request to Schufa'], 'outgoing': ['Level 2\nscoring']}
+{'id': 'sid-7145E69B-1C88-4FC7-A7A2-C2F9AC048DE7', 'name': 'Level 1\nscoring\nobtained', 'incoming': ['Schufascoring\nrequested'], 'outgoing': ['Level 1\nscoring determined']}
+{'id': 'sid-942FEF43-3FAA-4933-9040-58746DCCAC4D', 'name': 'Level 2\nscoring', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Level 2\nscoring determined']}
+
+Start Events:
+{'id': 'sid-8D4D8ED4-4990-4A3F-8A87-D86A2B825012', 'name': 'Schufascoring\nrequested', 'incoming': [], 'outgoing': ['Scoring']}
+{'id': 'sid-07CD1490-6854-45DF-BC05-93567F2F24C8', 'name': 'Schufa request\nobtained', 'incoming': [], 'outgoing': ['Send Schufascoring result']}
+
+End Events:
+{'id': 'sid-0567220E-8301-4650-90F8-3FE531FEE2CF', 'name': 'Level 1\nscoring determined', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-AB029ADD-3011-47BA-8BAD-CA55A9E14D9A', 'name': 'Level 2\nscoring determined', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-A9081B5A-0567-44BC-88AE-FFC222151BF9', 'name': 'Schufa request with\nLevel 1 edited', 'incoming': ['Scoring\ndetermined?'], 'outgoing': []}
+{'id': 'sid-B8B05D65-16A8-416D-A81F-22BF94CE4B62', 'name': 'Schufa request with\nLevel 2 edited', 'incoming': ['Scoring\ndetermined?'], 'outgoing': []}

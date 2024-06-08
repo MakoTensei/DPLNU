@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-D8EAC6B1-3DE6-4A02-A12C-C3F5F24CBA5F', 'name': 'Separation Shipping', 'incoming': ['Goods\nbe sent'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-443007A4-F7FE-4AB0-AF7B-838112FDA3AC', 'name': 'Filling the package note', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-FCA6CD4D-AD8F-4001-A197-0D950FA65033', 'name': 'Pick up offers', 'incoming': ['Big or small?'], 'outgoing': ['Decide and instructor']}
+{'id': 'sid-94250364-90F0-46D2-AC73-BD496B29721B', 'name': 'Decide and instructor', 'incoming': ['Big or small?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-999CC61B-3256-4B79-A0C7-C930FA9D794A', 'name': 'Packaging goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['InclusiveGateway4']}
+{'id': 'sid-D07FCB4F-DC8D-404A-9C05-2BA27FCCCF0F', 'name': 'Provide packaged goods for collection', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-09A9170F-5662-4CB3-9336-476D3D316C3E', 'name': 'Complete insurance', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-E047C838-0B2F-485B-9435-04A31C6CE139', 'name': 'Big or small?', 'incoming': ['Goods\nbe sent'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway3']}
+{'id': 'sid-719F9DF1-4CA4-4E97-A337-C51EC615214B', 'name': 'Insurance\nnecessary?', 'incoming': ['ParallelGateway5'], 'outgoing': ['Complete insurance', 'InclusiveGateway4']}
+{'id': 'sid-8E83004E-6C4F-4EA8-90A0-7EDBD168B4D7', 'name': 'ExclusiveGateway2', 'incoming': ['Complete insurance', 'Filling the package note'], 'outgoing': ['InclusiveGateway4']}
+{'id': 'sid-CCEA903B-A8FC-4324-BEF3-556BB8624FB4', 'name': 'ExclusiveGateway3', 'incoming': ['Big or small?', 'Goods\nbe sent'], 'outgoing': ['Packaging goods']}
+{'id': 'sid-3FFB2EB0-7D8E-44FA-8AE4-21EFFB8FEE16', 'name': 'InclusiveGateway4', 'incoming': ['ParallelGateway5', 'ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E9727AD8-F551-4376-8A3E-8729E769F3B2', 'name': 'ParallelGateway5', 'incoming': ['Separation Shipping'], 'outgoing': ['Provide packaged goods for collection', 'EndEvent0']}
+
+Start Events:
+{'id': 'sid-63C6FA82-F94A-459E-BF0C-E51A2AE0D7C7', 'name': 'Goods\nbe sent', 'incoming': [], 'outgoing': ['ExclusiveGateway3']}
+
+End Events:
+{'id': 'sid-FACB5714-F7BD-4EDE-84E3-4C6190A8DF7B', 'name': 'EndEvent0', 'incoming': ['ParallelGateway5'], 'outgoing': []}

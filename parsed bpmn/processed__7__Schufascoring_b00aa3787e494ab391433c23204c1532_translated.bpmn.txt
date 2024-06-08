@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-1B046FB1-40BC-4B47-909D-8C087F447EAE', 'name': 'Schufa request', 'incoming': ['Inquiry\nRequirement'], 'outgoing': ['Result of Test Level 1']}
+{'id': 'sid-C7A9C0BD-71FE-4F2F-9339-762FAC0A1A8B', 'name': 'Result of Test Level 1', 'incoming': ['Inquiry\nRequirement'], 'outgoing': ['Level 1\nsuccessful']}
+{'id': 'sid-F3FECB52-8C24-46D1-A071-CEB00DC79F5F', 'name': 'Result of Test Level 2', 'incoming': ['Inquiry\nRequirement'], 'outgoing': ['Result of\nTest']}
+{'id': 'sid-5E8ED858-4A7B-4CB0-B397-BDD1EC65AA4B', 'name': 'Level 1 scoring', 'incoming': ['Request\nobtained'], 'outgoing': ['Result\nTest']}
+{'id': 'sid-77F8335E-3AC0-4FCB-AA1C-9006C21947A8', 'name': 'Level 2 scoring', 'incoming': ['Level 1\nsuccessful\ntested?'], 'outgoing': ['EndEvent4']}
+
+Gateways:
+{'id': 'sid-4F3C6285-6243-40CE-B29E-9342B4DAE67A', 'name': 'Level 1\nsuccessful?', 'incoming': ['Inquiry\nRequirement'], 'outgoing': ['Level 1\nsuccessful', 'Result of\nTest']}
+{'id': 'sid-71D3E72F-10DA-4C67-B7E3-50120779B246', 'name': 'Level 1\nsuccessful\ntested?', 'incoming': ['Request\nobtained'], 'outgoing': ['EndEvent4', 'Test level 1\nsuccessful']}
+{'id': 'sid-2B0A4A45-DA19-4756-A59A-1B7FA2571A8A', 'name': 'ParallelGateway2', 'incoming': ['Request\nobtained'], 'outgoing': ['Result\nTest', 'Test level 1\nsuccessful']}
+
+Start Events:
+{'id': 'sid-52730889-0EA1-42E3-BCCA-E6B07B080850', 'name': 'Inquiry\nRequirement', 'incoming': [], 'outgoing': ['Result of Test Level 2']}
+{'id': 'sid-3B490BD2-CA68-4CA4-A447-75D65F5D0487', 'name': 'Request\nobtained', 'incoming': [], 'outgoing': ['Level 1\nsuccessful\ntested?']}
+
+End Events:
+{'id': 'sid-C9B4904A-B91F-491C-BB76-F8FAB6974935', 'name': 'Result of\nTest', 'incoming': ['Level 1\nsuccessful?'], 'outgoing': []}
+{'id': 'sid-A9DEA670-C895-4946-99DE-870E14352A7C', 'name': 'Level 1\nsuccessful', 'incoming': ['Result of Test Level 1'], 'outgoing': []}
+{'id': 'sid-8139C2AE-6CB9-4E4A-B143-8DE23A10AFCF', 'name': 'Result\nTest', 'incoming': ['Level 1 scoring'], 'outgoing': []}
+{'id': 'sid-BB6ED08F-6A73-4DF6-8753-D5ABB2A29A77', 'name': 'Test level 1\nsuccessful', 'incoming': ['ParallelGateway2'], 'outgoing': []}
+{'id': 'sid-9EC4A6AD-2679-4415-B171-A8192D926534', 'name': 'EndEvent4', 'incoming': ['Level 1\nsuccessful\ntested?'], 'outgoing': []}

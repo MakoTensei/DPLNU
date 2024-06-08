@@ -1,0 +1,18 @@
+Tasks:
+{'id': 'sid-11D30A7F-A34B-4EC2-AC47-741CA2252B3C', 'name': 'Check regression', 'incoming': ['regressive thought'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-13EFB986-5131-4AAD-9F38-21B473E87634', 'name': 'Book payment receipt', 'incoming': ['cash receipt'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-7B7FC9FC-1D0E-4B22-95D0-7AD133A0A1B9', 'name': 'test against', 'incoming': ['Opposition'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-3FEA6312-5277-4BB7-BB00-BA80646D4338', 'name': 'ExclusiveGateway0', 'incoming': ['regressive thought'], 'outgoing': ['EndEvent0', 'sid-918E548A-C67C-48A8-9C2E-D974450A3983']}
+{'id': 'sid-24E34A1E-3CB7-490F-994F-E42C9AB6B625', 'name': 'ExclusiveGateway1', 'incoming': ['Opposition'], 'outgoing': ['sid-B1165016-0D58-4999-B09D-85B23FB71FD0', 'EndEvent0']}
+{'id': 'sid-43147928-06D2-4636-B8C6-E5522F9F0425', 'name': 'IntermediateCatchEvent2', 'incoming': ['sid-14B81598-6D85-40B7-9A9F-3BE6579B632F'], 'outgoing': ['EndEvent0', 'Opposition', 'WV deadline expired']}
+{'id': 'sid-EB464954-E1C3-434A-B12B-ED94FF5AF27A', 'name': 'WV deadline expired', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['sid-EEB05097-D44D-487F-B388-E0D3DF4F294C']}
+{'id': 'sid-0B362221-61CE-40B3-9EE3-38C7A2FFB48F', 'name': 'cash receipt', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-8A04483C-A2D5-4A75-B46E-CAD0B4F3F9F2', 'name': 'Opposition', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-6E734A8E-2131-4805-B69A-A97687F6BAB7', 'name': 'regressive thought', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-B840C795-736C-45DC-B81B-8BAE5B29BBCE', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0', 'IntermediateCatchEvent2', 'test against'], 'outgoing': []}

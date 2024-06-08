@@ -1,0 +1,11 @@
+ In a system designed to handle scoring events, the following processes occur:
+
+Starting with 'StartEvent0', the system initiates the scoring process. This event triggers the 'Send request' task, which sends a request to the 'Scoring\n:\n' gateway. The 'Scoring\n:\n' gateway then determines the scoring result and sends it back to the 'Send request' task, which in turn sends the result to the 'Result\nforward' gateway. The 'Result\nforward' gateway then sends the result to 'EndEvent0'.
+
+Simultaneously, 'StartEvent0' also triggers the 'Delayed\nScoring\n' task, which delays the scoring process. This task sends the scoring result to the 'Scoring 2\nobtained' gateway once the scoring is completed.
+
+Meanwhile, 'StartEvent1' initiates the 'Scoring 1' task, which sends a request to the 'Scring determined?' gateway. The 'Scring determined?' gateway determines the scoring result and sends it back to the 'Scoring 1' task, which then sends the result to the 'Result\nforward' gateway. The 'Result\nforward' gateway sends the result to 'EndEvent1'.
+
+Additionally, 'StartEvent1' also triggers the 'Delay to the front end' task, which delays the scoring process. This task sends the scoring result to the 'Scoring 2' gateway once the scoring is completed.
+
+In summary, the system handles scoring events by initiating tasks, sending requests to gateways, determining results, and sending results to the appropriate end events. The 'StartEvent0' and 'StartEvent1' events initiate the scoring processes, while the 'EndEvent0' and 'EndEvent1' events mark the completion of the scoring processes.

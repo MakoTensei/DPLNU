@@ -1,0 +1,35 @@
+Tasks:
+{'id': 'sid-F020FA19-6F3E-4569-A290-8507C48845B4', 'name': 'to choose from', 'incoming': ['Feeling hungry'], 'outgoing': ['On the row']}
+{'id': 'sid-9FFC288A-4442-4563-A436-C236B4990C90', 'name': 'Add your order', 'incoming': ['Feeling hungry'], 'outgoing': ['Learn more']}
+{'id': 'sid-C2C5CB01-D323-4E84-B521-EDC34F5E8BAD', 'name': 'Court of Justice\n', 'incoming': ['On the row'], 'outgoing': ['Pieper Watch']}
+{'id': 'sid-C73D6C4F-1AE9-4374-A992-78D3EECA0423', 'name': 'Pieper Watch', 'incoming': ['Learn more'], 'outgoing': ['Food ready']}
+{'id': 'sid-2BD9D71A-D0D4-42EF-AC80-2A23D1DF904A', 'name': 'Pick up food', 'incoming': ['Learn more'], 'outgoing': ['Eat food']}
+{'id': 'sid-ABB3830A-5353-4279-86E0-C888D3C9DB59', 'name': 'Eat food', 'incoming': ['Food ready'], 'outgoing': ['Famine']}
+{'id': 'sid-A5BDF068-E6E2-43D9-AFD9-804147E021A1', 'name': 'Cash', 'incoming': ['Order to receive'], 'outgoing': ['paid?']}
+{'id': 'sid-F025D197-FF86-4F34-AA23-59994B2CB7CC', 'name': 'Pieper over', 'incoming': ['Order to receive'], 'outgoing': ['Koch inform\n']}
+{'id': 'sid-31F909A5-7EAE-4AE7-BD4B-8BCCF71CE16A', 'name': 'Koch inform\n', 'incoming': ['paid?'], 'outgoing': ['Famine']}
+{'id': 'sid-1374E086-00EC-4CDA-962D-FD7B56D31624', 'name': 'Trigger Pieper', 'incoming': ['Food ready'], 'outgoing': ['Food collected']}
+{'id': 'sid-F0D07766-C4A5-4B5A-9013-50DF2B701A49', 'name': 'Retrieve guest', 'incoming': ['Food collected'], 'outgoing': ['End']}
+{'id': 'sid-5079BB37-DF07-4863-9E3E-485C4FD582F4', 'name': 'Cook food', 'incoming': ['Court of First Instance'], 'outgoing': ['Provide food']}
+{'id': 'sid-4EB00083-2008-4552-A1A1-261DAC85DBC8', 'name': 'Provide food', 'incoming': ['Court of First Instance'], 'outgoing': ['Kellner inform']}
+{'id': 'sid-FDE4C17D-A9F6-4DDD-9832-FF87FC0E7031', 'name': 'Kellner inform', 'incoming': ['Court of First Instance'], 'outgoing': ['End']}
+
+Gateways:
+{'id': 'sid-50FB5407-FA47-46FE-BA7A-B09EA322BAC3', 'name': 'Food picks up', 'incoming': ['5 min', 'Food ready'], 'outgoing': ['Food picks up', 'End']}
+{'id': 'sid-23931D39-4CBB-4CEF-85E4-4C8C05F9CC32', 'name': 'paid?', 'incoming': ['Order to receive'], 'outgoing': ['Famine']}
+{'id': 'sid-41B2D25D-101F-4616-94E0-6A466C8A0FB8', 'name': 'Food ready', 'incoming': ['Learn more'], 'outgoing': ['Famine']}
+{'id': 'sid-B94288DF-D479-4010-851E-2AD89A3FEC73', 'name': 'Learn more', 'incoming': ['On the row'], 'outgoing': ['Pick up food']}
+{'id': 'sid-49728BAF-11AB-421B-9D0B-BF23145B5E1A', 'name': 'On the row', 'incoming': ['Feeling hungry'], 'outgoing': ['Court of Justice\n']}
+{'id': 'sid-FCD6DD23-7884-4963-8DE1-3A24D4046C07', 'name': 'Food ready', 'incoming': ['Koch inform\n'], 'outgoing': ['Food picks up']}
+{'id': 'sid-DA3B25D2-5EDB-430C-874C-8A29B2D8366C', 'name': '5 min', 'incoming': ['Food collected'], 'outgoing': ['Food picks up']}
+{'id': 'sid-BED61C10-767E-442F-9D43-99221EDEF34D', 'name': 'Food collected', 'incoming': ['Food ready'], 'outgoing': ['End']}
+
+Start Events:
+{'id': 'sid-5ECBF21C-EFC1-4A10-B23E-C1968D1EDD67', 'name': 'Feeling hungry', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-0657D96A-75FC-4641-930E-93660382EFF9', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Pieper over']}
+{'id': 'sid-1224169B-101A-4A0B-95DB-1E592EFC5B67', 'name': 'Court of First Instance', 'incoming': [], 'outgoing': ['Kellner inform']}
+
+End Events:
+{'id': 'sid-B302AA5C-154D-4789-8A01-94F408C1D7D4', 'name': 'Famine', 'incoming': ['paid?'], 'outgoing': []}
+{'id': 'sid-FC34D2EC-88CD-4E9F-BAF4-403F7DED9D9A', 'name': 'End', 'incoming': ['Food collected'], 'outgoing': []}
+{'id': 'sid-B2B0D101-B2A8-4EE0-AEED-537A92A055CA', 'name': 'End', 'incoming': ['Kellner inform'], 'outgoing': []}

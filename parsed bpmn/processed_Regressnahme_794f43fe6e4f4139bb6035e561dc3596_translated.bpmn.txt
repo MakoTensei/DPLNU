@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-CED60F8B-F358-4A23-A10A-04C5C4C469E8', 'name': 'test case\n', 'incoming': ['Possible\nRegression\n'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-4CBA11CD-45D8-44C7-98D6-C33A0A087F79', 'name': 'If closed\n', 'incoming': ['Possible\nRegression\n'], 'outgoing': ['Case closed']}
+{'id': 'sid-7CCE6C91-3FC3-4A40-92C1-F04C7CBE7E0B', 'name': 'Reimbursement', 'incoming': ['sid-532981CC-33CD-4872-B3E2-E840D6E38A7F'], 'outgoing': ['Reasons']}
+{'id': 'sid-6C8D30E9-10B3-4DA1-8B83-24A698E8674D', 'name': 'Proceedings', 'incoming': ['Reasons'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-BBFFFEBC-ADA6-448C-9E5A-8E265025FEBC', 'name': 'Book and close', 'incoming': ['Incoming payment'], 'outgoing': ['Case closed']}
+{'id': 'sid-88EF1382-3449-4C0F-BEF5-12CFA4F82D31', 'name': 'Close the case\n', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Case closed']}
+
+Gateways:
+{'id': 'sid-85E3F716-2CF6-4486-B672-8DE0A30EBC72', 'name': 'ExclusiveGateway0', 'incoming': ['Possible\nRegression\n'], 'outgoing': ['Case closed', 'sid-576C36AD-D1DD-4169-AE39-C544D8886494']}
+{'id': 'sid-5C5E3EDE-BFF8-4E53-9E92-F2F6B1FD4EE6', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Case closed', 'ExclusiveGateway2']}
+{'id': 'sid-EA2CC1D5-4FBF-42CB-8F10-8BE34974B6EE', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3', 'Proceedings'], 'outgoing': ['sid-6237BC5B-DCFE-4B67-9338-55BF00FD7E63']}
+{'id': 'sid-9F1ECA7C-CA93-44BE-A148-7E12A7A48A40', 'name': 'EventBasedGateway3', 'incoming': ['Reimbursement'], 'outgoing': ['Case closed', 'Close the case\n', 'ExclusiveGateway2']}
+{'id': 'sid-340D1EB6-C3BD-4FD9-A4FB-9D1CEFD70C7D', 'name': 'Reasons', 'incoming': ['Reimbursement'], 'outgoing': ['Case closed']}
+{'id': 'sid-40C103DE-8B0A-4B69-AD36-7CEEE3EDA974', 'name': 'Incoming payment', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Case closed']}
+{'id': 'sid-D597DCDB-36B6-4053-9C1B-3379650A072C', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-99830095-9EDF-4D20-927E-693231848056', 'name': 'Possible\nRegression\n', 'incoming': [], 'outgoing': ['If closed\n']}
+
+End Events:
+{'id': 'sid-330A5904-DCA3-4733-95D1-A36225963B4E', 'name': 'Case closed', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-328FD5B3-FFA9-46F9-946E-E67F05C87523', 'name': 'Case closed', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-05E7138A-DF64-4567-A312-F59F22A775CC', 'name': 'Case closed', 'incoming': ['Reasons'], 'outgoing': []}
+{'id': 'sid-6239F85F-5CA0-4F28-A61D-7BBBC8291D84', 'name': 'EndEvent3', 'incoming': ['sid-2DF14DCA-3CF7-4B35-ABB1-201FEE7AEDF0'], 'outgoing': []}

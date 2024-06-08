@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-7B0FC3ED-3670-46A4-AF6E-DD2B8D598B0A', 'name': 'Filling the package note', 'incoming': ['Special shipment necessary?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-993A88DB-FE65-4078-A3B3-D3220296B255', 'name': 'Request a quote', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Select your offer']}
+{'id': 'sid-F30BFF35-6723-4012-A733-70C2E433CBF3', 'name': 'Select your offer', 'incoming': ['Special shipment necessary?'], 'outgoing': ['Specialist']}
+{'id': 'sid-85DED60B-61FF-46AB-AE65-9BF89F5523C5', 'name': 'Specialist', 'incoming': ['Special shipment necessary?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-764287AD-48A8-4C4F-BC2C-8B712161F0B1', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-D018FF11-B56C-4D95-A550-E520C9AFBAA5', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-819276A7-B85E-4CA2-B649-0C17DC371AF5', 'name': 'Complete insurance', 'incoming': ['Insurance required?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-31ED2245-AA15-4C21-A6A5-485B7623B63A', 'name': 'Special shipment necessary?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3', 'Insurance required?']}
+{'id': 'sid-9FEBC7F8-25AC-466B-82F4-C9A785CB406D', 'name': 'Insurance required?', 'incoming': ['Special shipment necessary?'], 'outgoing': ['Complete insurance', 'ExclusiveGateway2']}
+{'id': 'sid-1FC3E889-BAAC-427B-BA2A-A0F9D99BEF7A', 'name': 'ExclusiveGateway2', 'incoming': ['Complete insurance', 'Filling the package note'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-97259CF3-FA2E-4D08-9D4D-F81A7941B9C2', 'name': 'ExclusiveGateway3', 'incoming': ['Special shipment necessary?', 'Filling the package note'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6397F21A-F95B-473C-BEEC-F151E0F671BA', 'name': 'ParallelGateway4', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Request a quote', 'ParallelGateway5']}
+{'id': 'sid-39118695-49BC-4DBD-ABB2-9B1CE018B38C', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'Filling the package note'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-2CE41201-92AA-4E3E-9919-83A20810A605', 'name': 'Goods are to be shipped', 'incoming': [], 'outgoing': ['Request a quote']}
+
+End Events:
+{'id': 'sid-10508A36-11D3-4901-B1F2-2D823B3EBD56', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway3'], 'outgoing': []}

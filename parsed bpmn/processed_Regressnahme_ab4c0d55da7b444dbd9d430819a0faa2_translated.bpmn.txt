@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-7F9A080D-F445-4600-83E3-516B06C9639B', 'name': 'Set process for resubmission', 'incoming': ['VN payment request\n'], 'outgoing': ['IntermediateCatchEvent6']}
+{'id': 'sid-A97E5581-5C7E-4422-B9BF-60EF4E4255FA', 'name': 'Close the process', 'incoming': ['Not justified'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-79065E25-614C-4729-BAD7-B5ED20385575', 'name': 'Examination of the objection', 'incoming': ['sid-F1321D8B-C06F-475B-82A8-C9C13DA1F088'], 'outgoing': ['Not justified']}
+{'id': 'sid-50CECEB5-2ADD-4DD1-9A85-81B738AE815B', 'name': 'Disclosure of debt collection service providers', 'incoming': ['sid-670CA2D2-7F9A-4B3C-975F-FC5AF61B4DA6'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-FDAD4CBD-8F1C-4822-BBD4-6C41D5689825', 'name': 'Payment receipt', 'incoming': ['Reimbursement period expired'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-2CE54699-A956-4DC4-B404-7BD75FAA16E1', 'name': 'Examination of the case', 'incoming': ['Possible regression\n'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-F7C28F48-8FD4-41D9-8A93-E06EF87B78BF', 'name': 'Possibility that VN is taken into regress', 'incoming': ['Possible regression\n'], 'outgoing': ['IntermediateCatchEvent6', 'EndEvent2']}
+{'id': 'sid-89FB2123-191D-4596-8FAE-CDBF16AAEF33', 'name': 'ExclusiveGateway1', 'incoming': ['Examination of the case', 'Not justified'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-1C4F3E4C-59B0-4D07-915B-D12EC863B3E2', 'name': 'Not justified', 'incoming': ['Examination of the objection'], 'outgoing': ['Close the process', 'sid-42C48CF5-11EE-44DD-91EA-7DB816FFCDBC']}
+{'id': 'sid-83D32BE0-9CDB-48F7-90AA-B08F9738A021', 'name': 'Incoming payment\n', 'incoming': ['Reimbursement period expired'], 'outgoing': ['sid-F5D4E90A-B440-43D7-9C89-01B1513494AF', 'EndEvent0']}
+{'id': 'sid-C8945A32-147F-45CE-9218-0522F01D431F', 'name': 'VN payment request\n', 'incoming': ['Possible regression\n'], 'outgoing': ['IntermediateCatchEvent6']}
+{'id': 'sid-A45FEE0A-BBE3-441E-959C-1007A4B17C42', 'name': 'Reimbursement period expired', 'incoming': [], 'outgoing': ['Incoming payment\n']}
+{'id': 'sid-690FA493-12DA-4C8F-8A62-3AC474636082', 'name': 'IntermediateCatchEvent6', 'incoming': ['Possibility that VN is taken into regress'], 'outgoing': ['sid-6F6894CC-5795-40B5-9FE0-D7FAE094340A', 'sid-83DAB969-C6DF-42DC-A501-1F059FB73453']}
+
+Start Events:
+{'id': 'sid-57921023-EF63-4BE7-9E2E-026594CAAD87', 'name': 'Possible regression\n', 'incoming': [], 'outgoing': ['VN payment request\n']}
+
+End Events:
+{'id': 'sid-9D44E748-22B6-41CB-ABFC-C0A743E3D62D', 'name': 'EndEvent0', 'incoming': ['Payment receipt'], 'outgoing': []}
+{'id': 'sid-D8E695FB-28F7-4E99-A55E-CDCFCE21F539', 'name': 'EndEvent1', 'incoming': ['Disclosure of debt collection service providers'], 'outgoing': []}
+{'id': 'sid-465CA55E-4B28-4034-A7A3-9A26B8E919FD', 'name': 'EndEvent2', 'incoming': ['Possibility that VN is taken into regress'], 'outgoing': []}

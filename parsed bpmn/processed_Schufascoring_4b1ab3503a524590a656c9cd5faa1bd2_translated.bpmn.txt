@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-4F5EA35F-9F6F-49FC-9E98-1E9BDC5933DC', 'name': 'Scoring request to Schufa', 'incoming': ['Pick up Schufascoring a customer'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-831F26CD-4657-447C-8F2F-F524824612D8', 'name': 'Report the result', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6D379527-A18C-4B27-B393-7BD06287606B', 'name': 'Report delay', 'incoming': ['Pick up Schufascoring a customer'], 'outgoing': ['Waiting for result']}
+{'id': 'sid-4BDEB031-C3F2-4A0A-8446-45EE13D3A8C9', 'name': 'Conduct scoring (level 1)', 'incoming': ['StartEvent1'], 'outgoing': ['Send a reply']}
+{'id': 'sid-C490BB32-2CCE-4ECB-83C5-203F03CC3C20', 'name': 'Send a reply', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-0B0A2A74-0818-44BB-8217-491E53A6C1EB', 'name': 'perform scoring level 2', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring']}
+{'id': 'sid-90592492-D1C7-4C78-A577-26ADA2F8D8FA', 'name': 'Scoring', 'incoming': ['YEAR'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-AF051CDE-D260-47CB-BAE0-C428BB4A0A97', 'name': 'Results obtained?', 'incoming': ['Pick up Schufascoring a customer'], 'outgoing': ['Report delay', 'EndEvent0']}
+{'id': 'sid-AAE81E2A-D84B-492F-801D-1845B56CFB14', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring request to Schufa'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9844FB24-3711-41E7-8F93-C21365CCFAB3', 'name': 'YEAR', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'EndEvent1']}
+{'id': 'sid-243C283E-1AB6-4B56-9B88-0B3C4222AA5E', 'name': 'Waiting for result', 'incoming': ['Pick up Schufascoring a customer'], 'outgoing': ['sid-905269BA-F967-40A6-AE10-42EA3C3C6974']}
+
+Start Events:
+{'id': 'sid-F139F9D8-03BC-4F13-9F68-89D8985E918D', 'name': 'Pick up Schufascoring a customer', 'incoming': [], 'outgoing': ['Waiting for result']}
+{'id': 'sid-5326FB81-C89D-474C-A896-36D6C4426512', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['perform scoring level 2']}
+
+End Events:
+{'id': 'sid-F713E4DF-8134-4B58-B02B-8AB3FED232E5', 'name': 'EndEvent0', 'incoming': ['Results obtained?'], 'outgoing': []}
+{'id': 'sid-DCA52805-0D5F-4CDC-9106-180C720D7C75', 'name': 'EndEvent1', 'incoming': ['YEAR', 'Send a reply'], 'outgoing': []}

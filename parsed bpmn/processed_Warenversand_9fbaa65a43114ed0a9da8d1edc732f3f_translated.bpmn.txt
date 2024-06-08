@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-5B4C6F74-1CAB-4324-9E9E-487F7EF6D894', 'name': 'Explanation Shipping', 'incoming': ['Goods\nShip\n'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-6736CB74-EE67-4C14-BEA9-7575EB9C9967', 'name': 'Special delivery', 'incoming': ['Goods\nShip\n'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-612D7F5C-296D-4C40-9CC0-DCE3481C3114', 'name': 'Filling the package note', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-9C339357-370A-4E9C-868D-69ACC79E25DF', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-BC4A3B38-717D-4E81-81F5-3C4EEE8A3D00', 'name': 'Goods for collection', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-5E969567-98F3-442E-95D0-A6A72D63E062', 'name': 'Commodity insurance', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-863B0D08-F589-4654-8794-E50B4FF74830', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0', 'Special delivery']}
+{'id': 'sid-1D26A010-6021-47F1-AAA1-2C6295C550FB', 'name': 'ExclusiveGateway1', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-81E05881-234B-4733-A08C-E90274DFECFC', 'name': 'ExclusiveGateway2', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ParallelGateway5', 'Commodity insurance']}
+{'id': 'sid-FDF91110-A066-4455-88D9-2D921AB663E2', 'name': 'ExclusiveGateway3', 'incoming': ['Filling the package note', 'Commodity insurance'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-061024B2-F346-4C12-A54B-97CF906C7805', 'name': 'ParallelGateway4', 'incoming': ['Goods\nShip\n'], 'outgoing': ['ParallelGateway5', 'ParallelGateway5']}
+{'id': 'sid-CEF58515-30FF-4434-B9D0-80DB3DD0A5DE', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'ParallelGateway4', 'ExclusiveGateway0'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-174752F4-8536-4A8E-976D-80708234C56F', 'name': 'Goods\nShip\n', 'incoming': [], 'outgoing': ['Special delivery']}
+
+End Events:
+{'id': 'sid-B6C76C6A-2B39-462C-B8F1-C0821CF7302D', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

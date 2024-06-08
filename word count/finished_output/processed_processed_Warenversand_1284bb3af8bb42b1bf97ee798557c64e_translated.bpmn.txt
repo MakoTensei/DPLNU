@@ -1,0 +1,17 @@
+ In this workflow, we have a series of tasks and gateways that work together to process offers and package goods.
+
+1. The process starts with the 'StartEvent0' event, which triggers the 'Select your offer' task. This task has two parallel gateways, 'ParallelGateway4', and 'ParallelGateway5', both of which can handle incoming tasks from 'StartEvent0'.
+
+2. The 'Select your offer' task can lead to two different outcomes: 'Offer 1' and 'Offer 3'. Both of these tasks have the same incoming and outgoing gateways, 'ParallelGateway4' and 'ParallelGateway5'.
+
+3. Once an offer is selected, the corresponding task will send the offer to the 'ExclusiveGateway2'. This gateways is responsible for filling the package note, which is triggered by the 'Filling the package note' task. This task has one incoming gateway, 'ParallelGateway6', and one outgoing gateway, 'ExclusiveGateway2'.
+
+4. After the package note is filled, the 'Offer 1' and 'Offer 3' tasks will send the offer to the 'ExclusiveGateway2' again. This gateway will then forward the offer to the 'ExclusiveGateway3', which handles the 'Complete insurance' task.
+
+5. The 'Complete insurance' task has two incoming gateways, 'Insurance?' and 'ParallelGateway6', and one outgoing gateway, 'ExclusiveGateway3'.
+
+6. The 'ExclusiveGateway3' will then send the offer to the 'ParallelGateway7', which is responsible for delivering the goods. This gateway has two incoming gateways, 'ExclusiveGateway2' and 'ParallelGateway6', and one outgoing gateway, 'ParallelGateway7'.
+
+7. The 'ParallelGateway7' will then forward the offer to the 'EndEvent0', which marks the completion of the process. This event has one incoming gateway, 'ParallelGateway7', and one outgoing gateway, 'EndEvent0'.
+
+In summary, the workflow starts with the 'StartEvent

@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-3152AC3A-F172-4CFC-AE28-05CDFBAE7AE1', 'name': 'forward scoring request', 'incoming': ['Schufascoring\nRequest is\nReport'], 'outgoing': ['Scoring result 1 arrived']}
+{'id': 'sid-9D7F2205-82CC-4A5E-AD46-8EDC72B54AB2', 'name': 'Scoring result forward', 'incoming': ['Scoring result 1 arrived'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-0D441B9F-49B3-4CD6-9993-35FEB9158BB5', 'name': 'forward delay', 'incoming': ['Schufascoring\nRequest is\nReport'], 'outgoing': ['Scoring result 2 arrived']}
+{'id': 'sid-6343BF37-64F3-42C4-A5F4-DDB0F5283F58', 'name': 'Scoring 1 Calculate result', 'incoming': ['Schufascoring\nRequest\nwe have discussed'], 'outgoing': ['Level 1 scoring is present?']}
+{'id': 'sid-D3F688A4-5AA6-428C-A099-507B412404C5', 'name': 'Scoring 2 Calculate result', 'incoming': ['Report delay'], 'outgoing': ['Scoring 2 result forward']}
+{'id': 'sid-25667896-E742-499E-8781-6781B84096D2', 'name': 'Report delay', 'incoming': ['Schufascoring\nRequest\nwe have discussed'], 'outgoing': ['Scoring 2 result forward']}
+{'id': 'sid-D4A957F8-05C3-49BF-8E92-7B3932960524', 'name': 'Scoring 1 result forward', 'incoming': ['Level 1 scoring is present?'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-9CFE0F67-0098-499A-A7D3-39496FEF8402', 'name': 'Scoring 2 result forward', 'incoming': ['Level 1 scoring is present?'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-64BBA5D9-C6A5-4AD1-85A6-01F44B1A2B7E', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'Delay medng arrived'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-4334460C-6303-4A42-88F7-62FA13739751', 'name': 'ExclusiveGateway1', 'incoming': ['Level 1 scoring is present?', 'Level 1 scoring is present?'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-20285F9C-0590-4F30-B58B-3038B68F36DB', 'name': 'Level 1 scoring is present?', 'incoming': ['Schufascoring\nRequest\nwe have discussed'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-68633E87-7B7E-4C73-928A-EBC87E8DCEE6', 'name': 'EventBasedGateway3', 'incoming': ['Schufascoring\nRequest is\nReport'], 'outgoing': ['EndEvent0', 'Scoring result 2 arrived']}
+{'id': 'sid-DFDE2FD1-CEFA-43E1-81FD-C2B865377994', 'name': 'Scoring result 1 arrived', 'incoming': ['forward scoring request'], 'outgoing': ['Scoring result forward']}
+{'id': 'sid-1BAEFB35-F0FE-457D-89D0-64AD205007FC', 'name': 'Scoring result 2 arrived', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-57C7BE47-2CBA-4CB0-A062-1B0EE6CE2DAA', 'name': 'Delay medng arrived', 'incoming': ['Schufascoring\nRequest is\nReport'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-78044B3F-54E7-43D9-BCDC-2D537179CEA0', 'name': 'Schufascoring\nRequest is\nReport', 'incoming': [], 'outgoing': ['forward delay']}
+{'id': 'sid-C159E5EA-B5CA-4A1C-9017-E195699292C9', 'name': 'Schufascoring\nRequest\nwe have discussed', 'incoming': [], 'outgoing': ['Report delay']}
+
+End Events:
+{'id': 'sid-AE20ED16-62FF-48B0-BBF4-6FF2F18C899B', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-5CF29C69-47A2-4731-8985-B03E9877190D', 'name': 'EndEvent1', 'incoming': ['Scoring 1 result forward'], 'outgoing': []}

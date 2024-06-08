@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-2570316F-ED2A-4D9B-8D60-CCC3F67F46F5', 'name': 'Check regression case', 'incoming': ['Possible\nRegression'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-61D4C35B-6A92-4E79-88E2-6CDF14449C9F', 'name': 'Send payment request to VN', 'incoming': ['Possible\nRegression'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-126EAA79-0234-4AE8-96B8-F3DF6210B5BA', 'name': 'Case handed over to debt collection', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-81B9FB49-4D10-46CA-A9B8-F34FA92DD9AD', 'name': 'Set process for resubmission', 'incoming': ['Regression claim\nis there?'], 'outgoing': ['Money is\nReport']}
+{'id': 'sid-83EDD41A-7CED-4654-8123-CE0D1194CA95', 'name': 'Close', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['Process\nis finished']}
+{'id': 'sid-F7637646-F752-4989-ABB3-38F9505F4DCB', 'name': 'Book the entrance', 'incoming': ['Money is\nReport'], 'outgoing': ['Process\nis finished']}
+
+Gateways:
+{'id': 'sid-062623DD-442E-4F3C-A2DF-C6C3384B718A', 'name': 'Regression claim\nis there?', 'incoming': ['Possible\nRegression'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-A0E0439B-59C6-4066-A232-77471F481CBC', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway2', 'Process\nin processing']}
+{'id': 'sid-60EBA71C-CF44-4703-8E30-8985EA99162F', 'name': 'ExclusiveGateway2', 'incoming': ['Regression claim\nis there?', 'EventBasedGateway5'], 'outgoing': ['Case handed over to debt collection']}
+{'id': 'sid-68CBBDDF-5E29-4B3D-89E8-722A1D05B004', 'name': 'ExclusiveGateway3', 'incoming': ['Check regression case', 'Money is\nReport'], 'outgoing': ['Process\nis finished']}
+{'id': 'sid-714E0E66-3CDF-45D8-84F5-55D717517BC1', 'name': 'ExclusiveGateway4', 'incoming': ['EventBasedGateway5', 'EventBasedGateway5'], 'outgoing': ['Process\nin processing']}
+{'id': 'sid-652B770F-05B6-4F8A-8211-70A838B7B236', 'name': 'EventBasedGateway5', 'incoming': ['Regression claim\nis there?'], 'outgoing': ['Money is\nReport', 'ExclusiveGateway4', 'ExclusiveGateway4']}
+{'id': 'sid-9486EDFD-3E1E-4EC2-BEA7-BA775296DF5E', 'name': 'Money is\nReport', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-32EF3E48-499E-4493-A0BE-4CF2B00DB54C', 'name': 'Opposition\nthe VN', 'incoming': ['Regression claim\nis there?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C25CEF6F-7FC7-47EB-A158-EFF84F962745', 'name': 'Reimbursement\nWait a minute', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-6BF16180-21A3-4476-BDAE-E24E2476ED2E', 'name': 'Possible\nRegression', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:
+{'id': 'sid-DA648B68-207C-4C4B-A66F-007A1746F3D1', 'name': 'Process\nis finished', 'incoming': ['Book the entrance'], 'outgoing': []}
+{'id': 'sid-69A497BC-D0BA-421B-BBF4-4C6257E4394A', 'name': 'Process\nin processing', 'incoming': ['Opposition\njustified?'], 'outgoing': []}

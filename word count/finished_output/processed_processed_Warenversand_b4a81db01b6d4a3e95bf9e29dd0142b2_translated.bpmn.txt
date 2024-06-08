@@ -1,0 +1,7 @@
+ The process begins with the 'START' event, which triggers the 'Pick up offers' task. This task receives incoming data from 'START' and sends outgoing data to 'ParallelGateway4'. The 'Pick up offers' task then initiates the 'Check quantity' task, which also receives incoming data from 'START' and sends outgoing data to 'A lot?'.
+
+The 'A lot?' task, in turn, sends incoming data to both 'ParallelGateway4' and 'ExclusiveGateway2'. The 'ExclusiveGateway2' task, upon receiving data from 'high?', sends outgoing data to 'ParallelGateway4'. Meanwhile, the 'Check value' task, which receives incoming data from 'ParallelGateway3', sends outgoing data to 'ExclusiveGateway2'.
+
+The 'ParallelGateway4' task, which receives incoming data from both 'A lot?' and 'Filling the package note', sends outgoing data to 'End'. The 'Filling the package note' task, which receives incoming data from 'A lot?', also sends outgoing data to 'ParallelGateway4'.
+
+Finally, the 'End' event, which receives incoming data from 'ParallelGateway4', signals the completion of the process.

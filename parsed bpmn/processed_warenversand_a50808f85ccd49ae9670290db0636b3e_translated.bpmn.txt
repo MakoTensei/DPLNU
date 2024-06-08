@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-22238A67-1E0C-47FE-A965-CE6E25359788', 'name': 'Secretariat clears shipping', 'incoming': ['Order to receive'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-0F6FA1AF-B64D-470F-8F0D-2DD740ACC8EA', 'name': 'Creating a standard shipping document', 'incoming': ['Order to receive'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-CED120EE-AAFD-4C37-A403-3BB82AEF20C9', 'name': 'Request offers and select the cheapest', 'incoming': ['large, small amount?'], 'outgoing': ['Ordering Spediteur']}
+{'id': 'sid-205F93BB-893A-4CE8-B03A-3C373272E15E', 'name': 'Complete insurance', 'incoming': ['Insurance?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-672A7E9E-C822-4848-BEFE-0C1A498E8C8B', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-9B79306A-F581-4B17-962B-172F2324FC0B', 'name': 'Goods are ready for collection', 'incoming': ['ParallelGateway5'], 'outgoing': ['Goods sent']}
+{'id': 'sid-CFE3B38E-F003-4006-9E6D-32430EDDFAA3', 'name': 'Ordering Spediteur', 'incoming': ['large, small amount?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-71E9A519-F572-4AFD-8362-F99DCC79F90F', 'name': 'large, small amount?', 'incoming': ['ParallelGateway4'], 'outgoing': ['Creating a standard shipping document', 'Ordering Spediteur']}
+{'id': 'sid-1E03ACD4-FEC8-4B1A-A5B2-0B10B55D2E81', 'name': 'Insurance?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-128D5990-0805-4747-8CC0-CAF9A0386EF3', 'name': 'ExclusiveGateway2', 'incoming': ['Ordering Spediteur', 'Order to receive'], 'outgoing': ['Goods sent']}
+{'id': 'sid-60826899-E3EC-4181-B366-0573D28D5115', 'name': 'ExclusiveGateway3', 'incoming': ['Insurance?', 'ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-D4F9F959-7C60-43FF-9104-06F6A77F5FBB', 'name': 'ParallelGateway4', 'incoming': ['Order to receive'], 'outgoing': ['ParallelGateway5', 'ParallelGateway5']}
+{'id': 'sid-29DDFB0F-4EF4-420A-95C3-01F498EE908E', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'ParallelGateway4'], 'outgoing': ['Goods sent']}
+
+Start Events:
+{'id': 'sid-11F89BFD-EEE6-46BB-920E-641BB8425B91', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-9A64685E-6650-4C96-91A1-43FC4D255B50', 'name': 'Goods sent', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}

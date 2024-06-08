@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-78A9BB00-EF82-4656-925F-B1CB6BD10EBA', 'name': 'Select a court', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Wait till\nin the row']}
+{'id': 'sid-48DB0E7A-D22E-421F-8A15-1275C519546D', 'name': 'Add your order', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Payment']}
+{'id': 'sid-80D00E89-BB4F-49A5-A51B-9DE4F37C27A8', 'name': 'Payment', 'incoming': ['Wait till\nin the row'], 'outgoing': ['Take Pieper']}
+{'id': 'sid-B2D60CE3-CD26-487A-A05C-8307CA5760B2', 'name': 'Take Pieper', 'incoming': ['Wait till\nin the row'], 'outgoing': ['Pieper active']}
+{'id': 'sid-4D88E904-1DAD-4E38-A978-E736D0C487F4', 'name': 'Go to output', 'incoming': ['Pieper active'], 'outgoing': ['Take meal']}
+{'id': 'sid-11142F8B-A66A-449B-9191-CA1379D61604', 'name': 'Take meal', 'incoming': ['Pieper active'], 'outgoing': ['Eat meal']}
+{'id': 'sid-73960255-200E-4689-AC38-85083BE06BF1', 'name': 'Eat meal', 'incoming': ['Pieper active'], 'outgoing': ['Famine']}
+{'id': 'sid-047B9EB9-FE96-402C-B4B0-BDAB435D414B', 'name': 'Enter your order in cash register system', 'incoming': ['Order\nReport'], 'outgoing': ['Cash']}
+{'id': 'sid-65EA36EA-1A06-4288-AEB5-9AF5EDCB4529', 'name': 'Cash', 'incoming': ['Order\nReport'], 'outgoing': ['Adjust Pieper\n']}
+{'id': 'sid-8787A255-6F0E-4240-90FB-0D030237B78F', 'name': 'Adjust Pieper\n', 'incoming': ['Order\nReport'], 'outgoing': ['Pieper handed over and explain']}
+{'id': 'sid-573947DD-3CF0-45AE-B2A9-D460A03A2342', 'name': 'Pieper handed over and explain', 'incoming': ['Order\nReport'], 'outgoing': ['Cutting meal for preparation']}
+{'id': 'sid-17AD7CB3-4354-4C9B-9099-D63D951D0625', 'name': 'Cutting meal for preparation', 'incoming': ['Order\nReport'], 'outgoing': ['meal ready']}
+{'id': 'sid-73678C9E-2C07-44D9-ACA4-414A49DFA5EA', 'name': 'Trigger Pieper', 'incoming': ['Order\nReport'], 'outgoing': ['5 minutes']}
+{'id': 'sid-BD747DEB-8926-434C-8CCE-F10162758907', 'name': 'Hand over meal', 'incoming': ['Guest will\nMeals\nwith us'], 'outgoing': ['Order\nfinished']}
+{'id': 'sid-C0AA7B99-2638-4696-9B77-4B9C88339CA3', 'name': 'Retrieve guest', 'incoming': ['Order\nReport'], 'outgoing': ['sid-673AACB1-F3A6-4092-8D01-B9C64F6E0AF9']}
+{'id': 'sid-92813292-3105-473C-9CE6-62CEBA6E9859', 'name': 'Preparation of meal', 'incoming': ['Completion\nMeals\nobtained'], 'outgoing': ['Putting meal in vain']}
+{'id': 'sid-9C044163-EAE9-4EE7-A1F6-B845703A0D85', 'name': 'Putting meal in vain', 'incoming': ['Completion\nMeals\nobtained'], 'outgoing': ['Meals\nPrepared']}
+
+Gateways:
+{'id': 'sid-5BFA22B0-515B-42A0-8D3A-452AE6B5B237', 'name': 'EventBasedGateway0', 'incoming': ['meal ready'], 'outgoing': ['5 minutes', 'Order\nfinished']}
+{'id': 'sid-3A5CBD81-A5B0-4933-A0FD-A874523811E0', 'name': 'Wait till\nin the row', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Famine']}
+{'id': 'sid-6F09F13A-8466-4553-B259-5FF9FF4C32D3', 'name': 'Pieper active', 'incoming': ['Wait till\nin the row'], 'outgoing': ['Famine']}
+{'id': 'sid-8A6EBE1A-1C5B-4FC5-BCED-40167E2E48AC', 'name': 'meal ready', 'incoming': ['Order\nReport'], 'outgoing': ['Guest will\nMeals\nwith us']}
+{'id': 'sid-9F77474E-2957-4363-B78C-0D5F0A50BF7C', 'name': 'Guest will\nMeals\nwith us', 'incoming': ['meal ready'], 'outgoing': ['Order\nfinished']}
+{'id': 'sid-77EB9DAC-6D7C-4EDA-A756-A02E4FB7E64F', 'name': '5 minutes', 'incoming': ['Order\nReport'], 'outgoing': ['Retrieve guest']}
+
+Start Events:
+{'id': 'sid-66E8955D-FAB9-4100-8735-1A68F1B0F6D5', 'name': 'Hunger\nNot applicable', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-21A48CBB-8F3E-4C49-B12A-D63522451AC3', 'name': 'Order\nReport', 'incoming': [], 'outgoing': ['Retrieve guest']}
+{'id': 'sid-0E0E4768-5F73-46F5-8308-E4635E7EAABA', 'name': 'Completion\nMeals\nobtained', 'incoming': [], 'outgoing': ['Putting meal in vain']}
+
+End Events:
+{'id': 'sid-44AFA23D-16E0-4F13-9DCF-49F14AD2EC2E', 'name': 'Famine', 'incoming': ['Wait till\nin the row'], 'outgoing': []}
+{'id': 'sid-E3776265-78F0-49B0-B4AD-6A9F57F7A9B4', 'name': 'Order\nfinished', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-3DD2775E-5AB3-4D21-BB95-3B59F39F7F70', 'name': 'Meals\nPrepared', 'incoming': ['Putting meal in vain'], 'outgoing': []}

@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-E8849541-140B-43E2-B018-31BF7EEBD94A', 'name': 'Level 1 Scoring', 'incoming': ['Contact us'], 'outgoing': ['Results ?']}
+{'id': 'sid-0370315C-AAFA-4D13-BB94-D9331E304171', 'name': 'Level 2 Scoring', 'incoming': ['sid-C3D877D0-719F-4AEF-A78D-31BDD0AECF48'], 'outgoing': ['sid-29ED3FD0-5038-4133-BE35-AFF5BD9D2E78']}
+{'id': 'sid-CFE1A79D-5593-42E4-BBB7-95B4E9521ED1', 'name': 'forward scoring', 'incoming': ['Schufa answer'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-8CAD2F6A-C0EA-42A8-9B86-0A5FADC24600', 'name': 'Further information', 'incoming': ['Get scoring?'], 'outgoing': ['Scoring']}
+{'id': 'sid-B63EE13E-BD06-41A7-91B1-9D0359066A51', 'name': 'forward scoring', 'incoming': ['Scoring'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-4019BDCF-895A-4793-B704-62A85640E6B4', 'name': 'Results ?', 'incoming': ['Contact us'], 'outgoing': ['sid-B18FC27B-1920-41E7-BE00-D46DD6C79B1C', 'sid-23F7628B-9FE2-43E3-BFBD-A656877EF385']}
+{'id': 'sid-BF05EB76-A7F6-4ED5-B2F2-1CCC0D540008', 'name': 'Get scoring?', 'incoming': ['Schufa answer'], 'outgoing': ['EndEvent2', 'Scoring']}
+{'id': 'sid-75B16F22-7C08-4073-9D85-40C97815F617', 'name': 'Schufa answer', 'incoming': ['sid-8D2E76A0-C9F7-4672-ABCF-652BA65790CC'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-9258B5B7-56E7-4CE0-B939-5A6A3322C7A5', 'name': 'Scoring', 'incoming': ['Get scoring?'], 'outgoing': ['forward scoring']}
+
+Start Events:
+{'id': 'sid-EBAB6D0D-AD05-4CD0-940B-000BA3D81E44', 'name': 'Contact us', 'incoming': [], 'outgoing': ['Results ?']}
+{'id': 'sid-56ED1E7A-0E76-49EA-AA57-A7C73C4FF15E', 'name': 'Requirement Frontend', 'incoming': [], 'outgoing': ['sid-04886C11-1C43-4547-843B-DC15DE1F8530']}
+
+End Events:
+{'id': 'sid-9B9DE971-92D2-4E59-84C8-32E7C9AC5CE2', 'name': 'EndEvent0', 'incoming': ['sid-C7C06F2A-D9AC-4111-A070-B197DA1535C9'], 'outgoing': []}
+{'id': 'sid-B96CD316-7D7C-4416-AB43-B2261073BF43', 'name': 'EndEvent1', 'incoming': ['sid-F97860F6-720F-48C6-B146-6845B6CCE72F'], 'outgoing': []}
+{'id': 'sid-E9D23715-8194-4247-B77A-329094C6E6C0', 'name': 'EndEvent2', 'incoming': ['Get scoring?'], 'outgoing': []}
+{'id': 'sid-59260B71-3670-4B7D-8366-BE0F3F3CFE55', 'name': 'EndEvent3', 'incoming': ['Schufa answer'], 'outgoing': []}

@@ -1,0 +1,7 @@
+ The communication process begins with the 'StartEvent0' triggering the 'Starts scoring request' task, which then sends a 'Reporting' message to the 'Reporting' gateway. This gateway connects to the 'Determinable?' event, which in turn leads to either 'Return result' or 'Scoring Level 2' based on the outcome. If the result is determined, the 'View result' task is initiated, and the process concludes with the 'EndEvent0' task.
+
+Simultaneously, the 'StartEvent1' event triggers the 'Return the results' task, which sends a 'Reporting' message to the 'Reporting' gateway. This gateway connects to the 'Return the results' event, completing the process.
+
+The 'StartEvent2' event initiates the 'Scoring Level 1' task, which sends a 'Determinable?' message to the 'Determinable?' event. Depending on the outcome, the process either continues to 'Return result' or proceeds to 'Scoring Level 2'. If the result is determined, the process concludes with the 'EndEvent0' task.
+
+Lastly, the 'Report delay' task is triggered by the 'Determinable?' event, which sends a message to the 'Scoring Level 2' task, completing the process.

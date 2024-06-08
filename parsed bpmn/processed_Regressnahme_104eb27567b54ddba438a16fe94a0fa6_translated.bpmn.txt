@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-4D84939D-A172-438C-8159-FFD32C58A23A', 'name': 'Regression\nCheck', 'incoming': ['possible\nRegression'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-1C596C00-2F86-4EB4-81F6-86CDD88E21E2', 'name': 'Payment\non request\nsend', 'incoming': ['ParallelGateway5'], 'outgoing': ['Transfer\nlies\nbefore']}
+{'id': 'sid-46147B70-4D2F-421E-9B0D-FC3A94B3F0D1', 'name': 'Process\non re-\ntemplate\nset', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-6755F44A-CF91-4A3E-9B01-950BE99C47B3', 'name': 'Process\nclose', 'incoming': ['possible\nRegression'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-07A8E60E-6F17-4ED0-B2F6-71D1A6414CC6', 'name': 'Opposition\nCheck', 'incoming': ['Opposition\nlies\nbefore'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-7344E287-4630-46D6-A38E-C289E693866D', 'name': 'Collection\ncommission', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Collection\nMission']}
+{'id': 'sid-5EE72873-BBDC-45CF-BC74-5DFA04725771', 'name': 'Cash receipt\nbook', 'incoming': ['Transfer\nlies\nbefore'], 'outgoing': ['Process\ncompleted']}
+
+Gateways:
+{'id': 'sid-A931B91F-FEB4-48DA-8F0A-5AFE8F32BE97', 'name': 'ExclusiveGateway0', 'incoming': ['possible\nRegression'], 'outgoing': ['Process\nclose']}
+{'id': 'sid-F2410D5A-26E2-4336-AD9F-FE6998E5B322', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process\nclosed', 'ExclusiveGateway3']}
+{'id': 'sid-F36222CB-C419-4AAD-A38A-21D5E82C1B6B', 'name': 'ExclusiveGateway2', 'incoming': ['possible\nRegression', 'Opposition\nCheck'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-69F1B980-8E42-450C-ADFF-8FBD602BA8E4', 'name': 'ExclusiveGateway3', 'incoming': ['ParallelGateway5', 'EventBasedGateway4'], 'outgoing': ['Collection\nMission']}
+{'id': 'sid-11279676-54A1-4DA2-82BF-7B0919A9AFEC', 'name': 'EventBasedGateway4', 'incoming': ['ParallelGateway5'], 'outgoing': ['Process\nclosed', 'Collection\ncommission', 'Transfer\nlies\nbefore']}
+{'id': 'sid-DFB93026-0CFA-4536-9926-D24D2C7EE9A8', 'name': 'ParallelGateway5', 'incoming': ['sid-6FA83615-A777-429B-937B-1B75EE1AACFE'], 'outgoing': ['ParallelGateway6', 'Collection\nMission']}
+{'id': 'sid-6C96A040-E121-4AA7-A3C3-16D5D25DF69E', 'name': 'ParallelGateway6', 'incoming': ['ParallelGateway5', 'ParallelGateway5'], 'outgoing': ['Transfer\nlies\nbefore']}
+{'id': 'sid-6C99D0BF-6DBE-42FF-B392-4B5261561E43', 'name': 'Transfer\nlies\nbefore', 'incoming': ['Payment\non request\nsend'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-7CF45C2E-832A-4B95-A4B0-0D3EECEA593A', 'name': 'Opposition\nlies\nbefore', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-A6B68E1D-55BD-4679-B46A-872A027B5A71', 'name': 'Reimbursement\nDate\nExpired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-57B3CEC0-3E41-4219-98D8-C687F5C1FBA1', 'name': 'possible\nRegression', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-9FB5E981-63AF-4E75-9C13-905AB48355D3', 'name': 'Process\nclosed', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-45148FDE-7972-404F-8222-E5A145CD0388', 'name': 'Collection\nMission', 'incoming': ['ParallelGateway5'], 'outgoing': []}
+{'id': 'sid-1A8FEEC0-8C09-4DF6-BDD5-D28160081E38', 'name': 'Process\ncompleted', 'incoming': ['Transfer\nlies\nbefore'], 'outgoing': []}

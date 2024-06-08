@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-E90877DC-5C21-4DDF-95FB-330286FE5800', 'name': 'Send Schufa to Schufa', 'incoming': ['Internal\nSchufa request'], 'outgoing': ['Expect reply']}
+{'id': 'sid-897AE65F-B56E-4F77-A26C-F13AF295AECE', 'name': 'Add a reply', 'incoming': ['Internal\nSchufa request'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-F3A3AF83-B4B1-4F66-9E81-1AC58D786656', 'name': 'forward scoring result', 'incoming': ['Expect reply'], 'outgoing': ['End of query']}
+{'id': 'sid-CDE53B06-BFC5-467C-A7F1-201874BCDA3A', 'name': 'Send notice for cancellation', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-51511A1B-88EA-4599-BD23-0E5461FBA115', 'name': 'Scoring\nforward the result', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Request completed']}
+{'id': 'sid-6AB6FFA1-46DF-4B94-81F5-FAB9D9D4FE13', 'name': 'Creating First Scoring\n', 'incoming': ['Sufa\nQuestion\nReport'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-CF810678-A6FF-40C3-9C18-18C53BE73234', 'name': 'Send scoring results\n', 'incoming': ['Sufa\nQuestion\nReport'], 'outgoing': ['Request completed']}
+{'id': 'sid-09CAB9D9-77CE-44A9-81F0-447434E1BBDB', 'name': 'Send request', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['perform second scoring']}
+{'id': 'sid-5DC82BBF-E5B5-41DA-AD77-ED6985FC1278', 'name': 'perform second scoring', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Scoring results']}
+{'id': 'sid-2307396B-F325-4862-A7D2-B182D6D84D17', 'name': 'Scoring results', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Request completed']}
+
+Gateways:
+{'id': 'sid-F8B720BC-7FC8-4746-A7E2-EB0663CE5AEC', 'name': 'ExclusiveGateway0', 'incoming': ['Expect reply'], 'outgoing': ['End of query', 'Request completed']}
+{'id': 'sid-3AFCB78A-5C11-4CDD-8D09-56E67ECFCEE9', 'name': 'ExclusiveGateway1', 'incoming': ['Sufa\nQuestion\nReport'], 'outgoing': ['Request completed', 'Request completed']}
+{'id': 'sid-DF8AFDDD-092C-4BE8-9B52-CFBA4A5EA9B0', 'name': 'Expect reply', 'incoming': ['Internal\nSchufa request'], 'outgoing': ['forward scoring result']}
+{'id': 'sid-26193B82-7341-48D9-93C5-3BCBB36AA534', 'name': 'IntermediateCatchEvent3', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Request completed']}
+
+Start Events:
+{'id': 'sid-93557BF8-9423-4892-8A79-10FE792A3717', 'name': 'Internal\nSchufa request', 'incoming': [], 'outgoing': ['Add a reply']}
+{'id': 'sid-7CCE18C2-857E-4A27-857A-EA9917EF75ED', 'name': 'Sufa\nQuestion\nReport', 'incoming': [], 'outgoing': ['Send scoring results\n']}
+
+End Events:
+{'id': 'sid-2DE05105-A41E-4CBE-BA6C-36EDDA704956', 'name': 'End of query', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-F05A537A-4091-4C6E-8F65-49BD4584241D', 'name': 'Request completed', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-817259B8-70FA-4AF4-B57D-D4EDD49CCCA1', 'name': 'Request completed', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}
+{'id': 'sid-1798383C-B67B-43A9-A148-CF369E042BF3', 'name': 'Request completed', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}

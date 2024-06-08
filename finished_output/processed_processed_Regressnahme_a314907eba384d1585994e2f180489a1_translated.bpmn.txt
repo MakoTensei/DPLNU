@@ -1,0 +1,7 @@
+ When a payment request is received, the system initiates a process to send a payment request. This process is facilitated by the 'Message received' event, which triggers the 'Is regression possible?' event. If regression is possible, the system proceeds to the 'Justified?' event, which then directs the flow to the 'ExclusiveGateway2'. From there, the 'Proceedings' event is triggered, leading to the 'EndEvent1'.
+
+Alternatively, if regression is not possible, the system moves to the 'Widely maintained' event, which also leads to the 'ExclusiveGateway3'. The 'Date of expiry' event is then triggered, and the process concludes with the 'EndEvent2'.
+
+In the case of receiving a payment, the 'Payment received' event is triggered, which then leads to the 'EndEvent1'.
+
+Lastly, the 'EventBasedGateway4' event can be triggered by various incoming events, such as 'Is regression possible?' or 'Date of expiry'. This event can lead to either the 'Close' event, resulting in 'EndEvent0', or the 'Transfer to debt collection service providers' event, resulting in 'EndEvent2'.

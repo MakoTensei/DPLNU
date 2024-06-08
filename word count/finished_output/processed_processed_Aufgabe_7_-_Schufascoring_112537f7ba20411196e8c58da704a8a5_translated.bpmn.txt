@@ -1,0 +1,15 @@
+ In a system designed to process scoring requests, the following sequence of events and gateways are involved:
+
+1. The process begins with the 'StartEvent0', which triggers the 'ExclusiveGateway0'. This gateway is responsible for sending the 'Schufascore report' to the 'Schufascore\nobtained' endpoint, indicating that the scoring process has started.
+
+2. The 'Schufascore immediately\ndetermined' task is initiated by the 'ExclusiveGateway1' upon receiving the 'StartEvent1'. This task sends the 'Schufascore immediately\ndetermined' message to the 'Schufascore\nobtained' endpoint, indicating that the score has been determined.
+
+3. The 'Schufa Score send' task is triggered by the 'StartEvent1' and is handled by the 'ExclusiveGateway1'. This task sends the 'Schufa Score send' message to the 'Schufascore\nobtained' endpoint, indicating that the score is being sent.
+
+4. The 'Schufascore\nobtained' task is triggered by the 'ExclusiveGateway1' upon receiving the 'Schufa Score send' message. This task sends the 'Schufascore\nobtained' message to the 'End Events' endpoint, indicating that the scoring process has been completed.
+
+5. The 'Scoring request' task is initiated by the 'ExclusiveGateway2' upon receiving the 'StartEvent1'. This task sends the 'Scoring request' message to the 'End Events' endpoint, indicating that a new scoring request has been initiated.
+
+Additionally, the 'Schufasore grumbles' task is triggered by the 'StartEvent0' and is handled by the 'ExclusiveGateway0'. This task sends the 'Schufasore grumbles' message to the 'ExclusiveGateway1', indicating a delay in the scoring process.
+
+In summary, the scoring process starts with the 'StartEvent0', which triggers the 'ExclusiveGateway0'. The 'Schufascore report' is sent to the 'Schufascore\nobtained' endpoint

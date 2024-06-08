@@ -1,0 +1,9 @@
+ When a possible regression is reported, the process is routed to the 'Regress possible?' gateway, which then determines if the case should be closed or not. If the case is justified, it proceeds to the 'Close the process' gateway. If the case is not justified, it is booked for entrance and then routed to the 'ExclusiveGateway1'. If the entrance is successful, the process is closed.
+
+If the entrance is not successful, the process is routed to the 'EventBasedGateway4', which can lead to different outcomes based on the incoming events. If the process is set for resubmission, it is routed to the 'Reimbursement period expired' gateway, which then closes the process. If the process is not set for resubmission, it is routed to the 'ExclusiveGateway3', which can lead to different outcomes based on the incoming events.
+
+If the process is justified, it proceeds to the 'Close the process' gateway, which then closes the process. If the process is not justified, it is routed to the 'ExclusiveGateway3', which can lead to different outcomes based on the incoming events.
+
+If the entrance is successful, the process is routed to the 'ExclusiveGateway1', which then closes the process. If the entrance is not successful, the process is routed to the 'EventBasedGateway4', which can lead to different outcomes based on the incoming events.
+
+In summary, the process starts with a possible regression reported, which is routed to the 'Regress possible?' gateway. Depending on the outcome, the process can be closed, booked for entrance, or routed to the 'EventBasedGateway4'. The process can then be closed, booked for entrance again, or routed to the 'ExclusiveGateway3' based on the incoming events.

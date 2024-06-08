@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-D262E4CF-FEB3-4D7B-9937-B06C33BB8940', 'name': 'Scoring request\nat Schufa\nsend', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': []}
+{'id': 'sid-457A8A89-CECA-4EF8-AB18-AC440DDFAEDD', 'name': 'Scoring result\nforward', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['Result request']}
+{'id': 'sid-090B4C9C-0C83-46D6-8F8D-77481FDB22AE', 'name': 'Level 1\nScoring\nperform', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ParallelGateway1']}
+{'id': 'sid-D1786BD0-E9A3-426B-B348-34BE7EEF9092', 'name': 'Level 2\nScoring\nperform', 'incoming': ['ParallelGateway1'], 'outgoing': ['Result\nsend']}
+{'id': 'sid-C76D37C0-85A7-44EF-B60A-26BCB32A022C', 'name': 'Result\nsend', 'incoming': ['Scoring request\nobtained'], 'outgoing': []}
+{'id': 'sid-361453D7-2AC4-4B60-8DA3-0563F3F14945', 'name': 'Delay\nMessage\nsend', 'incoming': ['ParallelGateway1'], 'outgoing': []}
+{'id': 'sid-2FE125EF-2B25-4233-9FBE-E088D6B1C40E', 'name': 'Result\nsend', 'incoming': ['ParallelGateway1'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-D775CB31-8E4D-42DF-B30F-5F068847701F', 'name': 'Result\navailable?', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Result\nsend', 'ParallelGateway1']}
+{'id': 'sid-4FDA965F-C37E-4E81-81FB-06A9F6CC6AB1', 'name': 'ParallelGateway1', 'incoming': ['Level 1\nScoring\nperform'], 'outgoing': ['Delay\nMessage\nsend', 'Result\nsend']}
+{'id': 'sid-355E4BE0-F3A8-4D53-8B38-AE47CE71D5C0', 'name': 'IntermediateCatchEvent2', 'incoming': [], 'outgoing': ['Result request']}
+
+Start Events:
+{'id': 'sid-F941C6C6-CCB2-46C2-AD30-FC9F655BB4A8', 'name': 'Schufascoring request\nwe have discussed', 'incoming': [], 'outgoing': ['Scoring request\nat Schufa\nsend']}
+{'id': 'sid-1FA42EB9-0B7D-4B26-B337-26139F05F8EF', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['Result\nsend']}
+
+End Events:
+{'id': 'sid-6DF5C7E9-C7C8-464E-A9BD-FB10905EC4B7', 'name': 'Result request', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': []}

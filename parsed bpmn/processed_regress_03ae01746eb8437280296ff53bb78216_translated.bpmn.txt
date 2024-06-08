@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-743F61FA-59AC-4851-97E6-8729A357281C', 'name': 'Check regression', 'incoming': ['StartEvent0'], 'outgoing': ['Regress possibleh?']}
+{'id': 'sid-84A8B35D-F897-4D3D-BDFD-1B18007FEA7E', 'name': 'Send payment request to VN', 'incoming': ['StartEvent0'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-1E349032-6702-4342-B917-B00F64419B10', 'name': 'Set process for resubmission', 'incoming': ['Regress possibleh?'], 'outgoing': ['IntermediateCatchEvent6']}
+{'id': 'sid-B11A5436-6309-4469-875A-B2B71BA33936', 'name': 'Close', 'incoming': ['Regress possibleh?'], 'outgoing': []}
+{'id': 'sid-EA6E6AA2-7B54-425C-9A55-7DA752407F15', 'name': 'Book money receipt', 'incoming': ['Money received'], 'outgoing': []}
+{'id': 'sid-F98BBAE4-D6A4-4485-AA20-7269222F9C7A', 'name': 'Proceedings', 'incoming': ['sid-36ED6A6A-158D-4996-A257-9F3150383D20'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-80591302-BAC4-4F1A-960B-97929B171066', 'name': 'Examination of whether payment delay is justified', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-06CE9307-4064-4E4A-8EEB-33671598D991', 'name': 'Close the process', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}
+{'id': 'sid-E84AE97F-DDB0-428F-B8B1-3DFE0772C72B', 'name': 'forward the process to debt collection service provider', 'incoming': ['sid-88E174E4-8EA4-47A1-B8C5-9520983DC5EC'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-039125EA-3865-42EA-AED6-E8F9B9ADA893', 'name': 'Regress possibleh?', 'incoming': ['StartEvent0'], 'outgoing': ['Default period expired', 'Close']}
+{'id': 'sid-ACF938C7-FA77-4123-9E98-FAC96C5FC6A6', 'name': 'ExclusiveGateway1', 'incoming': ['Proceedings'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-A587F677-C20C-4DBF-B14B-465B8124047C', 'name': 'ExclusiveGateway2', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Close the process', 'sid-582CB0AD-FAC1-49A3-AE7E-F3DF4173ABA7']}
+{'id': 'sid-00CA40BD-D0F9-449D-A4F9-CB5881FA3293', 'name': 'Default period expired', 'incoming': ['Regress possibleh?'], 'outgoing': ['VN?']}
+{'id': 'sid-7E155A92-5D69-4B9B-99A6-690E9AAEBBAA', 'name': 'VN?', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': []}
+{'id': 'sid-444ECB67-E401-4912-90B0-F4030C464D61', 'name': 'Money received', 'incoming': [], 'outgoing': ['Book money receipt']}
+{'id': 'sid-86158D06-330F-4650-8A74-38C689E29346', 'name': 'IntermediateCatchEvent6', 'incoming': ['Regress possibleh?'], 'outgoing': ['sid-2C3C5856-FF42-4344-8FA2-38D821BE4C88', 'VN?']}
+
+Start Events:
+{'id': 'sid-47CDD9EB-DE2F-4BB8-A100-9A9E9B467C74', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:

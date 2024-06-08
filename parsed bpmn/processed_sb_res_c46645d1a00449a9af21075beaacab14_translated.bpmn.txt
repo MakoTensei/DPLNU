@@ -1,0 +1,44 @@
+Tasks:
+{'id': 'sid-19511E00-581C-4666-BB5D-342DCDE3FF00', 'name': 'Select a court', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Expect series']}
+{'id': 'sid-588E3A68-FEDB-43A5-9393-AE026AFCCF23', 'name': 'Add your order', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Payment']}
+{'id': 'sid-B29A455B-BE45-4B82-8034-AD5F0204BD81', 'name': 'Payment', 'incoming': ['Expect series'], 'outgoing': ['Get Pieper']}
+{'id': 'sid-C285D064-227A-4F5F-B4BA-F3C86158ED21', 'name': 'Get Pieper', 'incoming': ['Expect series'], 'outgoing': ['30 minutes waiting']}
+{'id': 'sid-D320A76F-7A7A-44C1-9849-8D6437EA8FA5', 'name': 'Pick up your order', 'incoming': ['IntermediateCatchEvent7'], 'outgoing': ['Eat food']}
+{'id': 'sid-BA7395A5-D781-4FFC-A11A-11496A1AA961', 'name': 'Eat food', 'incoming': ['IntermediateCatchEvent7'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-D1088E24-F09E-492E-8D26-CC84D02B30A7', 'name': 'Staff questions', 'incoming': ['30 minutes waiting'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-CDC282C0-9C99-4530-B50F-66EE5C7AC099', 'name': 'Ordering', 'incoming': ['StartEvent1'], 'outgoing': ['Cash']}
+{'id': 'sid-0A63C19D-D73E-4629-8F8A-885FF3165279', 'name': 'Cash', 'incoming': ['StartEvent1'], 'outgoing': ['Order\nis paid']}
+{'id': 'sid-E64DC2E0-5AF5-4496-BC75-BC177267DE96', 'name': 'Adjust Pieper', 'incoming': ['StartEvent1'], 'outgoing': ['Pieper handed over to guest']}
+{'id': 'sid-05E586C5-C54F-4D1A-AC0E-15E6EA2624D4', 'name': 'Pieper handed over to guest', 'incoming': ['Order\nis paid'], 'outgoing': ['inform Koch about the order']}
+{'id': 'sid-55BCCB63-EA95-453C-8DC5-289453C1A521', 'name': 'inform Koch about the order', 'incoming': ['Order\nis paid'], 'outgoing': ['IntermediateCatchEvent10']}
+{'id': 'sid-4A949EC2-1634-4A25-B8DC-CC34C3806B87', 'name': 'Trigger Pieper', 'incoming': ['Customer coming'], 'outgoing': ['5 min waning']}
+{'id': 'sid-B7010DB4-F3A2-4C1A-8D85-1087D580924C', 'name': 'Add your order', 'incoming': ['Customer coming'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-B988DB99-0A93-4FE1-AD20-25536FF1E466', 'name': 'Order to throw away', 'incoming': ['Is the time 20:00?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-419B9566-0646-4101-9AC7-9B417B2931D4', 'name': 'Order preparation', 'incoming': ['Order\nobtained'], 'outgoing': ['Preparation\nclosed']}
+{'id': 'sid-A894880D-5B7B-4A89-974D-205DA31FA6B7', 'name': 'Place court in the empires', 'incoming': ['Order\nobtained'], 'outgoing': ['inform employees']}
+{'id': 'sid-79B78E30-4DFA-4FE4-A95D-D4B378248273', 'name': 'inform employees', 'incoming': ['Preparation\nclosed'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-3BA0C984-FEAE-4CC2-9B90-9B52B44706D1', 'name': 'ExclusiveGateway0', 'incoming': ['Expect series', 'Signal comes'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-422AE570-7CB8-44F6-8486-7C435D512683', 'name': 'ExclusiveGateway1', 'incoming': ['Order\nis paid', 'Customer coming'], 'outgoing': ['5 min waning']}
+{'id': 'sid-9964F6F0-4A6A-45BA-9345-2B8018423FC7', 'name': 'Is the time 20:00?', 'incoming': ['Customer coming'], 'outgoing': ['ExclusiveGateway3', 'Trigger Pieper']}
+{'id': 'sid-2F6E835E-D9F9-4868-A811-1354B1B52B85', 'name': 'ExclusiveGateway3', 'incoming': ['Customer coming', 'Is the time 20:00?'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-A3EDF131-AAAA-47CD-97B3-9603D38154FE', 'name': 'Signal comes', 'incoming': ['Get Pieper'], 'outgoing': ['ExclusiveGateway0', 'IntermediateCatchEvent7']}
+{'id': 'sid-1D18365E-1108-44E2-A1E9-C8FBC0948B6C', 'name': 'Customer coming', 'incoming': ['Customer coming'], 'outgoing': ['ExclusiveGateway3', '5 min waning']}
+{'id': 'sid-483175F6-C6D5-42A2-A1F8-78D12619D656', 'name': 'Expect series', 'incoming': ['Hunger\nfelt'], 'outgoing': ['IntermediateCatchEvent7']}
+{'id': 'sid-CF5C9A08-C87C-4262-908C-0604D3A1AFC8', 'name': 'IntermediateCatchEvent7', 'incoming': ['Expect series'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-91FF4E03-B01E-4A79-99A2-5CF52546CD4F', 'name': '30 minutes waiting', 'incoming': ['Get Pieper'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-588DB724-477B-4A4D-AA54-D89C49A045A0', 'name': 'Order\nis paid', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-E3EDBDC9-1582-4FC2-A296-96FA659DE8AB', 'name': 'IntermediateCatchEvent10', 'incoming': ['Order\nis paid'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-B0BFFDAA-1AB4-4839-BFCF-6122D36576A9', 'name': '5 min waning', 'incoming': ['Customer coming'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-EC99C85A-6660-4E44-B875-9BE680FBC08D', 'name': 'Preparation\nclosed', 'incoming': ['Order\nobtained'], 'outgoing': ['EndEvent2']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-12EF554B-827D-4F9D-8DFF-C4B22A66076C', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-F2483B0D-A72E-4CE8-B228-35CAE65386D7', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['Place court in the empires']}
+
+End Events:
+{'id': 'sid-C5F83C07-7E3D-468A-A1F8-66510A4BA89A', 'name': 'EndEvent0', 'incoming': ['30 minutes waiting'], 'outgoing': []}
+{'id': 'sid-0B0FE9CB-3504-4740-B7E6-621AE706601B', 'name': 'EndEvent1', 'incoming': ['Add your order'], 'outgoing': []}
+{'id': 'sid-1DFCD6DE-5B00-4A6F-A1EE-49A7ADBD6999', 'name': 'EndEvent2', 'incoming': ['Preparation\nclosed'], 'outgoing': []}

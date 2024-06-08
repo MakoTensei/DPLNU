@@ -1,0 +1,31 @@
+Tasks:
+{'id': 'sid-72126E06-E2C8-46E6-8B2B-0F3983C18610', 'name': 'Editing next customers', 'incoming': ['StartEvent0'], 'outgoing': ['Order processing']}
+{'id': 'sid-1A8104BC-16C3-404F-AE5F-9CB3B397F755', 'name': 'Order processing', 'incoming': ['StartEvent0'], 'outgoing': ['Koch inform']}
+{'id': 'sid-AA06851A-8AD8-45AA-8E7C-CBA80681CE2B', 'name': 'Koch inform', 'incoming': ['StartEvent0'], 'outgoing': ['On notification\nwaiting for the cook']}
+{'id': 'sid-68E696D2-264E-4592-83E4-647422701BC7', 'name': 'Trigger Pieper', 'incoming': ['StartEvent0'], 'outgoing': ['5 min']}
+{'id': 'sid-403697A7-8960-4669-B598-D1CD20C82885', 'name': 'Retrieve guest', 'incoming': ['5 min'], 'outgoing': ['Waiting for guest']}
+{'id': 'sid-3CA01334-C66A-4591-9FC0-E81B7F9EAA21', 'name': 'Deliver food', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-3429C115-6356-43DC-93B4-68CD1BFC3B81', 'name': 'Cooking and putting into the reach', 'incoming': ['Cooking order\nobtained'], 'outgoing': ['Employees Inform']}
+{'id': 'sid-394FDA81-3F7C-41C4-9FF2-B8F0D835E703', 'name': 'Employees Inform', 'incoming': ['Cooking order\nobtained'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-2D36AFE8-E03D-44EA-ACC2-77AA20CA9352', 'name': 'Order processing\n', 'incoming': ['Wait till\nthe\nSeries'], 'outgoing': ['IntermediateCatchEvent7']}
+{'id': 'sid-2B2F89E7-20EA-4A48-A4EC-D1DCCCF2F824', 'name': 'Pick up food and eat\n', 'incoming': ['Wait till\nthe\nSeries'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-4CEF5C12-E165-4CE3-ACE3-D83992E01AEC', 'name': 'React', 'incoming': ['IntermediateCatchEvent7', 'IntermediateCatchEvent7'], 'outgoing': ['EndEvent2', 'Pick up food and eat\n']}
+{'id': 'sid-FCAC8C7E-C47D-4122-805E-B5E2DD23F894', 'name': 'On notification\nwaiting for the cook', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6A7C4643-04D3-4F5D-8002-874D65A684B7', 'name': 'Waiting for guest', 'incoming': ['StartEvent0', 'On notification\nwaiting for the cook'], 'outgoing': ['EndEvent0', 'EndEvent0']}
+{'id': 'sid-2CC16EB3-CE01-4E44-A7A1-8D1C2A2847A9', 'name': '5 min', 'incoming': ['On notification\nwaiting for the cook'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-1DE524D6-07BB-4192-A2F1-7E149B12BDD4', 'name': 'Guest picks up food\n', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-8A5FF5A0-D58E-4CA4-9DC5-26AEAA3C1078', 'name': 'Pieper\nvibrated', 'incoming': ['Pieper\nvibrated'], 'outgoing': ['Pieper\nvibrated']}
+{'id': 'sid-1E267FF4-40FA-41F7-A80C-FEE8D65F932E', 'name': 'You will be called', 'incoming': ['You will be called'], 'outgoing': ['You will be called']}
+{'id': 'sid-8266E944-0350-4457-9DED-03F20FB02B3E', 'name': 'IntermediateCatchEvent7', 'incoming': ['Wait till\nthe\nSeries', 'Order processing\n'], 'outgoing': ['Pick up food and eat\n', 'EndEvent2']}
+
+Start Events:
+{'id': 'sid-2B31C2C6-A562-45DD-A153-FA70849EE59E', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Deliver food']}
+{'id': 'sid-9C79EE72-279C-4C6F-8F82-792B8A52078B', 'name': 'Cooking order\nobtained', 'incoming': [], 'outgoing': ['Employees Inform']}
+{'id': 'sid-40CAF4D5-79E0-499B-A88E-784D87402E2E', 'name': 'Wait till\nthe\nSeries', 'incoming': [], 'outgoing': ['Pick up food and eat\n']}
+
+End Events:
+{'id': 'sid-29DB89C0-4097-490B-A10A-48006E2ADF4F', 'name': 'EndEvent0', 'incoming': ['On notification\nwaiting for the cook'], 'outgoing': []}
+{'id': 'sid-712A2CBF-0577-4C31-9FD8-9E06E67B1CE7', 'name': 'EndEvent1', 'incoming': ['Employees Inform'], 'outgoing': []}
+{'id': 'sid-A768D607-1175-44F9-A791-D2983FD60367', 'name': 'EndEvent2', 'incoming': ['IntermediateCatchEvent7'], 'outgoing': []}

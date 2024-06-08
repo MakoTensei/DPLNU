@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-B54F67E2-055F-4C13-A7B8-38FFC2896CF4', 'name': 'Case study', 'incoming': ['Report Regression'], 'outgoing': ['Regressive challenge?']}
+{'id': 'sid-4C5E897F-2E85-4821-968D-C282799292F2', 'name': 'Create and send payment request', 'incoming': ['Report Regression'], 'outgoing': ['Cash receipt of VN']}
+{'id': 'sid-601C0F21-27BE-4462-ADD1-2732C1BCE61B', 'name': 'Book payment receipt', 'incoming': ['Cash receipt of VN'], 'outgoing': ['Process']}
+{'id': 'sid-8DEA341B-9BD3-4AC2-AB49-599A6F7605B3', 'name': 'Proceedings', 'incoming': ['Report Regression'], 'outgoing': ['Process']}
+{'id': 'sid-35919ABC-9BAC-4C01-B309-82685221F3BA', 'name': 'Debt collection agency', 'incoming': ['Entrepreneurship VN'], 'outgoing': ['Process completed']}
+
+Gateways:
+{'id': 'sid-A0C93C1D-861F-41D1-B934-EF64F24BFC8F', 'name': 'Regressive challenge?', 'incoming': ['Report Regression'], 'outgoing': ['Process', 'Process']}
+{'id': 'sid-4FF1F5FB-9EC2-4DB9-9876-58EFE5B60F28', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway3', 'Right to object?'], 'outgoing': ['Process completed']}
+{'id': 'sid-39396C01-253B-47EB-8F55-1DB429415E96', 'name': 'Right to object?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Process', 'Debt collection agency']}
+{'id': 'sid-47671C53-456E-40C4-B84B-DCA11208435B', 'name': 'EventBasedGateway3', 'incoming': ['Report Regression'], 'outgoing': ['Cash receipt of VN', 'Right to object?', 'Process completed']}
+{'id': 'sid-F10700CB-CB1F-451A-80CB-90915B155AA0', 'name': 'Cash receipt of VN', 'incoming': ['Regressive challenge?'], 'outgoing': ['Process']}
+{'id': 'sid-3687F088-C3C8-470E-A212-41FF292A8B48', 'name': 'Entrepreneurship VN', 'incoming': ['Report Regression'], 'outgoing': ['Debt collection agency']}
+{'id': 'sid-37C67E58-A441-475F-B8D0-EA675A86BFD7', 'name': 'WV peace', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-792EC04A-34EF-42FF-8C34-022D08EE9D64', 'name': 'Report Regression', 'incoming': [], 'outgoing': ['Proceedings']}
+
+End Events:
+{'id': 'sid-9D0CB7A7-89C2-4F7C-9434-C17705FF8D17', 'name': 'Process', 'incoming': ['Regressive challenge?'], 'outgoing': []}
+{'id': 'sid-2D349693-9494-4F6C-A63C-191235C564F5', 'name': 'Process', 'incoming': ['Regressive challenge?'], 'outgoing': []}
+{'id': 'sid-81F35A84-998A-4A22-BAE9-BEE6EF907351', 'name': 'Process', 'incoming': ['Proceedings'], 'outgoing': []}
+{'id': 'sid-2FBEAA3A-6F9D-437C-920E-B01C30894D02', 'name': 'Process completed', 'incoming': ['EventBasedGateway3'], 'outgoing': []}

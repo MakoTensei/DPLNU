@@ -1,0 +1,7 @@
+ In the scoring process, the system starts with the 'StartEvent0' and then moves to 'StartEvent1'. The first event triggers the 'Level 1 scoring' task, which checks the 'Debt' and has an incoming connection from 'StartEvent1'. This task then connects to the 'Is the result fixed?' event, which is an outgoing connection from the 'Level 1 scoring' task.
+
+The 'Level 1 scoring' task is followed by the 'Level 2 scoring' task, which has an incoming connection from the 'Level 1 scoring' task and connects to the'sid-8D0ADC68-A29B-45F1-A9D3-03D62F32D8F8' gateway. This gateway is part of the 'ExclusiveGateway0' and has an outgoing connection to the'scoring determined' event.
+
+The'scoring determined' event is then connected to the 'Delay' event, which is part of the 'EventBasedGateway2' and has an outgoing connection to the'sid-120EDDEC-CCF3-4A5D-9607-0763BAC9E643' event.
+
+In summary, the scoring process starts with 'StartEvent0', moves to 'StartEvent1', and then proceeds through the 'Level 1 scoring' and 'Level 2 scoring' tasks, which connect to the 'ExclusiveGateway0' and 'EventBasedGateway2' respectively. The'scoring determined' event connects to the 'Delay' event, which finally leads to the 'EndEvent1'.

@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-F4A058F9-56B9-4897-A7D0-4AB13D8BB16F', 'name': 'Who takes delivery?', 'incoming': ['Goods to be shipped\nthey are'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-12D69BB8-F472-498B-874B-BBA775BA7335', 'name': 'fill out standard package tickets', 'incoming': ['normal mail order'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-302D6F88-62A6-4333-8B44-066E7072E0E5', 'name': 'Spediteur commissioned', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Goods shipped']}
+{'id': 'sid-A93303A3-C807-48CA-BAD0-FEA73E5A65B1', 'name': 'Completion of insurance', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-DAD8D1D4-5AAD-409A-9FAC-7C6686996874', 'name': 'Packaging of goods', 'incoming': ['normal mail order'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-D26550E5-98A7-472C-9D22-5E6606C9ED7D', 'name': 'Goods provided for collection', 'incoming': ['ParallelGateway5'], 'outgoing': ['Goods shipped']}
+{'id': 'sid-74103075-5A2F-477D-B20A-CE69AEB8B583', 'name': 'Spediteur 1', 'incoming': ['What quantity of goods\nis there?'], 'outgoing': ['Goods shipped']}
+{'id': 'sid-D00D442E-46D5-4F66-B62B-D14B8FAA4779', 'name': 'Spediteur 3', 'incoming': ['Goods to be shipped\nthey are'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-4FF4C6B3-C878-4B10-B82D-2F1150E63B05', 'name': 'Spediteur 2', 'incoming': ['Special delivery'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-1AC7691D-18FA-4EEE-8404-64CDA1006D94', 'name': 'Special delivery', 'incoming': ['Goods to be shipped\nthey are'], 'outgoing': ['Spediteur 3', 'Spediteur 2', 'Goods shipped']}
+{'id': 'sid-C8F8E41F-CA27-4349-AEA6-F5E99DF4529B', 'name': 'What quantity of goods\nis there?', 'incoming': ['Goods to be shipped\nthey are'], 'outgoing': ['Goods shipped', 'ExclusiveGateway2']}
+{'id': 'sid-938C0778-2573-4DBB-9782-0D2F3B7856CE', 'name': 'ExclusiveGateway2', 'incoming': ['Goods to be shipped\nthey are', 'Spediteur 2', 'What quantity of goods\nis there?'], 'outgoing': ['Goods shipped']}
+{'id': 'sid-D473DF28-6016-4D37-81F8-6DEA8FEB224A', 'name': 'Insurance\nnecessary?', 'incoming': ['What quantity of goods\nis there?'], 'outgoing': ['ParallelGateway5', 'ParallelGateway5']}
+{'id': 'sid-0861F8BA-3AE7-45DB-9496-1862E1A0DE83', 'name': 'normal mail order', 'incoming': ['Who takes delivery?'], 'outgoing': ['ParallelGateway5', 'ParallelGateway5', 'ParallelGateway5']}
+{'id': 'sid-03941A61-BFC8-404E-98ED-EFFD10C1909C', 'name': 'ParallelGateway5', 'incoming': ['normal mail order', 'Who takes delivery?', 'normal mail order', 'What quantity of goods\nis there?'], 'outgoing': ['Goods shipped']}
+
+Start Events:
+{'id': 'sid-7573632A-5437-486F-91B9-F5F58DE3FA33', 'name': 'Goods to be shipped\nthey are', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-674EA0F5-ECA3-44DC-9F5A-A653CF02AF9B', 'name': 'Goods shipped', 'incoming': ['Special delivery'], 'outgoing': []}
+{'id': 'sid-729E35C7-BA42-47EB-A66F-4FB0EF54BBF9', 'name': 'Goods shipped', 'incoming': ['What quantity of goods\nis there?'], 'outgoing': []}

@@ -1,0 +1,15 @@
+ In the bustling world of VN's financial operations, a series of tasks and gateways work in harmony to ensure smooth transactions and decision-making processes.
+
+When VN's regression is detected, the system initiates a sequence of events and interactions. The first task, "Response to payment request," is triggered, which checks if a payment method can be sent. This task is linked to the "Payment method can be sent?" gateway, which has two outgoing connections: "End" and "Payment received."
+
+If the payment method can be sent, the system proceeds to the "Book the entrance" task. This task is connected to the "ExclusiveGateway1," which has two outgoing connections: "End" and "ExclusiveGateway3."
+
+However, if the payment method cannot be sent, the system moves to the "Not justified" task. This task is connected to the "ExclusiveGateway3," which has two outgoing connections: "End" and "Close."
+
+In the case of a payment request, the "Acknowledgment of payment request" task is triggered. This task is connected to the "EventBasedGateway4," which has three outgoing connections: "End," "Close," and "Share on debt collection."
+
+The "Check the case" task is also initiated when VN's regression is detected. This task is connected to the "EventBasedGateway4," which has two outgoing connections: "End" and "Payment received."
+
+Lastly, the "End" task concludes the sequence, with two outgoing connections: "Check the case" and "EventBasedGateway4."
+
+Throughout this process, the system ensures that each task and gateway is connected appropriately, allowing for seamless transitions and efficient decision-making.

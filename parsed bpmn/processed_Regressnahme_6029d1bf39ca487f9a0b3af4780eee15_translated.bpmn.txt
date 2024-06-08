@@ -1,0 +1,29 @@
+Tasks:
+{'id': 'sid-E5644308-8CB2-4618-9915-BB7E52EDDFE7', 'name': 'Testing for regression', 'incoming': ['Regression possibility\nsubmitted.'], 'outgoing': ['Regression\npossibility\ngiven?']}
+{'id': 'sid-D5434B58-DFF1-4AEC-BABB-F36F40FDFB9E', 'name': 'Destroying', 'incoming': ['Regression possibility\nsubmitted.'], 'outgoing': []}
+{'id': 'sid-17AD2CBE-74B4-41B2-B6A0-CD594AAC4C94', 'name': 'Send payment request to VN', 'incoming': ['Regression\npossibility\ngiven?'], 'outgoing': ['Creating a Representation']}
+{'id': 'sid-CAD332BA-13A4-4C71-B78C-D70DC86043C6', 'name': 'Creating a Representation', 'incoming': ['Regression\npossibility\ngiven?'], 'outgoing': ['Payments']}
+{'id': 'sid-43F6FE9C-9815-481A-851C-863F6C68233C', 'name': 'Book money receipt', 'incoming': ['Payments'], 'outgoing': ['Process\nclose']}
+{'id': 'sid-32D06FF9-2356-4E5B-8A45-BB6348A76B75', 'name': 'Proceedings', 'incoming': ['Notification'], 'outgoing': ['justified?']}
+{'id': 'sid-82640018-3118-4748-9359-7B83F974155B', 'name': 'Process\nclose', 'incoming': ['Payments'], 'outgoing': ['Process\nsuccessful\ncompleted']}
+{'id': 'sid-68AAFC96-0095-491C-B4ED-D63293EF260E', 'name': 'Debt collection\nforward DL', 'incoming': ['Notification'], 'outgoing': ['Process\nDebt collection\nforwarded']}
+{'id': 'sid-3FB61A89-1959-413E-95DD-8986E4081AA3', 'name': 'Snucking process', 'incoming': ['justified?'], 'outgoing': ['Process\nsuccessful\ncompleted']}
+{'id': 'sid-AA970568-B9C1-4232-BAFE-0223B1DDAE12', 'name': 'Debt collection\nforward DL', 'incoming': ['Reimbursement deadline expired'], 'outgoing': ['Process\nDebt collection\nforwarded']}
+
+Gateways:
+{'id': 'sid-9FD206A1-4047-4858-8FB4-29B3824ECB79', 'name': 'Regression\npossibility\ngiven?', 'incoming': ['Regression possibility\nsubmitted.'], 'outgoing': ['Destroying', 'Process\nDebt collection\nforwarded']}
+{'id': 'sid-0446A9C2-6894-44BB-8C7C-53088C1E45C6', 'name': 'justified?', 'incoming': ['Regression\npossibility\ngiven?'], 'outgoing': ['Process\nDebt collection\nforwarded', 'Process\nsuccessful\ncompleted']}
+{'id': 'sid-7258838B-3AAC-4978-9D4D-3D2383E06FCF', 'name': 'EventBasedGateway2', 'incoming': ['Regression\npossibility\ngiven?'], 'outgoing': ['Notification', 'Process\nsuccessful\ncompleted', 'Reimbursement deadline expired']}
+{'id': 'sid-53E3FB9D-3F52-49EB-9C6B-6F65030129F7', 'name': 'Payments', 'incoming': ['Creating a Representation'], 'outgoing': ['Process\nsuccessful\ncompleted']}
+{'id': 'sid-1CB90764-49C4-4315-827D-B82478076B8C', 'name': 'Notification', 'incoming': ['Regression\npossibility\ngiven?'], 'outgoing': ['Process\nDebt collection\nforwarded']}
+{'id': 'sid-CD5C1FD4-D682-441F-89F3-F0688EE693B9', 'name': 'Reimbursement deadline expired', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Debt collection\nforward DL']}
+
+Start Events:
+{'id': 'sid-ABE69218-5E1E-48F5-A584-9113755BE631', 'name': 'Regression possibility\nsubmitted.', 'incoming': [], 'outgoing': ['Destroying']}
+
+End Events:
+{'id': 'sid-5CA01D42-36FF-48B2-9AA4-680D6B3F4486', 'name': 'Process unsuccessful\nclosed', 'incoming': [], 'outgoing': []}
+{'id': 'sid-428AC4E8-3CA8-4D47-8336-BA11131EDB57', 'name': 'Process\nDebt collection\nforwarded', 'incoming': ['Regression\npossibility\ngiven?'], 'outgoing': []}
+{'id': 'sid-DCE7A9F6-6649-4329-87F8-A0C2375BC7CB', 'name': 'Process\nDebt collection\nforwarded', 'incoming': ['Notification'], 'outgoing': []}
+{'id': 'sid-6A3778D5-FC00-438F-8890-5903C62575E0', 'name': 'Process\nsuccessful\ncompleted', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-799A97F4-BFAA-448F-B26E-E8D547896007', 'name': 'Process\nsuccessful\ncompleted', 'incoming': ['justified?'], 'outgoing': []}

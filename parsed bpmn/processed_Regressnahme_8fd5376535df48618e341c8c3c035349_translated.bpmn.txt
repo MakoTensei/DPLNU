@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-C135233C-411F-47C8-B274-19F450EFCCDF', 'name': 'Check the situation', 'incoming': ['Regression case'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-ECD3696A-F7A8-4094-8F34-18CBEADEF021', 'name': 'Send payment request to VN', 'incoming': ['Regression case'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-507E4B33-10CF-4671-B119-EC620A674A9E', 'name': 'Set process for resubmission', 'incoming': ['Regression requirement\npossible'], 'outgoing': ['VN']}
+{'id': 'sid-293D4EB9-5FB9-4EB3-9CC3-573026096415', 'name': 'Examination', 'incoming': ['VN'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-AAC51B16-FB20-4E10-A9A7-47E619E7489B', 'name': 'Close', 'incoming': ['EventBasedGateway5'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-BF86948B-7768-4C21-9D7D-2DB8466DEE93', 'name': 'donate to debt collection', 'incoming': ['EventBasedGateway5'], 'outgoing': ['Process\ncompleted']}
+
+Gateways:
+{'id': 'sid-E2C69BEF-FFE3-4495-A6F3-3E4D14C07AF4', 'name': 'Regression requirement\npossible', 'incoming': ['Regression case'], 'outgoing': ['Representation Time', 'ExclusiveGateway3']}
+{'id': 'sid-8796753B-8C32-4435-ACDF-2AE5DD95A236', 'name': 'Reasons\njustified?', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-2E715492-DE5E-490B-AF1B-49AC9095C2B4', 'name': 'ExclusiveGateway2', 'incoming': ['Examination', 'EventBasedGateway5'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-175CA8E2-0F5C-4B66-81D1-285C84279826', 'name': 'ExclusiveGateway3', 'incoming': ['VN', 'Regression requirement\npossible'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-0521440F-B204-4BE0-B9F5-F7426FFB38CD', 'name': 'ExclusiveGateway4', 'incoming': ['Check the situation', 'EventBasedGateway5'], 'outgoing': ['Close']}
+{'id': 'sid-95A246BD-B01B-4582-83A4-1D324FC21B2E', 'name': 'EventBasedGateway5', 'incoming': ['Regression requirement\npossible'], 'outgoing': ['Close', 'Reasons\njustified?', 'donate to debt collection']}
+{'id': 'sid-D73FCD27-8188-492A-9A0A-2A4033D1ED87', 'name': 'VN', 'incoming': ['Set process for resubmission'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-8CF458E2-E969-4B1C-9925-86CB00CB9DCC', 'name': 'Representation Time', 'incoming': ['Regression requirement\npossible'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-856E2F66-DA7D-4713-85B0-58044BDEF2BC', 'name': 'Cash receipt', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway4']}
+
+Start Events:
+{'id': 'sid-B3AC5DC3-0FE8-4123-879F-567E09B3FBC0', 'name': 'Regression case', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:
+{'id': 'sid-5B4BB9C9-ABE3-4A3E-82E7-B4DCCFAB46BC', 'name': 'Process\ncompleted', 'incoming': ['Representation Time', 'VN'], 'outgoing': []}

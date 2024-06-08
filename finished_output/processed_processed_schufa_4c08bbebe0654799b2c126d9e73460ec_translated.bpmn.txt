@@ -1,0 +1,17 @@
+ In the scoring process, the following sequence of tasks and gateways are involved:
+
+1. The scoring process begins with the 'Scoring init' task, which triggers the 'StartEvent0'. This task is linked to the 'Result?' gateway, which has two incoming connections from 'EventBasedGateway3' and 'EventBasedGateway3'. The 'Scoring init' task's output is directed towards a 'Timeout' event.
+
+2. The 'Timeout' event leads to the 'Interim\nMessage' event. This event has a single incoming connection from 'Scoring init' and sends its output to the 'ExclusiveGateway2'.
+
+3. The 'ExclusiveGateway2' receives the 'Interim\nMessage' event and sends it to the 'Feedback Level 2' task. This task has a single incoming connection from 'Interim\nMessage' and sends its output to the 'EndEvent2'.
+
+4. The 'EndEvent2' is connected to the 'Feedback Lvl1' gateway, which has two incoming connections from 'StartEvent1' and 'IntermediateCatchEvent7'. The 'EndEvent2' task's output is directed towards the 'ExclusiveGateway2'.
+
+5. The 'ExclusiveGateway2' receives the 'EndEvent2' event and sends it to the 'Feedback Level 2' task. This task has a single incoming connection from 'EndEvent2' and sends its output to the 'EndEvent1'.
+
+6. The 'EndEvent1' is connected to the 'Result?' gateway, which has two incoming connections from 'EventBasedGateway3' and 'EventBasedGateway4'. The 'EndEvent1' task's output is directed towards the 'EndEvent1'.
+
+7. The 'EndEvent1' is connected to the 'Feedback Lvl1' gateway, which has two incoming connections from 'StartEvent1' and 'IntermediateCatchEvent7'. The 'EndEvent1' task's output is directed towards the 'EndEvent2'.
+
+8. The 'EndEvent2' is connected to the 'Feedback Delay' gateway, which has a single incoming connection from 'IntermediateCatchEvent7'.

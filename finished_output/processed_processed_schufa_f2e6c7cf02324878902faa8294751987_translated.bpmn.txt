@@ -1,0 +1,7 @@
+ Upon receiving a request, the system initiates a process to determine if scoring is available, which is handled by the 'Scoring available?' gateway (sid-69937982-5CF5-4EE7-AE00-6ADCA68DD699). If scoring is indeed available, the system proceeds to the 'Level 1 Scoring' task (sid-61C7E977-F21C-456A-B951-2D8DF6AE2D32), which also receives incoming requests and sends a reply. In case of an exception, the system routes the request to the 'Level 2 Scoring' task (sid-86C8CEC3-D600-45A0-B534-D2A4BFC7D816), which also sends a reply upon completion.
+
+
+After the scoring tasks, the system sends a reply to the initial request, which is handled by the 'Send a reply' gateway (sid-3B425A28-5E20-4A94-8B82-8D227BF2D232 or sid-044E6182-91D1-43FF-A5D3-1356EB8862E6). If the request was an exception case, the system then sends an 'EndEvent1' (sid-5D03DCFE-F5E9-4BF2-82B2-9C89355DB27B).
+
+
+The 'Requests received' start event (sid-37D2221-1F09-4DD5-8450-A536C0C89A15 or sid-5D03DCFE-F5E9-4BF2-82B2-9C89355DB27B) triggers the entire process, while the 'Scoring' end event (sid-D0B88C3B-EC91-4A6B-95E0-369E3AB6C4

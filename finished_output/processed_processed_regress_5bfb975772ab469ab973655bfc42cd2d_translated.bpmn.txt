@@ -1,0 +1,5 @@
+ The process begins with a 'Regression check' event that triggers the 'ExclusiveGateway1' to handle the incoming task. If the check passes, the process moves to the 'Send payment request to VN' task, which then leads to the 'Reimbursement period expired' event. This event sends the task to 'ExclusiveGateway0', which in turn sends the 'Money on debt collection' task.
+
+If the 'Regression check' fails, the process moves to the 'Close' task, which sends the 'No money' event to 'ExclusiveGateway0'. This event then sends the'money directly' task.
+
+In both scenarios, the process ends with the 'No money' event, which is sent to 'ExclusiveGateway0'.

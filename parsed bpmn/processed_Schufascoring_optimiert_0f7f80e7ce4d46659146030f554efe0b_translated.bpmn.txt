@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-872413FA-843C-4943-BF20-B41D919E9561', 'name': 'Scoring\nQuestion\nsend', 'incoming': ['Sufa\nrequired'], 'outgoing': ['Result\nobtained']}
+{'id': 'sid-38C2D060-0958-44A3-A849-AA98618AB9FF', 'name': 'Show delay', 'incoming': ['Sufa\nrequired'], 'outgoing': ['EventBasedGateway1']}
+{'id': 'sid-49974D58-5F9D-4AE2-B209-3C130F9B6B9E', 'name': 'View result', 'incoming': ['Result\nobtained'], 'outgoing': ['Schufa determined']}
+{'id': 'sid-08154FED-28F4-4F18-92FE-BF0DAA306ECD', 'name': 'Level 1 scoring\nDebt', 'incoming': ['Investigation\nMission'], 'outgoing': ['Scoring final?']}
+{'id': 'sid-C64D9A4F-B439-46BD-B779-F2F3FCAF846B', 'name': 'Report the result', 'incoming': ['Investigation\nMission'], 'outgoing': ['Reported']}
+{'id': 'sid-5D205015-D71E-4E26-9B5B-6F2A0EB96CB8', 'name': 'Level 2 scoring\nDebt', 'incoming': ['Delay\nReport'], 'outgoing': ['Reported']}
+{'id': 'sid-8251E135-5157-4B6D-94A0-3BCCDBF97EB5', 'name': 'Delay\nReport', 'incoming': ['Scoring final?'], 'outgoing': ['Scoring final?']}
+
+Gateways:
+{'id': 'sid-1531B059-B392-4744-BE8E-5202B4C610AB', 'name': 'Scoring final?', 'incoming': ['Investigation\nMission', 'Scoring final?'], 'outgoing': ['Reported', 'Scoring final?']}
+{'id': 'sid-9767D8A1-A065-4CC5-8B35-AC889F38BB91', 'name': 'EventBasedGateway1', 'incoming': ['Sufa\nrequired', 'Delay\nobtained'], 'outgoing': ['Schufa determined', 'Schufa determined']}
+{'id': 'sid-8521DB45-A425-498D-AA7E-D468F5CBAD94', 'name': 'Result\nobtained', 'incoming': ['Scoring\nQuestion\nsend'], 'outgoing': ['Schufa determined']}
+{'id': 'sid-7B2810D0-7BD9-4A4B-A2EA-EA91117C9058', 'name': 'Delay\nobtained', 'incoming': ['Sufa\nrequired'], 'outgoing': ['Schufa determined']}
+
+Start Events:
+{'id': 'sid-7DDB52ED-9D7C-4E82-B7A0-AE6CE35C6086', 'name': 'Sufa\nrequired', 'incoming': [], 'outgoing': ['Show delay']}
+{'id': 'sid-D2B9942C-D9C1-4972-BE80-DF85008A43D1', 'name': 'Investigation\nMission', 'incoming': [], 'outgoing': ['Report the result']}
+
+End Events:
+{'id': 'sid-2615F6AD-7802-4439-9F0B-2EF905697F89', 'name': 'Schufa determined', 'incoming': ['Delay\nobtained'], 'outgoing': []}
+{'id': 'sid-D243765D-205D-4F4C-BCF0-1EE17DFEB632', 'name': 'Reported', 'incoming': ['Level 2 scoring\nDebt'], 'outgoing': []}

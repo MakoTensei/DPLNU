@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-04FC656B-4F7E-464F-BB5F-B6375F1F747E', 'name': 'Complete insurance', 'incoming': ['Goods must be insured?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-F88B6AAE-3C1F-40F2-93CA-BB967866670A', 'name': 'Make a selection', 'incoming': ['Shipment'], 'outgoing': ['big crowd?']}
+{'id': 'sid-A8A30F02-4A26-444D-8BE9-D21FDB37C522', 'name': 'fill out standarized parcel certificate', 'incoming': ['Shipment'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-75CB1EF0-892D-4E96-BC17-BFA4C1CC137C', 'name': 'Send request to three carriers', 'incoming': ['big crowd?'], 'outgoing': ['Offers received']}
+{'id': 'sid-1AE4FCE5-7938-4FEC-BC37-F00ABDF2BAAD', 'name': 'check whether goods must be insured', 'incoming': ['Shipment'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-BB8D4724-FC04-4E00-8094-C089F6621E4C', 'name': 'Spreading goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['Goods ready for dispatch']}
+
+Gateways:
+{'id': 'sid-EAA5B55C-75B0-4FF6-A387-7A42497BA477', 'name': 'big crowd?', 'incoming': ['Shipment'], 'outgoing': ['fill out standarized parcel certificate', 'Offers received']}
+{'id': 'sid-A9B61658-F01D-4469-B5F6-C4CEAAFCF8D2', 'name': 'Goods must be insured?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-09D07302-C211-4B5E-B0C3-63D68A5AE998', 'name': 'ExclusiveGateway2', 'incoming': ['Shipment', 'ParallelGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-22F3C40E-758B-41AC-A790-763E8F5DF6CE', 'name': 'ExclusiveGateway3', 'incoming': ['Goods must be insured?', 'sid-0417A8C7-A9A2-4972-9BDD-ACC4CE1AAB63'], 'outgoing': ['Goods ready for dispatch']}
+{'id': 'sid-F06F6543-237D-4440-B9E8-1DC8DA43545E', 'name': 'ParallelGateway4', 'incoming': ['Shipment'], 'outgoing': ['ExclusiveGateway2', 'sid-4B67357A-29AA-4E4E-81A6-35A878FC6974']}
+{'id': 'sid-FDF0C4C6-0A1F-4E3B-86A4-6E56015846C6', 'name': 'ParallelGateway5', 'incoming': ['sid-08D4C641-09C2-4239-B204-23285AE20C5E', 'Complete insurance'], 'outgoing': ['Spreading goods']}
+{'id': 'sid-795B2318-112A-41E2-B5CA-C069EB055420', 'name': 'Offers received', 'incoming': ['big crowd?'], 'outgoing': ['sid-87F3B40F-06FA-4A70-A086-A4B2FEF36D8C']}
+
+Start Events:
+{'id': 'sid-7B3E19AA-FA31-4A86-BCE3-374DB99D2EEA', 'name': 'Shipment', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-157D9D58-9BA7-46EF-B739-96AF836EAFA9', 'name': 'Goods ready for dispatch', 'incoming': ['ExclusiveGateway3'], 'outgoing': []}

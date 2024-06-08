@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-CCB27923-1D19-4A31-B17F-4D45DB0BFC3B', 'name': 'Send Scoring to Schufa', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Result Scoring Level1\narrived']}
+{'id': 'sid-E8D0397D-23B6-4155-A272-DB49CFDFBE9B', 'name': 'perform scoring level1', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Total reported']}
+{'id': 'sid-F2E18017-01B3-4B70-A798-9CDF1AC9E1F7', 'name': 'Delay Report', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['perform scoring level2']}
+{'id': 'sid-5EEBA26F-FAD2-4B47-B44A-357C339A338C', 'name': 'perform scoring level2', 'incoming': ['Result\nfixed?'], 'outgoing': ['Total reported']}
+
+Gateways:
+{'id': 'sid-EC1E77BD-CD0F-49F3-AFD1-88C726214646', 'name': 'Result\nfixed?', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Total reported', 'Total reported']}
+{'id': 'sid-2B0483E8-0E49-4889-96AF-BF76F205FF04', 'name': 'EventBasedGateway1', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Total reported', 'Total reported']}
+{'id': 'sid-9312E213-6929-4E42-B465-1D2DD181A5FD', 'name': 'Result Scoring Level1\narrived', 'incoming': ['Send Scoring to Schufa'], 'outgoing': ['Total reported']}
+{'id': 'sid-D3CA122C-3D15-42BD-B54D-64CACE8292F3', 'name': 'Delay from Scoring Level1\navailable', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Total reported']}
+{'id': 'sid-F2F3FBCC-F43D-40DF-9163-E6ABE068FE35', 'name': 'Result Scoring Level2\narrived', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Total reported']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['Result Scoring Level2\narrived']}
+{'id': 'sid-F9114BFA-28FE-45FA-A870-2BF8CC33AB3B', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['Delay Report']}
+
+End Events:
+{'id': 'sid-7149ABD5-E435-487C-ADA1-0B8DE755223C', 'name': 'Total reported', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-547D1294-6E0C-42B5-AA43-C28132E347B1', 'name': 'Total reported', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-E6164749-FB49-4EA3-8C23-042FD3D9B807', 'name': 'Total reported', 'incoming': ['Result\nfixed?'], 'outgoing': []}
+{'id': 'sid-E3276841-4A56-4E16-B6CE-928B64ACBF9F', 'name': 'Total reported', 'incoming': ['perform scoring level1'], 'outgoing': []}

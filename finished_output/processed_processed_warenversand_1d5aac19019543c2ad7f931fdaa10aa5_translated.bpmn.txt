@@ -1,0 +1,13 @@
+ The process begins with the 'Entrance order' event, which triggers the 'ExclusiveGateway1' to handle the incoming order. This gateway then routes the order to 'InclusiveGateway2' and 'ExclusiveGateway1' for further processing. 'InclusiveGateway2' takes the order and sends it to 'ExclusiveGateway1' and 'InclusiveGateway3' for additional processing.
+
+Meanwhile, 'Quantity large/small' event triggers 'ExclusiveGateway1' to provide the best offer. This offer is then sent to 'InclusiveGateway3' for final processing.
+
+'ParallelGateway4' receives the 'Entrance order' and sends it to '3 Offers for spediteure' and 'ParallelGateway5'. The '3 Offers for spediteure' then routes the order to 'Choose the cheapest offer', which sends the selected offer to 'Specialist'. The 'Specialist' then sends the order to 'ExclusiveGateway1'.
+
+'InclusiveGateway2' also receives the 'Entrance order' and sends it to 'InclusiveGateway3' for processing.
+
+'ParallelGateway4' also receives the 'Quantity large/small' event and sends it to 'Choose the cheapest offer'. The chosen offer is then sent to 'Specialist', which sends it to 'ExclusiveGateway1'.
+
+'ParallelGateway5' receives the 'Complete insurance' event and sends it to 'ParallelGateway4'. It also receives the 'ParallelGateway4' event and sends it to 'Provision for collection'.
+
+Finally, 'Provision for collection' event is triggered, which sends the order to'sid-1D68BED6-AAAC-4001-A01E-571D687C0292' for final collection.

@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-EDE87BF3-CFB9-4B7F-8B6B-6EB6E689E85D', 'name': 'Check the case', 'incoming': ['Reported'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-98BA5F51-53EF-4360-A481-DB84D67FF932', 'name': 'Send a message', 'incoming': ['Reported'], 'outgoing': ['Set on re-submission']}
+{'id': 'sid-036AF652-F0E9-402A-87C2-FE96A7709900', 'name': 'Set on re-submission', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Reimbursement period expired']}
+{'id': 'sid-7530BC8A-6C3C-4516-B6D5-EAC356DC3274', 'name': 'Book payment', 'incoming': ['Incoming payment'], 'outgoing': ['Process']}
+{'id': 'sid-18424F7B-A2DA-492F-B938-183D9C37F48D', 'name': 'Proceedings', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-3492BE8B-F83B-4686-83F8-1AB9E8F7C25A', 'name': 'Disclosure of debt collection', 'incoming': ['Reimbursement period expired'], 'outgoing': ['Process']}
+{'id': 'sid-00489DB7-4F1E-4618-AF24-32CDE7C1238F', 'name': 'Disclosure of debt collection', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-A919706E-271E-49D0-BDA2-009A127C90B1', 'name': 'ExclusiveGateway0', 'incoming': ['Reported'], 'outgoing': ['Process', 'Process']}
+{'id': 'sid-66575AC3-F43F-4172-A91B-18A917338EF4', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Disclosure of debt collection', 'Process']}
+{'id': 'sid-FDD5391B-0DAC-4F29-8840-A28072E5FB3C', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'EventBasedGateway3'], 'outgoing': ['Process']}
+{'id': 'sid-1C9F6710-3CD2-4E5A-8DF9-EA29BB671C78', 'name': 'EventBasedGateway3', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Process', 'Incoming payment', 'ExclusiveGateway2']}
+{'id': 'sid-3CE01364-1A78-4DD9-9E8D-0D61C0688E07', 'name': 'Reimbursement period expired', 'incoming': ['Set on re-submission'], 'outgoing': ['Process']}
+{'id': 'sid-A6873F2F-3014-497D-9065-F7343AFF2B35', 'name': 'Incoming payment', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Process']}
+{'id': 'sid-88BFB295-AEB3-4F40-B322-5889E7B882AB', 'name': 'Opposition', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Process']}
+
+Start Events:
+{'id': 'sid-0A3DDF36-285B-42CB-8228-FBF81C3B80A3', 'name': 'Reported', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-4232ACA1-98AD-49E7-99CE-18609403C0D0', 'name': 'Process', 'incoming': ['ExclusiveGateway0', 'ExclusiveGateway0', 'Opposition', 'EventBasedGateway3'], 'outgoing': []}

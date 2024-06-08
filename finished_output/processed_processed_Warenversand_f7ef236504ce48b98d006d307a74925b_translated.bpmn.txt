@@ -1,0 +1,13 @@
+ When a shipment is requested, the process begins with the 'Shipment requested' event, which triggers the 'ParallelGateway4' to handle the incoming request. This gateway then connects to 'Pick up offers for freight forwarders' to find suitable freight forwarders for the shipment. Once a freight forwarder is selected, the process moves to 'ExclusiveGateway3', which determines the quantity to be shipped by connecting to 'Large Lot?' to ascertain the shipment size.
+
+
+Simultaneously, 'Large Lot?' also connects to 'Complete insurance' to check if insurance is desired for the shipment. If insurance is required, the process proceeds to 'Complete insurance' to finalize the insurance details.
+
+
+After determining the quantity and insurance status, the process moves to 'Determine your request' at 'ExclusicveGateway2', which connects to 'Large Lot?' to confirm the shipment details. This gateway then connects to 'ExclusiveGateway3' to forward the request for the next step.
+
+
+Once the shipment details are confirmed, 'ExclusiveGateway3' connects to 'ParallelGateway5' to make the goods available for collection. 'ParallelGateway5' then connects to 'Goods made available' to finalize the shipment and make it ready for collection.
+
+
+In summary, the process starts with a shipment request, leading to a series of gateways that handle various tasks such as selecting freight forwarders, determining shipment size, finalizing insurance, and making the goods available for collection.

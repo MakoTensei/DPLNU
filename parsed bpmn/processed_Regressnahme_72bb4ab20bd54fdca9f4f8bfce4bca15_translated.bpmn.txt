@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-DFB7DB80-C21F-4161-B7B1-7A947D54C99D', 'name': 'Check regression', 'incoming': ['Entrance Regress'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-2ED4D04E-E68D-4006-BE3E-D490E154C925', 'name': 'Send a message', 'incoming': ['Entrance Regress'], 'outgoing': ['on resubmission\nset']}
+{'id': 'sid-4BD4222C-A579-4D75-935D-9B58CA39C51E', 'name': 'Book payment receipt', 'incoming': ['Incoming payment'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-78AC6241-B47C-4002-8A99-53D92C09A41F', 'name': 'Proceedings', 'incoming': ['VN'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-AD81F317-1287-4D57-A533-1329C4218776', 'name': 'Tax payable by Debt collection office', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-E696B8E3-6C07-46C4-882C-BFE755D9D5C6', 'name': 'on resubmission\nset', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Incoming payment']}
+
+Gateways:
+{'id': 'sid-7EC1D03B-97FD-402C-A5E7-6F37E3B8958B', 'name': 'ExclusiveGateway0', 'incoming': ['Entrance Regress'], 'outgoing': ['EndEvent0', 'on resubmission\nset']}
+{'id': 'sid-069EE096-884C-42F5-8DD7-2B7E608DAC9A', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1', 'ExclusiveGateway3']}
+{'id': 'sid-D1C0FE04-6DCE-483A-87B8-912B52C2628D', 'name': 'ExclusiveGateway2', 'incoming': ['VN', 'EventBasedGateway4', 'Proceedings'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-E7A16126-BD74-429B-A84B-D8F18A90FA13', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'VN'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-6D96BE79-8882-4444-B725-E56F9A556AD1', 'name': 'EventBasedGateway4', 'incoming': ['on resubmission\nset'], 'outgoing': ['ExclusiveGateway2', 'EndEvent1', 'Tax payable by Debt collection office']}
+{'id': 'sid-FB5596F2-2468-4B35-B565-0C401D4A989B', 'name': 'Incoming payment', 'incoming': ['on resubmission\nset'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-FFFF758F-EFC5-4960-BC1F-4F7D6E5E7246', 'name': 'VN', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-1E202E2D-C041-4BC4-A4B2-1BE1DDD6AAAB', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-C608CBFC-2513-40E8-B62F-0C144C9AF4FB', 'name': 'Entrance Regress', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-50F2D0DB-053A-413B-8ACA-1E6CB2131CC3', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-031F20AF-59A7-4980-B423-B3A5DDEDA3C1', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway4'], 'outgoing': []}

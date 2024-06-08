@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-5D9A4CB5-9981-43E0-9AEE-4625E75FA8C6', 'name': 'Check regression', 'incoming': ['Regression report'], 'outgoing': ['Possibility']}
+{'id': 'sid-15001D1F-008F-45A4-A1FE-1441289A2C31', 'name': 'Send payment request', 'incoming': ['Regression report'], 'outgoing': ['Get money']}
+{'id': 'sid-E333490C-B091-450E-B90D-385685EA9D91', 'name': 'Book money receipt', 'incoming': ['Get money'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-E13889F7-F9D9-40FC-9F09-6C31897A3A3F', 'name': 'Proceedings', 'incoming': ['Regression report'], 'outgoing': ['Refusal justified?']}
+{'id': 'sid-D8171D5E-D1A3-4478-8540-D76735FD1E23', 'name': 'Close', 'incoming': ['Opposition'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-113203E0-1018-4777-9709-690A79AA2B88', 'name': 'Inkasso/Mafia commission', 'incoming': ['Refusal justified?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-50A3CCA9-FDE9-4B79-BEFB-F62D59DF5A48', 'name': 'Possibility', 'incoming': ['Regression report'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-3212D480-71A0-4115-81C5-3506A7C06525', 'name': 'Refusal justified?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent2', 'Inkasso/Mafia commission']}
+{'id': 'sid-F4F5BB35-FC32-46C1-B1CC-E3F334952B74', 'name': 'ExclusiveGateway2', 'incoming': ['Opposition', 'Inkasso/Mafia commission'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-3BB6D60B-78AB-4024-B579-138F3E6F8917', 'name': 'EventBasedGateway3', 'incoming': ['Regression report'], 'outgoing': ['Get money', 'EndEvent2']}
+{'id': 'sid-F2FD5FB6-B569-45E1-8FD1-B53E7BFFDFE5', 'name': 'Get money', 'incoming': ['Possibility'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-CD57046C-2C6A-4082-A516-7774F5A681AE', 'name': 'Opposition', 'incoming': ['Regression report'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-2B2F7FBE-2665-43EA-9526-5AC5873940E9', 'name': 'Regression report', 'incoming': [], 'outgoing': ['Proceedings']}
+
+End Events:
+{'id': 'sid-E42711CE-A051-474F-9333-E41394312075', 'name': 'EndEvent0', 'incoming': ['Possibility'], 'outgoing': []}
+{'id': 'sid-6497C378-637F-4CDB-BFFA-DACA2AD35F05', 'name': 'EndEvent1', 'incoming': ['Possibility'], 'outgoing': []}
+{'id': 'sid-0A44C698-C510-4CF6-A585-6D9E985BDAF2', 'name': 'EndEvent2', 'incoming': ['EventBasedGateway3'], 'outgoing': []}

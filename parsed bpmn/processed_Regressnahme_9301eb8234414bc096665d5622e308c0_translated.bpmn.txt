@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-FEB93BCA-FC0B-4A30-BB23-AE0FD67E30BC', 'name': 'Check regression', 'incoming': ['Message\nRegression possibility\nis in progress'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-763E0476-C0CE-43D4-BC28-AAF18BE68101', 'name': 'Send a message', 'incoming': ['Message\nRegression possibility\nis in progress'], 'outgoing': ['Reimbursement period expired']}
+{'id': 'sid-8881354E-64A7-468E-BE31-35AC3A975DC1', 'name': 'Examination of opposition', 'incoming': ['Objection has arrived'], 'outgoing': ['Is the opposition justified?']}
+{'id': 'sid-1EC6F306-B563-493A-A76A-BF6432779524', 'name': 'Share on debt collection', 'incoming': ['Reimbursement period expired', 'Objection has arrived'], 'outgoing': []}
+{'id': 'sid-B19F4708-A6E5-4B0E-B20E-95C5991B4BD5', 'name': 'Book the entrance', 'incoming': ['Message\nRegression possibility\nis in progress'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-B6C03336-1598-474A-BC72-85D52E0271FE', 'name': 'Complete the process', 'incoming': ['Is the opposition justified?'], 'outgoing': ['Process ended']}
+{'id': 'sid-92289419-4BB6-4A9E-B366-2B6B9B888377', 'name': 'Check the regression request', 'incoming': ['StartEvent1'], 'outgoing': ['Regress is\njustified?']}
+{'id': 'sid-73D54F13-8C76-43C9-AAFD-A7A64C1C92F7', 'name': 'Objection', 'incoming': ['StartEvent1'], 'outgoing': []}
+{'id': 'sid-0547987D-B5F3-432C-9D7F-7D5522FDE56E', 'name': 'Regression pay', 'incoming': ['Regress is\njustified?'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-B4E6650F-9E98-4976-8481-3269A8FA5D49', 'name': 'VN can be taken in regression?', 'incoming': ['Message\nRegression possibility\nis in progress'], 'outgoing': ['ExclusiveGateway1', 'Reimbursement period expired']}
+{'id': 'sid-182553BC-7471-495F-9DD3-7742229942EC', 'name': 'ExclusiveGateway1', 'incoming': ['Check regression', 'EventBasedGateway4', 'EventBasedGateway4'], 'outgoing': ['Process ended']}
+{'id': 'sid-A5DBEC2A-23B9-426A-800B-251CE7E08A61', 'name': 'Is the opposition justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Share on debt collection', 'Complete the process']}
+{'id': 'sid-28EAEAB3-3C78-42CF-B8DB-CBAE38309416', 'name': 'Regress is\njustified?', 'incoming': ['StartEvent1'], 'outgoing': ['Regression pay', 'Objection']}
+{'id': 'sid-62F5D3DB-D298-4444-AA47-139ED8BA6359', 'name': 'EventBasedGateway4', 'incoming': ['Message\nRegression possibility\nis in progress'], 'outgoing': ['Process ended', 'Reimbursement period expired', 'ExclusiveGateway1']}
+{'id': 'sid-5099D9B0-EEC4-4330-948E-FBD0416FE181', 'name': 'Reimbursement period expired', 'incoming': ['VN can be taken in regression?'], 'outgoing': ['Share on debt collection']}
+{'id': 'sid-D47765D9-92EE-4B4C-991D-B80069C18600', 'name': 'Requirement was paid', 'incoming': ['Message\nRegression possibility\nis in progress'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-660A571E-90E4-4A21-8A45-9F70F1875AE5', 'name': 'Objection has arrived', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Share on debt collection']}
+
+Start Events:
+{'id': 'sid-7D4F4748-73F4-45B1-9DE6-9691A7B73890', 'name': 'Message\nRegression possibility\nis in progress', 'incoming': [], 'outgoing': ['Book the entrance']}
+{'id': 'sid-ADAE4A74-E83E-475D-A3E5-E784F2F8BA83', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Objection']}
+
+End Events:
+{'id': 'sid-C743EF3D-9891-4E95-A163-32E73C5D2961', 'name': 'Process ended', 'incoming': ['EventBasedGateway4'], 'outgoing': []}

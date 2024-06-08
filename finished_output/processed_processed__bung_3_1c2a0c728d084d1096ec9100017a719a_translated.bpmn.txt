@@ -1,0 +1,13 @@
+ In a business process management system, various tasks and gateways are interconnected to handle different operations. Here's a natural flow description of the system using the provided data:
+
+Starting with the 'StartEvent0', the process initiates by checking for any incoming events. If no events are present, the system proceeds to the 'Reference' task, which is responsible for handling cases. Once the 'Reference' task is completed, it connects to the 'ExclusiveGateway1', which has two outgoing connections: 'Case\nCheck' and 'ExclusiveGateway2'.
+
+The 'Case\nCheck' task, upon completion, connects to the 'Regress?' gateway, which has two outgoing connections: 'VN Opposition' and 'ExclusiveGateway1'. The 'ExclusiveGateway2' task, on the other hand, connects to the 'VN Opposition' gateway, which has two outgoing connections: 'Close' and 'ExclusiveGateway3'.
+
+The 'Regress?' gateway, after processing the incoming event, connects to the 'ExclusiveGateway1' and 'VN Opposition' gateways. The 'ExclusiveGateway1' connects to the 'ExclusiveGateway2' and 'Case\nCheck' tasks, while the 'VN Opposition' gateway connects to the 'Close' task.
+
+The 'ExclusiveGateway2' task, after processing the 'VN Opposition' event, connects to the 'Close' and 'ExclusiveGateway3' tasks. The 'ExclusiveGateway3' task, upon completion, connects to the 'Action' task.
+
+The 'Action' task, after processing the 'Process\nReimbursement' event, connects to the 'Close' task, which marks the end of the process.
+
+In summary, the process starts with the 'StartEvent0', which leads to the 'Reference' task. The 'Reference' task connects to the 'Case\nCheck' and 'ExclusiveGateway2' tasks. The 'Case\nCheck' task connects to the 'Regress?' gateway, which in turn connects

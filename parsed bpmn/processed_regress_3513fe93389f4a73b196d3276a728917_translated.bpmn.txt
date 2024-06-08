@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-92242751-0B52-477F-BAF0-6BA417C085CE', 'name': 'Check regression', 'incoming': ['VN can\npotential\nin Regress\ntaken\nthey are'], 'outgoing': ['possibility\navailable?']}
+{'id': 'sid-AC67A098-49BF-4A35-8C55-F101B00B3B7F', 'name': 'Close', 'incoming': ['VN can\npotential\nin Regress\ntaken\nthey are'], 'outgoing': ['Closed']}
+{'id': 'sid-ABA30FB1-EA9E-4B5B-98FC-52E6EE821710', 'name': 'Send payment request', 'incoming': ['possibility\navailable?'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-C0871B59-BDBA-406F-A534-CC5932D92EC9', 'name': 'Set process for resubmission', 'incoming': ['possibility\navailable?'], 'outgoing': ['Reference']}
+{'id': 'sid-DE477BED-B23C-4822-AAF8-A5BAD01E8B82', 'name': 'Book money receipt', 'incoming': ['Money is\nReport'], 'outgoing': ['Close']}
+{'id': 'sid-46198246-76FA-43FD-90A9-BB0E13F19751', 'name': 'Close', 'incoming': ['Money is\nReport'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-DF9151F7-7353-4844-BC95-7554BB893C33', 'name': 'Proceedings', 'incoming': ['Opposition\nReport'], 'outgoing': ['Subject matter']}
+{'id': 'sid-788EB7B5-6FFE-4FB7-832E-83FC15A1A35F', 'name': 'Close', 'incoming': ['Opposition\nReport'], 'outgoing': ['Process\nclosed']}
+
+Gateways:
+{'id': 'sid-12D3E96E-BF6E-49F1-9677-1ED6BD35E71F', 'name': 'possibility\navailable?', 'incoming': ['VN can\npotential\nin Regress\ntaken\nthey are'], 'outgoing': ['Closed', 'Process\nclosed']}
+{'id': 'sid-0486EF81-48D9-4FB1-8F01-619ADFCE807B', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Process\nclosed', 'Subject matter']}
+{'id': 'sid-F9821315-EAE4-490A-8537-CC81D106B5D5', 'name': 'EventBasedGateway2', 'incoming': ['possibility\navailable?'], 'outgoing': ['Process\ndelivered', 'Money is\nReport', 'Process\nclosed']}
+{'id': 'sid-CB94E040-18AE-4679-81DC-12D8690CD485', 'name': 'Reference', 'incoming': ['Set process for resubmission'], 'outgoing': ['Process\ndelivered']}
+{'id': 'sid-6A154FC0-403F-4294-9035-3577AD234A02', 'name': 'Money is\nReport', 'incoming': ['possibility\navailable?'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-0F9CF42E-E897-4001-BDD0-1909653297F1', 'name': 'Opposition\nReport', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Close']}
+
+Start Events:
+{'id': 'sid-B70574E9-8C77-4CD5-A380-BF0C12F02991', 'name': 'VN can\npotential\nin Regress\ntaken\nthey are', 'incoming': [], 'outgoing': ['Close']}
+
+End Events:
+{'id': 'sid-C3CE79DE-6C57-4A67-BADE-4A2781451E95', 'name': 'Closed', 'incoming': ['possibility\navailable?'], 'outgoing': []}
+{'id': 'sid-8CB7A783-9804-41BC-A290-7E12281AB7C9', 'name': 'Process\nclosed', 'incoming': ['possibility\navailable?'], 'outgoing': []}
+{'id': 'sid-5597E9AB-BFEF-49BD-A7CD-DC6B5577B86F', 'name': 'Process\nclosed', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-0A61B931-15C2-4C61-8A7B-D17919A737A8', 'name': 'Subject matter', 'incoming': ['Proceedings'], 'outgoing': []}
+{'id': 'sid-F4ADE526-C0EC-40B8-8F8A-5E02F47A1375', 'name': 'Process\ndelivered', 'incoming': ['EventBasedGateway2'], 'outgoing': []}

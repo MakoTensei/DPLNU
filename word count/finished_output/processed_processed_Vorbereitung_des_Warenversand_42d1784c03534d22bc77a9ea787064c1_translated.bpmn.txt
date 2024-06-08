@@ -1,0 +1,9 @@
+ The process begins with the dispatch of goods, which triggers the event with ID'sid-45CA2D91-2704-4EA0-8697-A5155D45FED0'. This event leads to the 'ExclusiveGateway2', which is the first step in a series of tasks and gateways.
+
+Upon reaching 'ExclusiveGateway2', the system checks if insurance is necessary, as indicated by the incoming event 'A lot?'. If insurance is deemed necessary, the event 'Complete insurance' is triggered, and the system proceeds to 'ExclusiveGateway3'. If insurance is not necessary, the system moves directly to 'Specialist' through 'ExclusiveGateway2'.
+
+The 'Specialist' then selects one of the three offers, which is the '1 selection' event. This selection leads to the 'ExclusiveGateway2' again, where the system checks the demand for insurance. If insurance is required, the 'Insurance\n- check demand' event is triggered, and the system proceeds to 'ExclusiveGateway3'. If insurance is not required, the system moves to 'ParallelGateway5'.
+
+The 'ParallelGateway5' event is responsible for packaging the goods, which is the next step in the process. After packaging, the goods are delivered, as indicated by the 'Goods delivered' event. This event leads to the 'End' event, marking the completion of the process.
+
+In summary, the process starts with the dispatch of goods, followed by a series of tasks and gateways that involve selecting an offer, checking for insurance demand, and packaging the goods before delivery. The process concludes with the 'End' event.

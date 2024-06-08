@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-8C276B67-1A84-43E0-B62C-8466ECBFFA48', 'name': 'Offer Spediteur 1', 'incoming': ['ParallelGateway5'], 'outgoing': ['Small delivery quantity?']}
+{'id': 'sid-2538DA30-F64B-4046-9283-EA52DF8911AA', 'name': 'Offer Spediteur 2', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-D16CB55B-713B-488E-A81B-8DE4CAFDED54', 'name': 'Offer Spediteur 3', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-59F7A951-2897-4400-91F7-3CC52422F2FC', 'name': 'decision who takes delivery', 'incoming': ['determine whether insurance is necessary'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-CBA1FF6A-B15F-488D-98AE-3D35F8A7E898', 'name': 'Determining the shipment quantity', 'incoming': ['Goods should be shipped'], 'outgoing': ['determine whether insurance is necessary']}
+{'id': 'sid-25CE164B-04E8-463A-B4C1-55D96DAECDC4', 'name': 'determine whether insurance is necessary', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-B879F198-658C-4509-8A5A-259EE8E8A436', 'name': 'Shipping via parcel voucher', 'incoming': ['Small delivery quantity?'], 'outgoing': ['Insurance?']}
+{'id': 'sid-27AD5903-B3A6-4D62-8EA4-451DE056C7DA', 'name': 'Shipping as Package', 'incoming': ['Small delivery quantity?'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-027D83E1-7337-4232-82C0-593878164F0D', 'name': 'Final insurance from the shipping manager', 'incoming': ['Insurance?'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-8AFA9AD4-6255-4DDF-BFC3-0EB1BA9F2955', 'name': 'Packing', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-E5D61B8E-0C63-4E31-8F01-91E403C24E5D', 'name': 'Sending', 'incoming': ['ParallelGateway7'], 'outgoing': ['ware sent!']}
+
+Gateways:
+{'id': 'sid-BBF1B164-887E-4E6F-BB75-485AA1570FE2', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway6', 'ParallelGateway5', 'ParallelGateway5'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-77E34EEB-0E6A-4128-8608-92E3A1CA0D04', 'name': 'Small delivery quantity?', 'incoming': ['Offer Spediteur 1'], 'outgoing': ['ExclusiveGateway4', 'ExclusiveGateway2']}
+{'id': 'sid-99AC0961-D757-4F11-9CB6-2546431647E6', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway5', 'Small delivery quantity?'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-29F172C7-5BD0-496F-9A21-81D3E73326DC', 'name': 'Insurance?', 'incoming': ['Shipping via parcel voucher'], 'outgoing': ['ExclusiveGateway4', 'ExclusiveGateway4']}
+{'id': 'sid-7E497010-1D5C-4B5F-9747-18D460B97020', 'name': 'ExclusiveGateway4', 'incoming': ['Insurance?', 'Small delivery quantity?'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-FC304A6B-FCEA-489F-95E4-B523A092C5DC', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway6'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway0', 'ExclusiveGateway0']}
+{'id': 'sid-DEB58751-830B-47C9-A57C-C9ECDF194091', 'name': 'ParallelGateway6', 'incoming': ['Goods should be shipped'], 'outgoing': ['ExclusiveGateway0', 'ParallelGateway7']}
+{'id': 'sid-E500786B-F05C-4CE0-9075-E314E521CAFB', 'name': 'ParallelGateway7', 'incoming': ['Shipping as Package', 'ParallelGateway6'], 'outgoing': ['ware sent!']}
+
+Start Events:
+{'id': 'sid-CE0B1BF8-558C-4B35-8779-261058A58263', 'name': 'Goods should be shipped', 'incoming': [], 'outgoing': ['Determining the shipment quantity']}
+
+End Events:
+{'id': 'sid-681DF731-31B3-4F07-B3C5-3A0C4D3E1BF1', 'name': 'ware sent!', 'incoming': ['ParallelGateway7'], 'outgoing': []}

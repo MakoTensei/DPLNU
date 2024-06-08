@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-2816F84F-5259-4CB9-B45C-5AB8CD1A9FB4', 'name': 'Send request', 'incoming': ['Schufa request\nReport'], 'outgoing': ['Scoring']}
+{'id': 'sid-A2F26A6D-9F0E-41C1-A337-880B8AFE6FE0', 'name': 'Scoring', 'incoming': ['Scoring'], 'outgoing': ['Schufa request\nFinished']}
+{'id': 'sid-A717318D-9D6C-473F-B1B4-6D2D0CBE2F9F', 'name': 'Report delay', 'incoming': ['Schufa request\nReport'], 'outgoing': ['Schufa request\nFinished']}
+{'id': 'sid-9FDC5D4A-D414-46F9-B391-4F3A5F38BE4E', 'name': 'Level 1 Scoring', 'incoming': ['Scoring request\nReport'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-A6BD4204-9A96-4902-9E14-6BE26713D5AB', 'name': 'Send delay message', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Level 2 Scoring']}
+{'id': 'sid-565761AE-6A3F-405D-82DF-A2CAC8D93093', 'name': 'Level 2 Scoring', 'incoming': ['Result?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-9D6DDFCA-B67E-488B-A862-1CE4C98763F5', 'name': 'Send a reply', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Scoring request\nFinished']}
+
+Gateways:
+{'id': 'sid-D32E8239-E351-4F6D-BA0D-5A74303D6FC7', 'name': 'Result?', 'incoming': ['Scoring request\nReport'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-94F2AF62-FB18-41D8-AD8F-07CCF83489A8', 'name': 'ExclusiveGateway1', 'incoming': ['Result?', 'Level 1 Scoring'], 'outgoing': ['Scoring request\nFinished']}
+{'id': 'sid-AB7E025B-5F69-4018-9314-146E014AAF6E', 'name': 'EventBasedGateway2', 'incoming': ['Schufa request\nReport', 'Delay message\nobtained'], 'outgoing': ['EventBasedGateway2', 'Schufa request\nFinished']}
+{'id': 'sid-F3A75F3E-0B98-4F90-92B4-7C9121C0356D', 'name': 'Scoring', 'incoming': ['Send request'], 'outgoing': ['Scoring']}
+{'id': 'sid-B14240EC-7E90-4BB2-88FF-B353B98E1683', 'name': 'Delay message\nobtained', 'incoming': ['Schufa request\nReport'], 'outgoing': ['EventBasedGateway2']}
+
+Start Events:
+{'id': 'sid-395FE565-4176-478D-8324-9C9EA65F4B2D', 'name': 'Schufa request\nReport', 'incoming': [], 'outgoing': ['Report delay']}
+{'id': 'sid-C9B327C5-1C13-4EC1-A30E-CFFEE14C8CA8', 'name': 'Scoring request\nReport', 'incoming': [], 'outgoing': ['Send delay message']}
+
+End Events:
+{'id': 'sid-98D0D4F1-3D1B-4816-9A7C-B0CEED178742', 'name': 'Schufa request\nFinished', 'incoming': ['Report delay'], 'outgoing': []}
+{'id': 'sid-27C98844-11D6-4F5D-A1C4-502E93ED169E', 'name': 'Scoring request\nFinished', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}

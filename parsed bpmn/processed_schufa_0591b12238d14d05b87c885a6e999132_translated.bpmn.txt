@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-09B35923-8092-471A-891A-876E32E7BD6B', 'name': 'Send request', 'incoming': ['Request\nReport'], 'outgoing': ['Delay\nNot applicable']}
+{'id': 'sid-E091DE4F-251C-4708-9639-438E6E63E9C3', 'name': 'Delay\nReport', 'incoming': ['Delay\nNot applicable'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-DDBA08E4-BCC2-438A-B00A-CCD09DADFC80', 'name': 'Answer\nsend', 'incoming': ['Request\nReport'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-1D1C0BF0-E4DF-4A0E-901C-9335E9EF5DA8', 'name': 'Scoring Level1\nExecution', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-1932117F-91DC-4DF0-9859-BD37A910ADE0', 'name': 'Delay\nReport', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring Level2\nExecution']}
+{'id': 'sid-29835989-45B3-4824-97BF-ADE0611DE05D', 'name': 'Scoring Level2\nExecution', 'incoming': ['Scoring\nsuccessful?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-21740FA5-D42E-4E8D-8B21-7F51357FC44B', 'name': 'Answer\nsend', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-BECB5237-0A9E-4247-9570-41E5C1BEEB2C', 'name': 'Scoring\nsuccessful?', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-01CAFF42-3CA0-4AEB-A665-4C4FCC0A4F54', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring\nsuccessful?', 'Scoring Level1\nExecution'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-E688E21E-F893-4847-8E28-42DC5DFF0BC4', 'name': 'EventBasedGateway2', 'incoming': ['Request\nReport', 'Delay\nNot applicable'], 'outgoing': ['EndEvent0', 'EndEvent0']}
+{'id': 'sid-7F28CF9B-1A98-4352-A662-BEA52A6C1D6A', 'name': 'Delay\nNot applicable', 'incoming': ['Send request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-BE1D1BF9-8AE9-4DBC-8F32-2D4737774961', 'name': 'Answer', 'incoming': ['Request\nReport'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-12A935EA-ACC1-458A-B03D-A0213D465725', 'name': 'Request\nReport', 'incoming': [], 'outgoing': ['Answer\nsend']}
+{'id': 'sid-2C35C45F-2D55-4AD7-97DC-3D94862D2312', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Delay\nReport']}
+
+End Events:
+{'id': 'sid-04603ADA-31B2-4CAB-9892-6689EFE14E4C', 'name': 'EndEvent0', 'incoming': ['Delay\nNot applicable'], 'outgoing': []}
+{'id': 'sid-87464F15-C284-4A2A-AACB-CFA1C9D1E30C', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}

@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-399AE15D-3189-4AAC-A4AD-C1126E1EF6C0', 'name': 'Pick up offers from 3 speditieurs', 'incoming': ['small or\nBig crowd?'], 'outgoing': ['What\nOffer?']}
+{'id': 'sid-942CE5B8-F809-4DC7-84C7-766EDC0613AC', 'name': 'Standardised\nFilling the package note', 'incoming': ['Goods for dispatch'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-A6E3F6BB-B715-4DD6-A80F-8AA8A0399D56', 'name': 'Spediteur 1\ncommission', 'incoming': ['What\nOffer?'], 'outgoing': ['Insurance\nnecessary?']}
+{'id': 'sid-5240FD0C-08CD-4A1D-91A7-392B552A2D48', 'name': 'Spediteur 2\ncommission', 'incoming': ['What\nOffer?'], 'outgoing': ['Insurance\nnecessary?']}
+{'id': 'sid-4D7A8C7B-9E85-475B-81AA-CB870DF59D82', 'name': 'Spediteur 3\ncommission', 'incoming': ['What\nOffer?'], 'outgoing': ['Insurance\nnecessary?']}
+{'id': 'sid-8E257098-EA90-406A-92CC-1FED1EA3CF78', 'name': 'Complete insurance', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-829C9AEF-0321-4599-9A59-C0D2CC7C1179', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway5'], 'outgoing': ['End']}
+{'id': 'sid-1A1FFA76-CB75-4242-818A-2E5714B262CB', 'name': 'Packaging of goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['End']}
+
+Gateways:
+{'id': 'sid-1CA74201-867D-4556-A673-0E546BF9AD17', 'name': 'small or\nBig crowd?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3', 'Standardised\nFilling the package note']}
+{'id': 'sid-A22EC901-BFAD-4842-A584-1321B2D7023B', 'name': 'What\nOffer?', 'incoming': ['small or\nBig crowd?'], 'outgoing': ['Insurance\nnecessary?', 'Insurance\nnecessary?', 'Insurance\nnecessary?']}
+{'id': 'sid-086588ED-F76A-4987-BB1E-CD22A7784B0D', 'name': 'Insurance\nnecessary?', 'incoming': ['ParallelGateway4', 'small or\nBig crowd?', 'What\nOffer?', 'What\nOffer?'], 'outgoing': ['ExclusiveGateway3', 'ParallelGateway5']}
+{'id': 'sid-93D7ED6F-B404-4799-9E5E-CE9044929166', 'name': 'ExclusiveGateway3', 'incoming': ['small or\nBig crowd?', 'Goods for dispatch'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-8EF88808-B501-43F9-B829-90390F598893', 'name': 'ParallelGateway4', 'incoming': ['Goods for dispatch'], 'outgoing': ['End', 'ParallelGateway5']}
+{'id': 'sid-610DEB4A-B554-498E-9BAC-4BFCA30097AD', 'name': 'ParallelGateway5', 'incoming': ['Packaging of goods', 'ParallelGateway4'], 'outgoing': ['End']}
+
+Start Events:
+{'id': 'sid-0DA436E4-3CAC-4E99-BDFE-D97B1B9AE414', 'name': 'Goods for dispatch', 'incoming': [], 'outgoing': ['ExclusiveGateway3']}
+
+End Events:
+{'id': 'sid-5114425C-3A39-4175-BB75-68771449E030', 'name': 'End', 'incoming': ['ParallelGateway4'], 'outgoing': []}

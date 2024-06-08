@@ -1,0 +1,22 @@
+ At the Court of Justice:
+1. Guest enters the restaurant (Entry\nRestaurant)
+2. The guest places an order (Order\nobtained)
+3. The order is processed and the food is prepared (Food\nhand over)
+4. The guest receives information about the meal being prepared (Employees\ninformation)
+5. The guest's payment is processed (Payment)
+6. The order is confirmed and the pieper is triggered (Pieper\ntriggered)
+7. The guest is informed that their meal is ready (Meals\ntaken over)
+8. The guest's meal is served and finished (Meals\nfinished)
+
+Gateways:
+1. When the guest's meal is finished, the system checks if the payment was received. If yes, the event is passed to EventBasedGateway0, which then ends Event1 (EndEvent1).
+2. If the guest's meal is finished and the payment was not received, the system triggers the pieper event, which then passes the event to Meals\nfinished, leading to EventBasedGateway0 and ending Event2 (EndEvent2).
+3. If the guest's meal is taken over, the system checks if the pieper event was triggered. If yes, the event is passed to EventBasedGateway0, which then ends Event0 (EndEvent0).
+
+Start Events:
+1. The guest enters the restaurant (Entry\nRestaurant)
+
+End Events:
+1. The guest's meal is finished and the payment was received (EndEvent1)
+2. The guest's meal is taken over and the pieper event was triggered (EndEvent0)
+3. The guest's meal is finished and the payment was not received (EndEvent2)

@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-161B87FB-9B93-4A23-B7CB-34261DCD894F', 'name': 'Check the case', 'incoming': ['Registration'], 'outgoing': ['Cash receipt']}
+{'id': 'sid-EBC6BBDE-B661-46C5-B621-CC46E526D703', 'name': 'Proceedings', 'incoming': ['VN\n\n'], 'outgoing': ['Regrete done']}
+{'id': 'sid-FA71AC53-0351-4E94-835C-9E1AC3463C15', 'name': 'Transfer process', 'incoming': ['VN\n\n'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-5D041E98-D5F9-4961-B861-E2E20BA67DAE', 'name': 'ExclusiveGateway0', 'incoming': ['Registration'], 'outgoing': ['Process\n', 'ParallelGateway4']}
+{'id': 'sid-1B594B22-165A-4385-AC89-59F8A816361E', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Regrete done', 'Transfer process']}
+{'id': 'sid-429635F7-9F2A-4018-984E-D793303466EB', 'name': 'EventBasedGateway2', 'incoming': ['ParallelGateway3'], 'outgoing': ['Get money', 'ExclusiveGateway1']}
+{'id': 'sid-08525A5D-D222-4A2B-958B-856B1C06293B', 'name': 'ParallelGateway3', 'incoming': ['Check the case'], 'outgoing': ['sid-A75310E7-3AD6-443E-B950-76518DD436AC', 'VN\n\n']}
+{'id': 'sid-1920BFDE-EE57-48C5-A58A-328C44CF5AE0', 'name': 'ParallelGateway4', 'incoming': ['Registration', 'sid-FA008036-13C8-4C19-9BC4-870D85FBF99E'], 'outgoing': ['Cash receipt']}
+{'id': 'sid-A5F3E3F3-0686-4EAD-A524-C2603AD63FFE', 'name': 'Reimbursed', 'incoming': ['Check the case'], 'outgoing': ['Cash receipt']}
+{'id': 'sid-1092B34B-587B-4593-A35E-50C673D6F4AB', 'name': 'Cash receipt', 'incoming': ['Check the case'], 'outgoing': ['Get money']}
+{'id': 'sid-EEBAA81B-E471-4DC3-9B28-8B31BC50EA5C', 'name': 'VN\n\n', 'incoming': ['ParallelGateway3'], 'outgoing': ['Transfer process']}
+
+Start Events:
+{'id': 'sid-D034BCB8-5A69-4A4E-9A92-6304E3C71D09', 'name': 'Registration', 'incoming': [], 'outgoing': ['ParallelGateway4']}
+
+End Events:
+{'id': 'sid-6DF80491-28E7-42A7-87E4-210353F6FF65', 'name': 'Process\n', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-EC6BB398-8C31-4D22-8A04-26032B80C0BF', 'name': 'Get money', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-3E3DB6BA-FCF3-4F55-8366-AB4F13081ACA', 'name': 'Regrete done', 'incoming': ['Proceedings'], 'outgoing': []}

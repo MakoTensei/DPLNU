@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-417C974F-A38C-4180-A4AA-7D995A233989', 'name': 'Request scoring', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Final scoring']}
+{'id': 'sid-24241610-AAE3-4E61-9241-B8567034A44C', 'name': 'Message to Frontend', 'incoming': ['Final scoring'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-5DAC7263-CF87-4D4A-B22A-4D1C98829739', 'name': 'Intermediate award at Frontend', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Waiting for messages']}
+{'id': 'sid-7731F682-C7BE-4CC5-A9E4-F6920465F02B', 'name': 'Level 1 Scoring', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-9BBC1321-F3F5-42D1-94E8-28AFC8594B6D', 'name': 'Interim score to Bank', 'incoming': ['StartEvent1'], 'outgoing': ['Level 2 Scoring']}
+{'id': 'sid-6267EA51-9F2C-4B00-B72E-AED4BBE04FDD', 'name': 'Result to Bank', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Scoring ends']}
+{'id': 'sid-0A53F29B-A708-44D5-A41B-039902843821', 'name': 'Level 2 Scoring', 'incoming': ['Scoring successful?'], 'outgoing': ['Scoring ends']}
+
+Gateways:
+{'id': 'sid-BFB72BD6-8E39-45D5-A996-9BFB36510F9A', 'name': 'Scoring successful?', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring ends', 'ExclusiveGateway1']}
+{'id': 'sid-05074BBA-56D9-4008-920D-1B207BAD89BA', 'name': 'ExclusiveGateway1', 'incoming': ['Level 1 Scoring', 'Level 2 Scoring'], 'outgoing': ['Scoring ends']}
+{'id': 'sid-E3C629CA-09D1-484E-BDA9-D369ECADBB0D', 'name': 'Waiting for messages', 'incoming': ['Scoring\nRequired', 'Waiting for messages'], 'outgoing': ['EndEvent0', 'Waiting for messages']}
+{'id': 'sid-FADFD636-DE86-4AEF-A338-E9D4A845BCEA', 'name': 'Final scoring', 'incoming': ['Request scoring'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E97ED1B9-566F-42CB-8E7E-6B0B321C107D', 'name': 'Interim results', 'incoming': ['Scoring\nRequired'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['Intermediate award at Frontend']}
+{'id': 'sid-7DDC9DF8-B2D0-4B48-8B33-161CFCE7F2D8', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Interim score to Bank']}
+
+End Events:
+{'id': 'sid-80232A01-409F-4843-83E9-ED31012032EB', 'name': 'EndEvent0', 'incoming': ['Interim results'], 'outgoing': []}
+{'id': 'sid-10909A22-BCAE-4DCB-AD0C-1DD3874163AA', 'name': 'Scoring ends', 'incoming': ['Scoring successful?'], 'outgoing': []}

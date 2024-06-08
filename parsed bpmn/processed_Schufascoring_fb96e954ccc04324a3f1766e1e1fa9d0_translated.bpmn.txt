@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-AFD816E3-065D-41DB-8549-21B69C597858', 'name': 'Start Schufascoring request', 'incoming': ['StartEvent0'], 'outgoing': ['sid-FB9BA0C6-AE26-4531-86D0-B3B78EE918D8']}
+{'id': 'sid-8E2C8BDC-C6D9-4E8A-B920-ED3677907651', 'name': 'Review Schufascoring', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-84E87E5F-CEA7-4092-8DB6-08E61AB0D82E', 'name': 'Show Schufascoring results', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B109AF74-326E-4FF9-9A78-664B26327961', 'name': 'Information about delay', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-1852DBBD-AD77-4F7D-9BF1-EDB1D95E5EF9', 'name': 'Start Schufascoring Process', 'incoming': ['Schufascoring request has been received'], 'outgoing': ['sid-FA1A82F9-258D-4990-A54C-171543C6A23F']}
+{'id': 'sid-70E6C9B4-1036-4858-B2CE-8AE4366BC416', 'name': 'Schufaservice Feedback a\nvalues', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-23F6791E-0313-433A-B989-C3969FD7D40F', 'name': 'Start Scoring Level 1', 'incoming': ['Schufascoring request has been received'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-D36BC527-081F-4089-8FC9-773C1CCAFDDC', 'name': 'Start scoring level 2', 'incoming': ['sid-0DE19136-F25C-4A21-BA38-08F57DC0A083'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-A756ECAD-20F5-4AF4-A503-CCBD14FC1AB0', 'name': 'Scoring completed', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['sid-456C105E-F766-4529-BCE7-6A4A9DDA0600']}
+
+Gateways:
+{'id': 'sid-4F98FC86-57D4-4822-8E0F-3E8980C91B36', 'name': 'ExclusiveGateway0', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['EndEvent0', 'IntermediateCatchEvent4']}
+{'id': 'sid-17E7D405-2A2E-4431-8AB3-939BE438721C', 'name': 'ExclusiveGateway1', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['sid-B3A124AA-55F2-4CFB-B137-A42456E43228', 'sid-933186A3-7CA1-4C05-89F8-697F1514A005']}
+{'id': 'sid-A0C2C51C-0015-4A1D-A90A-E1B2B7A818AE', 'name': 'ExclusiveGateway2', 'incoming': ['Schufascoring request has been received'], 'outgoing': ['sid-057C455D-EA43-4817-BADF-8D3281DB24D4', 'ExclusiveGateway3']}
+{'id': 'sid-622F7691-1912-4B65-A9FF-6A1352E52D43', 'name': 'ExclusiveGateway3', 'incoming': ['Start Scoring Level 1', 'Start scoring level 2'], 'outgoing': ['Scoring completed']}
+{'id': 'sid-97E4759C-56E9-4D34-A0C5-080BFA50FAC4', 'name': 'IntermediateCatchEvent4', 'incoming': ['ExclusiveGateway0', 'sid-77432B1B-C023-4106-A96D-EB558D5B2D52'], 'outgoing': ['Show Schufascoring results']}
+{'id': 'sid-F7A6CC75-C335-421F-91E1-147D56C2E012', 'name': 'IntermediateCatchEvent5', 'incoming': ['sid-884F6FC1-7631-4297-A958-91A70AB11943', 'sid-D682103D-A5D0-46A1-991C-7B4AA0D5ED39'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-60F4ECA2-52E2-448A-A398-3C7048BBC488', 'name': 'Schufascoring request has been received', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-47457CFB-D056-4D0F-9385-D8DAEE7F826B', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Start Schufascoring request']}
+{'id': 'sid-54FA0C16-C277-4AE4-B640-140C3BFC7428', 'name': 'Schufascoring request has been received', 'incoming': [], 'outgoing': ['Start Schufascoring Process']}
+
+End Events:
+{'id': 'sid-BB34D391-5804-41AF-B717-1016BA660E65', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-1D2D9517-EF02-4E8A-B0E6-E5A250B7EBD2', 'name': 'EndEvent1', 'incoming': ['sid-C581B160-7C39-4141-A5A1-B2ABACC75121'], 'outgoing': []}
+{'id': 'sid-C7727DDE-0D62-44D9-8E27-80626419BA62', 'name': 'EndEvent2', 'incoming': ['sid-1453CA6C-AACB-4CEB-80F7-B0F34695EA56'], 'outgoing': []}

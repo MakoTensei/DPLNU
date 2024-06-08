@@ -1,0 +1,9 @@
+ In the scoring process, a request is initiated to pick up scoring, which triggers the 'Pick up scoring' start event. This leads to the 'Give notice of delay' outgoing event. The 'Scoring request\nReport' start event then sends a request to the 'Score immediately\navailable' gateway, which forwards it to the 'ExclusiveGateway1' and 'Report delay' outgoing events.
+
+The 'perform scoring level 1' task is triggered by the 'ExclusiveGateway1' and sends an 'ExclusiveGateway1' outgoing event. Once the scoring level 1 is completed, the 'Score received' start event is triggered, which sends a 'Score received' outgoing event to the 'Score immediately\navailable' gateway.
+
+The 'Score immediately\navailable' gateway then forwards the 'Score received' event to the 'Scoring completed' end event. Meanwhile, the 'Report delay' event is triggered by the 'ExclusiveGateway1' and sends a 'Schufaservice-\nProcess completed' end event.
+
+If a delay is reported, the 'Delay: Level 2 required' start event is triggered, which sends a 'Schufaservice-\nProcess completed' end event.
+
+In summary, the scoring process involves multiple tasks and gateways, with incoming and outgoing events that ensure the smooth flow of information and completion of the scoring process.

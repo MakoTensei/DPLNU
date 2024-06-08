@@ -1,0 +1,11 @@
+ The process begins with the 'Goods made ready for shipping' event, which triggers the 'Choose the cheapest offer' task. This task then initiates a request to 'Spediteur' for offers. The 'Spediteur' task, in turn, sends a request to the 'ExclusiveGateway1' to find the cheapest offer. Once the cheapest offer is selected, the 'Specialist' task is triggered, which requires the 'large amount?' condition to be met. The 'Specialist' task then sends a request to 'ExclusiveGateway1' to proceed with the process.
+
+Simultaneously, the 'Goods made ready for shipping' event also triggers the 'Filling the package note' task, which requires the 'large amount?' condition to be met. This task sends a request to 'Check insurance requirements' to ensure the package is adequately insured. The 'Check insurance requirements' task, in turn, sends a request to 'ExclusiveGateway1' to proceed with the process.
+
+The 'Check insurance requirements' task also triggers the 'Complete insurance' task, which requires the 'Insurance necessary' condition to be met. This task sends a request to 'ExclusiveGateway1' to complete the insurance process.
+
+Once the insurance is complete, the 'Goods are ready for collection' task is triggered, which requires the 'ParallelGateway5' condition to be met. This task sends a request to'ready for dispatch' to initiate the shipping process.
+
+Simultaneously, the 'Product is packaged' task is triggered, which also requires the 'ParallelGateway5' condition to be met. This task sends a request to'ready for dispatch' to initiate the shipping process.
+
+Finally, the'ready for dispatch' task is triggered, which requires the 'ParallelGateway5' condition to be met. This task completes the process, and the goods are ready for dispatch.

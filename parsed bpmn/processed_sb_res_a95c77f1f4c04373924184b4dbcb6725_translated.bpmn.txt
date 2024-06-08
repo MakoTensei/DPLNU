@@ -1,0 +1,35 @@
+Tasks:
+{'id': 'sid-5DCAE86F-F667-4222-A59A-9A67B3615D0C', 'name': 'Court of Justice\nSelect', 'incoming': ['Entry\nRestaurant'], 'outgoing': ['Order\nmake']}
+{'id': 'sid-2E5B661C-590F-40BA-BB57-BE33A6F79586', 'name': 'Order\nmake', 'incoming': ['Entry\nRestaurant'], 'outgoing': ['Payment']}
+{'id': 'sid-DE39C226-64B6-48D5-BDA8-988DCC0FB8C8', 'name': 'Payment', 'incoming': ['Entry\nRestaurant'], 'outgoing': ['Pieper\ntriggered']}
+{'id': 'sid-10F21DDA-59E3-4B61-8252-B189539D0738', 'name': 'Meals\nretrieval', 'incoming': ['Pieper\ntriggered'], 'outgoing': ['Meals\ntaken over']}
+{'id': 'sid-0829DAFE-5300-49ED-827E-FFDB0DEABEE9', 'name': 'Meals\nEat', 'incoming': ['Meals\ntaken over'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-77D67810-4652-4F92-91FA-C07CD5BD5CAC', 'name': 'Input in\nCash register', 'incoming': ['Order\nobtained'], 'outgoing': ['Money\ncassing']}
+{'id': 'sid-6ABF2CC8-BABA-4270-8BBE-7EE84E445CE7', 'name': 'Money\ncassing', 'incoming': ['Order\nobtained'], 'outgoing': ['Pieper\nset and\nhand over']}
+{'id': 'sid-4C3C6FB1-4C91-4DD3-9BBE-600C00F1F696', 'name': 'Pieper\nset and\nhand over', 'incoming': ['Order\nobtained'], 'outgoing': ['Cook\ninformation']}
+{'id': 'sid-72891731-2331-47E3-9A7C-1CBE057769BB', 'name': 'Cook\ninformation', 'incoming': ['Order\nobtained'], 'outgoing': ['Meals\nfinished']}
+{'id': 'sid-CF6693DC-E8BB-4C99-8DF1-AD1513EF78EA', 'name': 'Pieper\ntrigger', 'incoming': ['Order\nobtained'], 'outgoing': ['Guest\nthere']}
+{'id': 'sid-0EF74765-7CF8-4E18-AD27-E420E584F9E7', 'name': 'Retrieve guest', 'incoming': ['5 min'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-BB42DC03-2BB4-402D-A5A4-36913B94CFD6', 'name': 'Food\nhand over', 'incoming': ['Order\nobtained'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-2CACFF94-7BA0-49F1-B748-C14D7C52F56B', 'name': 'Cooking', 'incoming': ['Order\nobtained'], 'outgoing': ['In passing\nthe']}
+{'id': 'sid-23E45EDD-8D72-4DF5-8C12-6C34E1293D58', 'name': 'In passing\nthe', 'incoming': ['Order\nobtained'], 'outgoing': ['Employees\ninformation']}
+{'id': 'sid-891D1DB6-8FBE-4A8F-B45E-7D02B3A05523', 'name': 'Employees\ninformation', 'incoming': ['Order\nobtained'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-E3BE94BE-78A9-463E-906E-3471B3ABC338', 'name': 'EventBasedGateway0', 'incoming': ['Meals\nfinished', 'Meals\nfinished'], 'outgoing': ['EventBasedGateway0', 'EndEvent1']}
+{'id': 'sid-3539196A-B55B-4CBE-8C35-9D136E2B09CD', 'name': 'Pieper\nobtained', 'incoming': ['Entry\nRestaurant'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-EC4211D5-44BB-48C0-B0DB-A499A4322575', 'name': 'Pieper\ntriggered', 'incoming': ['Payment'], 'outgoing': ['Meals\ntaken over']}
+{'id': 'sid-B74ECDA4-2F5E-440D-92C6-E10348D24332', 'name': 'Meals\ntaken over', 'incoming': ['Entry\nRestaurant'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-CA5858A9-C123-46AC-8889-AA52892BD211', 'name': 'Meals\nfinished', 'incoming': ['Order\nobtained'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-35392AB9-29D4-41B4-BFAF-BECFE4280279', 'name': '5 min', 'incoming': ['Meals\nfinished'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-B56220D6-B1DB-4B81-A0DD-58AEB5B689C1', 'name': 'Guest\nthere', 'incoming': ['Order\nobtained'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-5C703116-3150-4DE2-8B07-DA6518544317', 'name': 'Entry\nRestaurant', 'incoming': [], 'outgoing': ['Meals\ntaken over']}
+{'id': 'sid-BEB56AFD-427C-4CD9-9105-8DAD4CC44584', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['Food\nhand over']}
+{'id': 'sid-70A08F34-A77D-4497-AF0D-2A5660CEB9A8', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['Employees\ninformation']}
+
+End Events:
+{'id': 'sid-63FB385F-849C-4C23-85C2-8291C4538FAD', 'name': 'EndEvent0', 'incoming': ['Pieper\nobtained'], 'outgoing': []}
+{'id': 'sid-904568E0-2D33-4DFC-9740-95DDCF1169DF', 'name': 'EndEvent1', 'incoming': ['Meals\nfinished'], 'outgoing': []}
+{'id': 'sid-43AFD04D-F760-45EF-BD00-6EEB357B65EB', 'name': 'EndEvent2', 'incoming': ['Employees\ninformation'], 'outgoing': []}

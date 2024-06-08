@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-CC7405B1-35EA-4DD0-AB7A-B883CC4E10C8', 'name': 'Determining partner data', 'incoming': ['Start SchufaScoring'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-5E368669-886D-44F6-A486-B7B4928CB6E2', 'name': 'Request Level1 scoring', 'incoming': ['15 min wait'], 'outgoing': ['15 min wait']}
+{'id': 'sid-753F4344-B631-4EE9-9E16-41D8BA3CA123', 'name': 'Edition Schufa Result', 'incoming': ['Are there any results?'], 'outgoing': ['Score performed']}
+{'id': 'sid-5E0EFF09-C5F4-43D3-A86F-C61803CC7BA5', 'name': 'Output manual processing', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-C48A3386-54DE-476B-873C-1CC9F5E060F2', 'name': 'Schufa edition\nresults', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Score performed']}
+{'id': 'sid-81966061-C636-49E5-BD6B-3B12B7B764AB', 'name': 'Implementation of scoring for partners', 'incoming': ['Start SchufaScore for partners'], 'outgoing': ['Feedback Result']}
+{'id': 'sid-41E14BBB-C2C7-4179-9C21-1B4CB876A0DC', 'name': 'Feedback Result', 'incoming': ['Start SchufaScore for partners'], 'outgoing': ['Score performed']}
+
+Gateways:
+{'id': 'sid-B5584D13-8C7A-4632-801E-F87E77B8E095', 'name': 'Are there any results?', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Score performed', 'ExclusiveGateway1']}
+{'id': 'sid-7207053C-236C-459A-BCFB-01B22CB07280', 'name': 'ExclusiveGateway1', 'incoming': ['Start SchufaScoring', 'ExclusiveGateway2'], 'outgoing': ['Score performed']}
+{'id': 'sid-FB3C00F4-21E0-48CB-96EF-767BF577D2E6', 'name': 'ExclusiveGateway2', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Score performed', 'Score performed']}
+{'id': 'sid-E19C3C49-E612-4E99-9746-D08648F75215', 'name': 'IntermediateCatchEvent3', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Are there any results?']}
+{'id': 'sid-1955262E-1215-4708-9ABB-882A7CF9CEAA', 'name': 'IntermediateCatchEvent4', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Score performed']}
+{'id': 'sid-3CD2BA67-1A9D-49DA-8C84-1D08679867DD', 'name': '15 min wait', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Are there any results?']}
+
+Start Events:
+{'id': 'sid-A7C52DF0-7DA9-4EFB-8A09-0CF8371D5862', 'name': 'Start SchufaScoring', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-AF877E4D-EFDB-48C1-B436-90EF2B70B50D', 'name': 'Start SchufaScore for partners', 'incoming': [], 'outgoing': ['Feedback Result']}
+
+End Events:
+{'id': 'sid-14F60E8A-ACF6-435B-986F-AA73E4A1B963', 'name': 'Score performed', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}
+{'id': 'sid-EC94C070-2FF1-4F2D-B0E4-CEDC7E81BEEE', 'name': 'Score performed', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}
+{'id': 'sid-0B1971A8-2E9B-4F7E-AAC5-1EDE73776787', 'name': 'Score performed', 'incoming': ['Feedback Result'], 'outgoing': []}

@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-3188DDCF-3247-4F7A-BF2F-83F04161BCB8', 'name': 'Scoring request', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Get Level 1 scoring']}
+{'id': 'sid-0431B091-8CF2-428C-A874-38C1576B8CC3', 'name': 'Continue Level1 scoring', 'incoming': ['Get Level 1 scoring'], 'outgoing': ['Scoring request']}
+{'id': 'sid-EAE111B5-C14D-4D22-932A-7394BF037BB1', 'name': 'forward delay', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Level 2 scoring result']}
+{'id': 'sid-61C94831-A86F-4DA2-ACE3-F3A747D6ACB6', 'name': 'Continue Level2 scoring', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Scoring request']}
+{'id': 'sid-CE82FB38-E957-47AA-9160-6EF11C8BEEDD', 'name': 'Level 1 Scoring', 'incoming': ['Scoring request'], 'outgoing': ['Result?']}
+{'id': 'sid-71D0E93A-756C-4E4B-898C-8D8527990D5A', 'name': 'Level 1 Scoring Report', 'incoming': ['Scoring request'], 'outgoing': ['Schufa request processed']}
+{'id': 'sid-43F1433A-33CC-43B2-ABC8-9CA25FA921D4', 'name': 'Report delay', 'incoming': ['Result?'], 'outgoing': ['Level 2 Scoring']}
+{'id': 'sid-FEA4859F-70CF-4C76-A19A-8B3CB9714A3E', 'name': 'Level 2 Scoring', 'incoming': ['Result?'], 'outgoing': ['Report Level 2 scoring']}
+{'id': 'sid-51776C05-65D3-490F-A02B-0481FE578F7E', 'name': 'Report Level 2 scoring', 'incoming': ['Result?'], 'outgoing': ['Schufa request processed']}
+
+Gateways:
+{'id': 'sid-D1DD3E3F-7FC3-46B7-AB2F-191ACCE8CAD7', 'name': 'Result?', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Schufa request processed', 'Schufa request processed']}
+{'id': 'sid-2AA7F018-4FA1-4162-94DC-0236CD8DBBB9', 'name': 'EventBasedGateway1', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Schufa request processed', 'Get delay message']}
+{'id': 'sid-82D2E699-1451-4507-A9A9-76F1ED1912F1', 'name': 'Get Level 1 scoring', 'incoming': ['Get Level 1 scoring'], 'outgoing': ['Get Level 1 scoring']}
+{'id': 'sid-01793273-ED0B-4027-8EDC-018F89A54BCF', 'name': 'Get delay message', 'incoming': ['Scoring request\nReport'], 'outgoing': ['forward delay']}
+{'id': 'sid-35869C1E-9055-48AF-AB8A-1311D364869C', 'name': 'Level 2 scoring result', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Scoring request']}
+
+Start Events:
+{'id': 'sid-5CB1FAF9-C17D-464E-960D-6C72BFF9F47C', 'name': 'Scoring request\nReport', 'incoming': [], 'outgoing': ['Continue Level2 scoring']}
+{'id': 'sid-D167586C-8B85-4DDB-81A5-91DF75C6316B', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Level 1 Scoring Report']}
+
+End Events:
+{'id': 'sid-388DA125-8815-43CA-96D7-9BF6624C10D1', 'name': 'Scoring request', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-7F3EA555-832D-4CFC-AD67-B7438A5355C7', 'name': 'Scoring request', 'incoming': ['Level 2 scoring result'], 'outgoing': []}
+{'id': 'sid-B6E4ED6A-8C77-4078-8C64-D4AE868A0C15', 'name': 'Schufa request processed', 'incoming': ['Result?'], 'outgoing': []}
+{'id': 'sid-9C7AA866-AA73-4C34-B6DE-2F3580408855', 'name': 'Schufa request processed', 'incoming': ['EventBasedGateway1'], 'outgoing': []}

@@ -1,0 +1,9 @@
+ When a request for goods dispatch is made, the system initiates a sequence of tasks and gateways to ensure the process is completed efficiently. The journey begins with the 'Goods for dispatch requested' event, which triggers the 'Select your offer' task. This task connects to the 'Big crowd?' gateway, which in turn leads to the 'InclusiveGateway3' and 'ExclusiveGateway1'.
+
+The 'Select your offer' task then connects to the 'Specialist' gateway, which is linked to the 'Big crowd?' gateway, resulting in the 'ExclusiveGateway1'. This gateway is responsible for forwarding the request to the 'ParallelGateway5'.
+
+Once the goods are dispatched, the 'Filling the package note' task is initiated, which connects to the 'ParallelGateway4'. This task is linked to the 'Insurance?' gateway, leading to both 'Filling the package note' and 'ExclusiveGateway1'.
+
+The 'Complete insurance' task is also connected to the 'ParallelGateway4', and it leads to the 'InclusiveGateway3'. This gateway then connects to the 'ParallelGateway5', which is responsible for preparing the 'Product Pickup ready' event.
+
+Finally, the 'Product Pickup ready' event is triggered, which connects to the 'ParallelGateway5'. This event signifies the completion of the process, and the goods are ready for collection.

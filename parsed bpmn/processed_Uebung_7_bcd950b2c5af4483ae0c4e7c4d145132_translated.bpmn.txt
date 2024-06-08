@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-E862647B-B743-495D-B9C2-C613340B03FE', 'name': 'Send request', 'incoming': ['Start your search'], 'outgoing': ['Scoring 1 result received']}
+{'id': 'sid-C06AF2EA-3C8F-438F-A885-AC0F99B7455C', 'name': 'forward delay message', 'incoming': ['Start your search'], 'outgoing': ['Scoring 2 results received']}
+{'id': 'sid-4FD538AD-9389-4E1C-91D8-9DDE3AD5BD9D', 'name': 'Scoring 1 result forward', 'incoming': ['Scoring 1 result received'], 'outgoing': ['Scoring 1 performed']}
+{'id': 'sid-01BEC31F-1692-4F81-81C1-E5187006769A', 'name': 'Scoring 2 result forward', 'incoming': ['Delay message received'], 'outgoing': ['Scoring 2']}
+{'id': 'sid-52EB1200-5BA3-47EB-8F0B-59B1293200E6', 'name': 'Scoring 1 Results', 'incoming': ['StartEvent1'], 'outgoing': ['Is the result?']}
+{'id': 'sid-70FE1713-4B31-4346-834A-B387A6FC46A0', 'name': 'Report the result', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring performed']}
+{'id': 'sid-02EA3D4F-0F27-4A74-B7F4-CA68C460751D', 'name': 'Report delay', 'incoming': ['Is the result?'], 'outgoing': ['Scoring 2 Results']}
+{'id': 'sid-19F2178F-DA09-401E-A65E-FD8A7DD3F655', 'name': 'Scoring 2 Results', 'incoming': ['Is the result?'], 'outgoing': ['Scoring 2 Report result']}
+{'id': 'sid-914C6833-1C7D-4BD9-9D9D-916FC1A12C79', 'name': 'Scoring 2 Report result', 'incoming': ['Is the result?'], 'outgoing': ['Scoring 2 carried out']}
+
+Gateways:
+{'id': 'sid-C7AE34E9-3DB4-4757-843B-8BC14FBFB099', 'name': 'Is the result?', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring 2 carried out', 'Scoring performed']}
+{'id': 'sid-1E742AC7-CB72-4CBA-BF98-6287B54C999E', 'name': 'EventBasedGateway1', 'incoming': ['Start your search'], 'outgoing': ['Scoring 2', 'Scoring 1 performed']}
+{'id': 'sid-9B5AD58D-D3DD-4906-9B20-41690A32AFE6', 'name': 'Scoring 1 result received', 'incoming': ['Send request'], 'outgoing': ['Scoring 1 performed']}
+{'id': 'sid-E39C91C3-C12E-4FA6-96F4-BC3B386B72B4', 'name': 'Scoring 2 results received', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Scoring 2']}
+{'id': 'sid-0FF936B2-BB73-4AF0-90E4-B91F8F9D6FF2', 'name': 'Delay message received', 'incoming': ['Start your search'], 'outgoing': ['Scoring 2 result forward']}
+
+Start Events:
+{'id': 'sid-0992E557-232C-469B-82C2-F2453D321068', 'name': 'Start your search', 'incoming': [], 'outgoing': ['forward delay message']}
+{'id': 'sid-29F33E71-9015-45CA-AE68-29C4231AEFB3', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Report the result']}
+
+End Events:
+{'id': 'sid-BA7DB6C2-C36E-4391-AD71-AFB06A172E79', 'name': 'Scoring 2', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-FBC1EC38-50E6-4EE2-B416-1A69FC7E1577', 'name': 'Scoring 1 performed', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-B6F724A1-2587-418C-8A9E-43602BDCDFA0', 'name': 'Scoring performed', 'incoming': ['Is the result?'], 'outgoing': []}
+{'id': 'sid-6C6B039E-EDC3-4D77-9A45-B5FA54AEAE6B', 'name': 'Scoring 2 carried out', 'incoming': ['Is the result?'], 'outgoing': []}

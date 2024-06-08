@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-A866E294-2403-498A-9CE6-6DC0902562ED', 'name': 'Scoring, Level 1, perform', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring, Level 1, available?']}
+{'id': 'sid-10DB42D1-99F1-4654-ADFE-42A4409CA7EE', 'name': 'Scoring, Level 2, perform', 'incoming': ['sid-8090C6F3-0751-4F15-946B-ED33FDB97338'], 'outgoing': ['Scoring, Level 2']}
+{'id': 'sid-8F6DFCB5-F3C3-4EFA-B75F-6FE5697BAD9E', 'name': 'Create delay message', 'incoming': ['StartEvent1'], 'outgoing': ['sid-C2EE5818-E048-48AC-9B41-8D1BA8327AFE']}
+
+Gateways:
+{'id': 'sid-7AD193F4-FA7F-4B2C-A79F-0F7DA3129303', 'name': 'Scoring, Level 1, available?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent0', 'Create delay message']}
+{'id': 'sid-2229AB23-AB0F-4774-AD2C-1731A523FBAF', 'name': 'EventBasedGateway1', 'incoming': ['sid-C8457B62-7016-49C8-9540-3220ED263488'], 'outgoing': ['Delay notification', 'EndEvent1', 'Scoring, Level 1']}
+{'id': 'sid-F3E2CE7F-9384-40C7-8A75-CE0098DF8777', 'name': 'Scoring, Level 1', 'incoming': ['EventBasedGateway1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-4F32995A-0AF6-427F-90CA-C00B44659019', 'name': 'Delay notification', 'incoming': ['EventBasedGateway1'], 'outgoing': ['sid-E39B99D6-1223-4BBD-B407-D49002CCDACD']}
+{'id': 'sid-ABD1F4B1-542A-429B-B09C-59BA2A4F6DD1', 'name': 'Scoring, Level 2', 'incoming': ['EventBasedGateway1'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-FD5441B7-8C51-4D30-80D8-2EB83D9FA46C', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['sid-BFCBB4A3-781E-4A86-AB30-75B384B66206']}
+{'id': 'sid-8A127EA4-291E-427A-A528-F41C633F79DD', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Create delay message']}
+
+End Events:
+{'id': 'sid-305E27DA-D04F-4C8B-917C-413971F7BD24', 'name': 'EndEvent0', 'incoming': ['Scoring, Level 1, available?'], 'outgoing': []}
+{'id': 'sid-54010441-B414-4E2D-A120-2B82F3509C4C', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-66B8EED4-33AA-403A-B24D-3B5346BB09D8', 'name': 'Scoring, Level 2', 'incoming': ['Scoring, Level 2, perform'], 'outgoing': []}
+{'id': 'sid-1EA9D9F5-D2D5-421B-AA37-D7DF172D67AF', 'name': 'Scoring, Level 1', 'incoming': ['Scoring, Level 1, available?'], 'outgoing': []}

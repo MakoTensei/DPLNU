@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-9AB89C28-4457-4487-B966-76E252881222', 'name': 'Check regression case', 'incoming': ['Regression\nfeasible'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-0F581E16-449C-41F2-8700-1F564160D385', 'name': 'Send a payment request', 'incoming': ['Regression\nfeasible'], 'outgoing': ['Money received']}
+{'id': 'sid-3A22F378-C4D6-4831-87C1-2A19E278EBF3', 'name': 'Book money receipt', 'incoming': ['Money received'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-D59048D2-E3B9-4573-AA3B-A18F2A16EE68', 'name': 'Close', 'incoming': ['Opposition\njustified?'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-C9FCEDC4-FF14-4577-9E80-B3DB7E88425F', 'name': 'Proceedings', 'incoming': ['Regression\nfeasible'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-61CE9646-9858-4A6D-91C3-01F77F6CF284', 'name': 'Dispense process to Inkasso-DL', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process\nDL delivered']}
+
+Gateways:
+{'id': 'sid-3F2F4719-B83E-4A10-915A-82A8B10ADADF', 'name': 'Regression\npracticable?', 'incoming': ['Regression\nfeasible'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-3FF96B0B-135B-419E-BFC8-3098714FD0BD', 'name': 'ExclusiveGateway1', 'incoming': ['Regression\npracticable?', 'Check regression case', 'Opposition\ninlaid'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-E7FD0A6C-9FF3-4A9C-853B-1AD38DDC1CAB', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Close', 'ExclusiveGateway3']}
+{'id': 'sid-D1A8922B-1721-4774-80D7-D685441D2867', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Regression\nfeasible'], 'outgoing': ['Process\nDL delivered']}
+{'id': 'sid-EDD692EA-1E00-4110-90E3-BA2E2DA912D2', 'name': 'EventBasedGateway4', 'incoming': ['Regression\nfeasible'], 'outgoing': ['Process\nclosed', 'Opposition\njustified?', 'Dispense process to Inkasso-DL']}
+{'id': 'sid-46E9656F-3D80-4DA2-A62F-C1D57D5ABD04', 'name': 'Money received', 'incoming': ['Regression\npracticable?'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-37BC1A1B-9A35-4FBD-A2B5-BBB2292B86E5', 'name': 'Opposition\ninlaid', 'incoming': ['Regression\nfeasible'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-76465F10-CB6C-4F64-9541-C3D6CA1ED31A', 'name': 'Date of expiry', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process\nDL delivered']}
+
+Start Events:
+{'id': 'sid-6A6D45A6-F869-432A-914C-47213C2DC01E', 'name': 'Regression\nfeasible', 'incoming': [], 'outgoing': ['ExclusiveGateway3']}
+
+End Events:
+{'id': 'sid-C7E5EE7B-89DF-4390-957A-AF8C8AA456D7', 'name': 'Process\nclosed', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-21A4BB6A-C672-4903-845F-1BE2CA69C29C', 'name': 'Process\nDL delivered', 'incoming': ['Date of expiry'], 'outgoing': []}

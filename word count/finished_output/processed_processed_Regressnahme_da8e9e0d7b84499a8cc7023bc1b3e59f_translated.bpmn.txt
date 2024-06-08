@@ -1,0 +1,15 @@
+ When a 'Message triggered' event occurs, it initiates a series of tasks and interactions between various gateways and processes. Here's a natural flow description of the event:
+
+1. A 'Message triggered' event starts the process.
+2. The event checks if there is a 'Possible?' event incoming. If yes, it proceeds to the 'Possible?' gateway.
+3. The 'Possible?' gateway evaluates the incoming 'Possible?' event and sends out 'Report negatively completed' or 'Justified?' outgoing events.
+4. If 'Justified?' is received, the event moves to the 'ExclusiveGateway2' or 'ExclusiveGateway3' based on the incoming event.
+5. 'ExclusiveGateway2' informs the 'Collection informed' process, while 'ExclusiveGateway3' completes the process with a 'Report positively completed' event.
+6. If 'Report negatively completed' is received, the process moves to the 'Send VN payment request' task.
+7. The 'Send VN payment request' task sets a process for resubmission and sends out 'Money received' event.
+8. The 'Money received' event triggers the 'Book the entrance' task.
+9. The 'Book the entrance' task sends out 'ExclusiveGateway3' event.
+10. The 'ExclusiveGateway3' completes the process with a 'Report positively completed' event.
+11. If the 'Message triggered' event is due to a 'Reimbursement period expired' event, it informs the 'Collection informed' process.
+
+This flow ensures that the 'Message triggered' event is handled efficiently, with each task and gateway contributing to the overall process.

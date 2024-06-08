@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-9E1093BD-41CD-43FE-8A4B-6895960A2C25', 'name': 'Check the case', 'incoming': ['Notification:\nRegression\npossible'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-01BBC78A-B854-4DF8-964F-9F8C02569E92', 'name': 'Payment\non request', 'incoming': ['Notification:\nRegression\npossible'], 'outgoing': ['Set to WV']}
+{'id': 'sid-62F6DE75-D5AE-43DF-BA6F-22F677556A0F', 'name': 'Close', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['Regression\nunsuccessful\nFinished']}
+{'id': 'sid-326A35BE-893A-47C6-9BF1-1D8EAD543969', 'name': 'Entrance\nbook', 'incoming': ['Money\nReport'], 'outgoing': ['Regression\nsuccessful\nFinished']}
+{'id': 'sid-0F992A67-4110-4D03-983A-77AB4DB62423', 'name': 'Proceedings\n', 'incoming': ['Opposition\nby VN'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-5B58215E-517D-49ED-9B21-5B9319285343', 'name': 'Share on Debt collection DL', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Regression\npassed']}
+{'id': 'sid-A27CD024-3E93-46E5-8A59-A181EA99DC3E', 'name': 'Set to WV', 'incoming': ['Regress?'], 'outgoing': ['Opposition\nby VN']}
+
+Gateways:
+{'id': 'sid-EC82E40A-208E-491F-A31E-C5408C81299F', 'name': 'Regress?', 'incoming': ['Notification:\nRegression\npossible'], 'outgoing': ['Set to WV', 'Regression\nunsuccessful\nFinished']}
+{'id': 'sid-1ED7D920-E672-493A-AD94-52EA6EACCBF3', 'name': 'Justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-9F2960CA-2868-4B8B-AB7B-69C53B657D01', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Proceedings\n'], 'outgoing': ['Regression\npassed']}
+{'id': 'sid-53D32564-7123-4975-94C3-F8DE3171C9AF', 'name': 'ExclusiveGateway3', 'incoming': ['Check the case', 'Opposition\nby VN'], 'outgoing': ['Regression\nunsuccessful\nFinished']}
+{'id': 'sid-9E122F3B-366A-4CD0-8F58-A77FCDCEF6F3', 'name': 'EventBasedGateway4', 'incoming': ['Set to WV'], 'outgoing': ['Regression\nsuccessful\nFinished', 'Justified?', 'Share on Debt collection DL']}
+{'id': 'sid-595CF3AF-C918-46F5-8932-9424F26415A9', 'name': 'Opposition\nby VN', 'incoming': ['Set to WV'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-3FB02784-B690-45CD-927C-8412039909B6', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Regression\npassed']}
+{'id': 'sid-44D56E8D-F0C3-442E-B6E6-AFBBB87AA2B9', 'name': 'Money\nReport', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Regression\nsuccessful\nFinished']}
+
+Start Events:
+{'id': 'sid-7E3E64A9-5B0A-46C0-9D59-A5EB03290225', 'name': 'Notification:\nRegression\npossible', 'incoming': [], 'outgoing': ['Payment\non request']}
+
+End Events:
+{'id': 'sid-8EAD35AD-95AA-4C90-B517-9069AED8F4C2', 'name': 'Regression\nsuccessful\nFinished', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-A002D913-7C9D-4B8F-A630-7443A51EB948', 'name': 'Regression\nunsuccessful\nFinished', 'incoming': ['Regress?'], 'outgoing': []}
+{'id': 'sid-03A9FFF7-0CDB-47EF-B782-C5D75050A555', 'name': 'Regression\npassed', 'incoming': ['Reimbursement period expired'], 'outgoing': []}

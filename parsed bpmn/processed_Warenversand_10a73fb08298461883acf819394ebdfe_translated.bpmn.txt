@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-F732B606-B418-4595-823F-CA468E8B0E0A', 'name': 'Create a quote', 'incoming': ['Request offers'], 'outgoing': ['Select your offer']}
+{'id': 'sid-2A4235E6-FC16-43EF-8005-7ED87141B8B4', 'name': 'Clear the amount', 'incoming': ['Start'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-A15D68EB-8AE0-44D7-B38E-075A4C0D46F7', 'name': 'Request offers', 'incoming': ['sid-AC0E9AC7-9D6C-4101-B35D-E2CEBEACD509'], 'outgoing': ['Select your offer']}
+{'id': 'sid-E28A1F70-01B3-4E13-9A0B-0EDA4295275A', 'name': 'Select your offer', 'incoming': ['Request offers'], 'outgoing': ['Order']}
+{'id': 'sid-7A44316A-D276-4746-8ED0-B4DFD39FC93F', 'name': 'Order', 'incoming': ['Select your offer'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C35B380E-956B-419D-BD8F-80E01072E7B4', 'name': 'stand. Filling the package note', 'incoming': ['sid-69348494-0390-412A-931D-DE8AB0E5EFCB'], 'outgoing': []}
+{'id': 'sid-953ED406-99A6-4669-A9FE-826681CA9EAB', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': []}
+{'id': 'sid-98873368-ECBE-4ED5-AB2A-B155F67909AF', 'name': 'provide for collection', 'incoming': ['StartEvent1'], 'outgoing': ['End']}
+{'id': 'sid-DFDD401D-A7A9-4379-B7E1-F0106A964F0A', 'name': 'Insurance close', 'incoming': ['insure?'], 'outgoing': ['sid-307EE46C-E6C7-44BA-BECC-F2E40229440E']}
+
+Gateways:
+{'id': 'sid-858423D2-1D72-481D-BE86-8E5B8A7E54E6', 'name': 'Big crowd?', 'incoming': ['Start'], 'outgoing': ['sid-7C40EE42-60D7-4983-84FD-C2B791A14114', 'sid-1DDDA599-D7E4-41DA-A0BA-64F379EC142A']}
+{'id': 'sid-A2C4A7F7-DCD6-4462-8B41-0217078B1308', 'name': 'insure?', 'incoming': ['sid-FF7B93A1-A88F-485A-88D2-C72CFDFC99A6'], 'outgoing': ['Insurance close', 'sid-CD01AF07-231C-45DC-A3B8-83B774EA97A9']}
+{'id': 'sid-BD17B5E7-8B53-47E0-A412-23797718B482', 'name': 'ExclusiveGateway2', 'incoming': ['Order', 'sid-57FA0AF6-FC6B-45A1-A472-47B27D1FE9B6'], 'outgoing': ['sid-A2428492-C124-4B46-99CD-1F73096DF6A1']}
+{'id': 'sid-F8292518-2688-4D3D-AD0C-9FEB965898FA', 'name': 'ParallelGateway3', 'incoming': ['Start'], 'outgoing': ['Packaging goods', 'Big crowd?']}
+
+Start Events:
+{'id': 'sid-3FF22DB1-9C7F-43D4-A365-BF6FC060B942', 'name': 'Start', 'incoming': [], 'outgoing': ['Big crowd?']}
+{'id': 'sid-1E9A41F8-577D-45EB-8AC8-3780A3A1579C', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['provide for collection']}
+
+End Events:
+{'id': 'sid-C0A95642-C458-4EB1-BB37-A6170697B961', 'name': 'End', 'incoming': ['provide for collection'], 'outgoing': []}

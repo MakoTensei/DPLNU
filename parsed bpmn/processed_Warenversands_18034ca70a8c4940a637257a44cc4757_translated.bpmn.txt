@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-495AE105-3152-4A8A-A1B8-12E5087F154A', 'name': 'Pick up offer at 3 freight forwarders', 'incoming': ['Special shipment (Gross quantities)?'], 'outgoing': ['Order selected freight forwarders']}
+{'id': 'sid-12066D90-4E71-4B90-947F-A760AE63C16D', 'name': 'Order selected freight forwarders', 'incoming': ['Special shipment (Gross quantities)?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F123CC91-DDC8-44AE-A97D-7A732020DDA2', 'name': 'Filling standard package voucher', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-01C0D705-A02A-483B-9CAF-834937A222EA', 'name': 'Insurance close', 'incoming': ['Insurance of goods required?'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-38E30D90-895F-4855-B050-E66F4A3588E9', 'name': 'Packaging goods', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-96D61168-AFFE-4ED7-BCCD-F6DF9CD0F57A', 'name': 'Provide packaged goods for collection', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-862B4798-5461-414C-80FF-81A6663A834F', 'name': 'Special shipment (Gross quantities)?', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway3', 'EndEvent0']}
+{'id': 'sid-2F8B8C25-E025-4587-BB68-6137796D7996', 'name': 'Insurance of goods required?', 'incoming': ['Special shipment (Gross quantities)?'], 'outgoing': ['ParallelGateway3', 'ParallelGateway3']}
+{'id': 'sid-8BC72F26-B4AE-4E1D-80C3-FD4F2A7E7BCA', 'name': 'ParallelGateway2', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway3', 'ParallelGateway3', 'ParallelGateway3']}
+{'id': 'sid-0A566240-A3C3-4C95-9437-38F2D0384AA1', 'name': 'ParallelGateway3', 'incoming': ['ParallelGateway2', 'Special shipment (Gross quantities)?', 'StartEvent0', 'ParallelGateway2'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-A797A756-102E-4C90-8698-CB61496C3085', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Provide packaged goods for collection']}
+
+End Events:
+{'id': 'sid-2E0BEDB1-7FB0-4F0D-AC42-9867218C6E50', 'name': 'EndEvent0', 'incoming': ['Special shipment (Gross quantities)?'], 'outgoing': []}
+{'id': 'sid-8C546CD3-31CF-4D3C-B86B-947242E26768', 'name': 'EndEvent1', 'incoming': ['ParallelGateway3'], 'outgoing': []}

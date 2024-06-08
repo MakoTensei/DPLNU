@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-5DE7CE14-1492-4457-933F-5741FB909BEA', 'name': 'Regression\nCheck', 'incoming': ['StartEvent0'], 'outgoing': ['Regressive case?']}
+{'id': 'sid-0E3134DA-E8AB-44FD-9DC3-FD55D5674129', 'name': 'Send a message', 'incoming': ['StartEvent0'], 'outgoing': ['Cash receipt\nof the UN']}
+{'id': 'sid-62452AD6-A666-49FC-843B-17F582652CE1', 'name': 'Book money', 'incoming': ['Cash receipt\nof the UN'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-397A817C-2AD1-4BFF-8CB0-875FEBF671ED', 'name': 'Reasons\nCheck', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-1657FA43-FC1E-4D72-92FC-7F11F52EDCCD', 'name': 'Debt collection office\nNotification', 'incoming': ['Reasons', 'Reimbursement period\nExpired'], 'outgoing': []}
+{'id': 'sid-A35BA888-2026-46B0-AEFE-A20B46058AD1', 'name': 'Reimbursement', 'incoming': ['Reimbursement'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-0D1E7EC7-F0F8-4FD5-955C-BF478A1BC7D4', 'name': 'Task6', 'incoming': ['Regressive case?'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-4E43D34A-80AF-4C53-B345-E16AEEFCED00', 'name': 'Regressive case?', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent2', 'EndEvent0']}
+{'id': 'sid-055AB737-8598-4D4F-9E78-1B4C2B228F2B', 'name': 'Failure to pay\nis entitled?', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Debt collection office\nNotification', 'EndEvent1']}
+{'id': 'sid-7326B97A-2B3F-4AC2-9733-2A43F59750CB', 'name': 'EventBasedGateway2', 'incoming': ['StartEvent0', 'EventBasedGateway2'], 'outgoing': ['Reimbursement', 'Cash receipt\nof the UN', 'Failure to pay\nis entitled?', 'Reimbursement period\nExpired']}
+{'id': 'sid-11F0EBBE-6DE0-403A-A94F-F5A2A2959D9B', 'name': 'Cash receipt\nof the UN', 'incoming': ['Regressive case?'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-CBCE5022-499D-4E1D-ABC6-B52BAFB3A575', 'name': 'Reasons', 'incoming': ['StartEvent0'], 'outgoing': ['Debt collection office\nNotification']}
+{'id': 'sid-0D21AD37-3B5F-48A4-B76F-7C916B94C271', 'name': 'Reimbursement', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-ED588D94-C7EE-4757-9697-7B6F2940D3EA', 'name': 'Reimbursement period\nExpired', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Debt collection office\nNotification']}
+
+Start Events:
+{'id': 'sid-B68790ED-5BA1-4429-A312-695E4736850C', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Reasons\nCheck']}
+
+End Events:
+{'id': 'sid-1DF09A5D-498B-4465-BDB2-BB2F3905CDE1', 'name': 'EndEvent0', 'incoming': ['Regressive case?'], 'outgoing': []}
+{'id': 'sid-12B3AD12-5272-4BD9-ABB7-B1F3A782F68C', 'name': 'EndEvent1', 'incoming': ['Reasons\nCheck'], 'outgoing': []}
+{'id': 'sid-FFB1C794-1E8E-42E7-91EE-E4D82191043E', 'name': 'EndEvent2', 'incoming': ['Regressive case?'], 'outgoing': []}

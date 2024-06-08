@@ -1,0 +1,17 @@
+ In the world of credit scoring, a series of events and tasks unfold to ensure the seamless processing and feedback of scoring requests. Let's dive into the natural flow of these events and tasks:
+
+1. The process begins with the 'Requirements the Schufa Scoring' event, which triggers the transfer of scoring data Level 1 to the 'Transfer scoring data Level 1' task.
+
+2. The 'Scoring result Level 1 carried out?' event is then initiated, which checks if the Level 1 scoring result has been completed. This event receives incoming data from the 'Transfer scoring data Level 1' task and sends outgoing data to the 'Scoring request Level 1 completed' task.
+
+3. The 'Scoring request Level 1' task is triggered by the 'Requirements the Schufa Scoring' event. It sends a request for Level 1 scoring and waits for feedback. Upon receiving feedback, it completes the request and sends outgoing data to the 'Scoring request Level 1 completed' task.
+
+4. The 'Scoring request Level 1 completed' task is a result of the 'Scoring request Level 1' task. It signifies the completion of the Level 1 scoring request and sends outgoing data to the 'Scoring request Level 2' task.
+
+5. The 'Scoring request Level 2' task is initiated by the 'Scoring request Level 1 completed' task. It sends a request for Level 2 scoring and waits for feedback. Upon receiving feedback, it completes the request and sends outgoing data to the 'Scoring request Level 2 completed' task.
+
+6. The 'Scoring request Level 2 completed' task is a result of the 'Scoring request Level 2' task. It signifies the completion of the Level 2 scoring request.
+
+7. The 'EventBasedGateway1' event is triggered by the 'Requirements the Schufa Scoring' event. It checks if the Level 1 scoring result is timely feasible and sends outgoing data to the 'Feedback Scoring Level 1 not timely feasible' task if necessary.
+
+8. The 'Feedback Scoring Level 1 not

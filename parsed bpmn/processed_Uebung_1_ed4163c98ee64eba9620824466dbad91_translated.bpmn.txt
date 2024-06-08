@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-571069F4-F9F3-46D2-99EC-356E3A114A45', 'name': 'Packaging goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-134F8C43-E857-467E-A9A3-09DBC4662C1C', 'name': 'Providing goods', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-2A2B76EF-C400-457C-B92D-FCED186489BD', 'name': 'Filling the package note', 'incoming': ['ParallelGateway5'], 'outgoing': ['Check insurance requirements']}
+{'id': 'sid-581FE876-85DD-4944-9EC6-2E43BCC5D4A6', 'name': 'Pick up offers of spediture', 'incoming': ['Lot?'], 'outgoing': ['Select your offer']}
+{'id': 'sid-8122FC02-28E2-424C-85C5-86D2ABF1B7E7', 'name': 'Select your offer', 'incoming': ['Lot?'], 'outgoing': ['Specialist']}
+{'id': 'sid-9ACCA247-28FB-4C10-94EE-921967210F51', 'name': 'Specialist', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-F98A00E9-6E6F-4F55-90ED-DA4143632BF2', 'name': 'Check insurance requirements', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-41CCE622-421D-45D4-83EF-CC4EBBB3F50F', 'name': 'Insurance close', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-16F81779-5CA9-4D0D-B4FD-2B54F3FE55DC', 'name': 'Lot?', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway3']}
+{'id': 'sid-98FA8E4B-021A-47E8-B07B-FE7279434EE6', 'name': 'Insurance necessary?', 'incoming': ['Lot?'], 'outgoing': ['Insurance close', 'EndEvent0']}
+{'id': 'sid-7586FCA6-6E93-4A8B-B3B3-62D5389C1D1C', 'name': 'ExclusiveGateway2', 'incoming': ['Check insurance requirements', 'Insurance close'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-E2E7B674-E37D-42B8-BE61-E740A7BC02BA', 'name': 'ExclusiveGateway3', 'incoming': ['Lot?', 'Lot?'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-555000EA-54E7-40C7-B135-5D49A9255E0E', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway5', 'Insurance necessary?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-D6E6505F-857E-4C01-B6F5-2FD7ADB9F6F2', 'name': 'ParallelGateway5', 'incoming': ['StartEvent0'], 'outgoing': ['Filling the package note', 'Providing goods']}
+
+Start Events:
+{'id': 'sid-95372703-A7BB-4D50-A9E4-92F8A747B77F', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Providing goods']}
+
+End Events:
+{'id': 'sid-C16D96CE-14C0-4780-9605-BE7092609AD5', 'name': 'EndEvent0', 'incoming': ['Insurance necessary?'], 'outgoing': []}

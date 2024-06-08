@@ -1,0 +1,25 @@
+ In the loan scoring process, the system initiates with StartEvent0, which triggers Scoring 1\nDebt. This task is dependent on the incoming event StartEvent0 and has an outgoing event Scoring completed.
+
+When Creditworthy? is triggered by StartEvent1, it leads to two possible outcomes: EndEvent2 and EndEvent3. The former is initiated by IntermediateCatchEvent6, while the latter is directly linked to Scoring 1.
+
+Scoring 1\nDebt is dependent on StartEvent0 and can be completed by either Scoring 1 possible? or Scoring completed. Scoring 1 possible? is triggered by StartEvent0 and has two outgoing events: Scoring completed and Scoring completed.
+
+Scoring 2 is initiated by StartEvent1 and leads to Scoring 2\ninitiated. This task is dependent on StartEvent1 and has an outgoing event Scoring 2\ninitiated.
+
+Scoring 1 possible? is triggered by StartEvent0 and has two outgoing events: Scoring completed and Scoring completed.
+
+Creditworthy? is triggered by StartEvent1 and has two outgoing events: EndEvent2 and EndEvent3.
+
+IntermediateCatchEvent6 is triggered by StartEvent1 and leads to EndEvent2.
+
+Scoring completed is triggered by Scoring 1 possible? and Scoring 1, and has no outgoing events.
+
+Scoring 2\ninitiated is triggered by StartEvent1 and leads to Scoring 2\ninitiated.
+
+EventBasedGateway3 is triggered by StartEvent1 and has two outgoing events: Scoring 2 and forward scoring.
+
+ExclusiveGateway2 is triggered by EventBasedGateway3 and IntermediateCatchEvent6 and leads to Loan\nEdit\n.
+
+Loan\nEdit\n is triggered by ExclusiveGateway2 and has no outgoing events.
+
+In summary, the loan scoring process begins with StartEvent0, which triggers Scoring 1\nDebt. This task can be completed by either Scoring 1 possible? or Scoring completed. Scoring 1 possible? is triggered by Start

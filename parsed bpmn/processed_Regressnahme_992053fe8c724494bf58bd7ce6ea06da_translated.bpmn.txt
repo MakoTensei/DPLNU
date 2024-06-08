@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-D328F5AF-51B6-4A32-AFA7-83A71F212DDB', 'name': 'Check the case', 'incoming': ['Regression report\nwe are'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-E2440CBC-4858-4339-9C13-14717FACC8CB', 'name': 'set to WV', 'incoming': ['sid-92FB3CFF-3444-482A-9A2E-C5E087FA4A7E'], 'outgoing': ['Opposition\nReport']}
+{'id': 'sid-12D3FA59-311A-465F-9A7E-1D7B0CF4BED8', 'name': 'Book incoming money', 'incoming': ['Money\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-4C1E2797-622B-40D7-A3A0-5ED433993278', 'name': 'Proceedings', 'incoming': ['Opposition\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-561C40EB-C5F8-4842-B316-F223F019EABC', 'name': 'Close', 'incoming': ['Money available?'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-2CC069F4-0C2B-496C-9475-EA705E1E004F', 'name': 'Check the receipt of funds', 'incoming': ['Date\nExpired'], 'outgoing': ['ExclusiveGateway5']}
+
+Gateways:
+{'id': 'sid-34EAA226-1C29-4BF2-A6CE-E2661974AA69', 'name': 'Regress possible?', 'incoming': ['Regression report\nwe are'], 'outgoing': ['sid-5D147852-323D-44A1-B6BF-77131DE0FCE7', 'ExclusiveGateway3']}
+{'id': 'sid-479CAC15-2C38-4F2B-9CD0-ED278518CA54', 'name': 'Objection okay?', 'incoming': ['EventBasedGateway6'], 'outgoing': ['ExclusiveGateway5', 'ExclusiveGateway3']}
+{'id': 'sid-93A19F58-A977-4DCD-B849-8211526697A7', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway6', 'Proceedings'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-F94002A2-2A6B-4C7D-B2CF-B8148812A6A5', 'name': 'ExclusiveGateway3', 'incoming': ['Opposition\nReport', 'sid-0165F0DC-E7F3-4F4A-B076-E5A190BB6FEA', 'Money available?', 'Check the case'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-60DCFDDC-C292-4C0E-B118-82E60685F16B', 'name': 'Money available?', 'incoming': ['Date\nExpired'], 'outgoing': ['ExclusiveGateway5', 'Close']}
+{'id': 'sid-64347EB9-5FA0-4623-B325-F7D5A847B81C', 'name': 'ExclusiveGateway5', 'incoming': ['EventBasedGateway6', 'Check the receipt of funds'], 'outgoing': ['sid-E7872AC4-4F3E-4870-8D91-C690452FD80B']}
+{'id': 'sid-07E8A921-F575-4061-AA2D-E6C92BFE8208', 'name': 'EventBasedGateway6', 'incoming': ['set to WV'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway5', 'Date\nExpired']}
+{'id': 'sid-ADF958EF-DA02-4D68-B001-7798D04BEFEA', 'name': 'Opposition\nReport', 'incoming': ['set to WV'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-4E54B248-5EFD-4497-AE44-E996B1CF0956', 'name': 'Money\nReport', 'incoming': ['EventBasedGateway6'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-3E70281A-B92D-4E32-83C5-D3810F2CEBD3', 'name': 'Date\nExpired', 'incoming': ['EventBasedGateway6'], 'outgoing': ['Money available?']}
+
+Start Events:
+{'id': 'sid-F5185C36-6815-42D9-A1ED-4C527669BB02', 'name': 'Regression report\nwe are', 'incoming': [], 'outgoing': ['Regress possible?']}
+
+End Events:
+{'id': 'sid-58F993FA-E821-465A-A0CE-D0D4A0663BE6', 'name': 'Regression\ncompleted', 'incoming': ['Opposition\nReport'], 'outgoing': []}

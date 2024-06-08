@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-ECCF04C2-E985-465E-BF31-5B1AF9D54787', 'name': 'Trigger Schufa request', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['InclusiveGateway4']}
+{'id': 'sid-BC990AAA-6F35-484A-9652-FF0B5BD1BF42', 'name': 'Get Schufa response', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-82A57BF3-91B1-4952-9B6E-FA08435E435E', 'name': 'perform scoring level 1', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-881FEF2A-E0D3-4CA1-A816-7F993F77966A', 'name': 'perform scoring level 2', 'incoming': ['sid-F147A88C-94E1-422A-9958-DD9765CCB70C'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-27EF1013-36DF-4D2B-811E-4DBC0C7FA47D', 'name': 'An exception occurred?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'sid-951F9F58-3E12-42F6-A2C5-7D02F8B87EE4']}
+{'id': 'sid-4115136A-8735-4873-B450-580B3692E176', 'name': 'Delay occurred?', 'incoming': ['perform scoring level 2'], 'outgoing': ['EndEvent2', 'sid-2EB20EB7-D2CD-491E-BDD9-D2667E2E1892']}
+{'id': 'sid-2712AE89-5AEF-420D-B2B8-260A86E36884', 'name': 'InclusiveGateway2', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['InclusiveGateway5', 'EndEvent0']}
+{'id': 'sid-69A58C18-B26E-44D9-8377-F5C5911AD52A', 'name': 'InclusiveGateway3', 'incoming': ['InclusiveGateway2'], 'outgoing': ['InclusiveGateway5', 'InclusiveGateway4']}
+{'id': 'sid-DDA36D17-8453-47A4-BE5A-71518F849DB8', 'name': 'InclusiveGateway4', 'incoming': ['InclusiveGateway3', 'Trigger Schufa request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-2AEE8D13-4CB7-43CC-8BC7-0CF7FCE54377', 'name': 'InclusiveGateway5', 'incoming': ['InclusiveGateway3', 'InclusiveGateway2'], 'outgoing': ['Final scoring\nResult\nobtained']}
+{'id': 'sid-0E8CD8F0-CE97-45D0-A8C6-85A8DB200DE0', 'name': 'Delay registration\nobtained', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Final scoring\nResult\nobtained']}
+{'id': 'sid-EB21A6FF-E274-4A40-8B93-0C636B1D9CA8', 'name': 'Final scoring\nResult\nobtained', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-2729ECAC-C368-450F-81E9-560373F35814', 'name': 'Delay registration\nobtained', 'incoming': ['InclusiveGateway2'], 'outgoing': ['InclusiveGateway5']}
+
+Start Events:
+{'id': 'sid-2D6DDEE9-40FB-416F-9B2C-5DAC2BC31FD9', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['Get Schufa response']}
+{'id': 'sid-A01B14E5-C7AA-440D-A813-0E017C6B0944', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['An exception occurred?']}
+
+End Events:
+{'id': 'sid-F003E623-264F-4D25-B71B-D1BE820DB091', 'name': 'EndEvent0', 'incoming': ['InclusiveGateway2'], 'outgoing': []}
+{'id': 'sid-41EDF180-E4C7-46C0-A9C0-0A4B831F04DF', 'name': 'EndEvent1', 'incoming': ['perform scoring level 1'], 'outgoing': []}
+{'id': 'sid-6AFE1DE1-215E-4FAE-B9CC-F1ABFC8EF121', 'name': 'EndEvent2', 'incoming': ['perform scoring level 2'], 'outgoing': []}

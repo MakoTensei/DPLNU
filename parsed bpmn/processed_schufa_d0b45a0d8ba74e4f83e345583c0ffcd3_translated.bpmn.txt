@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-470D9C4C-258E-4AC9-BB46-1C533F5FA7A9', 'name': 'Check if Result Level 1 has been delivered?', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['Results available?']}
+{'id': 'sid-22F4C8CA-23F8-491C-8731-BBDB675317AE', 'name': 'Report Level 2', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-24BCBC24-F855-4EF1-AEC8-3E27F6890392', 'name': 'perform scoring level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Check whether scoring level 2 should be supported']}
+{'id': 'sid-8954E4E7-2361-4B49-88FA-176A3180DFC6', 'name': 'Check whether scoring level 2 should be supported', 'incoming': ['StartEvent1'], 'outgoing': ['sid-A4C71117-C345-47E8-BB7D-3D1F3107C101']}
+{'id': 'sid-CE9BFDB0-B578-47AD-9D6E-F5D07AC537CB', 'name': 'perform scoring level 2', 'incoming': ['Implementation Level 2?'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-A46AC37D-E026-4BCB-A18C-D8943498ED80', 'name': 'Results available?', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['EndEvent0', 'sid-6F718441-492A-491D-A127-C43410FF0416']}
+{'id': 'sid-8D702F2F-784E-46EF-A761-F4A1D991DE84', 'name': 'Implementation Level 2?', 'incoming': ['sid-5BBE563C-5A4B-47D2-8183-E35FE113B065'], 'outgoing': ['EndEvent2', 'EndEvent3']}
+{'id': 'sid-B80D8717-84E7-4092-BC22-80C2D31D6353', 'name': 'IntermediateCatchEvent2', 'incoming': ['sid-BE7C5B2B-7920-4D69-BB97-148F4A51F771'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-ADF35958-8848-43DE-A83E-67651A39400F', 'name': 'IntermediateCatchEvent3', 'incoming': ['sid-893DE419-23B4-42A3-8020-E58808054D1C'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-BC3A43BC-15B7-455F-9D8F-51E11C6BB56A', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['sid-768CF123-11CC-47ED-9D6B-E0382DD0C171']}
+{'id': 'sid-4DFA9462-F831-4875-8D51-6331989048E5', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Check whether scoring level 2 should be supported']}
+
+End Events:
+{'id': 'sid-B1AFCF98-46D4-41E7-9262-707B3E1B9EF2', 'name': 'EndEvent0', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': []}
+{'id': 'sid-86DA76CE-B6AC-4178-9474-5245A15497B3', 'name': 'EndEvent1', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': []}
+{'id': 'sid-D56278C5-1431-46C3-9873-EA64604CBD00', 'name': 'EndEvent2', 'incoming': ['Implementation Level 2?'], 'outgoing': []}
+{'id': 'sid-270B50EA-5B3F-4C85-B156-AFC8C0C7DA3C', 'name': 'EndEvent3', 'incoming': ['Implementation Level 2?'], 'outgoing': []}

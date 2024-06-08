@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-DC3D8DB6-03A2-4964-B058-1B868DB59660', 'name': 'Check the case', 'incoming': ['Regression reported'], 'outgoing': ['Regression possible?']}
+{'id': 'sid-80AECF07-E0C1-4458-A921-EE38C583301E', 'name': 'Close', 'incoming': ['Regression reported'], 'outgoing': []}
+{'id': 'sid-E258B882-B73F-4A62-88B0-9F9DF8969D46', 'name': 'Send payment request to VN', 'incoming': ['Regression possible?'], 'outgoing': ['Incoming payment']}
+{'id': 'sid-5930979D-69EF-434B-A3E1-5ECC1ED6AF68', 'name': 'Payin receipt', 'incoming': ['Incoming payment'], 'outgoing': ['Close']}
+{'id': 'sid-48F1C359-A2D7-425F-81EB-0D367250E740', 'name': 'Close', 'incoming': ['Incoming payment'], 'outgoing': ['Regression successfully completed']}
+{'id': 'sid-2A40DAC9-E3FE-49FE-9385-1C0D34C7762D', 'name': 'Proceedings', 'incoming': ['Objection'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-E93F4DA5-E6B7-435F-AF82-C5E75B606CC8', 'name': 'Close', 'incoming': ['Objection'], 'outgoing': ['Regression not successfully completed']}
+{'id': 'sid-2F00E02B-6200-423E-9EA3-03E34E5472F7', 'name': 'Proceeding to INKASSIO', 'incoming': ['EventBasedGateway3'], 'outgoing': ['forward regression to INKASSO']}
+
+Gateways:
+{'id': 'sid-55C29A87-D2C2-4648-AF0A-26145F365CDE', 'name': 'Regression possible?', 'incoming': ['Regression reported'], 'outgoing': ['Regression successfully completed', 'Reimbursement deadline expired']}
+{'id': 'sid-31C1B667-09F1-4D92-9734-90F99285E55A', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway2', 'Regression not successfully completed']}
+{'id': 'sid-3BEE736F-F9EA-4545-9BD4-33E062554F3D', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'EventBasedGateway3'], 'outgoing': ['forward regression to INKASSO']}
+{'id': 'sid-2E5087C7-C2A7-4109-927D-FE2BBD0B38AB', 'name': 'EventBasedGateway3', 'incoming': ['Regression possible?'], 'outgoing': ['Incoming payment', 'Proceeding to INKASSIO', 'Regression not successfully completed']}
+{'id': 'sid-02007490-309F-4E3B-BDA2-4B09DDE19FCD', 'name': 'Incoming payment', 'incoming': ['Send payment request to VN'], 'outgoing': ['Close']}
+{'id': 'sid-29DEF2CE-7A83-4895-9EF8-5F01AEA4B812', 'name': 'Reimbursement deadline expired', 'incoming': ['Regression possible?'], 'outgoing': ['forward regression to INKASSO']}
+{'id': 'sid-A02E3B6B-1E7D-4502-B024-DF1D726861A6', 'name': 'Objection', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Close']}
+
+Start Events:
+{'id': 'sid-F1FEF88A-33FB-4477-A574-906D4CEFB86B', 'name': 'Regression reported', 'incoming': [], 'outgoing': ['Close']}
+
+End Events:
+{'id': 'sid-E60A90D8-5473-45AD-9CD3-7E25BBDF60AC', 'name': 'Regression successfully completed', 'incoming': ['Regression possible?'], 'outgoing': []}
+{'id': 'sid-AE6AB1F0-3090-46F2-A2B9-2FD62AFF8D4E', 'name': 'Regression not successfully completed', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-A427EACE-A1B4-40B8-A870-63A9B41F319F', 'name': 'forward regression to INKASSO', 'incoming': ['Reimbursement deadline expired'], 'outgoing': []}

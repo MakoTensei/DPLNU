@@ -1,0 +1,29 @@
+ 1. **StartEvent0** initiates the process, leading to two parallel paths:
+
+   - **ParallelGateway6**: This gateway is responsible for the Secretariat clearing shipping. It connects to **ParallelGateway7**, which in turn leads to **EndEvent0**, marking the completion of the shipping process.
+
+   - **Select your offer**: This gateway directs to **ExclusiveGateway4**, where customers can choose between different offers.
+
+
+2. **ExclusiveGateway4** offers two options:
+
+   - **Special offer Spediteur 3**: This option connects to **ParallelGateway8** and subsequently to **EndEvent0**, indicating the completion of the special offer Spediteur 3 process.
+
+   - **EndEvent0**: This gateway is the final step in the process, receiving input from **ParallelGateway8** and **ParallelGateway10**, and it signifies the end of the event.
+
+
+3. **ParallelGateway8** is a common endpoint for two processes:
+
+   - **Special offer Spediteur 1** and **Special offer Spediteur 3**: Both options lead to **ParallelGateway10**, which then connects to **ExclusiveGateway5**, and finally to **EndEvent0**.
+
+   - **Goods ready for collection**: This process starts at **StartEvent0**, goes through **ParallelGateway8**, and ends at **EndEvent0**, indicating that the goods are ready for collection.
+
+
+4. **ParallelGateway9** is a gateway that handles insurance inquiries and special shipments:
+
+   - **Logistics Manager Insurance**: This gateway receives input from **Special shipment required?** and connects to **EndEvent0**.
+
+   - **Special offer Spediteur 1** and **Special offer Spediteur 3**: Both options lead to **ParallelGateway9**, which then connects to **ExclusiveGateway5**, and finally to **EndEvent0**.
+
+
+5

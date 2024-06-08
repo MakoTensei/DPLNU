@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-8B094980-DC51-4DC2-B7BB-1136369EE5BF', 'name': 'Send request Schufaservice', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-FDD65540-F870-4D7A-A742-C746E02EF6D1', 'name': 'Answer the Schufa request\nnot level1', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-C7C331EA-02FA-42DB-9A8D-5AFB23177A20', 'name': 'Answer the Schufa request\nLevel 1', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-F89A780F-2C4C-4BBD-986A-60C5022D4628', 'name': 'Schufascore send reply', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-628A6E27-CE2C-4D79-ABFF-A68094D486B3', 'name': 'possible. Scorelevel', 'incoming': ['StartEvent1'], 'outgoing': ['Level 1?']}
+{'id': 'sid-F5BFA75A-1620-4B44-A5DA-3DBCF46C348B', 'name': 'Level 1 score', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-AFF6C7F1-A44B-42D0-86DD-4338BC37FC47', 'name': 'Determine Schufascore', 'incoming': ['Return status'], 'outgoing': ['Return Schufascore']}
+{'id': 'sid-6ABC1357-602B-4366-AD1F-22F99040E7E6', 'name': 'Return status', 'incoming': ['Level 1?'], 'outgoing': ['Return Schufascore']}
+{'id': 'sid-2C71C8FF-4874-420E-8D42-EE6DEDE2C41E', 'name': 'Return Schufascore', 'incoming': ['Level 1?'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-0A88C729-67E4-446D-A5CE-19EF8130C373', 'name': 'Level 1?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent3', 'EndEvent2']}
+{'id': 'sid-EBDE0714-EFD0-4223-8AD7-A82913D7676A', 'name': 'EventBasedGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1', 'IntermediateCatchEvent3']}
+{'id': 'sid-EE85E880-4A07-4EBE-B136-ED0FFA9D002F', 'name': 'IntermediateCatchEvent2', 'incoming': ['Send request Schufaservice'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-12FB3B03-3EB7-4C48-B9E4-2B8B908C3E7A', 'name': 'IntermediateCatchEvent3', 'incoming': ['StartEvent0'], 'outgoing': ['Answer the Schufa request\nnot level1']}
+{'id': 'sid-A8A9E16C-1BBB-4F8B-8524-C2F538B195E2', 'name': 'IntermediateCatchEvent4', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-2325770E-C353-4EB6-8A5A-8BB7FFE6181E', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Schufascore send reply']}
+{'id': 'sid-2FDB2216-6820-4DB0-84C3-0B2E47CE950A', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Level 1 score']}
+
+End Events:
+{'id': 'sid-03B738E0-2272-4249-AF9D-8DB525CF24A6', 'name': 'EndEvent0', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': []}
+{'id': 'sid-D1CA2518-A2D1-4177-B88B-2F95E7666967', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-E0F1CF13-0DED-43BC-95AF-E87A9ACBDEBA', 'name': 'EndEvent2', 'incoming': ['Level 1?'], 'outgoing': []}
+{'id': 'sid-2981F50C-4A29-447C-BBB4-82E802853DAE', 'name': 'EndEvent3', 'incoming': ['Level 1?'], 'outgoing': []}

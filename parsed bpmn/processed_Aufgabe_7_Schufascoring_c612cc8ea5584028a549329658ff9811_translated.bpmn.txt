@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-6ADDDCB5-D7B0-4FC8-AAE4-7A79B83D3D8B', 'name': 'Scoring request to Schufa', 'incoming': ['Scoring request to Bank\n'], 'outgoing': ['Results L1\n']}
+{'id': 'sid-59B6BB67-7EBE-495C-BC46-D78A0E94B8E3', 'name': 'Level 1 Leading result to frontend', 'incoming': ['Results L1\n'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-56E3378C-74ED-45FD-831A-B97AD2BF1C00', 'name': 'Report delay to Frontend\n', 'incoming': ['Scoring request to Bank\n'], 'outgoing': ['Final Score L2 ahead']}
+{'id': 'sid-ED5C9755-1D1A-45D3-B8A4-5A1C779BF592', 'name': 'Report Final Scoring L2 to FE', 'incoming': ['Delay report outdated\n'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-8299231A-8B7A-428E-8288-876B4D43D9EF', 'name': '1. perform scoring', 'incoming': ['Scoring input\n'], 'outgoing': ['Results available?']}
+{'id': 'sid-95F3A14F-6271-45E6-8196-FF159809B84B', 'name': 'Results L1 over', 'incoming': ['Scoring input\n'], 'outgoing': ['Scoring L1 ends\n']}
+{'id': 'sid-4EA148CA-0467-4BD5-B8A8-99029F63EE3F', 'name': 'Scoring delays', 'incoming': ['Results available?'], 'outgoing': ['perform scoring L2']}
+{'id': 'sid-8F7B5140-76F1-47C3-B454-46E615873421', 'name': 'perform scoring L2', 'incoming': ['Results available?'], 'outgoing': ['Report Scoring L2\n']}
+{'id': 'sid-994DCBC9-A35C-4FE1-9F92-731B0F0DD566', 'name': 'Report Scoring L2\n', 'incoming': ['Results available?'], 'outgoing': ['Scoring L2 finished']}
+
+Gateways:
+{'id': 'sid-23D4DD64-7131-4010-9146-61264BA64499', 'name': 'Results available?', 'incoming': ['Scoring input\n'], 'outgoing': ['Scoring L1 ends\n', 'Scoring L2 finished']}
+{'id': 'sid-A547EAF3-943A-45E3-9AA5-C58891A645E0', 'name': 'EventBasedGateway1', 'incoming': ['Scoring request to Bank\n'], 'outgoing': ['EndEvent1', 'EndEvent0']}
+{'id': 'sid-F63CE159-DB9F-4F11-B045-930890A34828', 'name': 'Results L1\n', 'incoming': ['Scoring request to Schufa'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-BE16752B-C656-40C5-8814-895D5B58C04A', 'name': 'Final Score L2 ahead', 'incoming': ['EventBasedGateway1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-121FCB35-6051-429F-907B-BC64582C81C7', 'name': 'Delay report outdated\n', 'incoming': ['Scoring request to Bank\n'], 'outgoing': ['Report Final Scoring L2 to FE']}
+
+Start Events:
+{'id': 'sid-48E9145A-BBD3-40BE-8EA7-FEECC6061FEF', 'name': 'Scoring request to Bank\n', 'incoming': [], 'outgoing': ['Report delay to Frontend\n']}
+{'id': 'sid-F2A2DB60-F2B0-4B36-AF11-ADCA306994CB', 'name': 'Scoring input\n', 'incoming': [], 'outgoing': ['Results L1 over']}
+
+End Events:
+{'id': 'sid-75BD0BDD-F02A-4FE4-9C37-222C12C7B678', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-544D6A91-EFC0-4CCF-AEB2-0EE567590A4A', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-F3D28576-352D-4CFC-ABF3-663DF91C89D3', 'name': 'Scoring L2 finished', 'incoming': ['Results available?'], 'outgoing': []}
+{'id': 'sid-5FB4EB10-068C-4BCD-921A-7AC67342A486', 'name': 'Scoring L1 ends\n', 'incoming': ['Results available?'], 'outgoing': []}

@@ -1,0 +1,11 @@
+ In the scoring process, there are two levels of scoring tasks. The first scoring task, level 1, is triggered by a "Scoring request obtained" event. This task is directed to "ExclusiveGateway1" and upon completion, it sends a response to the "Scoring request obtained" event.
+
+The second scoring task, level 2, is also initiated by a "Scoring request obtained" event. This task is also routed to "ExclusiveGateway1" and upon completion, it sends a response to the same "Scoring request obtained" event.
+
+The "ExclusiveGateway1" is a crucial component in the scoring process. It receives both the first and second scoring tasks and directs them to the appropriate next steps. It also sends responses back to the "Scoring request obtained" event for both tasks.
+
+The "That's it\nScoring?" event is the starting point for the scoring process. It receives the "Scoring request obtained" event and directs it to "ExclusiveGateway1".
+
+The "Scoring request obtained" event is the trigger for the scoring process. It initiates the first and second scoring tasks and sends the responses back to the "That's it\nScoring?" event.
+
+In summary, the scoring process involves two levels of scoring tasks, both initiated by a "Scoring request obtained" event. These tasks are directed to "ExclusiveGateway1", which then sends responses back to the "Scoring request obtained" event. The process starts with the "That's it\nScoring?" event, which receives the "Scoring request obtained" event and directs it to "ExclusiveGateway1".

@@ -1,0 +1,11 @@
+ In the scoring process, the system starts with the 'Start of the Scoring request' event, which triggers the 'EventBasedGateway3' to handle the incoming request. The 'Scoring 1 result forward' task then follows, which sends the result to 'ExclusiveGateway0'. This gateway receives the intermediate events 'IntermediateCatchEvent4' and 'IntermediateCatchEvent5' and forwards them to 'EndEvent0'.
+
+Simultaneously, the 'Start Scoring Level 1' event initiates the process for scoring level 1. It sends the request to 'ExclusiveGateway2', which receives the incoming events 'Start Scoring Level 1' and 'Determining scoring level 2'. The 'Scoring Level 1 available?' task checks if the scoring level 1 is available and sends the result to 'EndEvent1'.
+
+If the scoring level 1 is available, the 'Scoring 1 result forward' task is triggered again, sending the result to 'ExclusiveGateway0'. The 'Delay Report' task is then initiated, which waits for the delay message and sends it to 'Report delay'.
+
+If the scoring level 1 is not available, the 'Delay Report' task is triggered, sending the delay message to 'Report delay'. The 'Determining scoring level 2' task then checks if scoring level 2 is available and sends the result to 'EndEvent1'.
+
+The 'Scoring 2 Result Forward' task sends the result to 'ExclusiveGateway0', and the 'Report Scoring Level 1' task is triggered, sending the result to 'EndEvent1'. The 'Delay Scoring Level 1' task waits for the delay message and sends it to 'Determining scoring level 2'.
+
+The 'Determining scoring level 2' task checks if scoring level 2 is available and sends the result to 'EndEvent1'. The 'Report Scoring Level 1' task is triggered again, sending the result to 'EndEvent1'. Finally, the 'Delay Scoring Level 1' task waits for the delay message and sends it to 'EndEvent1'.

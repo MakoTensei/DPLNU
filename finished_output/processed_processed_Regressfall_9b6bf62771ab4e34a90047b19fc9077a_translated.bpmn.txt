@@ -1,0 +1,7 @@
+ When a case is initiated, it goes through a series of tasks and gateways to ensure proper processing and handling. The process begins with the 'StartEvent0', which triggers the 'Check the case' task. This task is connected to the 'ExclusiveGateway0', which then leads to the 'Proceedings' task.
+
+Simultaneously, the 'Payment on request' task is initiated, which also starts with 'StartEvent0' and connects to the 'Reimbursement 14 days' gateway. This gateway sends the funds to the 'Check the receipt of funds' task, which in turn connects to the 'ExclusiveGateway1'.
+
+The 'Book money receipt' task is triggered by the 'Reimbursement 14 days' gateway and connects to the 'EndEvent0'. Meanwhile, the 'Disclosure of debt collection' task is initiated by the 'ExclusiveGateway1' and the 'VN sends claim' event, leading to the 'EndEvent2'.
+
+In summary, the case starts with the 'StartEvent0', which triggers the 'Check the case' and 'Payment on request' tasks. The 'Check the case' task connects to the 'ExclusiveGateway0', which leads to the 'Proceedings' task. The 'Payment on request' task connects to the 'Reimbursement 14 days' gateway, which sends the funds to the 'Check the receipt of funds' task, connected to the 'ExclusiveGateway1'. The 'Book money receipt' task is triggered by the 'Reimbursement 14 days' gateway and connects to the 'EndEvent0'. The 'Disclosure of debt collection' task is initiated by the 'ExclusiveGateway1' and the 'VN sends claim' event, leading to the 'EndEvent2'.

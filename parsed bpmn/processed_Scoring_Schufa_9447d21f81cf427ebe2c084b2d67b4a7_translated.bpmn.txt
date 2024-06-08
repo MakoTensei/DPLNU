@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-6433758E-35C4-46F6-A27C-E37E2C1298BE', 'name': 'forward scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-2863559C-2136-45A7-916F-C18F872B9C80', 'name': 'Follow-up\n', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E4E8B9C4-E28F-4C82-81CD-C1D097D158E1', 'name': 'Share delay', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-D27402BD-845B-46D1-86C9-20FA96629C24', 'name': 'perform scoring level 1', 'incoming': ['StartEvent1'], 'outgoing': ['no delay\n']}
+{'id': 'sid-F1E255E5-2074-462B-BA8F-F5FBEB2C6733', 'name': 'Scoring result forward', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-689931BA-DFD8-4E85-90FD-DF259DD07804', 'name': 'Report delay', 'incoming': ['no delay\n'], 'outgoing': ['perform scoring level 2']}
+{'id': 'sid-4B87B592-D9F0-4EAB-A03C-2969C56404F2', 'name': 'perform scoring level 2', 'incoming': ['no delay\n'], 'outgoing': ['Scoring result forward']}
+{'id': 'sid-43D32C0D-4F7F-4583-B09F-25A3741BF06C', 'name': 'Scoring result forward', 'incoming': ['no delay\n'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-F98B6748-5CB8-4407-B4AA-79087C1EF2DF', 'name': 'no delay\n', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent3', 'EndEvent2']}
+{'id': 'sid-1CF2DC56-EB34-4F6D-85D5-265C26398482', 'name': 'EventBasedGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1', 'EndEvent0']}
+{'id': 'sid-5C6C416D-7687-4174-B0F7-C4A74799AFB3', 'name': 'IntermediateCatchEvent2', 'incoming': ['forward scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-A1900D6F-1859-4C26-B5D8-1231CE59CEB5', 'name': 'IntermediateCatchEvent3', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-758F5D1E-DD6E-4CF3-8ED4-9A83FCBDB8DF', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Share delay']}
+{'id': 'sid-0CBFE769-D129-4D45-AC5B-943951493A21', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Scoring result forward']}
+
+End Events:
+{'id': 'sid-E028BECA-08C7-41F4-8046-D02C10D00017', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-1DAABA97-97C1-4F39-BFD4-2550AF4DE9B3', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-769668F2-D833-4BB8-8C32-A78C348576EC', 'name': 'EndEvent2', 'incoming': ['no delay\n'], 'outgoing': []}
+{'id': 'sid-6109AD8C-1D61-483E-AB3F-D1B12BB1CA78', 'name': 'EndEvent3', 'incoming': ['no delay\n'], 'outgoing': []}

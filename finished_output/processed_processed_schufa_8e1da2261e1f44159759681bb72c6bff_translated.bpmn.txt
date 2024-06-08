@@ -1,0 +1,7 @@
+ When a scoring request is initiated, it triggers a series of events and interactions between different components in the system. The process begins with the 'StartEvent0', which sends a signal to the 'forward delay' gateway, causing a delay before proceeding. Concurrently, the 'perform scoring level1' task is activated, which sends a request to the 'ExclusiveGateway2'. This gateway then forwards the request to the 'ParallelGateway4', which shares the delay and also sends the request to 'perform scoring level 2'.
+
+Meanwhile, the 'Share result' task is triggered, which sends the result to the 'EndEvent1' through the 'ParallelGateway3'. The 'perform scoring level 2' task also sends its result to the 'Share result' task, which then sends the final result to the 'EndEvent1'.
+
+The 'Delay?' gateway receives the request from the 'Scoring request' and sends it to the 'forward delay' gateway, which then sends a signal to the 'IntermediateCatchEvent5'. This event captures the request and sends it to the 'ParallelGateway4', which shares the delay and sends the request to 'perform scoring level 2'.
+
+Finally, the 'EndEvent0' receives the signal from the 'Delay?' gateway and completes the process. The 'EndEvent1' receives the signals from both the 'Is the result already fixed?' and 'Share result' tasks, completing the scoring process.

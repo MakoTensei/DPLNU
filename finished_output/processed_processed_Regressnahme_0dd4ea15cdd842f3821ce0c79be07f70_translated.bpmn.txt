@@ -1,0 +1,7 @@
+ The process begins with the event 'VN may be taken in regress', which triggers the 'Payment on Send request' task. This task then leads to the 'ExclusiveGateway2', which can either result in 'Denial of payment justified?' or 'ExclusiveGateway3'. If 'Denial of payment justified?' is chosen, it leads to 'Set case for resubmission' and then to 'Money is Report', which finally closes the process. Alternatively, if 'ExclusiveGateway3' is chosen, it leads to 'Debt collection process service provider delivered'.
+
+Simultaneously, the 'VN may be taken in regress' event also triggers the 'Regress Possibility?' task, which leads to 'ExclusiveGateway2'. This pathway can also lead to 'Debt collection process service provider delivered' if 'EventBasedGateway4' is chosen.
+
+The 'VN has reproach' event leads to 'ExclusiveGateway3', which in turn leads to 'Debt collection process service provider delivered'.
+
+The process concludes with the 'Closed' event, which is triggered by the 'Money is Report' task and results in the closure of the process.

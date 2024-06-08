@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-64FAACB4-70F7-47AD-9805-E9A91E5EC0F9', 'name': 'Check if VN can be taken into regression', 'incoming': ['VN regression test'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-6A5F2F1E-4AA7-4D18-856C-09A8001FD37B', 'name': 'Send payment request to VN', 'incoming': ['VN regression test'], 'outgoing': ['Transfer to Inkasso-DL']}
+{'id': 'sid-0F61E2B6-F6AE-4FBE-B9B8-4811776E4A8F', 'name': 'Close', 'incoming': ['Opposition\njustified?'], 'outgoing': ['Closed']}
+{'id': 'sid-F7329EB1-A86A-4FAA-84BD-A7FAEA3F3151', 'name': 'Book money receipt', 'incoming': ['VN regression test'], 'outgoing': ['Closed']}
+{'id': 'sid-C17C6E40-E392-43C7-A308-6113CDB660C6', 'name': 'Proceedings', 'incoming': ['Objection\nVN received'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-D29AE6D7-36B2-4A0C-9FE7-5E819732FD7C', 'name': 'Regress?', 'incoming': ['VN regression test'], 'outgoing': ['Transfer to Inkasso-DL', 'ExclusiveGateway1']}
+{'id': 'sid-E6B6662B-42F6-4F16-8DB3-36208238E133', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway4', 'Opposition\njustified?', 'Check if VN can be taken into regression'], 'outgoing': ['Closed']}
+{'id': 'sid-9526FE15-2141-48CA-953A-B40D99CC9628', 'name': 'Opposition\njustified?', 'incoming': ['Objection\nVN received'], 'outgoing': ['Close', 'ExclusiveGateway3']}
+{'id': 'sid-233E029F-038C-41E7-A9BF-764F77489100', 'name': 'ExclusiveGateway3', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['Transfer to Inkasso-DL']}
+{'id': 'sid-89B798FC-ACD6-4ABD-AE7F-80A0A50DD33E', 'name': 'EventBasedGateway4', 'incoming': ['VN regression test'], 'outgoing': ['ExclusiveGateway3', 'Objection\nVN received', 'ExclusiveGateway1']}
+{'id': 'sid-D8C0D164-81C8-4626-B12A-84C0C17AAFAF', 'name': 'Reimbursement period expired', 'incoming': ['Send payment request to VN'], 'outgoing': ['Transfer to Inkasso-DL']}
+{'id': 'sid-E385E03A-6B32-416A-8D7F-82A9BA3B5A07', 'name': 'Payment\nReport', 'incoming': ['VN regression test'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-C0411398-780D-4087-A2FE-9B39436A1755', 'name': 'Objection\nVN received', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Opposition\njustified?']}
+
+Start Events:
+{'id': 'sid-1936C688-CF57-442B-AE9B-181CDDB079A5', 'name': 'VN regression test', 'incoming': [], 'outgoing': ['Book money receipt']}
+
+End Events:
+{'id': 'sid-B1C0D783-551D-47B6-9850-2AB3057F4F16', 'name': 'Closed', 'incoming': ['Book money receipt'], 'outgoing': []}
+{'id': 'sid-375F8824-C6C8-4A03-ABED-E40E0D8F20F0', 'name': 'Transfer to Inkasso-DL', 'incoming': ['Regress?'], 'outgoing': []}

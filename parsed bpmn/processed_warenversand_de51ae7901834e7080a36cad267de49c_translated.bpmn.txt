@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-AA1F4453-75A0-4552-80A8-CB85C9D53517', 'name': 'Determining the shipping mode', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-D029C41A-D753-4CD1-B638-AE3844654179', 'name': 'Spediteur 1', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-6657D9D8-08AD-4F7F-935A-9D2E13B39B39', 'name': 'Spediteur 2', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-807B966C-961E-4962-9710-CF1C4695AE64', 'name': 'Spediteur 3', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-BEA4C723-09CC-47B0-A1F8-F43B1F296A3C', 'name': 'Postal mail', 'incoming': ['ParallelGateway4'], 'outgoing': ['Filling the package note']}
+{'id': 'sid-77DFF40F-C151-4106-BAEA-4002076A6E3A', 'name': 'forwarding', 'incoming': ['Goods stand for shipping'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-3B8AFF2D-DA7D-4586-8636-D525D8CCCC7A', 'name': 'Filling the package note', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-940DFC69-1FE1-41FB-8DAA-CE29FA74B9DF', 'name': 'Insurance close', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-D1178C78-AC4A-4C0D-B5A5-C50B8D08DD16', 'name': 'Delivering goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['Pickup']}
+{'id': 'sid-8C1C3340-55C7-4664-BA64-FC4E728C411A', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['Pickup']}
+
+Gateways:
+{'id': 'sid-D76AD2ED-B5D4-4CF8-AE53-88572BDCD77B', 'name': 'ExclusiveGateway0', 'incoming': ['Goods stand for shipping'], 'outgoing': ['ExclusiveGateway2', 'ParallelGateway5']}
+{'id': 'sid-A4C1323F-2222-4124-8347-6745320DDF96', 'name': 'ExclusiveGateway1', 'incoming': ['Goods stand for shipping'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-4B1A9284-D0F0-4025-8FAF-212D83DA06AA', 'name': 'ExclusiveGateway2', 'incoming': ['ExclusiveGateway0', 'Goods stand for shipping', 'ExclusiveGateway1'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-3867EC3F-1B0A-426F-BB06-35447AF9B915', 'name': 'ExclusiveGateway3', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ParallelGateway5', 'ParallelGateway5']}
+{'id': 'sid-09FCF6C0-AB80-4B17-A8D4-F0BA9BDC9FC7', 'name': 'ParallelGateway4', 'incoming': ['Goods stand for shipping'], 'outgoing': ['Postal mail', 'Pickup']}
+{'id': 'sid-7E1E6829-E5AE-4691-A1B9-9779AE57E9C2', 'name': 'ParallelGateway5', 'incoming': ['Packaging goods', 'Spediteur 1', 'ExclusiveGateway0', 'Filling the package note'], 'outgoing': ['Pickup']}
+
+Start Events:
+{'id': 'sid-5B089860-8442-4483-B1DF-4452572ED759', 'name': 'Goods stand for shipping', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-223050AF-C56C-4793-8309-52DF8B17015B', 'name': 'Pickup', 'incoming': ['ParallelGateway4'], 'outgoing': []}

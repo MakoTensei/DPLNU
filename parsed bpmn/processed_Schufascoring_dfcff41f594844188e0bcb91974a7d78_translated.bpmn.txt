@@ -1,0 +1,18 @@
+Tasks:
+{'id': 'sid-29066CF2-656E-4A00-9F6E-A83DA5C893CF', 'name': 'Triggering the Schufa request', 'incoming': ['Schufascoring\nenroll'], 'outgoing': ['Scoring results\narrived']}
+{'id': 'sid-3DE57974-6DD8-476C-AD7B-6603A2CABA90', 'name': 'Level 1 Scoring', 'incoming': ['Schufa request\nEdit'], 'outgoing': ['Result\nsend']}
+{'id': 'sid-25402ABE-212C-4C7F-BF9A-A2B48C1713EF', 'name': 'Level 2 scoring\nperform', 'incoming': ['sid-B23B01CF-C912-4E9E-8B67-389B705B8EF6'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-75F5D213-423D-4121-8666-B2900BB43886', 'name': 'You okay?', 'incoming': ['Schufa request\nEdit'], 'outgoing': ['Result\nsend', 'sid-29E1728E-E856-40ED-901B-EA02C5DF5D4D']}
+{'id': 'sid-1AE7CBB7-7EB1-4898-A112-E06D77553AA2', 'name': 'Wait for the\nScoring response', 'incoming': ['Schufascoring\nenroll'], 'outgoing': ['Scoring results\nsent', 'Scoring results\ndelayed']}
+{'id': 'sid-E4244E79-ACD9-481D-AF55-36795F3A92FC', 'name': 'Scoring results\narrived', 'incoming': ['Triggering the Schufa request'], 'outgoing': ['Scoring results\nsent']}
+{'id': 'sid-AFE4BE09-B1AC-42F5-9C75-83EECB5F30D1', 'name': 'Scoring results\ndelayed', 'incoming': ['Schufascoring\nenroll'], 'outgoing': ['sid-1A779BAD-6EC8-48FF-945A-6CB50935F2B2']}
+
+Start Events:
+{'id': 'sid-5C01A26E-752D-4E63-852B-D81B1F4DBB03', 'name': 'Schufascoring\nenroll', 'incoming': [], 'outgoing': ['Scoring results\ndelayed']}
+{'id': 'sid-BD02BDA4-2E8A-4DD7-86C8-FB05347AF850', 'name': 'Schufa request\nEdit', 'incoming': [], 'outgoing': ['You okay?']}
+
+End Events:
+{'id': 'sid-82789EF8-5C1E-4B6F-8986-5F01B47D463B', 'name': 'Scoring results\nsent', 'incoming': ['Wait for the\nScoring response'], 'outgoing': []}
+{'id': 'sid-A134ADE4-CA4A-4475-8AFE-748D2C754BAA', 'name': 'Result\nsend', 'incoming': ['Level 1 Scoring'], 'outgoing': []}

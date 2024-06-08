@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-ABE0D643-E03E-415F-8CA9-B38D9BB7BA55', 'name': 'Schufascoring Send inquiry', 'incoming': ['Schufascoring request'], 'outgoing': ['Schufascore Response Delays']}
+{'id': 'sid-8B7AD0D2-3E06-4A2A-895D-5CB53D7AC538', 'name': 'Send delay of the bank', 'incoming': ['Schufascore Response Delays'], 'outgoing': ['Sufascoring']}
+{'id': 'sid-6EA723A6-D0AA-4E6F-82DE-2D51A8056B84', 'name': 'Report back Schufascore', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['Schufascore completed']}
+{'id': 'sid-4596C88D-811F-4CE8-A7BD-C3EE4B40A326', 'name': 'perform scoring', 'incoming': ['Request Schufascoring received'], 'outgoing': ['Score available?']}
+{'id': 'sid-03131A33-EB23-4EA6-BC15-0A722F88F349', 'name': 'Share delay', 'incoming': ['Request Schufascoring received'], 'outgoing': []}
+{'id': 'sid-8163CD1D-4F9C-4868-969B-26CD2B1D621A', 'name': 'Task5', 'incoming': ['Score available?'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-50A67A1E-EC1C-4F6C-B879-0B797521599B', 'name': 'ExclusiveGateway0', 'incoming': ['Schufascore Response Delays', 'IntermediateCatchEvent2'], 'outgoing': ['Schufascore completed']}
+{'id': 'sid-7C758785-8A0C-43F1-B290-9F8CB24D2F2D', 'name': 'Score available?', 'incoming': ['Request Schufascoring received'], 'outgoing': ['Task5', 'Share delay']}
+{'id': 'sid-B5AD7CBC-D9D7-445F-8C57-5689BF16762B', 'name': 'IntermediateCatchEvent2', 'incoming': ['Schufascoring request'], 'outgoing': ['Sufascoring', 'Report back Schufascore']}
+{'id': 'sid-6EAEF5BE-9C82-4245-AD9B-234852A2CB61', 'name': 'Schufascore Response Delays', 'incoming': ['Schufascoring Send inquiry'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-F2E2969D-9042-4B4B-BAAE-5948A068A14B', 'name': 'Answer received immediately', 'incoming': ['Schufascoring request'], 'outgoing': ['Schufascore completed']}
+{'id': 'sid-50F5C235-ED2A-49ED-960C-F0157BF1A99B', 'name': 'Sufascoring', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-5AAF4409-C75A-4468-831B-51B8DAD12D95', 'name': 'Schufascoring request', 'incoming': [], 'outgoing': ['Answer received immediately']}
+{'id': 'sid-F74A5C1C-05D3-4273-871E-71013D754701', 'name': 'Request Schufascoring received', 'incoming': [], 'outgoing': ['Share delay']}
+
+End Events:
+{'id': 'sid-32461D0D-9457-478C-8287-7F795914897B', 'name': 'Schufascore completed', 'incoming': ['Answer received immediately'], 'outgoing': []}

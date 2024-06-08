@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-36DE4D5E-17A6-45AA-BB6C-361A9E3E83D2', 'name': 'Check regression case', 'incoming': ['Regress possible'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-F335702F-CA0D-4F57-8A1A-826916D812CC', 'name': 'Book payment', 'incoming': ['Incoming payment'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-BA90237A-B8F5-4018-8411-71869ADFFE68', 'name': 'Proceedings', 'incoming': ['Incoming objection'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-4AEEB1B4-C182-4886-81A2-98BC2AFD5420', 'name': 'Close the process', 'incoming': ['Incoming objection'], 'outgoing': ['Regression check completed']}
+
+Gateways:
+{'id': 'sid-AE590D10-3F37-4B4C-84FB-7DE7237A2BE0', 'name': 'Regress possible?', 'incoming': ['Regress possible'], 'outgoing': ['ExclusiveGateway1', 'sid-4E4A83B0-29CA-430B-83BD-6120F9741690']}
+{'id': 'sid-5E1608B3-9ACD-4BF5-B130-370D8032D234', 'name': 'ExclusiveGateway1', 'incoming': ['Check regression case', 'EventBasedGateway4', 'Rejection of payment justified?', 'debt collection order executed'], 'outgoing': ['Regression check completed']}
+{'id': 'sid-B477FA0E-9287-4491-9445-1C2BC77AC279', 'name': 'Rejection of payment justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3', 'Close the process']}
+{'id': 'sid-ECADDD82-A861-47A1-8748-431B84EA7A61', 'name': 'ExclusiveGateway3', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['sid-5DFDBE66-C884-4CC2-8E1A-B98AE91E7F3E']}
+{'id': 'sid-0A3EDC03-4E98-4D08-8DBA-9A2C3245440D', 'name': 'EventBasedGateway4', 'incoming': ['sid-61DFE504-29C5-4954-A9DE-4168FC039132'], 'outgoing': ['Regression check completed', 'Rejection of payment justified?', 'ExclusiveGateway3']}
+{'id': 'sid-9BCBBE15-3135-4B45-9408-8228B9EBCA5F', 'name': 'Incoming payment', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-533523B3-78AD-463A-AD49-7F20A6DEE53C', 'name': 'Incoming objection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Close the process']}
+{'id': 'sid-4122FF25-E919-4320-AC35-CD105006D1C5', 'name': 'Default period expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-87B52AA3-FC78-45A1-8626-11C8E6D84130', 'name': 'debt collection order executed', 'incoming': ['sid-9BCD2B81-69DA-401C-B51B-7D9579E2F91F'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-1F24637A-F337-425F-AE90-CF98899A0226', 'name': 'Regress possible', 'incoming': [], 'outgoing': ['Regress possible?']}
+
+End Events:
+{'id': 'sid-B7A152A6-2A3F-43BC-AF09-9210A0C349AB', 'name': 'Regression check completed', 'incoming': ['EventBasedGateway4'], 'outgoing': []}

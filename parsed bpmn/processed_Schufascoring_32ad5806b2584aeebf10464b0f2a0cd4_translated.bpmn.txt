@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-702C075B-F318-4CD0-8AC1-FB6DC74124D3', 'name': 'Scoring request', 'incoming': ['Customer request'], 'outgoing': ['Storing result']}
+{'id': 'sid-7135F659-3319-43C4-9E0B-D0915EE668FD', 'name': 'Scoring', 'incoming': ['Storing result'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C7996065-C9AB-4FBC-AA60-FCA378D3B2D8', 'name': 'Send delay message', 'incoming': ['Customer request'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-78C97050-B053-4A41-B0F7-3E4AF43CF64A', 'name': 'Level 1 Scoring', 'incoming': ['Schufa request'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-AD502A64-33F8-49A6-8443-5DE4EDFF29E6', 'name': 'Send delay message', 'incoming': ['Schufa request'], 'outgoing': ['Level 2 Scoring']}
+{'id': 'sid-A6FE680A-8B49-4F24-97FA-07D37FF3741D', 'name': 'Send a reply', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-64F8F979-FEBF-4F81-994B-3FADE9B1FB82', 'name': 'Level 2 Scoring', 'incoming': ['Results immediately\nfound?'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-0F7D33E9-21BD-461A-A013-98C444915352', 'name': 'Results immediately\nfound?', 'incoming': ['Schufa request'], 'outgoing': ['EndEvent1', 'ExclusiveGateway1']}
+{'id': 'sid-EE6404CC-E670-4F00-87A3-A5080E7A6A7C', 'name': 'ExclusiveGateway1', 'incoming': ['Level 1 Scoring', 'Level 2 Scoring'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-F2E3DFF7-BA5B-4B61-A598-DDD78A0AB503', 'name': 'EventBasedGateway2', 'incoming': ['Customer request', 'EventBasedGateway2'], 'outgoing': ['EventBasedGateway2', 'EndEvent0']}
+{'id': 'sid-0EFF168A-5ED2-4877-A475-5F366B097B22', 'name': 'Storing result', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-3121DE12-A5C3-4FD7-B306-65C0B75A7902', 'name': 'Delay message', 'incoming': ['Customer request'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-5B593E49-E332-40F0-8019-1B1AE2B5930B', 'name': 'Customer request', 'incoming': [], 'outgoing': ['Send delay message']}
+{'id': 'sid-07431779-41F0-4E84-9F46-3970A5B93FD9', 'name': 'Schufa request', 'incoming': [], 'outgoing': ['Send delay message']}
+
+End Events:
+{'id': 'sid-FDB6EB1D-647E-4CC4-AA77-108C78B31D5D', 'name': 'EndEvent0', 'incoming': ['Delay message'], 'outgoing': []}
+{'id': 'sid-029E71BB-F86E-459B-B0A7-646E26DBB44C', 'name': 'EndEvent1', 'incoming': ['Results immediately\nfound?'], 'outgoing': []}

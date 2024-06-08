@@ -1,0 +1,16 @@
+ When a shipment is initiated, the process begins with the 'Shipment' event, which triggers the 'Filling the package note' task. This task is routed through 'ExclusiveGateway1' and results in the 'Select your offer' task. The 'Select your offer' task then connects to 'ExclusiveGateway3', leading to the 'Appoint forwarding' task. The 'Appoint forwarding' task is also routed through 'ExclusiveGateway1' and connects to 'ExclusiveGateway3' again.
+
+Simultaneously, the 'Filling the package note' task also connects to 'ExclusiveGateway0' and triggers the 'Complete insurance' task. The 'Complete insurance' task then connects to 'ExclusiveGateway2'.
+
+After the 'Appoint forwarding' task, the process moves to 'ExclusiveGateway3', which connects to 'ParallelGateway5'. The 'ParallelGateway5' task is responsible for delivering the packaged goods, and it connects back to 'Goods delivered' as the end event.
+
+In summary, the process flow is as follows:
+
+1. 'Shipment' event triggers 'Filling the package note' task.
+2. 'Filling the package note' task connects to 'ExclusiveGateway1' and 'ExclusiveGateway0'.
+3. 'ExclusiveGateway1' connects to 'Select your offer' and 'Appoint forwarding' tasks.
+4. 'Select your offer' connects to 'ExclusiveGateway3'.
+5. 'Appoint forwarding' connects to 'ExclusiveGateway3' and 'ParallelGateway5'.
+6. 'ExclusiveGateway0' connects to 'Complete insurance' task.
+7. 'Complete insurance' connects to 'ExclusiveGateway2'.
+8. 'ParallelGateway5' connects to 'Goods delivered' end event.

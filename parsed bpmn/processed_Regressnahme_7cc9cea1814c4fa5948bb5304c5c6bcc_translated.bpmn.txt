@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-6C03DE33-C959-46CB-B078-B0FA460C6559', 'name': 'Case\nCheck\n', 'incoming': ['Possible regression\n'], 'outgoing': ['Regression\npossible?']}
+{'id': 'sid-9954CF2B-2371-4A82-9091-107F88E68274', 'name': 'Payment method\nsend', 'incoming': ['Possible regression\n'], 'outgoing': ['On\nReimbursement\nset']}
+{'id': 'sid-2A338C87-4E1D-490C-84D6-7B87A5F6EEE6', 'name': 'On\nReimbursement\nset', 'incoming': ['Regression\npossible?'], 'outgoing': ['Incoming payment']}
+{'id': 'sid-898FA247-290B-490F-96A9-70E53111F64B', 'name': 'Proceedings', 'incoming': ['Opposition\nby VN'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-9F2EC90B-B401-40EF-BA02-C13582E6F145', 'name': 'Close', 'incoming': ['Opposition\nby VN'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-E73AF815-B112-4C30-95DA-C493E3502576', 'name': 'Close', 'incoming': ['Incoming payment'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-3A21046C-019C-4575-B948-366F6BA65C30', 'name': 'Debt collection\nhand over', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Case delivered']}
+
+Gateways:
+{'id': 'sid-81710B6D-5EDA-4223-9CE3-B5E5220F7B7A', 'name': 'Regression\npossible?', 'incoming': ['Possible regression\n'], 'outgoing': ['Process\nclose', 'Process\nclosed']}
+{'id': 'sid-479E95ED-E20E-4488-A8ED-B9B56B98C5F2', 'name': 'Opposition\njustified?', 'incoming': ['Regression\npossible?'], 'outgoing': ['ExclusiveGateway2', 'Process\nclosed']}
+{'id': 'sid-41FB9BE5-C501-4876-9EF5-7F83E2E94F0A', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3', 'Proceedings'], 'outgoing': ['Case delivered']}
+{'id': 'sid-6B4D1FD6-DB94-4790-8F63-04B9E5198E2B', 'name': 'EventBasedGateway3', 'incoming': ['Regression\npossible?'], 'outgoing': ['Process\nclosed', 'Opposition\nby VN', 'Debt collection\nhand over']}
+{'id': 'sid-205965B8-1D36-4F9B-B919-8E04FC26B0CB', 'name': 'Incoming payment', 'incoming': ['On\nReimbursement\nset'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-655F6E62-129A-4C9D-84A6-57170162B49B', 'name': 'Opposition\nby VN', 'incoming': ['Regression\npossible?'], 'outgoing': ['Close']}
+{'id': 'sid-2BD484EF-FCB6-4E20-A852-C01D96B53B5C', 'name': 'Reimbursement', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Case delivered']}
+
+Start Events:
+{'id': 'sid-F9250D34-FB4B-4EED-A4F2-0CDBA36EE3F2', 'name': 'Possible regression\n', 'incoming': [], 'outgoing': ['Payment method\nsend']}
+
+End Events:
+{'id': 'sid-8D4847B0-B9DF-4B5F-94AA-ED4C99C5DF1B', 'name': 'Process\nclose', 'incoming': ['Regression\npossible?'], 'outgoing': []}
+{'id': 'sid-96EB92EB-3B8E-409F-9B3C-D56A97F9159B', 'name': 'Process\nclosed', 'incoming': ['Regression\npossible?'], 'outgoing': []}
+{'id': 'sid-4715B2F5-1AF5-4C46-8F33-D4E2776B68B9', 'name': 'Process\nclosed', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-E8FEA3B9-AD65-47FA-AD76-DA274669A9AD', 'name': 'Case delivered', 'incoming': ['Reimbursement'], 'outgoing': []}

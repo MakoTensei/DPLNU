@@ -1,0 +1,19 @@
+Tasks:
+{'id': 'sid-3E087778-C481-4F3B-A46B-C975983070A6', 'name': 'Filling the package note', 'incoming': ['Special shipment?'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-E17E9509-99EA-4EA4-93A0-66B4E078F884', 'name': 'Pick up offers from spediteure', 'incoming': ['StartEvent0'], 'outgoing': ['Control and select offers']}
+{'id': 'sid-9B840B13-4251-424E-B460-07DB1D8202C1', 'name': 'Control and select offers', 'incoming': ['Special shipment?'], 'outgoing': ['Order to forwarders']}
+{'id': 'sid-00318E76-BFC3-4608-A43B-2C576FC8F714', 'name': 'Order to forwarders', 'incoming': ['Special shipment?'], 'outgoing': ['Package shipped']}
+{'id': 'sid-9EBD7AAB-E142-4043-9857-CFFBC6D2CEA1', 'name': 'Create insurance', 'incoming': ['ParallelGateway2'], 'outgoing': ['Package shipped']}
+{'id': 'sid-72F863F5-1218-4DD7-9CF7-3B5F35B6A389', 'name': 'Packaging goods', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway3']}
+
+Gateways:
+{'id': 'sid-A7B5258F-B372-4C2C-B1C5-92FA32256A67', 'name': 'Special shipment?', 'incoming': ['StartEvent0'], 'outgoing': ['Package shipped', 'Package shipped']}
+{'id': 'sid-3177112F-2364-4C31-BCBC-F58BC616D383', 'name': 'Insurance?', 'incoming': ['Special shipment?'], 'outgoing': ['Package shipped', 'Package shipped']}
+{'id': 'sid-C36AE8AC-66A4-498A-A048-670684D9DCD8', 'name': 'ParallelGateway2', 'incoming': ['Filling the package note'], 'outgoing': ['Package shipped', 'Packaging goods']}
+{'id': 'sid-F3910857-B8B8-47C9-A0F8-C19B08C61919', 'name': 'ParallelGateway3', 'incoming': ['Packaging goods', 'Create insurance'], 'outgoing': ['Package shipped']}
+
+Start Events:
+{'id': 'sid-347D2A10-FD44-477D-9D6A-515041E50462', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Pick up offers from spediteure']}
+
+End Events:
+{'id': 'sid-8F4970E2-DCA1-4104-8747-1D05707F3B85', 'name': 'Package shipped', 'incoming': ['Special shipment?', 'Special shipment?', 'Insurance?'], 'outgoing': []}

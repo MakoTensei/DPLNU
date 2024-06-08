@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-7309914D-8CC8-4BB3-9F70-5F20201E68ED', 'name': 'Send scoring request to Schufa', 'incoming': ['StartEvent0'], 'outgoing': ['sid-7F00FFC3-E878-4A18-B23F-8A9F0BFB9BA6', 'EventBasedGateway1']}
+{'id': 'sid-EF92E702-9A8F-4DBE-84F2-DDA06DD5F65A', 'name': 'Level 1 scoring', 'incoming': ['StartEvent1'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-A6E18CFF-D3F4-4DD8-82E2-F6B43796AF2C', 'name': 'Level 2 scoring', 'incoming': ['ParallelGateway2'], 'outgoing': ['sid-E414F294-32A9-4FEF-A31D-F69874546D62']}
+
+Gateways:
+{'id': 'sid-C7C1E41C-1FAC-4EDB-A36A-A2B6332EEE9B', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent1'], 'outgoing': ['sid-0A299FF2-EE4D-4903-BC6C-70C2A33380E2', 'ParallelGateway2']}
+{'id': 'sid-DF31C4F0-2538-4DDA-9FC6-4A1E3B9D2302', 'name': 'EventBasedGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['sid-72BE4E20-A9CF-4E62-B227-8238D4854423']}
+{'id': 'sid-8D626E0D-5677-49DB-90E6-86BE4370F54F', 'name': 'ParallelGateway2', 'incoming': ['Level 1 scoring'], 'outgoing': ['sid-3525738D-F99A-41AA-A7E0-C4CB96C43BA8', 'Level 2 scoring']}
+{'id': 'sid-04E0B57F-1D30-4C0A-BDB5-56FE795A997E', 'name': 'ParallelGateway3', 'incoming': ['sid-C82E33BE-6E35-4581-802B-4165C35297FD', 'sid-FCB136FF-78EF-4C61-A5DA-50A230D0ABD9'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-6BE9DFC2-DB4D-4354-8BBF-90D6623CFF59', 'name': 'IntermediateCatchEvent4', 'incoming': [], 'outgoing': []}
+{'id': 'sid-894B06F4-0DB2-4D56-B6E7-32AB0993A736', 'name': 'IntermediateCatchEvent5', 'incoming': [], 'outgoing': []}
+{'id': 'sid-17EB763E-1EF1-4564-AD82-BE5521D64211', 'name': 'IntermediateCatchEvent6', 'incoming': [], 'outgoing': []}
+
+Start Events:
+{'id': 'sid-CCC0CACC-59AF-4335-8505-B50949BC735B', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['EventBasedGateway1']}
+{'id': 'sid-33C41084-0562-42DB-92CC-00A77532A4BC', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-9AE8A77D-2F4F-4D18-AD15-5B0F15373D47', 'name': 'EndEvent0', 'incoming': [], 'outgoing': []}
+{'id': 'sid-A7869D06-593A-4BBD-9188-486440EC0CAC', 'name': 'EndEvent1', 'incoming': ['ParallelGateway3', 'sid-4C4DD05F-92CF-4101-8B62-528B3DE33E32'], 'outgoing': []}

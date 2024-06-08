@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-26070ED6-381B-49E0-A97A-F97BFFD16BF8', 'name': 'forward request', 'incoming': ['Scoring request'], 'outgoing': ['Get delay message']}
+{'id': 'sid-3339F3B0-C8C3-4F63-B065-BDEDF1530D30', 'name': 'forward result to Frontend', 'incoming': ['Get Level Scoring 1'], 'outgoing': ['Request edited']}
+{'id': 'sid-531D5896-E297-4E1C-B14D-945F491504E7', 'name': 'forward delay message to Frontend', 'incoming': ['Get delay message'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-CA4018E3-F053-4481-BD83-CAEB03D9A1CC', 'name': 'perform first scoring', 'incoming': ['Inquiry received'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-C76252AF-B39F-4CF8-BC0B-B2D166469124', 'name': 'forward delay message to bank', 'incoming': ['Inquiry received'], 'outgoing': ['perform scoring 2']}
+{'id': 'sid-9CE08B79-BE63-46FB-B7D0-40AA005F2A17', 'name': 'perform scoring 2', 'incoming': ['Delay?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-97259DA4-0D84-4312-A2CB-245ED1046E50', 'name': 'Transfer results to Bank', 'incoming': ['sid-41E41252-C876-4D9A-86BF-0EBCAB70C6BB'], 'outgoing': ['Request edited']}
+
+Gateways:
+{'id': 'sid-5437C31E-8934-4496-BCA3-CCE696A7FB8D', 'name': 'Delay?', 'incoming': ['Inquiry received'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-F5C66C8A-7DB1-45B8-A361-5BB38535F0D4', 'name': 'ExclusiveGateway1', 'incoming': ['perform first scoring', 'Delay?'], 'outgoing': []}
+{'id': 'sid-97D9A0DF-FAD6-405D-9307-B21CCEC469E3', 'name': 'EventBasedGateway2', 'incoming': ['Scoring request', 'Get delay message'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-9F809011-3986-4AFB-A6F7-0771C01E63DF', 'name': 'Get delay message', 'incoming': ['forward request'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-217D079F-1AA6-4297-8BD0-E29E4603399E', 'name': 'Get Level Scoring 1', 'incoming': ['sid-4DA8E75C-6C2C-4DB7-B013-23739997BF72'], 'outgoing': ['Request edited']}
+
+Start Events:
+{'id': 'sid-1A6D34F9-56B8-4A28-9967-20F0479BE9AB', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-0835AA49-D61D-4648-8083-C1AC7798E3D6', 'name': 'Inquiry received', 'incoming': [], 'outgoing': ['forward delay message to bank']}
+
+End Events:
+{'id': 'sid-F46F8291-1CC0-4F9E-9E46-E51B9BC6EB08', 'name': 'Request edited', 'incoming': ['Get Level Scoring 1'], 'outgoing': []}
+{'id': 'sid-130677B5-B331-4BEB-A99E-CA4641D4E116', 'name': 'Request edited', 'incoming': ['Transfer results to Bank'], 'outgoing': []}

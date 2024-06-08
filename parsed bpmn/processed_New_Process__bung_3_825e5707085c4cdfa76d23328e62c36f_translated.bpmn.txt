@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-D2E9ACC9-40C3-407F-8BD5-DD356F98B1CB', 'name': 'Follow-up', 'incoming': ['Scoring result obtained'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-1C742DCE-8F31-451E-A0C3-A236DDEF743A', 'name': 'Start scoring request', 'incoming': ['StartEvent0'], 'outgoing': []}
+{'id': 'sid-3E71DCAC-D344-4D0D-9A05-463726CC2B83', 'name': 'Expect Result Level 1', 'incoming': ['sid-873BC351-64A3-4CBB-989C-1360DCDF3D0C'], 'outgoing': ['Expect Egebnis Level 2', 'Scoring result obtained']}
+{'id': 'sid-107FB267-2E02-4694-B2F8-E2744E46B689', 'name': 'Expect Egebnis Level 2', 'incoming': ['Expect Result Level 1'], 'outgoing': ['Scoring result obtained']}
+{'id': 'sid-DFF38A05-03C5-4B75-895D-AE799B1A47A6', 'name': 'Information for sales', 'incoming': ['scor get ?'], 'outgoing': ['sid-3932AD88-2171-4ACB-9B3E-09390B359FA0']}
+{'id': 'sid-DCBFDAE4-B413-4C83-8CC3-9E7D2C330A11', 'name': 'Level 1', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-97C3C837-8185-4C64-B329-35324629D75B', 'name': 'Level 2', 'incoming': ['sid-E9F5D476-C24C-4142-BD3E-3CB54D7FC660'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-CF43D175-4358-49B4-AC74-801AD9DABB9F', 'name': 'Info Level 2', 'incoming': ['StartEvent1'], 'outgoing': ['sid-8DEF8AEA-74BB-470D-A59E-402EA79857EC']}
+
+Gateways:
+{'id': 'sid-5EE24114-3F3A-4A3C-A148-163626249455', 'name': 'scor get ?', 'incoming': ['Expect Result Level 1'], 'outgoing': ['EndEvent0', 'Information for sales']}
+{'id': 'sid-66C5E524-32CC-4DBB-A943-C7462110B6C0', 'name': 'successful?', 'incoming': ['StartEvent1'], 'outgoing': ['Info Level 2', 'EndEvent2']}
+{'id': 'sid-A19B2DBC-2198-4DCE-A167-085704597ECC', 'name': 'Scoring result obtained', 'incoming': ['Expect Egebnis Level 2', 'Expect Result Level 1'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-136326DE-DFD8-458F-89F9-28C7A4B00C5B', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Start scoring request']}
+{'id': 'sid-5892909D-311C-4A5B-9BDA-C678A94885B2', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Info Level 2']}
+
+End Events:
+{'id': 'sid-82B1AF49-F8D4-450C-BA23-22CEFE0445BC', 'name': 'EndEvent0', 'incoming': ['scor get ?'], 'outgoing': []}
+{'id': 'sid-5CBE69B3-D59C-44AD-B3D9-11FDBDABCB23', 'name': 'EndEvent1', 'incoming': ['Level 2'], 'outgoing': []}
+{'id': 'sid-98A489D7-3163-4746-A7AD-2BC3D971A8AC', 'name': 'EndEvent2', 'incoming': ['Level 1'], 'outgoing': []}

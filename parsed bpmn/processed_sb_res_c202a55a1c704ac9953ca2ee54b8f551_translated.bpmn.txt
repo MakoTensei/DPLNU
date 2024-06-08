@@ -1,0 +1,38 @@
+Tasks:
+{'id': 'sid-CD4FECA8-D9BB-4F40-BE11-B4B66ED0EC1B', 'name': 'Visit the restaurant', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Select a court']}
+{'id': 'sid-EAB00013-0BAC-4B8A-8164-3EFF6E888958', 'name': 'Select a court', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['To be in line']}
+{'id': 'sid-E81403F0-178A-450C-9050-1D9D15EF09F1', 'name': 'Add your order', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Payment']}
+{'id': 'sid-87E05B9F-BA7E-4F72-9264-1517B9F77B79', 'name': 'Payment', 'incoming': ['To be in line'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-BC2447B2-6CF4-45C4-B733-BA30224EC331', 'name': 'Pick up Pieper', 'incoming': ['To be in line'], 'outgoing': ['Pieper\npiept']}
+{'id': 'sid-12955ED4-A84F-4E63-9D33-03B7C4998CAE', 'name': 'Pick up food', 'incoming': ['Pieper\npiept'], 'outgoing': ['Food\nobtained']}
+{'id': 'sid-01C765FC-B332-4BF6-BD29-C8101EF21224', 'name': 'Eat food', 'incoming': ['Food\nobtained'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-3132B892-FF04-455F-BA04-CFABECDF7D92', 'name': 'Enter your order in cash system', 'incoming': ['Order\nobtained'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-99645FBE-3D8D-4CB1-939A-FE3C4E1340B5', 'name': 'Paying', 'incoming': ['ParallelGateway1'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-383B22B4-CAD4-4657-B3A0-DBA30CD24ABF', 'name': 'Adjust Pieper and hand over guest', 'incoming': ['Order\nobtained'], 'outgoing': ['Koch inform']}
+{'id': 'sid-360184E2-9E6E-4B0E-9454-72E9F0907335', 'name': 'Koch inform', 'incoming': ['ParallelGateway2'], 'outgoing': ['Meals\nready']}
+{'id': 'sid-E063F577-7E16-433B-B1D2-D5DDD67203DD', 'name': 'Trigger Pieper', 'incoming': ['Meals\nready'], 'outgoing': ['5 min']}
+{'id': 'sid-8FDC4501-F564-4F8B-AD2C-07419829F9DC', 'name': 'Leave food', 'incoming': ['Guest\nappears'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-9585B094-4FA1-4F7B-A87A-66BE69C84F10', 'name': 'Guest\nexcl.', 'incoming': ['5 min'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-7F872D4B-5B19-4524-B047-D06082AF2E42', 'name': 'Prepare meal', 'incoming': ['StartEvent2'], 'outgoing': ['providing meal']}
+{'id': 'sid-FF87B3F1-E42B-43AF-BB3D-91FDA7FE0DB4', 'name': 'providing meal', 'incoming': ['StartEvent2'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-6E86D9C2-9592-4EDC-A3D5-B1B9FFA4CB7F', 'name': 'EventBasedGateway0', 'incoming': ['ParallelGateway2', '5 min'], 'outgoing': ['EndEvent1', 'EventBasedGateway0']}
+{'id': 'sid-A9CFF203-E7B5-4F0D-B487-D12683D5A62A', 'name': 'ParallelGateway1', 'incoming': ['Order\nobtained'], 'outgoing': ['Guest\nappears', 'Enter your order in cash system']}
+{'id': 'sid-285BE5DA-C389-4EA6-B571-432EF8F2606E', 'name': 'ParallelGateway2', 'incoming': ['ParallelGateway1', 'Order\nobtained'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-2190B799-D833-435C-A403-88B2419AC9A5', 'name': 'To be in line', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-1478B19F-7035-4C1F-895A-2164F0E1E0C7', 'name': 'Pieper\npiept', 'incoming': ['To be in line'], 'outgoing': ['Food\nobtained']}
+{'id': 'sid-FC344F0A-5182-47E3-8AE2-D6B0BC290F08', 'name': 'Food\nobtained', 'incoming': ['To be in line'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-B71ADAF8-DFEA-4E80-9494-8AC2DB38F36C', 'name': 'Meals\nready', 'incoming': ['ParallelGateway1'], 'outgoing': ['Guest\nappears']}
+{'id': 'sid-5A363F17-AA1F-4181-9168-CABBDD059914', 'name': 'Guest\nappears', 'incoming': ['ParallelGateway1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-758EA42D-1C3A-46F8-B6B5-2D34AFBC2FC2', 'name': '5 min', 'incoming': ['Trigger Pieper'], 'outgoing': ['EventBasedGateway0']}
+
+Start Events:
+{'id': 'sid-A1627643-E885-49A4-BB2D-4149C187C3E0', 'name': 'Hunger\nNot applicable', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-70534947-0AE6-4A5D-95A3-7ED0631A29A8', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['Adjust Pieper and hand over guest']}
+{'id': 'sid-518DEDE3-01B1-4685-9ED3-891C6AD064F3', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['providing meal']}
+
+End Events:
+{'id': 'sid-83099094-4D6F-4C13-A561-7525B7CAF8B4', 'name': 'Hunger\ndistilled', 'incoming': ['To be in line'], 'outgoing': []}
+{'id': 'sid-D01C1F3F-CA26-4A44-A5B6-71677C167718', 'name': 'EndEvent1', 'incoming': ['ParallelGateway2'], 'outgoing': []}
+{'id': 'sid-666024D0-EE5D-40C3-9B5F-8E8EC6DAF2FB', 'name': 'EndEvent2', 'incoming': ['providing meal'], 'outgoing': []}

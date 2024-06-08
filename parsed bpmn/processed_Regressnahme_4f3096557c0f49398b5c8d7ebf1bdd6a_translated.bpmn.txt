@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-A42017B3-28AE-46DA-BC64-BD541AA49387', 'name': 'Check regression case', 'incoming': ['Regression\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-2404FB2A-3023-4D64-89B3-866E6F887B76', 'name': 'Send payment request', 'incoming': ['Regression\nReport'], 'outgoing': ['Payment received']}
+{'id': 'sid-6A0B9B5B-E93E-449D-87B0-F9F003DCDC9A', 'name': 'Close', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-6735A469-98F3-4BA8-8974-CCDD1DC5CC28', 'name': 'Dispense process to Inkasso-DL', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-F3BDA301-3245-45E6-A642-FCC012DA1059', 'name': 'Proceedings', 'incoming': ['Opposition\nobtained'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-51622E0F-E104-4D8D-A3AC-22D90CA378ED', 'name': 'Book payment receipt', 'incoming': ['Payment received'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-C7965C83-A576-44B1-926C-07F7361AE05C', 'name': 'Regress possible?', 'incoming': ['Regression\nReport'], 'outgoing': ['Payment received', 'ExclusiveGateway2']}
+{'id': 'sid-E80DF823-6733-4B45-B675-1B357739C7A4', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-34AAFD40-8C84-47C8-BF0F-A3CE54BA88ED', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'Payment received', 'Regression\nReport', 'Check regression case'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-672ACD30-108E-4971-AB93-ABCE45CFE204', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Opposition\nobtained'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-13A86199-E116-42C9-A12C-1E82651C92F1', 'name': 'EventBasedGateway4', 'incoming': ['Regression\nReport'], 'outgoing': ['Payment received', 'Regression\ncompleted', 'Opposition\njustified?']}
+{'id': 'sid-A9317F76-A42C-4A65-90BF-2F07B73E0B51', 'name': 'Payment received', 'incoming': ['Regress possible?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-D6C145ED-B672-47A5-8D78-E42B37E69291', 'name': 'Return date reached', 'incoming': ['Regression\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-7E69C982-F5E3-4B7B-AF3F-C4EF4665D5B4', 'name': 'Opposition\nobtained', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-578B23D9-B175-46B0-985F-DED1E1AC0A80', 'name': 'Regression\nReport', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-ECD40746-874C-438B-B9D7-7E0134A5EB07', 'name': 'Regression\ncompleted', 'incoming': ['EventBasedGateway4'], 'outgoing': []}

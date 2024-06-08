@@ -1,0 +1,9 @@
+ The process begins with the 'Regression possibility\nReport' event, which triggers the 'Send a message' task. This message is sent to check the case and is routed through 'ExclusiveGateway2'. If the case is found to be justified, it proceeds to 'Process without result'.
+
+If the case is not justified, the 'Regress possible?' event is triggered, which sends the case to 'ExclusiveGateway2' or 'ExclusiveGateway3' based on the outcome. If the case is forwarded to debt collection, it is sent to 'Case\nDebt collection forwarded'. If the case is closed without a result, it is marked as 'Process without result'.
+
+If the case is justified, it is set to 'Set process to WV' and then 'Money received' is triggered, leading to the 'Case successfully completed' event.
+
+In the case of a representation expired, the event is routed to 'ExclusiveGateway3'.
+
+This process ensures that each case is thoroughly checked, and the appropriate actions are taken based on the outcome of the investigation.

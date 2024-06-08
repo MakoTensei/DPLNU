@@ -1,0 +1,7 @@
+ In the bustling world of scoring systems, a series of tasks and gateways work in harmony to process customer requests and provide scoring results. The journey begins with a 'Customer request' event, which triggers the 'perform other work' task, leading to the 'forward scoring results' gateway. This gateway, identified by'sid-DC91C7E5-04C8-4A95-BB79-AD08077ED844', receives the 'Scoring request' event and forwards it to the 'Level 1 Scoring' task, marked by'sid-1C3C496A-1EA5-43B9-AB71-1727CBAC28D1'.
+
+Upon completion of Level 1 Scoring, the 'Scoring result available?' gateway, with the ID'sid-C55883C5-3AC0-4FCA-B8A2-7D13C9A9398D', receives the event and directs the flow to either 'Scoring ends' or 'Scoring completed', depending on the outcome. If the result is available, the 'Level 2 Scoring' task, identified by'sid-06C8C81D-F057-40CC-8F82-86BE269CF7A4', takes over, and the 'forward scoring results' gateway, with the ID'sid-99EDCF9C-5490-4FC9-97F9-DF6B160F7533', sends the final scoring results to the respective endpoints.
+
+In the event of a delay, the 'Report delay' gateway, marked by'sid-6C4B78EF-419F-48A2-93A4-2548BB1B0D01', receives the 'Scoring result available?' event and directs the flow to the 'Level 2 Scoring' task.
+
+Throughout this process, the 'EventBasedGateway1', with the ID'sid-8EA3608B-8F63

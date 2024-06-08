@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-11305987-5988-41E9-8925-D2E6E3F281A8', 'name': 'Testing the case', 'incoming': ['Regressive thought\nReport'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-359D565E-EB38-40C4-A0E1-2F451582BDA8', 'name': 'Procedure for resubmission', 'incoming': ['sid-10FD3E09-E895-4344-8557-015314891883'], 'outgoing': ['Incoming payment']}
+{'id': 'sid-D569C5F1-F614-436B-BB30-815B5EE8D2A5', 'name': 'Check the objection', 'incoming': ['VN'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-33F380F6-E60A-4BCF-8F21-4EDF2730B324', 'name': 'Transfer of the case to the transfer of debt collection office', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-BC0CF4EF-0298-4E75-BD63-BF21760D3654', 'name': 'Payment - Incoming booking', 'incoming': ['Incoming payment'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-EB08E0B6-E356-4A86-9090-16706287CB67', 'name': 'Possibility of VN\nin Regress?', 'incoming': ['Regressive thought\nReport'], 'outgoing': ['sid-8369F8D3-14E2-417E-85F4-5E7962212A52', 'Process']}
+{'id': 'sid-CB1F9D5F-B1A0-4DE1-BCBD-81982788CFC0', 'name': 'ExclusiveGateway1', 'incoming': ['Incoming payment', 'sid-4B44AF87-C70D-4117-95D6-6D74FB4593FC', 'Time', 'Testing the case'], 'outgoing': ['Process']}
+{'id': 'sid-67962CDC-3174-4D4F-ACAE-76D325F650F6', 'name': 'Proceedings', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-CA00B3BB-CE83-4537-8C69-6E74EFC87E18', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Check the objection'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-6EE63237-E9D7-4ECB-9835-C8DF8D29B751', 'name': 'EventBasedGateway4', 'incoming': ['Procedure for resubmission'], 'outgoing': ['Incoming payment', 'Proceedings', 'Transfer of the case to the transfer of debt collection office']}
+{'id': 'sid-BE87D83C-641B-4F41-8CDA-5CEF96916C1D', 'name': 'Incoming payment', 'incoming': ['Procedure for resubmission'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-8A9F0FAD-B7E9-4427-8478-58CD7E24F4AB', 'name': 'VN', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Proceedings']}
+{'id': 'sid-FFF879CF-3FED-4623-8BD4-6D51FF8D1854', 'name': 'Time', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-4BFC499A-D18A-46C2-A882-DEC823908190', 'name': 'Regressive thought\nReport', 'incoming': [], 'outgoing': ['Possibility of VN\nin Regress?']}
+
+End Events:
+{'id': 'sid-569E6343-E9F7-438C-9D34-68A5C741B853', 'name': 'Process', 'incoming': ['Possibility of VN\nin Regress?'], 'outgoing': []}

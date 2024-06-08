@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-736F6F7A-AB5E-44EB-8CCB-52F9B781FF65', 'name': 'Scoring request', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Answer\nReport']}
+{'id': 'sid-74DADDE2-E19D-45DE-9579-7B0D3BEF27AE', 'name': 'Scoring\nforward the result', 'incoming': ['Question\nsuccessful?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-A8CDC0EE-1EFA-4290-AC0C-1ABC3E5E9DEE', 'name': 'Scoring\nforward the result', 'incoming': ['Scoring\nRequired'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-F238845F-EDFF-4A46-BF1E-65660D64F5D4', 'name': 'Conducting First Scoring', 'incoming': ['StartEvent1'], 'outgoing': ['Legislation']}
+{'id': 'sid-7F7BE9DA-10A2-434C-9A9B-9665A860408E', 'name': 'Share scoring result', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-C2D93312-35B5-479C-BCC1-A44BBBC06CFD', 'name': 'Share delay', 'incoming': ['Legislation'], 'outgoing': ['perform second final scoring']}
+{'id': 'sid-7257E7B9-E115-458E-8D19-6E0363DCDC4C', 'name': 'perform second final scoring', 'incoming': ['Legislation'], 'outgoing': ['Share scoring result']}
+{'id': 'sid-FB5EFEB0-D570-4295-BA9F-ED39352A46DF', 'name': 'Share scoring result', 'incoming': ['Legislation'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-2D50FF1F-4A10-4264-AD10-19895CAABF76', 'name': 'Question\nsuccessful?', 'incoming': ['Question\nsuccessful?'], 'outgoing': ['EndEvent0', 'EndEvent0']}
+{'id': 'sid-25821CDA-CA25-4DDC-844C-13E352B2095E', 'name': 'Legislation', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2', 'EndEvent3']}
+{'id': 'sid-91246D5E-A830-482B-BCBB-A7ACA30E8394', 'name': 'Answer\nReport', 'incoming': ['Scoring\nRequired'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-275104EF-C329-4FA6-8696-826854442C60', 'name': 'Answer\nReport', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['Scoring\nforward the result']}
+{'id': 'sid-4EA331A4-179E-4F22-BFC2-67B3B2C30AC1', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Share scoring result']}
+
+End Events:
+{'id': 'sid-DC11FF17-403D-4625-BFB7-502B0F7BD76F', 'name': 'EndEvent0', 'incoming': ['Question\nsuccessful?'], 'outgoing': []}
+{'id': 'sid-0CF71A1D-23D5-428E-A0D3-7317E75FBEAA', 'name': 'EndEvent1', 'incoming': ['Answer\nReport'], 'outgoing': []}
+{'id': 'sid-FF1C56CF-B66C-4573-AA51-C321CDB95B1D', 'name': 'EndEvent2', 'incoming': ['Legislation'], 'outgoing': []}
+{'id': 'sid-000A4A5C-8B34-4077-A80D-E4568A29D649', 'name': 'EndEvent3', 'incoming': ['Legislation'], 'outgoing': []}

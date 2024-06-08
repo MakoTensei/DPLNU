@@ -1,0 +1,19 @@
+ In the shipping process, the following tasks are performed:
+
+1. The process begins with the 'Start' event, which triggers the ExclusiveGateway4.
+
+2. The ExclusiveGateway4 then evaluates whether insurance is necessary by checking the 'Is insurance necessary?' event. If insurance is required, it proceeds to the ParallelGateway8, which ends the process. If insurance is not necessary, it moves to the next step.
+
+3. The process then checks if goods should be shipped by evaluating the 'Pruefen whether goods are to be shipped' event. If shipping is deemed necessary, it proceeds to the ParallelGateway7.
+
+4. At ParallelGateway7, the process requests the price for shipping from Spediteur 1, Spediteur 2, and Spediteur 3.
+
+5. Once the price is obtained, the process moves to the ExclusiveGateway4, which then leads to the ParallelGateway6.
+
+6. ParallelGateway6 selects the cheapest offer by evaluating the 'Choose the cheapest offer' event.
+
+7. After selecting the cheapest offer, the process proceeds to the ExclusiveGateway4, which then leads to the 'Packaging goods' event.
+
+8. Finally, the 'Packaging goods' event concludes the process.
+
+In summary, the shipping process starts with a 'Start' event, evaluates the necessity of insurance, determines if goods should be shipped, requests shipping prices, selects the cheapest offer, packages the goods, and ends the process.

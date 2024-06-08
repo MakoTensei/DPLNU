@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-A5C27079-7EB1-4279-AA3D-BE84FD15FB75', 'name': 'Check regression', 'incoming': ['Report\nRegression'], 'outgoing': ['Take VN to Regress?']}
+{'id': 'sid-49609212-64B2-43CB-A83B-707625170A37', 'name': 'VN payment request\nsend', 'incoming': ['Report\nRegression'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-502CFD7C-085A-4195-8286-447848C49D18', 'name': 'Close', 'incoming': ['Take VN to Regress?'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-66F80C45-D013-4F50-A144-F221D257DA5F', 'name': 'Book the entrance', 'incoming': ['Payment\nentry'], 'outgoing': ['Process\nclosed\nwith cash intake']}
+{'id': 'sid-B96E9061-AA81-4229-B9B4-C85F265F0037', 'name': 'Proceedings', 'incoming': ['Opposition\nV'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-3820CB28-9DE5-4570-B832-65CFC0D12BEC', 'name': 'Give process to debt collection', 'incoming': ['Opposition\nV'], 'outgoing': ['Transfer\nDebt collection office']}
+{'id': 'sid-F2E16D18-3158-4E66-8E8A-5B6FD309823D', 'name': 'Set process for resubmission', 'incoming': ['Take VN to Regress?'], 'outgoing': ['Payment\nentry']}
+{'id': 'sid-E0DBBEE6-90C2-47A5-98B0-57BCED46F709', 'name': 'Give process to debt collection', 'incoming': ['Reimbursement period\nExpired\n'], 'outgoing': ['Transfer\nDebt collection office']}
+
+Gateways:
+{'id': 'sid-89D298AD-85FD-470B-A2B2-33C2B449D7A6', 'name': 'Take VN to Regress?', 'incoming': ['Report\nRegression'], 'outgoing': ['Opposition\nV', 'Process\nclosed']}
+{'id': 'sid-5207FDE9-6D41-4D76-91D4-8130571D0748', 'name': 'Right?', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Process\nclosed', 'Transfer\nDebt collection office']}
+{'id': 'sid-B899E676-30C9-43AA-89D3-38BBD50687B7', 'name': 'EventBasedGateway2', 'incoming': ['Take VN to Regress?'], 'outgoing': ['Process\nclosed\nwith cash intake', 'Transfer\nDebt collection office', 'Reimbursement period\nExpired\n']}
+{'id': 'sid-1D240C17-6FE9-45C5-8A43-7945D22BDC50', 'name': 'Payment\nentry', 'incoming': ['Set process for resubmission'], 'outgoing': ['Process\nclosed\nwith cash intake']}
+{'id': 'sid-09AC3CA2-0422-474F-920B-7D071EEC85C6', 'name': 'Opposition\nV', 'incoming': ['Take VN to Regress?'], 'outgoing': ['Transfer\nDebt collection office']}
+{'id': 'sid-A76E77CA-5FE8-490D-B767-5153D8ABF5E9', 'name': 'Reimbursement period\nExpired\n', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Give process to debt collection']}
+
+Start Events:
+{'id': 'sid-B719C6BF-54E8-45F6-8816-569DDD14AEB6', 'name': 'Report\nRegression', 'incoming': [], 'outgoing': ['VN payment request\nsend']}
+
+End Events:
+{'id': 'sid-9155A8EE-E405-4662-9537-67E459453A0D', 'name': 'Process\nclosed', 'incoming': ['Take VN to Regress?'], 'outgoing': []}
+{'id': 'sid-D2A9EA17-67A2-4589-8C15-0AE1B446BD9E', 'name': 'Process\nclosed', 'incoming': ['Proceedings'], 'outgoing': []}
+{'id': 'sid-A4AB4831-EDD1-4EE0-9115-651A3041FE92', 'name': 'Transfer\nDebt collection office', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-80E70ED0-18A1-4083-8B5C-4EF1186559CC', 'name': 'Process\nclosed\nwith cash intake', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-286E540A-C303-4EBB-A4B7-5D709F59D222', 'name': 'Transfer\nDebt collection office', 'incoming': ['Opposition\nV'], 'outgoing': []}

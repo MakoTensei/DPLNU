@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-D972B27A-9144-471F-BCF9-EF2FC9D97078', 'name': 'Check the case', 'incoming': ['Possible\nRegression'], 'outgoing': ['Regress possible?']}
+{'id': 'sid-B81B484D-5568-4625-9A13-6A8F7D0A09CE', 'name': 'Send payment request', 'incoming': ['Possible\nRegression'], 'outgoing': ['Get money']}
+{'id': 'sid-2556522F-0FE8-4D0C-913F-8B273894C9E8', 'name': 'Book the entrance', 'incoming': ['Get money'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C230A9F9-6E71-4E74-9A73-0E7BC4EEDB83', 'name': 'Examination', 'incoming': ['Possible\nRegression'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-F5B9E030-8F02-4133-9B86-5259B0B1F06A', 'name': 'Regress possible?', 'incoming': ['Possible\nRegression'], 'outgoing': ['ExclusiveGateway2', 'Process\nclosed']}
+{'id': 'sid-0775057C-84A3-48D4-A4A9-7D41AE1A3AA1', 'name': 'Objection justified?', 'incoming': ['Opposition\nReport'], 'outgoing': ['Process\nclosed', 'ExclusiveGateway3']}
+{'id': 'sid-37415956-FDA2-42D7-8AED-39879FDB792A', 'name': 'ExclusiveGateway2', 'incoming': ['Regress possible?', 'Possible\nRegression'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-3287B0D4-3D8F-448A-AD9C-2A75EA2E13EB', 'name': 'ExclusiveGateway3', 'incoming': ['Reimbursement', 'Opposition\nReport'], 'outgoing': ['Debt collection\npassed']}
+{'id': 'sid-F53645B2-3506-4427-8BCD-D62BC0A6B9D5', 'name': 'Reimbursement', 'incoming': ['Possible\nRegression'], 'outgoing': ['Get money', 'Opposition\nReport', 'ExclusiveGateway3']}
+{'id': 'sid-0955AE07-82E1-4EF7-BAEA-79D650D2A3E9', 'name': 'Get money', 'incoming': ['Regress possible?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-1EB70A6D-40FF-4C78-B1E0-8B5DD4D76493', 'name': 'Opposition\nReport', 'incoming': ['Possible\nRegression'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-B5CFA8DD-C70C-49CA-9AEB-98567800CA2B', 'name': 'Date of expiry', 'incoming': ['Reimbursement'], 'outgoing': ['Debt collection\npassed']}
+
+Start Events:
+{'id': 'sid-CB02740E-CC0A-4D5C-8C12-116377CFC62F', 'name': 'Possible\nRegression', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-2C164F9D-7089-474A-A2A1-C228C244428E', 'name': 'Process\nclosed', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-52184751-3923-4B58-8C42-3E0BD7924B0A', 'name': 'Process\nclosed', 'incoming': ['Objection justified?'], 'outgoing': []}
+{'id': 'sid-8873EA04-3868-4D79-8539-C0E09E93BB54', 'name': 'Debt collection\npassed', 'incoming': ['Date of expiry'], 'outgoing': []}

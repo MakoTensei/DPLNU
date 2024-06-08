@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-03E01964-017F-4998-80E0-37388DF637D0', 'name': 'Check regression', 'incoming': ['Regression report'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-539E7993-AD15-4BDF-8597-4CECCDDC356E', 'name': 'Close', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Closed\n']}
+{'id': 'sid-FC02F5B4-0CBF-465A-926A-E0CABDE03C3E', 'name': 'Set on re-submission', 'incoming': ['sid-14C5370A-FA11-4BDF-AAD5-BC6570872CA5'], 'outgoing': ['Incoming payment']}
+{'id': 'sid-245CDCAE-F12D-4529-9366-2BA69277FB0B', 'name': 'Booked entry', 'incoming': ['Incoming payment'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-C3F8A5DA-1D05-4278-94D1-E7D002E21E96', 'name': 'Proceedings', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-F5D64794-FAB5-4162-B4B3-BE8BAC03A15E', 'name': 'Close', 'incoming': ['Opposition'], 'outgoing': []}
+{'id': 'sid-333950BE-F0FC-49E5-8E71-419F0E4298BF', 'name': 'Disclosure of debt collection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-D67BAE5A-563A-4B98-AAD5-7742412083E1', 'name': 'is Regress authorized?', 'incoming': ['Regression report'], 'outgoing': ['sid-A11D6952-87F9-476E-B198-A9AF2B2FDFE1', 'Closed\n']}
+{'id': 'sid-1681C028-5620-490A-991D-38505F5C0863', 'name': 'ExclusiveGateway1', 'incoming': ['Check regression', 'EventBasedGateway4'], 'outgoing': ['Closed\n']}
+{'id': 'sid-702DC56F-F2F3-4C9F-8D5A-81F591263B4D', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Close', 'ExclusiveGateway3']}
+{'id': 'sid-A7CDE512-9670-4F39-9053-ACC9C29E3A90', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-A24F04CD-52EF-4A43-AB3D-4D97E70A01F6', 'name': 'EventBasedGateway4', 'incoming': ['Set on re-submission'], 'outgoing': ['ExclusiveGateway1', 'Objection justified?', 'Disclosure of debt collection']}
+{'id': 'sid-5F7D1589-A1D2-43FB-95AD-4DD7C4ACDF59', 'name': 'Incoming payment', 'incoming': ['Set on re-submission'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-0D2E8AB5-BE75-43F6-815E-2A7750E64322', 'name': 'Opposition', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Close']}
+{'id': 'sid-4EC5C1D4-EC04-48F9-A94E-E3F4B2FEEE73', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-5D351262-A954-45FA-8E2D-41C789EA76D5', 'name': 'Regression report', 'incoming': [], 'outgoing': ['is Regress authorized?']}
+
+End Events:
+{'id': 'sid-C0D273AE-EC6B-4A1C-B265-9B92D777F19A', 'name': 'Closed\n', 'incoming': ['is Regress authorized?'], 'outgoing': []}
+{'id': 'sid-E531F0BA-AB4D-4A85-8F1F-239343C7300A', 'name': 'EndEvent1', 'incoming': ['Reimbursement period expired'], 'outgoing': []}

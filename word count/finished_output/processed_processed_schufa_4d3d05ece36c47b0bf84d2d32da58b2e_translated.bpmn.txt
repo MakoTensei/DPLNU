@@ -1,0 +1,7 @@
+ When a user initiates a search, the process begins with the 'Schufascoring\nRequired' event, which triggers the 'The delay\nReported?' gateway. This gateway determines whether a delay is necessary and either completes or closes the request. If a delay is not required, the process moves to the 'Level 2 Scoring' task, which is triggered by the 'Schufaanffrage' event. The 'Level 2 Scoring' task then sends the result or delay to the 'Send result or delay to Frontend' gateway.
+
+If a delay is necessary, the 'Schufascoring\nRequired' event triggers the 'Level 2 scoring\nwe are' task, which shares the Level 2 scoring with the 'Send result or delay to Frontend' gateway. The gateway then decides whether to send the result or delay to the frontend, completing the process with the 'Request completed' event.
+
+Alternatively, if a delay is not necessary, the 'Level 2 Scoring' task sends the result or delay to the 'Share result or delay' gateway. The gateway then completes the process with the 'Request completed' event.
+
+In summary, the process starts with a search request, determines if a delay is necessary, and either shares the Level 2 scoring with the frontend or completes the process with the requested result.

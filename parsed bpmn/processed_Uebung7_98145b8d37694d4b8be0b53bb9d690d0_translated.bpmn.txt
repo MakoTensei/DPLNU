@@ -1,0 +1,32 @@
+Tasks:
+{'id': 'sid-FE9064D9-C47F-4EE8-AE1E-8314FD92F2E3', 'name': 'Button pressure in credit award Frontend', 'incoming': ['Schufa - Request\nRequired'], 'outgoing': []}
+{'id': 'sid-D097AC96-0D17-4A1B-85DA-63AF8BDB2D29', 'name': 'Presentation of scoring in credit lending Frontend', 'incoming': ['Scoring result in credit delivery'], 'outgoing': []}
+{'id': 'sid-F28FC18E-CBA1-4CBA-BA4C-97658C66343A', 'name': 'Presentation of scoring in credit lending Frontend', 'incoming': ['Scoring result in credit delivery'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-71FE82E9-4204-4BE7-8A3D-C580392E900E', 'name': 'Info Scoring changes in credit lending', 'incoming': ['Scoring slows down'], 'outgoing': []}
+{'id': 'sid-FC07A5B3-327D-4F19-878F-390CF71E7E60', 'name': 'Send scoring request to Schufa-system', 'incoming': ['Scoring request'], 'outgoing': []}
+{'id': 'sid-F0C0F051-7129-400C-9845-9B2288AFE71D', 'name': 'Scoring result in credit delivery', 'incoming': ['Scoring result\nthe'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-CD0B2CB1-4EE4-4AEE-9C0D-8EBAAF5B96AE', 'name': 'Scoring result in credit delivery', 'incoming': ['Scoring result\nthe'], 'outgoing': ['Presentation of scoring in credit lending Frontend', 'EndEvent1']}
+{'id': 'sid-3499470E-AAF0-4EA4-ABED-33FD9BE1B40D', 'name': 'Scoring\nConduct LEVEL 1', 'incoming': ['Scoring request'], 'outgoing': ['Scoring slows down']}
+{'id': 'sid-7EEACC58-9569-4CF2-813F-AA39BD33CC2B', 'name': 'Results LEVEL 1', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-CB2C66CB-2CF9-4557-BC16-7AF9C8A49EE2', 'name': 'Conduct Scoring LEVEL 2', 'incoming': ['ParallelGateway1'], 'outgoing': ['Result LEVEL 2']}
+{'id': 'sid-8CBCE694-449D-47F5-9289-F9893286806F', 'name': 'Result LEVEL 2', 'incoming': ['ParallelGateway1'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-EAB1FAA9-8F5A-41F4-A6A2-65E9BEABB3EC', 'name': 'ExclusiveGateway0', 'incoming': ['Scoring request'], 'outgoing': ['Scoring slows down', 'EndEvent2']}
+{'id': 'sid-D0B41A43-9420-4426-81C5-2A497501C74D', 'name': 'ParallelGateway1', 'incoming': ['Scoring\nConduct LEVEL 1'], 'outgoing': ['EndEvent3', 'Scoring slows down']}
+{'id': 'sid-25D28D57-03F3-41B4-B3D1-DCE997B8BC1B', 'name': 'Scoring slows down', 'incoming': ['Scoring request'], 'outgoing': ['Info Scoring changes in credit lending']}
+{'id': 'sid-B0CCD756-A651-4E47-9FC5-0B17AC7EAE9F', 'name': 'Scoring result\nthe', 'incoming': [], 'outgoing': ['EndEvent0']}
+{'id': 'sid-17678FB0-93FC-450D-AD81-1A3C0C4EF1D0', 'name': 'Scoring slows down', 'incoming': ['Scoring\nConduct LEVEL 1'], 'outgoing': ['Info Scoring changes in credit lending']}
+{'id': 'sid-D8079F81-E179-4DE9-ADC2-FDC8CDDBAB7A', 'name': 'Scoring result\nthe', 'incoming': [], 'outgoing': ['EndEvent1']}
+{'id': 'sid-25593F58-F329-4F13-B21E-8A7EB2D30237', 'name': 'Scoring slows down', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Info Scoring changes in credit lending']}
+
+Start Events:
+{'id': 'sid-4B1F477B-3F23-4900-B60C-F516DC9FF398', 'name': 'Schufa - Request\nRequired', 'incoming': [], 'outgoing': ['Button pressure in credit award Frontend']}
+{'id': 'sid-AACBD1AF-E6A7-42E7-B00F-83CFF438641D', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Send scoring request to Schufa-system']}
+{'id': 'sid-383863DE-3B1D-4D54-852C-EB408B33819F', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Scoring slows down']}
+
+End Events:
+{'id': 'sid-27119ACE-91A2-4436-9854-C391230C80F6', 'name': 'EndEvent0', 'incoming': ['Scoring result\nthe'], 'outgoing': []}
+{'id': 'sid-6D918E23-746A-4934-B6A1-F7651BE37666', 'name': 'EndEvent1', 'incoming': ['Scoring result\nthe'], 'outgoing': []}
+{'id': 'sid-9365C11C-0E07-4279-A712-BBCE65A50D62', 'name': 'EndEvent2', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-5D4A3D23-D956-4C26-9C46-86FA3DF44E75', 'name': 'EndEvent3', 'incoming': ['ParallelGateway1'], 'outgoing': []}

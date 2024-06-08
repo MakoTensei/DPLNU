@@ -1,0 +1,38 @@
+Tasks:
+{'id': 'sid-300721CD-5C17-4765-8E54-3E577CED961B', 'name': 'Visit the restaurant', 'incoming': ['Hunger'], 'outgoing': ['Select a court']}
+{'id': 'sid-5E754E92-9A23-458A-A78A-C8157E84B8D6', 'name': 'Select a court', 'incoming': ['Hunger'], 'outgoing': ['in the row']}
+{'id': 'sid-136E748A-6695-4D28-97A0-B38C1EA9B930', 'name': 'Add your order', 'incoming': ['Hunger'], 'outgoing': ['Pay for']}
+{'id': 'sid-453CA333-2434-46D7-B0CA-F1C839397E72', 'name': 'Pay for', 'incoming': ['in the row'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-0ACE005D-77AF-4968-95D7-8AC9A9026651', 'name': 'Pick up Pieper', 'incoming': ['in the row'], 'outgoing': ['Pieper piept']}
+{'id': 'sid-916DE864-5C1C-4437-A1DE-C436F5A59C1A', 'name': 'Eat meal', 'incoming': ['Pick up food'], 'outgoing': ['Famine']}
+{'id': 'sid-9A18E29F-0C05-46A5-809D-9895D0E13ED3', 'name': 'Go to output', 'incoming': ['in the row'], 'outgoing': ['Pick up food']}
+{'id': 'sid-1F3F9541-69E7-4529-9952-011FB7597B13', 'name': 'Pick up food', 'incoming': ['Pieper piept'], 'outgoing': ['Famine']}
+{'id': 'sid-13246261-A86C-49A8-BC8F-6016B8A09CE2', 'name': 'Enter your order in cash system', 'incoming': ['Order to receive'], 'outgoing': ['Cash']}
+{'id': 'sid-08B5B187-DDC4-44EB-9A06-F3EBC9891476', 'name': 'Cash', 'incoming': ['Order to receive'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-EEF3ADA5-446B-4D13-A975-A993AA51A384', 'name': 'Adjust Pieper', 'incoming': ['Order to receive'], 'outgoing': ['Pieper over']}
+{'id': 'sid-7B093EFB-231C-48E9-B8F5-C62D9755F025', 'name': 'Pieper over', 'incoming': ['Order to receive'], 'outgoing': ['Send a message']}
+{'id': 'sid-0ADAF771-FE68-4EFC-9854-F6C6B620E6EA', 'name': 'Send a message', 'incoming': ['Order to receive'], 'outgoing': ['Milling time finished in passing']}
+{'id': 'sid-5829B860-5291-4ED5-9FC9-E89FDA737519', 'name': "Trigger the guest's Pieper", 'incoming': ['Order to receive'], 'outgoing': ['Guest after 5 minutes not published']}
+{'id': 'sid-D7DD9B5E-F48D-4010-B06F-A15E2C46B569', 'name': 'Hand over meal', 'incoming': ['Guest appears on issue'], 'outgoing': ['Ordered']}
+{'id': 'sid-5E78CE83-AED0-4A02-BF8F-3D45460E0E65', 'name': 'Retrieve guest', 'incoming': ['Order to receive'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-900C24C9-26C9-4790-AE17-96AD55AA9354', 'name': 'Preparation of meal', 'incoming': ['Name of ordered meal received'], 'outgoing': ['Putting meal in vain']}
+{'id': 'sid-E2E17C6E-23D4-4E93-80A4-133616CF4A0F', 'name': 'Putting meal in vain', 'incoming': ['Name of ordered meal received'], 'outgoing': ['inform employees']}
+{'id': 'sid-224864FA-FB28-4A8F-8ED1-2E98B4950BA9', 'name': 'inform employees', 'incoming': ['Name of ordered meal received'], 'outgoing': ['Cooking order processed']}
+
+Gateways:
+{'id': 'sid-070839C7-7280-4663-A6A3-3FDD85D1595C', 'name': 'EventBasedGateway0', 'incoming': ['Milling time finished in passing', 'EventBasedGateway0'], 'outgoing': ['Ordered', 'EventBasedGateway0']}
+{'id': 'sid-E9599F40-6F0B-40F0-9123-D98B2E052B07', 'name': 'Pieper piept', 'incoming': ['in the row'], 'outgoing': ['Famine']}
+{'id': 'sid-5842FC69-A41C-430E-B33B-538261D34115', 'name': 'in the row', 'incoming': ['Hunger'], 'outgoing': ['Go to output']}
+{'id': 'sid-6200D1D5-1DE7-4CB1-AE73-60359EADDAC9', 'name': 'Milling time finished in passing', 'incoming': ['Order to receive'], 'outgoing': ['Guest appears on issue']}
+{'id': 'sid-59A0ED8C-546C-44F8-9D59-3DA8A731F280', 'name': 'Guest appears on issue', 'incoming': ['Milling time finished in passing'], 'outgoing': ['Ordered']}
+{'id': 'sid-41B0A9CA-41D7-45EF-ADB4-76572161475D', 'name': 'Guest after 5 minutes not published', 'incoming': ['Order to receive'], 'outgoing': ['Ordered']}
+
+Start Events:
+{'id': 'sid-A72D0F14-1F79-4596-84F0-204D5CD43681', 'name': 'Hunger', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-16832FA3-F17A-4DB4-AA9E-D2312A5C083E', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Retrieve guest']}
+{'id': 'sid-FEF828D2-88D9-45A2-B54A-8920414FA784', 'name': 'Name of ordered meal received', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-30803195-84AC-48F0-9345-A3F0372311F8', 'name': 'Famine', 'incoming': ['Pieper piept'], 'outgoing': []}
+{'id': 'sid-3BC0A0E9-846F-461A-964A-9C0109885742', 'name': 'Ordered', 'incoming': ['Guest after 5 minutes not published'], 'outgoing': []}
+{'id': 'sid-34B38C6C-9280-4AAE-9A90-79CA797D9B51', 'name': 'Cooking order processed', 'incoming': ['inform employees'], 'outgoing': []}

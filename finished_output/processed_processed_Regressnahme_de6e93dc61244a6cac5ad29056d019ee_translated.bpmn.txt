@@ -1,0 +1,23 @@
+ The following tasks and gateways are part of a system that handles various events and processes:
+
+1. When a "Regression" report is received, it triggers a check for possible regression. If a regression is possible, the system will process the VN payment request.
+
+2. The VN payment request is then processed on the counter, and if a regression is possible, it will lead to an intermediate event, "IntermediateCatchEvent3," which will eventually result in a handover to the debtor.
+
+3. If a "Regression" report is received, it also triggers an event based on the EventBasedGateway2, which can lead to an opposition being justified or an intermediate event, "IntermediateCatchEvent5," which will also result in a handover to the debtor.
+
+4. When the "Reimbursement period expired" event occurs, it triggers a handover to the debtor.
+
+5. When money is received, it triggers a close event, and if a regression is possible, it will lead to an intermediate event, "IntermediateCatchEvent3," which will eventually result in a handover to the debtor.
+
+6. The "Regression possible?" event triggers a handover to the debtor and a close event.
+
+7. The "Opposition justified" event is triggered by the EventBasedGateway2 and leads to a handover to the debtor.
+
+8. The "EventBasedGateway2" event is triggered by the "Regression possible?" event and can lead to an intermediate event, "IntermediateCatchEvent3," an opposition being justified, or an intermediate event, "IntermediateCatchEvent5."
+
+9. The "IntermediateCatchEvent3" event is triggered by the "Process on the counter" event and leads to a close event.
+
+10. The "IntermediateCatchEvent5" event is triggered by the "Regression possible?" event and leads to a handover to the debtor.
+
+The system starts with a "Report\nRegression" event, which can lead to various outcomes based on the incoming and outgoing events. The system ends with a "Close" event, which can be triggered by multiple events, including "Regression possible?" and "IntermediateC

@@ -1,0 +1,7 @@
+ In a financial institution's workflow, a report indicating a regression check triggers a series of events and interactions between different tasks and gateways. The process begins with a 'Report\nRegression check' event, which initiates a 'VN payment request' task. This task is then directed to 'ExclusiveGateway1', which can lead to either a 'Set the process to the counter' task or an 'Opposition' task, depending on the outcome of the regression check.
+
+If the 'Set the process to the counter' task is selected, it receives an 'Incoming payment' event, which then proceeds to 'ExclusiveGateway1'. Conversely, if the 'Opposition' task is chosen, it receives an 'Opposition' event, which in turn leads to 'ExclusiveGateway1'.
+
+Upon reaching 'ExclusiveGateway1', the process can either continue to 'Process' or move to 'ExclusiveGateway3'. If it goes to 'Process', it receives a 'Book payment receipt' event, which concludes the workflow. If it moves to 'ExclusiveGateway3', it receives a 'Default period expired' event, which then leads to 'Subject matter'.
+
+In summary, the workflow starts with a regression check report, followed by a payment request, and then a decision-making process at 'ExclusiveGateway1'. Depending on the outcome, the process either concludes with a payment receipt or moves to a debt collection service provider.

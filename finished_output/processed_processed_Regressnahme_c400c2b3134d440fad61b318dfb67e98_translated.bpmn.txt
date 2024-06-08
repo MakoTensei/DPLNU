@@ -1,0 +1,9 @@
+ The process begins with the 'Possible regression' event, which triggers the 'ExclusiveGateway1' to handle incoming tasks. The 'ExclusiveGateway1' then directs the 'Check regression case' task to verify the possibility of regression. If the regression is confirmed, the 'ExclusiveGateway1' sends the 'Close' task to finalize the process. Concurrently, the 'Possible regression' event also sends the 'Book money receipt' task to 'ExclusiveGateway1' to record the transaction.
+
+Meanwhile, the 'EventBasedGateway4' receives the 'Possible regression' event and sends the 'Dispense process to collection' task to 'ExclusiveGateway1' for further processing. Additionally, the 'EventBasedGateway4' also sends the 'Right to object?' task to 'ExclusiveGateway1' to allow for objections.
+
+The 'Set process for resubmission' task, triggered by the 'Is the regression really possible?' event, is directed to 'ExclusiveGateway1' to initiate the resubmission process. This task also sends the 'Money received' task to 'ExclusiveGateway1' to acknowledge the payment.
+
+The 'VN contradicts' event, received by 'EventBasedGateway4', sends the 'ExclusiveGateway1' task to handle the contradiction.
+
+In summary, the process starts with the 'Possible regression' event, which triggers various tasks to 'ExclusiveGateway1' for processing and finalization. The 'EventBasedGateway4' also plays a crucial role in handling events and directing tasks to 'ExclusiveGateway1'.

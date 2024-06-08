@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-AF1C7973-E78B-47CE-B123-3CCBC5B4B2B7', 'name': 'Regress possibility check', 'incoming': ['Regressive case check'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-497626D9-D47F-4691-B926-4DA31BACC332', 'name': 'Send payment request', 'incoming': ['Regressive case check'], 'outgoing': ['Creating a Representation']}
+{'id': 'sid-DC6A3B1D-4CF2-4241-9033-A70238B2545F', 'name': 'Creating a Representation', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Notification']}
+{'id': 'sid-49761F3F-2A69-4546-AE5F-6C37C54193F1', 'name': 'Book payment', 'incoming': ['Incoming payment'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-8195B944-8EFE-4EB6-B6A1-BB2DF3D326BE', 'name': 'Order Debt Service Provider', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-0DA50C28-97E2-497B-AF4F-B725848E23E5', 'name': 'Proceedings', 'incoming': ['Notification'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-C6A7D41D-9BB7-403E-8487-5A55E6F98425', 'name': 'ExclusiveGateway0', 'incoming': ['Regressive case check'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-6A8398A8-1D05-4E03-8E0D-0AE45084E867', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0', 'Regress possibility check', 'ExclusiveGateway2'], 'outgoing': ['Process']}
+{'id': 'sid-CB7CC060-60AB-4656-A3DC-62219A6E36BB', 'name': 'ExclusiveGateway2', 'incoming': ['Notification'], 'outgoing': ['Process', 'ExclusiveGateway3']}
+{'id': 'sid-91EC86A9-728D-4BF5-A3C8-EC8191945471', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['Order Debt Service Provider']}
+{'id': 'sid-3643C61C-7DD1-4665-8474-B94198C15C06', 'name': 'EventBasedGateway4', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Incoming payment', 'Notification', 'Order Debt Service Provider']}
+{'id': 'sid-17F28CB3-0BAA-4072-B02D-2A9A5263D121', 'name': 'Notification', 'incoming': ['Creating a Representation'], 'outgoing': ['Process']}
+{'id': 'sid-E48C7FE1-DA24-4FFE-8667-F0670EFFE9BD', 'name': 'Incoming payment', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-EAD8D08D-957A-4C00-9F07-54C6DABAC287', 'name': 'Reimbursement period, No objection,no payment', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-AD626FFC-036B-4DBC-81ED-627137C66173', 'name': 'Regressive case check', 'incoming': [], 'outgoing': ['Send payment request']}
+
+End Events:
+{'id': 'sid-03B75634-311A-4CD7-9F8A-BF7D4BF93B49', 'name': 'Process', 'incoming': ['Notification'], 'outgoing': []}

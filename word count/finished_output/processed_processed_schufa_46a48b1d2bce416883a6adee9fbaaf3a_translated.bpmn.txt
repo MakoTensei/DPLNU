@@ -1,0 +1,29 @@
+ In the scoring process, the following tasks are executed:
+
+1. When a scoring request is obtained, it triggers the following sequence of events:
+   - The request is sent to the EventBasedGateway1, which then forwards the request to the ScoringResultsGateway.
+   - The ScoringResultsGateway sends a request to the ScoringPerformGateway to perform the scoring.
+   - The ScoringPerformGateway sends the obtained scoring results to the ScoringResultsGateway.
+   - The ScoringResultsGateway sends the final scoring result to the EventBasedGateway1.
+
+2. If a delay occurs in obtaining the scoring request, the following sequence of events is triggered:
+   - The delay is reported to the Level2ScoringPerformGateway.
+   - The Level2ScoringPerformGateway sends a request to the ScoringResultsGateway to perform the scoring.
+   - The ScoringResultsGateway sends the obtained scoring results to the ScoringResultsGateway.
+   - The ScoringResultsGateway sends the final scoring result to the EventBasedGateway1.
+
+3. When the final scoring result is determined, the following sequence of events is triggered:
+   - The final scoring result is sent to the ScoringResultsGateway.
+   - The ScoringResultsGateway sends the final scoring result to the EventBasedGateway1.
+
+4. The ScoringResultsGateway also handles the following scenarios:
+   - When the scoring request is obtained, it sends a request to the ScoringPerformGateway.
+   - When the scoring results are obtained, it sends the results to the EventBasedGateway1.
+   - When the final scoring result is determined, it sends the result to the EventBasedGateway1.
+
+5. The EventBasedGateway1 handles the following scenarios:
+   - When the scoring request is obtained, it forwards the request to the ScoringResultsGateway.
+   - When the final scoring result is determined, it forwards the result to the ScoringResultsGateway.
+
+6. The ScoringPerformGateway handles the following scenario:
+   -

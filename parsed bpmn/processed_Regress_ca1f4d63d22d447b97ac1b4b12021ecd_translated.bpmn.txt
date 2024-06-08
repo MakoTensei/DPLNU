@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-BEA64B2E-B97A-4997-9D63-5DAD0B990D03', 'name': 'against', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Opposition arrived']}
+{'id': 'sid-13BCF678-0DF9-4912-8942-69E2BFC4E8C0', 'name': 'paid', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Money received']}
+{'id': 'sid-1BF939DD-D213-40A4-813E-A563C1892A3E', 'name': 'Book the entrance', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Close']}
+{'id': 'sid-E942A694-F0E3-4553-B76E-2E15963B3EAC', 'name': 'Verify opposition', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Process for me completed']}
+{'id': 'sid-ED50BE47-D49F-4172-A942-5469D806805F', 'name': 'send payment request', 'incoming': ['Regress reported'], 'outgoing': ['Respondent deadline expired', 'justified?']}
+
+Gateways:
+{'id': 'sid-902FF8EF-2E1F-482E-9186-FAB61CFE03E6', 'name': 'ExclusiveGateway0', 'incoming': ['Regress reported'], 'outgoing': ['justified?', 'Close']}
+{'id': 'sid-0AAC69CA-D3F8-44BE-98F4-FC52205D2E9F', 'name': 'justified?', 'incoming': ['send payment request'], 'outgoing': ['Close', 'Process for me completed']}
+{'id': 'sid-B84D3A02-6FBC-418C-8900-AC7FDEFFB53D', 'name': 'Money received', 'incoming': ['Regress reported', 'IntermediateCatchEvent4'], 'outgoing': ['Close']}
+{'id': 'sid-27ED303C-D0DC-459C-952C-3A168579CB53', 'name': 'Opposition arrived', 'incoming': ['ExclusiveGateway0', 'IntermediateCatchEvent4'], 'outgoing': ['Close']}
+{'id': 'sid-EA15583C-E542-490F-B17A-BA0AAE383C38', 'name': 'IntermediateCatchEvent4', 'incoming': ['send payment request'], 'outgoing': ['Book the entrance', 'Process for me completed', 'Process for me completed']}
+{'id': 'sid-36D487A9-83CD-481D-9EE8-83A7AC3BD04F', 'name': 'Respondent deadline expired', 'incoming': ['send payment request'], 'outgoing': ['Process for me completed']}
+
+Start Events:
+{'id': 'sid-BAF668D6-83ED-478C-8081-E45AF310F7B7', 'name': 'Regress reported', 'incoming': [], 'outgoing': ['Money received']}
+
+End Events:
+{'id': 'sid-C8580678-24BD-4A14-861B-A7144EF887DF', 'name': 'Process for me completed', 'incoming': ['IntermediateCatchEvent4', 'IntermediateCatchEvent4'], 'outgoing': []}
+{'id': 'sid-0EB2245C-849D-4D90-A20C-79F4CA763ACA', 'name': 'Close', 'incoming': ['ExclusiveGateway0', 'Opposition arrived'], 'outgoing': []}

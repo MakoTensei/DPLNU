@@ -1,0 +1,11 @@
+ When a scoring request is received, the system initiates a sequence of events and interactions between various components to process the request. The process begins with the 'Receive scoring request' event, which triggers the 'Testing successful' gateway to send a 'Testing successfully send' message to the 'perform scoring level 1' gateway, indicating that the initial testing phase has been completed successfully.
+
+The 'perform scoring level 1' gateway then sends a 'Testing successfully send' message to the 'Testing successful' gateway, which in turn sends a 'Send scoring request' message to the 'Receive scoring request' event, signaling the start of the next phase.
+
+The 'Receive scoring request' event triggers the 'Receive delay message' event, which sends a'receive delay message' to the 'End result obtained' event, indicating that the scoring process is still ongoing.
+
+The 'End result obtained' event sends a 'Send a final result' message to the 'Send a final result' gateway, which then sends the final result to the appropriate recipient.
+
+Meanwhile, the 'perform scoring level 2' gateway receives the'sid-5D952BBD-8627-4173-B443-0F4E628FF997' message from the 'Testing successful' gateway, indicating that the second level of scoring has been completed. The 'perform scoring level 2' gateway then sends a 'Send a final result' message to the 'Send a final result' gateway, which sends the final result to the recipient.
+
+In summary, the scoring request is received, and the system processes it through a series of events and interactions between various gateways and components, ultimately sending the final result to the recipient.

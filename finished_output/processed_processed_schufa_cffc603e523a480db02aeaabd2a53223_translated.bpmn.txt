@@ -1,0 +1,11 @@
+ In the scoring process, a request is initiated by the 'Scoring request the' event, which triggers the 'Scoring\nQuestion\nlies\nbefore' event. This leads to the 'ExclusiveGateway1' event, where the 'Scoring\ncheck result 1' event is processed. The result of this check is then sent to the 'Scoring\nresult\nsupplied' event, which in turn supplies the 'Scoring result supplied' event.
+
+Simultaneously, the 'Scoring\nQuestion\nat Schufa\nsend' event is processed, which sends the question to Schufa. The 'IntermediateCatchEvent3' event captures this interaction and sends the result to the 'Scoring\nresult\nsent' event.
+
+The 'Scoring\nLevel 1\nperform' event is triggered by the 'Delay\nReport' event, which sends a delay report. This event performs the first level of scoring and sends the result to the 'ExclusiveGateway1' event.
+
+The 'Scoring\nLevel 2\nperform' event is triggered by the 'Delay\nReport' event as well, which performs the second level of scoring and sends the result to the 'Scoring result supplied' event.
+
+Finally, the 'Scoring result sent' event is triggered by the 'IntermediateCatchEvent3' event, which sends the result to the 'Scoring result supplied' event.
+
+In summary, the scoring process involves multiple events and gateways, where the initial request triggers a series of checks and scoring levels, ultimately resulting in the supply of the scoring result.

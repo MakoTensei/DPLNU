@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-7E160790-2549-4B27-8139-921F7052E359', 'name': 'perform scoring request', 'incoming': ['Schufascoring request\nReport'], 'outgoing': ['Scoring']}
+{'id': 'sid-346BCC21-9032-404A-B90F-5BE7F0BD30CF', 'name': 'Share scoring result', 'incoming': ['Scoring'], 'outgoing': ['Schufascoring request\nFinished']}
+{'id': 'sid-3A48C10D-BD27-4578-A0C5-DDEFBA1991E0', 'name': 'Share delay', 'incoming': ['Schufascoring request\nReport'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-ECE54CAD-F980-44FB-8635-A4AF7F13D349', 'name': 'perform scoring level 1', 'incoming': ['Schufascoring request\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-DED02D78-4FF8-4A2F-877D-EDC542B8E1CF', 'name': 'Share Scoring result', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Schufascoring request\nFinished']}
+{'id': 'sid-23799B98-004D-4B7A-8303-A433EF268603', 'name': 'Share delay', 'incoming': ['Schufascoring request\nReport'], 'outgoing': ['perform scoring level 2']}
+{'id': 'sid-DC7A16CC-E35D-4324-A74C-A62BAB6CDA45', 'name': 'perform scoring level 2', 'incoming': ['Results available?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-BD04A980-CEF7-41DB-88D8-FEBF0683B1DB', 'name': 'ExclusiveGateway0', 'incoming': ['Schufascoring request\nReport', 'EventBasedGateway3'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-B4B4075E-2EE9-484E-8BB8-239CC4C95DB4', 'name': 'Results available?', 'incoming': ['Schufascoring request\nReport'], 'outgoing': ['Schufascoring request\nFinished', 'perform scoring level 2']}
+{'id': 'sid-E2A29F40-E3B1-49F5-A4E5-4F4458F92925', 'name': 'ExclusiveGateway2', 'incoming': ['perform scoring level 1', 'perform scoring level 2'], 'outgoing': ['Schufascoring request\nFinished']}
+{'id': 'sid-8AE127C4-6D08-4ABF-90A9-B9422C1C7840', 'name': 'EventBasedGateway3', 'incoming': ['perform scoring request'], 'outgoing': ['Schufascoring request\nFinished', 'ExclusiveGateway0']}
+{'id': 'sid-F0FEC129-07CB-44ED-B6A2-B72AE4FDD830', 'name': 'Scoring', 'incoming': ['perform scoring request'], 'outgoing': ['Schufascoring request\nFinished']}
+{'id': 'sid-44801555-787B-473C-9150-4BBE91E65E82', 'name': 'Delay', 'incoming': ['Schufascoring request\nReport'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-7F2B9799-BBE7-48FD-8BD7-9E53A78C7F91', 'name': 'Schufascoring request\nReport', 'incoming': [], 'outgoing': ['Share delay']}
+{'id': 'sid-9D120F93-69CD-416B-BD9F-C27708F33C5A', 'name': 'Schufascoring request\nReport', 'incoming': [], 'outgoing': ['Share delay']}
+
+End Events:
+{'id': 'sid-18945780-C8A4-4FBF-936B-97675AE61BD9', 'name': 'Schufascoring request\nFinished', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-78EF1FDF-D3A8-40FF-BE96-6A86A26A86E8', 'name': 'Schufascoring request\nFinished', 'incoming': ['Results available?'], 'outgoing': []}

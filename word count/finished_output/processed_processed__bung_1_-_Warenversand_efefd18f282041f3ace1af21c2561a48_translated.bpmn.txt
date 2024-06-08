@@ -1,0 +1,13 @@
+ When a shipment is initiated, the process begins with the 'Shipment' event, which triggers the 'Type of shipping?' inquiry at the 'Type of shipping?' gateway. This gateway then directs the process to either 'ExclusiveGateway3' or 'ExclusiveGateway2', depending on the shipping type selected.
+
+If the selected shipping type requires insurance, the 'Insurance required?' inquiry at the 'Insurance required?' gateway sends the process to 'ExclusiveGateway2'. If insurance is not required, the process continues to 'ExclusiveGateway3'.
+
+At 'ExclusiveGateway3', the process moves to the 'Select your offer' task, where the user selects their offer. This task then sends the process to the 'Specialist' gateway.
+
+The 'Specialist' gateway directs the process to 'ExclusiveGateway3' again, where the 'Check quantity' task is triggered. This task sends the process to 'ExclusiveGateway3' once more.
+
+If insurance is required, the process moves to the 'Check insurance requirements' task at 'ExclusiveGateway2', which sends the process to 'ExclusiveGateway3'. If insurance is not required, the process continues to 'ParallelGateway5'.
+
+At 'ExclusiveGateway3', the 'Complete insurance' task is triggered if insurance is required. This task sends the process to 'ParallelGateway5'. If insurance is not required, the process moves to 'Packaging goods' task at 'ParallelGateway5'.
+
+The 'Packaging goods' task sends the process to 'ParallelGateway5', where the 'Delivering goods' task is triggered. This task concludes the process by delivering the goods and marking the end of the event with 'Goods delivered'.

@@ -1,0 +1,11 @@
+ A guest arrives at the restaurant, triggering the "Guest meets" event. This initiates the ordering process, leading to the "Add your order" event. Once the order is obtained, the "Order information\nrecord" event is triggered, which then leads to the "Cooking order" event.
+
+Simultaneously, the "5 min. past" event is triggered, which in turn activates the "EventBasedGateway0". This gateway connects the "meal ready" event with the "Ordered" and "5 min. past" events, ensuring that the meal is served to the guest and the order is updated accordingly.
+
+After the meal is ready, the "meal ready" event is triggered, which then leads to the "Guest published" event. This event signifies that the guest has received their meal and is ready to enjoy it.
+
+The "Guest published" event also triggers the "Order information\nrecord" event, which leads to the "Putting meal in vain" event. This event represents the completion of the meal preparation process.
+
+Finally, the "5 min. past" event triggers the "Retrieve customers" event, which ensures that the guest is promptly served their meal.
+
+Once the guest has finished their meal, the "Famine" event is triggered, marking the end of the dining experience.

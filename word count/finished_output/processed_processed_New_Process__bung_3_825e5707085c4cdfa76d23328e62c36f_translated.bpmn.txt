@@ -1,0 +1,21 @@
+ In the scoring process, the system initiates with the 'StartEvent0' gateway, which triggers the 'Start scoring request' task. This task awaits the 'Scoring result obtained' event, which is expected to come from the 'Expect Egebnis Level 2' gateway. Upon receiving the scoring result, the system proceeds to the 'Expect Result Level 1' gateway, which anticipates the 'Scoring result obtained' event.
+
+Once the 'Scoring result obtained' event is received, the system moves to the 'Expect Egebnis Level 2' gateway, which then leads to the 'Scoring result obtained' task. This task concludes the process by triggering the 'EndEvent0' gateway.
+
+Additionally, the 'StartEvent1' gateway initiates the 'Info Level 2' task, which awaits the 'EndEvent1' gateway to complete. The 'EndEvent1' gateway is triggered by the 'Level 2' gateway, which in turn is expected to receive the 'Level 1' gateway event.
+
+In summary, the flow of the scoring process involves the following sequence:
+
+1. 'StartEvent0' gateway triggers 'Start scoring request' task.
+2. 'Start scoring request' task awaits 'Scoring result obtained' event from 'Expect Egebnis Level 2' gateway.
+3. 'Scoring result obtained' event triggers 'Expect Result Level 1' gateway.
+4. 'Expect Result Level 1' gateway awaits 'Scoring result obtained' event from 'Expect Egebnis Level 2' gateway.
+5. 'Scoring result obtained' event triggers 'Scoring result obtained' task.
+6. 'Scoring result obtained' task triggers 'EndEvent0' gateway.
+7. 'StartEvent1' gateway initiates 'Info Level 2' task.
+8. 'Info Level 2' task awaits 'EndEvent1' gateway.
+9. 'EndEvent1' gateway is triggered by 'Level 2' gateway.
+10. 'Level 2' gateway awaits 'Level 1' gateway event.
+11. 'Level 1' gateway triggers 'EndEvent1' gateway.
+
+This flow ensures a

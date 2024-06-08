@@ -1,0 +1,39 @@
+Tasks:
+{'id': 'sid-3AC3BEF8-8542-4BAF-BF4C-BCB1BA2BB06E', 'name': 'Enter restaurant and select court', 'incoming': ['Guest\nhungry'], 'outgoing': ['Guest is\nin the row']}
+{'id': 'sid-8EECCB72-7EE9-4A65-8907-E120ABA17898', 'name': 'Order\ngive up', 'incoming': ['Guest\nhungry'], 'outgoing': ['Price known']}
+{'id': 'sid-5D9B71AB-0E1D-4ACC-8D37-8B31EE78731D', 'name': 'Payment of invoice', 'incoming': ['Guest\nhungry'], 'outgoing': ['Pieper accepted']}
+{'id': 'sid-D527BCC0-63E5-4559-AFDB-F07B6F92697A', 'name': 'Find a place', 'incoming': ['Guest\nhungry'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-EEC30FE3-5287-4D37-A1EC-1795E2056011', 'name': 'Visit to the issue', 'incoming': ['Pieper accepted'], 'outgoing': ['Guest has\nbe eating']}
+{'id': 'sid-939E32D7-4C56-4E2E-A6CE-D020A9869F82', 'name': 'Enter your order in the cash register system', 'incoming': ['Order\nwe are'], 'outgoing': ['Cash from the guest']}
+{'id': 'sid-869FB095-A949-40D9-922E-56239C911773', 'name': 'Cash from the guest', 'incoming': ['Order\nwe are'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-7906FD3F-C37F-4C54-8048-2594FF9C15FB', 'name': 'Adjust Pieper', 'incoming': ['Order\nwe are'], 'outgoing': ['Koch inform']}
+{'id': 'sid-58598543-67BA-4B41-89C2-90570638A073', 'name': 'Koch inform', 'incoming': ['Order\nwe are'], 'outgoing': ['Order\nDate']}
+{'id': 'sid-F226FD91-AEC6-4836-9516-2677D0D2843A', 'name': "Trigger the guest's Pieper", 'incoming': ['EventBasedGateway3'], 'outgoing': ['Guest appears\nat the issue']}
+{'id': 'sid-DA73F9BE-FBF3-495A-9C8F-84B102861C00', 'name': 'Leave food', 'incoming': ['Guest appears\nat the issue'], 'outgoing': ['meal served']}
+{'id': 'sid-C815FB15-1B99-4295-BFC3-2704A0D189B6', 'name': 'Meals\nto prepare', 'incoming': ['Order\nwe are'], 'outgoing': ['Putting the meal into the reach']}
+{'id': 'sid-CEBA06EB-AF1D-4349-95BA-5C8475AE4B67', 'name': 'Putting the meal into the reach', 'incoming': ['Order\nwe are'], 'outgoing': ['Order\nfinished']}
+
+Gateways:
+{'id': 'sid-D212F784-F709-4208-B999-6C9D4B68D716', 'name': 'Guest listens\nPieper?', 'incoming': ['Pieper goes on\n'], 'outgoing': ['Guest listens\nPieper?', 'Guest has\nbe eating']}
+{'id': 'sid-F5CBE235-AE2A-43ED-9CDE-BF4E7D73B6F0', 'name': 'ExclusiveGateway1', 'incoming': ['Pieper accepted', 'Pieper goes on\n'], 'outgoing': ['Food is here']}
+{'id': 'sid-002728C8-F7BB-4257-A030-645D9609D0D6', 'name': 'ExclusiveGateway2', 'incoming': ['meal is\nPrepared', 'EventBasedGateway3'], 'outgoing': ['Guest appears\nat the issue']}
+{'id': 'sid-387E1D84-1C86-4FDC-95EE-CB346566BAA5', 'name': 'EventBasedGateway3', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Guest appears\nat the issue', 'Guest appears\nat the issue']}
+{'id': 'sid-70FE1618-84E8-42CB-A814-8378AF7E21C7', 'name': 'Guest is\nin the row', 'incoming': ['Guest\nhungry'], 'outgoing': ['Order\ngive up']}
+{'id': 'sid-213A49DF-D267-433C-98A9-469D674375B0', 'name': 'Price known', 'incoming': ['Guest\nhungry'], 'outgoing': ['Payment of invoice']}
+{'id': 'sid-F9D2C68B-1B3E-4FB2-82F4-41452599C47D', 'name': 'Pieper accepted', 'incoming': ['Guest\nhungry'], 'outgoing': ['Visit to the issue']}
+{'id': 'sid-0425AD31-5827-4A8D-9131-8398ACC267DC', 'name': 'Food is here', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Guest has\nbe eating']}
+{'id': 'sid-17982D4E-5925-4CE1-8DDB-5B7B1413F35B', 'name': 'Pieper goes on\n', 'incoming': ['Pieper goes on\n'], 'outgoing': ['Guest has\nbe eating']}
+{'id': 'sid-74F83AA6-5F95-43EA-A40B-798731ED50E8', 'name': 'Guest appears\nat the issue', 'incoming': ['5 minutes'], 'outgoing': ['meal served']}
+{'id': 'sid-21B9879F-C520-4F9D-87E4-9E72809C2EE8', 'name': '5 minutes', 'incoming': ['EventBasedGateway3'], 'outgoing': ['meal served']}
+
+Start Events:
+{'id': 'sid-FD881781-45E0-44AF-9680-C5945F75FB86', 'name': 'Guest\nhungry', 'incoming': [], 'outgoing': ['Find a place']}
+{'id': 'sid-7D1DF356-F898-4623-96B1-209EBE9DE2BF', 'name': 'Order\nwe are', 'incoming': [], 'outgoing': ['Koch inform']}
+{'id': 'sid-43ED091F-F47A-496C-9F44-40F395F9F2B9', 'name': 'meal is\nPrepared', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-A2E81B51-5D26-40CA-AF95-11F43E98BAB6', 'name': 'Order\nwe are', 'incoming': [], 'outgoing': ['Putting the meal into the reach']}
+
+End Events:
+{'id': 'sid-C610A77F-F5F6-4292-9442-8259531CE207', 'name': 'Guest has\nbe eating', 'incoming': ['Pieper goes on\n'], 'outgoing': []}
+{'id': 'sid-346BEEBE-5A3F-42DD-B8A4-0CD758134E58', 'name': 'Order\nDate', 'incoming': ['Koch inform'], 'outgoing': []}
+{'id': 'sid-2EFBECFD-7DAC-42C8-A816-7239B2DF9022', 'name': 'meal served', 'incoming': ['5 minutes'], 'outgoing': []}
+{'id': 'sid-C0D91E91-F753-4588-BA32-D0B8D173B0B5', 'name': 'Order\nfinished', 'incoming': ['Putting the meal into the reach'], 'outgoing': []}

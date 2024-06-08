@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-17772790-76D6-4073-AF05-D61C706F9FD2', 'name': 'Select a court', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['to be in line']}
+{'id': 'sid-0BDFD305-A866-42CE-9B84-F8F0CE2E832A', 'name': 'Add your order', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Order payment']}
+{'id': 'sid-C08E6A46-9728-4915-893A-ABDA3D2DB78B', 'name': 'Order payment', 'incoming': ['to be in line'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-5D6B5997-B658-4EDC-BBEA-0B5ABA1BB12D', 'name': 'Eat court', 'incoming': ['Court of Justice\nretrieval'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-91457CD8-2D8E-4CB9-9AC2-FA8376E74592', 'name': 'Court of Justice\nretrieval', 'incoming': ['Pieper\npiept'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-FA3D8E41-B326-41F9-A922-F95EF049FE43', 'name': 'Pick up Pieper', 'incoming': ['to be in line'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-ACB2727F-1D18-472A-A3D3-90635FC0691C', 'name': 'Cash', 'incoming': ['Enter your order'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-D1325A39-7A1C-47A6-B802-01E88FCF2B1D', 'name': 'Submit your order', 'incoming': ['Pieper over'], 'outgoing': ['Court of Justice\nPrepared']}
+{'id': 'sid-F4F73F2F-C3D5-4580-84E0-6868BB8877D6', 'name': 'Enable Pieper', 'incoming': ['Court of Justice\nPrepared'], 'outgoing': ['5 minutes\npast']}
+{'id': 'sid-82A68D72-3612-4FEF-88BD-B7DB2EAFA4E2', 'name': 'Sufficient', 'incoming': ['Guest\nappears'], 'outgoing': ['End']}
+{'id': 'sid-DA874EC4-99A7-4B7B-B9B1-FEF0D16E284E', 'name': 'Enter your order', 'incoming': ['Order\nobtained'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-AEF39771-6D1F-4196-8762-8EB1C94D59C3', 'name': 'Adjust Pieper', 'incoming': ['Order\nobtained'], 'outgoing': ['Pieper over']}
+{'id': 'sid-05297E95-4917-4E92-B91D-58FC207F7BFD', 'name': 'Pieper over', 'incoming': ['Order\nobtained'], 'outgoing': ['Guest\nappears']}
+{'id': 'sid-A11BCA14-CF2B-48BD-84FF-78432D01DEF6', 'name': 'Retrieve guest', 'incoming': ['5 minutes\npast'], 'outgoing': ['sid-F698C491-624A-47B9-9A8D-E49FE8908C39']}
+{'id': 'sid-E136CB82-592B-4958-AD60-D63074D24242', 'name': 'prepare court', 'incoming': ['Order of jurisdiction\nobtained'], 'outgoing': ['Place court in vain']}
+{'id': 'sid-E2CA1CE7-AA6F-4FE5-8434-CA349ECCE488', 'name': 'Place court in vain', 'incoming': ['Order of jurisdiction\nobtained'], 'outgoing': ['inform employees']}
+{'id': 'sid-2B4A4F4C-9067-4330-A96E-B7733C290FE1', 'name': 'inform employees', 'incoming': ['Order of jurisdiction\nobtained'], 'outgoing': ['End']}
+
+Gateways:
+{'id': 'sid-1A72D651-4E8E-40C4-A6DC-336CC31508D4', 'name': 'EventBasedGateway0', 'incoming': ['Order\nobtained'], 'outgoing': ['End', '5 minutes\npast']}
+{'id': 'sid-861E4D9F-B485-420F-91A9-0F1372A4C01C', 'name': 'Pieper\npiept', 'incoming': ['to be in line'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-13B34F0A-E7E1-4608-A285-FB75852AB56F', 'name': 'to be in line', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Pieper\npiept']}
+{'id': 'sid-48D60CA6-46E5-4A2B-A73F-825F5714120B', 'name': 'Court of Justice\nPrepared', 'incoming': ['Order\nobtained'], 'outgoing': ['Guest\nappears']}
+{'id': 'sid-D1DAAE88-0AA0-489F-9C8F-90A3A9E3E720', 'name': 'Guest\nappears', 'incoming': ['Pieper over'], 'outgoing': ['End']}
+{'id': 'sid-764BFC3D-C3D4-4760-9DB4-45C7D60F9090', 'name': '5 minutes\npast', 'incoming': ['Enable Pieper'], 'outgoing': ['Retrieve guest']}
+
+Start Events:
+{'id': 'sid-B295EE51-FD19-4A70-800C-A3B94C5784DA', 'name': 'Hunger\nNot applicable', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-39DCF853-2FFD-474A-BFD0-A3D6AF16C8E0', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-B4BF99CD-7199-4153-B270-F63DB9EFB741', 'name': 'Order of jurisdiction\nobtained', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-93AE2F29-42FC-462E-92EE-734D1A1F07B1', 'name': 'Hunger\ndistilled', 'incoming': ['Pick up Pieper'], 'outgoing': []}
+{'id': 'sid-68E94FD7-9337-4412-AD17-7F4A5E7DBD38', 'name': 'End', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-09B7476F-E2CB-429B-A5A3-E7B02FCE1176', 'name': 'End', 'incoming': ['inform employees'], 'outgoing': []}

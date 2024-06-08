@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-BEF3C27B-B2CA-4171-A947-7279C5B7DEE1', 'name': 'Supply collection for shipping\n', 'incoming': ['Large or small large quantity?'], 'outgoing': ['Selection']}
+{'id': 'sid-9025CEFD-4B8E-4DF7-B361-E594226CA8BD', 'name': 'Filling the package note', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-A0304F98-B6F4-4E91-9BBB-EDF8C785CCA9', 'name': 'Selection', 'incoming': ['Large or small large quantity?'], 'outgoing': ['Ordering the forwarding']}
+{'id': 'sid-8EC60B2B-6F30-420C-9573-77704268C647', 'name': 'Ordering the forwarding', 'incoming': ['Large or small large quantity?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-524D2E0D-0DBA-47D8-8778-F718F0D2C877', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['sid-97704466-3333-4AD2-BFB7-56F270B98D34']}
+{'id': 'sid-70E4B09B-9653-4FF1-B3EE-9446BC223FBB', 'name': 'Delivery of the goods for collection', 'incoming': ['Goods stand for shipping'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-43EB4C73-0C36-44E7-8585-0BFA266A0891', 'name': 'Close shipping insurance\n', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-60D9F8E4-2DAB-457F-B813-59AB9B1F8CA7', 'name': 'Large or small large quantity?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-3B6F0362-DE0B-4C6F-AEB3-4B4D84CC3F38', 'name': 'Insurance necessary?', 'incoming': ['Large or small large quantity?'], 'outgoing': ['ExclusiveGateway2', 'Close shipping insurance\n']}
+{'id': 'sid-FCE5FF60-3C1B-4526-A426-AD74AB35F242', 'name': 'ExclusiveGateway2', 'incoming': ['Close shipping insurance\n', 'Large or small large quantity?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-B672D353-471F-48E6-8D17-D1C514CB2B5D', 'name': 'ExclusiveGateway3', 'incoming': ['ParallelGateway4', 'Large or small large quantity?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-99368681-F054-49F7-83AC-51BFF3D2D176', 'name': 'ParallelGateway4', 'incoming': ['Goods stand for shipping'], 'outgoing': ['EndEvent0', 'Packaging goods']}
+{'id': 'sid-EEBA74C9-3B79-40E4-A294-7B6F3833E35A', 'name': 'ParallelGateway5', 'incoming': ['Goods stand for shipping'], 'outgoing': ['ParallelGateway6', 'ExclusiveGateway3']}
+{'id': 'sid-7F29593B-9BC8-487A-BA45-DD87B9435F5B', 'name': 'ParallelGateway6', 'incoming': ['ParallelGateway5', 'Goods stand for shipping'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-DBDBEF1E-58CF-4E9C-8A04-40FCEBD90359', 'name': 'ParallelGateway7', 'incoming': ['sid-6CC9244F-C6E3-48AC-864F-027C70017F8C', 'Goods stand for shipping'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-ED0779C8-9DE3-4DAB-8B0D-6DFE39AA71C2', 'name': 'Goods stand for shipping', 'incoming': [], 'outgoing': ['Delivery of the goods for collection']}
+
+End Events:
+{'id': 'sid-E285998F-3A61-47CC-9946-4A85D56A6A23', 'name': 'EndEvent0', 'incoming': ['ParallelGateway4'], 'outgoing': []}

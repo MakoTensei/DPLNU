@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-D0995F69-5882-4586-A28D-E48399B315DD', 'name': 'Complete insurance', 'incoming': ['Insurance necessary?'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-EA9AA367-70BB-40CC-B069-C9E5B85D121A', 'name': '3 Spediteurs offers', 'incoming': ['Goods\nbe sent'], 'outgoing': ['select a forwarder from the offers']}
+{'id': 'sid-51B79D32-AEDB-4463-B471-E2F6B6E7A749', 'name': 'Filling the package note', 'incoming': ['What quantity?'], 'outgoing': ['ExclusiveGateway2', 'Packaging goods']}
+{'id': 'sid-FF344F82-92F6-4AEB-A54C-DBA86A340C0A', 'name': 'select a forwarder from the offers', 'incoming': ['What quantity?'], 'outgoing': ['Specialist']}
+{'id': 'sid-6BF4A35D-62C0-4BBA-A0C8-71FF19C3D618', 'name': 'Specialist', 'incoming': ['What quantity?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-25023BAD-225F-44AF-8CAC-FFA417F29B83', 'name': 'Packaging goods', 'incoming': ['Filling the package note'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-823C9031-E5DC-4DC3-A011-291456348DB3', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-904D33B7-70E2-44B0-B389-7E4DEEC2024C', 'name': 'What quantity?', 'incoming': ['Goods\nbe sent'], 'outgoing': ['ExclusiveGateway2', 'ParallelGateway3']}
+{'id': 'sid-BDD1CFD3-4BBB-493A-BD6B-E134C0C803EB', 'name': 'Insurance necessary?', 'incoming': ['What quantity?'], 'outgoing': ['ParallelGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-8EFB5685-6CCC-4A56-84D4-7042A25F27B5', 'name': 'ExclusiveGateway2', 'incoming': ['Filling the package note', 'What quantity?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-D67FF9AB-A8B5-4CC5-9EDE-0D7937B7B7AE', 'name': 'ParallelGateway3', 'incoming': ['Packaging goods', 'What quantity?', 'Insurance necessary?'], 'outgoing': ['Provide goods for collection']}
+
+Start Events:
+{'id': 'sid-7411C0C9-C139-408A-BA3E-C923010EEF16', 'name': 'Goods\nbe sent', 'incoming': [], 'outgoing': ['3 Spediteurs offers']}
+
+End Events:
+{'id': 'sid-09C2593A-492F-44C4-90C3-A5960788CEFD', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}

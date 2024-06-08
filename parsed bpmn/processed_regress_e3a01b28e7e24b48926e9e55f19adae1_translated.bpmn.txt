@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-1A39BCD2-A174-465C-98D9-84DBD30ECC94', 'name': 'Examination of the Regress Report', 'incoming': ['Regression report\nthe'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-DBBE681A-73CD-4B89-8783-7CF1383E58F2', 'name': 'VN payment request', 'incoming': ['Regression report\nthe'], 'outgoing': ['Procedure for resubmission']}
+{'id': 'sid-A8B1FC32-86E7-4E61-AA21-8EC29242F578', 'name': 'Procedure for resubmission', 'incoming': ['Regression possible'], 'outgoing': ['Max. WV time\n1 week']}
+{'id': 'sid-71175C30-1085-4EF4-AB34-F7BBC51934E9', 'name': 'Book money receipt from the VN', 'incoming': ['Cash receipt from the VN'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-66F3E9A8-1121-41EF-959B-9226388D613F', 'name': 'Complete the process', 'incoming': ['Cash receipt from the VN'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-AE15EE62-E7B3-4121-81EC-98528C532121', 'name': 'Proceedings', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-528D7064-A4B3-4E01-98AB-F0091C32D6AE', 'name': 'Order to Inkasso-DL', 'incoming': ['Process\nReimbursement'], 'outgoing': ['Inkasso-DL\nMission']}
+
+Gateways:
+{'id': 'sid-E4A7E5C8-5114-4F10-8519-B2EF32168B73', 'name': 'Regression possible', 'incoming': ['Regression report\nthe'], 'outgoing': ['Process\ncompleted', 'ExclusiveGateway3']}
+{'id': 'sid-CF3A317F-F840-442C-AD69-06BEC25C2308', 'name': 'Opposition\njustified', 'incoming': ['Process\nReimbursement'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-53BC94DF-5E97-4C3F-B121-DF043362E991', 'name': 'ExclusiveGateway2', 'incoming': ['Process\nReimbursement', 'Proceedings'], 'outgoing': ['Inkasso-DL\nMission']}
+{'id': 'sid-B5E322CF-60BD-40BF-B633-371EBDC0D898', 'name': 'ExclusiveGateway3', 'incoming': ['Opposition', 'Regression possible', 'Examination of the Regress Report'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-B28E7E53-42BF-4D60-8302-75CF2984CDF5', 'name': 'Process\nReimbursement', 'incoming': ['Regression possible'], 'outgoing': ['Order to Inkasso-DL', 'Opposition\njustified', 'Cash receipt from the VN']}
+{'id': 'sid-B6754AE3-6A5A-4469-AF69-734AFA8CF199', 'name': 'Max. WV time\n1 week', 'incoming': ['Procedure for resubmission'], 'outgoing': ['Inkasso-DL\nMission']}
+{'id': 'sid-E3EDD612-19D9-4048-B1B5-CF21E5E185F5', 'name': 'Cash receipt from the VN', 'incoming': ['Regression possible'], 'outgoing': ['Complete the process']}
+{'id': 'sid-64603068-309E-4505-BF3F-E196B19EB610', 'name': 'Opposition', 'incoming': ['Process\nReimbursement'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-5D17A0C7-D642-4E61-A534-A810E739AE26', 'name': 'Regression report\nthe', 'incoming': [], 'outgoing': ['VN payment request']}
+
+End Events:
+{'id': 'sid-B30D2C63-5970-46F6-8F59-6A486EB2E6AE', 'name': 'Process\ncompleted', 'incoming': ['Regression possible'], 'outgoing': []}
+{'id': 'sid-98B82991-3A5A-464D-B7DA-CA1D482A1CF2', 'name': 'Inkasso-DL\nMission', 'incoming': ['Max. WV time\n1 week'], 'outgoing': []}

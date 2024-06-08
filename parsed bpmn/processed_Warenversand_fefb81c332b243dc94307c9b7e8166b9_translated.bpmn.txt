@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-ECBE6C18-CA11-4502-A6E4-AE119B119B6B', 'name': 'Separation of the shipping method', 'incoming': ['ParallelGateway3'], 'outgoing': ['Type of shipping?']}
+{'id': 'sid-EC688FF8-C6CB-47F5-819C-1EEBAE97D644', 'name': 'Pick up offers', 'incoming': ['Shipping costs'], 'outgoing': ['Select your offer']}
+{'id': 'sid-415D91A0-F6DD-4DED-AEBB-C8C4A1893379', 'name': 'Select your offer', 'incoming': ['Type of shipping?'], 'outgoing': ['Specialist']}
+{'id': 'sid-36B87F8E-0AD9-4255-9EE7-CEE6FB6256A8', 'name': 'Specialist', 'incoming': ['Type of shipping?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-DD58B1E6-6646-4EC4-9AB6-973942ABC1A4', 'name': 'Filling the package note', 'incoming': ['Type of shipping?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-53C58E99-98A8-487F-ACCB-5AC3A877FBF1', 'name': 'Complete insurance', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-8E3EE6C9-105E-4E5E-8587-572E84516666', 'name': 'Informing warehouse workers', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['sid-A6131852-757E-4E49-9F06-34082801D0D3']}
+{'id': 'sid-E415AF6B-1CFE-4026-8F58-916683AB2E5A', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['sid-6629C8D6-8861-478A-9C2F-D25E98FD2F9C']}
+{'id': 'sid-BB92A41B-9D4D-4B17-B7D1-04372BDEAF8C', 'name': 'Delivering goods', 'incoming': ['sid-B64DF40E-E6E8-445A-9B20-369C517715BB'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-40324932-9A25-4075-842C-2A135EDFE4F2', 'name': 'Type of shipping?', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-9D497D6D-8D66-4C9F-88CA-BBB79D9952C1', 'name': 'Insurance necessary?', 'incoming': ['Type of shipping?'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-92752F82-9180-4D0E-8F50-D5DCB2CAF040', 'name': 'ExclusiveGateway2', 'incoming': ['Type of shipping?', 'Filling the package note', 'Type of shipping?'], 'outgoing': ['Informing warehouse workers']}
+{'id': 'sid-E1A55497-1841-4781-8C18-D12F56B1A330', 'name': 'ParallelGateway3', 'incoming': ['Shipping costs'], 'outgoing': ['Packaging goods', 'Pick up offers']}
+
+Start Events:
+{'id': 'sid-24927351-1601-4006-BADF-11023E6D1DCB', 'name': 'Shipping costs', 'incoming': [], 'outgoing': ['Pick up offers']}
+
+End Events:
+{'id': 'sid-F069D8EF-8755-4409-B72B-72844ECB13D1', 'name': 'EndEvent0', 'incoming': ['Delivering goods'], 'outgoing': []}

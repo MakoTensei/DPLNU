@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-EDB3F630-44AD-48FE-B798-A4B9CB289EB5', 'name': 'Filling the package note', 'incoming': ['Big crowd?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-AED9F61E-A51C-4713-A1BD-17BC8EEE7F7C', 'name': 'Pick up offers', 'incoming': ['StartEvent0'], 'outgoing': ['Select your offer']}
+{'id': 'sid-BA4220C5-C78B-42D3-947A-4BBE285A53F5', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-697FE027-C40E-4B5E-A63D-9EE473B588ED', 'name': 'Provide merchandise for collection', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-A7E36CDE-37AE-47EB-99B3-43C378DD3B18', 'name': 'Select your offer', 'incoming': ['Big crowd?'], 'outgoing': ['Specialist']}
+{'id': 'sid-FF45B0E6-6D01-44B1-9A03-534DDB3E44A6', 'name': 'Specialist', 'incoming': ['Big crowd?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-91ABDB35-4D54-4A5A-B386-9CCBCE37B151', 'name': 'Complete insurance', 'incoming': ['Insurance required?'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-264D1214-50A0-49AF-A3DA-AA5E3350CA32', 'name': 'Big crowd?', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0', 'ExclusiveGateway2']}
+{'id': 'sid-95A856A7-04DB-4B98-9A7E-56B72AC7F811', 'name': 'Insurance required?', 'incoming': ['Big crowd?'], 'outgoing': ['Complete insurance', 'ExclusiveGateway2']}
+{'id': 'sid-C72754F6-E902-4493-846B-7226ABBB9775', 'name': 'ExclusiveGateway2', 'incoming': ['Specialist', 'Big crowd?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-D6F00C3A-7A10-4AB0-BDE1-E237FE5FD5BE', 'name': 'ExclusiveGateway3', 'incoming': ['Complete insurance', 'Filling the package note'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-3C41E34D-294F-42DA-874F-ACD7250087B1', 'name': 'ParallelGateway4', 'incoming': ['StartEvent0'], 'outgoing': ['Pick up offers', 'ParallelGateway5']}
+{'id': 'sid-4C56080D-E8B3-4FC5-86B4-C69F2525B63D', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'Filling the package note'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-10E3B23C-550B-4E67-87F9-3A92B0FD5082', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Pick up offers']}
+
+End Events:
+{'id': 'sid-F3718552-BE08-4B41-9823-F9E79AC96A27', 'name': 'EndEvent0', 'incoming': ['Big crowd?'], 'outgoing': []}

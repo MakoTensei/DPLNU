@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-9E98061E-5001-472F-9E0D-D0C1EB458360', 'name': 'Check regression', 'incoming': ['Regression report'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-502FAA7C-85FB-4458-A442-BCAFF2260BFD', 'name': 'VN payment request', 'incoming': ['Regression report'], 'outgoing': ['Incoming payment']}
+{'id': 'sid-077CC1EA-D753-4E1F-B37D-1732AA8B8458', 'name': 'Book payment receipt\n', 'incoming': ['Incoming payment'], 'outgoing': ['Close process']}
+{'id': 'sid-3DD96823-E5B9-4D63-9897-836F805C40F5', 'name': 'Proceedings', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-FEC10303-7CE1-4608-A277-2DD1DE58B8F3', 'name': 'Not justified', 'incoming': ['Notification'], 'outgoing': ['Close process']}
+{'id': 'sid-750760CF-B90B-438A-BE20-CC1324409AF5', 'name': 'Not justified', 'incoming': ['Regression report'], 'outgoing': ['Disclosure of debt collection']}
+
+Gateways:
+{'id': 'sid-C923DEC4-0C0C-4101-96FD-A397A4758151', 'name': 'ExclusiveGateway0', 'incoming': ['Regression report'], 'outgoing': ['Close process', 'Close process']}
+{'id': 'sid-6762B655-7A47-4F81-8983-D0DBA7B25D5C', 'name': 'ExclusiveGateway1', 'incoming': ['Regression report'], 'outgoing': ['Close process', 'Disclosure of debt collection']}
+{'id': 'sid-E40C1FAD-8E0C-4BDB-A320-0A0E1EEBE6DE', 'name': 'Notification', 'incoming': ['Regression report'], 'outgoing': ['Not justified']}
+{'id': 'sid-DFB7C8A0-4A9F-4381-ADCD-97010ACDF192', 'name': 'Reference', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Disclosure of debt collection']}
+{'id': 'sid-C5283865-E67B-4DEF-9297-CA2E2761EBF0', 'name': 'IntermediateCatchEvent4', 'incoming': ['Regression report'], 'outgoing': ['Proceedings', 'Disclosure of debt collection', 'Incoming payment']}
+{'id': 'sid-276F8A0D-E474-433A-9952-037A97DDC224', 'name': 'Incoming payment', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Close process']}
+
+Start Events:
+{'id': 'sid-91ECE8ED-C179-4C6F-9125-9FB721DCE739', 'name': 'Regression report', 'incoming': [], 'outgoing': ['Not justified']}
+
+End Events:
+{'id': 'sid-99D1748B-7E58-4DA1-82DE-3D346F73A607', 'name': 'Close process', 'incoming': ['ExclusiveGateway1', 'ExclusiveGateway0', 'ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-43DFFC43-E661-406B-A40B-C1FA49203AB3', 'name': 'Disclosure of debt collection', 'incoming': ['ExclusiveGateway1', 'IntermediateCatchEvent4'], 'outgoing': []}

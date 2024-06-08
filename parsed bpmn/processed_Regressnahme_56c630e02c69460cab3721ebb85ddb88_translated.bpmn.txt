@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-00BBFA95-5C71-47F9-9F44-CC8F780241C5', 'name': 'Check the case', 'incoming': ['Notification\npossible regression'], 'outgoing': ['Is regression possible?']}
+{'id': 'sid-B6072BEE-5A50-4EB6-8102-7D53E68946E1', 'name': 'Send payment request', 'incoming': ['Notification\npossible regression'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-AABBCADB-D21D-401C-9601-7785BCAE5571', 'name': 'Book money', 'incoming': ['Money received'], 'outgoing': ['Processed successfully']}
+{'id': 'sid-EB053AD6-744E-44BF-8705-59F88EDEE88A', 'name': 'Set process for resubmission', 'incoming': ['Is regression possible?'], 'outgoing': ['Processed successfully']}
+{'id': 'sid-8F1E32C8-4FD0-4C33-97E4-C97F19315BCB', 'name': 'Proceedings', 'incoming': ['Objection'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-3E648542-B9F7-41A0-8CA4-3FA7C654C1C7', 'name': 'Close', 'incoming': ['Objection'], 'outgoing': ['Processed successfully']}
+{'id': 'sid-BA409A62-91BC-411A-BEE1-AB6966B32640', 'name': 'Case handed over', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Successfully handed over']}
+{'id': 'sid-332C6184-9C86-47D5-8842-51CE59838836', 'name': 'Close', 'incoming': ['Is regression possible?'], 'outgoing': ['Processed successfully']}
+
+Gateways:
+{'id': 'sid-7A5A1561-E3ED-44A8-BF3B-12A3BD0B17E0', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Processed successfully', 'ExclusiveGateway1']}
+{'id': 'sid-7221AB36-A2C1-4A2F-8F11-D9CC3B11B435', 'name': 'ExclusiveGateway1', 'incoming': ['Proceedings', 'EventBasedGateway3'], 'outgoing': ['Successfully handed over']}
+{'id': 'sid-5022BBAE-6EAF-44AA-ABC4-A5E23E0E0103', 'name': 'Is regression possible?', 'incoming': ['Notification\npossible regression'], 'outgoing': ['Processed successfully', 'Processed successfully']}
+{'id': 'sid-05C3A2A6-64E3-44CC-9B50-4C298DC7B1ED', 'name': 'EventBasedGateway3', 'incoming': ['Set process for resubmission'], 'outgoing': ['Money received', 'Case handed over', 'Processed successfully']}
+{'id': 'sid-6BAA2596-F93B-48A3-A595-7A57B08802AD', 'name': 'Money received', 'incoming': ['Set process for resubmission'], 'outgoing': ['Processed successfully']}
+{'id': 'sid-3D011F66-5040-4447-ADA4-3AC30FC062D4', 'name': 'Objection', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Close']}
+{'id': 'sid-A4534BF1-F659-445C-A2C7-C5F837B4905D', 'name': 'Reimbursement period\nit has expired', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Successfully handed over']}
+
+Start Events:
+{'id': 'sid-B6B86CA3-62FD-46AA-B0C7-F3F837AC4479', 'name': 'Notification\npossible regression', 'incoming': [], 'outgoing': ['Send payment request']}
+
+End Events:
+{'id': 'sid-F97709B4-F177-497E-9B36-187E6D3C9F61', 'name': 'Processed successfully', 'incoming': ['Is regression possible?'], 'outgoing': []}
+{'id': 'sid-6235359D-11EE-4588-A723-0B5C81056532', 'name': 'Processed successfully', 'incoming': ['Is regression possible?'], 'outgoing': []}
+{'id': 'sid-56D4E95C-11D6-46D5-8AB9-49F981ACE009', 'name': 'Processed successfully', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-627A36E3-0964-4479-BF8B-7DEABCF019EA', 'name': 'Successfully handed over', 'incoming': ['Reimbursement period\nit has expired'], 'outgoing': []}

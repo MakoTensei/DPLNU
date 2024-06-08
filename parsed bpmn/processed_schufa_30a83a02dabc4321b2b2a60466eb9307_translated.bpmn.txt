@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-A01E5387-6932-470D-A852-57FC8A1F3157', 'name': 'Send scoring inquiry to Schufa', 'incoming': ['Schufa request\ntriggered'], 'outgoing': ['Schufascore\nReport']}
+{'id': 'sid-81A0B044-BECA-49C7-80C8-72A18BBD8050', 'name': 'Scoring View result', 'incoming': ['Schufa request\ntriggered'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-031EE994-203C-4FD5-ABB4-1D1EA5A3A62E', 'name': 'Delay display', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-999BE542-C1F6-479E-A41E-1DB8F8F43479', 'name': 'Determine Schufa Score Level 1', 'incoming': ['Request\nReport'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-DCFBEC5B-779D-4A47-898E-E51EA3A8DB71', 'name': 'Determine Schufa Score Level 2', 'incoming': ['Request\nReport'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-DDFA3FF3-2000-4A82-B195-732F2F37BC16', 'name': 'Report delay', 'incoming': ['ParallelGateway2'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-FE0FD949-D30B-4815-9B97-7C6D15E4FAF2', 'name': 'Back to Schufa Score', 'incoming': ['ParallelGateway2'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-CFF6831A-2F7A-4BC1-9495-D7F28473E930', 'name': 'Scoring\nuniquely determined\nare you?', 'incoming': ['Request\nReport'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-14CF2669-9EE5-4C84-92AD-6A3EF7113B3A', 'name': 'ExclusiveGateway1', 'incoming': ['Determine Schufa Score Level 1', 'Scoring\nuniquely determined\nare you?'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-95E941C0-0510-46F0-874C-8312F630622D', 'name': 'ParallelGateway2', 'incoming': ['Request\nReport'], 'outgoing': ['EndEvent3', 'Back to Schufa Score']}
+{'id': 'sid-D35BA1EC-9125-4252-9A24-06FC567F84B1', 'name': 'Schufascore\nReport', 'incoming': ['Schufa request\ntriggered'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-45208DF2-BE1C-4665-A1D4-A8483213C6C7', 'name': 'Schufa request\ntriggered', 'incoming': [], 'outgoing': ['Scoring View result']}
+{'id': 'sid-66AEAC51-6749-4A68-93EE-11ED91020A99', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Delay display']}
+{'id': 'sid-CE13DD4B-3FBA-4959-9A0A-9270E29FA825', 'name': 'Request\nReport', 'incoming': [], 'outgoing': ['Determine Schufa Score Level 2']}
+
+End Events:
+{'id': 'sid-0D5C7A7F-D028-4A76-BA24-CE8A27E88A6D', 'name': 'EndEvent0', 'incoming': ['Schufascore\nReport'], 'outgoing': []}
+{'id': 'sid-519837DD-D631-4CD9-A19E-244B17654D7B', 'name': 'EndEvent1', 'incoming': ['Delay display'], 'outgoing': []}
+{'id': 'sid-FA89A3CF-C193-4BF2-ACBD-3221C3571A64', 'name': 'EndEvent2', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}
+{'id': 'sid-386874BA-D955-4D4F-9F22-7BEBA775F965', 'name': 'EndEvent3', 'incoming': ['ParallelGateway2'], 'outgoing': []}

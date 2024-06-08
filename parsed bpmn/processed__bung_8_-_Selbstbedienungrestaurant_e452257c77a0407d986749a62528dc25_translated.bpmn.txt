@@ -1,0 +1,39 @@
+Tasks:
+{'id': 'sid-74A0F009-8F85-4330-BF10-F1541A694C4F', 'name': 'Choose a dish from the offer', 'incoming': ['Hunger'], 'outgoing': ['waiting for order']}
+{'id': 'sid-02B691B3-B354-4E0C-83EE-8C8ACDB7B7BC', 'name': 'Add your order', 'incoming': ['Hunger'], 'outgoing': ['Amount of payment']}
+{'id': 'sid-F1F3EE29-C51F-4E93-AA2B-1F98BEC458A6', 'name': 'Payment', 'incoming': ['Hunger'], 'outgoing': ['Pierper sounds\n(Essen is ready to pick up)']}
+{'id': 'sid-9422ADAD-6288-47DD-BB47-DB0AA66B570A', 'name': 'Pick up food at issue', 'incoming': ['Pierper sounds\n(Essen is ready to pick up)'], 'outgoing': ['Get food']}
+{'id': 'sid-7B7525F3-7322-482B-805E-F8C21732A424', 'name': 'Eat meal', 'incoming': ['Get food'], 'outgoing': ['Sat']}
+{'id': 'sid-262C59C5-B6ED-46AC-92D0-97F2B76E8751', 'name': 'Enter your order\n(Case system)', 'incoming': ['Order to receive'], 'outgoing': ['Cash']}
+{'id': 'sid-B9C92536-2C80-42CC-A5FB-1935458C0B39', 'name': 'Cash', 'incoming': ['Order to receive'], 'outgoing': ['Get money']}
+{'id': 'sid-3D2FA7E9-874F-468C-990B-503EDB9ED1CA', 'name': 'Turn on Pieper for notification', 'incoming': ['Order to receive'], 'outgoing': ['Customer information\nand Pieper transferred to customers']}
+{'id': 'sid-E3E269B6-CC87-44A7-AFDB-9243C47EBCC6', 'name': 'Customer information\nand Pieper transferred to customers', 'incoming': ['Get money'], 'outgoing': ['inform Koch about ordered meal']}
+{'id': 'sid-700316FB-8747-418D-BEF4-0E8FB6470FA9', 'name': 'inform Koch about ordered meal', 'incoming': ['Get money'], 'outgoing': ['Prepared meal']}
+{'id': 'sid-5268B4BB-68BD-4E6D-9A89-D4858D1D92DA', 'name': "Trigger the guest's Pieper", 'incoming': ['Prepared meal'], 'outgoing': ['Guest appears on the issue']}
+{'id': 'sid-E76FF1E5-D46A-4C4D-86FF-22C70DCEF3D2', 'name': 'Leave food', 'incoming': ['Guest appears on the issue'], 'outgoing': ['Ordered']}
+{'id': 'sid-36EDDBCC-2433-4BB8-BFA0-7E3496E42F6A', 'name': 'Retrieve guest', 'incoming': ['5 minutes'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-09975CE2-FBBD-443C-A590-E614043ABDB8', 'name': 'Preparation of meal', 'incoming': ['Order pending'], 'outgoing': ['Putting meal on perimeters to employees']}
+{'id': 'sid-04CA33A5-5755-4132-81E8-87C970D3D598', 'name': 'Putting meal on perimeters to employees', 'incoming': ['Order pending'], 'outgoing': ['Informing employees about prepared meal']}
+{'id': 'sid-8F4518B3-7241-4791-A34E-BB84D1C22D3D', 'name': 'Informing employees about prepared meal', 'incoming': ['Order pending'], 'outgoing': ['Prepared food']}
+
+Gateways:
+{'id': 'sid-A8E1E23E-7413-4EBD-9FF1-2FBDE22B783A', 'name': 'EventBasedGateway0', 'incoming': ['Get money', 'Prepared meal'], 'outgoing': ['Ordered', 'EventBasedGateway0']}
+{'id': 'sid-FF283ABA-58C6-408A-87D0-2EBD3FD9E26C', 'name': 'waiting for order', 'incoming': ['Hunger'], 'outgoing': ['Add your order']}
+{'id': 'sid-C291AF5F-DF8B-4EDA-BA23-69164D2D8A2A', 'name': 'Amount of payment', 'incoming': ['Hunger'], 'outgoing': ['Sat']}
+{'id': 'sid-A0C7F706-0D98-4FF0-9A2C-0FFB01550965', 'name': 'Pieper and explanation obtained', 'incoming': ['Hunger'], 'outgoing': ['Pierper sounds\n(Essen is ready to pick up)']}
+{'id': 'sid-5794800A-C16D-4B19-AE45-F6AF7F825C28', 'name': 'Pierper sounds\n(Essen is ready to pick up)', 'incoming': ['Amount of payment'], 'outgoing': ['Get food']}
+{'id': 'sid-9506595E-1416-4A6B-A946-1EEB4EB653CC', 'name': 'Get food', 'incoming': ['Amount of payment'], 'outgoing': ['Sat']}
+{'id': 'sid-2AC34A3E-3F13-42B3-BC61-A2EEC19DE325', 'name': 'Get money', 'incoming': ['Order to receive'], 'outgoing': ['Ordered']}
+{'id': 'sid-AF66257E-7BC6-46D2-A3DE-DCCF60F4EF5F', 'name': 'Prepared meal', 'incoming': ['Get money'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-BAB6D000-C716-4589-8E7E-1FDE707D7653', 'name': '5 minutes', 'incoming': ['Prepared meal'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-17B3CD61-F712-470C-B7AB-0E0BFE63B3BD', 'name': 'Guest appears on the issue', 'incoming': ["Trigger the guest's Pieper"], 'outgoing': ['Ordered']}
+
+Start Events:
+{'id': 'sid-56F606DF-9D05-455F-A90E-7194288CF140', 'name': 'Hunger', 'incoming': [], 'outgoing': ['Pieper and explanation obtained']}
+{'id': 'sid-424588DE-91F1-440C-AACA-102A4B5836A7', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Turn on Pieper for notification']}
+{'id': 'sid-13FDD1D0-CBAF-4352-BEFF-4CEE8C60CB25', 'name': 'Order pending', 'incoming': [], 'outgoing': ['Informing employees about prepared meal']}
+
+End Events:
+{'id': 'sid-E0E851B8-524D-4AD3-A7FD-E8C41E87918B', 'name': 'Sat', 'incoming': ['Amount of payment'], 'outgoing': []}
+{'id': 'sid-3ADA5A0D-745F-49E8-AC6C-696106F4487B', 'name': 'Ordered', 'incoming': ['Get money'], 'outgoing': []}
+{'id': 'sid-5ADAC3DE-934E-4EFF-8B2A-0652F896E7FF', 'name': 'Prepared food', 'incoming': ['Informing employees about prepared meal'], 'outgoing': []}

@@ -1,0 +1,23 @@
+ Upon receiving an entrance order for shipping, the process begins with the 'Entrance order for\nShipping\n' event, which triggers the initiation of Spedition 2 through ParallelGateway6. This sets off a series of tasks:
+
+1. **Spedition 2**: This task involves filling the package note, which is then sent to ExclusiveGateway1.
+
+2. **Choose the cheapest offer**: After the package note is filled, the task of selecting the most cost-effective offer is initiated, which requires ExclusiveGateway6.
+
+3. **Send mail**: Once the cheapest offer is chosen, the process concludes with sending the mail, which is directed to ExclusiveGateway4.
+
+Throughout this process, the incoming and outgoing connections between tasks and gateways are as follows:
+
+- **Spedition 2**:
+  - Incoming: Entrance order for Shipping
+  - Outgoing: ExclusiveGateway1
+
+- **Choose the cheapest offer**:
+  - Incoming: ParallelGateway6
+  - Outgoing: ExclusiveGateway1
+
+- **Send mail**:
+  - Incoming: ParallelGateway6
+  - Outgoing: ExclusiveGateway4
+
+This flow ensures that the shipping order is processed efficiently, from filling the package note to selecting the best offer and finally sending the mail.

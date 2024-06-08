@@ -1,0 +1,7 @@
+ In the scoring process, a request is initiated by the 'Scoring request' event, which triggers the 'Scoring Level 1' gateway. This gateway then sends a 'Transfer scoring result 1' to the 'perform scoring level 2' task, which in turn generates a 'Scoring result Lvel 2'. Meanwhile, the 'Scoring Level 1' gateway also sends a 'Transfer scoring result 1' to the 'Scoring Level 1 successful?' gateway, which checks the success of the scoring level 1. If successful, it sends a 'Transfer scoring result 1' and a 'Get delay message' to the 'EventBasedGateway1'. The 'Scoring Level 1' gateway also sends a 'Transfer scoring results' to the 'Scoring Level 1 successful?' gateway.
+
+The 'Scoring\nRequired' event triggers the 'Get delay message' event, which sends a 'Get delay message' to the 'Scoring Level 1' gateway. This gateway then sends a 'Transfer scoring results' to the 'Scoring Level 1 successful?' gateway.
+
+The 'Scoring Level 1' gateway also receives a 'Scoring request' event, which triggers the 'Scoring Level 1' task. This task sends a 'Transfer scoring results' to the 'EventBasedGateway1' and 'Get delay message' event, which sends a 'Get delay message' to the 'Scoring\nRequired' event.
+
+Finally, the 'Transfer scoring results' events are sent to the 'Transfer scoring results' end events, completing the scoring process.

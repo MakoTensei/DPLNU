@@ -1,0 +1,38 @@
+Tasks:
+{'id': 'sid-FF72963A-B3A8-4313-BB6D-09323548A5DA', 'name': 'Visit the restaurant', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Select a court']}
+{'id': 'sid-EB2031F8-CED5-42FD-BF87-0174A92007F7', 'name': 'Select a court', 'incoming': ['Hunger\nfelt'], 'outgoing': ['First in\nsnake']}
+{'id': 'sid-1ED1015A-49A3-47A7-B1D8-E55A81CFC068', 'name': 'Order the Court', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Order payment']}
+{'id': 'sid-F4F14558-E5FA-43B5-94E8-FE8FF7F1F19E', 'name': 'Order payment', 'incoming': ['First in\nsnake'], 'outgoing': ['Take over Pieper']}
+{'id': 'sid-E8121304-ADFE-4757-A2FE-F5AB4C1D1623', 'name': 'Take over Pieper', 'incoming': ['First in\nsnake'], 'outgoing': ['Pieper\npiept']}
+{'id': 'sid-D1227947-34CC-4059-91A9-4D1F2DD6E851', 'name': 'Food', 'incoming': ['Pick up food'], 'outgoing': ['Lunchtime sleep']}
+{'id': 'sid-AB85DDD7-43F1-4DB3-BFC5-C212FB157CB8', 'name': 'Pick up food', 'incoming': ['Pieper\npiept'], 'outgoing': ['Lunchtime sleep']}
+{'id': 'sid-169A067B-ED60-4A0C-B4DD-F2D7AE3D7B00', 'name': 'Enter your order in the cash register system', 'incoming': ['Order\nReport'], 'outgoing': ['Amount']}
+{'id': 'sid-23078C00-B7A7-4D4D-B487-30F001F63664', 'name': 'Amount', 'incoming': ['Order\nReport'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-FA88B45D-C77C-4EB6-8575-85C433118724', 'name': 'Adjust Pieper', 'incoming': ['Order\nReport'], 'outgoing': ['Pieper over']}
+{'id': 'sid-E30CF48B-FDBC-43BC-8D5B-3BB1C611CC4E', 'name': 'Pieper over', 'incoming': ['Order\nReport'], 'outgoing': ['Koch inform']}
+{'id': 'sid-541706EA-6A16-4F51-9241-CC388B7F5DFC', 'name': 'Koch inform', 'incoming': ['Order\nReport'], 'outgoing': ['Info Essen\nis ready']}
+{'id': 'sid-E1949B37-21EA-464F-A50C-B1A8CDC16D04', 'name': 'Pieper\ntrigger', 'incoming': ['Order\nReport'], 'outgoing': ['Guest\nComing']}
+{'id': 'sid-2A816FD5-A83D-4996-B426-0ED977EED659', 'name': 'Pieper\ntrigger', 'incoming': ['5 min.'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-FBAA08D2-3ED1-4ECD-844E-4EDF8087CF6A', 'name': 'Deliver food', 'incoming': ['Order\nReport'], 'outgoing': ['Guest is\ncompleted']}
+{'id': 'sid-C9768B8E-3779-4C38-9AB5-6FA33078159A', 'name': 'Prepare your order', 'incoming': ['Order\nobtained'], 'outgoing': ['Putting meal in vain']}
+{'id': 'sid-51952FE1-6CC8-4B35-908C-60D85B24667A', 'name': 'Putting meal in vain', 'incoming': ['Order\nobtained'], 'outgoing': ['inform employees']}
+{'id': 'sid-3FDBA1A0-23AD-40A7-B28C-DE8455CF525A', 'name': 'Clean up kitchen', 'incoming': ['inform employees'], 'outgoing': ['Pause']}
+{'id': 'sid-A81B447C-DB62-4F90-AD50-9C32D9DFDCD5', 'name': 'inform employees', 'incoming': ['Order\nobtained'], 'outgoing': ['Pause']}
+
+Gateways:
+{'id': 'sid-7756F0AA-DCB5-4A13-B7E9-ECA4EDCA67F0', 'name': 'EventBasedGateway0', 'incoming': ['Info Essen\nis ready', 'Info Essen\nis ready'], 'outgoing': ['Guest is\ncompleted', 'Guest is\ncompleted']}
+{'id': 'sid-B2E3D31D-B5D1-48BB-AB91-D12E70A753FF', 'name': 'First in\nsnake', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Lunchtime sleep']}
+{'id': 'sid-D9F62A4F-5623-48D0-8EA0-D92C8FFFD548', 'name': 'Pieper\npiept', 'incoming': ['First in\nsnake'], 'outgoing': ['Lunchtime sleep']}
+{'id': 'sid-5C51D5B9-EA2D-43CB-B6D8-F9F0FA74D7DF', 'name': 'Info Essen\nis ready', 'incoming': ['Order\nReport'], 'outgoing': ['Guest is\ncompleted']}
+{'id': 'sid-D237AFCC-BF8B-4AFF-98DB-494F8712EB47', 'name': '5 min.', 'incoming': ['Info Essen\nis ready'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-74D92298-8410-4A55-9A77-9B334ACF884F', 'name': 'Guest\nComing', 'incoming': ['Order\nReport'], 'outgoing': ['Guest is\ncompleted']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Order the Court']}
+{'id': 'sid-542BEF3D-DFAD-49AA-826C-9AB12C87C816', 'name': 'Order\nReport', 'incoming': [], 'outgoing': ['Deliver food']}
+{'id': 'sid-63B69BDA-13FC-4FFA-93AF-A6FE6C87E588', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-0B5BF442-B048-486E-A625-3265A9B0033A', 'name': 'Lunchtime sleep', 'incoming': ['First in\nsnake'], 'outgoing': []}
+{'id': 'sid-EF369CFC-F4A6-4779-808B-B6AD1B1D7499', 'name': 'Guest is\ncompleted', 'incoming': ['Info Essen\nis ready'], 'outgoing': []}
+{'id': 'sid-E5CBB194-FE84-4954-9E59-FF0EDD6B0796', 'name': 'Pause', 'incoming': ['inform employees'], 'outgoing': []}

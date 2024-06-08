@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-565DD4A5-453C-4555-A7D6-B8D2DCC287CD', 'name': 'Complete standard package ticket', 'incoming': ['A lot?\n'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-88EAFAC3-AB21-402C-9399-4E01EC6F777F', 'name': 'Shipping', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods sent']}
+{'id': 'sid-48DA978D-C868-49E2-9580-C77178B18B75', 'name': '3 Special Delivery Offers', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Select your offer']}
+{'id': 'sid-132769A4-1721-4F49-A3C9-74A1976C8D7D', 'name': 'Select your offer', 'incoming': ['A lot?\n'], 'outgoing': ['Order for forwarding']}
+{'id': 'sid-A620C293-D26D-4EC8-8334-F958F13423E8', 'name': 'Order for forwarding', 'incoming': ['A lot?\n'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-7029163F-65F1-442D-B471-26DA1B0A2C3D', 'name': 'Complete insurance', 'incoming': ['Insurance?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-5A53AB59-5504-4216-98FB-A240513A0946', 'name': 'Packaging of goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+
+Gateways:
+{'id': 'sid-6D916021-2A48-4986-A12E-C1D973CEBE5F', 'name': 'A lot?\n', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Insurance?', 'ParallelGateway4']}
+{'id': 'sid-47512C5F-E7B6-4A22-B880-6F4D1EE9501F', 'name': 'Insurance?', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway2', 'Goods sent']}
+{'id': 'sid-F9CE6367-064B-4568-8F00-5BB29F7460A0', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance?', 'Complete standard package ticket'], 'outgoing': ['Goods sent']}
+{'id': 'sid-1BB35DA6-00D9-4BF6-A37A-4FD7A98CCDA1', 'name': 'ParallelGateway3', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Goods sent', 'Packaging of goods']}
+{'id': 'sid-D197AC82-F9FC-4915-BE1C-C3E96E651D33', 'name': 'ParallelGateway4', 'incoming': ['Complete standard package ticket', 'A lot?\n', 'Packaging of goods'], 'outgoing': ['Goods sent']}
+
+Start Events:
+{'id': 'sid-76E9BB50-EE0B-4C5A-BD6F-B3FF15019BD7', 'name': 'Goods are to be shipped', 'incoming': [], 'outgoing': ['3 Special Delivery Offers']}
+
+End Events:
+{'id': 'sid-9132DA4A-57BC-40F8-87FF-627C7140AB3B', 'name': 'Goods sent', 'incoming': ['ParallelGateway3'], 'outgoing': []}

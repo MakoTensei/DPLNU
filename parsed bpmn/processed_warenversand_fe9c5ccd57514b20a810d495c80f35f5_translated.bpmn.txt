@@ -1,0 +1,29 @@
+Tasks:
+{'id': 'sid-FF8ABC5A-28E4-4713-92AC-6364E5761D45', 'name': 'Secretariat clarifies whether special shipment or normal mail', 'incoming': ['ParallelGateway6'], 'outgoing': ['small or large quantity?']}
+{'id': 'sid-BD9E7620-3BEE-4DC9-AED0-F7807AC93AC8', 'name': 'Secretariat collects offers', 'incoming': ['Goods must be shipped'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-8674C428-C4CD-444F-A698-806B1FFFE509', 'name': 'Spediteur 1 created offer', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-3118E49A-3292-4709-BEF9-37557C8ACE9B', 'name': 'Spediteur 2 created offer', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-77B60593-DC4C-4001-8F36-69CA746C025D', 'name': 'Spediteur 3 created offer', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-AFF4304F-4F1E-420D-9E20-E404D9FA4625', 'name': 'Secretariat reviews offers', 'incoming': ['ParallelGateway6'], 'outgoing': ['Secretariat selects forwarder']}
+{'id': 'sid-76149EE2-62E5-4FB6-914B-B2A20E1F56AB', 'name': 'Secretariat selects forwarder', 'incoming': ['ParallelGateway5'], 'outgoing': ['Secretariat commissions forwarding']}
+{'id': 'sid-23FF64B6-D0B3-4F14-8180-906829D6A6D4', 'name': 'Secretariat creates package', 'incoming': ['small or large quantity?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-653947AA-8A61-4BB0-92CA-F00E9126A784', 'name': 'Logistics manager closes insurance', 'incoming': ['is insurance required?\n'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-FB0A762C-A7FD-4675-B627-B4A0E4F6D725', 'name': 'Warehouse workers packaged', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-89DD8071-5176-4DE6-A0AE-472A376A4BF9', 'name': 'Goods are provided for collection', 'incoming': ['ParallelGateway7'], 'outgoing': ['Goods are shipped']}
+{'id': 'sid-24A57F9A-14A9-49F7-9B36-2A67CC04BAB9', 'name': 'Secretariat commissions forwarding', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-FCB7CA20-43A7-4CB0-8BA9-DBF187E1F5FB', 'name': 'small or large quantity?', 'incoming': ['ParallelGateway6'], 'outgoing': ['Secretariat collects offers', 'ExclusiveGateway3']}
+{'id': 'sid-C516F984-6C27-45B2-88CD-FA8C9B142C5D', 'name': 'is insurance required?\n', 'incoming': ['small or large quantity?'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-A0BA6A7B-9435-44B8-9424-EA188D4C7151', 'name': 'ExclusiveGateway2', 'incoming': ['is insurance required?\n', 'Secretariat creates package'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-451AF43A-D377-49EB-A20E-77B493F93A79', 'name': 'ExclusiveGateway3', 'incoming': ['ParallelGateway5', 'small or large quantity?'], 'outgoing': ['sid-1937B498-D031-41F9-BEA9-4C43499E5D48']}
+{'id': 'sid-0CD38AFB-0C00-47E3-BAE8-D9206A1EC188', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway6'], 'outgoing': ['Spediteur 1 created offer', 'ParallelGateway5', 'ParallelGateway5']}
+{'id': 'sid-22BD8EED-2F69-41BC-BABB-106777BD50E7', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway6', 'ParallelGateway4', 'ParallelGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-93CBD598-1C15-4C95-A671-01E83A8FFFD4', 'name': 'ParallelGateway6', 'incoming': ['Goods must be shipped'], 'outgoing': ['Goods are shipped', 'Secretariat reviews offers']}
+{'id': 'sid-D28A3A35-04E9-4449-A53B-C7901F1A0BF3', 'name': 'ParallelGateway7', 'incoming': ['ParallelGateway6', 'sid-72FDCEBB-E2BF-48DC-873C-32D060DDAB6D'], 'outgoing': ['Goods are shipped']}
+
+Start Events:
+{'id': 'sid-89D1752E-D28D-4505-859F-D74E0333E7FC', 'name': 'Goods must be shipped', 'incoming': [], 'outgoing': ['Secretariat collects offers']}
+
+End Events:
+{'id': 'sid-DF1A72D9-2FB5-47F6-B762-9B294BA7E5FE', 'name': 'Goods are shipped', 'incoming': ['ParallelGateway6'], 'outgoing': []}

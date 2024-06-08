@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-CF4FD6E2-1F8E-40EF-96C8-295A2F068B85', 'name': 'Check the case', 'incoming': ['Report\nRegression possibility'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-D9C44261-20F0-48F6-8964-5813FE82E278', 'name': 'Close', 'incoming': ['Opposition\njustified?'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-35FD4FE2-5B6F-48A1-9377-590D411EAE4A', 'name': 'Incoming payment\nbook', 'incoming': ['Payment\nReport'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-A67C40EC-27C8-4E89-AF59-EE8B96270909', 'name': 'Proceedings', 'incoming': ['V\nagainst'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-C21C40E5-9872-49FA-92C0-17184702C231', 'name': 'Debt service provider\ncommission', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-02A8447D-091E-41BA-932A-270F43B076B1', 'name': 'Process\nReimbursement\nset and payment request\nsend', 'incoming': ['Report\nRegression possibility'], 'outgoing': ['Payment\nReport']}
+
+Gateways:
+{'id': 'sid-B78006AA-7EAA-4E3E-93AE-A6151D0DF03F', 'name': 'Regression\npossible?', 'incoming': ['Report\nRegression possibility'], 'outgoing': ['ExclusiveGateway1', 'Process\nReimbursement\nset and payment request\nsend']}
+{'id': 'sid-3EF06408-C075-47FE-9400-94C6E2BB1AC2', 'name': 'ExclusiveGateway1', 'incoming': ['Check the case', 'EventBasedGateway4', 'V\nagainst'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-55CAA3F9-9ADB-43BA-AF6F-9483A4214F71', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Close', 'ExclusiveGateway3']}
+{'id': 'sid-BF81A3A6-2FA0-412A-8848-6C2331656EB0', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-9E72B369-E1D9-4602-BB54-75104B23CB01', 'name': 'EventBasedGateway4', 'incoming': ['Report\nRegression possibility'], 'outgoing': ['ExclusiveGateway1', 'Opposition\njustified?', 'Debt service provider\ncommission']}
+{'id': 'sid-F482C447-522D-4C69-BF8D-B5DBC16E93D1', 'name': 'Payment\nReport', 'incoming': ['Process\nReimbursement\nset and payment request\nsend'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-83100F54-D3BE-4C16-B6E4-45C9EDAF67F3', 'name': 'Reimbursement\nDate\nExpired', 'incoming': ['Report\nRegression possibility'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-D15D92BA-52C9-407C-AAF3-C6C65E743594', 'name': 'V\nagainst', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-522F8996-340A-43E2-96CC-F4252482812E', 'name': 'Report\nRegression possibility', 'incoming': [], 'outgoing': ['Reimbursement\nDate\nExpired']}
+
+End Events:
+{'id': 'sid-A371790C-ACC0-46E4-BC47-B34FD535A797', 'name': 'Process\ncompleted', 'incoming': ['Incoming payment\nbook', 'Reimbursement\nDate\nExpired'], 'outgoing': []}

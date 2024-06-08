@@ -1,0 +1,5 @@
+ In the scoring process, the system initiates with a 'Scoring Required' event, which triggers the 'Scoring Request Obtained' event. This request is then directed to the 'Scoring Successful?' gateway, which upon successful scoring, forwards the 'Scoring Successful?' result to the 'Scoring Level 1' gateway. The 'Scoring Level 1' gateway then sends the 'Scoring Result Level 1' to the 'EventBasedGateway1', which in turn forwards the result to the 'Scoring Result Forward' event.
+
+Simultaneously, the 'Scoring Level 1' gateway also receives an incoming event from 'EventBasedGateway1'. This gateway then sends the 'Scoring Result Forward' event to the 'Scoring Level 2' gateway, which performs the scoring and sends the 'Scoring Result Forward' event to the 'Scoring Result Transfer Level 2' gateway.
+
+The 'Scoring Result Transfer Level 2' gateway then sends the 'Scoring Result Transfer Level 2' to the 'Scoring Level 2' gateway, which completes the scoring process and sends the final 'Scoring Result Forward' event to the 'End Events'.

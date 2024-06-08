@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-D080CD55-6C57-46A5-B4C9-8BF65250DC82', 'name': 'Clearing the shipping mode', 'incoming': ['ParallelGateway4'], 'outgoing': ['InclusiveGateway2']}
+{'id': 'sid-6AC9DA2E-7104-4F18-8619-C2BB45CA8FD3', 'name': 'Filling the package note', 'incoming': ['InclusiveGateway2'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-B6B2B6B0-5761-4603-816D-3D759711CA64', 'name': 'commission external freight forwarders', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-2919CD7D-3AC2-4A28-B04A-2E7E2712A7A9', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-B3E14E03-7142-4790-B3ED-63E97A0EFBC8', 'name': 'Delivering goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B61DA064-43EC-49ED-8F4F-905EE3CEB31B', 'name': 'Complete insurance', 'incoming': ['InclusiveGateway2'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-BFCB615A-F008-4996-9050-E29697A10A04', 'name': 'Special shipment necessary?', 'incoming': ['StartEvent0'], 'outgoing': ['commission external freight forwarders', 'InclusiveGateway3']}
+{'id': 'sid-DB966DF3-EE05-49F4-9AF4-70E19B043E30', 'name': 'ExclusiveGateway1', 'incoming': ['InclusiveGateway2', 'ParallelGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6F9CC524-FEE4-45B4-8F06-AF76FC384085', 'name': 'InclusiveGateway2', 'incoming': ['Clearing the shipping mode'], 'outgoing': ['EndEvent0', 'Complete insurance']}
+{'id': 'sid-5B6A00A0-3E86-42D1-A09D-8CD416BD6B54', 'name': 'InclusiveGateway3', 'incoming': ['StartEvent0', 'sid-6017DBD7-971B-49CE-8283-55969AF0E2E3'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-FE7AD8ED-6A6B-4E8B-AD9F-6BCA374DBBF4', 'name': 'ParallelGateway4', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1', 'ParallelGateway5']}
+{'id': 'sid-CC9D0523-76DB-4D66-85FD-D48DAF57E3C5', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'Filling the package note'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-E15859D2-5692-4D13-8CD4-662E303764DB', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['InclusiveGateway3']}
+
+End Events:
+{'id': 'sid-CFDC98A7-10DD-4871-A950-EF0A9B5996E7', 'name': 'EndEvent0', 'incoming': ['InclusiveGateway2'], 'outgoing': []}

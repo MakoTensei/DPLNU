@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-BCF31A86-D4CB-4A3E-8194-D48343404471', 'name': 'Check insurance case', 'incoming': ['Regression\nV'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-F9672310-9072-45CC-A04E-377DE9C17723', 'name': 'Set process for resubmission', 'incoming': ['sid-65A33DD0-B18C-424D-8DC6-23FA58FD87F4'], 'outgoing': ['Money\nentry\nobtained']}
+{'id': 'sid-97E92FB9-83C8-4D34-8A5F-4F8E9AF53D62', 'name': 'Close the process', 'incoming': ['Opposition\nagreed?'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-E07FAADF-4641-40EA-9962-89A385C62D04', 'name': 'Proceedings', 'incoming': ['Rigid\nAdopted\nobtained'], 'outgoing': ['Opposition\nagreed?']}
+{'id': 'sid-EEEC4571-E262-45B1-98E0-12B8D9D187C0', 'name': 'Book money receipt', 'incoming': ['Money\nentry\nobtained'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-E120C58B-7B95-4267-ADA0-2A85113568CF', 'name': 'Regression\npossible?', 'incoming': ['Regression\nV'], 'outgoing': ['sid-5285D77C-11DD-4EE8-95B4-06D82E08213C', 'Process\ncompleted']}
+{'id': 'sid-A2D39ABE-B404-4865-B943-7282E81BAC17', 'name': 'ExclusiveGateway1', 'incoming': ['Check insurance case', 'Rigid\nAdopted\nobtained', 'Money\nentry\nobtained'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-FE2DFB54-64DF-4D50-AD6A-B01DC51BBF6A', 'name': 'Opposition\nagreed?', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Close the process', 'sid-701317BC-0AF3-4E2A-8F97-BBABDEECD233']}
+{'id': 'sid-5B4AE2E6-C075-4306-986C-B5C60D5DC84D', 'name': 'IntermediateCatchEvent3', 'incoming': ['Set process for resubmission'], 'outgoing': ['Money\nentry\nobtained', 'Opposition\nagreed?', 'Date\ncoated']}
+{'id': 'sid-174D963D-D017-41E5-A12D-BC27336C5837', 'name': 'Money\nentry\nobtained', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-43AC5261-72B8-4FC7-BCB7-4FCC219AEAF6', 'name': 'Rigid\nAdopted\nobtained', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-9629B987-6AC4-478E-9A2E-2C903C71565C', 'name': 'Date\ncoated', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['sid-4ECE82CC-DAFA-45EB-8391-8E9B0B94DAB1']}
+
+Start Events:
+{'id': 'sid-33F0E3FB-F6D9-49AF-A509-DF14A4A95F16', 'name': 'Regression\nV', 'incoming': [], 'outgoing': ['Regression\npossible?']}
+
+End Events:
+{'id': 'sid-05FB5246-19E3-4D9D-9164-7FB5FD504864', 'name': 'Process\ncompleted', 'incoming': ['Regression\npossible?'], 'outgoing': []}

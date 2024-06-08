@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-1EC2E7DC-0189-4C99-8531-B1AB566723C5', 'name': 'Request Schufa scoring', 'incoming': ['Scoring request\nReport\n'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-BDB71334-ECDC-4BF6-BD26-A0DD7225C40B', 'name': 'forward scoring to frontend\n', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-5CF58406-CD2E-40DE-868A-BDC597BEDC70', 'name': 'forward the message', 'incoming': ['Scoring request\nReport\n'], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-80E16E24-12FA-4D67-9F2F-8A675CBBA7B9', 'name': 'perform scoring', 'incoming': ['Schufa-Auskunft\nrequested'], 'outgoing': ['Ergenis\npresent?']}
+{'id': 'sid-4F94256E-7CDF-470D-81B3-9A6801D15413', 'name': 'Scoring results\nsend', 'incoming': ['Schufa-Auskunft\nrequested'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-0BEE5241-A86C-44AC-899F-E540D46BE146', 'name': 'Send a message', 'incoming': ['Ergenis\npresent?'], 'outgoing': ['Level2 scoring']}
+{'id': 'sid-5E917791-B6CC-4441-9817-3A4E43330D5B', 'name': 'Level2 scoring', 'incoming': ['Ergenis\npresent?'], 'outgoing': ['Send a reply']}
+{'id': 'sid-D7D87B8C-43AE-457B-BCFA-950B3812C699', 'name': 'Send a reply', 'incoming': ['Ergenis\npresent?'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-B928914E-F0A0-4DAB-9F40-52BACEDD68D5', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'Scoring request\nReport\n'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-BBE2C661-52DF-4589-A499-61F7202FFEE4', 'name': 'Ergenis\npresent?', 'incoming': ['Schufa-Auskunft\nrequested'], 'outgoing': ['EndEvent1', 'EndEvent2']}
+{'id': 'sid-A3AA2291-2F3D-432A-8A01-82C4F8837537', 'name': 'EventBasedGateway2', 'incoming': ['Scoring request\nReport\n'], 'outgoing': ['EndEvent0', 'IntermediateCatchEvent4']}
+{'id': 'sid-543F4CF8-3F25-4726-9B45-62889C80E1E4', 'name': 'IntermediateCatchEvent3', 'incoming': ['Request Schufa scoring'], 'outgoing': ['forward scoring to frontend\n']}
+{'id': 'sid-CE89AB77-8DD6-4580-A3B7-3F893ACB6290', 'name': 'IntermediateCatchEvent4', 'incoming': ['Scoring request\nReport\n'], 'outgoing': ['forward the message']}
+{'id': 'sid-9F58DA32-5A3E-405B-BF07-86703B82E9D0', 'name': 'IntermediateCatchEvent5', 'incoming': ['Scoring request\nReport\n'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-D7622164-28EE-4C3D-A822-AC47FB62FD2E', 'name': 'Scoring request\nReport\n', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-F2ADAEEA-0583-4014-94BE-120F7BC37DF2', 'name': 'Schufa-Auskunft\nrequested', 'incoming': [], 'outgoing': ['Scoring results\nsend']}
+
+End Events:
+{'id': 'sid-728AF675-1389-4510-8B8E-FFD85351CA31', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-6A52CCC9-6382-4079-AE0C-DF01C499648C', 'name': 'EndEvent1', 'incoming': ['Ergenis\npresent?'], 'outgoing': []}
+{'id': 'sid-B5D9087D-1726-424F-8B2A-A767F620DF85', 'name': 'EndEvent2', 'incoming': ['Ergenis\npresent?'], 'outgoing': []}

@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-2262C58D-60DF-4733-8AC0-FF11D374B324', 'name': 'Scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['Result message']}
+{'id': 'sid-9CA105B7-ED02-4D15-88E9-2E90DCEF5663', 'name': 'interpret message', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-FA18CEA9-2EFA-4F44-9729-423E24D6A26E', 'name': 'Level 1 score\nback to frontend', 'incoming': ['Result message'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-DDB8FC1D-ED96-40DF-AD34-C6E963EEFB65', 'name': 'Delay reporting to Frontend', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Level 2 score\nresult']}
+{'id': 'sid-E6EDF9AE-334D-4A7A-A655-535CAFBC2C09', 'name': 'Level 2 score reporting to Frontend', 'incoming': ['Level 2 score\nresult'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-041B458D-2E10-47E1-A138-6A70979E5304', 'name': 'Scoring result\nCalculate', 'incoming': ['StartEvent1'], 'outgoing': []}
+{'id': 'sid-39B5E54D-7FFB-4AC8-8609-5E3E5215F745', 'name': 'Feedback result\nto Bank', 'incoming': ['sid-027AB086-1B2D-481D-94E6-EC656FF7D5D1'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-D833E6BB-F32E-42E3-8C3A-ED60680950E2', 'name': 'Level 2 Scoring', 'incoming': ['Level 1 or delay'], 'outgoing': ['Level 2 score to report to Bank']}
+{'id': 'sid-15E47342-0DE6-4E0C-9B2F-468F3CA3F1FE', 'name': 'Level 2 score to report to Bank', 'incoming': ['Level 1 or delay'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-2B0C2AB9-F768-482F-ADCA-4B505676E5C8', 'name': 'ExclusiveGateway0', 'incoming': ['Result message'], 'outgoing': ['EndEvent0', 'ExclusiveGateway1']}
+{'id': 'sid-C2014183-F340-4776-AA12-943B419E2C5B', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0', 'Result message'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-8B5878D5-7522-476D-AE44-EDD068C0A343', 'name': 'Level 1 or delay', 'incoming': ['Feedback result\nto Bank'], 'outgoing': ['Level 2 score to report to Bank', 'EndEvent1']}
+{'id': 'sid-16E92D55-49DF-46DB-A4A1-5FE5E3B3652F', 'name': 'ExclusiveGateway3', 'incoming': ['Level 2 score to report to Bank', 'Feedback result\nto Bank'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-4E4386BC-CB78-4275-A282-6CD30FC5100B', 'name': 'Result message', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-99832232-198D-43B8-9A96-054E3C20900A', 'name': 'Level 2 score\nresult', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-BE57ABFF-DB6A-44AD-A90C-BD5134376987', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['interpret message']}
+{'id': 'sid-2A239B2D-549B-46FA-8C1E-3E188192D9FE', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Scoring result\nCalculate']}
+
+End Events:
+{'id': 'sid-3A387D4D-6F94-4585-A604-B1ADE545AC40', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-C0465398-49D6-4CEB-84CF-EAA4087EE550', 'name': 'EndEvent1', 'incoming': ['Level 1 or delay'], 'outgoing': []}

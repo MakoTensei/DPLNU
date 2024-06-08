@@ -1,0 +1,7 @@
+ In a scoring system, a StartEvent0 initiates a Scoring request, which is then routed to an ExclusiveGateway0. This gateway sends the request to perform scoring level 1, which is received by an ExclusiveGateway2. The scoring level 1 process checks for Results available? and, upon completion, sends the results to the ExclusiveGateway2, which then routes the results to EndEvent1.
+
+Simultaneously, StartEvent1 triggers a Share delay, which sends the request to perform scoring level 2. This request is received by ExclusiveGateway2, which then sends the request to perform scoring level 2. Upon completion, the results are sent to EndEvent1.
+
+Meanwhile, StartEvent0 also triggers a Display delay message, which is received by EventBasedGateway3. This gateway sends the message to IntermediateCatchEvent5, which then sends a reply to EndEvent0.
+
+In summary, the scoring system starts with StartEvent0, which initiates a Scoring request and a Display delay message. The Scoring request is processed through ExclusiveGateway0 and ExclusiveGateway2, while the Display delay message is handled by EventBasedGateway3 and IntermediateCatchEvent5. Both processes conclude with EndEvent0 and EndEvent1, respectively.

@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-DD83E199-4D53-49D5-982F-62A7109673FA', 'name': 'to choose from', 'incoming': ['Hunger'], 'outgoing': ['Waiting to the row']}
+{'id': 'sid-1C333227-78BA-4C59-99FC-8FE6A6660349', 'name': 'Add your order', 'incoming': ['Hunger'], 'outgoing': ['IntermediateCatchEvent1']}
+{'id': 'sid-7B4554BA-A893-4F90-A989-E011BF5BF474', 'name': 'Pick up food', 'incoming': ['Hunger'], 'outgoing': []}
+{'id': 'sid-55B1A714-2171-4154-8A36-AACA139805B4', 'name': 'Recording', 'incoming': ['StartEvent1'], 'outgoing': ['Enter your order']}
+{'id': 'sid-5A3697FB-E053-459E-A74C-2E097F118D03', 'name': 'Enter your order', 'incoming': ['StartEvent1'], 'outgoing': ['Cash and Pieper Set']}
+{'id': 'sid-02E57278-BE91-4CAA-AA54-A8605C19CB66', 'name': 'Cash and Pieper Set', 'incoming': ['StartEvent1'], 'outgoing': ['Koch inform']}
+{'id': 'sid-371EF81D-E19C-41E2-976C-D67F3D464C8B', 'name': 'Koch inform', 'incoming': ['StartEvent1'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-5EBC8AD9-41F2-40D2-8578-ACD6629F2FF0', 'name': 'Trigger Pieper', 'incoming': ['StartEvent1'], 'outgoing': ['Leave food']}
+{'id': 'sid-4E82D8F4-BD88-457D-A831-48F9C2895087', 'name': 'Leave food', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': []}
+{'id': 'sid-CA066A82-425B-4297-ADFF-395BA0E505F5', 'name': 'Preparation of meal', 'incoming': ['StartEvent2'], 'outgoing': ['Introducing the Intermediate']}
+{'id': 'sid-DC7D4510-3FF6-4C61-B2B3-E7FA0A707F84', 'name': 'Introducing the Intermediate', 'incoming': ['StartEvent2'], 'outgoing': ['inform employees']}
+{'id': 'sid-3270023F-8D34-4ACB-B901-B4E1A3D5A7E8', 'name': 'inform employees', 'incoming': ['StartEvent2'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-6279B235-6127-474C-836B-A6911ADC6DE5', 'name': 'Waiting to the row', 'incoming': ['Hunger'], 'outgoing': ['Add your order']}
+{'id': 'sid-63BFF071-C404-4FFA-984E-EF969DAC6D67', 'name': 'IntermediateCatchEvent1', 'incoming': ['Hunger'], 'outgoing': ['Pick up food']}
+{'id': 'sid-D2C712E8-2356-4FAD-B7B0-A0DD43FD3598', 'name': 'IntermediateCatchEvent2', 'incoming': ['StartEvent1'], 'outgoing': ['Leave food']}
+
+Start Events:
+{'id': 'sid-7A4C8966-047B-411D-8075-B0FCB0EEDDF9', 'name': 'Hunger', 'incoming': [], 'outgoing': ['Pick up food']}
+{'id': 'sid-C6C776FE-DF63-4E78-87D9-3D1411B90D80', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Trigger Pieper']}
+{'id': 'sid-03F8C806-F51E-46A5-B843-5AA699B5C9B7', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:

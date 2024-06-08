@@ -1,0 +1,29 @@
+Tasks:
+{'id': 'sid-5A3100FC-AF0F-4CC0-BC97-276A3A3E5B9C', 'name': 'clarification of the acquisition of the product', 'incoming': ['StartEvent0'], 'outgoing': ['clarification of the quantity']}
+{'id': 'sid-D8F6886C-C142-4DE9-8C6E-1B1E83C06F22', 'name': 'clarification of the quantity', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-79D944B4-80A6-4D72-BD56-BC1FF2666062', 'name': 'Select the Spediteur', 'incoming': ['StartEvent0'], 'outgoing': ['Desired\nSpediteur?']}
+{'id': 'sid-18E23B87-E762-41F2-B074-CDD865239EAF', 'name': 'Pick a quote from Spediteur 1', 'incoming': ['ParallelGateway6'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-5B715120-3D9D-4B0C-A210-5E511A7A44FD', 'name': 'Pick a quote from Spediteur 2', 'incoming': ['Desired\nSpediteur?'], 'outgoing': []}
+{'id': 'sid-08F54686-5C5F-49AF-AE8F-3B1706FCF08E', 'name': 'Pick a quote from Spediteur 3', 'incoming': ['Desired\nSpediteur?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-A186E176-5D35-4E8B-AEEB-7489BFE78BCC', 'name': 'freight forwarders\ncommission', 'incoming': ['ParallelGateway6'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-17DBD158-9B2D-4E43-B7AE-9A411A140E67', 'name': 'Clearing insurance needs\n', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-39E7A8FC-4537-412E-8E26-F1A934DFD213', 'name': 'Filling the package note', 'incoming': ['ExclusiveGateway4'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-8E054738-79B8-4A0B-831B-31D8FB93B473', 'name': 'Packaging goods', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-E3E59372-6DA3-42C6-BFA5-96D0F06CA99A', 'name': 'Goods ready for collection', 'incoming': ['ParallelGateway7'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-A6FF1BEC-D6AE-44E4-AC7E-949C4B66FC7B', 'name': 'Insurance close', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['ExclusiveGateway4']}
+
+Gateways:
+{'id': 'sid-7EEF6410-085C-4595-9208-CA9CBBE076F2', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway6'], 'outgoing': ['Select the Spediteur', 'ExclusiveGateway5']}
+{'id': 'sid-65C2F657-38EF-4DF4-86ED-CE5B97C27960', 'name': 'Desired\nSpediteur?', 'incoming': ['ParallelGateway6'], 'outgoing': ['Pick a quote from Spediteur 1', 'Pick a quote from Spediteur 2', 'ExclusiveGateway2']}
+{'id': 'sid-A4329023-410A-4C50-8589-9DFD274507A4', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway6', 'sid-CCC9CF4F-D177-4232-806B-00F4AAEB32B6', 'Desired\nSpediteur?'], 'outgoing': ['freight forwarders\ncommission']}
+{'id': 'sid-A3F753A6-B032-4330-ACAA-AE87614CAEE4', 'name': 'ExclusiveGateway3', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Insurance close', 'ExclusiveGateway5']}
+{'id': 'sid-D0B37F43-215A-4EC3-BF20-838CC519EABF', 'name': 'ExclusiveGateway4', 'incoming': ['Insurance close', 'Clearing insurance needs\n'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-E38C857C-F081-4555-9F3A-F510B8470B79', 'name': 'ExclusiveGateway5', 'incoming': ['ParallelGateway6', 'ExclusiveGateway0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-87718121-9FE2-4844-855F-C60F3026F94D', 'name': 'ParallelGateway6', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway7', 'ParallelGateway7']}
+{'id': 'sid-53A725B8-CB0C-40A6-B8BA-8BD0089C4C1C', 'name': 'ParallelGateway7', 'incoming': ['ParallelGateway6', 'ParallelGateway6'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-2128AA1D-3D90-4FEB-A0A0-9A424C81E7F5', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Select the Spediteur']}
+
+End Events:
+{'id': 'sid-2B5C1B1A-54B4-4B63-8C27-65548FC14A94', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway5'], 'outgoing': []}

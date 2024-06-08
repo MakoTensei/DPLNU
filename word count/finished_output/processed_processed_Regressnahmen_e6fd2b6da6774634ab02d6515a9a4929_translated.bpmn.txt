@@ -1,0 +1,9 @@
+ When a 'Regress eventl.\nentered' occurs, the system initiates a sequence of tasks to check for regressions. First, the 'Check regression' task is triggered, which examines the event to determine if there is a regression issue. If a regression claim is made, the system proceeds to the 'lies Regress claim?' gateway, which has two possible outcomes: it can either lead to the 'Opposition obtained' event, indicating that the opposition has been obtained, or it can lead to the 'ExclusiveGateway2' event, which further evaluates the situation.
+
+If the 'lies Regress claim?' gateway leads to the 'Opposition obtained' event, the 'Payment\nSend a message' task is activated, sending a message to the opposition. Conversely, if the 'lies Regress claim?' gateway leads to the 'ExclusiveGateway2' event, the 'Close' task is executed, which closes the current process and redirects to the 'ExclusiveGateway2' event.
+
+In the case of the 'Opposition obtained' event, the 'Payment\nSend a message' task is triggered again, and the 'Payment\nenrollment' task is activated, which handles the payment enrollment process.
+
+The 'EventBasedGateway4' gateway is also triggered by the 'Regress eventl.\nentered' event, leading to three possible outcomes: 'Inkasso Heinzi commission', 'Get regression', and 'Opposition obtained'. If the 'Inkasso Heinzi commission' task is activated, it handles debt collection. If the 'Get regression' task is activated, it retrieves the regression data. If the 'Opposition obtained' event is triggered, it leads to the 'Opposition justified?' gateway, which has two possible outcomes: 'Regress rejected' or 'ExclusiveGateway3'.
+
+If the 'Opposition justified?' gateway leads to the 'Regress rejected' event, the 'Payment\nobtained' task is activated, and the 'Debt collection' task is triggered, handling the debt collection process. If the 'Opposition justified?' gateway leads to the 'ExclusiveGateway

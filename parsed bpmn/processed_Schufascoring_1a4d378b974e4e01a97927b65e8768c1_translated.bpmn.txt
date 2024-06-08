@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-240400AE-2EC5-4D43-B484-D9745F82E6F7', 'name': 'Request Schufascoring', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Scoring 1\nOther']}
+{'id': 'sid-A42DBE00-7AFD-4B1B-87AF-342C60506C4A', 'name': 'Scoring 1 result forward', 'incoming': ['Scoring 1\nOther'], 'outgoing': ['Scoring query\nFinished']}
+{'id': 'sid-350B43AD-3247-436A-8ABC-D1BF90939B72', 'name': 'forward delay', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Final scoring\nResult\nReport']}
+{'id': 'sid-5536EB1B-79CE-422E-840F-1B6AD28ECB02', 'name': 'Scoring 2 result forward', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Schuf request\nFinished']}
+{'id': 'sid-70E20235-FA36-47F2-884C-E4DDCB358D83', 'name': 'Scoring 1 Calculate result', 'incoming': ['Request request'], 'outgoing': ['Result\navailable?']}
+{'id': 'sid-3A78679E-B243-4DF6-BE1A-B396525197FE', 'name': 'Scoring1\nFollow-up', 'incoming': ['Request request'], 'outgoing': ['Scoring request\nFinished']}
+{'id': 'sid-94051877-793A-437A-B8D6-6938F165FEA4', 'name': 'forward delay', 'incoming': ['Result\navailable?'], 'outgoing': ['Scoring 2 result\nCalculation']}
+{'id': 'sid-A4FAADC0-F24A-4D9A-AC4D-5DCA3941E489', 'name': 'Scoring 2\nResult\nforward', 'incoming': ['Scoring 2 result\nCalculation'], 'outgoing': ['End of query']}
+{'id': 'sid-592A0A57-899D-4E1A-AB5E-BB00EBAF19AD', 'name': 'Scoring 2 result\nCalculation', 'incoming': ['Result\navailable?'], 'outgoing': ['End of query']}
+
+Gateways:
+{'id': 'sid-A8A19216-38E6-48BF-9AFD-7F5B584FFA44', 'name': 'Result\navailable?', 'incoming': ['Request request'], 'outgoing': ['Scoring request\nFinished', 'End of query']}
+{'id': 'sid-CC6A21AB-011A-448A-909B-9C4A50EC44E2', 'name': 'EventBasedGateway1', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Scoring query\nFinished', 'Delay']}
+{'id': 'sid-037D37F2-4D60-451D-A14D-05C910E7AC74', 'name': 'Scoring 1\nOther', 'incoming': ['Request Schufascoring'], 'outgoing': ['Scoring query\nFinished']}
+{'id': 'sid-804F99C5-AFB1-46C5-AF41-5B701F115173', 'name': 'Delay', 'incoming': ['Scoring request\nReport'], 'outgoing': ['forward delay']}
+{'id': 'sid-F7413BE0-B910-432A-8811-691B5E966353', 'name': 'Final scoring\nResult\nReport', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Schuf request\nFinished']}
+{'id': 'sid-00988265-DED4-41E1-9115-8AF06C1AA0C4', 'name': 'Request request', 'incoming': [], 'outgoing': ['Scoring1\nFollow-up']}
+
+Start Events:
+{'id': 'sid-F620C8D5-6A2A-4920-9F27-55D9CF37A1DD', 'name': 'Scoring request\nReport', 'incoming': [], 'outgoing': ['Scoring 2 result forward']}
+
+End Events:
+{'id': 'sid-77694D6C-863B-4393-B870-039C79F15083', 'name': 'Schuf request\nFinished', 'incoming': ['Final scoring\nResult\nReport'], 'outgoing': []}
+{'id': 'sid-69FEE0E6-9857-45EB-AC17-566C2AD7C7DC', 'name': 'Scoring query\nFinished', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-A5C37285-23AD-4EE2-BDD7-26DF1A7B23BC', 'name': 'Scoring request\nFinished', 'incoming': ['Result\navailable?'], 'outgoing': []}
+{'id': 'sid-8B4A5842-ACA4-4548-8EA3-B6D90B266349', 'name': 'End of query', 'incoming': ['Result\navailable?'], 'outgoing': []}

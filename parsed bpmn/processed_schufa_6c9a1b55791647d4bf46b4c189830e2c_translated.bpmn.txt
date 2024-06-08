@@ -1,0 +1,18 @@
+Tasks:
+{'id': 'sid-D54700EB-6267-4A26-B714-CEF4EC3BA036', 'name': 'Determining scoring (Level2)', 'incoming': ['sid-E49C01FB-97E9-4E66-AE70-776B0D3464E4'], 'outgoing': ['sid-DC221012-9069-425D-8A93-DBBF6E56F160']}
+{'id': 'sid-40C4C0D3-11CF-4BB7-9447-4BFC48F0F649', 'name': 'Determining scoring (level1)', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Scoring\navailable?\n\n']}
+
+Gateways:
+{'id': 'sid-BD10FBA6-17D3-4DA2-A32B-F32D4E9EBCF7', 'name': 'Scoring\navailable?\n\n', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['sid-31AD806B-9550-4C38-A6C7-1363527704B4', 'sid-22CC2EFF-60A0-47FF-AD94-7F15DB9FC5DC']}
+{'id': 'sid-25848D5F-4964-474A-B2DA-FA88455E6E79', 'name': 'EventBasedGateway1', 'incoming': ['sid-00C0BA90-AC78-4B5B-BBD6-634E03BAC447'], 'outgoing': ['Scoring\nsent', 'IntermediateCatchEvent4']}
+{'id': 'sid-0C9A5B50-0EFF-4876-95A7-8E7D9A1ABB84', 'name': 'IntermediateCatchEvent2', 'incoming': ['sid-6DF58851-E74F-4436-BFA2-04C05072790E'], 'outgoing': ['Scoring\nsent']}
+{'id': 'sid-A4DB2DE8-6032-4312-A3F9-BB7A4E35083A', 'name': 'IntermediateCatchEvent3', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Scoring\nsent']}
+{'id': 'sid-493E2797-24B4-4B29-821F-D89083A55007', 'name': 'IntermediateCatchEvent4', 'incoming': ['EventBasedGateway1'], 'outgoing': ['sid-FCB7BAF1-7B77-48A3-9240-C1496147A616']}
+
+Start Events:
+{'id': 'sid-A9EE854B-1517-425C-A289-13E4762384AB', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['sid-C36613BC-11EA-4DED-9A9D-1046D0F687A5']}
+{'id': 'sid-B92DF6BD-D6B1-4778-A779-1BDBFFDED129', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['Scoring\navailable?\n\n']}
+
+End Events:
+{'id': 'sid-B0E3686C-B184-4FD6-BD45-89D74C605FFE', 'name': 'Scoring\nsent', 'incoming': ['EventBasedGateway1', 'IntermediateCatchEvent2'], 'outgoing': []}
+{'id': 'sid-2C40C6EF-7523-4B7D-9DD2-896FE8BEAE0A', 'name': 'Scoring\nsent', 'incoming': ['sid-C192C1A9-5739-4300-A1FE-6E6E7550BA47', 'sid-F3D95DEE-D68E-4B20-8A64-F13E5E3345F4'], 'outgoing': []}

@@ -1,0 +1,38 @@
+Tasks:
+{'id': 'sid-E199A07D-A35F-4776-A740-7B8BB7D28C73', 'name': 'Visit the restaurant', 'incoming': ['Feeling hungry'], 'outgoing': ['Selects court']}
+{'id': 'sid-A12A6D0E-D84A-49AD-8677-7A68EF2C647D', 'name': 'Selects court', 'incoming': ['Feeling hungry'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-7C30E6BB-6587-423B-A096-1C870BD35971', 'name': 'Add to Cart', 'incoming': ['Feeling hungry'], 'outgoing': ['IntermediateCatchEvent1']}
+{'id': 'sid-25E00CA1-F5B6-46A2-9C7C-BC1C880D6635', 'name': 'Guest paid', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Informed']}
+{'id': 'sid-1D1E2933-2865-4CFF-951F-F3475C4C521A', 'name': 'Pick up food', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Coming food']}
+{'id': 'sid-E5571316-A7BC-4A6B-960E-A1612BEB8212', 'name': 'Eat food', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6405A2A8-5086-40AE-9926-9183E24F75F4', 'name': 'Adds an order in KA\n', 'incoming': ['Retains order'], 'outgoing': ['Cash']}
+{'id': 'sid-FB7C50A0-2194-44F2-8860-BEC4CE9107FB', 'name': 'Cash', 'incoming': ['Retains order'], 'outgoing': ['Payment received']}
+{'id': 'sid-E01C457A-8C05-4D88-A929-43B59E8D43BB', 'name': 'Sets Pieper', 'incoming': ['Retains order'], 'outgoing': ['Passed Pieper to Gast']}
+{'id': 'sid-9FD7169B-D2A6-423F-8D1E-2D692E5EDBA1', 'name': 'Passed Pieper to Gast', 'incoming': ['Payment received'], 'outgoing': ['Informed Cook']}
+{'id': 'sid-C4F5FC69-DB4A-4BBA-B60A-CB2F6B8D56A8', 'name': 'Informed Cook', 'incoming': ['Payment received'], 'outgoing': ['meal ready']}
+{'id': 'sid-410AA09C-A7ED-400E-821E-B19C2589417F', 'name': 'Solves Pieper', 'incoming': ['meal ready'], 'outgoing': ['IntermediateCatchEvent8']}
+{'id': 'sid-9C579D88-D4A7-40E9-B945-30D8FB2013DA', 'name': 'Add food', 'incoming': ['Guest appears'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-199B9584-F536-4B23-929A-06515DC541D6', 'name': 'Calls guest', 'incoming': ['IntermediateCatchEvent8'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-31A56920-696C-46FE-A3F0-7C9D6730C5A4', 'name': 'Prepare meal', 'incoming': ['chef gets over\nOrder informed'], 'outgoing': ['Puts meal into the reach\n']}
+{'id': 'sid-41D91E36-E426-4B06-9B18-69776BA64DC1', 'name': 'Puts meal into the reach\n', 'incoming': ['chef gets over\nOrder informed'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-4D2B4208-4B44-4D87-98E6-6FB583204F1C', 'name': 'EventBasedGateway0', 'incoming': ['Payment received', 'IntermediateCatchEvent8'], 'outgoing': ['EventBasedGateway0', 'EndEvent1']}
+{'id': 'sid-BFDB00FF-161F-4646-A05E-6FF82922D998', 'name': 'IntermediateCatchEvent1', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Guest paid']}
+{'id': 'sid-7BE5BA71-6EA0-4951-ABEE-588AED49ECA5', 'name': 'Informed', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Pick up food']}
+{'id': 'sid-A75BFD91-C6F9-4DC8-ABD7-AEED0F362DE8', 'name': 'Coming food', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-BB040396-47CC-4D6E-8205-5A7893849D79', 'name': 'IntermediateCatchEvent4', 'incoming': ['Feeling hungry'], 'outgoing': ['Eat food']}
+{'id': 'sid-3AFF6709-EBD8-4D5B-80F7-2AB5479B307E', 'name': 'Payment received', 'incoming': ['Retains order'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-9EF6B087-9408-4E6B-8103-A7701170C3EF', 'name': 'meal ready', 'incoming': ['Payment received'], 'outgoing': ['Guest appears']}
+{'id': 'sid-B4F4539D-057E-4105-BAC6-8AF63DDE0589', 'name': 'Guest appears', 'incoming': ['meal ready'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-2894F267-DFB9-4696-916A-D0A464CD96FF', 'name': 'IntermediateCatchEvent8', 'incoming': ['Solves Pieper'], 'outgoing': ['EventBasedGateway0']}
+
+Start Events:
+{'id': 'sid-14EB2A66-E970-4A67-A87A-E3801CB682C6', 'name': 'Feeling hungry', 'incoming': [], 'outgoing': ['Add to Cart']}
+{'id': 'sid-051431BA-FE53-406D-80E6-AECA6E9C5221', 'name': 'Retains order', 'incoming': [], 'outgoing': ['Sets Pieper']}
+{'id': 'sid-C001F818-A475-4F4A-B31F-DD15F539C2CC', 'name': 'chef gets over\nOrder informed', 'incoming': [], 'outgoing': ['Puts meal into the reach\n']}
+
+End Events:
+{'id': 'sid-5E39ABA0-EEDC-4878-9FD2-0B85FF81A313', 'name': 'EndEvent0', 'incoming': ['Coming food'], 'outgoing': []}
+{'id': 'sid-4C174BB3-3B32-4E71-901F-98E67275E386', 'name': 'EndEvent1', 'incoming': ['Payment received'], 'outgoing': []}
+{'id': 'sid-FB997981-70B8-493B-8C94-87E63B5A2FB6', 'name': 'EndEvent2', 'incoming': ['Puts meal into the reach\n'], 'outgoing': []}

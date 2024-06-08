@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-B5EB6569-93E7-4E3F-B478-05CEFA85BF3C', 'name': 'Extent and type of order check', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-695E6193-6CBC-4452-8AB1-B3B835E6964D', 'name': 'Select Aungebot', 'incoming': ['Special offers'], 'outgoing': ['Specialist']}
+{'id': 'sid-E5832CC7-A0D6-4D00-9E28-BB34018C5CE1', 'name': 'Specialist', 'incoming': ['Special offers'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-4C8300E4-7729-4B6E-82BE-FECB93B4ED07', 'name': 'Special offers', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-E5657F4C-1E30-43C8-8792-FD42779DF561', 'name': 'Packaging of goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-89706700-946C-4FAE-885C-4777CC405D06', 'name': 'Providing the goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['Pickup\nmade available']}
+{'id': 'sid-BEB13405-03FE-4281-8572-89DE3018B490', 'name': 'Complete insurance', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-2C1168E3-D678-420C-9C2A-584B4DC44D7B', 'name': 'ExclusiveGateway0', 'incoming': ['Order\nobtained'], 'outgoing': ['Special offers', 'ExclusiveGateway1']}
+{'id': 'sid-3ADAA085-3748-4CB6-ACC3-EDD8C62E1009', 'name': 'ExclusiveGateway1', 'incoming': ['Extent and type of order check'], 'outgoing': ['Complete insurance', 'ExclusiveGateway2']}
+{'id': 'sid-BFB67D0A-D8FB-44E5-AB44-165F9AF27CE9', 'name': 'ExclusiveGateway2', 'incoming': ['Complete insurance', 'Extent and type of order check'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-8B0CFC3C-8E78-485A-AEC7-2D400FDE9363', 'name': 'ExclusiveGateway3', 'incoming': ['Extent and type of order check', 'ParallelGateway4'], 'outgoing': ['Pickup\nmade available']}
+{'id': 'sid-194C37A5-432F-4806-BE74-1E45F9C74FA2', 'name': 'ParallelGateway4', 'incoming': ['Order\nobtained'], 'outgoing': ['ParallelGateway5', 'Pickup\nmade available']}
+{'id': 'sid-A16E9938-A5F0-4F69-8762-050EC4125078', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'Extent and type of order check'], 'outgoing': ['Pickup\nmade available']}
+
+Start Events:
+{'id': 'sid-D50D304E-DF69-42DD-8B29-C9D1AF600518', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-F6A4A6EE-20B1-4FCD-B076-8F9C69CFFBFD', 'name': 'Pickup\nmade available', 'incoming': ['ParallelGateway4'], 'outgoing': []}

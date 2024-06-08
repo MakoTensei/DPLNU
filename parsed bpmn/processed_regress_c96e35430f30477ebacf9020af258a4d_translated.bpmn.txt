@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-807F6AD2-93BD-4A50-BD49-F8F9DC466329', 'name': 'Check the case', 'incoming': ['Regression possibility\nReport'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-7A50D0F5-8FFE-4BE3-833F-02CC8A400D42', 'name': 'Send a message', 'incoming': ['Regression possibility\nReport'], 'outgoing': ['On WV']}
+{'id': 'sid-36FDD2BC-17AF-4B52-8675-5A07F0F28BB6', 'name': 'On WV', 'incoming': ['Regression\npossible?'], 'outgoing': ['Payment\nReport']}
+{'id': 'sid-1598402F-DD47-4F9F-9CF4-AC2F4606BCA9', 'name': 'Close', 'incoming': ['Book money receipt'], 'outgoing': ['Process\nwith cash receipt\nclosed']}
+{'id': 'sid-B0F8EDF2-CEA6-43D7-99CC-00C7D86B0740', 'name': 'Proceedings', 'incoming': ['Opposition\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-6B7BBDF9-C8F8-4A2F-90C9-41B4B254335C', 'name': 'Close', 'incoming': ['Opposition\nReport'], 'outgoing': ['Process\nwithout cash receipt\nclosed']}
+{'id': 'sid-DFAAE166-3499-4FA2-B99C-34718B6F9434', 'name': 'forwarding debt collection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Case\nforwarded']}
+{'id': 'sid-4785E0A7-61F2-4415-B948-ADA498AD7E7E', 'name': 'Book money receipt', 'incoming': ['Payment\nReport'], 'outgoing': ['Close']}
+
+Gateways:
+{'id': 'sid-242C898C-76D3-420B-AAF7-8E4307C418D2', 'name': 'Regression\npossible?', 'incoming': ['Regression possibility\nReport'], 'outgoing': ['ExclusiveGateway3', 'justified?']}
+{'id': 'sid-14750E8D-22E8-469A-BFF9-2436CD75E4BF', 'name': 'justified?', 'incoming': ['Regression\npossible?'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-C457FACD-DBEB-4AF9-9612-29A77741D558', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['Case\nforwarded']}
+{'id': 'sid-93182C40-718F-409E-928F-A9B572E8E697', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Check the case'], 'outgoing': ['Process\nwith cash receipt\nclosed']}
+{'id': 'sid-1C223991-CBA0-4AA3-85C9-C1AC8C9FECFB', 'name': 'EventBasedGateway4', 'incoming': ['Regression\npossible?'], 'outgoing': ['forwarding debt collection', 'Process\nwith cash receipt\nclosed', 'Payment\nReport']}
+{'id': 'sid-08718B98-527A-437D-8920-A06070147A66', 'name': 'Payment\nReport', 'incoming': ['On WV'], 'outgoing': ['Book money receipt']}
+{'id': 'sid-10BD3B1C-1985-4C27-99F1-0DCDFEB14A0A', 'name': 'Opposition\nReport', 'incoming': ['Regression\npossible?'], 'outgoing': ['Process\nwithout cash receipt\nclosed']}
+{'id': 'sid-72EBCB2D-13D1-40D2-B45C-591E480CE63A', 'name': 'Reimbursement\nExpired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Case\nforwarded']}
+
+Start Events:
+{'id': 'sid-BCF7C767-63C4-437C-AB51-345000D5489D', 'name': 'Regression possibility\nReport', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-82D6895F-90A6-44E9-A6AE-8248979DDC76', 'name': 'Process\nwith cash receipt\nclosed', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-EF92ED49-C023-46B1-9D2D-7420EC5560BB', 'name': 'Process\nwithout cash receipt\nclosed', 'incoming': ['Opposition\nReport'], 'outgoing': []}
+{'id': 'sid-486C94A2-3D28-4E65-8178-FA9C231A8799', 'name': 'Case\nforwarded', 'incoming': ['Reimbursement\nExpired'], 'outgoing': []}

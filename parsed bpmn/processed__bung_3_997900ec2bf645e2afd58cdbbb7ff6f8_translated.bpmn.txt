@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-A0B7ADB6-51F6-410A-9359-4CC7F1B20079', 'name': 'Check regression', 'incoming': ['Report'], 'outgoing': ['Regress possible?\n']}
+{'id': 'sid-E45C1BE4-6300-4DDC-A745-F76ED766CEBB', 'name': 'Close', 'incoming': ['Report'], 'outgoing': []}
+{'id': 'sid-398628F5-C992-402F-8526-CD443EF267A2', 'name': 'VN payment request', 'incoming': ['Regress possible?\n'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-4F94089F-F2E1-4451-9AE2-259947B5712D', 'name': 'Reimbursement', 'incoming': ['Regress possible?\n'], 'outgoing': ['Money received']}
+{'id': 'sid-806ABCAD-0C68-4152-A53E-CAD4C9FE5401', 'name': 'Book money', 'incoming': ['Money received'], 'outgoing': ['Close\n']}
+{'id': 'sid-6BA384BA-3787-485E-88C2-D96AF3C95B5C', 'name': 'Close\n', 'incoming': ['Money received'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-74500198-5B4E-48FF-8AFD-D15152E6C721', 'name': 'Proceedings', 'incoming': ['Objection'], 'outgoing': ['Manufactured\n']}
+{'id': 'sid-9FC22079-6A6C-4CDB-A784-522E7B75E46B', 'name': 'Close', 'incoming': ['Objection'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-C3F727C0-ADFC-48D9-9FF6-F991DAECDAA6', 'name': 'if forward', 'incoming': ['Manufactured\n'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-46DD5B67-E78B-4852-983D-90B8F480D1A2', 'name': 'forward case', 'incoming': ['WV expired'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-263356E9-F291-4D96-B6CD-F4038F47847A', 'name': 'Regress possible?\n', 'incoming': ['Report'], 'outgoing': ['EndEvent2', 'EndEvent1']}
+{'id': 'sid-8BD36A0A-734C-4A86-9229-39950AA992AE', 'name': 'Manufactured\n', 'incoming': ['Regress possible?\n'], 'outgoing': ['Close', 'EndEvent2']}
+{'id': 'sid-B814C41E-1D9A-4DDA-823B-8DE944DEB0F7', 'name': 'EventBasedGateway2', 'incoming': ['Regress possible?\n'], 'outgoing': ['EndEvent0', 'Objection', 'WV expired']}
+{'id': 'sid-A0C88A31-F23C-476E-9481-E1409362E97C', 'name': 'Money received', 'incoming': ['Reimbursement'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-3A2D389A-2509-4ADC-BA28-1611BA036A3B', 'name': 'Objection', 'incoming': ['Regress possible?\n'], 'outgoing': ['Close']}
+{'id': 'sid-4FAD11C1-B69A-48BF-9EE3-EB0F8AD9A910', 'name': 'WV expired', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent3']}
+
+Start Events:
+{'id': 'sid-331D579B-E77A-44EA-9190-A056A9A1F08D', 'name': 'Report', 'incoming': [], 'outgoing': ['Close']}
+
+End Events:
+{'id': 'sid-36FE16C0-E4B9-4193-AEBB-59CC788D77B7', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-BBC7B49C-639F-4385-A002-47E11D30B7E1', 'name': 'EndEvent1', 'incoming': ['Regress possible?\n'], 'outgoing': []}
+{'id': 'sid-2B56BA07-B6A8-4920-ABA5-AEA4DACD8363', 'name': 'EndEvent2', 'incoming': ['Regress possible?\n'], 'outgoing': []}
+{'id': 'sid-7AB9F613-A3AC-4FDE-A9F8-A17F010950A4', 'name': 'EndEvent3', 'incoming': ['WV expired'], 'outgoing': []}

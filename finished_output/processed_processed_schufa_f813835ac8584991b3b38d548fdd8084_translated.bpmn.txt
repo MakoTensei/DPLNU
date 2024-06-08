@@ -1,0 +1,11 @@
+ In a bustling data processing center, a series of tasks are orchestrated through a network of gateways and start events. The first task, "Scoring request 1," initiates its journey at "ParallelGateway1," which then sends a successful query to "Successful query?" gateways. This query is followed by a "Sending result" task that originates from "ParallelGateway1" and "Request" start event, eventually reaching "ParallelGateway3."
+
+Simultaneously, "Scoring request 2" is processed at "ParallelGateway2," which sends a message to "ParallelGateway3" and is triggered by a "Request" start event. Meanwhile, "Request to Schufa" is initiated by a "Start" event, which doesn't have any incoming or outgoing connections.
+
+"Other work done" is triggered by "StartEvent3," and "Process" is initiated by "StartEvent2," both of which have no incoming or outgoing connections.
+
+The "Successful query?" gateway receives queries from "ParallelGateway1" and "ParallelGateway2," and sends results to "Sending result" and "ParallelGateway3." "ParallelGateway1" processes "Request" and sends it to "ParallelGateway2" and "Sending result." "ParallelGateway2" sends a message to "ParallelGateway3" and awaits a request. "ParallelGateway3" awaits a delay from "ParallelGateway1" and sends results to "Sending result."
+
+"Delay" is triggered by "Start" and "Request," and sends a delay to "ParallelGateway3." "Process" and "Other work done" are triggered by "StartEvent2" and "StartEvent3," respectively, and have no outgoing connections.
+
+In summary, the data processing center efficiently manages tasks through a network of gateways and start events, ensuring smooth and timely processing of requests and results.

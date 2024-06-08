@@ -1,0 +1,7 @@
+ In the process of scoring a customer using Schufa, the system initiates with the 'Pick up Schufascoring a customer' start event, which triggers the 'Waiting for result' task. This task is dependent on the 'Results obtained?' gateway, which in turn can lead to either 'Report delay' or 'EndEvent0'.
+
+Meanwhile, the 'Scoring request to Schufa' task is initiated by the 'StartEvent1' start event, which connects to the 'ExclusiveGateway1'. This gateway leads to the 'EndEvent0' task, indicating the completion of the scoring process.
+
+Simultaneously, the 'perform scoring level 2' task is triggered by 'StartEvent1', which sends a reply to the 'Send a reply' task. The 'Scoring' task, which is dependent on the 'YEAR' input, concludes with 'EndEvent1'.
+
+In summary, the process starts with picking up a customer for scoring, which leads to waiting for the result. The scoring process is initiated and completed, with the system sending a reply and ending the event. The results obtained from the scoring process can either be reported or lead to a delay.

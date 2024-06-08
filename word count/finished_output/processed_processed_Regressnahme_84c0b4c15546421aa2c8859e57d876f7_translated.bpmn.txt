@@ -1,0 +1,10 @@
+ In the insurance case workflow, the process begins with a Regression V event, which triggers the possibility of a regression check. This event leads to the Regression possible? gateway, where the outcome determines if the process will proceed to the ExclusiveGateway1. If the regression check is not possible, the process moves forward to the Set process for resubmission task, which requires the Rigid Adopted event to be obtained. Upon successful resubmission, a Money entry obtained event occurs, which then directs the process to the ExclusiveGateway1.
+
+
+Once the ExclusiveGateway1 is reached, the process can either continue to the Close the process task if the Opposition agreed? event is received, or it can loop back to the IntermediateCatchEvent3 if the Opposition did not agree. The Close the process task requires the Opposition agreed? event to be received and leads to the Process completed event, marking the end of the workflow.
+
+
+Alternatively, if the Opposition agreed? event is not received, the process returns to the IntermediateCatchEvent3, which can lead to the Rigid Adopted event being obtained again, or it can proceed to the Book money receipt task if the Money entry obtained event is received. The Book money receipt task then sends the Money entry obtained event to the ExclusiveGateway1, continuing the workflow.
+
+
+Finally, the Date coated event, which is an intermediate event, can be reached from the IntermediateCatchEvent3 and leads to the Process completed event, marking the end of the workflow.

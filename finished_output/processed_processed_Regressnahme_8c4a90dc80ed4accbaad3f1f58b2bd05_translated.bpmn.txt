@@ -1,0 +1,17 @@
+ Upon receiving the event of 'Possible rainfall', the system initiates a series of tasks and gateways. First, the 'Check the case' task is triggered, which is directed towards 'ExclusiveGateway1'. This task is set to respond to the incoming 'Possible rainfall' event.
+
+Simultaneously, the 'Send payment request' task is also activated due to the same incoming event. This task is directed towards 'Cash receipt', which is connected to 'ExclusiveGateway1'.
+
+The 'Book the entrance' task is then initiated, which is directed towards 'ExclusiveGateway1' as well. This task is set to respond to the incoming 'Cash receipt' event.
+
+The 'Proceedings' task is activated, which is directed towards 'ExclusiveGateway3'. This task is set to respond to the incoming 'Possible rainfall' event.
+
+The 'Debt service provider' task is also triggered, which is directed towards 'EventBasedGateway4'. This task is set to respond to the incoming 'EventBasedGateway4' event.
+
+The 'ExclusiveGateway1' receives the tasks from 'Check the case', 'Send payment request', and 'Book the entrance'. It then directs all these tasks to 'Closed'.
+
+The 'ExclusiveGateway3' receives the 'Proceedings' task and directs it to 'Process delivered to debt collection office'.
+
+The 'EventBasedGateway4' receives the 'Debt service provider' task and directs it to 'Process delivered to debt collection office'.
+
+Finally, the 'Closed' event is triggered, which is directed towards 'VN contradicts' and 'Process delivered to debt collection office'. This event signifies the completion of the tasks and the closure of the system.

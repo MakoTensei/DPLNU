@@ -1,0 +1,11 @@
+ When a payment is received, the system initiates a sequence of tasks to handle the transaction. The process begins with the 'StartEvent0' which triggers the 'Send a message' task, setting the process for resubmission. This task is directed to 'ExclusiveGateway1', which is responsible for managing the flow of tasks.
+
+Once the 'Set process for resubmission' task is completed, the system proceeds to 'Close the process' task, which is triggered by 'ExclusiveGateway2'. This task marks the end of the process and is followed by the 'EndEvent0', signaling the completion of the entire sequence.
+
+In the case of a regression request, the system starts with 'StartEvent0', which sends a message to 'ExclusiveGateway1'. This task is then followed by 'Set process for resubmission', which is directed to 'ExclusiveGateway0'. The process is completed with 'Close the process' task, triggered by 'ExclusiveGateway2', and ends with 'EndEvent0'.
+
+For booking a payment receipt, the system starts with 'StartEvent0', sending a message to 'ExclusiveGateway1'. The system then proceeds to 'Debt collection', which is triggered by 'EventBasedGateway4'. The process concludes with 'Close the process', directed by 'ExclusiveGateway2', and ends with 'EndEvent0'.
+
+In the case of an opposition, the system starts with 'StartEvent0', sending a message to 'ExclusiveGateway1'. The process is completed with 'Close the process', triggered by 'ExclusiveGateway2', and ends with 'EndEvent0'.
+
+Lastly, when an event-based payment is received, the system starts with 'StartEvent0', sending a message to 'ExclusiveGateway1'. The process is completed with 'Debt collection', triggered by 'EventBasedGateway4', and ends with 'EndEvent0'.

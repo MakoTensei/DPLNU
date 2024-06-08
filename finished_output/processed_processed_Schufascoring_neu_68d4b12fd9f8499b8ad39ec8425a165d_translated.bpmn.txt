@@ -1,0 +1,7 @@
+ In the banking system, a series of events and gateways are interconnected to handle scoring requests and report delays. The process begins when the event 'Schufascoring is required' triggers the start event, which sends a 'Message' to the 'Level 1\Message' gateway. This gateway then sends a 'Request completed' message to the 'EventBasedGateway1', which in turn sends a 'Request completed' message back to the start event.
+
+Simultaneously, the 'Schufascoring is required' event also triggers the start event for the 'Level 2\Message' gateway, which sends a 'Process without result' message to the 'EventBasedGateway1'. This gateway then sends a 'Process without result' message back to the start event.
+
+If the 'Result is fixed?' event is triggered, it sends a 'End of query' message to both the 'Level 1\Message' and 'Level 2\Message' gateways. These gateways then send an 'End of query' message back to the event.
+
+In summary, the system handles scoring requests and report delays by triggering events and passing messages between gateways, ensuring that the appropriate actions are taken based on the incoming and outgoing messages.

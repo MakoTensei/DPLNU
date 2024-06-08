@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-1886192E-9D70-4CDA-8D02-BE688D68D99D', 'name': 'Check the case', 'incoming': ['Regression case'], 'outgoing': ['Regress?']}
+{'id': 'sid-8BBE75D8-9517-4465-B972-2E3290900081', 'name': 'Close', 'incoming': ['Regression case'], 'outgoing': ['Process closed']}
+{'id': 'sid-5A5C09F7-F2D3-4CEB-9BF3-C52B36B91AFF', 'name': 'Send payment request', 'incoming': ['Regress?'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-CF528751-36B2-4E3C-A4E6-725DFD3BC99E', 'name': 'Book the entrance', 'incoming': ['Get money'], 'outgoing': ['Process closed']}
+{'id': 'sid-74BB0ADD-ED68-4F64-8141-C227FAAA4CA5', 'name': 'Proceedings', 'incoming': ['Objection'], 'outgoing': ['Inaksso Service']}
+{'id': 'sid-54B4578D-6AAA-42AB-92B3-E67AA16EF744', 'name': 'Close', 'incoming': ['Objection'], 'outgoing': ['Process closed']}
+{'id': 'sid-F77EABDD-720F-44BB-9EA0-B81AE4254D2F', 'name': 'Reimbursement', 'incoming': ['Regress?'], 'outgoing': ['Get money']}
+
+Gateways:
+{'id': 'sid-C784928E-19B3-4CA4-84BD-B8501B08565F', 'name': 'Regress?', 'incoming': ['Regression case'], 'outgoing': ['Process closed', 'Reimbursement']}
+{'id': 'sid-4EF33BEC-05DE-48C3-9FA5-2E637DAC5016', 'name': 'Objection justified?', 'incoming': ['Date'], 'outgoing': ['Process closed', 'Inaksso Service']}
+{'id': 'sid-860755B0-D977-4985-BCA7-F34E07A6AA4E', 'name': 'Date', 'incoming': ['Reimbursement\nExpired'], 'outgoing': ['Process closed', 'Process closed']}
+{'id': 'sid-8802BFED-2D2F-4D9B-B57A-B38B1811B754', 'name': 'Reimbursement\nExpired', 'incoming': ['Reimbursement'], 'outgoing': ['Get money']}
+{'id': 'sid-6135E88E-FA45-456C-B1E8-638D7988F40E', 'name': 'Get money', 'incoming': ['Reimbursement'], 'outgoing': ['Process closed']}
+{'id': 'sid-1D3827CC-7907-41F7-B798-99832BDBC88B', 'name': 'Objection', 'incoming': ['Date'], 'outgoing': ['Close']}
+
+Start Events:
+{'id': 'sid-3929D7A4-430C-4002-ABB1-CE1E2A5358C9', 'name': 'Regression case', 'incoming': [], 'outgoing': ['Close']}
+
+End Events:
+{'id': 'sid-B397C0D8-3BCF-483A-A51E-6FB213580A8F', 'name': 'Process closed', 'incoming': ['Regress?'], 'outgoing': []}
+{'id': 'sid-4B8DEFF3-EE2F-4E7E-B4AB-0C77C6C27DA4', 'name': 'Process closed', 'incoming': ['Date'], 'outgoing': []}
+{'id': 'sid-8D8B7AF8-E8CD-490C-85FC-AD583E2DAED8', 'name': 'Process closed', 'incoming': ['Date'], 'outgoing': []}
+{'id': 'sid-FDA7D6EB-3BC5-4539-A2A4-352802ADD051', 'name': 'Inaksso Service', 'incoming': ['Proceedings'], 'outgoing': []}

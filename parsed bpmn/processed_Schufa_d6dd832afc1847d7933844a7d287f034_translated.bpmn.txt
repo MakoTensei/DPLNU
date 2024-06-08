@@ -1,0 +1,29 @@
+Tasks:
+{'id': 'sid-D5D44688-BBB2-4A46-9613-3E65CF4F2929', 'name': 'Scroring request', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-3E1D0A31-40FC-4385-97B1-05DBCB9DB6C7', 'name': 'Scoring results\nforward', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-CC6DF986-37C8-4D3E-8E69-8B4B6C89C6EC', 'name': 'Delay\nparts', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-9E64A928-AF30-4C87-BF4D-B8E385383F63', 'name': 'Scoring results\nforward', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-8224AB8B-6734-458B-BA20-FEA0D453A1E3', 'name': 'Scoring Level 1\nperform', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-460767A2-6E59-468D-B763-86CB2B8FF8AE', 'name': 'Share scoring results', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-9BFB1489-1D61-459B-9D94-FE819D0CF084', 'name': 'Delay\nReport', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Scroring Level 2\nperform']}
+{'id': 'sid-D6B762C9-C092-411C-BEF9-CE3DC038FEED', 'name': 'Scroring Level 2\nperform', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Scoring results\nparts']}
+{'id': 'sid-E42536B6-4C62-4AC0-886D-7B799C884476', 'name': 'Scoring results\nparts', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent4']}
+
+Gateways:
+{'id': 'sid-DE9EB17D-C96C-474A-A5CF-756498FD5906', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'EndEvent2']}
+{'id': 'sid-D2D3748B-70A1-41E0-8DC8-636FE21B7F67', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent3', 'EndEvent4']}
+{'id': 'sid-8F791E75-D223-4CCB-8DB5-7C2479D8BADC', 'name': 'EventBasedGateway2', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-2AB8F459-08E6-417C-A86C-A84D38938F1A', 'name': 'ParallelGateway3', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['IntermediateCatchEvent5', 'EndEvent1']}
+{'id': 'sid-C8ED3F4F-4E23-45F7-A6C9-885378A20544', 'name': 'IntermediateCatchEvent4', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-8959054B-98B5-44C2-BB64-B6FD17FC6766', 'name': 'IntermediateCatchEvent5', 'incoming': ['Scroring request'], 'outgoing': ['EndEvent2']}
+
+Start Events:
+{'id': 'sid-CC1795DA-D40E-41F5-A3F3-6129B4E2C5AA', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-F8BF7FAD-B09C-4F65-B0C4-35A256344AFC', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Share scoring results']}
+
+End Events:
+{'id': 'sid-C76E2497-C3B6-419C-ACEB-C5E8EE3422B0', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-85EC4FB2-B174-44A4-ADF3-C6598C883C2E', 'name': 'EndEvent1', 'incoming': ['ParallelGateway3'], 'outgoing': []}
+{'id': 'sid-F9FE140D-098E-4BAE-AEC9-DC97BB5F5BF8', 'name': 'EndEvent2', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-35A8A83F-8B75-47F2-B454-6F392F8F3BBD', 'name': 'EndEvent3', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}
+{'id': 'sid-6A1A85F9-10C5-492E-A9AE-116AAF515A37', 'name': 'EndEvent4', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}

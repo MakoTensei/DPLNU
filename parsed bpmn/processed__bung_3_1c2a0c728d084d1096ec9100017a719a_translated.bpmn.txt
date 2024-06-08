@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-197E830C-3BB7-4BDE-AE53-A918B2E952D5', 'name': 'Case\nCheck', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-1C301A63-1EB2-4B10-98AD-F23F42467305', 'name': 'Process\nBook now', 'incoming': ['Cash receipt'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-2AB097E7-8CA8-4918-8303-83F2F5B6CDF5', 'name': 'Process\nReimbursement', 'incoming': ['StartEvent0'], 'outgoing': ['Action']}
+{'id': 'sid-851FFD1E-223B-45EA-829A-1CAFE4BF3781', 'name': 'Opposition\nCheck', 'incoming': ['VN Opposition'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-FD9C79ED-0FE0-4BC7-B0D7-F211A4FEDFD1', 'name': 'Regress?', 'incoming': ['StartEvent0'], 'outgoing': ['VN Opposition', 'ExclusiveGateway1']}
+{'id': 'sid-B5B15B82-B89C-4362-9EFF-ADFA05341C81', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway4', 'Case\nCheck', 'ExclusiveGateway2'], 'outgoing': ['Close']}
+{'id': 'sid-57A2EC82-7817-4356-BAD5-0D873B076A00', 'name': 'ExclusiveGateway2', 'incoming': ['VN Opposition'], 'outgoing': ['Close', 'ExclusiveGateway3']}
+{'id': 'sid-3FC0651D-FC53-4785-AE76-0513AC6A6465', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Opposition\nCheck'], 'outgoing': ['Action']}
+{'id': 'sid-887A3C93-14E2-42E0-8B62-8354866E4952', 'name': 'EventBasedGateway4', 'incoming': ['Regress?'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway3', 'VN Opposition']}
+{'id': 'sid-7919F9C5-11EF-46EE-9A36-E88CAEAF3FCD', 'name': 'ParallelGateway5', 'incoming': ['StartEvent0'], 'outgoing': ['Cash receipt', 'sid-746DFDD5-F692-4425-8B49-19F4751DAD35']}
+{'id': 'sid-B1AE87C3-6E2B-46BD-AA3B-7E1DF5AE0A7D', 'name': 'Cash receipt', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-FB1BE301-18D9-45B5-9CB2-290099FD1EFB', 'name': 'Reference', 'incoming': ['StartEvent0'], 'outgoing': ['Action']}
+{'id': 'sid-E1444142-FFD4-417F-BF10-526F222AECC7', 'name': 'VN Opposition', 'incoming': ['Regress?'], 'outgoing': ['Close']}
+
+Start Events:
+{'id': 'sid-66A1AA5E-9D61-4AE1-8638-601B759FE81C', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Reference']}
+
+End Events:
+{'id': 'sid-D303AA03-7BE7-4160-896D-D365E7CD9387', 'name': 'Close', 'incoming': ['VN Opposition'], 'outgoing': []}
+{'id': 'sid-0B3BD8C8-8585-4F27-B5F9-B5987323EE70', 'name': 'Action', 'incoming': ['Process\nReimbursement'], 'outgoing': []}

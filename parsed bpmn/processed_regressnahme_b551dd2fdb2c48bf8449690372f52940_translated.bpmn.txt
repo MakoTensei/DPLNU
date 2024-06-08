@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-F8162814-CA78-4834-965F-E4C4BF3619B9', 'name': 'Check the case', 'incoming': ['VN in Regress'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-F7D0C428-17B4-4FB2-86B3-76AAB1A53E23', 'name': 'Send a message', 'incoming': ['VN in Regress'], 'outgoing': ['Payment']}
+{'id': 'sid-46081FBA-5C66-4BA1-A564-45C725702BB9', 'name': 'Book your entrance', 'incoming': ['Payment'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-09182A06-A5F1-47FC-BE14-1D6CBD42E4A9', 'name': 'Proceedings', 'incoming': ['VN in Regress'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-58E21731-E96E-4FE2-B1CB-CC1E13618435', 'name': 'handed over to debt collection office', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-604CB59A-49C3-43A6-90ED-BD1F06D943EA', 'name': 'Take VN to Regress?', 'incoming': ['VN in Regress'], 'outgoing': ['ExclusiveGateway3', 'Process']}
+{'id': 'sid-03CC47E9-33A3-484B-BB85-2A7AA7F45B31', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-10CC4143-1BF5-4E98-BE77-30A129CD0BBC', 'name': 'ExclusiveGateway2', 'incoming': ['VN in Regress', 'EventBasedGateway4'], 'outgoing': ['handed over to debt collection office']}
+{'id': 'sid-E2FDD069-2947-4DBC-8693-98C2779D3A72', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Check the case', 'Take VN to Regress?', 'VN'], 'outgoing': ['Process']}
+{'id': 'sid-23C3F1EA-FB76-4261-8B12-29816A702CEF', 'name': 'EventBasedGateway4', 'incoming': ['VN in Regress'], 'outgoing': ['Payment', 'Objection justified?', 'ExclusiveGateway3']}
+{'id': 'sid-0AAA915F-32FD-45ED-8672-390E992385D7', 'name': 'Payment', 'incoming': ['Take VN to Regress?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-B7168780-871C-4029-A66D-40FDDB8A366E', 'name': 'VN', 'incoming': ['VN in Regress'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-A69E72C9-738E-4A7E-AA1D-E67F168EDB20', 'name': 'Reimbursement', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-36771201-3040-4003-A483-8E771FAF20F1', 'name': 'VN in Regress', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-CA102F54-8C81-4238-902E-2CB436E2266F', 'name': 'Process', 'incoming': ['Take VN to Regress?'], 'outgoing': []}

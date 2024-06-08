@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-362E6C58-80B7-4A23-8956-A779CC0A9016', 'name': 'Scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-EB233553-203B-4D59-8574-12EB761B9FFE', 'name': 'Send delay notice to sales staff', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-40F98F4F-4FDE-4A1E-ADA6-41034554D4E1', 'name': 'forward scoring results', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-44F346CA-0DF6-4BA0-9971-7D9AC5BB3111', 'name': 'Conduct scoring (level 1)', 'incoming': ['Scoring request'], 'outgoing': ['Result']}
+{'id': 'sid-9294E34A-C046-4169-9130-3971E4B925F0', 'name': 'Level 2 scoring', 'incoming': ['sid-E4416365-80F6-40EF-AA44-C10FB2F35712'], 'outgoing': ['sid-3F302477-A90F-4972-9770-972D132E4C3D']}
+
+Gateways:
+{'id': 'sid-858905D7-428B-461C-A3CB-5855C7CBC8B1', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent0', 'EventBasedGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-645D0465-C5C0-4202-A015-F0E0009FAD70', 'name': 'Result', 'incoming': ['Scoring request'], 'outgoing': ['sid-1A253908-B8F3-42E7-B6E2-9FF7336B8CCD', 'sid-0E725AF4-72F2-436F-98A2-E10A8CA11BF6']}
+{'id': 'sid-D1106AE0-93B8-40D2-BE92-D199944322C3', 'name': 'EventBasedGateway2', 'incoming': ['StartEvent0'], 'outgoing': ['forward scoring results', 'IntermediateCatchEvent4']}
+{'id': 'sid-D800407D-6D49-47AD-9841-8A80DB4761D6', 'name': 'IntermediateCatchEvent3', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-3C31150A-7A20-4968-B71F-F6C602565255', 'name': 'IntermediateCatchEvent4', 'incoming': ['StartEvent0'], 'outgoing': ['Send delay notice to sales staff']}
+{'id': 'sid-3438A81B-522C-413B-9CB0-3A0C1F1530AC', 'name': 'IntermediateCatchEvent5', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-72E83081-2047-4328-BE4F-9AA1DC5662D4', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-740CDDA3-F561-4E9D-97CE-D86A294D1AE3', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Result']}
+
+End Events:
+{'id': 'sid-8711650A-C30A-4BA3-BA42-8F8988675098', 'name': 'EndEvent0', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': []}
+{'id': 'sid-2BF5A0C8-0DBF-47C3-B62A-ABD21FDBD1FC', 'name': 'EndEvent1', 'incoming': ['sid-0172A10F-DA4E-44ED-BE63-909B6621892A'], 'outgoing': []}
+{'id': 'sid-81EDB0CC-A194-4B40-8900-7863A91C29E2', 'name': 'Scoring request', 'incoming': ['sid-750ED18A-BC6A-490C-9A2D-A2C6CC2EE34D'], 'outgoing': []}

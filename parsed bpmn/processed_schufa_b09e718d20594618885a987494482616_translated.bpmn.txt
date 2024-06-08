@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-A260447B-EF68-4970-A4B2-C5FA3DB64862', 'name': 'Create a request', 'incoming': ['Scoring request'], 'outgoing': ['Results Level 1']}
+{'id': 'sid-A7C744D1-B56A-492A-AB18-5D64B65E018A', 'name': 'Report delay to Frontent', 'incoming': ['Scoring request'], 'outgoing': ['Results Level 2']}
+{'id': 'sid-B2F46A37-97D2-478B-A4DC-1DB6D9F16995', 'name': 'forwarding results to Frontent', 'incoming': ['EventBasedGateway3'], 'outgoing': ['submitted']}
+{'id': 'sid-9FD2B994-1D4C-45ED-8F4E-ECB61B40FE50', 'name': 'Perform scoring query (level 1)', 'incoming': ['Level 1 possible?'], 'outgoing': ['sid-3D8D484C-109B-478A-9AEA-D4B5C86578D3']}
+{'id': 'sid-001A30BD-A192-4307-82DC-242F2531A3ED', 'name': 'Determine whether Level 1 is possible', 'incoming': ['Schufa request'], 'outgoing': ['Level 1 possible?']}
+{'id': 'sid-70499F78-A997-4A4E-9C7C-ADC37D84CBCB', 'name': 'Report delay', 'incoming': ['Schufa request'], 'outgoing': ['Scoring query (level 2)']}
+{'id': 'sid-FADAFB47-6CB7-40A7-8354-B1326EED8C60', 'name': 'Scoring query (level 2)', 'incoming': ['Level 1 possible?'], 'outgoing': ['sid-937A7878-0D1D-48B8-BFBA-82A8E4F46761']}
+
+Gateways:
+{'id': 'sid-7382A4BA-1D42-48B9-97F5-56001E43BD31', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'result delay'], 'outgoing': ['submitted']}
+{'id': 'sid-FAFA00A8-CB71-4256-B5C8-E660DB6A72BB', 'name': 'Level 1 possible?', 'incoming': ['Schufa request'], 'outgoing': ['Perform scoring query (level 1)', 'Scoring query (level 2)']}
+{'id': 'sid-C8700957-EABB-4448-B93A-6C07A5523270', 'name': 'ExclusiveGateway2', 'incoming': ['sid-ACC8463B-729B-44B5-A2B9-F21A461EB88F', 'sid-81494F59-1F2C-4EFB-9A75-7CF615DB59E0'], 'outgoing': ['Request completed']}
+{'id': 'sid-A71D851C-DA95-4EE8-A15F-28DF5C5AE4E1', 'name': 'EventBasedGateway3', 'incoming': ['Scoring request'], 'outgoing': ['forwarding results to Frontent', 'Results Level 2']}
+{'id': 'sid-197DCF0F-5711-4772-8FE8-A46CAF908F9B', 'name': 'Results Level 1', 'incoming': ['Create a request'], 'outgoing': ['submitted']}
+{'id': 'sid-38B2FEFD-E9D5-443D-8421-F20795B37C52', 'name': 'Results Level 2', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-53E295F2-0403-4E6E-AAB5-653044EDF1F4', 'name': 'result delay', 'incoming': ['Scoring request'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-4CF6B6A9-47CC-42C7-85BC-853066FA1F09', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Report delay to Frontent']}
+{'id': 'sid-2F116E00-7327-4092-918C-34CDEED8B60D', 'name': 'Schufa request', 'incoming': [], 'outgoing': ['Report delay']}
+
+End Events:
+{'id': 'sid-8BC74EB0-43F8-4392-A78D-AE39BF2E863F', 'name': 'submitted', 'incoming': ['Results Level 1'], 'outgoing': []}
+{'id': 'sid-C1D44E4E-EA51-47B4-BB1E-D0A56AC15C5C', 'name': 'Request completed', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}

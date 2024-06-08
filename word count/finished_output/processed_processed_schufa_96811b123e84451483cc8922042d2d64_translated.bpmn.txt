@@ -1,0 +1,9 @@
+ In this system, we have a series of tasks and gateways that work together to handle requests and responses related to score calculations and reporting.
+
+1. When a new Schufascore request is received, the system initiates a Level 1 request by sending a 'New Schufascore\nRequest' to the Gateway with ID'sid-A641DD0F-5E76-4520-88B7-18D1BE0D07A7'. This request triggers the 'Report Score (Level1) to the Frontend' task with ID'sid-sid-ECAD5BF7-BFA5-489E-9334-0DD341F77844'.
+
+2. The Level 1 response task sends a 'Process Level 1 response' to the Gateway with ID'sid-sid-4C18C321-F50A-498E-8A44-325B63A9A7CB'. This response triggers the 'Get Score?' task with ID'sid-sid-4FA3BBC7-448B-4DC5-8096-C854B3823248'.
+
+3. The 'Get Score?' task sends a 'New Schufascore\nRequest' to the Gateway with ID'sid-sid-4FA3BBC7-448B-4DC5-8096-C854B3823248'. This triggers the 'Report Score (Level1) to the Frontend' task with ID'sid-sid-A641DD0F-5E76-4520-88B7-18D1BE0D07A7' again.
+
+4. The 'Report Score (Level1) to the Frontend' task sends a 'Score\nLevel 1' to the Gateway with ID'sid-sid-AB4B2B31-60ED-44E4-93DD-9926E2C66526'. This

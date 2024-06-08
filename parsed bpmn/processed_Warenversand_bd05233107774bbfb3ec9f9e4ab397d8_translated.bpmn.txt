@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-7D286520-2133-4A3A-A9A4-FCD3BE35257F', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-CBCA0BB6-FD06-4A6B-8C02-DEE6538035CE', 'name': 'Provision for collection', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E07C0E03-ACDB-43F8-851F-208F618868C8', 'name': 'Goods for shipping', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C0D9525E-57A7-40A1-8010-47666D529DAC', 'name': 'Filling the package note', 'incoming': ['StartEvent0'], 'outgoing': ['Insurance required?']}
+{'id': 'sid-C07E7CB2-2559-43FF-957C-3F74B95508B4', 'name': 'Pick up offers', 'incoming': ['Goat or little crowd?'], 'outgoing': ['What kind of spedition?']}
+{'id': 'sid-961B5749-DCF2-4575-A0E1-49DD4CB8BB60', 'name': 'Order Spedition 1', 'incoming': ['What kind of spedition?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-1BC14196-EBC8-40D8-83E7-85721A84587F', 'name': 'Submit forwarding 2', 'incoming': ['What kind of spedition?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-C415BDBF-91A1-4009-8A24-480B60D61B77', 'name': 'Order Spedition 3', 'incoming': ['What kind of spedition?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-0A823DD6-AAA9-4CF7-9D2D-601A3926FEB7', 'name': 'Complete insurance', 'incoming': ['ParallelGateway4'], 'outgoing': ['sid-FB8381B8-7876-45BC-85E1-0F1B215DE994']}
+
+Gateways:
+{'id': 'sid-CCB42166-05FF-4694-BAD1-5AE7331660AE', 'name': 'Goat or little crowd?', 'incoming': ['ParallelGateway4'], 'outgoing': ['Filling the package note', 'ExclusiveGateway3']}
+{'id': 'sid-2A06CA26-38B6-4E27-B6B8-790368270E64', 'name': 'Insurance required?', 'incoming': ['ParallelGateway4'], 'outgoing': ['Complete insurance', 'sid-37F88B77-62BF-4B13-B47E-BCC7AD61619C']}
+{'id': 'sid-928D4466-E1CB-4303-B20D-FF774D0CE2E9', 'name': 'What kind of spedition?', 'incoming': ['Goat or little crowd?'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway3', 'ExclusiveGateway3']}
+{'id': 'sid-2B8AF1AF-49EC-4D16-96B1-FAEDE7946FE8', 'name': 'ExclusiveGateway3', 'incoming': ['Goat or little crowd?', 'What kind of spedition?', 'What kind of spedition?'], 'outgoing': ['sid-45649752-1968-45F8-A8DF-6D56576646C5']}
+{'id': 'sid-C8AE63E1-48DB-47B2-9F22-B990922A3280', 'name': 'ParallelGateway4', 'incoming': ['StartEvent0'], 'outgoing': ['Complete insurance', 'ParallelGateway5']}
+{'id': 'sid-25B05F17-E0AC-49A4-A4FD-D49FC40FC575', 'name': 'ParallelGateway5', 'incoming': ['Goods for shipping', 'sid-D6E731A6-3258-482D-9C4D-A494F890B6F6'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-2AF9CC9A-55DF-4104-83F0-797AF282888F', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Filling the package note']}
+
+End Events:
+{'id': 'sid-C82D9AC0-6F2D-4E16-B6D2-300FFF4DAFFF', 'name': 'EndEvent0', 'incoming': ['Goods for shipping'], 'outgoing': []}

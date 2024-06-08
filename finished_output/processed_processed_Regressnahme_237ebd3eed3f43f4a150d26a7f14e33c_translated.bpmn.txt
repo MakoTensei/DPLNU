@@ -1,0 +1,5 @@
+ The system initiates an examination process with the 'StartEvent0' triggering the 'ExclusiveGateway0', which then leads to either the 'Book the entrance' task or the 'Examination Cash Input' task, depending on the incoming 'Reimbursement period' event. If the 'Reimbursement period' event is received, the 'Book the entrance' task is executed, and the process concludes with 'EndEvent0'. On the other hand, if the 'Examination Cash Input' task is triggered, it results in a transfer to debt collection.
+
+In the case of an objection to the legality of a payment request, the 'Object payment request' event is received, and the process diverts to the 'ExclusiveGateway2', leading to the 'Transfer to debt collection' task.
+
+The 'EndEvent0' is the final event in both the 'Book the entrance' and 'Examination Cash Input' processes, and it is connected to the 'ExclusiveGateway0' and 'EventBasedGateway3'. The 'EndEvent2' is the final event in the 'Examination Objection to legality' and 'Object payment request' processes, and it is connected to the 'ExclusiveGateway2' and 'EventBasedGateway3'.

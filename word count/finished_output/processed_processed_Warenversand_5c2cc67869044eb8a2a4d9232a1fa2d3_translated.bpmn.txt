@@ -1,0 +1,9 @@
+ In the process of handling a package, the workflow begins with a StartEvent0, which prompts the user to determine whether they are dealing with large or small quantities. This decision leads to the Insurance required? task, where the user is asked if insurance is necessary. If insurance is required, the process continues to ExclusiveGateway4, which then concludes with EndEvent0.
+
+Alternatively, if insurance is not required, the process moves to Offer 1 through ExclusiveGateway1. This offer can be followed by Request offer 3, which also passes through ExclusiveGateway1 and leads to ExclusiveGateway2.
+
+Parallel to these tasks, the package is being packaged, which is handled by ParallelGateway5 and ParallelGateway6. The packaging process is independent of the insurance decision and can occur simultaneously.
+
+Once the package is packaged, it is ready for delivery. The delivery process is initiated by Delivering goods, which is triggered by ParallelGateway6.
+
+In summary, the workflow involves a StartEvent0 that branches into two paths: one for insurance-required tasks and another for non-insurance-required tasks. The insurance-required path leads to EndEvent0, while the non-insurance-required path can lead to multiple offers and eventually to the delivery of the goods.

@@ -1,0 +1,9 @@
+ When a 'Regression reported' event occurs, the workflow begins with the 'Check the case' task, which evaluates the situation and determines if a 'Regression possible?' is warranted. If so, the task sends an 'Incoming payment' request to VN. Concurrently, the 'Send payment request to VN' task is triggered, which awaits the incoming payment.
+
+Once the payment is received, the 'Payin receipt' task is initiated, and it subsequently closes the case. If the payment is not received, the 'Check the case' task sends a 'Reimbursement deadline expired' notification, which leads to a 'forward regression to INKASSO' task.
+
+If the 'Regression possible?' is not triggered, the 'Check the case' task moves to the 'Close' task, which closes the case. However, if an 'Objection' event is reported, the 'Proceedings' task is initiated, which then leads to the 'ExclusiveGateway2' task. If the 'EventBasedGateway3' event is reported, the 'Proceeding to INKASSIO' task is triggered, which forwards the regression to INKASSO.
+
+The 'ExclusiveGateway2' task can lead to either the 'Close' task or the 'Regression not successfully completed' task, depending on the outcome of the regression. Similarly, the 'EventBasedGateway3' task can lead to either the 'Close' task, 'ExclusiveGateway2', or 'Regression not successfully completed' task.
+
+In summary, the workflow starts with a 'Regression reported' event, which triggers a series of tasks and gateways, ultimately leading to either a successful regression completion, a failed regression, or a closed case.

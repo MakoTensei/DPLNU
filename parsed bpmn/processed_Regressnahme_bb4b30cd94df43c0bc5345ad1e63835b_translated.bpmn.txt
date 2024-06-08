@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-DCE69C5D-7B85-48A8-A89A-AFE36B8350AF', 'name': 'Check regression', 'incoming': ['VN may be\nbe taken in regress'], 'outgoing': ['Is Regress?']}
+{'id': 'sid-44066F7F-F2A0-48F3-B85E-F9EDB3997715', 'name': 'Send VN payment request', 'incoming': ['VN may be\nbe taken in regress'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-1D1167FD-B88C-43AB-9F40-4676CAC1043C', 'name': 'Set process for resubmission', 'incoming': ['Is Regress?'], 'outgoing': ['Money received']}
+{'id': 'sid-DC4629B5-AFCA-4645-A1DC-660C47A0AC9F', 'name': 'Book the entrance', 'incoming': ['Money received'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-262B7170-B13D-4384-812D-3EEF080FF399', 'name': 'Proceedings', 'incoming': ['VN contradicts'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-CD2ED00B-D9A8-49D0-B97C-D4EDE7C5EA57', 'name': 'Debt collection', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-600F8612-3B53-445F-9D10-51369E89E479', 'name': 'Is Regress?', 'incoming': ['VN may be\nbe taken in regress'], 'outgoing': ['EndEvent0', 'Denial of payment\njustified?']}
+{'id': 'sid-54CBEBC8-4C86-47E1-8188-040BD711F40C', 'name': 'Denial of payment\njustified?', 'incoming': ['Is Regress?'], 'outgoing': ['EndEvent2', 'ExclusiveGateway2']}
+{'id': 'sid-8160E9E6-11D2-4226-A1DF-4B4812D6782F', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3', 'Proceedings'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-B9AC6620-B967-41FC-8708-243B7116E1A6', 'name': 'EventBasedGateway3', 'incoming': ['Is Regress?'], 'outgoing': ['EndEvent1', 'EndEvent2', 'Debt collection']}
+{'id': 'sid-E4DDFF10-4F6C-4B94-AAB7-27CD589EB246', 'name': 'Money received', 'incoming': ['Set process for resubmission'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-AAAFF6AD-3ED7-42BA-B129-ED01297AB1AE', 'name': 'VN contradicts', 'incoming': ['Is Regress?'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-85A440A6-6D7C-487A-80DB-BD1658153AC5', 'name': 'Reimbursement period\nExpired', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent3']}
+
+Start Events:
+{'id': 'sid-7DCB33D1-CF1A-446B-9FCE-504BE6F4603E', 'name': 'VN may be\nbe taken in regress', 'incoming': [], 'outgoing': ['Send VN payment request']}
+
+End Events:
+{'id': 'sid-9317AC2C-9011-462A-86FC-A8C3E354409E', 'name': 'EndEvent0', 'incoming': ['Is Regress?'], 'outgoing': []}
+{'id': 'sid-9C668212-3BE0-4FB1-8210-D20BF2460F18', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-CC183BE5-7280-43DA-BF5F-A3464D3ACB29', 'name': 'EndEvent2', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-E5DC41DB-D955-44DC-99B4-6F34EEC90717', 'name': 'EndEvent3', 'incoming': ['Reimbursement period\nExpired'], 'outgoing': []}

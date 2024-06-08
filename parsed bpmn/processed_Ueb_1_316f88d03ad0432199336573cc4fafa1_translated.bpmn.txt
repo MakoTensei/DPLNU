@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-0106AAAF-3F95-4B00-8C6F-9A1B9970D256', 'name': 'Determine quantity', 'incoming': ['ParallelGateway4'], 'outgoing': ['Lot?']}
+{'id': 'sid-6123D749-05B4-4AF6-8A05-6713A64B00F3', 'name': '3 offers', 'incoming': ['Shipping costs\nobtained'], 'outgoing': ['Select your offer']}
+{'id': 'sid-03F18F89-59CA-4E81-AEA4-BE003D22D92E', 'name': 'Select your offer', 'incoming': ['Lot?'], 'outgoing': ['Specialist']}
+{'id': 'sid-8623C964-8DF8-4C6F-9FF6-5F632F416391', 'name': 'Specialist', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-4425E70C-F252-436D-8601-C0FE4A6FA987', 'name': 'Filling the package note', 'incoming': ['Lot?'], 'outgoing': ['Check insurance requirements']}
+{'id': 'sid-83016A6B-76F7-4CDC-AF9A-0DFC4B26B3B6', 'name': 'Check insurance requirements', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C8359964-22EA-4EE9-BE38-34E5A5858832', 'name': 'Complete insurance', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-CDA41830-DC51-454E-AA86-CC17B0B968A3', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-68D12FEF-2AD9-4F6C-B952-511E5E64644D', 'name': 'Delivering goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['Shipping costs\nFinished']}
+
+Gateways:
+{'id': 'sid-B0048EE4-1004-4728-A205-F6756F271283', 'name': 'Lot?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway3']}
+{'id': 'sid-F71C1073-71BD-46D8-9936-E535C9768B0A', 'name': 'Insurance\nnecessary?', 'incoming': ['Lot?'], 'outgoing': ['ParallelGateway5', 'ExclusiveGateway2']}
+{'id': 'sid-55444317-0137-471D-84E1-D90FC4DF9761', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance\nnecessary?', 'Check insurance requirements'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-4EEDEF8B-341D-4720-AAAC-DE94C5007A49', 'name': 'ExclusiveGateway3', 'incoming': ['Lot?', 'Lot?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-58728C0F-6A21-4F94-BC12-E2F4EFB8D730', 'name': 'ParallelGateway4', 'incoming': ['Shipping costs\nobtained'], 'outgoing': ['3 offers', 'ParallelGateway5']}
+{'id': 'sid-06D445E2-7F05-4372-A546-FB033D326BD0', 'name': 'ParallelGateway5', 'incoming': ['Insurance\nnecessary?', 'ParallelGateway4'], 'outgoing': ['Shipping costs\nFinished']}
+
+Start Events:
+{'id': 'sid-8FB5B373-87B4-4967-9550-EEEA58B0FB5D', 'name': 'Shipping costs\nobtained', 'incoming': [], 'outgoing': ['3 offers']}
+
+End Events:
+{'id': 'sid-277EE49E-0108-4406-86D9-B461F0B3F2A0', 'name': 'Shipping costs\nFinished', 'incoming': ['ParallelGateway5'], 'outgoing': []}

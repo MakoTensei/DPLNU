@@ -1,0 +1,9 @@
+ The process begins with the 'Regression possibility\nReport' event, which triggers the 'Send payment request' task. This task is connected to 'ExclusiveGateway3', which in turn leads to 'Check the case'. If the case is checked, it can result in either 'Process unsuccessful\nclosed' or 'Process\nsuccessful\nclosed', depending on the outcome.
+
+If the case is not checked, the 'Send payment request' task can also lead to 'Set process on WV', which is connected to 'Incoming payment'. The 'Incoming payment' event then triggers the 'Process\nsuccessful\nclosed' task, closing the process successfully.
+
+Alternatively, if the case is checked and the outcome is 'Process unsuccessful\nclosed', the process will be closed unsuccessfully.
+
+Another pathway is through 'EventBasedGateway5', which can lead to 'forwarding debt collection' if the incoming event is 'Rejection expired'. This task is connected to 'ExclusiveGateway2', which can result in 'Process unsuccessful\nclosed' or 'forwarded'.
+
+In summary, the process starts with a 'Regression possibility\nReport' event, leading to various tasks and outcomes based on the connections between tasks and gateways. The process can end in either 'Process\nsuccessful\nclosed', 'Process unsuccessful\nclosed', or 'forwarded', depending on the specific pathway taken.

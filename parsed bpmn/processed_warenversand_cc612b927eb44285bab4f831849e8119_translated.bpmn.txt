@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-ECDD835F-A2F4-449A-A304-CF164293EBBA', 'name': 'Quantity\nclarification', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-CFF8C37A-8443-4062-A0D9-050CFC7BA0A1', 'name': 'Request a quote', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-419BD99B-BDA5-4709-BFCF-01A0A6FC5229', 'name': 'Special offer\nSelect', 'incoming': ['ParallelGateway5'], 'outgoing': ['freight forwarders\ncommission']}
+{'id': 'sid-FC9C725A-2DC9-4FE7-8BB3-9DB81E340569', 'name': 'freight forwarders\ncommission', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-AA3E4C43-A677-474C-8833-D6957B8D729A', 'name': 'Filling the package note', 'incoming': ['ParallelGateway6'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-4DFD9740-1388-4A2F-A071-4892ABFA9E54', 'name': 'Insurance close', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-9FE4DB0C-3FF5-4459-BDB5-24E27C348BC9', 'name': 'Provide a package', 'incoming': ['ParallelGateway7'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-5ACC55CB-5D21-40E1-AB12-0FD80339D19C', 'name': 'Packaging goods', 'incoming': ['ParallelGateway6'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-F982D46C-D32B-436A-AD06-7987C84C6BF3', 'name': 'Lot?', 'incoming': ['Shipment\nRequired'], 'outgoing': ['ParallelGateway4', 'ExclusiveGateway2']}
+{'id': 'sid-A4339AFF-1AE0-4E5E-BFEB-5C7931A71ECE', 'name': 'Insurance\nnecessary?', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway7', 'ExclusiveGateway2']}
+{'id': 'sid-3E972460-F12C-4E41-A6E6-4286D8643ADD', 'name': 'ExclusiveGateway2', 'incoming': ['Shipment\nRequired', 'Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-C40DC5C6-59FC-494B-8BD9-956370F34F2D', 'name': 'ExclusiveGateway3', 'incoming': ['ParallelGateway5', 'ParallelGateway6'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-3F1A7B11-4DBA-4BF0-91CE-957B9F8E0827', 'name': 'ParallelGateway4', 'incoming': ['Quantity\nclarification', 'ParallelGateway5'], 'outgoing': ['Request a quote']}
+{'id': 'sid-349D799B-81CF-40DC-BD07-0773B639EE0C', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway4', 'ExclusiveGateway3']}
+{'id': 'sid-67C065FC-5917-4E5A-BE07-9E0FB6B955FF', 'name': 'ParallelGateway6', 'incoming': ['Shipment\nRequired'], 'outgoing': ['ExclusiveGateway3', 'EndEvent0']}
+{'id': 'sid-3BD18E6F-A529-46FB-8E1A-D83C7502380D', 'name': 'ParallelGateway7', 'incoming': ['Packaging goods', 'Insurance\nnecessary?'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-77012C69-62F5-45B7-9AA9-E2C810949893', 'name': 'Shipment\nRequired', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-24EE628A-E9F1-4F4B-9F06-AB5276C39EDA', 'name': 'EndEvent0', 'incoming': ['ParallelGateway6'], 'outgoing': []}

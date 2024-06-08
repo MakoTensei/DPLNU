@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-2F8F4757-F170-418F-88AA-4337D1C7A256', 'name': 'Send a message', 'incoming': ['Schufa request\ncreated'], 'outgoing': ['Scoring value']}
+{'id': 'sid-E264F14D-6C38-4BE2-A0BF-B75A04194A29', 'name': 'forward scoring results', 'incoming': ['Scoring value'], 'outgoing': ['Level 1 result\nforwarded']}
+{'id': 'sid-18F3FC09-E80B-41FF-859F-56036E49C29C', 'name': 'forward delay', 'incoming': ['Schufa request\ncreated'], 'outgoing': ['Scoring level 2\nobtained']}
+{'id': 'sid-0191BC69-4FBE-42DC-9829-0DB32FF2351A', 'name': 'Continue scoring result Level 2', 'incoming': ['Delay notification\nobtained'], 'outgoing': ['Level 2 result\nforwarded']}
+{'id': 'sid-5D9CDCBE-B392-4A1E-A7E3-C51913B2F0FC', 'name': 'perform scoring', 'incoming': ['Schufa request\narrived'], 'outgoing': ['Could the value\nare calculated?']}
+{'id': 'sid-F5701A1A-600A-4904-8D0B-392CE6175912', 'name': 'Return scoring value', 'incoming': ['Schufa request\narrived'], 'outgoing': ['Level 1 scoring\ndetermined']}
+{'id': 'sid-AC1791CF-432C-4014-ADF6-168C520E9160', 'name': 'Report delay', 'incoming': ['Could the value\nare calculated?'], 'outgoing': ['Scoring Level 2']}
+{'id': 'sid-279AFB31-F9DE-4C4E-99DF-E5C0CE918B3F', 'name': 'Scoring Level 2', 'incoming': ['Could the value\nare calculated?'], 'outgoing': ['Report Scoring Level 2']}
+{'id': 'sid-2FD16D8C-A728-4D55-AE29-A0B34577F666', 'name': 'Report Scoring Level 2', 'incoming': ['Could the value\nare calculated?'], 'outgoing': ['Level 2 scoring\ndetermined']}
+
+Gateways:
+{'id': 'sid-EA5EA27B-81FD-4A3D-BBA9-2CCAB5A570B2', 'name': 'Could the value\nare calculated?', 'incoming': ['Schufa request\narrived'], 'outgoing': ['Level 2 scoring\ndetermined', 'Level 1 scoring\ndetermined']}
+{'id': 'sid-449ED239-4403-4A89-9FA8-3CC2CB39CB6A', 'name': 'EventBasedGateway1', 'incoming': ['Schufa request\ncreated'], 'outgoing': ['Level 1 result\nforwarded', 'Level 2 result\nforwarded']}
+{'id': 'sid-9A5FCF97-C8C5-41D9-B49E-B0C23B46E3DB', 'name': 'Scoring value', 'incoming': ['Send a message'], 'outgoing': ['Level 1 result\nforwarded']}
+{'id': 'sid-3EE84EA8-5AC4-4EC4-97F9-13AC93FA3F2A', 'name': 'Scoring level 2\nobtained', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Level 2 result\nforwarded']}
+{'id': 'sid-0FBF71AC-7967-45D1-8210-60D506A405F7', 'name': 'Delay notification\nobtained', 'incoming': ['Schufa request\ncreated'], 'outgoing': ['Continue scoring result Level 2']}
+
+Start Events:
+{'id': 'sid-2ECE1A05-7EE7-493B-8C32-AB7E93372B66', 'name': 'Schufa request\ncreated', 'incoming': [], 'outgoing': ['forward delay']}
+{'id': 'sid-948303A0-362B-41D7-95F6-D66D7D743A0D', 'name': 'Schufa request\narrived', 'incoming': [], 'outgoing': ['Return scoring value']}
+
+End Events:
+{'id': 'sid-AE442293-D872-4FAE-8CB9-2349A467F822', 'name': 'Level 1 result\nforwarded', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-9E007241-3816-47CD-9805-6BFAC0E97348', 'name': 'Level 2 result\nforwarded', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-2A6DD186-4EA7-4615-BBDF-CCE9D5DD6941', 'name': 'Level 1 scoring\ndetermined', 'incoming': ['Could the value\nare calculated?'], 'outgoing': []}
+{'id': 'sid-AB35D45E-6D75-4C92-8D10-75C4E613E808', 'name': 'Level 2 scoring\ndetermined', 'incoming': ['Could the value\nare calculated?'], 'outgoing': []}

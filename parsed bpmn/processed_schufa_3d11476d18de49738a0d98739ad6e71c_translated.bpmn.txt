@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-F3B8071F-40CB-4180-9343-C27B93529BEF', 'name': 'Send scoring request', 'incoming': ['Receive scoring request'], 'outgoing': ["'Examination successful' received"]}
+{'id': 'sid-34C3A61D-7454-4FDC-885B-73B3927301B1', 'name': 'perform scoring level 1', 'incoming': ['receive scoring request'], 'outgoing': ['Testing successfully send']}
+{'id': 'sid-626E48E4-EF65-46FB-84EE-549DCBA38D52', 'name': 'perform scoring level 2', 'incoming': ['sid-5D952BBD-8627-4173-B443-0F4E628FF992'], 'outgoing': ['Send a final result']}
+
+Gateways:
+{'id': 'sid-31C8DC3F-08A1-489C-B2B6-C9180CBCDB01', 'name': 'Testing successful', 'incoming': ['receive scoring request'], 'outgoing': ['sid-8CFF24DA-C969-46E4-AB86-2DB5B584F997', 'Testing successfully send']}
+{'id': 'sid-09F47420-2033-4A46-B93B-5BE94F110C71', 'name': 'EventBasedGateway1', 'incoming': ['Receive scoring request'], 'outgoing': ['EndEvent0', 'receive delay message']}
+{'id': 'sid-D1D34CC7-BDB2-49C4-8034-1668A58AB4C7', 'name': "'Examination successful' received", 'incoming': ['Send scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-263E9668-E9F8-4514-BF89-3D59D3FE9F4C', 'name': 'receive delay message', 'incoming': ['Receive scoring request'], 'outgoing': ['sid-1F10CBBA-F59F-46C8-BCE7-8BC5A1DDA4CA']}
+{'id': 'sid-A9B75E9F-9337-47A8-AFD7-CC451424501E', 'name': 'End result obtained', 'incoming': ['sid-F18BACD6-F8E7-41D0-A500-A5B8D5B7C019'], 'outgoing': ['Send a final result']}
+
+Start Events:
+{'id': 'sid-B36199C7-7816-4F03-AE1F-28CCF1798B5C', 'name': 'Receive scoring request', 'incoming': [], 'outgoing': ['receive delay message']}
+{'id': 'sid-394BAD3A-4D79-4439-A5F2-2DCA2E2CD065', 'name': 'receive scoring request', 'incoming': [], 'outgoing': ['Testing successful']}
+
+End Events:
+{'id': 'sid-D636B667-272C-4805-95FA-243B98E6889F', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-F71BB606-5F99-4F73-BD7B-4985E7469FBE', 'name': 'Send a final result', 'incoming': ['End result obtained'], 'outgoing': []}
+{'id': 'sid-22E62D93-FF2A-4E28-90F4-EDC2A113DEC0', 'name': 'Testing successfully send', 'incoming': ['perform scoring level 1'], 'outgoing': []}
+{'id': 'sid-2259B48B-D19F-4B4B-B67F-8BBADB42E71E', 'name': 'Send a final result', 'incoming': ['perform scoring level 2'], 'outgoing': []}

@@ -1,0 +1,17 @@
+ In the financial services ecosystem, a series of events and gateways work together to process a Schufa scoring request. The process begins when a 'Schufa Scoring Requested' event is triggered, which initiates the scoring process. This event sends a request to the 'Schufa Request Received' event, which acknowledges the receipt of the request.
+
+Once the request is received, the 'Scoring Complete?' event is triggered, which checks if the scoring process is complete. This event has an incoming link to the 'Schufa Request Received' event and an outgoing link to the 'Result to Distribution' and 'Instant Result to Bank' events.
+
+The 'Result to Distribution' event is responsible for distributing the scoring result to the relevant parties. It has an incoming link to the 'Instant Result to Bank' event and an outgoing link to the 'Exclusive Gateway 0'.
+
+The 'Instant Result to Bank' event is responsible for sending the scoring result to the bank immediately. It has an incoming link to the 'Scoring Complete?' event and an outgoing link to the 'Result to Bank' event.
+
+The 'Result to Bank' event is responsible for sending the scoring result to the bank after the scoring process is complete. It has an incoming link to the 'perform scoring level 2' event and an outgoing link to the 'Instant Result to Bank' event.
+
+The 'perform scoring level 2' event is responsible for performing the second level of scoring. It has an incoming link to the 'Scoring Complete?' event and an outgoing link to the 'Result to Bank' event.
+
+The 'Exclusive Gateway 0' event acts as a decision point, determining the next course of action based on the incoming events. It has incoming links to the 'Event Based Gateway 2' and 'Delayed Result Obtained' events and an outgoing link to the 'Result to Distribution' event.
+
+The 'Event Based Gateway 2' event is responsible for routing events to the appropriate gateways. It has incoming links to the 'Schufa Request Received' and 'Event Based Gateway 0' events and an outgoing link to the 'Delayed Result Obtained' event.
+
+The 'Delayed Result Obtained'

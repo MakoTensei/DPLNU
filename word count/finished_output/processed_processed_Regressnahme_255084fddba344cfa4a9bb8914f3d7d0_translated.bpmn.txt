@@ -1,0 +1,10 @@
+ Upon receiving a possible regression, the system initiates a series of tasks and interactions with various gateways and services. First, the 'Check the case' task is triggered, which sends a request to 'ExclusiveGateway3'. If the objection is justified, the process moves to 'ExclusiveGateway2', where the 'Submitting debts to Moscow' task is activated, leading to the 'Process transferred to collection' task. Conversely, if the objection is not justified, the 'Close' task is executed, indicating that the regress was not possible.
+
+
+In the case of a 'Possible regression' event, the system starts with the 'ExclusiveGateway2' task, which checks if the regress is justified. If it is, the 'Process transferred to collection' task is initiated. If not, the 'Close' task is executed.
+
+
+When a 'Payment received' event occurs, the system checks if a regress was possible. If it was, the 'Regress was not possible' task is triggered, and the process is closed. If no regress was possible, the 'Payment received' task is completed, and the system proceeds to the next task in the workflow.
+
+
+The system also handles other events such as 'Objection' and 'WV-Frist expired', which lead to specific tasks and gateways, ensuring a smooth and efficient workflow.

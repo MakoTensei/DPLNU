@@ -1,0 +1,21 @@
+ In a workflow involving various tasks and gateways, the following sequence of events and tasks unfolds:
+
+1. The process begins with an event named "Schufascoring\nnot available," which triggers the "ExclusiveGateway0." This gateway has incoming connections from the "Schufascoring\nnot available" event and sends outgoing connections to the "Reported" event.
+
+2. The "Schufascoring\nnot available" event also triggers the "EventBasedGateway2," which has incoming connections from the same event and sends outgoing connections to the "Reported" and "Information" events.
+
+3. The "EventBasedGateway2" also receives a "Request request" event, which triggers the "Submitting results" task. This task has incoming connections from the "Request request" event and sends outgoing connections to the "Result\ntransmitted" event.
+
+4. The "Result\ntransmitted" event has incoming connections from the "Result\ndetermined?" event and sends outgoing connections to the "Reported" event.
+
+5. The "Result\ndetermined?" event has incoming connections from the "Request request" event and sends outgoing connections to the "Submitting results" and "Reported" events.
+
+6. The "Submitting results" task has incoming connections from the "Result\ndetermined?" event and sends outgoing connections to the "Reported" event.
+
+7. The "Reported" event has incoming connections from the "EventBasedGateway2" and "Result\ndetermined?" events and has no outgoing connections.
+
+8. The "Information" event has incoming connections from the "Schufascoring\nnot available" event and sends outgoing connections to the "Further information" task.
+
+9. The "Further information" task has incoming connections from the "Schufascoring\nnot available" event and sends outgoing connections to the "ExclusiveGateway0."
+
+10. The "ExclusiveGateway0" has incoming connections from the "Schufascoring\nnot available" event and sends outgoing connections to the "Reported" event.

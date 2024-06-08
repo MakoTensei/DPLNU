@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-88CC4C57-94F4-4160-86AD-31AC6FBE0D20', 'name': 'Packaging goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-5D50BFF9-B58E-43B5-9AA7-A90E0ED50572', 'name': 'Provide packaged goods for collection', 'incoming': ['Goods\nbe sent'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-0367159A-6104-482A-8FCA-563A7B8B2266', 'name': 'Select a range of three freight forwarders', 'incoming': ['ParallelGateway5'], 'outgoing': ['Choose the cheapest offer']}
+{'id': 'sid-D99671C5-256C-48CF-A2EB-1BEEABD0CE4C', 'name': 'Choose the cheapest offer', 'incoming': ['Big crowd?'], 'outgoing': ['Specialist']}
+{'id': 'sid-C54DC450-E9A1-4F33-9690-94A7F41019F0', 'name': 'Specialist', 'incoming': ['Big crowd?'], 'outgoing': ['Insurance\nnecessary?']}
+{'id': 'sid-68E774CC-0354-4B9E-A641-2E56D552BFD4', 'name': 'Filling standard package voucher', 'incoming': ['Big crowd?'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-9F6DE17B-40C6-43E9-8B68-1CEBD3A08EC5', 'name': 'Complete insurance', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-0F6C1491-57A9-4CFD-AC03-B334A905CA7B', 'name': 'Big crowd?', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway3', 'EndEvent0']}
+{'id': 'sid-DFBA5C8E-4361-48D6-9C74-F14284AAAB30', 'name': 'ExclusiveGateway1', 'incoming': ['Big crowd?', 'Big crowd?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-D528CA7B-82B5-423C-96E4-7358FF37460A', 'name': 'Insurance\nnecessary?', 'incoming': ['Specialist'], 'outgoing': ['Complete insurance', 'ExclusiveGateway3']}
+{'id': 'sid-62DB98B0-27E2-498C-A0DA-F8330A57A1E7', 'name': 'ExclusiveGateway3', 'incoming': ['Big crowd?', 'Complete insurance'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-620C4DF6-9214-4987-AF54-7C0C06084EDA', 'name': 'ParallelGateway4', 'incoming': ['Filling standard package voucher', 'ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F02F6420-A6C2-415A-B877-90021EE0AA78', 'name': 'ParallelGateway5', 'incoming': ['Goods\nbe sent'], 'outgoing': ['Select a range of three freight forwarders', 'Provide packaged goods for collection']}
+
+Start Events:
+{'id': 'sid-7C93FF08-B73F-4B83-8E05-ECBD8E05E50B', 'name': 'Goods\nbe sent', 'incoming': [], 'outgoing': ['Provide packaged goods for collection']}
+
+End Events:
+{'id': 'sid-9E4D298C-21BB-4F0F-968F-E0B4F854D707', 'name': 'EndEvent0', 'incoming': ['Big crowd?'], 'outgoing': []}

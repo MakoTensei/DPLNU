@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-E0463D56-D691-493A-8A40-B06BDE6E3739', 'name': 'Scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-FE14AB7D-8AD7-4869-B479-228D06D40651', 'name': 'Scoring value\nsend', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9BDFB40F-7038-4C9B-BFFA-ED1BD3BA25FA', 'name': 'Note to MA', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-92C67A52-7AB3-487F-845A-D1AF669CBF8D', 'name': 'Scoring value\nsend', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-9A7D83F3-EF29-4E1C-9948-8AED2229D802', 'name': 'Level 1 scoring', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-A288BFEC-7CDA-4B21-8BC5-D274D1D1E318', 'name': 'Level 2 scoring', 'incoming': ['Delay\nReport'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-125C6FBA-90F9-4DAE-8A5C-967EC7B34FA5', 'name': 'Send a reply', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-32BB5E37-0FA2-4967-97F2-CAACC616E74E', 'name': 'Delay\nReport', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-4D325337-F43D-4B96-A9B5-9B85D3F3B5C1', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2', 'EndEvent3']}
+{'id': 'sid-EBE02094-8CA7-4011-AD52-9894E9CCC37B', 'name': 'EventBasedGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'IntermediateCatchEvent3']}
+{'id': 'sid-31E3A186-8DD2-43BB-BCA0-BF00ADB0DA6B', 'name': 'IntermediateCatchEvent2', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-7932A4D9-E1D3-4152-A2F6-AE8B817A3CF9', 'name': 'IntermediateCatchEvent3', 'incoming': ['StartEvent0'], 'outgoing': ['Note to MA']}
+{'id': 'sid-F5E3BF23-E3F4-4AE8-87DC-02B23759D70D', 'name': 'IntermediateCatchEvent4', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-C8B99AB7-1F46-4CC9-AC7D-E04577E2122F', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Scoring value\nsend']}
+{'id': 'sid-32C15C97-1A44-4D9D-9E29-2C03C7572204', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Send a reply']}
+
+End Events:
+{'id': 'sid-130F0405-E1FA-4F09-9542-6AD287755BFF', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-C5DF0D6E-AC42-40AC-83B8-8EFDA1C5B0B1', 'name': 'EndEvent1', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': []}
+{'id': 'sid-34CDAA8D-25D9-414C-AA8E-F77F4E12BC15', 'name': 'EndEvent2', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-D8FC1E78-648A-4DC9-959A-E217FBC12A31', 'name': 'EndEvent3', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

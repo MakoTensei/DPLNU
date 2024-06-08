@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-FFB55F79-B652-4E7A-B8BA-A27497A4E9DD', 'name': 'Check the case', 'incoming': ['Possible regression'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-EC33C3A8-C357-42EF-B306-1D58C82A2FA2', 'name': 'Send payment request', 'incoming': ['Possible regression'], 'outgoing': ['Money received']}
+{'id': 'sid-0AAB8920-516F-44D2-AE8A-4EE55237D24B', 'name': 'Book payment receipt', 'incoming': ['Money received'], 'outgoing': ['Payment received']}
+{'id': 'sid-AB9E9B4B-A8D0-445F-A5BD-D43495EBE132', 'name': 'Proceedings', 'incoming': ['Possible regression'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-237EBB9D-4541-4273-A4D2-EF6E3EAF2CB3', 'name': 'Submitting debts to Moscow', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process transferred to collection']}
+{'id': 'sid-24A78926-5F41-4987-AD12-04C5E09BB158', 'name': 'Close', 'incoming': ['Objection'], 'outgoing': ['Regress was not possible']}
+
+Gateways:
+{'id': 'sid-D32EF558-833C-4136-84CE-84BC3D8D82A5', 'name': 'Regress possible?', 'incoming': ['Possible regression'], 'outgoing': ['Payment received', 'ExclusiveGateway3']}
+{'id': 'sid-C5745A3E-BCEF-40B4-BDFD-93F3C5BE5836', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-8C213FEC-25D9-4189-9C0F-B8C8ACA99C2C', 'name': 'ExclusiveGateway2', 'incoming': ['Possible regression', 'EventBasedGateway4'], 'outgoing': ['Process transferred to collection']}
+{'id': 'sid-4267E900-8082-4BC3-9F86-0447BC6E82A9', 'name': 'ExclusiveGateway3', 'incoming': ['Objection', 'Check the case'], 'outgoing': ['Regress was not possible']}
+{'id': 'sid-EF9C94D1-45EF-4F2C-A48D-1839B4C0C88E', 'name': 'EventBasedGateway4', 'incoming': ['Possible regression'], 'outgoing': ['Objection justified?', 'Submitting debts to Moscow', 'Money received']}
+{'id': 'sid-0D698475-8498-4C17-A029-5DFCF13BD632', 'name': 'Money received', 'incoming': ['Regress possible?'], 'outgoing': ['Payment received']}
+{'id': 'sid-0FEFCA33-03D5-4DB4-AC55-82ED154E3775', 'name': 'Objection', 'incoming': ['Possible regression'], 'outgoing': ['Close']}
+{'id': 'sid-C82B1979-DA2C-4B2F-94BA-721DE1E20BFE', 'name': 'WV-Frist expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process transferred to collection']}
+
+Start Events:
+{'id': 'sid-18EAAE33-7FC2-4BBD-8251-218BD8922B2D', 'name': 'Possible regression', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-F51E234A-B4EC-4419-9BB0-822B86DA1E9B', 'name': 'Payment received', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-A554C107-C586-47E5-963C-A8A8DAB73E46', 'name': 'Regress was not possible', 'incoming': ['ExclusiveGateway3'], 'outgoing': []}
+{'id': 'sid-9977BDDB-42B3-4FCA-B4CA-4099625749F3', 'name': 'Process transferred to collection', 'incoming': ['WV-Frist expired'], 'outgoing': []}

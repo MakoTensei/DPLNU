@@ -1,0 +1,19 @@
+Tasks:
+{'id': 'sid-A8F82F74-3B88-4276-9B87-A7B9504CB089', 'name': 'QuestionSufastatus\n', 'incoming': ['Start Schufascroing Bank\n'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-BC7DD4AE-ACC3-4C91-9926-3C3C3442E10B', 'name': 'Task1', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': []}
+{'id': 'sid-8B40C26F-9020-4856-8AA5-A4693C71530F', 'name': 'Level 1 scoring', 'incoming': ['StartEvent1'], 'outgoing': ['Level 1 successful']}
+{'id': 'sid-B5704B2D-B2E5-4ADD-9F4F-1248142D3CDC', 'name': 'Scoring Level2 is performed', 'incoming': ['sid-ED554328-E49E-458D-A2A5-98CC6A385F8E'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-34FF46A4-13B9-421C-A261-E417A27DCE5E', 'name': 'ExclusiveGateway0', 'incoming': ['Start Schufascroing Bank\n'], 'outgoing': ['EndEvent0', 'sid-EDE993F9-3893-4C48-8077-69A8E7C3A06D']}
+{'id': 'sid-8D006933-1D00-406F-A47A-796497C84182', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent1'], 'outgoing': ['sid-D4BD77AE-C601-4F35-BE1D-A5064CA3022B', 'Level 1 successful']}
+{'id': 'sid-E4FA2BAC-6F22-4CA5-AA61-8F73343314C3', 'name': 'IntermediateCatchEvent2', 'incoming': ['sid-C3CA8D27-49E1-4201-9DF9-519FF350CED3'], 'outgoing': ['Task1']}
+
+Start Events:
+{'id': 'sid-68D69235-F5EF-4C04-922B-5AE1FCA5C454', 'name': 'Start Schufascroing Bank\n', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-3AF9461B-53FD-42F8-AD66-9B7E98BA0EA7', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-7B3725FB-F2FE-4743-909F-A0464D66CF53', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-A184A03E-77E7-401C-8D95-03177E93D31D', 'name': 'Level 1 successful', 'incoming': ['Level 1 scoring'], 'outgoing': []}
+{'id': 'sid-B6EB04D9-0127-43E7-AE27-04CF9ED88AE9', 'name': 'EndEvent2', 'incoming': ['Scoring Level2 is performed'], 'outgoing': []}

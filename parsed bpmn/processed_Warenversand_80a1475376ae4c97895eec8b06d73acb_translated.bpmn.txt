@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-C5148421-AF99-4503-B0F4-355139335637', 'name': 'Explanation Shipping', 'incoming': ['Start'], 'outgoing': ['Large quantity']}
+{'id': 'sid-5F2F75EF-E35D-4FBA-9D99-10BBCBFF4E8A', 'name': 'Collection of offers from different carriers', 'incoming': ['Start'], 'outgoing': ['Spediteur']}
+{'id': 'sid-A605C878-C6FC-4C71-B0AA-4267DC03BE68', 'name': 'Filling the package note', 'incoming': ['Large quantity'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-6B46D6BC-633C-4D96-A4D5-09C957E02CFF', 'name': 'Spediteur', 'incoming': ['Large quantity'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-C7C8ECDF-6210-4434-B0D4-7932A52BC621', 'name': 'Insurance close', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-16FBE321-197D-4F3F-A38B-C11F3E924B5A', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-14194568-C886-478D-8633-560AB1465060', 'name': 'Delivering goods', 'incoming': ['ParallelGateway5'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-10089CAF-BF40-4013-B565-59E1640F50C9', 'name': 'Large quantity', 'incoming': ['Start'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway3']}
+{'id': 'sid-7FF05233-31A8-42EB-9A80-A2B3D63E75B4', 'name': 'Insurance necessary?', 'incoming': ['Large quantity'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-381ED961-16AA-45BE-A50A-CD5242347BB6', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway4', 'Insurance necessary?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-DF912F0F-101D-4112-BA9D-040A7DD56604', 'name': 'ExclusiveGateway3', 'incoming': ['Large quantity', 'Large quantity'], 'outgoing': ['Delivering goods']}
+{'id': 'sid-502B411A-18F5-4331-8638-558E06D513BF', 'name': 'ParallelGateway4', 'incoming': ['Large quantity'], 'outgoing': ['ParallelGateway5', 'ParallelGateway5']}
+{'id': 'sid-D1CF0551-0D58-4C13-BDF1-FE4A5A8D18C9', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'Filling the package note'], 'outgoing': ['Delivering goods']}
+
+Start Events:
+{'id': 'sid-57E4C314-EC92-4CCF-A861-39EF411FE02B', 'name': 'Start', 'incoming': [], 'outgoing': ['Collection of offers from different carriers']}
+
+End Events:

@@ -1,0 +1,27 @@
+ When a credit request is initiated, it triggers a series of events and interactions between different components in the system. Here's a natural flow description of the process:
+
+1. The credit request process begins with the 'StartEvent0' which is triggered by the incoming 'Credit request' event. This event initiates the credit request process and sends the request to the 'ExclusiveGateway0'.
+
+2. The 'ExclusiveGateway0' receives the credit request and decides to send a 'Get delay message' to the 'Editing credit request' task. This task is responsible for editing the credit request and may take some time to complete.
+
+3. Once the 'Editing credit request' task finishes, it sends an 'EndEvent1' to signal the completion of the editing process.
+
+4. The 'ExclusiveGateway0' then sends the credit request to the 'Level 1 Scoring' task, which performs the initial scoring of the credit request.
+
+5. The 'Level 1 Scoring' task sends an 'EndEvent3' to signal its completion.
+
+6. The 'ExclusiveGateway0' then sends the credit request to the 'Granting credit clearance' task, which is responsible for granting credit clearance.
+
+7. The 'Granting credit clearance' task sends an 'EndEvent2' to signal its completion.
+
+8. The 'ExclusiveGateway0' sends the credit request to the 'Send delay message to Bank' task, which communicates with the bank to determine if there are any delays in processing the credit request.
+
+9. The 'Send delay message to Bank' task sends a 'Level 2 Scoring' task to perform a more detailed scoring of the credit request.
+
+10. The 'Level 2 Scoring' task sends an 'EndEvent5' to signal its completion.
+
+11. The 'ExclusiveGateway1' receives the 'EndEvent5' and sends the credit request to the 'Send credit clearance' task.
+
+12. The 'Send credit clearance' task sends an 'EndEvent4' to signal its completion.
+
+13. Finally, the 'ExclusiveGateway1' sends the credit request to

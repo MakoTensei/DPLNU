@@ -1,0 +1,13 @@
+ The process begins with the 'Schufa show\nRequired' event, which triggers the 'forward SchufaScoring' action, leading to the 'SchufaScoring\nGet Level 1' task. This task, upon completion, results in the 'EndEvent0' event.
+
+Simultaneously, the 'Schufa request\nobtained' event initiates the 'Report delay' action, which in turn triggers the 'Delay message\nobtained' action. This action leads to the 'forward delay message' task, which eventually results in the 'EndEvent1' event.
+
+Meanwhile, the 'SchufaScoring\nGet Level 2' task, triggered by the 'Schufa show\nRequired' event, leads to the 'Transfer schufascoring level 2' action. This action, upon completion, results in the 'EndEvent2' event.
+
+The 'Results are available?' event, triggered by the 'Schufa request\nobtained' event, leads to the 'Transfer schufascoring level 1' action, which eventually results in the 'EndEvent2' event.
+
+The 'EventBasedGateway1' event, triggered by the 'Schufa show\nRequired' event, leads to the 'EndEvent0' and 'Delay message\nobtained' actions. The 'Delay message\nobtained' action, in turn, triggers the 'forward delay message' task, which eventually results in the 'EndEvent1' event.
+
+Lastly, the 'SchufaScoring\nGet Level 1' task, triggered by the 'forward SchufaScoring' action, leads to the 'EndEvent0' event.
+
+In summary, the process involves multiple tasks and events, with each event triggering specific actions and resulting in subsequent events and tasks. The process ensures that the SchufaScoring process is initiated, and the results are obtained and transferred accordingly.

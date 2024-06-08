@@ -1,0 +1,38 @@
+Tasks:
+{'id': 'sid-85C50458-BB68-47F7-AAF1-C91129BC78DF', 'name': 'Visit the restaurant', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Select a court']}
+{'id': 'sid-CBECFDC5-88B1-495D-A893-53FB294127CB', 'name': 'Select a court', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Visitor']}
+{'id': 'sid-B570FA14-22A1-461A-8B43-D9BA16497418', 'name': 'Add your order', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Pay money']}
+{'id': 'sid-7B590F8C-5C68-4869-B096-13868448A041', 'name': 'Pay money', 'incoming': ['Visitor'], 'outgoing': ['Food is ready']}
+{'id': 'sid-FC89E2F9-BFA9-4CB4-B046-EF1D00A1F0DD', 'name': 'Pick up food', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Eat food']}
+{'id': 'sid-E555EE89-8D79-4A91-B1CC-61EAA83A5445', 'name': 'Eat food', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Famine']}
+{'id': 'sid-F2B2204C-4EBD-4AB8-9987-0AC6D3453222', 'name': 'Enter your order in cash system', 'incoming': ['Order to receive'], 'outgoing': ['Paying']}
+{'id': 'sid-B7F89698-447A-477F-B9E1-984946F65C31', 'name': 'Paying', 'incoming': ['Order to receive'], 'outgoing': ['Adjust and transfer Pieper']}
+{'id': 'sid-E9223288-4524-44A4-91AA-8D2E327AE805', 'name': 'Adjust and transfer Pieper', 'incoming': ['Order to receive'], 'outgoing': ['inform Koch about order']}
+{'id': 'sid-25DBB42E-8D0A-401A-9A03-7A8A4094E51E', 'name': 'inform Koch about order', 'incoming': ['Order to receive'], 'outgoing': ['Mealing in Average']}
+{'id': 'sid-F867B2AF-5BCF-4681-961C-3CCB47C58893', 'name': 'Trigger Pieper', 'incoming': ['Order to receive'], 'outgoing': ['Visit to Theke']}
+{'id': 'sid-3E3908B7-C638-4333-BC30-089063382719', 'name': 'Deliver food', 'incoming': ['Order to receive'], 'outgoing': ['Order completed']}
+{'id': 'sid-98BA10C5-1C96-41C5-B55F-E4B39C368501', 'name': 'Retrieve guest', 'incoming': ['5 minutes waiting'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-1532E8E2-DFC0-43B3-B336-B225EE33E395', 'name': 'Preparation of meal', 'incoming': ['Ordered meal'], 'outgoing': ['Putting meal in vain']}
+{'id': 'sid-3C286FBF-3ABE-4D38-A2CE-0F0455C80639', 'name': 'Putting meal in vain', 'incoming': ['Ordered meal'], 'outgoing': ['Order completed']}
+
+Gateways:
+{'id': 'sid-1BA8171E-FB78-481B-A238-2BAB97E4DB1B', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway1', 'EventBasedGateway1'], 'outgoing': ['Famine']}
+{'id': 'sid-C9E6E6A8-F6DB-450A-B5B4-13E5A979657E', 'name': 'EventBasedGateway1', 'incoming': ['Visitor'], 'outgoing': ['Pick up food', 'Eat food']}
+{'id': 'sid-28701692-A947-49F8-AF7B-6B937A54DA47', 'name': 'EventBasedGateway2', 'incoming': ['Mealing in Average', 'EventBasedGateway2'], 'outgoing': ['EventBasedGateway2', 'Order completed']}
+{'id': 'sid-23B2C7D3-F46A-48A2-BE8D-17B34191DBAB', 'name': 'IntermediateCatchEvent3', 'incoming': ['Visitor'], 'outgoing': ['Famine']}
+{'id': 'sid-D26A60DA-46A2-42E1-8AE0-3C254D9287A3', 'name': 'Food is ready', 'incoming': ['Pay money'], 'outgoing': ['Famine']}
+{'id': 'sid-47752357-4F33-42D9-97D9-738BCFD47DD3', 'name': 'Retrieval', 'incoming': ['Visitor'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-3BF79D7B-FD76-4E83-AD2E-B418A7509C48', 'name': 'Visitor', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Retrieval']}
+{'id': 'sid-0189F339-5022-40ED-B8AC-40C660200ACA', 'name': 'Mealing in Average', 'incoming': ['Order to receive'], 'outgoing': ['Order completed']}
+{'id': 'sid-A6DBDF93-F86D-40A6-8BE5-F5E9723B28F0', 'name': '5 minutes waiting', 'incoming': ['Mealing in Average'], 'outgoing': ['Order completed']}
+{'id': 'sid-15A7B400-58E9-4D1D-8336-09FB2798B04C', 'name': 'Visit to Theke', 'incoming': ['Order to receive'], 'outgoing': ['Order completed']}
+
+Start Events:
+{'id': 'sid-A5DF6D09-1204-4BFB-8552-65D27722DA25', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-8FCDAF2D-3AB3-40C2-B3EA-97D2321F9F2F', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Deliver food']}
+{'id': 'sid-6F371555-CB96-459B-9EAF-F1AE0569638A', 'name': 'Ordered meal', 'incoming': [], 'outgoing': ['Putting meal in vain']}
+
+End Events:
+{'id': 'sid-5D232F31-D7DD-4A7D-B8D0-6A13BBEB3544', 'name': 'Famine', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': []}
+{'id': 'sid-BE1FDA06-D585-479C-8107-57726C9F04B4', 'name': 'Order completed', 'incoming': ['Mealing in Average'], 'outgoing': []}
+{'id': 'sid-2625A6A5-FBB6-4693-A165-CAE87E9C925F', 'name': 'Order completed', 'incoming': ['Putting meal in vain'], 'outgoing': []}

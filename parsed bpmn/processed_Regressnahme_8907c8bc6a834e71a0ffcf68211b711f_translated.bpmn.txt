@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-E6F04A51-AD23-45CC-A996-AB11A1C78AC7', 'name': 'Case\nRegression\nCheck', 'incoming': ['Regress\npossibility\nReport'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-7F3EB82C-40FB-4362-ADBF-60D8538EB3B4', 'name': 'Payment\non request\nsend to VN', 'incoming': ['Regress\npossibility\nReport'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-7E6DCE31-435A-4D92-90C2-C0E37C6EA2D1', 'name': 'Process\nclose', 'incoming': ['Opposition\njustified'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-AF7EB010-6217-4AB2-A685-0A85418917C7', 'name': 'Process\non resubmission\nlay down', 'incoming': ['ParallelGateway4'], 'outgoing': ['Reimbursement\nin 2 weeks']}
+{'id': 'sid-9D768A4C-6677-4689-8EC6-761C599BD696', 'name': 'Cash receipt\nbook', 'incoming': ['Reimbursement\nin 2 weeks'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-C8239F45-584B-4C93-ACAD-7327CD3BB620', 'name': 'Opposition\nCheck', 'incoming': ['Regress\npossibility\nReport'], 'outgoing': ['Opposition\njustified']}
+{'id': 'sid-9ABA7634-1100-4A92-B9C0-DEFB0AE9A08E', 'name': 'Process\non debt collection\nDL', 'incoming': ['Opposition\nReport'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-ADEB8113-DA4B-4A69-8197-430AE0C98E53', 'name': 'Regression\npossible', 'incoming': ['Regress\npossibility\nReport'], 'outgoing': ['EndEvent0', 'Money\nReport']}
+{'id': 'sid-405F3B55-F5DF-4DBE-93AE-03F1F5CC4340', 'name': 'ExclusiveGateway1', 'incoming': ['Case\nRegression\nCheck', 'EventBasedGateway3', 'Opposition\njustified'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-DD39FE9E-5C71-45FE-87DC-C8A62F41C060', 'name': 'Opposition\njustified', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent1', 'Process\nclose']}
+{'id': 'sid-5DF70B04-D7D1-48B2-9A34-EB2B59D72C70', 'name': 'EventBasedGateway3', 'incoming': ['Regress\npossibility\nReport'], 'outgoing': ['ExclusiveGateway1', 'EndEvent1', 'Reimbursement\nDate of expiry\n']}
+{'id': 'sid-0B96B6EC-6F8B-44C9-A8D9-A0ACF1E1473C', 'name': 'ParallelGateway4', 'incoming': ['Regress\npossibility\nReport'], 'outgoing': ['Payment\non request\nsend to VN', 'ParallelGateway5']}
+{'id': 'sid-0A34C4C4-50C4-4E4E-9A72-1A0C6987C6EA', 'name': 'ParallelGateway5', 'incoming': ['Regress\npossibility\nReport', 'ParallelGateway4'], 'outgoing': ['Money\nReport']}
+{'id': 'sid-CCDD7227-13C1-4A9B-AA3F-CBC66C7DE0D4', 'name': 'Money\nReport', 'incoming': ['Regression\npossible'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-8D0434FD-F3CC-470A-9FBB-1DE598EF8A83', 'name': 'Opposition\nReport', 'incoming': ['Regress\npossibility\nReport'], 'outgoing': ['Process\non debt collection\nDL']}
+{'id': 'sid-36ED1F6C-C404-4FD0-AF17-B2926461CC96', 'name': 'Reimbursement\nDate of expiry\n', 'incoming': ['EventBasedGateway3'], 'outgoing': ['sid-D748D749-BA91-45D5-AF16-661CEE0F09C7']}
+{'id': 'sid-DA403E99-7164-47B9-B7C7-5DE74EE7DC8A', 'name': 'Reimbursement\nin 2 weeks', 'incoming': ['Regression\npossible'], 'outgoing': ['Cash receipt\nbook']}
+
+Start Events:
+{'id': 'sid-C7A281AA-3F2B-425A-BA11-E1614B86629B', 'name': 'Regress\npossibility\nReport', 'incoming': [], 'outgoing': ['Opposition\nCheck']}
+
+End Events:
+{'id': 'sid-0CC1BF15-0F5C-4623-844E-8E7411CC69BB', 'name': 'EndEvent0', 'incoming': ['Regression\npossible'], 'outgoing': []}
+{'id': 'sid-7B7BC126-DBA5-4DE3-80DC-B20C64AD9984', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway3'], 'outgoing': []}

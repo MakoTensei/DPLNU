@@ -1,0 +1,11 @@
+ The process begins with the 'Goods Ship' event, which triggers the 'Set shipping mode' task, leading to the selection of the shipping method. Once the shipping mode is set, the 'Insurance close' task is initiated to determine if insurance is necessary for the shipment. If insurance is required, the 'Insurance necessary?' task is triggered, which then connects to the 'ExclusiveGateway1' to finalize the insurance details.
+
+Simultaneously, the 'Set shipping mode' task also leads to the '3 offers' task, which involves a parallel process to offer specialized services. This task connects to 'ParallelGateway4' and subsequently to 'ExclusiveGateway1' for specialist services.
+
+After the shipping mode is set and insurance is determined, the 'Fill in standard packing paper' task is initiated to ensure the goods are properly packed. This task connects to 'Shipping type?' to confirm the shipping requirements.
+
+Once the goods are packed and the shipping type is confirmed, the 'Check goods for necessary insurance' task is triggered to verify if insurance is still needed. This task connects back to 'Shipping type?' to confirm the shipping requirements.
+
+Following the confirmation of insurance and shipping details, the 'Packaging goods' task is initiated to prepare the goods for shipment. This task connects to 'ParallelGateway4' for parallel processing.
+
+Finally, the 'Deliver goods for collection' event is triggered, which connects to 'ParallelGateway5' to arrange the pickup of the goods. The goods are ready for collection, and the process concludes.

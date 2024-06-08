@@ -1,0 +1,5 @@
+ When an order arrives, the process begins with the 'Order arrived' event, which triggers the 'Pick up offers from Spediteur' task. This task is responsible for selecting the best freight forwarder, and it communicates with 'ExclusiveGateway0' to initiate the process. Once the best freight forwarder is chosen, the task 'Filling the package note' is triggered, which also communicates with 'ExclusiveGateway0' to ensure the package note is properly filled.
+
+Simultaneously, the 'Pick up offers from Spediteur' task also triggers the 'Complete insurance' task, which communicates with 'ExclusiveGateway1' to ensure the goods are insured. After the package note is filled and the goods are insured, the 'Packaging goods' task is triggered, which communicates with 'ParallelGateway3' to package the goods.
+
+Once the goods are packaged, the 'Delivering goods' event is triggered, which communicates with 'ExclusiveGateway2' to initiate the delivery process. The goods are then delivered to the customer, completing the entire process.

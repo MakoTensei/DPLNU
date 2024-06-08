@@ -1,0 +1,11 @@
+ The workflow begins with the 'Maybe Regress' event, which triggers the 'Check the case' task. This task has two outgoing connections: 'Regress possible?' and 'Send payment request to VN'. The 'Regress possible?' connection leads to the 'Regress possible?' gateway, which in turn triggers the 'Send payment request to VN' task.
+
+The 'Send payment request to VN' task has an incoming connection from 'EventBasedGateway3', which is triggered by the 'Get money' event. This task has two outgoing connections: 'EndEvent2' and 'Transfer to debt collection'. The 'EndEvent2' connection is triggered by the 'Get money' event, while the 'Transfer to debt collection' task is triggered by the 'EventBasedGateway3' connection.
+
+The 'Transfer to debt collection' task has an incoming connection from 'EventBasedGateway3', which is triggered by the 'Get money' event. This task has two outgoing connections: 'EndEvent3' and 'Reimbursement period expired'. The 'EndEvent3' connection is triggered by the 'EventBasedGateway3' connection, while the 'Reimbursement period expired' connection is triggered by the 'Reimbursement period expired' event.
+
+The 'EndEvent3' task has an incoming connection from 'EventBasedGateway3', which is triggered by the 'Get money' event. This task has an outgoing connection to 'ExclusiveGateway2', which is triggered by the 'Proceedings' task. The 'Proceedings' task has two outgoing connections: 'EndEvent1' and 'ExclusiveGateway2'. The 'EndEvent1' connection is triggered by the 'Objection' event, while the 'ExclusiveGateway2' connection is triggered by the 'Proceedings' task.
+
+The 'ExclusiveGateway2' task has two outgoing connections: 'EndEvent3' and 'Objection justified?'. The 'EndEvent3' connection is triggered by the 'EventBasedGateway3' connection, while the 'Objection justified?' connection is triggered by the 'Objection' event.
+
+In summary, the workflow starts with

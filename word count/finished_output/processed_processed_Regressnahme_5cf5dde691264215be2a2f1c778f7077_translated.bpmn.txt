@@ -1,0 +1,7 @@
+ When a case is checked due to a VN Regress taken, the process begins with the creation of a payment request, as indicated by the gateway 'Payment required'. This gateway has incoming connections from the 'VN Regress taken' start event and outgoing connections to the 'Creating payment request' and 'Regress completed' end events.
+
+Simultaneously, the 'IntermediateCatchEvent5' event triggers the booking of the entrance and the completion of the regress. This event has incoming connections from the 'VN Regress taken' start event and outgoing connections to the 'Book the entrance', 'Regress completed', and 'Date of expiry' end events.
+
+If the VN contradicts the regress, a report on debt collection is created, and the regress is marked as completed. This process is managed by the 'justified?' gateway, which has incoming connections from the 'VN contradicts' start event and outgoing connections to the 'Regress completed' and 'Creating a report on debt collection' end events.
+
+In summary, when a VN Regress is taken, the process involves creating a payment request, booking the entrance, completing the regress, and potentially creating a report on debt collection, depending on whether the VN contradicts the regress.

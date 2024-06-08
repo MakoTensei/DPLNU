@@ -1,0 +1,14 @@
+ In the case management system, various tasks are interconnected through a network of gateways and events. The process begins with the 'Possibility for VN to be taken into regress' event, which triggers the creation of a payment request. This request is then routed through ExclusiveGateway0, which also handles the reimbursement deadline reached scenario.
+
+The payment request is then forwarded to ExclusiveGateway3, where it is processed and eventually leads to the 'VN received' event. This event, in turn, connects to ExclusiveGateway3, which then directs the case to the 'Check the case' task.
+
+The 'Check the case' task is followed by the 'ExclusiveGateway3' which routes the case to the 'Debt collection agency' task. The debt collection agency task is then followed by the 'EndEvent1' task, which concludes the process.
+
+In summary, the process flows as follows:
+
+1. 'Possibility for VN to be taken into regress' event triggers the creation of a payment request.
+2. The payment request is routed through ExclusiveGateway0 and ExclusiveGateway3.
+3. The 'VN received' event connects to ExclusiveGateway3.
+4. The 'Check the case' task is initiated and routed through ExclusiveGateway3.
+5. The 'Debt collection agency' task is executed.
+6. The process concludes with the 'EndEvent1' task.

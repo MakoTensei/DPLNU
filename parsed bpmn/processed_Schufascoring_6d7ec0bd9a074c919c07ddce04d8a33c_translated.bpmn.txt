@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-BA503D85-FC1E-4595-AE5E-56E9354E5FF5', 'name': 'Create a Schufascoring request', 'incoming': ['Schufascoring\nrequired'], 'outgoing': ['Scoring\narrived']}
+{'id': 'sid-D864A020-9984-4BF6-A239-95ED951598B9', 'name': 'Scoring', 'incoming': ['Schufascoring\nrequired'], 'outgoing': ['Scoring']}
+{'id': 'sid-242849FF-6246-4D29-9AC9-601228C78FD3', 'name': 'Conduct scoring (level 1)', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-BEDD03A5-8F7C-4F45-AA49-0618DCC5D3F3', 'name': 'Report delay', 'incoming': ['Exception?'], 'outgoing': ['Conduct scoring (level 2)']}
+{'id': 'sid-D644CD9D-2C74-44B0-BA0B-D71EA759CC20', 'name': 'Conduct scoring (level 2)', 'incoming': ['Exception?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-5A45086E-7D60-4325-8A4A-268D3B50C97C', 'name': 'Report scoring', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring reported']}
+
+Gateways:
+{'id': 'sid-B057DA0F-C007-4F37-B6A7-E5CF96897434', 'name': 'Exception?', 'incoming': ['StartEvent1'], 'outgoing': ['Conduct scoring (level 1)', 'ExclusiveGateway1']}
+{'id': 'sid-2F0FD428-957B-4BE6-B835-4C675FA9C49E', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent1', 'Exception?'], 'outgoing': ['Scoring reported']}
+{'id': 'sid-565188AF-E5A5-4981-BD03-BE157544D022', 'name': 'Scoring\narrived', 'incoming': ['Schufascoring\nrequired'], 'outgoing': ['Scoring']}
+
+Start Events:
+{'id': 'sid-EBEB2014-FCD9-4461-AF5D-EA1EE5D69874', 'name': 'Schufascoring\nrequired', 'incoming': [], 'outgoing': ['Scoring']}
+{'id': 'sid-4DB23AE4-9037-4B78-8460-B55854156723', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Report scoring']}
+
+End Events:
+{'id': 'sid-F7C4458B-9509-41D9-B5FC-BCD1F3684437', 'name': 'Scoring', 'incoming': ['Scoring\narrived'], 'outgoing': []}
+{'id': 'sid-1E1A8D11-81E6-49CC-99F3-1B49F3FFB1A9', 'name': 'Scoring reported', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}

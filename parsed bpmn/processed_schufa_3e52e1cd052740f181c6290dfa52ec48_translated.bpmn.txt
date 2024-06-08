@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-2D279B28-303C-4D8F-814D-D043B6273ED9', 'name': 'Level 1 scoring', 'incoming': ['StartEvent1'], 'outgoing': ['Level 2 scoring necessary?']}
+{'id': 'sid-AD0A2936-E028-4275-B9AA-2B40980350C5', 'name': 'Level 2 scoring', 'incoming': ['sid-631B4F05-EDCB-43E2-A699-498B4975E8D0'], 'outgoing': ['Send result']}
+
+Gateways:
+{'id': 'sid-75ADC0B6-ADB8-46C0-BEEE-4E8240ACF097', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'Results obtained'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-82036E61-41CF-41B5-B398-7378E656218B', 'name': 'Level 2 scoring necessary?', 'incoming': ['StartEvent1'], 'outgoing': ['Send result', 'sid-0AB1E3A5-1CF2-4C04-B0B6-BC2A816F8152']}
+{'id': 'sid-9EAF47DC-C7A2-422D-9EE8-4227214728CA', 'name': 'EventBasedGateway2', 'incoming': ['sid-1A7276ED-C999-48EE-9B91-1DE87E8C7DA6'], 'outgoing': ['ExclusiveGateway0', 'Get delay message']}
+{'id': 'sid-881E79B6-DA8E-4AFF-8E48-3A906B903903', 'name': 'Results obtained', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-D6817CC0-DFD1-4844-9BB3-EB1BC4E464F2', 'name': 'Get delay message', 'incoming': ['EventBasedGateway2'], 'outgoing': ['sid-8A4DC70C-B9C3-44F9-98EC-A4087A6FB039']}
+{'id': 'sid-D47D9CC0-956F-4BC0-ABD9-32AE908EDF4F', 'name': 'Results obtained', 'incoming': ['sid-B5E9EC26-E349-4757-A2CD-DF22CB0A88E5'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-7DC04B01-8DCD-48B6-BF37-39D4631895A6', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['sid-19568830-D0C1-456C-8FB7-06351F124170']}
+{'id': 'sid-61D86DF7-C97F-45A8-BD30-0F5B08E23C46', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Level 2 scoring necessary?']}
+
+End Events:
+{'id': 'sid-A0BEC4B6-3529-44E9-B6F0-897E12806D54', 'name': 'EndEvent0', 'incoming': ['Results obtained'], 'outgoing': []}
+{'id': 'sid-4EE1500E-8EAC-40F9-981A-CAE5C1D5B902', 'name': 'Send result', 'incoming': ['Level 2 scoring necessary?'], 'outgoing': []}
+{'id': 'sid-745B75D2-34ED-4613-A406-0EAA8BA75497', 'name': 'Send result', 'incoming': ['Level 2 scoring'], 'outgoing': []}

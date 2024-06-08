@@ -1,0 +1,11 @@
+ In the process of handling a scoring request obtained from Schufa, the system initiates a sequence of tasks and interactions between various components. The journey begins with the 'Scoring request\nobtained' event, which triggers a 'Send delay' task to ensure the scoring process is not rushed. Concurrently, a 'Send scoring result' task is set up to handle the outcome of the Schufa request.
+
+As the scoring process commences, the 'Level 1 Scoring' task is activated, receiving a Schufa request and directing it to the 'ExclusiveGateway1'. This gateway then forwards the request to the 'Level 2 Scoring' task, which awaits a 'Result\npresent?' message to proceed.
+
+Upon receiving the 'Result\npresent?' message, the 'Level 2 Scoring' task sends a signal to the 'ExclusiveGateway1', which in turn triggers the 'Send scoring result' task to deliver the final outcome of the scoring process.
+
+Simultaneously, the 'EventBasedGateway2' receives the 'Scoring request\nobtained' event and the 'Delay message\nobtained' event. It processes these events by sending a 'Scoring request\nFinished' message to the 'Scoring' task and a 'Scoring request\nFinished' message to the 'Delay message\nobtained' task.
+
+Finally, the 'Scoring request\nFinished' event is triggered, marking the completion of the scoring process. The 'Delay message\nobtained' event also concludes, signaling the end of the delay mechanism.
+
+Throughout this process, the system ensures a smooth flow of tasks and interactions between the different components, ultimately delivering the scoring results and managing the delay mechanism effectively.

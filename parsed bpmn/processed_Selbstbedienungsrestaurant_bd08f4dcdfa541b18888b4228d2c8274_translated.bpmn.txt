@@ -1,0 +1,35 @@
+Tasks:
+{'id': 'sid-F284B08C-AA3F-4724-9458-E1D6EDBA6B02', 'name': 'Select a court', 'incoming': ['Gastronomy'], 'outgoing': ['Add your order']}
+{'id': 'sid-F18BF65E-9033-401B-9914-BCE7512EB64B', 'name': 'Add your order', 'incoming': ['Gastronomy'], 'outgoing': ['sid-3C71A4BB-36B3-43FE-9C23-A53E4CE45F01', 'Payment']}
+{'id': 'sid-44CCCAAB-1B86-41D8-8147-0B9E18ED6FAA', 'name': 'Payment', 'incoming': ['Gastronomy'], 'outgoing': ['Pieper\nthe']}
+{'id': 'sid-083FB367-8B3D-46A0-AF27-3C7757BEC316', 'name': 'Pick up food', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Eat meal']}
+{'id': 'sid-B679CDA0-2C79-42DB-9AF2-9000213B7727', 'name': 'Eat meal', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-66D43A20-D2D0-458F-999A-0C79DA2C15BC', 'name': 'Pieper\nthe', 'incoming': ['Gastronomy'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E490A894-0E37-48F1-A492-B24E6FAAFDAF', 'name': 'Enter your order in cash system', 'incoming': ['Order\nrecord'], 'outgoing': ['Cash']}
+{'id': 'sid-FD8CAB11-446A-4D34-A7EF-AA59F220BBD6', 'name': 'Cash', 'incoming': ['Order\nrecord'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-CEDDCBDD-3BA2-4B05-BD9A-B6609D89E8CA', 'name': 'Adjust Pieper', 'incoming': ['Order\nrecord'], 'outgoing': ['ParallelGateway1']}
+{'id': 'sid-8F2BC0BE-1C6B-4CB0-8F02-99D210CBB008', 'name': 'Trigger Pieper', 'incoming': ['Food is\nPrepared'], 'outgoing': ['sid-AA2B0811-F24B-4949-9AAA-C7D4D992919E', '5 minutes']}
+{'id': 'sid-C481A758-6E07-4BE0-A9B4-608E6CDF51F3', 'name': 'Meals\noutput', 'incoming': ['Food is\nPrepared'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-79B677DC-7C45-4F16-9E79-F688D4BD8B3D', 'name': 'Retrieve guest', 'incoming': ['5 minutes'], 'outgoing': ['Meals\npicked up?']}
+{'id': 'sid-3063E638-B64B-45A4-A3E9-2210827A596A', 'name': 'Pieper handed out', 'incoming': ['Order\nrecord'], 'outgoing': ['Food is\nPrepared']}
+{'id': 'sid-F3B595AF-1AB3-410D-BD8D-DD98B0D08D20', 'name': 'Preparation of meal', 'incoming': ['Order received'], 'outgoing': ['Putting meal in vain']}
+{'id': 'sid-BBB1C291-38AA-4892-9245-363E3A88C52A', 'name': 'Putting meal in vain', 'incoming': ['Order received'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-08F7D2B4-65F0-4F9D-90EF-BEEBD3FD041B', 'name': 'Meals\npicked up?', 'incoming': ['Order\nrecord', '5 minutes'], 'outgoing': ['Meals\npicked up?', 'EndEvent1']}
+{'id': 'sid-E6E70B70-D6F9-4087-9E05-EED2A4479FD4', 'name': 'ParallelGateway1', 'incoming': ['Order\nrecord'], 'outgoing': ['sid-6B0EDD10-09B5-4FE3-A728-A62EFA42CEED', 'Guest at the issue\npublished']}
+{'id': 'sid-E1B373FF-F540-463A-95C7-8152BC85DFB8', 'name': 'ParallelGateway2', 'incoming': ['sid-C3C96C46-FBEA-46BC-A26E-B4457421509A', 'Order\nrecord'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-29D8F2D4-7DFA-4634-86A5-1557B6034194', 'name': 'IntermediateCatchEvent3', 'incoming': ['Gastronomy'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-19CE3F5C-1F90-43B2-8E42-4393F64F652B', 'name': '5 minutes', 'incoming': ['Trigger Pieper'], 'outgoing': ['Meals\npicked up?']}
+{'id': 'sid-E84F884F-A0BC-425B-885B-44A8C1A0D6E1', 'name': 'Guest at the issue\npublished', 'incoming': ['ParallelGateway1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-CF7A2658-8084-4CB9-82FA-7D0554EB3EA9', 'name': 'Food is\nPrepared', 'incoming': ['ParallelGateway1'], 'outgoing': ['Meals\noutput']}
+
+Start Events:
+{'id': 'sid-22605D54-39F6-4185-838E-FB0CFF4ED19D', 'name': 'Gastronomy', 'incoming': [], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-6415B249-6D3B-4962-9383-589EBA1F92D7', 'name': 'Order\nrecord', 'incoming': [], 'outgoing': ['Meals\npicked up?']}
+{'id': 'sid-C21EF6AF-11BE-4F3F-AB19-E316417F477A', 'name': 'Order received', 'incoming': [], 'outgoing': ['Putting meal in vain']}
+
+End Events:
+{'id': 'sid-5B126136-E31C-4C6C-95FF-2CF697808F80', 'name': 'EndEvent0', 'incoming': ['Pieper\nthe'], 'outgoing': []}
+{'id': 'sid-767D1C83-80E0-4DC0-A3F8-C6F902634EC6', 'name': 'EndEvent1', 'incoming': ['ParallelGateway2'], 'outgoing': []}
+{'id': 'sid-260DB51D-8EE9-4284-A373-6C79620E88D5', 'name': 'Employees\ninformation', 'incoming': ['sid-95A6C7EE-E831-4BBD-AE3F-BF258D3F654B'], 'outgoing': []}

@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-F335BF49-7E7D-4123-8737-71FCBC9D9DDF', 'name': 'Send a message', 'incoming': ['Regress?'], 'outgoing': ['IntermediateCatchEvent6']}
+{'id': 'sid-8A901F6F-3F3F-409F-92DC-3EB00542B826', 'name': 'Check the case', 'incoming': ['Take VN in Regress'], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-960D18BF-4961-4EA4-B38D-7F7A652F75A1', 'name': 'Add to wishlist', 'incoming': ['IntermediateCatchEvent5', '5 ATs'], 'outgoing': []}
+{'id': 'sid-E9E4D1D5-2FB1-45AC-81B8-C4584FFC92AF', 'name': 'Book money receipt', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-E065763F-F486-4D5F-841B-071300DCBF7F', 'name': 'Proceedings', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['sid-9EC2166B-93D1-4044-A1F4-A2D630D7BAAD']}
+{'id': 'sid-83B69FDC-16B6-4ECD-ADB8-2C1C876A52F3', 'name': 'Debt collection agency', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['sid-B4ED5E6D-3299-4E91-AE07-5FE0D29B8288']}
+
+Gateways:
+{'id': 'sid-E68E7145-DA5C-4938-B419-1BF776283BE6', 'name': 'Regress?', 'incoming': ['Take VN in Regress'], 'outgoing': ['IntermediateCatchEvent5', 'Process']}
+{'id': 'sid-DB8E8867-025D-4F92-A1CE-14610CECA929', 'name': 'ExclusiveGateway1', 'incoming': ['5 ATs'], 'outgoing': ['VN?']}
+{'id': 'sid-F353C614-6284-4A4C-BE6F-33AD2DDA2D43', 'name': 'VN?', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Proceedings', 'EndEvent1']}
+{'id': 'sid-B99E70BD-8228-43C0-BDF0-44BD915E6460', 'name': 'ExclusiveGateway3', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Debt collection agency', 'Proceedings']}
+{'id': 'sid-659CC683-CB33-41D5-A001-6F85BF224907', 'name': '5 ATs', 'incoming': [], 'outgoing': ['Add to wishlist', 'EndEvent1']}
+{'id': 'sid-2DF1D6D1-9482-4C61-8B29-B15139B58747', 'name': 'IntermediateCatchEvent5', 'incoming': ['Check the case'], 'outgoing': ['Add to wishlist', 'IntermediateCatchEvent6']}
+{'id': 'sid-9DBC95D3-AB7B-49B2-B6AA-B05636AB918B', 'name': 'IntermediateCatchEvent6', 'incoming': ['Send a message', '5 ATs'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-DC85592A-DF86-49B9-B5B4-6588BC5DE4EE', 'name': 'Take VN in Regress', 'incoming': [], 'outgoing': ['Regress?']}
+
+End Events:
+{'id': 'sid-DC78C9A0-B8C9-41E9-8CE6-A880AC6C791B', 'name': 'Process', 'incoming': ['Regress?'], 'outgoing': []}
+{'id': 'sid-2D99C261-D352-40C0-99FB-E19E186A2C42', 'name': 'EndEvent1', 'incoming': ['5 ATs'], 'outgoing': []}

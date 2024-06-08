@@ -1,0 +1,7 @@
+ When an order is obtained, it triggers a series of tasks and gateways to ensure the order is processed correctly. The order check begins at ExclusiveGateway0, where the extent and type of the order are verified. Once the order check is complete, the process moves to ExclusiveGateway1, where the order is matched with the appropriate insurance coverage. Following the insurance process, the order is routed to ExclusiveGateway2, which finalizes the order details.
+
+Parallel to this, the order also triggers the 'Select Aungebot' task at Specialist, which selects the best offer for the customer. This task is connected to Special offers, which in turn, are routed to ExclusiveGateway3.
+
+Meanwhile, the order also initiates the 'Packaging of goods' task at ParallelGateway4, which prepares the goods for shipment. This task is linked to ParallelGateway5, where the goods are made available for pickup.
+
+Finally, the 'Providing the goods' task at ParallelGateway5 ensures that the goods are delivered to the customer. This task is connected to Pickup made available, which signifies the completion of the order fulfillment process.

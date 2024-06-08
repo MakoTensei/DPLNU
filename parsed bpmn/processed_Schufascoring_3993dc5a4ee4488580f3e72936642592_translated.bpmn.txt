@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-D08BA998-E4E5-4A67-A0A8-5DBC4860602B', 'name': 'Send request', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring\n:\n']}
+{'id': 'sid-987A27DB-DCF3-411B-9C8E-AB322121FFDE', 'name': 'Results for the front end', 'incoming': ['Scoring\n:\n'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-991041E0-D47E-4E05-85FC-883C35554445', 'name': 'Results for the front end', 'incoming': ['Scoring 2\nobtained'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-01E713EF-7D56-4A8E-AA3A-D30743ED1D71', 'name': 'Delay to the front end', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-BEB145AB-1A4F-4515-8A8B-429084B0E88B', 'name': 'Scoring 1', 'incoming': ['StartEvent1'], 'outgoing': ['Scring determined?']}
+{'id': 'sid-D3668692-4765-4335-9B35-96C5DE719654', 'name': 'Result\nforward', 'incoming': ['StartEvent1'], 'outgoing': []}
+{'id': 'sid-5FD10A9E-DBF3-4597-970E-6AC0B74D5B60', 'name': 'Delay\nparts', 'incoming': ['Scring determined?'], 'outgoing': ['Scoring 2']}
+{'id': 'sid-44251A35-35C8-4671-99E7-A2139BEF31DD', 'name': 'Scoring 2', 'incoming': ['Scring determined?'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-BB6AF66D-1A1B-4652-9668-CCBE1E1A3ECD', 'name': 'Scring determined?', 'incoming': ['StartEvent1'], 'outgoing': ['Result\nforward', 'EndEvent1']}
+{'id': 'sid-0CEB5BA8-2C68-44DC-ABA8-F92469978BDA', 'name': 'EventBasedGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'EndEvent0']}
+{'id': 'sid-3751E946-05C7-4FA2-929A-46794E107B01', 'name': 'Scoring\n:\n', 'incoming': ['Send request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B437A514-0636-44E2-919E-767CCF17AC76', 'name': 'Delayed\nScoring\n', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-401FF35C-5088-463C-8406-BB8B08A7886F', 'name': 'Scoring 2\nobtained', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-B03C7A60-7396-46AE-AC62-3286F09351C5', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Scoring 2\nobtained']}
+{'id': 'sid-CF7D357B-8B6E-4774-9FE5-7430C9423E6A', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Result\nforward']}
+
+End Events:
+{'id': 'sid-0E8BF56C-BEE7-43C0-BBD7-67BE5B363C02', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1', 'EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-AC932781-FEE7-4F3E-81FA-236E54183C7F', 'name': 'EndEvent1', 'incoming': ['Scring determined?'], 'outgoing': []}

@@ -1,0 +1,11 @@
+ In the scoring process, the system initiates with the 'Scoring Start' event, which triggers the 'Score fast determined' and 'Score slow determined' end events. The 'Score fast determined' event sends a message to 'Score fast determined' and 'Score L2 send' gateways, while the 'Score slow determined' event sends a message to 'Score slow determined' and 'Score L1 send' gateways.
+
+The 'Score fast determined' event is connected to the 'Score fast determined' gateway, which in turn connects to the 'Score fast determined' and 'Score L2 send' gateways. The 'Score slow determined' event is connected to the 'Score slow determined' gateway, which connects to the 'Score slow determined' and 'Score L1 send' gateways.
+
+The 'Score fast determined' gateway receives messages from the 'Scoring Start' event and sends messages to the 'Score fast determined' and 'Score L2 send' gateways. The 'Score slow determined' gateway receives messages from the 'on Score wait' event and sends messages to the 'Score slow determined' and 'Score L1 send' gateways.
+
+The 'Score L1 send' and 'Score L2 send' gateways receive messages from the 'Duration?' and 'Score L2 Calculation' events, respectively. The 'Score L1 send' gateway sends messages to the 'Score L1 send' and 'Score slow determined' gateways, while the 'Score L2 send' gateway sends messages to the 'Score L2 send' and 'Score fast determined' gateways.
+
+The 'Score L2 Calculation' gateway receives messages from the 'Duration Other' event and sends messages to the 'Score L2 send' gateway. The 'Score L1 Calculation' gateway receives messages from the 'Scoring Start' event and sends messages to the 'Score L1 send' gateway.
+
+In summary, the scoring process involves a series of events and gateways that work together to determine the score and send the results to the appropriate destinations. The 'Scoring Start' event initiates the process, and the 'Score fast determined' and 'Score slow determined' end events signal the completion of the scoring process. The 'Score L1 send' and 'Score L2 send' gateways handle the final output of the scoring process, sending

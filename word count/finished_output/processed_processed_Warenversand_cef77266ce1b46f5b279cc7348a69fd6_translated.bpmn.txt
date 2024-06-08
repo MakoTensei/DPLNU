@@ -1,0 +1,7 @@
+ When there is a big crowd, the process begins with the task of filling forwarding documents, which is triggered by the incoming event 'Big crowd?' and leads to the outgoing event 'Filling forwarding documents'. This task is connected to the 'ExclusiveGateway1' which then forwards the process to 'ParallelGateway5'. Concurrently, the task of packaging goods is also initiated due to the same incoming event 'Big crowd?' and is directed towards 'ParallelGateway5'.
+
+Meanwhile, the task of providing goods for collection is triggered by the incoming event 'ParallelGateway5' and leads to the outgoing event 'EndEvent0'. This task is connected to the 'ExclusiveGateway3' which then forwards the process to 'ParallelGateway5'.
+
+In parallel, the task of insurance close is initiated by the incoming event 'There is something to ship' and is directed towards 'ExclusiveGateway3'. This task is connected to 'ParallelGateway5' which then forwards the process to 'EndEvent0'.
+
+Lastly, the process of dedicating logistics is triggered by the incoming event 'ParallelGateway4' and leads to the outgoing event 'ParallelGateway5'. This task is connected to the 'EndEvent0' which signifies the completion of the process.

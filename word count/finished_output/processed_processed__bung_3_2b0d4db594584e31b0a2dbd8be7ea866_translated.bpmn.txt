@@ -1,0 +1,9 @@
+ The process begins with the 'StartEvent0' which triggers the 'Check regression' task. This task checks for any regression issues and sends a notification to'sid-1F38D7EC-B5A7-4405-88C3-DAD653085E83'. If a regression is possible, the process moves to the 'Regress possible?' gateway, which then sends a request to'sid-9BD8E310-5AAA-4CC5-98E5-28FC7A22B501' to send a payment request to Vietnam.
+
+Simultaneously, the 'Regress possible?' gateway also sends a notification to'sid-CE1E6D01-430C-4F87-B339-76EB2FE64CF2' to record the process in 'dei Revolage'. The 'IntermediateCatchEvent5' is then triggered, which sends a notification to'sid-FA16B059-708E-4087-BD1A-C786D5EF86B3' to book the payment receipt.
+
+If the payment request to Vietnam is successful, the process proceeds to the 'ExclusiveGateway1' which then triggers the 'Proceedings' task. This task proceeds with the debt collection process and sends a notification to'sid-B39F6CC0-C166-4D2E-AF93-CFBE60BA23B5' to proceed with the collection.
+
+If the payment request to Vietnam is not successful, the process goes back to the 'Regress possible?' gateway, which then triggers the 'IntermediateCatchEvent6'. This event sends a notification to'sid-FA16B059-708E-4087-BD1A-C786D5EF86B3' to book the payment receipt again.
+
+Once the payment receipt is booked, the process moves to the 'ExclusiveGateway1' which then triggers the 'EndEvent0'. This event closes the process and sends notifications to'sid-

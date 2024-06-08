@@ -1,0 +1,42 @@
+ The process begins at the Restaurant, where an order is placed. This order triggers a series of events:
+
+1. The order is received by the Restaurant, which then sends the order to the Selection of the court.
+
+2. The Selection of the court processes the order and sends the Order of the court to the Restaurant.
+
+3. The Restaurant receives the Order of the court and sends a confirmation to the Pieper, causing it to vibrate.
+
+4. The Pieper's vibration triggers the Order payment/\nGet Piepers event, which sends the order to the Collection of the court.
+
+5. The Collection of the court processes the order and sends the Consumption of the court to the Guest.
+
+6. The Guest consuming the pie triggers the Guest is full event, which completes the process.
+
+
+In parallel, the court also processes the order:
+
+1. The Order of the court is received by the court, which then sends the Court of Justice event to the Pieper.
+
+2. The Court of Justice event triggers the Pieper vibrates event, which sends the Pieper vibrating to the Order payment/\nGet Piepers event.
+
+3. The Order payment/\nGet Piepers event sends the Pieper to the Cash and cash\nProcurement of Piepers event.
+
+4. The Cash and cash\nProcurement of Piepers event sends the Pieper to the Redemption Pieper, court is ready event.
+
+5. The Redemption Pieper, court is ready event sends the Guest appears event to the Gateway.
+
+6. The Guest appears event triggers the EndEvent1 event, which completes the process.
+
+
+The Gateway also plays a role in the process:
+
+1. The Court of Justice event triggers the EventBasedGateway0 event.
+
+2. The EventBasedGateway0 event sends the EndEvent1 and EndEvent2 events to the court.
+
+3. The Guest appears event triggers the IntermediateCatchEvent6 event.
+
+4. The IntermediateCatchEvent6 event sends the EndEvent2 event to the Gateway.
+
+
+The process can be summarized as follows:

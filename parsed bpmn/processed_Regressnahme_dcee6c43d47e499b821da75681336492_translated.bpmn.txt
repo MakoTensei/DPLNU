@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-D94B06A5-751F-4A9F-BD88-06936D9F0351', 'name': 'Examination of the regression case', 'incoming': ['Report\nRegression'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-14B29E61-87C2-487B-8835-74069DCEFFDE', 'name': 'Send payment request to VN', 'incoming': ['ParallelGateway4'], 'outgoing': ['Incoming payment\nobtained']}
+{'id': 'sid-C62894AE-5967-45C7-A028-E20A6E04BEAE', 'name': 'Set process for resubmission', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-5F23EC2B-183F-46F0-A84E-4D93AC68B2E7', 'name': 'Book payment receipt', 'incoming': ['Incoming payment\nobtained'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B2CDDDAE-E078-470B-AF2E-566558D04702', 'name': 'Proceedings', 'incoming': ['Opposition\nobtained'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-E44DC6E2-5AA1-44D9-B6FF-25310D7AD129', 'name': 'Regression\npossible?', 'incoming': ['Report\nRegression'], 'outgoing': ['ParallelGateway5', 'EndEvent0']}
+{'id': 'sid-FE0B8FCB-97AF-46B6-AD3B-30958FA1F3F1', 'name': 'Opposition\njustified?', 'incoming': ['Opposition\nobtained'], 'outgoing': ['EndEvent0', 'ExclusiveGateway2']}
+{'id': 'sid-617A3B30-E932-4D90-95CA-C1A23F2519AD', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3', 'Proceedings'], 'outgoing': ['sid-B026AA22-5AD0-4D68-B5F3-2504C23BD21D']}
+{'id': 'sid-ADE03689-172E-43CC-95DE-A14FF5C58D51', 'name': 'EventBasedGateway3', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0', 'ExclusiveGateway2', 'Opposition\nobtained']}
+{'id': 'sid-683112F9-8BD5-4C05-84AE-F27BBFFF1E38', 'name': 'ParallelGateway4', 'incoming': ['Examination of the regression case'], 'outgoing': ['Reimbursement period\nachieved', 'ParallelGateway5']}
+{'id': 'sid-6C921D7F-6CAD-459D-A038-258F5B11DBB8', 'name': 'ParallelGateway5', 'incoming': ['Report\nRegression', 'ParallelGateway4'], 'outgoing': ['Incoming payment\nobtained']}
+{'id': 'sid-3ABCE2C5-724D-42F3-A2D2-F774285C82DB', 'name': 'Incoming payment\nobtained', 'incoming': ['Send payment request to VN'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F4624114-C313-495D-B09C-A5EEE522729D', 'name': 'Reimbursement period\nachieved', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-D76EA5F5-E38E-4C36-A2CC-957C6C1703A0', 'name': 'Opposition\nobtained', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-CD90300E-7856-40DE-9A44-081753763747', 'name': 'Report\nRegression', 'incoming': [], 'outgoing': ['ParallelGateway5']}
+
+End Events:
+{'id': 'sid-1E932D89-16A0-441D-8C53-CE61914DF73B', 'name': 'EndEvent0', 'incoming': ['Regression\npossible?', 'EventBasedGateway3', 'Opposition\nobtained', 'sid-D8779503-AE6A-4A90-9199-285E1C5FB6A0'], 'outgoing': []}

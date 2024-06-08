@@ -1,0 +1,7 @@
+ The process begins with the 'Shipping goods' event, which triggers the 'Get 3 quotes' task. This task is connected to the 'ParallelGateway4', which in turn leads to the 'Clearing the shipping mode' task. The 'Clearing the shipping mode' task then connects to the 'Lot?' gateway, which branches out to 'ExclusiveGateway3' and 'ExclusiveGateway2'.
+
+The 'ExclusiveGateway2' task is linked to the 'Check the insurance requirement' task, which is triggered by the 'Lot?' gateway. This task connects to the 'ParallelGateway5', which leads to the 'Complete insurance' task. The 'Complete insurance' task is connected to the 'Insurance necessary?' gateway, which branches out to 'ExclusiveGateway2' and 'ExclusiveGateway2' again.
+
+The 'ExclusiveGateway2' task connects to the 'Packaging goods' task, which is triggered by the 'ParallelGateway4'. This task leads to the 'ParallelGateway5', which connects to the 'Delivering goods' task. The 'Delivering goods' task is the final step in the process, which is triggered by the 'ParallelGateway5' and leads to the 'Goods delivered' event.
+
+In summary, the process starts with shipping goods, which leads to getting quotes, clearing the shipping mode, checking insurance requirements, completing insurance, packaging goods, and finally delivering the goods.

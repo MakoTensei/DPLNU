@@ -1,0 +1,7 @@
+ The process begins with the 'StartEvent0' initiating the pickup of offers, which is then routed to the 'ExclusiveGateway0'. This gateway connects to the 'Filling the package note' task, which in turn sends a signal to the 'Insurance notwending?' task. The 'Insurance notwending?' task, also connected to 'ExclusiveGateway0', sends a signal to the 'ParallelGateway3'.
+
+Simultaneously, the 'ExclusiveGateway0' also connects to the 'Select Speditur' task, which sends a signal to the 'Order Speditur' task. The 'Order Speditur' task then connects to the 'ParallelGateway3'.
+
+The 'ParallelGateway2' receives the signal from 'StartEvent0' and connects to the 'Packaging goods' task, which also sends a signal to 'ParallelGateway3'.
+
+Finally, the 'ParallelGateway3' receives signals from 'Insurance notwending?', 'Select Speditur', 'Order Speditur', and 'Packaging goods'. It then sends a signal to the 'EndEvent0', which concludes the process.

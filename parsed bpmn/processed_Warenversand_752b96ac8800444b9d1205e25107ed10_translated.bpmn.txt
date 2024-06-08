@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-13EA4A3B-1A28-460A-A76D-C099D3256856', 'name': 'Determining the shipping mode', 'incoming': ['ParallelGateway4'], 'outgoing': ['Locked goods?']}
+{'id': 'sid-C39CC955-75BA-4AD3-BBC6-2E1414F5FC67', 'name': 'Offer Spediteur A', 'incoming': ['Start Shipment'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-227812E6-DAF7-407B-A975-EF9A2A2B759B', 'name': 'Offer Spediteur B', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-F283EA1C-01AC-4CDF-A5E0-274BFBA92BC9', 'name': 'Offer Spediteur C', 'incoming': ['ParallelGateway5'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-B69747AE-32E1-4E52-81AD-31EA2681ADD9', 'name': 'Select and order freight forwarders', 'incoming': ['Start Shipment'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-7CCC280E-6B17-4016-8D68-0C05295EA8BD', 'name': 'Filling the package note', 'incoming': ['Locked goods?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-5E2372CC-71E8-4DE0-AA7E-0972890E2BDA', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-EE470053-AFC8-4732-A9CF-B5C8665E1F9C', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway7'], 'outgoing': ['Service of failure']}
+{'id': 'sid-723F79E5-4CFB-4B4B-8E3E-6F280EDBE9BD', 'name': 'Complete insurance', 'incoming': ['Insurance required?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-20F5A6F9-5C37-4317-8F66-5E39BCD9B42F', 'name': 'Locked goods?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway3']}
+{'id': 'sid-4DE3BA5E-81A4-4714-929A-F5234FA8CF64', 'name': 'Insurance required?', 'incoming': ['Locked goods?'], 'outgoing': ['Complete insurance', 'Service of failure']}
+{'id': 'sid-3ADF52CA-A303-4BC6-8D0D-6CB434DBCF3C', 'name': 'ExclusiveGateway2', 'incoming': ['Filling the package note', 'Complete insurance'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-81D2C284-18EE-4D41-8FA5-B23303FD99E7', 'name': 'ExclusiveGateway3', 'incoming': ['Locked goods?', 'Locked goods?'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-7E7A3D0D-0D52-4FAE-B4E8-A7669D505AC6', 'name': 'ParallelGateway4', 'incoming': ['Start Shipment'], 'outgoing': ['ParallelGateway6', 'ParallelGateway7']}
+{'id': 'sid-E7FBA8E4-4109-4D0F-A7FD-1526229BD304', 'name': 'ParallelGateway5', 'incoming': ['Start Shipment'], 'outgoing': ['Offer Spediteur A', 'ParallelGateway6', 'ParallelGateway6']}
+{'id': 'sid-781C0000-CB48-4020-96DC-3B9AC540B84D', 'name': 'ParallelGateway6', 'incoming': ['Start Shipment', 'Locked goods?', 'ParallelGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-65EF3881-47F5-4E72-BF25-7D92838C5381', 'name': 'ParallelGateway7', 'incoming': ['Insurance required?', 'ParallelGateway4'], 'outgoing': ['Service of failure']}
+
+Start Events:
+{'id': 'sid-A0BB66E6-9C40-4C55-9B0F-1076B386FFC9', 'name': 'Start Shipment', 'incoming': [], 'outgoing': ['Select and order freight forwarders']}
+
+End Events:
+{'id': 'sid-4FDA89DF-933F-484D-9897-59E7A6AFA315', 'name': 'Service of failure', 'incoming': ['Insurance required?'], 'outgoing': []}

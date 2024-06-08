@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-590BAF1C-59EB-4865-BE8E-D899B6B02B70', 'name': 'Check regression', 'incoming': ['mgl. Regress gg.'], 'outgoing': ['Regress?']}
+{'id': 'sid-ECC9BBA9-A489-4B0A-80C2-F6BDDCC80AF7', 'name': 'Close the process', 'incoming': ['mgl. Regress gg.'], 'outgoing': ['Closed']}
+{'id': 'sid-A4169AE1-2747-49EF-B563-BF0B50B0DF14', 'name': 'Send payment request to VN', 'incoming': ['Regress?'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-26EEC18C-185F-4DCE-B1A0-1D5A0316F4D6', 'name': 'Set process for resubmission', 'incoming': ['Regress?'], 'outgoing': ['Reimbursement period expired']}
+{'id': 'sid-AEBD01A5-143A-4A76-B948-44A1DF9849D6', 'name': 'Book money receipt', 'incoming': ['Cash receipt from the VN'], 'outgoing': ['Close']}
+{'id': 'sid-9F87743D-738A-453C-99ED-D52E77973FF0', 'name': 'Proceedings', 'incoming': ['Objection by VN'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-A05B9E15-9D21-4223-82F2-63CF979E9CB5', 'name': 'Dispense process for debt collection service providers', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-C0724463-A02E-43F1-A698-C676203BA6F5', 'name': 'Close', 'incoming': ['Cash receipt from the VN'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-8A85C7B0-96E3-4353-8BB3-AF423FE27B5C', 'name': 'Close', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-39D6088B-9DF3-4221-BBF3-637C70A13821', 'name': 'Regress?', 'incoming': ['mgl. Regress gg.'], 'outgoing': ['Closed', 'ExclusiveGateway3']}
+{'id': 'sid-BC62137C-7114-4CDD-8B40-F7AD5195099C', 'name': 'justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'Close']}
+{'id': 'sid-C88707F3-4CE6-4E8C-A9DA-65A03BD6453D', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-2DDF25B2-196C-49EE-93AB-078770D2B6A8', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Regress?', 'EventBasedGateway4'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-B5B43619-70BD-49CD-85C9-5EED81E20A3E', 'name': 'EventBasedGateway4', 'incoming': ['Regress?'], 'outgoing': ['ExclusiveGateway3', 'Cash receipt from the VN', 'ExclusiveGateway3']}
+{'id': 'sid-C9EBF8AF-AECE-421E-8324-BA38821F4F19', 'name': 'Reimbursement period expired', 'incoming': ['Set process for resubmission'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-522A465A-B80C-4279-88D2-342BF90268DD', 'name': 'Cash receipt from the VN', 'incoming': ['Regress?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-C63C7B30-E240-440E-BE3E-8021369DE09B', 'name': 'Objection by VN', 'incoming': ['EventBasedGateway4'], 'outgoing': ['justified?']}
+
+Start Events:
+{'id': 'sid-2223BD40-0359-4DB7-813F-AA5D58F6AA52', 'name': 'mgl. Regress gg.', 'incoming': [], 'outgoing': ['Close the process']}
+
+End Events:
+{'id': 'sid-38CA1790-0CFC-4605-BA4F-1C1E5DEC4E1B', 'name': 'Closed', 'incoming': ['Regress?'], 'outgoing': []}
+{'id': 'sid-30F438D7-0F0F-479E-9CB6-4A5DD6D137E4', 'name': 'Regression\ncompleted', 'incoming': ['Reimbursement period expired'], 'outgoing': []}

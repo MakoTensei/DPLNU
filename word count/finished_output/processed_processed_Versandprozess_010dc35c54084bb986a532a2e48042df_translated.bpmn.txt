@@ -1,0 +1,9 @@
+ When a special shipment is received, the process begins with the 'Goods be sent' event, which triggers the 'Pick up offers' task. This task is responsible for collecting offers related to the shipment. Once the offers are collected, the 'Filling the package note' task is initiated, which requires the 'Special shipment?' event as an input. The task involves preparing a note for the package, and its output is directed to 'ParallelGateway5'.
+
+Simultaneously, the 'Special shipment?' event also triggers the 'Check the offer' task, which checks the collected offers and sends the output to 'Specialist'. The 'Specialist' task then directs the output to 'ExclusiveGateway3'.
+
+The 'ParallelGateway5' receives the outputs from both the 'Filling the package note' and 'Check the offer' tasks. It then sends the 'Goods be sent' event to 'ParallelGateway4', which in turn triggers the 'Packaging goods' task. This task packages the goods and sends the output to 'ParallelGateway5'.
+
+After the goods are packaged, the 'Goods be sent' event triggers the 'Goods provide' task, which prepares the goods for shipment and sends the output to 'Goods Ship ready'. The 'Goods Ship ready' event is then directed to 'ExclusiveGateway3', which sends the output to 'Complete insurance'.
+
+Finally, the 'Complete insurance' task checks if insurance is necessary and sends the output to 'ExclusiveGateway2'. The 'ExclusiveGateway2' then sends the output to 'ExclusiveGateway3', which completes the process and sends the 'Goods Ship ready' event to its final destination.

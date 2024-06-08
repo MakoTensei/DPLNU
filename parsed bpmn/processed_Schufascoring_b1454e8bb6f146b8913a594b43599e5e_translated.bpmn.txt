@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-C7F7604A-D01E-4655-AD40-437FFDBBC91F', 'name': 'Scoring request to Schufa', 'incoming': ['Schufascoring request started'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-44FD298D-967C-4428-8AF8-2E07CBD9EE41', 'name': 'Report the scoring result', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-58999A25-4F42-4E4D-93B0-D16D73BAB4FE', 'name': 'Scoring delays', 'incoming': ['Schufascoring request started'], 'outgoing': ['EventBasedGateway1']}
+{'id': 'sid-71AD4F63-AC16-49DD-8BF3-CCE08D17974A', 'name': 'Start Level 1', 'incoming': ['Schufascoring request has been received'], 'outgoing': ['Scoring takes place?']}
+{'id': 'sid-065D2231-DFE4-43D9-830A-10BFEF0E5962', 'name': 'Scoring immediately', 'incoming': ['Schufascoring request has been received'], 'outgoing': ['Process completed']}
+{'id': 'sid-3EDF50A3-794B-4A5C-B3A3-BF3C452ECE76', 'name': 'Scoring delays', 'incoming': ['Scoring takes place?'], 'outgoing': ['Start Level 2']}
+{'id': 'sid-8EDA991E-CC87-4368-870A-DBEC230C2D6D', 'name': 'Start Level 2', 'incoming': ['Scoring takes place?'], 'outgoing': ['Level 2 Share result']}
+{'id': 'sid-BD53955B-642A-48E7-B666-B1882BCDFEE1', 'name': 'Level 2 Share result', 'incoming': ['Scoring takes place?'], 'outgoing': ['Process completed']}
+
+Gateways:
+{'id': 'sid-171451A5-2E49-4EAA-B8CF-2B777FFD6A31', 'name': 'Scoring takes place?', 'incoming': ['Schufascoring request has been received'], 'outgoing': ['Process completed', 'Process completed']}
+{'id': 'sid-913CBCA2-F946-4C33-A769-8B84CC3D01DB', 'name': 'EventBasedGateway1', 'incoming': ['Schufascoring request started', 'EventBasedGateway1'], 'outgoing': ['EndEvent0', 'EventBasedGateway1']}
+{'id': 'sid-474DC027-B91F-46EB-963D-CDE68CF71115', 'name': 'IntermediateCatchEvent2', 'incoming': ['Scoring request to Schufa'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F1BB73F2-5BAA-4C7C-B7F9-A40980AE1C83', 'name': 'IntermediateCatchEvent3', 'incoming': ['Schufascoring request started'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-207E1648-C944-4A1E-86F2-C6ADA1241CA6', 'name': 'Schufascoring request started', 'incoming': [], 'outgoing': ['Scoring delays']}
+{'id': 'sid-24FE0D27-82F7-480E-8F2F-6FAD61C0DB0F', 'name': 'Schufascoring request has been received', 'incoming': [], 'outgoing': ['Scoring immediately']}
+
+End Events:
+{'id': 'sid-1E659C76-EEFD-4C5B-9EFF-D3FA35D596F2', 'name': 'EndEvent0', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': []}
+{'id': 'sid-62C79794-E5FC-4FF0-A627-9675692A3A2E', 'name': 'Process completed', 'incoming': ['Scoring takes place?', 'Scoring takes place?'], 'outgoing': []}

@@ -1,0 +1,11 @@
+ When a "Regression possibility submitted" event occurs, it triggers a sequence of tasks and gateways to process the case. Here's the flow of events:
+
+1. The "Regression possibility submitted" event initiates the process by sending a message to the "Send a message" task.
+2. The "Send a message" task then forwards the case to the "ExclusiveGateway2" to determine the next steps.
+3. If the case is deemed "Regression possible?", it proceeds to the "Regression possible?" gateway.
+4. The "Regression possible?" gateway sends the case to either "ExclusiveGateway2" or "ExclusiveGateway3" based on the incoming events.
+5. If the case is forwarded to "ExclusiveGateway2", it closes the case as "Regression case unsuccessful closed".
+6. If the case is forwarded to "ExclusiveGateway3", it can either close the case as "Regression case successful closed" or forward it to the debt collection process.
+7. If the case is forwarded to the debt collection process, it closes the case as "Regression case debt collection forwarded".
+
+In summary, the "Regression possibility submitted" event triggers a series of tasks and gateways to determine the outcome of the case, which can result in either a successful closure or a forwarding to the debt collection process.

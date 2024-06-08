@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-88A5277E-E047-4DFA-B457-A7C697143C2A', 'name': 'Level1 Score', 'incoming': ['Schufa Score request'], 'outgoing': ['Level1 score determined']}
+{'id': 'sid-9F607572-165E-4D56-8598-451E48BAA1C2', 'name': 'Transfer Level1 Score', 'incoming': ['Schufa Score request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-ADB942B5-9101-4FC2-95D2-CC269098E8F0', 'name': 'Report delay', 'incoming': ['Level1 score determined'], 'outgoing': ['Level 2 score']}
+{'id': 'sid-EDA0F3A0-54D1-4D6B-9B1A-8A7F582B0E44', 'name': 'Level 2 score', 'incoming': ['Level1 score determined'], 'outgoing': ['Transfer Level 2 Score']}
+{'id': 'sid-0004AF15-16A2-46B7-8B42-B1EDF5A776E3', 'name': 'Transfer Level 2 Score', 'incoming': ['Level1 score determined'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-09A1CB6F-D9C8-403F-8480-68B9EA86E137', 'name': 'Request Score', 'incoming': ['Schufa request'], 'outgoing': ['receive delay message']}
+{'id': 'sid-EA2B2830-0AE1-4A52-B07A-13B3E7C4223D', 'name': 'Share delay notice', 'incoming': ['receive delay message'], 'outgoing': ['Schufa Send inquiry result']}
+
+Gateways:
+{'id': 'sid-C3995A4C-984C-4DBF-BC45-AAB4BE3E614D', 'name': 'Level1 score determined', 'incoming': ['Schufa Score request'], 'outgoing': ['ExclusiveGateway1', 'EndEvent0']}
+{'id': 'sid-0F205D96-AF4A-4A1F-A753-687307E9AB2A', 'name': 'ExclusiveGateway1', 'incoming': ['Schufa Score request', 'Level1 score determined'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-11F9BFC2-8546-408D-A721-154DCB76B012', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'EventBasedGateway4'], 'outgoing': ['Schufa Send inquiry result']}
+{'id': 'sid-5A60A13B-0E6F-486C-A043-8C63101D1FE6', 'name': 'ExclusiveGateway3', 'incoming': ['Schufa request', 'receive delay message'], 'outgoing': ['Schufa Send inquiry result']}
+{'id': 'sid-F7C85F0C-BBC6-4DFB-B1EC-D74CD89308D9', 'name': 'EventBasedGateway4', 'incoming': ['Request Score'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2', 'receive delay message']}
+{'id': 'sid-E3FA995F-342B-41E2-AAD0-0E184C9A2FEC', 'name': 'Receive Level1 Score', 'incoming': ['Schufa request'], 'outgoing': ['Schufa Send inquiry result']}
+{'id': 'sid-39569E0A-E351-44E2-86A8-D2177B8F8F2C', 'name': 'receive delay message', 'incoming': ['Request Score'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-086FDF37-7B5D-4F73-A4D0-1C7E9D83188A', 'name': 'Level 2 Score', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-EF8E5308-6EA5-4A64-95AC-108F9ABF07F3', 'name': 'Schufa Score request', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-3063975F-9DE1-4AED-8E36-7C0CE3890E80', 'name': 'Schufa request', 'incoming': [], 'outgoing': ['Receive Level1 Score']}
+
+End Events:
+{'id': 'sid-C05600B3-4DF2-42A7-9011-39C5DDD0FE53', 'name': 'EndEvent0', 'incoming': ['Level1 score determined'], 'outgoing': []}
+{'id': 'sid-B25D2A52-EC08-46F2-A445-CF74EFAD90AD', 'name': 'Schufa Send inquiry result', 'incoming': ['Share delay notice'], 'outgoing': []}

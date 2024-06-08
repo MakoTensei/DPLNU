@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-DC8CB8A7-993E-4BB1-B19C-190804232601', 'name': 'Scoring request', 'incoming': ['Pick up scoring'], 'outgoing': ['Score received']}
+{'id': 'sid-033A9451-CECF-4447-B6D7-A998105F9AB0', 'name': 'forward scoring result to Frontend', 'incoming': ['Score received'], 'outgoing': ['Scoring completed']}
+{'id': 'sid-C535C2B9-84A9-4651-AF70-2580F70A9A8A', 'name': 'Give notice of delay', 'incoming': ['Pick up scoring'], 'outgoing': []}
+{'id': 'sid-B5B3E73A-6591-462D-A1E3-7DC6877E3942', 'name': 'perform scoring level 1', 'incoming': ['Scoring request\nReport'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-2A767FEB-5266-4078-8DCF-9D44CA3BC2F3', 'name': 'Score send', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Schufaservice-\nProcess completed']}
+{'id': 'sid-E8B89E80-D031-48FD-B514-D4431B16A009', 'name': 'Delay: Level 2 required', 'incoming': ['Report delay'], 'outgoing': ['Schufaservice-\nProcess completed']}
+{'id': 'sid-F250F917-07EF-4B72-96AF-D64708D7FACE', 'name': 'Report delay', 'incoming': ['Scoring request\nReport'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-62DD19DA-38E0-4B98-8491-811E2E0CE10D', 'name': 'Score immediately\navailable', 'incoming': ['Scoring request\nReport'], 'outgoing': ['ExclusiveGateway1', 'Report delay']}
+{'id': 'sid-CE2518F3-6FEA-472C-AF53-65DCA0861225', 'name': 'ExclusiveGateway1', 'incoming': ['perform scoring level 1', 'Scoring request\nReport'], 'outgoing': ['Schufaservice-\nProcess completed']}
+{'id': 'sid-BA75D307-EB90-49F4-AE80-97F11F4D365E', 'name': 'Not applicable', 'incoming': ['Pick up scoring'], 'outgoing': ['Scoring completed', 'IntermediateCatchEvent4']}
+{'id': 'sid-F9015DA6-08B3-4207-A2DC-AB1938ABD18D', 'name': 'Score received', 'incoming': ['Scoring request'], 'outgoing': ['Scoring completed']}
+{'id': 'sid-94870AC1-200A-4C4F-95FE-A8220309F36A', 'name': 'IntermediateCatchEvent4', 'incoming': ['Pick up scoring'], 'outgoing': ['Give notice of delay']}
+
+Start Events:
+{'id': 'sid-F0C7832B-7002-4951-B0D6-C5E13D337FBA', 'name': 'Pick up scoring', 'incoming': [], 'outgoing': ['Give notice of delay']}
+{'id': 'sid-4AC01626-8C92-4B64-A6E7-1C4A7A0C8ACF', 'name': 'Scoring request\nReport', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-9900ECAC-E233-4968-88F5-16C4E205513A', 'name': 'Scoring completed', 'incoming': ['Not applicable'], 'outgoing': []}
+{'id': 'sid-709A4101-F969-44FC-ACB3-308AEE2077BF', 'name': 'Schufaservice-\nProcess completed', 'incoming': ['Delay: Level 2 required'], 'outgoing': []}

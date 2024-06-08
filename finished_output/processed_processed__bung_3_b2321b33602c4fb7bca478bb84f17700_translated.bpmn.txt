@@ -1,0 +1,11 @@
+ The process begins with the event 'It should be tested for regression' which triggers the 'Regress possible?' gateway. This gateway has two outgoing paths: 'Transfer to debt collection' and 'Closed'. The 'Transfer to debt collection' path is taken, leading to the 'Check the case' task. This task has an outgoing path to 'ParallelGateway4'.
+
+Simultaneously, the 'Regress possible?' gateway also has an outgoing path to 'Justified?' which is triggered by the 'Insured persons' event. This leads to the 'Justified?' task which has an outgoing path to'sid-AE3A4CB1-5C9D-40E0-AA4F-BBE3E8C96DAD' and 'Closed'.
+
+The 'ParallelGateway4' task, which is triggered by the 'Check the case' event, has two outgoing paths: 'Transfer to debt collection' and 'Reimbursement period'. The 'Transfer to debt collection' path is taken, leading to the 'Proceedings' task. This task has an outgoing path to 'Closed'.
+
+The 'Reimbursement period' task, triggered by 'ParallelGateway4', has an outgoing path to '10 days'. The '10 days' task, triggered by 'Send a message', has an outgoing path to 'Transfer to debt collection'.
+
+The 'Transfer to debt collection' path, triggered by 'Proceedings', leads to the 'Closed' event. The 'Closed' event, triggered by 'EventBasedGateway3', has an outgoing path to 'Insurance company pays'. The 'Insurance company pays' event, triggered by 'EventBasedGateway3', has an outgoing path to 'Closed'.
+
+In summary, the process starts with the 'It should be tested for regression' event, which leads to the 'Regress possible?' gateway. This gateway triggers the 'Transfer to debt collection' task, which in turn triggers the 'Proceedings' task. The 'Proceedings' task triggers the 'Transfer to debt collection' path again, leading to the 'Closed' event.

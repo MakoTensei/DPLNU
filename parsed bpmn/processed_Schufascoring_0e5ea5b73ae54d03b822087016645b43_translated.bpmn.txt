@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-986E98AB-A6CF-4CF6-A13F-5694BB4A811D', 'name': 'Scoringan Ask', 'incoming': ['StartEvent0'], 'outgoing': ['sid-44D205F7-B146-4756-8A5D-BBA822F54A1B']}
+{'id': 'sid-9A958547-0BA5-4672-B11A-E969DDE8BFEA', 'name': 'Sending result', 'incoming': ['Scoring result\nobtained'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-68CD5C82-5DCD-4DE0-AC7D-052310863782', 'name': 'Information', 'incoming': ['Delay'], 'outgoing': ['sid-B59441DA-1D78-45E8-ABAB-C69344E99E7F']}
+{'id': 'sid-869DE427-739D-4D28-ACEF-F6AF672F1613', 'name': 'Scoring Level 1', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-F29F2BC2-333C-48B2-94F8-4EEE3516162E', 'name': 'Send Scoringergeb nis', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Sending result']}
+{'id': 'sid-44CF2EC8-D195-4F94-B579-23A3A37AE737', 'name': 'Scoring Level 2', 'incoming': ['sid-EDD820CD-3A7C-4B38-A474-620326F9E074'], 'outgoing': ['Sending result']}
+
+Gateways:
+{'id': 'sid-0F7CE169-E966-4ED3-B6CC-B8268C6AE6CC', 'name': 'Is the result already fixed?', 'incoming': ['StartEvent1'], 'outgoing': ['sid-7C2813DA-77EA-4085-8850-6F26E893F9F6', 'ExclusiveGateway1']}
+{'id': 'sid-83B0EA95-D11C-41DD-8098-26CD56611CE9', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring Level 2', 'Scoring Level 1'], 'outgoing': ['Sending result']}
+{'id': 'sid-48973293-7FA5-46AD-BF31-57B179E9397A', 'name': 'EventBasedGateway2', 'incoming': ['sid-58DE863E-B469-46FF-B94A-5C68779BC6A3', 'sid-DC28E3D1-49C1-4A8E-8B6D-30A2237298F4'], 'outgoing': ['EndEvent0', 'Delay']}
+{'id': 'sid-AA87B197-C21B-45A4-A732-2185A9D4F54A', 'name': 'Scoring result\nobtained', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-05760E30-A7B6-4221-B419-4EB4142DCF14', 'name': 'Delay', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Information']}
+
+Start Events:
+{'id': 'sid-BFAA6AFA-AA48-4344-88EA-722993A1A8CA', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Scoringan Ask']}
+{'id': 'sid-3126B92E-4528-4CA0-8F74-A11E043DF062', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Is the result already fixed?']}
+
+End Events:
+{'id': 'sid-4C85BF28-D6ED-4698-A078-450658421891', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-99E1CE34-D321-432E-A247-A46AE63857D2', 'name': 'Sending result', 'incoming': ['Scoring Level 2'], 'outgoing': []}

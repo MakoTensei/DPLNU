@@ -1,0 +1,15 @@
+ The process begins with the event 'VN may be taken in regress', which triggers the task 'Check regression'. This task checks if the VN (vendor) may be taken in regress and has two outgoing connections: 'Is Regress?' and 'Set process for resubmission'.
+
+The 'Is Regress?' task is a Gateway that checks if the VN is indeed in regress. If the VN is in regress, it connects to the 'Send VN payment request' task, which initiates the process to send a payment request to the VN.
+
+The 'Set process for resubmission' task is also a Gateway that sets the process for resubmission if the VN is in regress. It has two outgoing connections: 'Money received' and 'EndEvent1'.
+
+The 'Money received' task is triggered when the 'Send VN payment request' task is successful. It connects to the 'Book the entrance' task, which books the entrance for the VN.
+
+The 'EndEvent1' task is triggered when the 'Set process for resubmission' task is successful. It connects to the 'ExclusiveGateway2' task, which determines the next course of action based on whether the VN contradicts or not.
+
+The 'ExclusiveGateway2' task has two outgoing connections: 'EndEvent2' and 'Debt collection'. If the VN contradicts, it connects to the 'EndEvent2' task, which ends the process. If the VN does not contradict, it connects to the 'Debt collection' task, which initiates the debt collection process.
+
+The 'Debt collection' task has three outgoing connections: 'EndEvent3', 'EndEvent2', and 'Reimbursement period Expired'. If the VN does not contradict, it connects to the 'EndEvent3' task, which ends the process. If the VN contradicts, it connects to the 'EndEvent2' task, which ends the process. If the reimbursement period has expired, it connects to the 'Reimbursement period Expired' task, which ends the process.
+
+In summary, the process starts with the 'VN may be taken in regress'

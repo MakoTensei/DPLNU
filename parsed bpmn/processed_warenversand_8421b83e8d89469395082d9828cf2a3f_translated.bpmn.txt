@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-020B167F-F19B-44B7-ACB3-1360B03454CC', 'name': 'Filling the package note', 'incoming': ['Quantity'], 'outgoing': ['Insurance?']}
+{'id': 'sid-BA8DD492-ED57-4561-B66B-45A6B7BC84DD', 'name': 'Special delivery', 'incoming': ['Quantity'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-AFA8D872-06EF-419C-9694-EF8E71135E21', 'name': 'Offer 2', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-DFEFDB5A-5C50-4B4C-96A0-CB050EC34500', 'name': 'Offer 1', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-A963C2FF-5199-4917-8708-008D5CF0DDB9', 'name': 'Request offer 3', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-56C49194-A080-4786-9687-006CFA18E6BE', 'name': 'Check order quantity', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-BACC2495-8722-4833-8904-5CDD8AE91810', 'name': 'Packaging goods', 'incoming': ['ParallelGateway2'], 'outgoing': []}
+{'id': 'sid-982B936D-4377-47A5-BC91-8C575EC310D5', 'name': 'Complete insurance', 'incoming': ['Quantity'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-8B2B2383-BA0B-4A1B-8D53-BDCFDE024B8E', 'name': 'Insurance?', 'incoming': ['Quantity'], 'outgoing': ['Complete insurance']}
+{'id': 'sid-C7202907-6AC1-4E12-A955-108E4D64DD5B', 'name': 'Quantity', 'incoming': ['ParallelGateway2'], 'outgoing': ['Complete insurance', 'ParallelGateway4']}
+{'id': 'sid-09132F39-C999-45DE-A512-B41C9D4AD348', 'name': 'ParallelGateway2', 'incoming': [], 'outgoing': ['Packaging goods', 'ParallelGateway4']}
+{'id': 'sid-C086F5D2-70D1-467A-8807-8536450FB5ED', 'name': 'ParallelGateway3', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway4', 'ParallelGateway4', 'ParallelGateway4']}
+{'id': 'sid-2AAA366E-DEBD-42AE-83D5-6C2CBD643A21', 'name': 'ParallelGateway4', 'incoming': ['Check order quantity', 'ParallelGateway2', 'ParallelGateway3'], 'outgoing': []}
+
+Start Events:
+{'id': 'sid-CB990F50-C524-449B-82AB-E1874C8F6E0C', 'name': 'Goods are to be shipped', 'incoming': [], 'outgoing': []}
+
+End Events:
+{'id': 'sid-AB5FB4A4-668C-4462-92AA-B5DB01BEC0AF', 'name': 'Goods are ready for collection', 'incoming': [], 'outgoing': []}

@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-75B6A3F9-BE08-4C7D-BEAB-788B432BC2BA', 'name': 'Scoring request to Schufa', 'incoming': ['Request\nobtained'], 'outgoing': ['Score\nstands\nfixed']}
+{'id': 'sid-4351EFAC-A8AF-4AD6-B867-4F01E7C5D152', 'name': 'Score forward', 'incoming': ['Score\nstands\nfixed'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-6720446D-1078-4E20-A426-E57A0B27A50A', 'name': 'Delay\nforward\n', 'incoming': ['Request\nobtained'], 'outgoing': ['Score\nis fixed']}
+{'id': 'sid-65209ED0-F6C7-4D98-9597-FF366224547D', 'name': 'Score forward', 'incoming': ['Request\nobtained'], 'outgoing': ['Process\nclosed\n']}
+{'id': 'sid-17833EC2-2D19-4DDA-976D-FB1874774FD0', 'name': 'Perform Schufascoring (Level 1)', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Score\nis it?']}
+{'id': 'sid-C6EBA039-5AFE-4666-A7DD-E3F7D5DD6A6E', 'name': 'Scoring\nforward result to bank', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Process\nclosed\n']}
+{'id': 'sid-5DF7114E-3556-4375-AF54-9A8BC61E15CA', 'name': 'Perform schufascoring (level 2)', 'incoming': ['Report delay'], 'outgoing': ['Scoring\nforward result to bank']}
+{'id': 'sid-71EA619F-89FD-493B-BBEB-F647F781CA2E', 'name': 'Scoring\nforward result to bank', 'incoming': ['Report delay'], 'outgoing': []}
+{'id': 'sid-A1BD19C8-1E48-4C08-9E41-36C7881EAD69', 'name': 'Report delay', 'incoming': ['Score\nis it?'], 'outgoing': ['Scoring\nforward result to bank']}
+
+Gateways:
+{'id': 'sid-297B7629-129B-4168-B26B-293CF2304E38', 'name': 'Score\nis it?', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Report delay', 'Process\nclosed\n']}
+{'id': 'sid-22751DBF-7C94-4C18-A503-96077F441628', 'name': 'EventBasedGateway1', 'incoming': ['Request\nobtained'], 'outgoing': ['Process\nclosed', 'Delay\nReported']}
+{'id': 'sid-1596D591-A742-4D58-A948-BD789F0D2013', 'name': 'Score\nstands\nfixed', 'incoming': ['Scoring request to Schufa'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-25A80641-8248-4E32-833F-54EDA5E61B75', 'name': 'Delay\nReported', 'incoming': ['Request\nobtained'], 'outgoing': ['Delay\nforward\n']}
+{'id': 'sid-08B84E51-D9D5-4096-BE1B-46A81DDC57AB', 'name': 'Score\nis fixed', 'incoming': ['Request\nobtained'], 'outgoing': ['Process\nclosed\n']}
+
+Start Events:
+{'id': 'sid-B9CECA4F-61FF-4FCB-A748-78BA7A1419C9', 'name': 'Request\nobtained', 'incoming': [], 'outgoing': ['Score forward']}
+{'id': 'sid-E02E5B21-E5E2-4ED0-8C44-F728E706C21D', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['Scoring\nforward result to bank']}
+
+End Events:
+{'id': 'sid-7BD0607D-A062-4541-B74E-22412CD130DC', 'name': 'Process\nclosed\n', 'incoming': ['Score\nis fixed'], 'outgoing': []}
+{'id': 'sid-476C0D3E-EA31-4416-8C9B-1FEB965C391F', 'name': 'Process\nclosed', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-58E1A2DA-BA45-4406-B023-2360A0BC4406', 'name': 'Process\nclosed\n', 'incoming': ['Score\nis it?'], 'outgoing': []}

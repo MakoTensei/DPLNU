@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-AC7DEB9D-CEB3-4336-B754-33204E7F11B9', 'name': 'Check regression', 'incoming': ['VN may.\ntaken in Regress\nthey are'], 'outgoing': ['Possibility?']}
+{'id': 'sid-74A0F72A-C491-43FD-A5A6-7FC640765AB4', 'name': 'Close', 'incoming': ['VN may.\ntaken in Regress\nthey are'], 'outgoing': ['Closed']}
+{'id': 'sid-B9CE1472-0928-4FED-86F3-A852DF6527A2', 'name': 'VN payment request', 'incoming': ['Possibility?'], 'outgoing': ['Money received', 'Reimbursement period expired', 'Opposition\nReport']}
+{'id': 'sid-8AE034B3-F8DA-4EB2-9513-E498AC7DF3B2', 'name': 'Book', 'incoming': ['Money received'], 'outgoing': ['Close']}
+{'id': 'sid-68D7F6F6-BB2B-4995-BF5D-2A5CDB7D1C84', 'name': 'Close', 'incoming': ['Money received'], 'outgoing': ['Closed']}
+{'id': 'sid-6B54882B-326B-4B9C-9150-7B3E331DD62C', 'name': 'Opposition\nCheck', 'incoming': ['Opposition\nReport'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-95568E1A-8C3A-41B9-BD5E-85ECA99DE6E8', 'name': 'Close', 'incoming': ['Opposition\nReport'], 'outgoing': ['Closed']}
+{'id': 'sid-A5E988F2-56A2-4569-B33D-560666FAFE16', 'name': 'Tax payable by debtor', 'incoming': ['Reimbursement period expired'], 'outgoing': ['Closed']}
+
+Gateways:
+{'id': 'sid-E63E7C9D-BAF9-48F5-BE9F-2175F4EFEE11', 'name': 'Possibility?', 'incoming': ['VN may.\ntaken in Regress\nthey are'], 'outgoing': ['Closed', 'Closed']}
+{'id': 'sid-9E3C85B0-2AB4-43D7-8679-5B33CE83B3C3', 'name': 'justified?', 'incoming': ['Opposition\nReport'], 'outgoing': ['Closed', 'EventBasedGateway2']}
+{'id': 'sid-AC20EF17-156B-4D41-98B4-2FBA8270CA67', 'name': 'EventBasedGateway2', 'incoming': ['Opposition\nCheck', 'Reimbursement period expired'], 'outgoing': ['Closed']}
+{'id': 'sid-397F58F6-EE34-4AF5-BB82-58DD0BAAD3B1', 'name': 'Money received', 'incoming': ['Possibility?'], 'outgoing': ['Closed']}
+{'id': 'sid-556AF7C9-4CD7-425C-B3AC-906DDFC80D7B', 'name': 'Opposition\nReport', 'incoming': ['VN payment request'], 'outgoing': ['Close']}
+{'id': 'sid-C41EC1CD-E8DE-42D6-9B87-29929C5759B0', 'name': 'Reimbursement period expired', 'incoming': ['VN payment request'], 'outgoing': ['Tax payable by debtor']}
+
+Start Events:
+{'id': 'sid-C8ACB436-E303-45CE-A99C-76CA0CD98B3F', 'name': 'VN may.\ntaken in Regress\nthey are', 'incoming': [], 'outgoing': ['Close']}
+
+End Events:
+{'id': 'sid-F1704BAB-912F-4C96-877C-DE046B324ABF', 'name': 'Closed', 'incoming': ['Possibility?', 'Possibility?', 'justified?', 'EventBasedGateway2'], 'outgoing': []}

@@ -1,0 +1,13 @@
+ The process begins with the 'StartEvent0' which triggers a series of tasks and gateways. First, the 'Shipping clarification' task is initiated, which sends a request to 'ParallelGateway4'. This request is then followed by the 'Filling standard package voucher' task, also utilizing 'ParallelGateway4'.
+
+Simultaneously, the 'Selection' task is triggered, which requires the 'ParallelGateway6'. The 'Ordering Spediteur' task follows, which also uses 'ParallelGateway6' and leads to 'ExclusiveGateway2'.
+
+The 'Request a quote' task is initiated twice, both using 'ParallelGateway4' and leading to 'ParallelGateway6'. The 'Packaging goods' task is also initiated using 'ParallelGateway4', leading to 'ParallelGateway7'.
+
+The 'Insurance close' task is triggered, which uses 'ParallelGateway6' and 'ExclusiveGateway3'.
+
+The 'Special shipment necessary' gateway is triggered, which uses 'ParallelGateway6' and 'ParallelGateway7'. The 'Insurance necessary' gateway is also triggered, which uses 'ParallelGateway5' and 'ExclusiveGateway3'.
+
+The 'ExclusiveGateway2' gateway is used by both 'Ordering Spediteur' and 'ParallelGateway7'. The 'ParallelGateway7' gateway is used by both 'Special shipment necessary' and 'Insurance close'.
+
+Finally, the process concludes with the 'EndEvent0', which has no outgoing connections and receives the'sid-977BD6D7-E6BC-4379-A98B-25931FE15D20' as its incoming connection.

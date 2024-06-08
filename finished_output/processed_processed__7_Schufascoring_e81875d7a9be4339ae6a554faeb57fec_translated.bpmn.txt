@@ -1,0 +1,13 @@
+ The process begins when a scoring request is made by Schufa, which triggers the 'Schufascoring\nrequested' event. This event initiates a sequence of tasks to process the scoring inquiry.
+
+Firstly, the 'Send scoring inquiry to Schufa' task is triggered, which sends a request to Schufa. This task is connected to the 'ExclusiveGateway0' and once completed, it sends a 'Scoring\ncompleted' message to the 'Result\navailable?' event.
+
+Simultaneously, the 'Scoring request\nobtained' event is triggered, which initiates the 'Send delay message' task. This task is connected to the 'EventBasedGateway2' and once completed, it sends a 'Delay\nReport' message to the 'Send delay message to Frontend' task.
+
+The 'Send delay message to Frontend' task is then triggered, which sends a delay message to the frontend. This task is connected to the 'Level 2\nResult\navailable' event.
+
+Meanwhile, the 'Level 1\nResult\navailable' event is triggered, which sends a result message to the frontend. This task is connected to the 'ExclusiveGateway0'.
+
+Once the scoring inquiry is completed, the 'Scoring\ncompleted' message is sent to the 'Result\navailable?' event. This event then triggers the 'Level 2\nResult\navailable' and 'Scoring\ncompleted\nlv1' tasks, which send the final scoring results to the frontend.
+
+In summary, the process involves a series of tasks and events that work together to process a scoring inquiry from Schufa, send delay messages to the frontend, and ultimately deliver the scoring results to the frontend.

@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-5B2BF1ED-4275-4A44-AB44-985D89B7C49E', 'name': 'Check regression', 'incoming': ['Report on regression'], 'outgoing': ['Regress possible?']}
+{'id': 'sid-BDFDC438-EDD6-4DD3-8A2E-57E654DE82EC', 'name': 'Send a message', 'incoming': ['Report on regression'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-4096F10A-B1E9-4C34-B0AB-4D79A6A4B861', 'name': 'Reimbursement', 'incoming': ['Regress possible?'], 'outgoing': ['Cash receipt']}
+{'id': 'sid-F6B2124F-E67D-4B75-8BD9-722AC4F24352', 'name': 'Book money receipt', 'incoming': ['Cash receipt'], 'outgoing': ['Process']}
+{'id': 'sid-2B26149D-177E-47DB-9F04-060B66501F58', 'name': 'Proceedings', 'incoming': ['VN'], 'outgoing': ['Message to Inkasso service provider']}
+
+Gateways:
+{'id': 'sid-8550957D-8616-4E93-BD7B-2CF548A0FC4E', 'name': 'Regress possible?', 'incoming': ['Report on regression'], 'outgoing': ['VN', 'Process']}
+{'id': 'sid-6F9FDC60-8043-40E5-B5A8-AB4E6FDA54B8', 'name': 'Objection justified?', 'incoming': ['VN'], 'outgoing': ['Process', 'Message to Inkasso service provider']}
+{'id': 'sid-C0874CAA-4C71-486C-8EFE-769E84CCDD9F', 'name': 'EventBasedGateway2', 'incoming': ['Regress possible?'], 'outgoing': ['VN', 'Message to Inkasso service provider', 'Process']}
+{'id': 'sid-9DA8CE0A-F9B4-4CD1-A74E-1FDA0AC1F1AB', 'name': 'Cash receipt', 'incoming': ['Reimbursement'], 'outgoing': ['Process']}
+{'id': 'sid-7C5F15FD-44C3-4B39-9E06-D59A7E5643DC', 'name': 'VN', 'incoming': ['Regress possible?'], 'outgoing': ['Process']}
+{'id': 'sid-1BA8F80A-5B58-471E-803F-0325AD754D4E', 'name': 'Date of entry', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Message to Inkasso service provider']}
+
+Start Events:
+{'id': 'sid-555B3361-C5DF-4676-8D12-4BE5A00B4FD4', 'name': 'Report on regression', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-695FE697-596B-4106-9DDC-8CE15CD86F61', 'name': 'Message to Inkasso service provider', 'incoming': ['Proceedings', 'EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-4F0D8A73-6F6C-4FAF-9329-FA03343FDD05', 'name': 'Process', 'incoming': ['VN', 'EventBasedGateway2', 'Regress possible?'], 'outgoing': []}

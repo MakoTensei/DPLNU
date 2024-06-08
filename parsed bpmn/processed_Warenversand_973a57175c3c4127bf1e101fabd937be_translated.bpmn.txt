@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-BDE3AA74-991F-46FE-9E93-394452DA2085', 'name': 'Special delivery', 'incoming': ['large amount?'], 'outgoing': ['Pick up offers']}
+{'id': 'sid-72DCE1BA-430C-4569-A005-B698451542BE', 'name': 'Pick up offers', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Choose the cheapest offer']}
+{'id': 'sid-0A13E019-731D-42DD-BCA9-A6580CA68CA3', 'name': 'Choose the cheapest offer', 'incoming': ['large amount?'], 'outgoing': ['Ordering Spediteur\n']}
+{'id': 'sid-92A73374-412C-4C80-92B2-D5265B7D845D', 'name': 'Ordering Spediteur\n', 'incoming': ['large amount?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-839AE6F1-8053-41FB-B8A0-FBD8F78EC8EF', 'name': 'Normal postal shipment\n', 'incoming': ['large amount?'], 'outgoing': ['Filling standard package voucher']}
+{'id': 'sid-3BC17CEC-D59A-48FD-B1BC-5863E966FB07', 'name': 'Filling standard package voucher', 'incoming': ['large amount?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-6687D94B-3156-41E8-88C1-0057D99D96B9', 'name': 'Complete insurance from logistics manager', 'incoming': ['Is insurance necessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-CB353AF3-0BAE-44D9-9414-8A729BE4B651', 'name': 'Product is packaged', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-076D09F2-259A-46A7-8FCC-91CE22F4D8F7', 'name': 'Delivering goods\n', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods are ready for collection']}
+
+Gateways:
+{'id': 'sid-9A08207E-E340-45D8-B125-81A41CD19407', 'name': 'large amount?', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4', 'ExclusiveGateway2']}
+{'id': 'sid-99B21743-E645-4EDD-A373-795B4DFFADEB', 'name': 'Is insurance necessary?', 'incoming': ['large amount?'], 'outgoing': ['ExclusiveGateway2', 'ParallelGateway4']}
+{'id': 'sid-E0381E18-D2B4-450F-A415-8B439A682938', 'name': 'ExclusiveGateway2', 'incoming': ['Is insurance necessary?', 'large amount?', 'Filling standard package voucher'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-23A18A92-23DE-4E5B-B191-9E422EFEF43B', 'name': 'ParallelGateway3', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Pick up offers', 'ParallelGateway4']}
+{'id': 'sid-C7580EDC-58E4-4E4D-AAB9-B9E752CDD373', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway3', 'large amount?'], 'outgoing': ['Goods are ready for collection']}
+
+Start Events:
+{'id': 'sid-621F8983-DB1F-41AA-848E-F700AF4F9D89', 'name': 'Goods are to be shipped', 'incoming': [], 'outgoing': ['Pick up offers']}
+
+End Events:
+{'id': 'sid-F708C495-F460-46B2-9636-BAED089EB7BF', 'name': 'Goods are ready for collection', 'incoming': ['ParallelGateway4'], 'outgoing': []}

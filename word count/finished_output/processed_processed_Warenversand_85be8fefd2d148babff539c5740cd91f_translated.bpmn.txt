@@ -1,0 +1,17 @@
+ The process begins with a 'Start' event that triggers the selection of an offer. The 'Start' event connects to 'ExclusiveGateway1', which has incoming connections from 'ParallelGateway6'. Upon reaching 'ExclusiveGateway1', the system picks up the 'Offer 1' and sends it to 'ExclusiveGateway2'. 'ExclusiveGateway2' then forwards 'Offer 1' to 'Specialist', which is the next step in the process.
+
+Simultaneously, 'ParallelGateway6' also connects to 'ExclusiveGateway1', and from there, it sends 'Offer 2' to 'ExclusiveGateway2'. 'ExclusiveGateway2' then sends 'Offer 2' to 'ExclusiveGateway2' again, which is a self-loop indicating that 'Offer 2' is being processed or queued.
+
+After the 'Specialist' completes its task, it sends the 'Specialist' event to 'ParallelGateway7', which is the next step in the process.
+
+Meanwhile, 'ParallelGateway6' also sends 'Offer 2' to 'ParallelGateway7', which is another self-loop indicating that 'Offer 2' is being processed or queued.
+
+Finally, the process concludes with the 'EndEvent0' event, which is triggered by 'ParallelGateway7'. The 'EndEvent0' event has incoming connections from 'ParallelGateway7', signifying the completion of the process.
+
+In summary, the process flow is as follows:
+
+1. 'Start' event triggers the selection of 'Offer 1' and 'Offer 2'.
+2. 'Offer 1' is sent to 'ExclusiveGateway2' and then to 'Specialist'.
+3. 'Offer 2' is sent to 'ExclusiveGateway2' and then to 'ParallelGateway7'.
+4. 'Specialist' sends the 'Specialist' event to 'ParallelGateway7'.
+5. 'EndEvent0' is triggered by 'ParallelGateway

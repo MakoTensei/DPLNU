@@ -1,0 +1,13 @@
+ The process begins with a 'Regression request' event, which triggers the 'Regress possible?' gateway. This gateway, upon receiving the request, forwards it to the 'ExclusiveGateway1' and also sends a notification to the 'Check the case' task.
+
+The 'Check the case' task, upon receiving the notification, proceeds to the 'ExclusiveGateway1'. If the case is justified, it closes the case and sends a notification to the 'Opposition justified?' task.
+
+The 'Opposition justified?' task, upon receiving the notification, proceeds to the 'EventBasedGateway5'. This gateway, after processing the event, closes the case and sends a notification to the 'ExclusiveGateway4'.
+
+The 'ExclusiveGateway4' task, upon receiving the notification, proceeds to the 'Reimbursement' task. This task, after processing the event, sends a notification to the 'ExclusiveGateway3'.
+
+The 'ExclusiveGateway3' task, upon receiving the notification, proceeds to the 'Book money receipt' task. This task, after processing the event, sends a notification to the 'ExclusiveGateway3'.
+
+The 'Book money receipt' task, upon receiving the notification, proceeds to the 'Close' task. This task, after processing the event, closes the case.
+
+The process ends with the 'Close' task, which sends a notification to the 'EventBasedGateway5'. This gateway, after processing the event, closes the case.

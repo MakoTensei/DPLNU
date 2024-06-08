@@ -1,0 +1,9 @@
+ When an order is ready for shipping, it triggers the 'Order ready for shipping' event, which sends the order to ExclusiveGateway0. ExclusiveGateway0 then forwards the order to ParallelGateway6 and ParallelGateway7. ParallelGateway6 sends the order to ExclusiveGateway1, while ParallelGateway7 sends it to ExclusiveGateway0 and ParallelGateway5.
+
+ParallelGateway1 receives the order from ExclusiveGateway1 and sends it to ExclusiveGateway2. ExclusiveGateway2 then forwards the order to Submission.
+
+Meanwhile, ExclusiveGateway0 receives the order from ParallelGateway6 and ParallelGateway7. It sends the order to Submission and also forwards it to ExclusiveGateway2 for insurance processing.
+
+ParallelGateway5 receives the order from ParallelGateway6 and sends it to Submission.
+
+Once the order has been filled and insured, it is sent to Submission, marking the end of the process.

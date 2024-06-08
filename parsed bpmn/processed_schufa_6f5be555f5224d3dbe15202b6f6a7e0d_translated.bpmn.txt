@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-3735403A-34E8-43BC-8162-CC683D49C2D5', 'name': 'Score fast\nenroll', 'incoming': ['Scoring\nStart'], 'outgoing': ['Score\n?']}
+{'id': 'sid-528D1304-940F-48C0-8822-3CC6F447F834', 'name': 'Duration\nOther', 'incoming': ['Scoring\nStart'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-13FC3EB5-8E49-4AB3-84EF-E027685C6728', 'name': 'Score L2\nCalculation', 'incoming': ['ParallelGateway2'], 'outgoing': ['Score L2\nsend']}
+{'id': 'sid-1ACA37A6-22C1-49AB-9C45-4110214A6406', 'name': 'Score L1\nCalculation', 'incoming': ['Scoring\nStart'], 'outgoing': ['Score L1\nsend']}
+
+Gateways:
+{'id': 'sid-34483851-9D1E-47AF-A82E-FFDC98EDC031', 'name': 'Score\n?', 'incoming': ['Scoring\nStart'], 'outgoing': ['Score fast\ndetermined', 'sid-3E089412-69CD-4494-BC9A-422185FC9DB2']}
+{'id': 'sid-2D965B44-C1FF-4074-B36D-ACE94B3CD51D', 'name': 'Duration?', 'incoming': ['Scoring\nStart'], 'outgoing': ['Score L2\nsend', 'Score L1\nsend']}
+{'id': 'sid-E6011C23-C083-4587-9AC3-93C438719D38', 'name': 'ParallelGateway2', 'incoming': ['Duration\nOther'], 'outgoing': ['sid-C0E8EFB9-ED20-4AFD-8058-CC5D8CA48C9F', 'Score L2\nsend']}
+{'id': 'sid-7D563EEC-DFBF-4C11-962A-87BCE0D4BC31', 'name': 'ParallelGateway3', 'incoming': ['sid-23E7DE11-7EBA-4C0D-9DEA-DDDB656AAC4E', 'Score L2\nCalculation'], 'outgoing': ['Score L2\nsend']}
+{'id': 'sid-B0BDA2C8-CDDC-4B3C-AE21-11EA2F7C8571', 'name': 'on Score\nwait', 'incoming': ['sid-D662DAF8-BE33-4C99-B36F-CC905F2F21EE'], 'outgoing': ['Score slow\ndetermined']}
+
+Start Events:
+{'id': 'sid-FC4DBDE9-6768-429C-BEBB-EA37A2EF0A19', 'name': 'Scoring\nStart', 'incoming': [], 'outgoing': ['Score\n?']}
+{'id': 'sid-D057713F-D226-4394-91AB-9CB312E67D50', 'name': 'Scoring\nStart', 'incoming': [], 'outgoing': ['Score L1\nCalculation']}
+
+End Events:
+{'id': 'sid-A5EEC7F2-2764-4EF3-9FDF-98565B45E147', 'name': 'Score fast\ndetermined', 'incoming': ['Score\n?'], 'outgoing': []}
+{'id': 'sid-BA71247D-0387-438E-9EB0-799653DBED84', 'name': 'Score slow\ndetermined', 'incoming': ['on Score\nwait'], 'outgoing': []}
+{'id': 'sid-389650C8-D253-432C-915C-CE6251A12BE6', 'name': 'Score L1\nsend', 'incoming': ['Duration?'], 'outgoing': []}
+{'id': 'sid-A1643C69-470F-49AC-8B90-43C775E56EA6', 'name': 'Score L2\nsend', 'incoming': ['Duration?'], 'outgoing': []}

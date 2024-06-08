@@ -1,0 +1,9 @@
+ In the world of service orchestration, a series of events unfold to process a request for Schufaservice. The journey begins with a 'Schufascoring\nRequest\nReport' event, which triggers a 'Share delay\n' event, as it's determined that the scoring needs to be shared with ExclusiveGateway2.
+
+Simultaneously, another 'Schufascoring\nRequest\nReport' event is processed, but this time it's directed to ExclusiveGateway2, which then sends a 'Transfer scoring' event to complete the request.
+
+Meanwhile, the 'Share delay\n' event is also sent to ExclusiveGateway2, which in turn, sends a 'Share delay' event to EventBasedGateway3.
+
+As the scoring process continues, a 'Schufascoring determined?\n' event is triggered, which sends a 'Request completed' event to ExclusiveGateway0 and a 'Share delay' event to EventBasedGateway3.
+
+In the end, two 'Request completed' events are generated, one from EventBasedGateway3 and the other from Schufascoring determined?\n. These events mark the successful completion of the service request.

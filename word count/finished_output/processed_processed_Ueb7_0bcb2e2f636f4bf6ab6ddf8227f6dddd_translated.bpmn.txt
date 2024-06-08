@@ -1,0 +1,19 @@
+ In the scoring system, the process begins with a 'Schufascoring request' that triggers a series of events and interactions between different components.
+
+1. The 'Schufascoring request' initiates the process and sends a message to the 'EventBasedGateway1'. This gateway is responsible for handling the incoming request and routing it to the appropriate components.
+
+2. The 'EventBasedGateway1' receives the 'Schufascoring request' and sends a message to the 'ExclusiveGateway0'. This gateway is responsible for managing the flow of messages between the different components.
+
+3. The 'ExclusiveGateway0' receives the message from the 'EventBasedGateway1' and sends a 'Get delay message' to the 'Results obtained' component. This component is responsible for obtaining the results of the scoring process.
+
+4. The 'Results obtained' component receives the 'Get delay message' and sends a 'Report result to Frontend' message to the 'EndEvent0'. This event signifies the completion of the scoring process and the availability of the scoring result.
+
+5. Meanwhile, the 'ExclusiveGateway0' also sends a 'Report bank delay' message to the 'perform scoring level 2' component. This component is responsible for handling the bank-related scoring process.
+
+6. The 'perform scoring level 2' component receives the 'Report bank delay' message and sends a 'Bank Report result' message to the 'EndEvent2'. This event signifies the completion of the bank-related scoring process and the availability of the bank report result.
+
+7. The 'EndEvent2' sends a message to the 'ExclusiveGateway0', which then sends a 'Bank Report result' message to the 'EndEvent3'. This event signifies the completion of the bank-related scoring process and the availability of the bank report result.
+
+8. The 'EndEvent3' sends a message to the 'ExclusiveGateway0', which then sends a 'Report result to Frontend' message to the 'Results obtained' component. This event signifies the completion of the bank-related scoring process and the availability of the bank report result.
+
+9. The 'Results obtained' component receives the

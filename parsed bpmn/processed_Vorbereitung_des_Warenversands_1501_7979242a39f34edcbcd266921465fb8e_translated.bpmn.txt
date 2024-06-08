@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-C0E6FA4C-222A-4DDC-9ABE-34ADEA4D6FA8', 'name': 'Filling the package note', 'incoming': ['sid-3C5C03DA-6DFB-4A84-8B69-665CF2725AC3'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-ED0800D7-BB76-4C3A-A30E-E04517A35F35', 'name': '3 offers', 'incoming': ['sid-8DEAC491-9419-4541-8CF1-6E7D00B65D67'], 'outgoing': ['Select and order freight forwarders']}
+{'id': 'sid-8C9F4101-96A4-4473-B6B3-376FC47DDAB7', 'name': 'Select and order freight forwarders', 'incoming': ['3 offers'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-B12C6212-C98B-4497-AF42-4848CBF97AD4', 'name': 'Complete insurance', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-42D90E8F-A0CA-4C84-AC58-2689C26C299B', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-CF524F65-0E0B-4967-8015-38CC587B78A9', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway5'], 'outgoing': ['Goods\nready for dispatch']}
+
+Gateways:
+{'id': 'sid-F259E74E-34C0-4D9F-98D9-8799626AE191', 'name': 'Clear the amount', 'incoming': ['Goods\nbe sent'], 'outgoing': ['sid-26383305-5F86-4D33-8BDC-EC7D1120923A', 'sid-CFD904EC-BC05-4863-9C44-142AFA154B89']}
+{'id': 'sid-C3EBBC9F-7907-44BD-8C2F-3CE210B2EF8E', 'name': 'Insurance\nnecessary?', 'incoming': ['Filling the package note'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-41F6B3C2-9CF3-489E-9812-D317F73C6D8B', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance\nnecessary?', 'Filling the package note'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-7241C934-0856-479C-8AFD-B069EF9EF108', 'name': 'ExclusiveGateway3', 'incoming': ['Select and order freight forwarders', 'Filling the package note'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-5D034A17-B00A-422B-88EE-FCCCC411AB4E', 'name': 'ParallelGateway4', 'incoming': ['Goods\nbe sent'], 'outgoing': ['Clear the amount', 'ParallelGateway5']}
+{'id': 'sid-5DD12285-7909-4B5F-8093-808D2E8B1E3F', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'Filling the package note'], 'outgoing': ['Goods\nready for dispatch']}
+
+Start Events:
+{'id': 'sid-EA9AB280-3586-423E-B018-A81B904341E4', 'name': 'Goods\nbe sent', 'incoming': [], 'outgoing': ['Clear the amount']}
+
+End Events:
+{'id': 'sid-5DD7AE70-3115-4911-90CF-A730F3651475', 'name': 'Goods\nready for dispatch', 'incoming': ['ParallelGateway5'], 'outgoing': []}

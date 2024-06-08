@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-91FF7BF3-2EA2-41C8-8EE9-97BCE6FD5BC7', 'name': 'Insurance', 'incoming': ['Insurance necessary?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-92B70030-88FD-4350-A01A-A1AD66BB2888', 'name': 'providing packaging', 'incoming': ['ParallelGateway5'], 'outgoing': ['Processed']}
+{'id': 'sid-0921C5A7-F8D1-4343-80FB-3B813B6AC84D', 'name': 'Check quantity', 'incoming': ['Shipyard'], 'outgoing': ['Lot?']}
+{'id': 'sid-07FD3276-88BD-40F8-97C9-85C1CEA7D6D0', 'name': 'Pick up offers', 'incoming': ['ParallelGateway4'], 'outgoing': ['Select your offer']}
+{'id': 'sid-F4CD1FE9-858D-41B4-BF0F-0620B24D92A3', 'name': 'Select your offer', 'incoming': ['Lot?'], 'outgoing': ['Ordering']}
+{'id': 'sid-D9C260BD-3296-4F0B-80CF-F8DD71F1499D', 'name': 'Ordering', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-CD28CB4B-EE40-446A-83C9-71DAD40A6BB8', 'name': 'Filling parcel note', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-D762C342-ABF3-4838-9A13-3D5350C735DD', 'name': 'Insurance necessary?', 'incoming': ['Lot?'], 'outgoing': ['Processed']}
+{'id': 'sid-BC8CAF65-9501-4AFA-8214-CB06C023D7F0', 'name': 'Packaging goods\n', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+
+Gateways:
+{'id': 'sid-005F71D2-0631-4710-8ABF-794116B1272F', 'name': 'Lot?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway3']}
+{'id': 'sid-B5145479-5F69-4A4F-B472-7F1C6AFDFA28', 'name': 'ExclusiveGateway1', 'incoming': ['Lot?', 'Filling parcel note'], 'outgoing': ['Processed']}
+{'id': 'sid-A0BCE2F0-2665-443D-BC98-3BD5417EB2A4', 'name': 'Insurance necessary?', 'incoming': ['Insurance necessary?'], 'outgoing': ['Processed']}
+{'id': 'sid-F3728D44-60D3-479E-B59D-F5F9D80141DD', 'name': 'ExclusiveGateway3', 'incoming': ['Lot?', 'sid-A3905253-2EC5-4AFA-B6E0-FDA61DC9ECB1'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-6DD61269-78C1-4D8C-B637-6E867ADD7951', 'name': 'ParallelGateway4', 'incoming': ['Shipyard'], 'outgoing': ['Pick up offers', 'Packaging goods\n']}
+{'id': 'sid-BEAB5FF1-DC3E-4432-870B-636E0E381204', 'name': 'ParallelGateway5', 'incoming': ['Insurance', 'Packaging goods\n'], 'outgoing': ['Processed']}
+
+Start Events:
+{'id': 'sid-BB4BCB48-3A37-435E-99AD-FAF226439D1B', 'name': 'Shipyard', 'incoming': [], 'outgoing': ['Check quantity']}
+
+End Events:
+{'id': 'sid-9B3D0E7A-8676-4C01-8858-B77CCD80285B', 'name': 'Processed', 'incoming': ['Insurance necessary?'], 'outgoing': []}

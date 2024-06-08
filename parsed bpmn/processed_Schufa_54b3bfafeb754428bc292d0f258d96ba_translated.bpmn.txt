@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-8E197D0E-5558-46D8-AA2D-83C914D7BDFF', 'name': 'Start SchufaScoring Process', 'incoming': ['Schufa show\nRequired'], 'outgoing': ['SchufaScoring\nGet Level 1']}
+{'id': 'sid-23D125F4-E066-4097-B9AD-90F0E0282A2D', 'name': 'forward SchufaScoring', 'incoming': ['SchufaScoring\nGet Level 1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B0F41BA5-1E26-4AB5-B710-E11C4600B1BD', 'name': 'forward delay message', 'incoming': ['Schufa show\nRequired'], 'outgoing': ['SchufaScoring\nGet Level 2']}
+{'id': 'sid-7E81BA3E-73CC-48E1-A69B-5A7A23E6B4A4', 'name': 'forward SchufaScoring', 'incoming': ['Schufa show\nRequired'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-5465ECBC-79AC-4FA2-9592-6D81514EE4D2', 'name': 'Perform Schufascoring Level 1', 'incoming': ['Schufa request\nobtained'], 'outgoing': ['Results are available?']}
+{'id': 'sid-74CFE4F2-9533-4345-9A99-9724D563197D', 'name': 'Perform Schufascoring Level 2', 'incoming': ['Report delay'], 'outgoing': ['Transfer schufascoring level 2']}
+{'id': 'sid-7D69FF6B-53EF-4CA5-9A5D-066F9B2DB9BB', 'name': 'Report delay', 'incoming': ['Schufa request\nobtained'], 'outgoing': ['Transfer schufascoring level 2']}
+{'id': 'sid-86280F27-4534-4952-BC89-A50C3079CE9F', 'name': 'Transfer schufascoring level 2', 'incoming': ['Results are available?'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-2FBC16FF-484E-43EA-B6B0-B6D0CC8CF06A', 'name': 'Transfer schufascoring level 1', 'incoming': ['Results are available?'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-F532CF51-4A86-495C-B079-F36FE981D0D4', 'name': 'Results are available?', 'incoming': ['Schufa request\nobtained'], 'outgoing': ['EndEvent2', 'Transfer schufascoring level 1']}
+{'id': 'sid-6D170A42-CC71-4120-ADAF-C82696C79467', 'name': 'EventBasedGateway1', 'incoming': ['Schufa show\nRequired'], 'outgoing': ['EndEvent0', 'Delay message\nobtained']}
+{'id': 'sid-00CE90DA-A0CC-463E-A027-3F1B4A82EAA0', 'name': 'SchufaScoring\nGet Level 1', 'incoming': ['Start SchufaScoring Process'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-A0838F56-210C-48C1-8200-04DC51DA9847', 'name': 'Delay message\nobtained', 'incoming': ['Schufa show\nRequired'], 'outgoing': ['forward delay message']}
+{'id': 'sid-810C8768-0DC4-4EEF-B05D-0C4F3D512B94', 'name': 'SchufaScoring\nGet Level 2', 'incoming': ['Schufa show\nRequired'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-B595E4F3-DFF8-4CEC-A0B5-4D2F1C479CDC', 'name': 'Schufa show\nRequired', 'incoming': [], 'outgoing': ['forward SchufaScoring']}
+{'id': 'sid-30901082-3691-4ADC-B958-0CA174AF521E', 'name': 'Schufa request\nobtained', 'incoming': [], 'outgoing': ['Report delay']}
+
+End Events:
+{'id': 'sid-78D77E62-B309-4C28-AC2D-2353FA11FBA9', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-990215A8-DD91-4D2F-B9A9-AFAD62745B47', 'name': 'EndEvent1', 'incoming': ['SchufaScoring\nGet Level 2'], 'outgoing': []}
+{'id': 'sid-86DEF8F6-700B-4287-BC33-298BB65DA192', 'name': 'EndEvent2', 'incoming': ['Results are available?'], 'outgoing': []}

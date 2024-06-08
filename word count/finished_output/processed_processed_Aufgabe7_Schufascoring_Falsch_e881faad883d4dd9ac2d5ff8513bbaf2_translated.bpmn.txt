@@ -1,0 +1,13 @@
+ The process begins with the event 'Scoring is needed', which triggers the 'ExclusiveGateway0'. This gateway then sends the 'Level 1 Information obtained' to the 'Frontend'. Concurrently, the 'Scoring request obtained' event leads to the determination of the scoring level, which in this case is level 1. This decision results in the 'Determining scoring level 1' event, which subsequently shares the 'Level 1 Information obtained' with the 'Frontend'.
+
+
+As the scoring process continues, if there's a need for a delay, the 'Delay?' event is triggered, which communicates with the 'ExclusiveGateway2'. This gateway then sends a 'Notice of delay' to the 'Frontend' and also shares the 'Scoring request obtained' event with another gateway, 'EventBasedGateway3'.
+
+
+Meanwhile, the 'EventBasedGateway3' processes the 'Scoring request obtained' event and shares the 'Finals Scoring result obtained' with the 'Frontend'. This event also leads to the completion of the scoring process, sending a 'Scoring completed' message to 'ExclusiveGateway0'.
+
+
+In the case of a delay, the 'Scoring completed' message is sent to 'ExclusiveGateway2', which then shares the 'Scoring completed' message with the 'Frontend'.
+
+
+Finally, the process concludes with the 'Scoring completed' event, which is triggered by the 'EventBasedGateway3' after obtaining the 'Finals Scoring result obtained'. This event signifies the end of the scoring process and sends a 'Scoring completed' message to 'ExclusiveGateway0'.

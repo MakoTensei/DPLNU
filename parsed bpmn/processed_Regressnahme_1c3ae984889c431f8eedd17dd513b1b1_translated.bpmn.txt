@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-358DB025-B566-46D3-A2C1-51547827ED0B', 'name': 'Regression possibility profen', 'incoming': ['Regression claim to check'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-B42F2E0B-6849-4364-B77F-958FE0A12802', 'name': 'Send payment request', 'incoming': ['Regression claim to check'], 'outgoing': ['Money ingested']}
+{'id': 'sid-1BB47159-4951-4C70-9CF7-9CCF926D3F87', 'name': 'Book money receipt', 'incoming': ['Money ingested'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-41C34E54-7786-4428-A4A3-4CC102621A1D', 'name': 'Checking justification', 'incoming': ['Regression claim to check'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-35DD6C80-1FE9-438B-BCD6-39FD885E1E42', 'name': 'Process transferred to debt collection office', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-62B2CE13-E93E-45C2-A8EB-9EC4CC28CB2F', 'name': 'Regression claim\navailable?', 'incoming': ['Regression claim to check'], 'outgoing': ['ExclusiveGateway3', 'Process']}
+{'id': 'sid-9420E0DB-329C-4897-802A-04A7DEDBE7FF', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-85E24977-4055-412E-8F8B-94FF8A338256', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Regression claim to check'], 'outgoing': ['Process transferred to debt collection office']}
+{'id': 'sid-C9B4E00E-5EF4-48AE-8368-FA964626A23E', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Regression claim\navailable?', 'Notification', 'Regression possibility profen'], 'outgoing': ['Process']}
+{'id': 'sid-928A8571-940F-425F-A711-546CB7AEC157', 'name': 'EventBasedGateway4', 'incoming': ['Regression claim to check'], 'outgoing': ['Opposition\njustified?', 'ExclusiveGateway3', 'Money ingested']}
+{'id': 'sid-51CB2B6F-ED18-4E59-A2B1-700E08260061', 'name': 'Money ingested', 'incoming': ['Regression claim\navailable?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-F213FEC3-DA4D-4B8E-814C-48FE1F16A2DF', 'name': 'Notification', 'incoming': ['Regression claim to check'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-85B584F6-1C2D-4520-BD6D-3AC0A381E290', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-8D8D6601-CE81-4011-B30A-E0303934A745', 'name': 'Regression claim to check', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-CBE448EC-96F9-4E5C-B49D-537DD14BC5FB', 'name': 'Process', 'incoming': ['Regression claim\navailable?'], 'outgoing': []}

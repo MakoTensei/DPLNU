@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-8F7C47DA-7221-491B-9A3C-5A960FF73E29', 'name': 'Scoring request start', 'incoming': ['StartEvent0'], 'outgoing': ['Evaluate scoring result']}
+{'id': 'sid-198EDA36-FC68-486F-9AA1-8D1EEFC38E6C', 'name': 'Evaluate scoring result', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-53FD47C5-7BC8-4B15-A267-F77418C23236', 'name': 'Wait for final result', 'incoming': ['sid-BA16896E-C5B9-42D7-BD65-CEF9CFE0997A'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-ACBCB4F7-1781-4FAF-9B16-004C5B626AB0', 'name': 'Editing scoring request', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-D7279A40-5387-40D0-B746-D72E7205A7FB', 'name': 'Delayed result', 'incoming': ['sid-D917FF56-252D-4585-A9A6-B25A6DA961F4'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-C1AA6B02-C123-496C-A117-D55244A552E9', 'name': 'Final result\nis there?', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'sid-74638D98-811A-4C78-AE42-94C232FCD8BE']}
+{'id': 'sid-E03DA28B-C31F-4342-A609-0561093E370D', 'name': 'Results directly available?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent3', 'sid-E8A2D754-8FA1-4CF4-A39A-6EA4F8956700']}
+
+Start Events:
+{'id': 'sid-947B8CBD-211B-4477-8094-E2D18EF1B798', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Final result\nis there?']}
+{'id': 'sid-1B2A2444-17A1-4850-B50C-6460FC7CD9BC', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Results directly available?']}
+
+End Events:
+{'id': 'sid-82C87DA3-A195-404F-A20D-F25AFEBCEA9D', 'name': 'EndEvent0', 'incoming': ['Evaluate scoring result'], 'outgoing': []}
+{'id': 'sid-C35CC625-8AC1-4B41-87B7-444CBF683737', 'name': 'EndEvent1', 'incoming': ['Wait for final result'], 'outgoing': []}
+{'id': 'sid-07B3DB73-F2AD-4601-8114-1404FD46E6A3', 'name': 'EndEvent2', 'incoming': ['Delayed result'], 'outgoing': []}
+{'id': 'sid-F6AC99C1-4D5D-4B4E-AFFA-748C16CFB452', 'name': 'EndEvent3', 'incoming': ['Editing scoring request'], 'outgoing': []}

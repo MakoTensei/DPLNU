@@ -1,0 +1,17 @@
+ When a request for Schufa Scoring is initiated, it triggers the StartEvent0, which then sends a Report Scoring request to the EventBasedGateway1. This gateway processes the request and sends a StartEvent1, which leads to a series of events.
+
+The StartEvent1 triggers the ExclusiveGateway0, which checks if Scoring Level 2 is necessary. If it is, it sends a Check Scoring Level 2 request to the ExclusiveGateway0, which then sends a Send a reply to the StartEvent1.
+
+If Scoring Level 2 is not necessary, the ExclusiveGateway0 sends a Wait Scoring Level 2 request to the StartEvent1, which leads to the Wait Scoring Level 2 event.
+
+Once Scoring Level 2 is determined to be necessary, the ExclusiveGateway0 sends a Check Scoring Level 2 request to itself, which then sends a Send a reply to the StartEvent1.
+
+The Send a reply from the ExclusiveGateway0 to the StartEvent1 triggers the EndEvent1, which then sends a Wait Scoring Level 2 event to the ExclusiveGateway0.
+
+The ExclusiveGateway0 processes the Wait Scoring Level 2 event and sends a Check Scoring Level 2 request to itself. If Scoring Level 2 is determined to be necessary, the ExclusiveGateway0 sends a Send a reply to the StartEvent1, which triggers the EndEvent3.
+
+If Scoring Level 2 is not necessary, the ExclusiveGateway0 sends a Wait Scoring Level 2 event to the StartEvent1, which then sends a Wait Scoring Level 2 event to the ExclusiveGateway0.
+
+The ExclusiveGateway0 processes the Wait Scoring Level 2 event and sends a Check Scoring Level 2 request to itself. If Scoring Level 2 is determined to be necessary, the ExclusiveGateway0 sends a Send a reply to the StartEvent1, which triggers the EndEvent3.
+
+If Scoring Level 2 is not necessary, the ExclusiveGateway0 sends a Wait Scoring Level 2 event to the StartEvent1, which then sends a Wait Sc

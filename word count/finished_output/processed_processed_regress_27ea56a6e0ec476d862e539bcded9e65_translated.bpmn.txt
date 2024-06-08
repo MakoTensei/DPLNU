@@ -1,0 +1,9 @@
+ The process begins with the 'Report\nRegression' event, which triggers a series of tasks and gateways. The 'Report\nRegression' event leads to the 'Payment\non request\nsend\n' task, which in turn has an incoming link to the 'Regression\npossible?' gateway. This gateway, upon receiving the 'Regression\npossible?' input, closes the process and generates a 'Reasons\nReport' output.
+
+The 'Reasons\nReport' output then triggers the 'Reasons\nCheck' task, which also closes the process and generates a 'Tax payable on:\nDebt collection office' output.
+
+Meanwhile, the 'Regression\npossible?' gateway also has an outgoing link to the 'Money\nReport' task, which receives the 'Reimbursement\nput up' input. The 'Money\nReport' task then closes the process and generates a 'Process\nclosed' output.
+
+Lastly, the 'EventBasedGateway2' gateway, triggered by the 'Regression\npossible?' event, closes the process and generates both 'Reasons\nReport' and 'Tax payable on:\nDebt collection office' outputs.
+
+In summary, the 'Report\nRegression' event initiates a chain of tasks and gateways, ultimately leading to the closure of the process and the generation of various outputs, including 'Payment\non request\nsend\n', 'Reasons\nReport', and 'Tax payable on:\nDebt collection office'.

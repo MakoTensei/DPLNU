@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-39915AED-2CB9-4390-83FD-0BBEC8334EDC', 'name': 'Insurance close', 'incoming': ['Insurance necessary'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-3A71E202-F46D-4C20-A578-874719809AB8', 'name': 'Filling the package note', 'incoming': ['Goods ready for dispatch'], 'outgoing': ['ParallelGateway4', 'Packaging goods']}
+{'id': 'sid-FA232B6E-7F79-4BF5-845A-13332729D5E9', 'name': 'Select your offer', 'incoming': ['Request a quote'], 'outgoing': ['Spediteur commission']}
+{'id': 'sid-C4829400-6DB7-4231-ADD0-41CE870A33A1', 'name': 'Request a quote', 'incoming': ['A lot?'], 'outgoing': ['Spediteur commission']}
+{'id': 'sid-0D9B7121-44B5-41E2-A4FA-E2D3302A2035', 'name': 'Postal mail', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods delivered']}
+{'id': 'sid-78AA9A38-C057-44BC-ADC5-339FB3DA130C', 'name': 'Spediteur commission', 'incoming': ['A lot?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-83809C00-21AC-40CB-8EF6-720B98CB608E', 'name': 'Packaging goods', 'incoming': ['Filling the package note'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-283AF8AC-F9E0-4BF3-B53C-705AF88836FF', 'name': 'Goods ready for dispatch', 'incoming': ['Spediteur commission'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-AC406ABA-1F34-435D-8DDF-961FC71DD5E3', 'name': 'A lot?', 'incoming': ['A lot?'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway3']}
+{'id': 'sid-D00E20E9-A97A-41DD-ABE3-EAB148E079E4', 'name': 'ExclusiveGateway1', 'incoming': ['Goods ready for dispatch', 'Insurance necessary'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-B7B9BA08-635A-473F-95CC-965DE34310F9', 'name': 'Insurance necessary', 'incoming': ['Goods ready for dispatch'], 'outgoing': ['ParallelGateway4', 'ExclusiveGateway1']}
+{'id': 'sid-D7911F10-062F-4564-85B4-321DAB632B8E', 'name': 'ExclusiveGateway3', 'incoming': ['Goods ready for dispatch', 'Spediteur commission'], 'outgoing': ['Goods delivered']}
+{'id': 'sid-56B0FE9E-BE8D-450F-9E41-9231E6A0444C', 'name': 'ParallelGateway4', 'incoming': ['Packaging goods', 'A lot?'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-1655DEB6-4B97-4BB4-8208-A25934443DA7', 'name': 'Goods ready for dispatch', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-2CB72900-B241-44BB-9A11-481952B129B0', 'name': 'Goods delivered', 'incoming': ['Postal mail'], 'outgoing': []}

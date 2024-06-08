@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-D8FEF2A2-F18C-4F2A-8A2F-5AC645216F4B', 'name': 'Request Schufaservice', 'incoming': ['Scoring\nRequired'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-5D392CB1-1765-46E8-A30C-0EAC06B89AFB', 'name': 'Feedback Scoring', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-35289B6C-FDA4-4932-990B-89DE81CE1B90', 'name': 'Send delay message Frontend', 'incoming': ['Scoring\nRequired'], 'outgoing': []}
+{'id': 'sid-FEB6E58D-7466-44FC-B120-DAC81A57521A', 'name': 'Edit your bank', 'incoming': ['StartEvent1'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-9ED58E92-0014-4E2C-9549-6225BD54A93B', 'name': 'Results determined (level 1)', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'sid-0998E47F-1F73-4286-9741-0D05B9B865D8']}
+{'id': 'sid-23DE2DB6-1057-4D6E-B175-957CA0F63741', 'name': 'Message Delay', 'incoming': ['ParallelGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C6B46F1C-8C42-4320-9530-5F4E7D320480', 'name': 'Results determined (level 2)', 'incoming': ['ParallelGateway2'], 'outgoing': ['sid-88F6A495-BB5E-4996-A9EA-1A51390C5AFE']}
+
+Gateways:
+{'id': 'sid-348D58E7-C0D4-47F7-B5F5-070D8686FAB2', 'name': 'ExclusiveGateway0', 'incoming': ['Scoring\nRequired', 'ExclusiveGateway1'], 'outgoing': ['EndEvent0', 'Send delay message Frontend']}
+{'id': 'sid-1A3E3430-EB55-40B2-8446-A4698D881E1F', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'ExclusiveGateway0']}
+{'id': 'sid-6B0C95BE-5EC2-4D72-B3C1-6FE5B035B159', 'name': 'ParallelGateway2', 'incoming': ['Edit your bank'], 'outgoing': ['ExclusiveGateway0', 'Results determined (level 2)']}
+{'id': 'sid-CF2C3923-0667-415E-B646-B2318E27E6E3', 'name': 'IntermediateCatchEvent3', 'incoming': ['Scoring\nRequired'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-64FE9C30-C30D-421E-85A9-A675AAEF11AC', 'name': 'IntermediateCatchEvent4', 'incoming': ['Request Schufaservice'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['Send delay message Frontend']}
+{'id': 'sid-62E11EB6-CB6E-4C75-A77D-A847B1AB8321', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Results determined (level 1)']}
+
+End Events:
+{'id': 'sid-65B839DF-47E0-489A-AB36-18B596957313', 'name': 'EndEvent0', 'incoming': ['Message Delay'], 'outgoing': []}
+{'id': 'sid-AD10286A-B2F6-4D66-8FA0-603517C8B052', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}
+{'id': 'sid-7F3BDD4E-D42C-4141-BF15-E2A67094E3E7', 'name': 'EndEvent2', 'incoming': ['sid-FABC97AA-6084-456F-AACB-2A721E996327'], 'outgoing': []}

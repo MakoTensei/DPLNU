@@ -1,0 +1,11 @@
+ When a customer submits a scoring request, the system initiates a sequence of events to process and respond to the inquiry. The process begins with the 'Scoring request to a customer' event, which triggers the 'Scoring get an inquiry' event. This event sends a 'Send scoring result' message to the 'Scoring result obtained' gateway, which in turn connects to the 'Scoring result available' event.
+
+Once the 'Scoring result available' event is triggered, it sends a 'Send scoring result' message to the 'EndEvent1' event. If there is a delay in obtaining the final scoring result, the 'Delay' event is triggered, which then sends a 'Send scoring result' message to the 'EndEvent1' event again.
+
+In summary, the process flows as follows:
+
+1. A customer submits a scoring request, triggering the 'Scoring request to a customer' event.
+2. The system sends a 'Send scoring result' message to the 'Scoring get an inquiry' event.
+3. The 'Scoring get an inquiry' event connects to the 'Scoring result obtained' gateway, which sends a 'Scoring result obtained' message to the 'EndEvent1' event.
+4. If there is a delay in obtaining the final scoring result, the 'Delay' event is triggered, and it sends a 'Send scoring result' message to the 'EndEvent1' event.
+5. The 'EndEvent1' event concludes the process.

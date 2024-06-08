@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-0D49D20B-7C49-48BC-884C-9E574B481410', 'name': 'Check the case', 'incoming': ['Regression report'], 'outgoing': ['Regress possible?']}
+{'id': 'sid-06603A0C-B71A-4066-B9B3-52156A4F5A0E', 'name': 'Send payment request to VN', 'incoming': ['Regression report'], 'outgoing': ['Set status on "Republish"']}
+{'id': 'sid-82537A89-F984-40F2-B664-23E5AD0E1D5C', 'name': 'Set status on "Republish"', 'incoming': ['Regress possible?'], 'outgoing': ['Objection']}
+{'id': 'sid-807DF0E1-75D3-4096-B56D-816625AEC314', 'name': 'Book the entrance', 'incoming': ['Payment received'], 'outgoing': ['Close the case']}
+{'id': 'sid-8204878A-CD69-44C9-AA15-CA73BB36B1EC', 'name': 'Proceedings', 'incoming': ['Objection'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-293AC0E1-8F59-4BEB-8CA9-D2EECAEEEBA3', 'name': 'Close the case', 'incoming': ['Regress possible?'], 'outgoing': ['Case closed']}
+{'id': 'sid-7411462B-BA74-4F31-A7E0-DFDBFE53343A', 'name': 'Close the case', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Case closed']}
+{'id': 'sid-64F2B3A7-9162-4DF6-BCD5-18887EA401E7', 'name': 'Close the case', 'incoming': ['Payment received'], 'outgoing': ['Payment booked']}
+
+Gateways:
+{'id': 'sid-5E697B35-47E7-4359-885E-FE05B83B2177', 'name': 'Regress possible?', 'incoming': ['Regression report'], 'outgoing': ['Date of expiry', 'Case closed']}
+{'id': 'sid-FD99BC96-5B3C-4589-B286-6A91C68D056E', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway2', 'Case closed']}
+{'id': 'sid-1CB84390-C34D-43CA-ADA3-A54FAA9E1E93', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'sid-553C6173-0A38-4B49-8467-95D16FA6A753'], 'outgoing': []}
+{'id': 'sid-F46FAB60-630D-4A49-B870-508353CC5A98', 'name': 'EventBasedGateway3', 'incoming': ['Regress possible?'], 'outgoing': ['Payment booked', 'Date of expiry']}
+{'id': 'sid-4C358061-D19A-408C-B242-E5A8DDFB1147', 'name': 'Objection', 'incoming': ['Set status on "Republish"'], 'outgoing': ['Case closed']}
+{'id': 'sid-3AEE4324-2A3F-44E9-BC1E-69F147E1CE2B', 'name': 'Date of expiry', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-59636236-DEDC-461E-89B7-DD2037208C64', 'name': 'Payment received', 'incoming': [], 'outgoing': ['Close the case']}
+
+Start Events:
+{'id': 'sid-AF6380B3-0561-4CCA-8D2B-64C5BF85999C', 'name': 'Regression report', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:
+{'id': 'sid-A028017B-7335-4FA0-BBC0-CC71A333C8AE', 'name': 'Payment booked', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-019C9ED9-418F-4543-B790-EAA50F33F98D', 'name': 'EndEvent1', 'incoming': [], 'outgoing': []}
+{'id': 'sid-8190D9B9-2A2B-4401-A052-D273E95D1C00', 'name': 'Case closed', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-E1AE249F-A080-4002-B93B-67B542D2A5EE', 'name': 'Case closed', 'incoming': ['Objection'], 'outgoing': []}

@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-6616FC7A-5A63-42B8-9B03-E894A0F40A0F', 'name': 'Start Communication', 'incoming': ['StartEvent0'], 'outgoing': ['About us Info Frontend']}
+{'id': 'sid-30FF4FD5-4AB3-45F0-9A6E-1C72EB529A90', 'name': 'Edit request', 'incoming': ['StartEvent1'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-2AF3A1F1-7B2B-4B9C-B3AB-F3328A9A2362', 'name': 'Level 2 score', 'incoming': ['> 30 sec'], 'outgoing': ['sid-E48213F2-4F39-4977-BE9E-4F092845662D']}
+{'id': 'sid-8CDC221B-5690-4E9A-A045-B965DE1FE8AA', 'name': 'Level 1 score', 'incoming': ['StartEvent1'], 'outgoing': ['sid-27CE7F21-E0D8-4082-B3A6-B014BD5EEBBC']}
+
+Gateways:
+{'id': 'sid-0DAFC922-8B6E-48AA-9F74-53065BED5628', 'name': 'EventBasedGateway0', 'incoming': ['StartEvent1'], 'outgoing': ['< 30 sec', 'ParallelGateway2']}
+{'id': 'sid-6E942E43-2B4D-4161-A93E-E19F4A8E09A2', 'name': 'ParallelGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-2549CEF4-5D43-47C4-8E19-C5F880BB3E7A', 'name': 'ParallelGateway2', 'incoming': ['Edit request'], 'outgoing': ['Level 2 score', 'sid-9122B345-56D5-405D-BE98-8254E57B3095']}
+{'id': 'sid-7A51EAE3-CE45-4047-B111-A4D3CF31C5C3', 'name': 'About us Info Frontend', 'incoming': ['Start Communication'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-040CACBF-6D72-419F-AD53-24E2998F3895', 'name': 'IntermediateCatchEvent4', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-07E67912-CB98-4AD5-898F-F517E4471C38', 'name': '< 30 sec', 'incoming': ['StartEvent1'], 'outgoing': ['Level 1 score']}
+{'id': 'sid-38244B92-A635-49AE-84AC-A69A2240D480', 'name': '> 30 sec', 'incoming': ['EventBasedGateway0'], 'outgoing': ['Level 2 score']}
+
+Start Events:
+{'id': 'sid-40446933-B235-4277-BA1F-67BCFD38AF84', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-F19C3D97-C675-4004-9BA0-12B3D6442029', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Level 1 score']}
+
+End Events:
+{'id': 'sid-974EC976-EC00-4D03-9A8F-3B85C0419386', 'name': 'EndEvent0', 'incoming': ['ParallelGateway1'], 'outgoing': []}
+{'id': 'sid-81991246-C5D2-4A95-A770-9B41F27C5E24', 'name': 'EndEvent1', 'incoming': ['ParallelGateway1'], 'outgoing': []}

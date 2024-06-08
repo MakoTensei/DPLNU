@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-708E51A8-724F-4622-8477-6B15CF8C0B9D', 'name': 'Check regression', 'incoming': ['possible regression'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-BAF3BCF4-B294-4C33-A64A-5BB33EFB6FFE', 'name': 'Send a message', 'incoming': ['possible regression'], 'outgoing': ['sid-0E119AD7-5F33-46F9-B6CB-7C56B28C620A']}
+{'id': 'sid-BB14DEDC-4763-41E9-8AA6-D2C260489921', 'name': 'Check the receipt of funds', 'incoming': ['Representation in 1 week'], 'outgoing': ['Cash receipt']}
+{'id': 'sid-CC05A2EF-12E6-4B54-98FA-F71008CABAFA', 'name': 'Book money receipt', 'incoming': ['Representation in 1 week'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-1A82FC98-BC09-490A-B053-BAF1C68D2740', 'name': 'Check VN', 'incoming': ['Cash receipt'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-8EA06D50-7D84-4895-90B2-E9DAD194E34B', 'name': 'Debt collection service provider', 'incoming': ['Not justified'], 'outgoing': ['sid-B97DB083-B51B-45D1-B8A0-A9098CEEE199']}
+{'id': 'sid-36E2960A-14E3-4333-80D4-B57F4F4CA7FD', 'name': 'Close', 'incoming': ['Not justified'], 'outgoing': ['closed regression']}
+
+Gateways:
+{'id': 'sid-0610DF29-B714-42BF-AFCF-C3AE3DCBC3BB', 'name': 'Regress possible', 'incoming': ['possible regression'], 'outgoing': ['Send a message', 'ExclusiveGateway2']}
+{'id': 'sid-BF40C66D-AECA-46AB-BF73-008B84E50A3C', 'name': 'Cash receipt', 'incoming': ['Representation in 1 week'], 'outgoing': ['ExclusiveGateway3', 'Book money receipt']}
+{'id': 'sid-B915CA2C-8716-44D5-9B00-1382D0069EE5', 'name': 'ExclusiveGateway2', 'incoming': ['ExclusiveGateway5', 'Check regression'], 'outgoing': ['closed regression']}
+{'id': 'sid-7E7034FC-226E-499B-8298-6252897ADBAC', 'name': 'ExclusiveGateway3', 'incoming': ['Representation in 1 week', 'Cash receipt'], 'outgoing': ['Close']}
+{'id': 'sid-1A05E54D-419F-4627-A00B-DC9628FFC00A', 'name': 'Not justified', 'incoming': ['Cash receipt'], 'outgoing': ['Debt collection service provider', 'Close']}
+{'id': 'sid-DB92B41A-0BCB-4776-BF8B-731DFD962A0B', 'name': 'ExclusiveGateway5', 'incoming': ['Check VN', 'sid-F68BD9CB-2E65-4976-A972-17DB31BC7E9F'], 'outgoing': ['closed regression']}
+{'id': 'sid-83268B09-E2ED-426D-BA72-B81944AE80CC', 'name': 'Representation in 1 week', 'incoming': ['sid-AF9B1F2B-6A9A-4FA3-999E-5139BC832716'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-5B47AA59-CC82-4234-BE6A-6CDA42CADEBF', 'name': 'possible regression', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-7265AB77-FDF6-481C-A506-C52AD695C110', 'name': 'closed regression', 'incoming': ['ExclusiveGateway5'], 'outgoing': []}

@@ -1,0 +1,15 @@
+ In a legal case management system, the following processes are initiated:
+
+1. The case is checked for regression, which is triggered by the 'Check regression' event. This event leads to the 'Regress possible?' gateway, where the outcome determines if a regress is possible.
+
+2. If a regress is possible, the case proceeds to the 'Proceedings' stage, which is triggered by the 'VN appeals' event. This event leads to the 'Objection justified?' gateway, where the outcome determines if an objection is justified.
+
+3. If an objection is justified, the case moves to the 'Book payment' stage, which is triggered by the 'Payment confirmed' event. This event leads to the 'Closed' gateway, where the case is closed.
+
+4. If a regress is not possible, the case proceeds to the 'Book payment' stage, which is triggered by the 'Payment confirmed' event. This event leads to the 'Closed' gateway, where the case is closed.
+
+5. The 'Date of expiry' event is triggered by the 'EventBasedGateway2' and leads to the 'Closed' gateway, where the case is closed.
+
+6. The 'Payment confirmed' event is triggered by the 'EventBasedGateway2' and leads to the 'Closed' gateway, where the case is closed.
+
+The system starts with the 'Check regression' event and ends with the 'Closed' event, ensuring that the case is properly managed and closed based on the outcomes of the various events and gateways.

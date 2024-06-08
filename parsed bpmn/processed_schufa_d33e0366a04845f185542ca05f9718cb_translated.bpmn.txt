@@ -1,0 +1,19 @@
+Tasks:
+{'id': 'sid-36AEDFD9-0817-42BC-99D6-B923066CF1BB', 'name': 'Send scoring inquiry to Schufa', 'incoming': ['Schufascoring\nrequested'], 'outgoing': ['Delay']}
+{'id': 'sid-08AC3A3E-4664-46A1-80F6-2EB175D416CA', 'name': 'perform scoring level 1', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['is the result?']}
+{'id': 'sid-CD460781-93E6-4A7F-AD41-71480B518C23', 'name': 'perform scoring level 2', 'incoming': ['sid-D9514C9E-F047-4FA7-B922-CAAC0BBCEA83'], 'outgoing': ['sid-34B1E611-86FC-4EA2-80BF-E43A28B55811', 'Schufascoring is done']}
+
+Gateways:
+{'id': 'sid-2EB8D70C-13F5-4856-9941-9F42752DC205', 'name': 'is the result?', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['sid-A7FACDE6-6C9F-4E3C-A374-FBF8A29FD831', 'sid-42B5A803-B869-4359-85E6-D5A529342CA0']}
+{'id': 'sid-486B0065-A70D-4C2F-91B6-4001CE075DDE', 'name': 'IntermediateCatchEvent1', 'incoming': ['Schufascoring\nrequested'], 'outgoing': ['Delay', 'Results Level 1', 'Results Level 2']}
+{'id': 'sid-A86AC2A8-4CD7-4067-AB5B-5BA4A1A53DA8', 'name': 'Delay', 'incoming': ['Send scoring inquiry to Schufa'], 'outgoing': ['sid-F5D811BD-3863-47C8-AF50-A4C552A6FDAC']}
+{'id': 'sid-DB5AB913-3ABB-4220-ACA2-9BF9839F4939', 'name': 'Results Level 1', 'incoming': ['Schufascoring\nrequested'], 'outgoing': ['sid-6CC48429-2D45-4039-A304-5EE918ABE267']}
+{'id': 'sid-85C839CF-D549-4615-A12C-EFD52BDC75B6', 'name': 'Results Level 2', 'incoming': ['IntermediateCatchEvent1'], 'outgoing': ['sid-DB7472C4-B943-482C-878E-C972E77D980C']}
+
+Start Events:
+{'id': 'sid-3CCC11AA-FD1A-400E-8C44-07D5DBD3B5A0', 'name': 'Schufascoring\nrequested', 'incoming': [], 'outgoing': ['Results Level 1']}
+{'id': 'sid-D1CBAD29-D555-4EF2-B903-F707D84FD9EB', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['is the result?']}
+
+End Events:
+{'id': 'sid-65CC3D66-B1DD-431A-B127-E1FD0E7B52F1', 'name': 'Schufascoring is reported', 'incoming': ['sid-C19491F0-A379-4E99-B011-B3FC5107DABB'], 'outgoing': []}
+{'id': 'sid-10F86E68-CF20-4741-B2EA-29087CC20CA4', 'name': 'Schufascoring is done', 'incoming': ['perform scoring level 2'], 'outgoing': []}

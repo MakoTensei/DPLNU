@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-5B2DE9F2-57DC-4698-9C7D-57B5A70A245D', 'name': 'Filling the package note', 'incoming': ['Special shipment?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-7380A9C1-2764-4E7E-9FC0-2F84E8567576', 'name': 'Pick up offers', 'incoming': ['Goods\nbe sent'], 'outgoing': ['Check the offer']}
+{'id': 'sid-E432344F-B1BF-4F7D-8065-CE5C2868EA4E', 'name': 'Check the offer', 'incoming': ['Special shipment?'], 'outgoing': ['Specialist']}
+{'id': 'sid-E07E19D4-0EA5-4630-972D-6B89BC3A331F', 'name': 'Specialist', 'incoming': ['Special shipment?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-6B32F825-6B66-4673-895E-8C6CBA34F38B', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-4D301A7C-5CDF-49F9-9AD2-973C37C29D07', 'name': 'Goods\nprovide', 'incoming': ['ParallelGateway5'], 'outgoing': ['Goods\nShip ready']}
+{'id': 'sid-DA59DA3B-BB9E-4E18-8428-9AC4069740D4', 'name': 'Complete insurance', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-0D1E94A8-29EC-4D8C-B061-93C7B260476B', 'name': 'Special shipment?', 'incoming': ['ParallelGateway4'], 'outgoing': ['Insurance\nnecessary?', 'ExclusiveGateway3']}
+{'id': 'sid-04FF6153-0ABD-46F3-81A1-0F279AE0B900', 'name': 'Insurance\nnecessary?', 'incoming': ['Special shipment?'], 'outgoing': ['Complete insurance', 'ExclusiveGateway2']}
+{'id': 'sid-C6B679F7-C079-445B-A0DB-E780ADD9C9AE', 'name': 'ExclusiveGateway2', 'incoming': ['Complete insurance', 'Filling the package note'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-821D48CE-D0E1-4457-BCBC-06D6374A15F2', 'name': 'ExclusiveGateway3', 'incoming': ['Special shipment?', 'Filling the package note'], 'outgoing': ['Goods\nShip ready']}
+{'id': 'sid-55DC6E99-0C0E-45D3-94EA-8BFAD2DE9304', 'name': 'ParallelGateway4', 'incoming': ['Goods\nbe sent'], 'outgoing': ['Pick up offers', 'ParallelGateway5']}
+{'id': 'sid-E857894B-0F19-42A6-A971-9A70CFDE0AA5', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'Filling the package note'], 'outgoing': ['Goods\nShip ready']}
+
+Start Events:
+{'id': 'sid-34035101-1631-45E9-82DF-C70F8A2A5BA9', 'name': 'Goods\nbe sent', 'incoming': [], 'outgoing': ['Pick up offers']}
+
+End Events:
+{'id': 'sid-321E20CA-07A9-4DAC-AAC1-988C2B6E3E94', 'name': 'Goods\nShip ready', 'incoming': ['ExclusiveGateway3'], 'outgoing': []}

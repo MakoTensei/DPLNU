@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-711B0358-C4D2-49DC-8C85-62F2D4701B0C', 'name': 'Schufascoring request', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-1A64A5EF-86E0-4E2D-A0F2-2598C36B640E', 'name': 'Report results', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6420D2FC-5221-4359-8ED9-861C710568CE', 'name': 'Determining scoring', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring calculated']}
+{'id': 'sid-3139ADF2-66FD-49F4-8549-6ED2602BF50B', 'name': 'Scoring 2', 'incoming': ['sid-EE2CF61A-666D-475F-92D9-297131DEA08D'], 'outgoing': ['Recalculate scoring']}
+{'id': 'sid-5DF9A098-9D7A-4E7B-A597-8B2968243E0A', 'name': 'Recalculate scoring', 'incoming': ['Scoring 2'], 'outgoing': ['Scoring 2 calculated']}
+
+Gateways:
+{'id': 'sid-640A4A47-5F56-41B4-B32C-F2F0DB73E207', 'name': 'ExclusiveGateway0', 'incoming': ['Scoring result available?', 'Scoring result available?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B594237C-1966-44BE-B1B8-7BABA0816D13', 'name': 'Scoring result available?', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'Report results']}
+{'id': 'sid-D93801D0-9ECE-438E-9402-226F95F2DEB0', 'name': 'Scroting determined?', 'incoming': ['StartEvent1'], 'outgoing': ['sid-910F151D-AF01-40CD-9A56-7D0CC4D1CDB9', 'Scoring calculated']}
+{'id': 'sid-DAD21977-E0A9-4C4B-8EE1-39D53A5B52D2', 'name': 'IntermediateCatchEvent3', 'incoming': ['Schufascoring request'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-A14BF7C7-8198-40C1-B616-212FB48C757D', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Report results']}
+{'id': 'sid-BB0EC8F6-0D8C-441C-B7B8-CD57307C0CA2', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Scroting determined?']}
+
+End Events:
+{'id': 'sid-0E77AD9B-039C-4798-BAC0-2AAC44ED30F6', 'name': 'EndEvent0', 'incoming': ['Scoring result available?'], 'outgoing': []}
+{'id': 'sid-B4527E10-30C1-478C-9AC4-47E67628D545', 'name': 'Scoring calculated', 'incoming': ['Determining scoring'], 'outgoing': []}
+{'id': 'sid-8DEE1773-B1B5-4D80-95B7-05DE1479AE69', 'name': 'Scoring 2 calculated', 'incoming': ['Recalculate scoring'], 'outgoing': []}

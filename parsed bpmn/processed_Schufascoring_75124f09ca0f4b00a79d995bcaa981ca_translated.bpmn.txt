@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-A18B8F18-85A1-4671-88E0-9326A02813B2', 'name': 'Scoring request to Schufa', 'incoming': ['StartEvent0'], 'outgoing': ['Result\nSchufaservice']}
+{'id': 'sid-0108217A-4FA3-45AC-8FD2-B008269C4ED6', 'name': 'Transformation Schufa result', 'incoming': ['Result\nSchufaservice'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E694B7EA-5A4D-464A-B1BD-8AB2684446C5', 'name': 'Sending information to Frontend', 'incoming': ['StartEvent0'], 'outgoing': []}
+{'id': 'sid-8895806E-40B6-4B1D-95E9-FA71D4D1DE5E', 'name': 'Create your Score\nLevel 1', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-06892BA5-F755-4BD5-A069-1E067480DDE0', 'name': 'Scoring result available', 'incoming': ['Create your Score\nLevel 2', 'StartEvent1'], 'outgoing': []}
+{'id': 'sid-431B947C-FE66-4974-BAE6-430BA807644D', 'name': 'Create your Score\nLevel 2', 'incoming': ['Create delay message'], 'outgoing': ['Scoring result available']}
+{'id': 'sid-89ED41F1-F4C4-4A63-9B79-AA607FDE6FEB', 'name': 'Create delay message', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Create your Score\nLevel 2']}
+
+Gateways:
+{'id': 'sid-7172B15A-E076-44EB-AE04-A48AA6C278C5', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring result available', 'Create delay message']}
+{'id': 'sid-B9551035-AB38-4825-BCB6-039091785AF2', 'name': 'EventBasedGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['Delay message', 'EndEvent0']}
+{'id': 'sid-2C60DBEF-2C84-44C5-AD19-AE73F0A12EB6', 'name': 'Result\nSchufaservice', 'incoming': ['Scoring request to Schufa'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C8455774-E7CF-4086-BAA3-E6B5BECD2CB2', 'name': 'Delay message', 'incoming': ['StartEvent0'], 'outgoing': ['Sending information to Frontend']}
+
+Start Events:
+{'id': 'sid-EE88AFD7-A082-4964-B367-E8A5FA7D74AF', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Sending information to Frontend']}
+{'id': 'sid-09899718-2AAB-4614-91E1-ECE786350A59', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Scoring result available']}
+
+End Events:
+{'id': 'sid-E514C077-C203-4B8E-B0CA-83B70B48A7FA', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}

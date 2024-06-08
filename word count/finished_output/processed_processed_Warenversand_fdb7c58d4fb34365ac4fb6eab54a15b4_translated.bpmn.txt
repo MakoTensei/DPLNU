@@ -1,0 +1,7 @@
+ When a shipment is received, the process begins with a 'Shipments' event. This triggers a 'Packaging goods' task, which requires incoming data from 'Shipments' and sends outgoing data to 'ParallelGateway5'. Concurrently, a 'Filling the package note' task is initiated, which also relies on 'Shipments' as its incoming data and sends its output to 'ParallelGateway5'.
+
+As the 'Packaging goods' task is completed, it sends a request to 'ParallelGateway4' for a quote, which in turn connects to a 'Specialist' task. The 'Specialist' task, upon completion, sends its output to 'ExclusiveGateway2'.
+
+Simultaneously, the 'Filling the package note' task also connects to 'ParallelGateway4' for a quote, which then leads to a 'Specialist' task. The 'Specialist' task sends its output to 'ExclusiveGateway2'.
+
+The 'ExclusiveGateway2' task, upon completion, sends the goods to 'Goods shipped'. This marks the end of the process, with the 'Goods shipped' event having 'ExclusiveGateway2' as its incoming data and no outgoing data.

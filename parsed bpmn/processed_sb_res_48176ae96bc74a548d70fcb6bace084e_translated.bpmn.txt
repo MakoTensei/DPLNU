@@ -1,0 +1,38 @@
+Tasks:
+{'id': 'sid-9F362CF9-0D85-4774-832C-921A173D0FF4', 'name': 'Visit the restaurant', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Select a court']}
+{'id': 'sid-23977678-2E3C-43A5-BF10-89503C34341C', 'name': 'Order the Court', 'incoming': ['Select a court'], 'outgoing': ['Order payment']}
+{'id': 'sid-ED7BB59F-B3D4-44D1-BE57-81B6DAA5A48A', 'name': 'Select a court', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Order payment']}
+{'id': 'sid-C2F88924-CD20-448B-AE06-DCF2FD70173C', 'name': 'Order payment', 'incoming': ['Hunger\nfelt'], 'outgoing': ['IntermediateCatchEvent1']}
+{'id': 'sid-EDDC5735-4C03-45C4-821B-9F8BC075B0EF', 'name': 'Pick up Pieper', 'incoming': ['Hunger\nfelt'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-5A8A8E1C-50E9-4BBF-AAC1-D082926B3422', 'name': 'Go to output', 'incoming': ['Hunger\nfelt'], 'outgoing': ['IntermediateCatchEvent3', 'Guest appears on issue']}
+{'id': 'sid-495DDE56-64BA-47D1-8FF5-74B15D8B069B', 'name': 'Eat food', 'incoming': ['Take food in reception'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-4240FD70-3D0B-4C37-BC4E-7D4BE6424C72', 'name': 'Take food in reception', 'incoming': ['Hunger\nfelt'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-BF56069F-0378-4735-A69F-FE53149623A7', 'name': 'Enter your order in cash system', 'incoming': ['StartEvent1'], 'outgoing': ['Amount of funds']}
+{'id': 'sid-4D05997F-9A99-49CF-BE92-F4B976E2F392', 'name': 'Amount of funds', 'incoming': ['StartEvent1'], 'outgoing': []}
+{'id': 'sid-8074E9C4-A690-458F-8990-E03F47AC57E5', 'name': 'Cash', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Adjust Pieper and give customers']}
+{'id': 'sid-A690ED8C-5C89-4686-846E-D6A1120B546C', 'name': 'Adjust Pieper and give customers', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['inform Koch about court']}
+{'id': 'sid-987114D9-6EE4-4725-98D0-30E62A4F6324', 'name': 'inform Koch about court', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': []}
+{'id': 'sid-C2BAEEAF-3934-406E-8525-063F0CC7D18A', 'name': 'Trigger Pieper', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['after 5min']}
+{'id': 'sid-7394C04B-28A0-4155-A56B-52B2E4173BD1', 'name': 'Deliver food to guest', 'incoming': ['Guest appears on issue'], 'outgoing': []}
+{'id': 'sid-26EB9CB2-2FC3-4AA6-80DE-7DBEA819B800', 'name': 'Retrieve guest', 'incoming': ['after 5min'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-378D30B1-E38C-409B-94A6-09D4BA5658C7', 'name': 'Preparation of meal', 'incoming': ['StartEvent2'], 'outgoing': ['to put through']}
+{'id': 'sid-B098771C-1E8B-40D1-A629-2F06D56A7A0A', 'name': 'to put through', 'incoming': ['StartEvent2'], 'outgoing': ['inform employees']}
+{'id': 'sid-6ACDA9D5-C5A2-4882-91CD-EA16EF59307B', 'name': 'inform employees', 'incoming': ['StartEvent2'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-94E46838-B8DD-46CA-B431-0AA839500761', 'name': 'EventBasedGateway0', 'incoming': ['IntermediateCatchEvent5', 'after 5min'], 'outgoing': ['Guest appears on issue', 'EventBasedGateway0']}
+{'id': 'sid-E93DA89F-C271-462D-B351-003D1BB75846', 'name': 'IntermediateCatchEvent1', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-08C3B822-FCD7-4432-AB8C-3E85887BB981', 'name': 'IntermediateCatchEvent2', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Guest appears on issue']}
+{'id': 'sid-9486071E-66BC-4BCA-BB2B-ED0E7E14D953', 'name': 'IntermediateCatchEvent3', 'incoming': ['Hunger\nfelt'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-DCAE40B2-A15F-47E3-B155-33E06538D5D6', 'name': 'IntermediateCatchEvent4', 'incoming': [], 'outgoing': ['inform Koch about court']}
+{'id': 'sid-47B01FEC-6424-42EB-B0A0-0338E21CC05C', 'name': 'IntermediateCatchEvent5', 'incoming': [], 'outgoing': ['Guest appears on issue']}
+{'id': 'sid-1239E8F4-A836-4735-AEB3-50800532230A', 'name': 'Guest appears on issue', 'incoming': ['IntermediateCatchEvent5', 'IntermediateCatchEvent2'], 'outgoing': ['Deliver food to guest']}
+{'id': 'sid-C10CFD24-6B22-4E04-AF36-1B405C87876D', 'name': 'after 5min', 'incoming': ['Trigger Pieper'], 'outgoing': ['EventBasedGateway0']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Take food in reception']}
+{'id': 'sid-0EAEDBB1-E8DA-4714-AE7F-858AA18FD711', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Amount of funds']}
+{'id': 'sid-B5D60634-8E34-4A42-9FCA-E2B66F1141E9', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-6A2EAC1E-96A6-4417-AB36-190A58CCC8C0', 'name': 'EndEvent0', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': []}

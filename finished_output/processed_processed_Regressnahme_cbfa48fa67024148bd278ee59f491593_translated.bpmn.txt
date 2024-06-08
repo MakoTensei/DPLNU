@@ -1,0 +1,7 @@
+ The process begins with the 'Report\nRegression' event, which triggers the 'Send payment request' task with the ID'sid-3BC9F622-EFDA-4156-A818-E7CA7B755757'. This task is then routed to 'ExclusiveGateway0', which has incoming connections from 'Report\nRegression' and outgoing connections to 'on re-issue' and 'Reimbursement period expired'. The 'on re-issue' task, with ID'sid-8942A0B5-6B2B-4FEB-B934-3669B3B58E61', sends an 'Incoming payment' event to 'ExclusiveGateway0', which in turn routes it to 'Incoming payment' task with ID'sid-1E6CC124-5384-4B62-8ABA-E3A310B9CB81', leading to the 'Close' event.
+
+Meanwhile, 'ExclusiveGateway0' also handles the 'Reimbursement period expired' event, which is incoming from 'Report\nRegression' and leads to the 'handed over to the collection company' task with ID'sid-325D0AFD-4688-4F0A-9F4D-C1636F7BCB35'. This task has no outgoing connections.
+
+The 'Proceedings' event, with ID'sid-CBA785D8-94A5-45A9-9EAE-BDEF4E317B00', is received by 'ExclusiveGateway1' and results in the 'handed over to the collection company' task.
+
+Finally, the 'Close' event, with ID'sid-E0142FAE-78CB-482C-B4B8-3FF0E90F2024', is the endpoint of the process, with incoming connections from 'ExclusiveGateway0', 'EventBasedGateway2',

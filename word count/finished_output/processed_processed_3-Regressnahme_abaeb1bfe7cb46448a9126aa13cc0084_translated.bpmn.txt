@@ -1,0 +1,11 @@
+ The process begins with the 'StartEvent0' which triggers the 'Send payment request' task. This task is then routed to the 'Regression the' gateway, which in turn sends the 'Money Report' to the 'ExclusiveGateway3'. The 'Money Report' triggers the 'Opposition Report' task, which is also routed to 'ExclusiveGateway3'.
+
+Meanwhile, the 'Send payment request' task is also routed to the 'ExclusiveGateway2'. This gateway sends the request to the 'Debt Collection Services' when the 'Reimbursement period Expired' event occurs.
+
+The 'Regression the' gateway sends the 'Money Report' to 'ExclusiveGateway3', which then triggers the 'Process completed' event. This event is routed back to the 'ExclusiveGateway2', which sends the 'Debt Collection Services' notification.
+
+The 'Opposition Report' task is also routed to 'ExclusiveGateway3', which triggers the 'Process completed' event. This event is routed back to the 'ExclusiveGateway2', which sends the 'Debt Collection Services' notification.
+
+Finally, the 'Process completed' event is triggered by the 'Regression the' gateway, which sends the 'Debt Collection Services' notification.
+
+In summary, the process involves sending a payment request, generating a money report, and potentially involving debt collection services based on the reimbursement period status. The process is managed through a series of gateways and events, ensuring that tasks are routed and completed in the correct order.

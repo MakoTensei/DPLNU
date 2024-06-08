@@ -1,0 +1,7 @@
+ In the workflow, a report of a possible regression triggers the 'Is Regress?' gateway, which in turn sends a 'Send payment request' task to sid-5934AF69-F806-4C44-92E2-2E3079AD7A85 and also routes the event to ExclusiveGateway2. If the 'Is Regress?' gateway determines that there is no regression, it sends the event to sid-5C232706-D83B-4FF4-A411-912F4CDF9585 and ExclusiveGateway2 for the 'Testing of the\nObjection' task.
+
+Meanwhile, the 'Opposition' event, which is received from EventBasedGateway4, is directed to sid-00AE2FBB-4443-4B01-A3E2-E6D312D503D2 for the 'Report debt collection' task and sid-3E1B1813-EC8A-4C14-BF19-C26ECB58BC6D for the 'ExclusiveGateway3' task.
+
+The 'Money received' event, also received from EventBasedGateway4, triggers the 'Book the entrance' task at sid-E7FEE9A8-47D0-4FFF-8F22-DF1FCA595CD3 and closes the process at sid-8C5F3312-D80A-4E4A-B406-F9F2B058E234.
+
+The 'Process closed' event, which is the final event in the workflow, is routed to sid-9ADDFD3E-A5DE-4E05-977E-F0A7120899D3 for the 'Debt collection reported' task and sid-6370C0C6-B9F2-4906-AC51-EC20E7C855C0 for the 'Exclusive

@@ -1,0 +1,9 @@
+ In the system, a series of tasks and gateways are interconnected to process a Schufa request and generate scoring results. The process begins with the 'Schufa request\nReport' event, which triggers the 'Scoring Level 2 Send Result' task. This task sends the results to 'ExclusiveGateway0'. Concurrently, the 'Requests received' event initiates the 'ExclusiveGateway2' task, which is responsible for sending the scoring results.
+
+The 'Scoring Level 2 Send Result' task, upon receiving the results, sends a 'Delay message\nobtained' event to 'Send delay message' task. This task, in turn, sends a 'Scoring Level 2\nResult\nobtained' event to 'ExclusiveGateway0'. Meanwhile, the 'Results available?' event triggers the 'Send Scoring Level2 results' task, which sends the results to both 'ExclusiveGateway2' and 'EventBasedGateway3'.
+
+The 'EventBasedGateway3' task, upon receiving the 'Schufa request\nReport' event, sends a 'Scoring Level 1 Send Result' task to 'ExclusiveGateway0' and a 'Delay message\nobtained' event to 'Send delay message' task. The 'Scoring Level 1 Send Result' task sends the results to 'ExclusiveGateway0'.
+
+Finally, the 'Scoring request\nUnbound' event, which is triggered by the 'Scoring Level 1 Send Result' task, and the 'Scoring request\nFinished' event, which is triggered by the 'Results available?' event, both send their results to their respective outgoing gateways.
+
+In summary, the system processes a Schufa request by performing scoring levels, sending results to gateways, and handling events to ensure a smooth flow of information.

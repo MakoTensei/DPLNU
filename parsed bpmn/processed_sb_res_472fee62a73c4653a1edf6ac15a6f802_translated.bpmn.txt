@@ -1,0 +1,34 @@
+Tasks:
+{'id': 'sid-7F47C822-36B9-403F-9AF5-CDA4D7AA5C7E', 'name': 'Choose a dish from offer', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Guest at the series']}
+{'id': 'sid-18338648-22C3-4780-AEFB-81840D2E65B0', 'name': 'Add your order', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Order payment']}
+{'id': 'sid-A25C90A6-A664-490C-B08F-4A625CFBC947', 'name': 'Order payment', 'incoming': ['Guest at the series'], 'outgoing': ['Accept Pieper']}
+{'id': 'sid-32D0E89C-5DE0-483E-978B-389F7062B9DC', 'name': 'Pick up food', 'incoming': ['Pieper sounds'], 'outgoing': ['Eat food']}
+{'id': 'sid-5D096863-0BD6-49D7-AC8A-8FD3FB84455E', 'name': 'Eat food', 'incoming': ['Pieper sounds'], 'outgoing': ['Famine']}
+{'id': 'sid-6696B268-7D2B-475B-8907-8B727C2EBFFC', 'name': 'Accept Pieper', 'incoming': ['Guest at the series'], 'outgoing': ['Famine']}
+{'id': 'sid-54D542EF-C298-4FA0-A7A9-EE1B325AF3EF', 'name': 'Enter your order in cash system', 'incoming': ['Order to receive'], 'outgoing': ['Purchase order']}
+{'id': 'sid-D8744824-0E5E-4DC4-828E-9FD8CDC34BCE', 'name': 'Purchase order', 'incoming': ['Order to receive'], 'outgoing': ['Adjust and transfer Pieper']}
+{'id': 'sid-305B3381-6787-4A32-AE09-9454ABFD9732', 'name': 'Adjust and transfer Pieper', 'incoming': ['Order to receive'], 'outgoing': ['inform Koch about order']}
+{'id': 'sid-E2E1B3EC-FF04-442D-A5C5-81B7A0936C7D', 'name': 'inform Koch about order', 'incoming': ['Order to receive'], 'outgoing': ['Info from Koch:\nFood ready']}
+{'id': 'sid-7B7ACF8F-565F-48B5-87BE-B8160E1F6F65', 'name': 'Trigger Pieper', 'incoming': ['Order to receive'], 'outgoing': ['5 min past']}
+{'id': 'sid-9DDD9675-F312-428A-A167-CFCE85E1E370', 'name': 'Hand over meal', 'incoming': ['Info from Koch:\nFood ready'], 'outgoing': ['Ordered']}
+{'id': 'sid-9B233F64-DD4B-4158-AB7E-0AA8B5D4F337', 'name': 'Retrieve guest', 'incoming': ['Order to receive'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-2799E81C-83AD-44DF-8609-9BB895C795A6', 'name': 'Prepare the meal and make it rich', 'incoming': ['Requirement grinding time\nobtained'], 'outgoing': ['inform employees']}
+{'id': 'sid-470009E2-352E-4FA3-8A19-72D5EE85F892', 'name': 'inform employees', 'incoming': ['Requirement grinding time\nobtained'], 'outgoing': ['meal created']}
+
+Gateways:
+{'id': 'sid-CE5B3B7E-E2A8-40CA-8FA6-CAA746E229FB', 'name': 'EventBasedGateway0', 'incoming': ['Info from Koch:\nFood ready', 'EventBasedGateway0'], 'outgoing': ['Ordered', 'EventBasedGateway0']}
+{'id': 'sid-DB50EFE0-BB47-492E-B775-C57682AF155D', 'name': 'Guest at the series', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Famine']}
+{'id': 'sid-7840D63B-4B7C-4E1F-9D83-FF28D1C2EDB1', 'name': 'Pieper sounds', 'incoming': ['Accept Pieper'], 'outgoing': ['Famine']}
+{'id': 'sid-7F69788A-AE97-45C8-92D9-0EB0A72725D6', 'name': '5 min past', 'incoming': ['Order to receive'], 'outgoing': ['Ordered']}
+{'id': 'sid-34FF1BF3-4CAB-4DAF-A479-9FEA442A21A3', 'name': 'Guest appears\nfor collection', 'incoming': ['Info from Koch:\nFood ready'], 'outgoing': ['Ordered']}
+{'id': 'sid-5B8DA315-79AD-4F52-9FA3-D8F8A730668D', 'name': 'Info from Koch:\nFood ready', 'incoming': ['Order to receive'], 'outgoing': ['Hand over meal']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-BB39B2FE-8E8A-4463-8B2C-E384C9FF9B2D', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Retrieve guest']}
+{'id': 'sid-9052A188-4FEF-4960-ACDD-FD657E26D7EE', 'name': 'Requirement grinding time\nobtained', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-271968A7-B534-432F-AB14-147B4E03F8BD', 'name': 'Famine', 'incoming': ['Guest at the series'], 'outgoing': []}
+{'id': 'sid-F77B2239-4DDA-4999-8127-474A26CEE3D9', 'name': 'Ordered', 'incoming': ['5 min past'], 'outgoing': []}
+{'id': 'sid-5CBF84D0-A3DD-4BD9-A453-0CA6488093C1', 'name': 'meal created', 'incoming': ['inform employees'], 'outgoing': []}

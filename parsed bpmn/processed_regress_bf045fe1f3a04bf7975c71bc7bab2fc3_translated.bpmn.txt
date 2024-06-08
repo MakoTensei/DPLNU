@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-398E584B-06DF-492E-B857-1CC985DD59E6', 'name': 'Check the case', 'incoming': ['possible regression\nwe have discussed'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-8944945F-335D-496A-B290-3698D02B6AE7', 'name': 'Send a message', 'incoming': ['possible regression\nwe have discussed'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-E1B145C2-B14E-4653-BCE5-2064B84AC924', 'name': 'Set process for resubmission', 'incoming': ['Regressability\nis there?'], 'outgoing': ['sid-29CD18F7-3F09-44C8-84AD-03C40B1227DC']}
+{'id': 'sid-0182343F-0A67-4A16-8A74-9BB9EA069C96', 'name': 'Close', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['Regression\nis completed']}
+{'id': 'sid-58689647-E1C9-4771-B8E0-5C0151C572CB', 'name': 'Book the entrance', 'incoming': ['Money is\nReport'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-69D4406A-178F-4D51-9CAE-4E228DE78111', 'name': 'Proceedings', 'incoming': ['Objection\nReport'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-29439A74-25BE-4956-B6FC-53648D5917B2', 'name': 'donate to debtor', 'incoming': ['EventBasedGateway5'], 'outgoing': ['Process\ncompleted\n']}
+
+Gateways:
+{'id': 'sid-9BB86C8C-05FE-413D-A28E-FF792419FC26', 'name': 'Regressability\nis there?', 'incoming': ['possible regression\nwe have discussed'], 'outgoing': ['ExclusiveGateway1', 'Set process for resubmission']}
+{'id': 'sid-4972D510-9335-4268-86AA-8FED6AFF9143', 'name': 'ExclusiveGateway1', 'incoming': ['Check the case', 'EventBasedGateway5'], 'outgoing': ['Regression\nis completed']}
+{'id': 'sid-229C538F-080D-45B7-8B22-A1A7C52DE33F', 'name': 'Denial of payment\njustified?', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway4']}
+{'id': 'sid-82783AAB-44BA-4B0C-AE0F-471D4E3197A1', 'name': 'ExclusiveGateway3', 'incoming': ['Check the case', 'Proceedings'], 'outgoing': ['Regression\nis completed']}
+{'id': 'sid-1D0C8FE9-ED57-4970-B531-945B0DFCBAD0', 'name': 'ExclusiveGateway4', 'incoming': ['Objection\nReport', 'EventBasedGateway5'], 'outgoing': ['Process\ncompleted\n']}
+{'id': 'sid-B43D16DF-96A5-4238-86A5-EB794AC88E26', 'name': 'EventBasedGateway5', 'incoming': ['sid-B79476EC-0679-4046-834B-C1258BD2B202'], 'outgoing': ['ExclusiveGateway1', 'Denial of payment\njustified?', 'donate to debtor']}
+{'id': 'sid-B8318DE7-6399-430C-9C46-CAA2BA77A516', 'name': 'Money is\nReport', 'incoming': ['EventBasedGateway5'], 'outgoing': ['Regression\nis completed']}
+{'id': 'sid-60E9C2C6-EB61-4327-9F8D-0B2C9EB82E97', 'name': 'Objection\nReport', 'incoming': ['EventBasedGateway5'], 'outgoing': ['Process\ncompleted\n']}
+{'id': 'sid-1BF797DA-055D-4DFB-B4DD-69DEE2E6939F', 'name': 'after x days', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway4']}
+
+Start Events:
+{'id': 'sid-8DC0EE93-77D6-433E-AD41-ACEED706C925', 'name': 'possible regression\nwe have discussed', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-8271E607-03FB-4F36-9675-4C2A7042BC30', 'name': 'Regression\nis completed', 'incoming': ['Money is\nReport'], 'outgoing': []}
+{'id': 'sid-85C0F45B-D2A6-4789-9CF5-89CCE83142F3', 'name': 'Process\ncompleted\n', 'incoming': ['Objection\nReport'], 'outgoing': []}

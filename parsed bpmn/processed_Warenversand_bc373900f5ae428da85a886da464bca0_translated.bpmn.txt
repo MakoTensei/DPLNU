@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-D658BB95-B6BE-4A6E-8FDD-5E8897347D37', 'name': 'Complete insurance', 'incoming': ['Reduction necessary'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-688704AB-3EEA-4ABE-A00A-98B605CA812F', 'name': 'Explanation', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-85CEF17D-42DE-4DDE-8915-6BF0CC93AFE0', 'name': 'Filling the package note', 'incoming': ['StartEvent0'], 'outgoing': ['Clearing insurance requirements']}
+{'id': 'sid-245CD2A0-F469-4E1D-A08E-314AE1E82CD6', 'name': 'Pick up offers', 'incoming': ['Big or small amount?'], 'outgoing': ['Select your offer']}
+{'id': 'sid-1BEC3DC4-A1A2-4AF6-9788-401412700D4E', 'name': 'Select your offer', 'incoming': ['Big or small amount?'], 'outgoing': ['Specialist']}
+{'id': 'sid-07357828-FCAA-4EAA-871B-371D1589859E', 'name': 'Specialist', 'incoming': ['Big or small amount?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-6FDC7D35-AC1F-49F4-8B3B-BFC4E2548DFB', 'name': 'Clearing insurance requirements', 'incoming': ['Big or small amount?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-589C4EF6-25B7-4DC7-8EC7-E398D24B07A0', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-415B10ED-51A0-4E82-9C06-34E4415481B2', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods delivered']}
+
+Gateways:
+{'id': 'sid-E5E18B41-B052-4295-AAAA-5E3D1C6AC79B', 'name': 'Big or small amount?', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-010701C4-014E-4F6F-835F-08669D43DD62', 'name': 'Reduction necessary', 'incoming': ['Big or small amount?'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-7FEB046F-166E-4FF4-8E35-6DD1414A8814', 'name': 'ExclusiveGateway2', 'incoming': ['Clearing insurance requirements', 'Big or small amount?', 'Big or small amount?'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-BD3C81BB-2FC0-400A-9C25-D7E1D5DCA49F', 'name': 'ParallelGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['Filling the package note', 'ParallelGateway4']}
+{'id': 'sid-CD42EE21-447E-40E8-B293-9DF23CFE726F', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway3', 'Complete insurance'], 'outgoing': ['Goods delivered']}
+
+Start Events:
+{'id': 'sid-D6EF2403-0ADB-40ED-BE8B-57EBCC42FFF7', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Filling the package note']}
+
+End Events:
+{'id': 'sid-E69FF62B-3946-4C68-ACEA-EBE5A20BD9ED', 'name': 'Goods delivered', 'incoming': ['ParallelGateway4'], 'outgoing': []}

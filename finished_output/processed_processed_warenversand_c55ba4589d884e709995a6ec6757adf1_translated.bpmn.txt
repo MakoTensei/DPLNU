@@ -1,0 +1,7 @@
+ When goods are dispatched, the process begins with the 'Goods dispatched they are' event, which triggers the 'Pick up offers from three forwarders' task. This task involves selecting the cheapest offer from three forwarders. Once the cheapest offer is chosen, the 'Choose the cheapest offer' task is initiated, which then leads to the 'Appoint forwarding' task. The goods are then forwarded to 'ParallelGateway3', where the 'Packaging of goods' task takes place. After packaging, the goods are sent to 'ParallelGateway4' for 'product retrieval'.
+
+
+Simultaneously, the 'Goods dispatched they are' event also triggers the 'Check quantity' task, which sends a large quantity to 'ExclusiveGateway2'. This task is followed by the 'Complete insurance' task, which requires insurance for the large quantity. The 'Complete insurance' task then connects to 'ParallelGateway4' for 'product retrieval'.
+
+
+The 'ExclusiveGateway2' acts as a central hub, receiving large quantities from 'Check quantity' and 'Complete insurance' tasks, and forwarding them to 'ParallelGateway4' for 'product retrieval'. This ensures that the goods are properly insured and packaged before being retrieved for collection.

@@ -1,0 +1,15 @@
+ The process begins with the event 'Goods are ready for shipping', which triggers the identification of the shipping type. This is achieved through the 'Identification of the shipping type' task, which has an incoming link to 'Goods are ready for shipping' and an outgoing link to 'ParallelGateway6'.
+
+ParallelGateway6 then connects to three matching providers, namely 'Supplier 1 created offer', 'Supplier 2 created offer', and 'Supplier 3 created offer'. These tasks are responsible for creating offers from the suppliers.
+
+The cheapest offer is chosen through the 'Choose the cheapest offer accept' task, which has an incoming link to 'ParallelGateway6' and an outgoing link to 'ExclusiveGateway1'.
+
+The logistics manager examines the need for insurance through the 'Logistics Manager examines the need for insurance' task, which has an incoming link to 'ParallelGateway5' and an outgoing link to 'ExclusiveGateway3'.
+
+ParallelGateway5 connects to 'Complete insurance', which is responsible for providing insurance for the goods.
+
+The packaging of goods is done through the 'Packaging goods' task, which has an incoming link to 'ParallelGateway6' and an outgoing link to 'ParallelGateway7'.
+
+Standardized packing paper is provided through the 'Standardised packing paper' task, which has an incoming link to 'ExclusiveGateway0' and an outgoing link to 'ExclusiveGateway1'.
+
+Finally, the warehouse provides the packaged goods for collection through the 'Warehouse provides the packaged goods for collection' task, which has an incoming link to 'ParallelGateway7' and an outgoing link to 'EndEvent0'.

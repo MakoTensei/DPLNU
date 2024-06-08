@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-6328B04A-760C-4300-8888-618541F4259A', 'name': 'Check regression', 'incoming': ['possible regression\nagainst VN'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-63CC9278-6349-4D16-8E27-1A8021B703A4', 'name': 'Send payment request to VN', 'incoming': ['possible regression\nagainst VN'], 'outgoing': ['Incoming payment']}
+{'id': 'sid-7B5B0DD8-A766-4B4D-A139-7305851B26A9', 'name': 'Booking of payment receipt', 'incoming': ['Incoming payment'], 'outgoing': ['Close process']}
+{'id': 'sid-6767928F-DAC3-4CD1-B085-E127E95A1731', 'name': 'Close the process', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-DB1D6D23-5D4F-41CD-8566-03C4EF2035C6', 'name': 'Close process', 'incoming': ['Incoming payment'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-9E5C8A79-8DF5-4DDB-BD90-851A886C6BBC', 'name': 'Proceedings', 'incoming': ['possible regression\nagainst VN'], 'outgoing': ['justified']}
+{'id': 'sid-3298B856-07AD-4CF8-B3D4-F08A5008C9FB', 'name': 'Share on debt collection', 'incoming': ['Notification'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-E2825CB0-6076-4F1C-A106-FCB889C619F3', 'name': 'Close the process', 'incoming': ['justified'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-6D35560B-42FA-4BD1-A8D0-E9BF724C8246', 'name': 'ExclusiveGateway0', 'incoming': ['possible regression\nagainst VN'], 'outgoing': ['EndEvent2', 'EndEvent0']}
+{'id': 'sid-3B02F01D-067D-438F-98BE-C0636D9A38E9', 'name': 'justified', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent1', 'Close the process']}
+{'id': 'sid-8E52995F-6B90-4511-A4C4-E92295939516', 'name': 'EventBasedGateway2', 'incoming': ['possible regression\nagainst VN'], 'outgoing': ['Incoming payment', 'EndEvent1']}
+{'id': 'sid-E2A15475-90AF-417E-BD72-F2693F937BF1', 'name': 'Incoming payment', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-882EA5BA-6575-4EA4-AA20-6C1EC3E2F402', 'name': 'Notification', 'incoming': ['possible regression\nagainst VN'], 'outgoing': ['Share on debt collection']}
+
+Start Events:
+{'id': 'sid-FCF36307-27FF-46C4-9031-C862E91EADD4', 'name': 'possible regression\nagainst VN', 'incoming': [], 'outgoing': ['Proceedings']}
+
+End Events:
+{'id': 'sid-6CBD1AF1-BE47-4A9F-A905-E76EABFDCECD', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-042E23AA-298A-4E76-B085-785851BDAE75', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-A540EBFA-B2F1-4290-AA18-4F60011D2407', 'name': 'EndEvent2', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

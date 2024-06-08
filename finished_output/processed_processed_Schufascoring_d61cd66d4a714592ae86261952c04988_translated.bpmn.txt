@@ -1,0 +1,11 @@
+ In the world of financial services, a series of events and tasks unfold to process a Schufa Scoring Request. The journey begins when the 'Schufa Scoring Request' event arrives, triggering the 'Send a message' task. This message is directed towards the 'EventBasedGateway2', which is responsible for handling such requests.
+
+Simultaneously, the 'Request arrived' event prompts the 'Report delay' task, which sends a message to the 'ExclusiveGateway0'. This gatekeeper is in charge of managing any delays in the process.
+
+As the tasks progress, the 'Scoring Results obtained' task is initiated, which sends a message to the 'Request completed' task. This task is responsible for signaling the completion of the request.
+
+Meanwhile, the 'Delay message obtained' task is also in motion, sending a message to the 'Request completed' task, indicating that a delay has been encountered.
+
+The 'ExclusiveGateway0' receives messages from both the 'Report delay' and 'Delay message obtained' tasks, and in response, it sends a 'Request completed' message to both tasks.
+
+Finally, the 'Request completed' tasks are triggered, signaling the end of the process. The 'Schufa Scoring Request' event and the 'perform scoring calculation (level 2)' task are both completed, marking the successful completion of the entire process.

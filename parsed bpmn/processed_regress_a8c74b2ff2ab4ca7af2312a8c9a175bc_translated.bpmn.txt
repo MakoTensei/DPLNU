@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-491573E8-DCD5-48E3-A833-902DF17F94C9', 'name': 'Check the case', 'incoming': ['VN possibly\nin Regressable'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-659808F8-1A44-44A8-8A9A-5964B79661AF', 'name': 'Send a payment request and register a reimbursement', 'incoming': ['VN possibly\nin Regressable'], 'outgoing': ['VN contradicts']}
+{'id': 'sid-0B981107-36EA-44C1-9783-574AA0EB76F9', 'name': 'Process transferred to debt collection companies', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Open']}
+{'id': 'sid-23ED72EB-951B-4383-9F51-DE32DA8DFD8D', 'name': 'Book money receipt', 'incoming': ['VN possibly\nin Regressable'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-16E965AD-1D0E-48F6-876C-BF8CCB36DD7E', 'name': 'Proceedings', 'incoming': ['VN contradicts'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-E9348F55-298F-400C-9851-0FC479610FDF', 'name': 'take in Regress\npossible?', 'incoming': ['VN possibly\nin Regressable'], 'outgoing': ['VN contradicts', 'ExclusiveGateway1']}
+{'id': 'sid-4A36CDC9-EC3B-4DDA-9DF7-BBFF110132CC', 'name': 'ExclusiveGateway1', 'incoming': ['Check the case', 'Objection justified?', 'EventBasedGateway4'], 'outgoing': ['Closed']}
+{'id': 'sid-5EA30D28-CF40-4FBB-BB43-692BE726761E', 'name': 'Objection justified?', 'incoming': ['VN contradicts'], 'outgoing': ['Closed', 'ExclusiveGateway3']}
+{'id': 'sid-7E65D81D-EE85-49D7-9AD8-509011EDF3D6', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Proceedings'], 'outgoing': ['Open']}
+{'id': 'sid-ADFF6675-6347-4605-805F-2884E77CE60B', 'name': 'EventBasedGateway4', 'incoming': ['VN possibly\nin Regressable'], 'outgoing': ['VN contradicts', 'ExclusiveGateway1', 'Process transferred to debt collection companies']}
+{'id': 'sid-CA917898-54F8-4FC7-8B78-0EAB80372FB4', 'name': 'VN contradicts', 'incoming': ['take in Regress\npossible?'], 'outgoing': ['Closed']}
+{'id': 'sid-B6DB0A70-E162-4B01-8EBB-441C9A69408C', 'name': 'IntermediateCatchEvent6', 'incoming': ['VN possibly\nin Regressable'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-922BF033-46CF-4644-A650-6471FBC9E199', 'name': 'Reimbursement due', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Open']}
+
+Start Events:
+{'id': 'sid-E0609CB6-A4BA-4EA8-9D8B-1B1E3D6A2FEF', 'name': 'VN possibly\nin Regressable', 'incoming': [], 'outgoing': ['Book money receipt']}
+
+End Events:
+{'id': 'sid-C41449A1-D71B-498A-80C8-E012E86E55DE', 'name': 'Closed', 'incoming': ['VN contradicts'], 'outgoing': []}
+{'id': 'sid-4A10DA5E-9DFE-40ED-BBCC-C48C370AD414', 'name': 'Open', 'incoming': ['Reimbursement due'], 'outgoing': []}

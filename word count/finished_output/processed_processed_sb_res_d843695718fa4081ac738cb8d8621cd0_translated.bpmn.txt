@@ -1,0 +1,24 @@
+ 1. A customer enters the court with hunger and restlessness.
+2. The customer places an order, triggering the event "Customer-\nOrder."
+3. The court selects a suitable court for the customer's order.
+4. The customer picks up and consumes the court, leading to the event "Pick up and consume court."
+5. The court staff informs the employees about the completed order, resulting in the event "inform employees about finished court."
+6. The staff records the order and enters the cash register system, initiating the event "Record order and enter the cash register system."
+7. The cashier processes the payment, and the staff adjusts the Pieper and passes the guest, leading to the event "Adjust Pieper and pass the guest."
+8. The staff invites the guests to trigger the Pieper, resulting in the event "Invite guests to trigger Pieper."
+9. The guests consume the court, and the court staff informs the employees about the finished court, leading to the event "inform employees about finished court."
+10. The court retrieves more meals, and the guests are satisfied with the service, concluding the event "Guest satisfied."
+
+Gateways:
+1. When a customer enters the court with hunger and restlessness, the EventBasedGateway0 is triggered, leading to the events "Pick up and consume court" and "Famine."
+2. When the customer places an order, the EventBasedGateway1 is triggered, resulting in the events "Meals\nretrieval" and "5 min."
+3. When the court staff informs the employees about the completed order, the IntermediateCatchEvent4 is triggered, leading to the event "Invite guests to trigger Pieper."
+
+Start Events:
+1. The event "With hunger\nin rest." initiates the process.
+2. The event "Customer-\nOrder" starts the order placement process.
+3. The event "StartEvent2" begins the sequence of events leading to the guest's satisfaction.
+
+End Events:
+1. The event "Famine" signifies the customer's satisfaction after consuming the court.
+2. The event "Order\ncompleted"

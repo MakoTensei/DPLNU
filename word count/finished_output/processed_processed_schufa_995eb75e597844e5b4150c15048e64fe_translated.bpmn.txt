@@ -1,0 +1,7 @@
+ In the scoring process, an event named "Schufascoring hit" initiates the process, which then triggers a "Scoring desired" event. This leads to the "Scoring Level 1 query" task, which upon completion, sends a result to the "Result?" gateway. The "Scoring Level 1 query" task then connects to the "Scoring Results Level 1 obtained" event, which in turn connects to the "ExclusiveGateway0".
+
+Simultaneously, the "Scoring Level 1 query" task also connects to the "EventBasedGateway2" event. The "EventBasedGateway2" event then connects to the "Delay Report obtained" task, which sends a delay report to the "Delay Report obtained" gateway.
+
+Meanwhile, the "Scoring Results Level 1 obtained" event connects to the "Scoring Results Level 2 obtained" task, which then connects to the "ExclusiveGateway0". The "Scoring Results Level 2 obtained" task also connects to the "Scoring Level 2" task, which sends the result to the "Result?" gateway.
+
+Finally, the "Result?" gateway connects to the "Completed" event, which signifies the end of the scoring process.

@@ -1,0 +1,37 @@
+Tasks:
+{'id': 'sid-37F24DAC-68E5-4F4E-80FF-5ADAD3B8695C', 'name': 'Select your offer', 'incoming': ['Hunger'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-AA17A927-FD6B-4BDB-AAD4-08204A6C0E2E', 'name': 'Court of Justice', 'incoming': ['sid-A148F775-B2FD-4DE3-9571-281B096B6DA0'], 'outgoing': ['Take over Pieper']}
+{'id': 'sid-F4FDBF55-E5AC-4E56-BC6E-8261706B569E', 'name': 'Take over Pieper', 'incoming': ['Court of Justice'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-15DF9F46-ACEB-450C-A5CE-AA80F1A80483', 'name': 'Food\nretrieval', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Eat food']}
+{'id': 'sid-BD4B9C0C-AE80-4B7E-9B05-5020467641C3', 'name': 'Eat food', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Sat']}
+{'id': 'sid-9FB046DB-6C28-43EF-90A4-08704AA1B170', 'name': 'Accept order', 'incoming': ['sid-1C1EA5A8-BFFC-4476-AD4B-F5D5E5FEC1C4'], 'outgoing': ['Entering order in cash system']}
+{'id': 'sid-3423FA25-3A62-4A80-BF50-5B818240A444', 'name': 'Entering order in cash system', 'incoming': ['Accept order'], 'outgoing': ['Cash']}
+{'id': 'sid-7467D345-0E8C-43B2-A7DE-D4791F6227DA', 'name': 'Cash', 'incoming': ['Entering order in cash system'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-AC76B245-754D-4A4C-8B9B-DD7A72876A73', 'name': 'Guest information regarding Piepers function', 'incoming': ['ParallelGateway1'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-808FC76C-F162-4FE7-B2D7-EB8341EE8C57', 'name': 'Pieper over', 'incoming': ['ParallelGateway1'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-1F02017A-518C-4F10-9BD2-1CDAE3B2B7F5', 'name': 'Adjust Pieper', 'incoming': ['Cash'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-0832A511-C9E2-4D64-A92E-9FAA72DF0DA3', 'name': 'Pieper\ntrigger', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['all 5 min']}
+{'id': 'sid-1BA95636-F891-4E0E-871E-33ADC93E09C6', 'name': 'Deliver food', 'incoming': ['Guest reports'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-55B33093-1C73-4F1D-8A46-5E905E7E9067', 'name': 'Customer\nexcl.', 'incoming': ['all 5 min'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-B71DFB2E-3BEB-4F41-A3F2-DAB8956C4384', 'name': 'Preparation of meal', 'incoming': ['StartEvent2'], 'outgoing': ['Pick up meal']}
+{'id': 'sid-6CA5E16E-967D-4015-8430-ED658981560A', 'name': 'Pick up meal', 'incoming': ['StartEvent2'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-9E1E5AF5-A265-46EF-BA38-A11957E61CAA', 'name': 'EventBasedGateway0', 'incoming': ['IntermediateCatchEvent5', 'EventBasedGateway0'], 'outgoing': ['EndEvent1', 'EventBasedGateway0']}
+{'id': 'sid-89AD7894-825C-4C40-A608-2BC656C63181', 'name': 'ParallelGateway1', 'incoming': ['Adjust Pieper'], 'outgoing': ['ParallelGateway2', 'ParallelGateway2']}
+{'id': 'sid-E28DADE3-8068-4095-9098-31EB22FBE816', 'name': 'ParallelGateway2', 'incoming': ['Adjust Pieper', 'ParallelGateway1'], 'outgoing': ['sid-335474CC-1182-4221-80E4-FA3E5DA9F71A']}
+{'id': 'sid-15F429F0-1014-404F-8C4F-9373F8222237', 'name': 'IntermediateCatchEvent3', 'incoming': ['Hunger'], 'outgoing': ['sid-41476CB8-CD1E-4305-ADAE-7905A29B1FFF']}
+{'id': 'sid-DB7B555B-67E1-4D3D-8C10-0E31A597AA46', 'name': 'IntermediateCatchEvent4', 'incoming': ['Take over Pieper'], 'outgoing': ['Sat']}
+{'id': 'sid-7F4A29BB-9D60-4DDB-B4E9-48EF2F1DEAB2', 'name': 'IntermediateCatchEvent5', 'incoming': ['sid-EA342C0F-E434-413F-8977-0647A393C9E4'], 'outgoing': ['Guest reports']}
+{'id': 'sid-66A74519-0657-42ED-800F-BD950AB694D2', 'name': 'Guest reports', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-9A30EE6E-5138-42A7-B5F4-5B86235163B3', 'name': 'all 5 min', 'incoming': ['Pieper\ntrigger'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-7D88C3F2-4082-491D-BE07-43AE7EE22B8D', 'name': 'Hunger', 'incoming': [], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-F7B0653F-C6F9-48D9-8473-2BD3BA476BD6', 'name': 'new\nCustomer\nseen', 'incoming': [], 'outgoing': ['sid-8DD3FBBD-02DB-4939-829D-2FFCF28E5DE0']}
+{'id': 'sid-A3275E82-CBF0-4BF4-980B-B5B7ECC89995', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['Pick up meal']}
+
+End Events:
+{'id': 'sid-F15CA2FF-38EC-4A91-B854-9D7ADC83E194', 'name': 'Sat', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': []}
+{'id': 'sid-4C3F71BC-0A42-48FB-835D-17B002208686', 'name': 'EndEvent1', 'incoming': ['all 5 min'], 'outgoing': []}
+{'id': 'sid-98D7211B-26EA-45C3-9923-072370734746', 'name': 'EndEvent2', 'incoming': ['Pick up meal'], 'outgoing': []}

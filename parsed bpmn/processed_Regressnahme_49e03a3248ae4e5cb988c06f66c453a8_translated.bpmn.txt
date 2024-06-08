@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-E2AE3090-CF7E-4503-BCAC-CCA072A5D154', 'name': 'Examination of the possibility', 'incoming': ['Take VN to Regress?'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-6FA7149A-0371-48F4-B6AA-D9D791805B95', 'name': 'Send payment request', 'incoming': ['Take VN to Regress?'], 'outgoing': ['VN contradicts']}
+{'id': 'sid-C1C34FD1-CA5B-4A35-A4E7-E65AE9B5904B', 'name': 'Book money', 'incoming': ['Money received'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-3A6906D8-850E-406A-88CF-D43537CBAA29', 'name': 'Proceedings', 'incoming': ['VN contradicts'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-5FAD014A-03F1-4F5C-B46B-6291318BD9E9', 'name': 'Debt collection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Case delivered']}
+{'id': 'sid-691855B4-10A0-4951-821A-9DA2E4F2CA55', 'name': 'Close the process', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Closed']}
+{'id': 'sid-771C9EDD-AAEA-421F-A2FB-343D51B97001', 'name': 'Close the process', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Closed']}
+
+Gateways:
+{'id': 'sid-AFEB1568-02F5-4EFF-A14D-E2B22CC2D2DC', 'name': 'ExclusiveGateway0', 'incoming': ['Take VN to Regress?'], 'outgoing': ['ExclusiveGateway1', 'Closed']}
+{'id': 'sid-4B861462-6432-43B5-BBDB-9321C620A0BC', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-58E5804F-CAE6-4F6D-8E35-9A2BC8F2C84C', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['Closed']}
+{'id': 'sid-206456C1-0B10-4C9B-857A-194765DB1CB7', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'EventBasedGateway4'], 'outgoing': ['Case delivered']}
+{'id': 'sid-21D1A74A-3A58-47A5-81E3-06DBBA83843C', 'name': 'EventBasedGateway4', 'incoming': ['Take VN to Regress?'], 'outgoing': ['Close the process', 'Case delivered', 'Debt collection']}
+{'id': 'sid-3C72B8DA-DD5B-4D01-8105-7C1D103AE17E', 'name': 'VN contradicts', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-D48CBBE5-D798-4A88-985D-2966CDF084C2', 'name': 'Reimbursement 4 weeks', 'incoming': ['Take VN to Regress?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-50573900-763D-44FD-BA1B-025F01875075', 'name': 'Money received', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Closed']}
+
+Start Events:
+{'id': 'sid-1D4B0A08-B51C-4D3B-85F4-A62055E5AD3E', 'name': 'Take VN to Regress?', 'incoming': [], 'outgoing': ['Reimbursement 4 weeks']}
+
+End Events:
+{'id': 'sid-14F0AE3A-8E62-49CC-87DC-AEDC5A5C9E96', 'name': 'Closed', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-64B5EF69-A468-4541-8492-4E1366CEDE90', 'name': 'Closed', 'incoming': ['Money received'], 'outgoing': []}
+{'id': 'sid-E0D5A425-3F9A-443B-B72C-FAE77067894A', 'name': 'Case delivered', 'incoming': ['EventBasedGateway4'], 'outgoing': []}

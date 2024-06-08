@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-BE522E8C-FD49-4FAE-96D0-4380515C0D47', 'name': 'Check the case', 'incoming': ['Regress\npossible'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-EE9F0897-E5FF-45F3-BC04-606F1D999C0C', 'name': 'Send\nPayment on\ndemand, set to WV', 'incoming': ['Regress\npossible'], 'outgoing': ['Cash receipt']}
+{'id': 'sid-9939BB40-5597-4917-94C0-6812B30B656B', 'name': 'Book the process', 'incoming': ['Cash receipt'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-FFF96482-122F-4E99-912C-0E34703E54F0', 'name': 'Opposition\nCheck\n', 'incoming': ['Regress\npossible'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-E58B7824-832E-43FE-8F1D-7DA3C8D2343A', 'name': 'Process\nclose', 'incoming': ['Cash receipt'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-8AB818FF-9B79-4CF0-8895-25959F1D027C', 'name': 'Collection\ncommission', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-36BE6345-D8B3-4461-AE0C-F18ACB45CBAA', 'name': 'actually?\n', 'incoming': ['Regress\npossible'], 'outgoing': ['EndEvent0', 'ExclusiveGateway2']}
+{'id': 'sid-79917D40-A351-4DF9-90C0-5A38A624845E', 'name': 'Right-\nfinished?\n', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway4', 'ExclusiveGateway2']}
+{'id': 'sid-8CE62604-5D17-4573-9000-159B240F4E09', 'name': 'ExclusiveGateway2', 'incoming': ['actually?\n', 'Check the case', 'Regress\npossible'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-440AC7E5-23C0-4C57-9F7E-5B4FF2CDA77D', 'name': 'ExclusiveGateway3', 'incoming': ['VN', 'EventBasedGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-59A9CAE0-3EB1-4353-AE54-6D1FDB46AF87', 'name': 'ExclusiveGateway4', 'incoming': ['VN', 'EventBasedGateway5'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-7F8C5584-C0B5-4122-A424-703FD0F9E8CB', 'name': 'EventBasedGateway5', 'incoming': ['Regress\npossible'], 'outgoing': ['ExclusiveGateway3', 'Right-\nfinished?\n', 'Collection\ncommission']}
+{'id': 'sid-5A4C50C5-715E-4275-B28B-6CB3B3C9276A', 'name': 'Cash receipt', 'incoming': ['actually?\n'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-B9BB9E2F-C96C-4C21-A9A5-FA92F91E03E0', 'name': 'VN', 'incoming': ['Regress\npossible'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-F7E4BAE6-CD09-4597-BCFD-A5CC5C1E50DC', 'name': 'WV expired', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway4']}
+
+Start Events:
+{'id': 'sid-D3D8696A-2E00-4B88-8939-2EB33FC9542E', 'name': 'Regress\npossible', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-FBD82B19-FA0C-4736-8C24-9F07031E600C', 'name': 'EndEvent0', 'incoming': ['actually?\n'], 'outgoing': []}

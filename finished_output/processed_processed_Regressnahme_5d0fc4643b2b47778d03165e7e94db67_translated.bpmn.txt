@@ -1,0 +1,23 @@
+ In the case management system, the process begins with the receipt of a regression report. This report triggers a series of tasks and checks:
+
+1. The 'Regression report' is received, and it initiates the 'Number of on request send' task. This task is responsible for counting the number of requests sent and subsequently informs the 'Case Reimbursement' task.
+
+2. The 'Case Reimbursement' task is then activated, which checks the possibility of a regression and, if justified, leads to the 'Process closed' task.
+
+3. Concurrently, the 'Regression possibility consists of:' gateway receives the regression report and sends out two tasks: 'Opposition justified?' and 'Process closed'.
+
+4. The 'Opposition justified?' task is triggered by the 'Regression possibility consists of:' gateway and, upon a positive outcome, leads to the 'Process closed' task.
+
+5. The 'Process closed' task is also triggered by the 'Regression possibility consists of:' gateway and sends out the 'ExclusiveGateway1' task.
+
+6. The 'ExclusiveGateway1' task receives the 'Check the case' task and the 'Opposition' task. If the case is checked and no opposition is found, the 'Process closed' task is executed.
+
+7. The 'Opposition' task is triggered by the 'Regression possibility consists of:' gateway and sends out the 'ExclusiveGateway3' task.
+
+8. The 'ExclusiveGateway3' task receives the 'EventBasedGateway4' task and the 'Opposition Check' task. If the opposition is justified, the 'Collection informed' task is executed.
+
+9. The 'EventBasedGateway4' task receives the 'Regression possibility consists of:' gateway and sends out the 'ExclusiveGateway1' task and the 'Opposition' task.
+
+10. The 'ExclusiveGateway1' task receives the 'Check the case' task and the 'Opposition' task. If the case is checked and no opposition is found, the 'Process closed' task is executed.
+
+11. The 'Opposition' task is triggered by the '

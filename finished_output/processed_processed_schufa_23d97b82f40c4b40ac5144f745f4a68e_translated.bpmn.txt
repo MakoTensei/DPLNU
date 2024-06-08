@@ -1,0 +1,15 @@
+ In the scoring process, a series of tasks and gateways are orchestrated to ensure the seamless flow of information and results between different systems. Here's a natural flow description of the process:
+
+1. The process begins with an incoming event named "Scoring\nRequired," which triggers the first task, "Send scoring inquiry to SCHUFA." This task initiates the process by sending a request to the SCHUFA system to obtain the necessary scoring information.
+
+2. Once the inquiry is sent, the "EventBasedGateway1" gateway receives the "Scoring\nRequired" event and forwards it to two outgoing tasks: "Scoring request\nfinished" and "Notification\nDelay\nobtained." The former task signifies the completion of the scoring request, while the latter indicates that a delay notification has been obtained.
+
+3. The "Scoring request\nfinished" task triggers the "Level 1 result\nobtained" gateway, which checks if the Level 1 results are available. If available, it sends the results to the "Transfer Level 1 results to Frontend" task, which then transfers the Level 1 results to the frontend system.
+
+4. Concurrently, the "Notification\nDelay\nobtained" task sends a forward delay message to the "forward delay message to Frontend" gateway, indicating that there is a delay in obtaining the results.
+
+5. The "Level 1 result\nobtained" gateway receives the "Scoring\nRequired" event and forwards it to two outgoing tasks: "Scoring request\nfinished" and "Level 2 results\nthe." The former task signifies the completion of the scoring request, while the latter indicates that the Level 2 results are available.
+
+6. The "Scoring request\nfinished" task triggers the "Transfer Level 2 results to Frontend" task, which transfers the Level 2 results to the frontend system.
+
+7. The "Level 2 results\nthe" gateway receives the "Level 1 result\navailable?" event and sends the Level 2 results to the "Scoring request\nfinished" task, indicating the completion

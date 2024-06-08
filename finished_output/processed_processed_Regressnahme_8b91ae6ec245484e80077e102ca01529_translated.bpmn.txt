@@ -1,0 +1,13 @@
+ The workflow begins with the 'Regression report we are' event, which triggers the 'Check regression case' task. This task is connected to 'ParallelGateway4', and upon completion, it leads to the 'Cash receipt from the VN' task.
+
+Once the 'Cash receipt from the VN' task is completed, it triggers the 'Submit case to Inkasso-DL' task, which results in the 'Regression case delivered' task.
+
+Simultaneously, the 'Check regression case' task also connects to the 'is Regress Right?' gateway. If the gateway determines that the regression is correct, it leads to the 'Regression case completed' task.
+
+If the gateway determines that the regression contradicts the report, it leads to the 'VN contradicts?' task, which in turn leads to the 'Regression case completed' task.
+
+The 'Regression case completed' task can also be triggered by the 'Payment refusal justified?' gateway, which leads to the same 'Regression case completed' task.
+
+Finally, the 'Regression case completed' task is also connected to the 'ExclusiveGateway3' gateway. If the gateway determines that the case should be delivered, it leads to the 'Regression case delivered' task.
+
+The workflow concludes with the 'Regression case completed' event, which can be triggered by the 'is Regress Right?' gateway, 'VN contradicts?' gateway, or the 'Payment refusal justified?' gateway.

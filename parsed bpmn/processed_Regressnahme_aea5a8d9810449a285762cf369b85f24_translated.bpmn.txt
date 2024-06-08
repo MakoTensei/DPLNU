@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-5E224B17-27F4-4F48-8220-86866E6B6FF0', 'name': 'possibility of regression\nCheck', 'incoming': ['VN potential\nin Regress to\ntake'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-F961212A-ACF2-4FCA-9EFA-1B67887E960A', 'name': 'Send payment request', 'incoming': ['VN potential\nin Regress to\ntake'], 'outgoing': ['Reimbursement\nDate\nExpired']}
+{'id': 'sid-503417A3-1276-48E5-BF77-B48DFDA60060', 'name': 'Book the entrance', 'incoming': ['VN potential\nin Regress to\ntake'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-4C04019D-2EE3-42B6-A693-2D25A128D096', 'name': 'Proceedings', 'incoming': ['VN contradicts'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-D1C1B163-AD6B-4596-BD55-3929220AC620', 'name': 'Dispense process of collection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Open']}
+{'id': 'sid-4DBC3EBD-730E-422F-B336-EC9B666B3C46', 'name': 'Complete the process', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process\ncompleted']}
+
+Gateways:
+{'id': 'sid-A5B7E9E8-3B1A-4747-9136-ED8E8E07332F', 'name': 'Regression\npossible?', 'incoming': ['VN potential\nin Regress to\ntake'], 'outgoing': ['Open', 'ExclusiveGateway2']}
+{'id': 'sid-EBF6EFE7-229F-4C96-81AF-5D102F41DD42', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-48927B22-63C6-4624-92D3-9A777C3C4351', 'name': 'ExclusiveGateway2', 'incoming': ['possibility of regression\nCheck', 'EventBasedGateway4', 'Proceedings'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-E774ED09-EACE-4078-B5A1-D099D2FC1BF0', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'VN contradicts'], 'outgoing': ['Open']}
+{'id': 'sid-A5C54B66-A441-48E2-A02D-083B928717BF', 'name': 'EventBasedGateway4', 'incoming': ['VN potential\nin Regress to\ntake'], 'outgoing': ['Dispense process of collection', 'Complete the process', 'Opposition\njustified?']}
+{'id': 'sid-C8220DD0-94FB-49B1-94F8-207BB692C313', 'name': 'Reimbursement\nDate\nExpired', 'incoming': ['Regression\npossible?'], 'outgoing': ['Open']}
+{'id': 'sid-BD9182A8-A9A8-4A7C-A958-4B285627709C', 'name': 'Cash receipt', 'incoming': ['VN potential\nin Regress to\ntake'], 'outgoing': ['Process\ncompleted']}
+{'id': 'sid-21D62855-EE48-493F-BB1B-37D140FDB912', 'name': 'VN contradicts', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-D37B5524-12AF-4905-9118-D70B1107AB98', 'name': 'VN potential\nin Regress to\ntake', 'incoming': [], 'outgoing': ['Book the entrance']}
+
+End Events:
+{'id': 'sid-0BAA0FA5-0EDE-4EC2-803E-01BDE24BEF69', 'name': 'Process\ncompleted', 'incoming': ['Cash receipt'], 'outgoing': []}
+{'id': 'sid-C929F9F8-8961-4A91-ABC4-A4D927041444', 'name': 'Open', 'incoming': ['Regression\npossible?'], 'outgoing': []}

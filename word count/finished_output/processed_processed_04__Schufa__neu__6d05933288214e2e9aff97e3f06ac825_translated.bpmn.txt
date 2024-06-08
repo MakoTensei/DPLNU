@@ -1,0 +1,11 @@
+ In a flowing narrative, the process begins with the 'Schufa Information\nrequired' event, which triggers the Level 1 scoring process. This event sends a 'Schufascoring request\nwe have discussed' message to the 'Scorig results\nsend' gateway, initiating the scoring process.
+
+Once the Level 1 scoring is complete, the 'Level 1 OK' event is generated, which then sends 'Schufa Information\nsent' messages to both the 'Scorig results\nsend' and 'Schufa Information\nsent' gateways.
+
+Meanwhile, the 'Schufascoring request\nwe have discussed' event also triggers the 'Delay\nobtained' event, which in turn sends a 'Delay\nobtained' message to the 'ExclusiveGateway0'. This gateway then sends 'Schufadata\nsupplied' messages to both the 'IntermediateCatchEvent3' and 'Scorig results\nsend' gateways.
+
+The 'IntermediateCatchEvent3' gateway receives the 'Schufata datad' message and sends 'Send results to Frontend\n' messages to the 'Frontend' gateway.
+
+Finally, the 'Schufata datad' event triggers the 'Schufa Information\nsent' event, which sends 'Schufa Information\nsent' messages to both the 'Level 1 OK' and 'Schufa Information\nsent' gateways.
+
+The process concludes with the 'Schufata datad' event sending 'Schufa Information\nsupplied' messages to the 'ExclusiveGateway0', which then completes the flow.

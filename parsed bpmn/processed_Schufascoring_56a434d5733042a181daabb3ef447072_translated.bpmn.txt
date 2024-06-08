@@ -1,0 +1,33 @@
+Tasks:
+{'id': 'sid-9E95DED3-15FE-4E69-8161-5CC7EBF5E264', 'name': 'Scoring\nSchufa query', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Result level 1\nobtained']}
+{'id': 'sid-F925BD50-7A73-480D-A1F3-1E41195CD5E0', 'name': 'Add a message', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-4056F668-D624-4448-AEC8-45B5C4133F6A', 'name': 'Message\nCreate a score', 'incoming': ['Result level 1\nobtained'], 'outgoing': ['Send message']}
+{'id': 'sid-C8F59CCA-E958-4842-B32B-0F136AE20A8B', 'name': 'Send message', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Message\nScore send']}
+{'id': 'sid-0528955A-C2A1-4FD4-9614-C511F7153159', 'name': 'Delay message\nProduction', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['delay message\nsend']}
+{'id': 'sid-8F8F07B8-6EA9-4069-B091-79EAB69421E2', 'name': 'delay message\nsend', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-628B0590-6742-4636-82ED-A70DC499AF4F', 'name': 'Level 2 message\nsend', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Level 2 message\nsent']}
+{'id': 'sid-97776938-47C7-4FBC-BC0E-DB77CB1E281B', 'name': 'Scoring Level 1\nperform', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-51B6699F-B095-475E-A5AF-8C43FE15FC30', 'name': 'Message\nScoring result\nProduction', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-6A33303B-E0F0-46FC-A445-D8A68BFEF4B0', 'name': 'Message\nGenerate delay information', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-67FADC5A-EB43-4256-8079-AD00373A00D5', 'name': 'Message\nsend', 'incoming': ['ParallelGateway3'], 'outgoing': ['Message']}
+{'id': 'sid-5FEF2917-8786-4E93-9627-732B5FD4355A', 'name': 'Schufa Level 2\nTest\nperform', 'incoming': ['ParallelGateway3'], 'outgoing': ['Message\nCreate Level 2']}
+{'id': 'sid-FF2E475E-5BEC-410A-BE08-8BA045701DF5', 'name': 'Message\nCreate Level 2', 'incoming': ['ParallelGateway3'], 'outgoing': ['Result\nSend message']}
+{'id': 'sid-D9879720-19E4-477C-9469-EF55E85AAF72', 'name': 'Result\nSend message', 'incoming': ['ParallelGateway3'], 'outgoing': ['Level 2 message\nsent']}
+
+Gateways:
+{'id': 'sid-5E2B7712-88E7-4333-B585-BF6BBCD14A1D', 'name': 'ExclusiveGateway0', 'incoming': ['Result level 1\nobtained'], 'outgoing': ['Message\nScore send', 'Level 2 message\nsent']}
+{'id': 'sid-E5B12B5B-D70D-4D00-BBB1-CA02A440BCB3', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Message\nScoring result\nProduction', 'Message']}
+{'id': 'sid-281577FE-C78E-4986-A3F7-D55AF4540CA0', 'name': 'ExclusiveGateway2', 'incoming': ['ExclusiveGateway1', 'Scoring request\nobtained'], 'outgoing': ['Message']}
+{'id': 'sid-B32D1711-FC71-4050-8BB4-CF8BF4285439', 'name': 'ParallelGateway3', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Message\nsend', 'Level 2 message\nsent']}
+{'id': 'sid-3A6F6CC2-217A-445D-88EB-6D9B17A43E27', 'name': 'Result level 1\nobtained', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Message\nCreate a score']}
+{'id': 'sid-4A46FC00-1547-40DD-BF57-0DC1B41C5F6D', 'name': 'IntermediateCatchEvent5', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Level 2 message\nsent']}
+
+Start Events:
+{'id': 'sid-3185CF5F-E2B7-4CA1-A657-96C567AE6616', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['Add a message']}
+{'id': 'sid-F52F58AF-B42F-4B88-B956-BE25A61DD97E', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-ADD3EB27-81DE-4797-A733-1B4955DBD3FF', 'name': 'Message\nScore send', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-3706BC03-30F9-4355-BA00-832191BBE058', 'name': 'Level 2 message\nsent', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-E8C62484-53CE-4787-B05D-CFEBBA593FF4', 'name': 'Message', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}
+{'id': 'sid-8774FEB3-4209-43CE-B5BB-A01FF8E154AF', 'name': 'Level 2 message\nsent', 'incoming': ['ParallelGateway3'], 'outgoing': []}

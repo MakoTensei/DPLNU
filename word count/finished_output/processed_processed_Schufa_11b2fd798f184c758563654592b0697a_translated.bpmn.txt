@@ -1,0 +1,17 @@
+ When a new request is initiated, a message is sent to start the process. This message triggers the 'New request' start event, which in turn sends a message to 'Send a message'. The 'Send a message' event then sends a deferred message to 'EventBasedGateway2', which is connected to 'IntermediateCatchEvent3'. This event sends the deferred message to 'ExclusiveGateway0'.
+
+Simultaneously, 'StartEvent1' is triggered, which sends a deferred message to 'Send a deferred message'. This message is also sent to 'EventBasedGateway2', which connects to 'IntermediateCatchEvent3' and 'ExclusiveGateway0'.
+
+Once 'IntermediateCatchEvent3' receives the deferred message, it sends it to 'ExclusiveGateway0'. At the same time, 'IntermediateCatchEvent4' is triggered by the 'Schufa request start dd' event and sends the deferred message to 'ExclusiveGateway0'.
+
+'ExclusiveGateway0' then routes the deferred messages to 'EndEvent0', which is connected to 'Return result'. The 'Return result' event receives the deferred messages and completes the process.
+
+Meanwhile, 'EventBasedGateway2' also sends the deferred message to 'ExclusiveGateway0', which routes it to 'EndEvent0'.
+
+After 'IntermediateCatchEvent3' and 'IntermediateCatchEvent4' complete their tasks, 'EndEvent0' is triggered, which sends the deferred messages to 'Return result'.
+
+The 'Return result' event then sends the result back to the 'Return result' task, completing the process.
+
+In parallel, 'StartEvent1' triggers 'Send a deferred message', which sends a deferred message to 'EventBasedGateway2'. This event is connected to 'IntermediateCatchEvent3', which sends the deferred message to 'ExclusiveGateway0'.
+
+'ExclusiveGateway0' then routes the deferred message to 'EndEvent1', which is connected to 'Level 1 Edit'. The 'Level 1 Edit' event receives the deferred message and completes its

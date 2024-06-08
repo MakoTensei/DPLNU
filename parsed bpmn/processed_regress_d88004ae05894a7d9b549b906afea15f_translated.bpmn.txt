@@ -1,0 +1,32 @@
+Tasks:
+{'id': 'sid-B6E897C3-6C17-4945-B5FC-5C16CF997053', 'name': 'Check the case', 'incoming': ['StartEvent0'], 'outgoing': ['Regress?']}
+{'id': 'sid-8A1D935A-7ECA-4AB7-83DB-5C0DF2C9DE6B', 'name': 'Book money receipt from the VN', 'incoming': ['Money received'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-48F4B99B-7579-4CE2-BCFB-AF7F9781C882', 'name': 'Proceedings', 'incoming': ['VN opposition'], 'outgoing': ['Objection justified?']}
+{'id': 'sid-DC02AAB9-0F13-413C-BCC6-1F2E0231ECEA', 'name': 'Disclosure of debt collection service providers', 'incoming': ['VN opposition'], 'outgoing': ['After opposition to debt collection']}
+{'id': 'sid-754E88AA-A135-4A0F-9CDE-E9F04EB84793', 'name': 'Check the receipt of funds', 'incoming': ['Reimbursement'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-D081F5D3-272A-4B58-BADC-9D36479C6605', 'name': 'Disclosure of debt collection service providers', 'incoming': ['Reimbursement'], 'outgoing': ['Complete the process']}
+{'id': 'sid-1A818FEF-47FE-4261-B2F8-E65E13796CF3', 'name': 'Reimbursement', 'incoming': ['sid-87E539FF-D89F-4B95-B1D6-5C31B57D3015'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-06927C59-89BC-41E9-AAA4-C4332C6B1144', 'name': 'Complete the process', 'incoming': ['StartEvent0'], 'outgoing': ['No regression']}
+{'id': 'sid-4592F473-E0CD-44C9-A668-550ECD7FEB9C', 'name': 'Complete the process', 'incoming': ['EventBasedGateway4'], 'outgoing': ['forwarded to debt collection']}
+{'id': 'sid-63E9F30E-717B-4A4E-943D-4D447B3E0A85', 'name': 'Complete the process', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Cash receipt posted']}
+{'id': 'sid-CA1AD658-06C1-4993-B58E-962F6EBCFF86', 'name': 'Complete the process', 'incoming': ['Objection justified?'], 'outgoing': ['Objection granted']}
+
+Gateways:
+{'id': 'sid-8B39856B-EABB-48D4-B1C2-887734E7E679', 'name': 'Regress?', 'incoming': ['StartEvent0'], 'outgoing': ['sid-DC5E88D9-1D31-49EE-836C-3A4DE857BC6B', 'No regression']}
+{'id': 'sid-9497D290-8464-4DD6-9BED-69373BD2C7A9', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['After opposition to debt collection', 'Objection granted']}
+{'id': 'sid-0EC518FE-A023-430B-B1CA-08A327210443', 'name': 'Money received?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['forwarded to debt collection', 'ExclusiveGateway3']}
+{'id': 'sid-4A03BE02-E5E5-42BE-83C9-0A1ED041DF93', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Check the receipt of funds'], 'outgoing': ['Cash receipt posted']}
+{'id': 'sid-4026F3BE-26FA-4386-BC2C-480013343FAC', 'name': 'EventBasedGateway4', 'incoming': ['Reimbursement'], 'outgoing': ['Complete the process', 'Complete the process', 'After opposition to debt collection']}
+{'id': 'sid-834FAF3E-E2FA-4901-94C0-1610F95B8E2D', 'name': 'Reimbursement', 'incoming': ['Reimbursement'], 'outgoing': ['Disclosure of debt collection service providers']}
+{'id': 'sid-EA192626-EE52-408C-8FCD-463A38499CAA', 'name': 'Money received', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Cash receipt posted']}
+{'id': 'sid-16345590-B31E-425F-A44B-64B68F32CDCE', 'name': 'VN opposition', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Disclosure of debt collection service providers']}
+
+Start Events:
+{'id': 'sid-D13A5354-AC1B-4C1C-9442-BD9E8F3B7421', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Complete the process']}
+
+End Events:
+{'id': 'sid-B22D3F0B-6703-4F4B-810E-219C02196AE8', 'name': 'No regression', 'incoming': ['Regress?'], 'outgoing': []}
+{'id': 'sid-FEBC63FA-E2FB-4171-94F1-FCAA626B85A4', 'name': 'Objection granted', 'incoming': ['Objection justified?'], 'outgoing': []}
+{'id': 'sid-884A9A2B-BD75-4395-B1E1-D0B0FBFC94C1', 'name': 'Cash receipt posted', 'incoming': ['Money received'], 'outgoing': []}
+{'id': 'sid-7501F697-E27C-42FA-A5B8-20EBFF49C126', 'name': 'After opposition to debt collection', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-5E68F05D-F0EF-429D-8F8D-DB87D76EF008', 'name': 'forwarded to debt collection', 'incoming': ['Money received?'], 'outgoing': []}

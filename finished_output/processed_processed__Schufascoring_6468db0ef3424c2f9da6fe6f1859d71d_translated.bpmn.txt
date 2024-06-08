@@ -1,0 +1,9 @@
+ In the scoring process, a 'Scoreing request' initiates the workflow, which is received by the 'EventBasedGateway1'. This request triggers the 'Run Finale result' task, which is then received by the 'StartEvent0'. The 'Run Finale result' is subsequently sent to the 'EndEvent0', marking the completion of the first level of scoring.
+
+Simultaneously, the 'Scoreing request' also triggers the 'Scoring 1 result' task, which is received by the 'Received' gateway. This task is then forwarded to the 'ExclusiveGateway0', which in turn sends the 'Scoreing request' to the 'Run Finale result' and 'EndEvent1' tasks.
+
+The 'Run Finale result' task is also connected to the 'Delay' gateway, which receives the 'StartEvent0' and sends the 'Received' message.
+
+Finally, the 'Scoreing request' is also sent to the 'final result available' gateway, which awaits the 'Run Finale result' to complete the scoring process.
+
+In summary, the scoring process involves multiple tasks and gateways, with the 'Scoreing request' serving as the starting point, and the 'Run Finale result' and 'EndEvent1' tasks marking the completion of the scoring process.

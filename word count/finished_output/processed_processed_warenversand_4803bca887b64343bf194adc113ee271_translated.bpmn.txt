@@ -1,0 +1,18 @@
+ In the shipping process, goods are first offered at ParallelGateway4, which then connects to ExclusiveGateway0. From ExclusiveGateway0, goods are directed to ExclusiveGateway1 for the cheapest shipping option. Concurrently, goods are also filled with a package note at ExclusiveGateway2, which is then completed with insurance at ExclusiveGateway3. Once the goods are shipped, they are delivered through ParallelGateway7, which is the final step in the process, leading to the shipment event.
+
+
+Starting with the 'Shipping goods' event, the process unfolds as follows:
+
+1. 'Shipping goods' triggers 'Offer 1' at ParallelGateway4.
+
+2. 'Offer 1' connects to ExclusiveGateway0, which in turn leads to 'Order Cheapest Spediteur' at ExclusiveGateway6.
+
+3. 'Order Cheapest Spediteur' sends goods to ExclusiveGateway7 for packaging.
+
+4. Simultaneously, 'Shipping goods' also initiates 'Filling the package note' at ExclusiveGateway2.
+
+5. 'Filling the package note' connects to 'Complete insurance' at ExclusiveGateway3.
+
+6. 'Complete insurance' sends goods to ParallelGateway7.
+
+7. Finally, goods are delivered through ParallelGateway7, culminating in the 'Shipment' event.

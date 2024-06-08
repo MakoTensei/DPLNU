@@ -1,0 +1,30 @@
+Tasks:
+{'id': 'sid-9A6A5877-1978-4576-8768-391B68BFBF99', 'name': 'Checking Regress as a Possibility', 'incoming': ['StartEvent0'], 'outgoing': ['Possibility']}
+{'id': 'sid-AC16135D-C33C-4B9F-B44D-86373AA357B5', 'name': 'nix nto do', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-938F10B1-2BBE-4C36-95BD-0FA169C4BF81', 'name': 'Reimbursement\nCreating', 'incoming': ['sid-1C976C91-CC61-4ED1-859A-9FDB7E497DDD'], 'outgoing': ['Cash receipt']}
+{'id': 'sid-7A136547-A6BD-43B9-B804-20C4DDA45939', 'name': 'Transfer to debt collection', 'incoming': ['ExclusiveGateway4'], 'outgoing': ['?']}
+{'id': 'sid-D4119648-6F36-4DE8-829B-A65A4283AC54', 'name': 'Book money receipt', 'incoming': ['IntermediateCatchEvent8'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-C7512E0E-8BD0-4EB4-89F7-D3EAA665C3F2', 'name': '?', 'incoming': ['ExclusiveGateway4'], 'outgoing': ['Open']}
+{'id': 'sid-0BF75E14-B458-4643-B035-E28832C5D6B9', 'name': 'Proceedings', 'incoming': ['IntermediateCatchEvent8'], 'outgoing': ['Open']}
+{'id': 'sid-3A2E7996-7AD3-45C6-B0BF-29C09A411AB4', 'name': 'Close', 'incoming': ['justified?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E71B9793-A3EF-4578-A6DF-5F64CFF6A562', 'name': 'Check the receipt of funds', 'incoming': ['Reimbursement due'], 'outgoing': ['ExclusiveGateway4']}
+
+Gateways:
+{'id': 'sid-23122EE6-5689-460D-A913-BE826FEF7F3C', 'name': 'Possibility', 'incoming': ['StartEvent0'], 'outgoing': ['sid-221BF6AE-816C-47CC-AA60-375F1D17BD70', 'nix nto do']}
+{'id': 'sid-E5B23AC9-0D10-4104-A850-843F67505CAA', 'name': 'Get money?', 'incoming': ['Reimbursement due'], 'outgoing': ['EndEvent0', 'ExclusiveGateway4']}
+{'id': 'sid-40AF4678-4E02-41DE-B7D5-18ECEA420FF5', 'name': 'ExclusiveGateway2', 'incoming': ['StartEvent0', 'justified?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C9880601-2082-4D02-8AD3-73DD6281E563', 'name': 'justified?', 'incoming': ['Customer contradicts'], 'outgoing': ['ExclusiveGateway4', 'Close']}
+{'id': 'sid-8BB47486-6810-4EB0-AD93-4B7677229645', 'name': 'ExclusiveGateway4', 'incoming': ['IntermediateCatchEvent8', 'Check the receipt of funds'], 'outgoing': ['Open']}
+{'id': 'sid-A24962A1-2B7C-4C47-9E9C-B2C7CF5C88CC', 'name': 'ExclusiveGateway5', 'incoming': ['Cash receipt', 'Customer contradicts'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-EBA5F46B-E6B4-47B6-A02F-5538DF2E339A', 'name': 'ExclusiveGateway6', 'incoming': ['Reimbursement due', 'IntermediateCatchEvent8'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-331917B6-B29C-4C47-B4DA-F56D5C0B4909', 'name': 'Customer contradicts', 'incoming': ['IntermediateCatchEvent8'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-98AD6272-9F76-4480-9925-E3CF8E16075D', 'name': 'IntermediateCatchEvent8', 'incoming': ['Reimbursement\nCreating'], 'outgoing': ['Reimbursement due', 'ExclusiveGateway4', 'Book money receipt']}
+{'id': 'sid-C92EDC76-1F88-4FDA-BDA4-BB1871F9E17D', 'name': 'Cash receipt', 'incoming': ['Reimbursement\nCreating'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-ACE66966-8989-4896-88BE-2AD5C9AB0CBE', 'name': 'Reimbursement due', 'incoming': ['IntermediateCatchEvent8'], 'outgoing': ['ExclusiveGateway6']}
+
+Start Events:
+{'id': 'sid-8CD29348-DE92-4900-BC48-5575ED4A9A3A', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-8E1C4BF2-8E28-4B2B-A86D-57FBB1EAAA3A', 'name': 'EndEvent0', 'incoming': ['Get money?'], 'outgoing': []}
+{'id': 'sid-BE0E5F48-99B8-4082-B8D3-A132F987C8C2', 'name': 'Open', 'incoming': ['Proceedings'], 'outgoing': []}

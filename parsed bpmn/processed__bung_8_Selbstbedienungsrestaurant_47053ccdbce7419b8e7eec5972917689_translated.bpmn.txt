@@ -1,0 +1,37 @@
+Tasks:
+{'id': 'sid-16D5A962-DA0C-41BF-AE8D-34F99C01B235', 'name': 'Visit restaurant', 'incoming': ['Feeling hungry'], 'outgoing': ['to choose from']}
+{'id': 'sid-5A9EE4C8-977A-4530-935F-ABBA4974695C', 'name': 'to choose from', 'incoming': ['Feeling hungry'], 'outgoing': ['On the row']}
+{'id': 'sid-EE320C72-8419-4DF2-B76D-E973953CBD5D', 'name': 'Add your order', 'incoming': ['Feeling hungry'], 'outgoing': ['Amount of invoice']}
+{'id': 'sid-6B648CC5-ECB6-4F92-ABE0-7497520583EE', 'name': 'Pay money', 'incoming': ['Feeling hungry'], 'outgoing': ['Pieper reports']}
+{'id': 'sid-78AFF8F3-2651-4CE5-A87D-1DEC496DB5CA', 'name': 'Bring food', 'incoming': ['Pieper reports'], 'outgoing': ['Food collected']}
+{'id': 'sid-A1743ECF-1342-46EF-9200-DAF12BC536D8', 'name': 'Eat meal', 'incoming': ['Food collected'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-1F364BFE-B184-42D2-8BD5-D3F286821289', 'name': 'Cash', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': ['Pieper over']}
+{'id': 'sid-1102C3A5-0559-4A20-9C21-3D03C77C4908', 'name': 'Enter your order in the cash register system', 'incoming': ['Order to receive'], 'outgoing': ['IntermediateCatchEvent6']}
+{'id': 'sid-7A3EB56B-1319-4C18-9FCE-62331BA398FA', 'name': 'Pieper over', 'incoming': ['Order to receive'], 'outgoing': ['Submit your order']}
+{'id': 'sid-B620A681-5CAA-41A2-8092-4CC45219AE42', 'name': 'Submit your order', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': ['meal ready']}
+{'id': 'sid-B57D8499-CCF2-4C8A-9D0A-DD1CADCBF2FE', 'name': 'Trigger Pieper', 'incoming': ['meal ready'], 'outgoing': ['Pieper reports', 'after 5 min']}
+{'id': 'sid-4E0A3DFE-E0BF-43AD-BB3C-8D83E4EE807F', 'name': 'Visit', 'incoming': ['after 5 min'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-F4BE167B-35E2-426C-B964-6267F0D85CFB', 'name': 'Preparation of meal', 'incoming': ['StartEvent2'], 'outgoing': ['providing meal']}
+{'id': 'sid-FDB7CDD6-F933-4942-9F58-6B12DA92B3DB', 'name': 'providing meal', 'incoming': ['StartEvent2'], 'outgoing': ['Employees informed']}
+
+Gateways:
+{'id': 'sid-41C9D76F-A4A1-4D82-9842-DAFB769FD3E5', 'name': 'EventBasedGateway0', 'incoming': ['IntermediateCatchEvent6', 'IntermediateCatchEvent6'], 'outgoing': ['EndEvent1', 'EventBasedGateway0']}
+{'id': 'sid-8915BDDC-2C88-47FC-A8A4-EBDD7E9B06B8', 'name': 'On the row', 'incoming': ['Feeling hungry'], 'outgoing': ['Add your order']}
+{'id': 'sid-21595020-2F6C-47AE-926C-85C9D0185EF9', 'name': 'Amount of invoice', 'incoming': ['Feeling hungry'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-DE4969BB-813E-4DB1-BA71-0941165F8D97', 'name': 'IntermediateCatchEvent3', 'incoming': ['Feeling hungry'], 'outgoing': ['Pieper reports']}
+{'id': 'sid-940F2DB3-F04E-494F-B9B8-876F0A40CC93', 'name': 'Pieper reports', 'incoming': ['Trigger Pieper', 'Amount of invoice'], 'outgoing': ['Food collected']}
+{'id': 'sid-178543B1-DFB5-4C9E-878E-759EE1EC2EB4', 'name': 'Food collected', 'incoming': ['Amount of invoice'], 'outgoing': ['EndEvent0', 'sid-B50B2083-B763-474A-96ED-E91EB883E0FE']}
+{'id': 'sid-D450F666-1442-4F77-ABCD-7325C26E1444', 'name': 'IntermediateCatchEvent6', 'incoming': ['Order to receive'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-321DDB02-AB8E-4352-80A2-35FE536DCCCE', 'name': 'meal ready', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': ['IntermediateCatchEvent8']}
+{'id': 'sid-19321AD9-4242-4C7A-98D1-5463E416B3D4', 'name': 'IntermediateCatchEvent8', 'incoming': ['meal ready'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-7D84666B-A46D-4302-9F5E-B881C0FA3AEB', 'name': 'after 5 min', 'incoming': ['Trigger Pieper'], 'outgoing': ['EventBasedGateway0']}
+
+Start Events:
+{'id': 'sid-AE64AB21-3A1E-4660-A4CF-7AE260E5828E', 'name': 'Feeling hungry', 'incoming': [], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-3EA9962F-7E1F-4E6F-A452-C6049BFD6846', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Pieper over']}
+{'id': 'sid-CCBEBDC9-FF5F-420D-B894-19C0272DB2B8', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['providing meal']}
+
+End Events:
+{'id': 'sid-6D08A661-ABF7-4307-9CD7-C816EC0C7A05', 'name': 'EndEvent0', 'incoming': ['Amount of invoice'], 'outgoing': []}
+{'id': 'sid-0E7563D7-FC89-4628-AC17-734C45C2A8F2', 'name': 'EndEvent1', 'incoming': ['Visit'], 'outgoing': []}
+{'id': 'sid-5F9CD9FA-97C6-4A0B-A0DC-093556AF951B', 'name': 'Employees informed', 'incoming': ['providing meal'], 'outgoing': []}

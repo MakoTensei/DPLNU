@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-22BDCD70-6AAB-417F-82E1-35ABB20D1153', 'name': 'Pick up the Schufa request', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-6B4CBC33-9854-4DA3-986E-77DEAB6E6A56', 'name': 'Outputting Scoring Value to Frontend', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-234A53E9-0F27-49E4-97F4-B011A1254699', 'name': 'Send delay message to Frontend', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-48C8B4D3-DFB8-4DE4-A48E-8F321E529E9C', 'name': 'perform scoring level 1', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-22B099E8-8594-441C-A37E-CA3C36612DD5', 'name': 'perform scoring level 2', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-348B21FF-0CC7-42ED-AD4E-30F761840E09', 'name': 'Scoring Result', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-8EC36CC9-6D91-4782-9FB0-F9008E19B380', 'name': 'Send delay message to Bank', 'incoming': ['sid-2CB48A5A-86AF-4AF0-8D07-A0C4858A45CE'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-CEAE7FE2-5A0F-4B32-A288-323E3A08639C', 'name': 'ExclusiveGateway0', 'incoming': ['IntermediateCatchEvent4', 'IntermediateCatchEvent4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-BA96F780-3C79-4F97-ACD7-1C52DF4919CE', 'name': 'Scoring\navailable?', 'incoming': ['StartEvent1'], 'outgoing': ['perform scoring level 2', 'EndEvent1']}
+{'id': 'sid-47861A18-C783-41E8-B3D7-062C982CF675', 'name': 'ExclusiveGateway2', 'incoming': ['StartEvent1', 'perform scoring level 1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-44CF77CB-FD91-479D-AE4B-F845DCB7CD52', 'name': 'IntermediateCatchEvent3', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-63F326A8-1F66-4538-BC74-F78E33CB3C6B', 'name': 'IntermediateCatchEvent4', 'incoming': ['StartEvent0'], 'outgoing': ['Outputting Scoring Value to Frontend', 'ExclusiveGateway0']}
+{'id': 'sid-AB868D71-2867-415C-9DFF-349BB6E8B905', 'name': 'IntermediateCatchEvent5', 'incoming': ['Pick up the Schufa request'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-C6EC4695-513C-4E4C-A2A2-FB7303980C5F', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Outputting Scoring Value to Frontend']}
+{'id': 'sid-95AB6BB5-D37F-4C42-9599-519806F14F47', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Scoring Result']}
+
+End Events:
+{'id': 'sid-D476D7AF-95A6-4759-8A6C-396D89FFE662', 'name': 'EndEvent0', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': []}
+{'id': 'sid-FFB67C11-E606-4441-BE36-BD87D879D1B7', 'name': 'EndEvent1', 'incoming': ['Scoring\navailable?'], 'outgoing': []}

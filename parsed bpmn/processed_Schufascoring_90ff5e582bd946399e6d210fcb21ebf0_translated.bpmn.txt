@@ -1,0 +1,18 @@
+Tasks:
+{'id': 'sid-1E595060-F271-486C-A3AA-05D7D05B9760', 'name': 'Start scoring request', 'incoming': ['Schufa request'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-B17EC5E0-BD3C-4C8A-BC10-7A460EA442D0', 'name': 'Send result to Frontend', 'incoming': ['Schufa request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-355E667E-3D04-4BFA-8941-73FBA00537CD', 'name': 'Conduct Level 1', 'incoming': ['Scoring request'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-E497FEB8-33C9-4CED-99B2-6F0529B9E675', 'name': 'Conduct Level 2', 'incoming': ['Scoring request'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-7100ECC0-5092-4BEB-A2F7-5FA2EEEB6FED', 'name': 'Scoring 2?', 'incoming': ['Scoring request'], 'outgoing': ['Conduct Level 2', 'EndEvent1']}
+{'id': 'sid-1A07986D-481E-44DB-8A48-CC36F032B96D', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring request', 'Conduct Level 1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-F0E5167D-0A17-43D2-82CF-B777D0EEE453', 'name': 'IntermediateCatchEvent2', 'incoming': ['Schufa request'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-E3155E24-328A-4C69-BF7F-A2C553CC1165', 'name': 'Schufa request', 'incoming': [], 'outgoing': ['Send result to Frontend']}
+{'id': 'sid-23DD162E-4643-4642-AC2A-96BF1DD367CD', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-4DF09E77-C660-41C6-A5B6-92914D85B950', 'name': 'EndEvent0', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': []}
+{'id': 'sid-5E8B143E-0D5E-468E-A050-1F6891FD5B28', 'name': 'EndEvent1', 'incoming': ['Scoring 2?'], 'outgoing': []}

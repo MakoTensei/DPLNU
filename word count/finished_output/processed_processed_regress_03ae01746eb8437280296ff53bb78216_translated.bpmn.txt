@@ -1,0 +1,7 @@
+ In the process of handling a payment delay, the system initiates with the 'StartEvent0' which triggers the 'Send payment request to VN' task. This task is followed by the 'Regress possibleh?' task, which leads to the 'ExclusiveGateway1'. The 'ExclusiveGateway1' then directs the process to 'Examination of whether payment delay is justified', which in turn leads to 'ExclusiveGateway2'. Upon completion of the examination, the process moves to 'Close the process' task.
+
+If the payment delay is justified, the process proceeds to 'forward the process to debt collection service provider' task. This task is linked to 'VN?' which is an intermediate event. If the payment delay is not justified, the process goes to 'Default period expired' task, which then leads to 'VN?'.
+
+The 'VN?' task is an endpoint that can either lead to the 'Book money receipt' task or the 'IntermediateCatchEvent6' task. The 'IntermediateCatchEvent6' task can either lead to'sid-2C3C5856-FF42-4344-8FA2-38D821BE4C88' or 'VN?'.
+
+In summary, the process starts with 'StartEvent0', which sends a payment request to Vietnam. If the payment delay is justified, the process moves to the debt collection service provider. If not, it checks if the default period has expired. The process ends with either the 'Book money receipt' or the 'IntermediateCatchEvent6'.

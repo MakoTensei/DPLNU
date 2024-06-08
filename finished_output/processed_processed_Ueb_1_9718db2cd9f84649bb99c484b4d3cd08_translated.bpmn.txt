@@ -1,0 +1,9 @@
+ The process begins with the 'Shipping costs\nobtained' event, which triggers the 'Packaging goods' task, receiving input from 'ParallelGateway4'. This task then sends its output to 'ParallelGateway5'. Concurrently, the 'Shipping costs\nobtained' event also initiates the 'Delivering goods' task, which takes input from 'ParallelGateway5' and sends its output to 'Shipping costs\nFinished'.
+
+Meanwhile, the 'Shipping costs\nobtained' event also triggers the 'Check quantity' task, which receives input from 'ParallelGateway4' and sends its output to 'Lot?'. The 'Lot?' task, in turn, sends its output to both 'ExclusiveGateway2' and 'Specialist'.
+
+The 'Check insurance requirements' task, which receives input from 'Lot?', sends its output to 'ExclusiveGateway2'. This task is also triggered by the 'Insurance necessary?' event, which takes input from 'Lot?' and sends its output to 'ExclusiveGateway2' and 'Specialist'.
+
+The 'Specialist' task, receiving input from 'Lot?', sends its output to 'ExclusiveGateway3'. The 'ExclusiveGateway3' task, which receives input from 'Specialist' and 'Insurance necessary?', sends its output to 'ParallelGateway5'.
+
+Finally, the 'Shipping costs\nFinished' event, triggered by 'Insurance necessary?', sends its output to the end of the process.

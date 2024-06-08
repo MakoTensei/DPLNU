@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-31244F3F-E648-469B-A00B-5056A6AEBC33', 'name': 'Scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-CAC75EBE-2180-48DF-9D40-62A5080D5C8A', 'name': 'Other works', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-7F28177A-AB86-4C10-A171-4C6DD3F59A35', 'name': 'Send a reply', 'incoming': ['StartEvent1'], 'outgoing': []}
+{'id': 'sid-5C360FD3-F9CE-4EC1-9918-70DD84F0B49E', 'name': 'Send delay message', 'incoming': ['Scoring right now?'], 'outgoing': ['Create delayed scoring']}
+{'id': 'sid-14AB9DB5-09BF-4322-B49B-9644E60AABFC', 'name': 'Create delayed scoring', 'incoming': ['Scoring right now?'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-FBC90049-9193-47A6-A17D-161B3094DA7F', 'name': 'Scoring right now?', 'incoming': ['StartEvent1'], 'outgoing': ['Send a reply', 'EndEvent2']}
+{'id': 'sid-907B3B9E-3305-4EB2-A248-6AAA8FA4C23E', 'name': 'Result immediately?', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'ParallelGateway3']}
+{'id': 'sid-C0AE2609-F2A1-43CB-B9EA-D2FA520A6ACD', 'name': 'ParallelGateway2', 'incoming': ['Result immediately?'], 'outgoing': ['ParallelGateway3', 'ParallelGateway3']}
+{'id': 'sid-A61A0CA9-065F-4A01-B336-646D1B287A96', 'name': 'ParallelGateway3', 'incoming': ['Result immediately?', 'ParallelGateway2'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-2BBC3A7F-7B32-4B91-9D30-0614B751663E', 'name': 'IntermediateCatchEvent4', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-60986A0B-597E-4BE3-9B11-152845F8608A', 'name': 'IntermediateCatchEvent5', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-C3D19757-ACA1-448F-B475-6340BAF207D9', 'name': 'IntermediateCatchEvent6', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-6A5AF9B1-CEC5-47F8-8CD9-D779CFEF425E', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['IntermediateCatchEvent6']}
+{'id': 'sid-73944CA7-CD42-4B74-B2FF-B9DE7707B2CF', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Send a reply']}
+
+End Events:
+{'id': 'sid-4F9E0FD0-47FA-4AB5-B0B7-722744E93D8A', 'name': 'EndEvent0', 'incoming': ['Result immediately?'], 'outgoing': []}
+{'id': 'sid-89A284F3-C086-4E7B-AB6C-6A0920A4D080', 'name': 'EndEvent1', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': []}
+{'id': 'sid-767043E5-12C4-45E6-8A6C-CD67E6383231', 'name': 'EndEvent2', 'incoming': ['Scoring right now?'], 'outgoing': []}

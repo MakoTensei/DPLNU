@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-715300A3-F133-4AFA-B974-01B02F2911B1', 'name': 'Scoring\nQuestion\nat Schufa\nsend', 'incoming': ['Scoring request\nthe'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-E44CDE36-15A4-40BA-8490-E826E1B69B11', 'name': 'Note\nsend', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-E2DC52DA-7E26-45AC-869B-F3EDAC21293C', 'name': 'Scoring\nresult\nsend', 'incoming': ['Scoring request\nthe'], 'outgoing': ['Scoring\nresult\nsent']}
+{'id': 'sid-8EE9A2EB-04FB-4516-BE05-1FE4EEE02E41', 'name': 'Scoring\nLevel 1\nperform', 'incoming': ['Scoring\nQuestion\nlies\nbefore'], 'outgoing': ['Scoring\ncheck result 1']}
+{'id': 'sid-569CD000-1545-4563-8C67-AA2242DA8ABA', 'name': 'Scoring\ncheck result 1', 'incoming': ['Scoring\nQuestion\nlies\nbefore'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-1632FF5C-DE20-45C6-9A13-B3A0039519D4', 'name': 'Scoring\nLevel 2\nperform', 'incoming': ['Delay\nReport'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-1D2A7DD4-F4C8-43B5-A863-4975D2D49468', 'name': 'Scoring\nresult\nsupply', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Scoring result\nsupplied']}
+{'id': 'sid-F5E939A6-4FF5-44C2-8BE9-5B118AA3E1B2', 'name': 'Delay\nReport', 'incoming': ['Scoring\nQuestion\nlies\nbefore'], 'outgoing': ['Scoring result\nsupplied']}
+
+Gateways:
+{'id': 'sid-19F3850A-049F-4314-AB5D-3E50E5F829ED', 'name': 'Scoring result\nsuccessful?', 'incoming': ['Scoring\nQuestion\nlies\nbefore'], 'outgoing': ['Scoring result\nsupplied', 'ExclusiveGateway1']}
+{'id': 'sid-16515CA5-C5C2-452A-AAEA-30A901B60494', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring\ncheck result 1', 'Scoring\nQuestion\nlies\nbefore'], 'outgoing': ['Scoring result\nsupplied']}
+{'id': 'sid-3FFE6D50-9ECF-4336-B76C-56BBF7B2BBA8', 'name': 'EventBasedGateway2', 'incoming': ['Scoring request\nthe', 'IntermediateCatchEvent3'], 'outgoing': ['EventBasedGateway2', 'Scoring\nresult\nsent']}
+{'id': 'sid-BCA8D742-7C71-4610-9E57-ADA8E9E04FC3', 'name': 'IntermediateCatchEvent3', 'incoming': ['Scoring\nQuestion\nat Schufa\nsend'], 'outgoing': ['Scoring\nresult\nsent']}
+{'id': 'sid-3565B394-B7E2-4721-97FF-78B3BF0092E1', 'name': 'IntermediateCatchEvent4', 'incoming': ['Scoring request\nthe'], 'outgoing': ['Scoring\nresult\nsent']}
+
+Start Events:
+{'id': 'sid-5611FE50-28BA-4F07-9E48-50F2FD928A75', 'name': 'Scoring request\nthe', 'incoming': [], 'outgoing': ['Scoring\nresult\nsend']}
+{'id': 'sid-20A9498B-9437-4D41-B28D-BD19DE1E1FA9', 'name': 'Scoring\nQuestion\nlies\nbefore', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-8FE3686C-81EC-48FC-BCE6-01C20809043C', 'name': 'Scoring\nresult\nsent', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': []}
+{'id': 'sid-4239741F-58DB-40EE-B922-306ED767EBFC', 'name': 'Scoring result\nsupplied', 'incoming': ['Scoring result\nsuccessful?'], 'outgoing': []}

@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-76C0EAB6-EB41-4BDF-8334-935D84273290', 'name': 'Check order quantity', 'incoming': ['ParallelGateway4'], 'outgoing': ['Quantity']}
+{'id': 'sid-ABCD474D-544D-4F15-9123-5285BBB63C2D', 'name': 'Filling standard package tickets', 'incoming': ['Start'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-0456B333-780E-49A9-A46B-FDE653005D6E', 'name': 'Pick up offers', 'incoming': ['Quantity'], 'outgoing': ['Selection of freight forwarders']}
+{'id': 'sid-9CE1263A-CE37-4509-AF66-D2B808A9970A', 'name': 'Complete insurance', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-2674E503-1928-405F-BFCB-0418A50A662C', 'name': 'Goods delivered', 'incoming': ['ParallelGateway5'], 'outgoing': ['Goods shipped']}
+{'id': 'sid-8D6F9B64-4A53-4072-8B33-F27316BF6A83', 'name': 'Selection of freight forwarders', 'incoming': ['Quantity'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-AC4FD648-B1CE-4ED6-B058-E9B610BC1A25', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+
+Gateways:
+{'id': 'sid-900B9A63-27D4-4721-BB8C-E6CA9564C10A', 'name': 'Quantity', 'incoming': ['ParallelGateway4'], 'outgoing': ['Filling standard package tickets', 'ExclusiveGateway3']}
+{'id': 'sid-98116F5D-12D2-4DA1-8B6F-7A9924CB6CF5', 'name': 'Insurance necessary?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway2', 'Goods shipped']}
+{'id': 'sid-61DC5C56-7B8B-4985-AEAF-C36A20446477', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance necessary?', 'Start'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-12F4CE93-96D0-4FFF-B4AF-F310BA541F6B', 'name': 'ExclusiveGateway3', 'incoming': ['ParallelGateway4', 'Quantity'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-9149F51D-62FD-46F0-BCBF-B8D471236506', 'name': 'ParallelGateway4', 'incoming': ['Start'], 'outgoing': ['ExclusiveGateway3', 'Packaging goods']}
+{'id': 'sid-CC870696-7679-477B-B4B4-8EA6639DC158', 'name': 'ParallelGateway5', 'incoming': ['Insurance necessary?', 'Packaging goods'], 'outgoing': ['Goods shipped']}
+
+Start Events:
+{'id': 'sid-ED1B8EA5-453C-4222-8AE7-2A58A07193B6', 'name': 'Start', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-982B25E2-BCE4-4375-B782-9F1962B7AF43', 'name': 'Goods shipped', 'incoming': ['Insurance necessary?'], 'outgoing': []}

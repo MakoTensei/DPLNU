@@ -1,0 +1,37 @@
+Tasks:
+{'id': 'sid-5508EAAE-8E99-4541-A50D-D243D92F12DA', 'name': 'Search court', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Customer is on the line']}
+{'id': 'sid-0199A34C-DD77-4507-B391-3F93D837680F', 'name': 'Add your order', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Payment']}
+{'id': 'sid-66AC7D19-793E-4DB8-8718-34ED94C75DCC', 'name': 'Payment', 'incoming': ['Customer is on the line'], 'outgoing': ['On Pieper\nWait for delivery']}
+{'id': 'sid-434159CE-743D-452E-A0D3-4E2D201C6B58', 'name': 'Pick up Pieper', 'incoming': ['On Pieper\nWait for delivery'], 'outgoing': ['Pieper piept']}
+{'id': 'sid-F5C66790-6093-4ECB-9369-7729FC0C0F9B', 'name': 'Pick up food', 'incoming': ['Pieper piept'], 'outgoing': ['Eat meal']}
+{'id': 'sid-D45832B3-E612-406B-9D4B-3A0FC408F7E3', 'name': 'Eat meal', 'incoming': ['Pieper piept'], 'outgoing': ['Famine']}
+{'id': 'sid-41498DEE-55B4-4C3D-AD98-B2FFC31D6770', 'name': 'Enter your order in the cash register system', 'incoming': ['StartEvent1'], 'outgoing': ['Cash']}
+{'id': 'sid-C872D330-8A7B-4B6F-A85A-77697650FB2A', 'name': 'Cash', 'incoming': ['StartEvent1'], 'outgoing': ['Set a beep']}
+{'id': 'sid-01D58876-D26A-47C4-AB39-4A4406400CFA', 'name': 'Set a beep', 'incoming': ['StartEvent1'], 'outgoing': ['Pieper over']}
+{'id': 'sid-C89313E6-8A18-46F5-A58D-9E5B15109A1E', 'name': 'Pieper over', 'incoming': ['StartEvent1'], 'outgoing': ['Koch inform']}
+{'id': 'sid-453D89A5-0FA9-4274-A5F5-1ED7980C18D1', 'name': 'Koch inform', 'incoming': ['StartEvent1'], 'outgoing': ['Milling time is in the reach']}
+{'id': 'sid-BE3FC548-B8D8-4BD6-AC5F-00E346C2B4CC', 'name': 'Trigger beeps', 'incoming': ['StartEvent1'], 'outgoing': ['5min']}
+{'id': 'sid-E33D1E0D-4116-4015-8719-CD726742CC05', 'name': 'Hand over meal', 'incoming': ['Guest appears'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-3DC69540-8CCF-4240-B8D5-8ECE4C903D56', 'name': 'Retrieve guest', 'incoming': ['StartEvent1'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-66886895-9B7D-45FC-AD2E-AB1CFACE1DBC', 'name': 'Preparation of meal', 'incoming': ['StartEvent2'], 'outgoing': ['Introducing the Intermediate']}
+{'id': 'sid-57E90C4D-E352-4AD8-B262-A3A5B4EAAFEF', 'name': 'Introducing the Intermediate', 'incoming': ['StartEvent2'], 'outgoing': ['inform employees\n']}
+{'id': 'sid-A91E5493-BD3A-4B55-89A9-61DF78430EC3', 'name': 'inform employees\n', 'incoming': ['StartEvent2'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-1503EBEF-14A8-471C-A87D-3E85AFEBE5C4', 'name': 'EventBasedGateway0', 'incoming': ['Milling time is in the reach', 'EventBasedGateway0'], 'outgoing': ['EndEvent1', 'EventBasedGateway0']}
+{'id': 'sid-F3D1D036-8C07-4132-8A5B-58A390D9DABC', 'name': 'Customer is on the line', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Famine']}
+{'id': 'sid-E5395008-FF7A-41E3-8345-3E485DA85788', 'name': 'On Pieper\nWait for delivery', 'incoming': ['Customer is on the line'], 'outgoing': ['Pieper piept']}
+{'id': 'sid-5E92E953-B454-4D6B-8569-0C13A1163AD2', 'name': 'Pieper piept', 'incoming': ['Customer is on the line'], 'outgoing': ['Famine']}
+{'id': 'sid-274927BA-2FE8-46A2-834C-A436455B0221', 'name': 'Milling time is in the reach', 'incoming': ['StartEvent1'], 'outgoing': ['Guest appears']}
+{'id': 'sid-A37D07E3-1CAF-49D9-B580-40CAFA496BBA', 'name': 'Guest appears', 'incoming': ['Milling time is in the reach'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-CFA91CD8-8A0E-4C40-8C99-3178BA486D26', 'name': '5min', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-1B5C34DA-5F43-4BC1-AABD-7ECBD1E06E8E', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Retrieve guest']}
+{'id': 'sid-EFE19149-7AC7-42A3-85A4-7C653B1EE774', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['inform employees\n']}
+
+End Events:
+{'id': 'sid-B5245251-2FE0-499E-8890-82868F857C7A', 'name': 'Famine', 'incoming': ['Customer is on the line'], 'outgoing': []}
+{'id': 'sid-8BE7F869-D7BD-46C2-95AE-576D4873DB74', 'name': 'EndEvent1', 'incoming': ['5min'], 'outgoing': []}
+{'id': 'sid-E888FA66-E036-4E2B-B176-0A59E459E8CA', 'name': 'EndEvent2', 'incoming': ['inform employees\n'], 'outgoing': []}

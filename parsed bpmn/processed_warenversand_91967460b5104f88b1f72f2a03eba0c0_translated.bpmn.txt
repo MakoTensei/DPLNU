@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-7DB8FCED-726B-4065-9F6F-3DB7C84D4EDE', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['sid-734E01DE-A04C-44D1-9E2C-89B9AB8216BD']}
+{'id': 'sid-593E7098-D570-43C1-B0C5-EBD714A297EE', 'name': 'Delivering goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['Preparation\nShipment\ncompleted']}
+{'id': 'sid-0064DD2A-6541-423C-A5A8-C2F0E7B4A954', 'name': 'Preparing a parcel note (post shipment)', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-8551D6C8-F43F-491F-B593-4BB503E5B4B8', 'name': 'Three freight forwarders\noffer', 'incoming': ['Shipping\nPreparing'], 'outgoing': ['Select your offer']}
+{'id': 'sid-890EDD4B-F991-46B8-990B-1AD09769F627', 'name': 'Specialist', 'incoming': ['Select your offer'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-090042E4-FB8B-44C5-9F30-B62627FF1B59', 'name': 'Select your offer', 'incoming': ['A lot?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-2E030A07-3064-49A7-A3AE-D3FCA56CC947', 'name': 'Complete insurance', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-EEC49747-B633-44F6-9018-986377BA578F', 'name': 'A lot?', 'incoming': ['Shipping\nPreparing'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-6B63ADFF-4A2D-459E-9E87-39A50BB4B240', 'name': 'Insurance\nnecessary?', 'incoming': ['ParallelGateway4'], 'outgoing': ['Complete insurance', 'ExclusiveGateway3']}
+{'id': 'sid-AC399CBE-28FD-441B-8807-2910D882A1BE', 'name': 'ExclusiveGateway2', 'incoming': ['Complete insurance', 'A lot?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-14BFBE2C-7CE0-4C4E-A125-92F3A0A905AF', 'name': 'ExclusiveGateway3', 'incoming': ['ParallelGateway4', 'A lot?'], 'outgoing': ['sid-2D5C1A73-2A0F-4A67-929E-80EDBF037AE6']}
+{'id': 'sid-6CA7CC4C-CFC9-42A8-8D47-AF840A9A6EBC', 'name': 'ParallelGateway4', 'incoming': ['Shipping\nPreparing'], 'outgoing': ['Packaging goods', 'ExclusiveGateway3']}
+{'id': 'sid-AB53A9CE-5CCF-4C8F-B9D9-D19198E90A72', 'name': 'ParallelGateway5', 'incoming': ['sid-DDCCFE10-D802-4598-A20F-5B6775438B14', 'sid-766178D7-1404-4279-8268-967BBEE104EB'], 'outgoing': ['Preparation\nShipment\ncompleted']}
+
+Start Events:
+{'id': 'sid-1233B81C-448F-4B0E-A386-E9E332426D00', 'name': 'Shipping\nPreparing', 'incoming': [], 'outgoing': ['Three freight forwarders\noffer']}
+
+End Events:
+{'id': 'sid-CDDFA5AC-159A-4BA0-B1EA-B02A8E974AAB', 'name': 'Preparation\nShipment\ncompleted', 'incoming': ['ParallelGateway5'], 'outgoing': []}

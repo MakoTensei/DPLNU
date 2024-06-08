@@ -1,0 +1,31 @@
+Tasks:
+{'id': 'sid-26F3D4B7-6078-4215-ACAF-DB14C9AE2B04', 'name': 'Scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-04D4219D-34AD-433C-AF4A-890D22CBB4CC', 'name': 'Report delay', 'incoming': ['StartEvent0'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-3003F498-ED25-4683-AB02-CCC6F720B8C3', 'name': 'Info on Frontend', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-0BF1331D-77EF-4547-A75B-9427DA7284AD', 'name': 'Test level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Ergebnixs?']}
+{'id': 'sid-1B38EC48-6B8E-48C7-8FFC-520C9E612BD2', 'name': 'BANK inform', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-C15F6E28-B296-4E51-9195-CF85AE86F2AD', 'name': 'Bank info delay', 'incoming': ['Ergebnixs?'], 'outgoing': ['Test level 2']}
+{'id': 'sid-D159622D-A42F-4FEC-95D2-E3F62F914FC9', 'name': 'Test level 2', 'incoming': ['Ergebnixs?'], 'outgoing': ['Result']}
+{'id': 'sid-63D8C458-AF94-443E-AD82-3CAAC25FBF4E', 'name': 'Result', 'incoming': ['Ergebnixs?'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-AAE34A8B-8745-43B4-8BB9-4EEF49738589', 'name': 'Start request for credit award', 'incoming': ['StartEvent2'], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-A579BF32-4B2D-44CB-87D8-A81366D4764E', 'name': 'Customer information', 'incoming': ['StartEvent2'], 'outgoing': ['EndEvent4']}
+
+Gateways:
+{'id': 'sid-D106ADF6-890F-4E08-A6D6-F6A8C0979BE2', 'name': 'Declaration of consent?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'Test level 1']}
+{'id': 'sid-D2369402-863A-42B3-9A02-1A926A48E15F', 'name': 'Ergebnixs?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2', 'EndEvent3']}
+{'id': 'sid-D4C3DF9F-D8CD-4D6E-930B-64E4DACEB615', 'name': 'EventBasedGateway2', 'incoming': ['IntermediateCatchEvent4', 'StartEvent0'], 'outgoing': ['EndEvent0', 'EndEvent0']}
+{'id': 'sid-B3FC052F-B8E8-4804-8B6F-DC9C336128E3', 'name': 'IntermediateCatchEvent3', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F3FB5F06-CB20-47B2-BDEA-F80E804BBA8D', 'name': 'IntermediateCatchEvent4', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-7EDE59C2-498E-4DE5-B923-6EDC29499BC7', 'name': 'IntermediateCatchEvent5', 'incoming': ['StartEvent2'], 'outgoing': ['EndEvent4']}
+
+Start Events:
+{'id': 'sid-2167B684-CEEE-42A8-A9C2-23EEC187ECAF', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Report delay']}
+{'id': 'sid-FDD4FF10-F3ED-429A-BF1E-AF9F4C72EF49', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['BANK inform']}
+{'id': 'sid-A2010089-8EDB-444F-8947-2CA9173D7292', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['Customer information']}
+
+End Events:
+{'id': 'sid-1AFD38D8-D6E4-44A0-BBA8-C6B095E8B3FD', 'name': 'EndEvent0', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': []}
+{'id': 'sid-6800B108-21A5-42EE-920A-1EAC262C44A0', 'name': 'EndEvent1', 'incoming': ['Declaration of consent?'], 'outgoing': []}
+{'id': 'sid-0D9D4C60-AFBC-4BBD-ABC7-951D60A029DE', 'name': 'EndEvent2', 'incoming': ['Ergebnixs?'], 'outgoing': []}
+{'id': 'sid-57AA6CF2-E520-47F3-B8A0-FC1C7ED5193F', 'name': 'EndEvent3', 'incoming': ['Ergebnixs?'], 'outgoing': []}
+{'id': 'sid-3CC24BE5-A03F-4E9C-B0F8-A4CBBCC2C23A', 'name': 'EndEvent4', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': []}

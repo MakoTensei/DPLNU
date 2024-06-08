@@ -1,0 +1,9 @@
+ When goods are sent, the process begins with the 'Goods be sent' start event, which triggers the '3 Spediteurs offers' end event. This process involves several tasks and gateways. First, the 'Complete insurance' task is initiated, which checks if insurance is necessary by asking the 'Insurance necessary?' start event. If insurance is required, the 'Insurance necessary?' start event connects to the 'ExclusiveGateway2' and 'ParallelGateway3'.
+
+Next, the '3 Spediteurs offers' task comes into play, which requires selecting a forwarder from the offers. This task connects to the'select a forwarder from the offers' start event, which in turn connects to the 'ExclusiveGateway2' and 'ParallelGateway3'.
+
+Once a forwarder is selected, the 'Filling the package note' task is initiated, which asks for the quantity of goods to be sent. This task connects to the 'What quantity?' start event, which connects to the 'ExclusiveGateway2' and 'ParallelGateway3'.
+
+After the package note is filled, the 'Packaging goods' task is triggered, which connects to the 'Filling the package note' start event and also connects to the 'ExclusiveGateway2' and 'ParallelGateway3'.
+
+Finally, the 'Provide goods for collection' task is initiated, which connects to the 'ParallelGateway3' and ends with the 'EndEvent0'. This process ensures that the goods are sent, insured, and collected efficiently.

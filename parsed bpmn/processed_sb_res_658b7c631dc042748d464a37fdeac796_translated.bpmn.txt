@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-E2ED3E16-FE5D-47CF-9387-4F72698BDAC8', 'name': 'Select offers', 'incoming': ['Hunger\n'], 'outgoing': ['Add to Cart']}
+{'id': 'sid-9FB346FF-22A4-48E3-8137-EB873B2584A3', 'name': 'Add to Cart', 'incoming': ['Hunger\n'], 'outgoing': ['Court of Justice']}
+{'id': 'sid-0A9B44F5-4184-4E21-99BF-D0CE9AF6386C', 'name': 'Court of Justice', 'incoming': ['Hunger\n'], 'outgoing': ['Food ready for pickup']}
+{'id': 'sid-E7409C1B-6886-4F37-8569-CFBE8AF9B857', 'name': 'Eat food', 'incoming': ['Get food'], 'outgoing': ['Famine']}
+{'id': 'sid-DCF1EB7C-3265-4F78-8827-799F3C29473D', 'name': 'eat', 'incoming': ['Food ready for pickup'], 'outgoing': ['Famine']}
+{'id': 'sid-3688103D-BD2D-475B-A6C3-66358A55AD86', 'name': 'Cash', 'incoming': ['Enter your order'], 'outgoing': ['Pieper over']}
+{'id': 'sid-132B04F8-C6F0-442B-9C2D-A7384DA85790', 'name': 'Pieper over', 'incoming': ['Enter your order'], 'outgoing': ['Informed Cook']}
+{'id': 'sid-000A450C-2756-459F-8C3B-2B6357F517B2', 'name': 'Informed Cook', 'incoming': ['Enter your order'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-815D76A4-4DFD-4AAB-B4F4-FA7F9061FFCE', 'name': 'Enter your order', 'incoming': ['Order to receive'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-FE39CF68-55B0-488C-B4AD-513BADA328E8', 'name': 'prepare food', 'incoming': ['Order intake'], 'outgoing': ['puts food in abundance']}
+{'id': 'sid-A9F0B426-25D7-4A3E-A830-2F09E6F488F4', 'name': 'puts food in abundance', 'incoming': ['Order intake'], 'outgoing': ['Informs employees']}
+{'id': 'sid-925231D1-337E-440F-B9FA-02DCFCDE7E30', 'name': 'Informs employees', 'incoming': ['Order intake'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-02895099-EAD7-4814-A7D5-F64219D2B773', 'name': 'Solves Pieper', 'incoming': ['StartEvent3'], 'outgoing': ['5 minutes']}
+{'id': 'sid-5AE2775E-EB02-4E81-9E49-9F353FA79798', 'name': 'Retrieve guest', 'incoming': ['5 minutes'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-31D7C596-CC43-4D6D-B9B1-3733EDAEB482', 'name': 'Deliver food', 'incoming': ['StartEvent3'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-C20702B8-77CA-4F67-9771-A6799B9A48C3', 'name': 'EventBasedGateway0', 'incoming': ['StartEvent3', '5 minutes'], 'outgoing': ['Customer', 'EventBasedGateway0']}
+{'id': 'sid-C519DF86-AC87-4698-9516-E6537B760878', 'name': 'Get Pieper', 'incoming': ['Hunger\n'], 'outgoing': ['Get food']}
+{'id': 'sid-7FF0F7F1-DCCD-4C6D-8500-C03CF84CEE18', 'name': 'Get food', 'incoming': ['Hunger\n'], 'outgoing': ['Famine']}
+{'id': 'sid-1653817D-5AFF-4D3A-B206-BA376A716ADF', 'name': 'Food ready for pickup', 'incoming': ['Court of Justice'], 'outgoing': ['Get food']}
+{'id': 'sid-EDCCD987-82C0-43CA-8198-133CFE8C9126', 'name': '5 minutes', 'incoming': ['Solves Pieper'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-E37FD331-F965-43A1-B455-48B9A2C488B9', 'name': 'Customer', 'incoming': ['StartEvent3'], 'outgoing': ['EndEvent3']}
+
+Start Events:
+{'id': 'sid-9C3FE8BC-BE69-4B35-8837-EE9C9DDC08B3', 'name': 'Hunger\n', 'incoming': [], 'outgoing': ['Get food']}
+{'id': 'sid-6F11CBDB-8CAC-441D-A27E-D8493370DF58', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Enter your order']}
+{'id': 'sid-C93810D2-F29D-4BBD-BE79-B8398BFDAFB5', 'name': 'Order intake', 'incoming': [], 'outgoing': ['Informs employees']}
+{'id': 'sid-D1D69D11-20C2-4A69-B4F1-7780015C176A', 'name': 'StartEvent3', 'incoming': [], 'outgoing': ['Deliver food']}
+
+End Events:
+{'id': 'sid-59082306-F3A9-4998-82D2-1C51F94DCF0E', 'name': 'Famine', 'incoming': ['eat'], 'outgoing': []}
+{'id': 'sid-AD477DAD-34E4-4C1D-BE21-9BE9DD1CE5FF', 'name': 'EndEvent1', 'incoming': ['Enter your order'], 'outgoing': []}
+{'id': 'sid-405903A2-1DA3-4937-81EA-6EA7BF10F004', 'name': 'EndEvent2', 'incoming': ['Informs employees'], 'outgoing': []}
+{'id': 'sid-C2A482DC-019C-4505-8A0C-B3595B45FDFB', 'name': 'EndEvent3', 'incoming': ['Customer'], 'outgoing': []}

@@ -1,0 +1,9 @@
+ In the process of scoring and result submission, the system initiates with the 'Schufascoring necessary' event, which triggers 'Result Scoring 1' and 'Request scoring order'. The 'Request scoring order' event then leads to a 'Delay notification' that connects to 'ExclusiveGateway0', where the decision is made to either 'Conduct scoring (level 1)' or 'Send result scoring 1'. If 'Conduct scoring (level 1)' is chosen, it results in 'Delay?' which further connects to 'ExclusiveGateway0' for result display or 'Send result scoring 1'.
+
+Meanwhile, 'Result Scoring 1' also connects to 'ExclusiveGateway0' for result display. The 'Delay notification' event also connects to 'ExclusiveGateway0' for result display.
+
+The 'StartEvent1' event triggers 'Conduct scoring (level 1)' and 'Delay?' events, which connect to 'ExclusiveGateway0' for result display or 'Send result scoring 1'.
+
+The 'Result Scoring 2' event connects to 'ExclusiveGateway0' for result display and 'Follow-up'. The 'perform other tasks in the meantime' event also connects to 'ExclusiveGateway0' for result display.
+
+Finally, the 'Result displayed' event is the endpoint, receiving connections from 'Result Scoring 2' and 'perform other tasks in the meantime'.

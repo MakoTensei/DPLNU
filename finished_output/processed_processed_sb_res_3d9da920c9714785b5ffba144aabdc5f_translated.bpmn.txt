@@ -1,0 +1,11 @@
+ Let's describe the flow of events in a more natural and understandable way:
+
+1. A user feels hungry, triggering the event 'Hunger felt' (ID: sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3). This event leads to the 'Pieper signal' (ID: sid-A05F1DA8-ADB6-4974-87E6-E97F207E58A6), indicating that the user wants to order food.
+
+2. The user places an order, which is received by the system (ID: sid-4209A564-3E40-44A2-97E7-71DD9F4142A9). The system then sends the order to the 'EventBasedGateway0' (ID: sid-D8D9A3F1-5DAC-4C05-8478-172DE193AEC2) for processing.
+
+3. The 'EventBasedGateway0' waits for the 'Pieper signal' (ID: sid-A05F1DA8-ADB6-4974-87E6-E97F207E58A6) to be received, which happens after 5 minutes (ID: sid-0A664402-781D-4FAD-BDF4-7F380817900D). Once the signal is received, the gateway processes the order and sends the 'Guest brings food' event (ID: sid-2AFFCBEB-92D3-483A-AEBC-EB58BB4C1E84) to the user.
+
+4. The user receives the food, completing the order (ID: sid-003BA711-A4AD-4483-9DFA-C5C50B3B6E76).
+
+5. Meanwhile, the system also prepares the meal based on the 'Cooking

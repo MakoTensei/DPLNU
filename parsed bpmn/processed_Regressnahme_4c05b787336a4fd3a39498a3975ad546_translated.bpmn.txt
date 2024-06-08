@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-508217F5-7D93-4D80-BD83-745B2431E8EA', 'name': 'Case', 'incoming': ['Regress request'], 'outgoing': ['Regress?']}
+{'id': 'sid-FA345BAF-3B4C-465B-878A-3B27DAB161D8', 'name': 'Send payment request', 'incoming': ['Regress request'], 'outgoing': ['Opposition']}
+{'id': 'sid-F72AE05B-BB4B-40DB-9AC7-C2E61137B264', 'name': 'Book', 'incoming': ['Get money'], 'outgoing': ['Close the case']}
+{'id': 'sid-ECB5C07A-E993-47AF-BDBB-B3DE70D39546', 'name': 'Close the case', 'incoming': ['Get money'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-F4F3591C-D7AB-456C-8B8D-295E6D4DBDC3', 'name': 'Testing', 'incoming': ['Regress request'], 'outgoing': ['Manufactured']}
+{'id': 'sid-47AC7EC4-DFF4-425F-B3B0-DA03DCC12E29', 'name': 'Close the case', 'incoming': ['Regress request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-1A4B86C8-8E2B-48A8-9E52-A7875B6F6470', 'name': 'Turn on debt collection office', 'incoming': ['Manufactured'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-96A1AA71-8002-4110-9A8E-0F06738E67BA', 'name': 'Close the case', 'incoming': ['Regress?'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-4A75B69D-864D-40C1-868B-40D6A1F12B6C', 'name': 'On reproach', 'incoming': ['Opposition'], 'outgoing': ['10 days']}
+
+Gateways:
+{'id': 'sid-E3BF3B35-9590-40FC-BD8E-26AF94C102E4', 'name': 'Regress?', 'incoming': ['Regress request'], 'outgoing': ['Send payment request', 'EndEvent3']}
+{'id': 'sid-165C00FA-D4A1-4518-8D13-DAA5E1FBBB58', 'name': 'Opposition', 'incoming': ['Regress request'], 'outgoing': ['Testing', 'On reproach']}
+{'id': 'sid-49B06AD3-C23B-41E2-B2A7-A8E1AAF6B547', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Manufactured'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-252250FB-05CB-4AED-A189-91723B0B3D83', 'name': 'Manufactured', 'incoming': ['Regress request'], 'outgoing': ['Turn on debt collection office', 'EndEvent0']}
+{'id': 'sid-EC455B7E-BF51-4E4C-B194-8FC6E145E96E', 'name': 'EventBasedGateway4', 'incoming': ['On reproach'], 'outgoing': ['EndEvent1', 'EndEvent2']}
+{'id': 'sid-CC791F64-FB38-4735-B5F2-80B5988F2BF0', 'name': '10 days', 'incoming': ['On reproach'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-6FC28C42-C536-4B2D-AAE1-A85CE52B2E6B', 'name': 'Get money', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent2']}
+
+Start Events:
+{'id': 'sid-F186DB3B-C2F2-4F7B-B11D-5204D8593494', 'name': 'Regress request', 'incoming': [], 'outgoing': ['Close the case']}
+
+End Events:
+{'id': 'sid-6DC376E4-FA5C-457D-8834-A84E332A4818', 'name': 'EndEvent0', 'incoming': ['Manufactured'], 'outgoing': []}
+{'id': 'sid-55A6E64D-AE80-4E8E-B807-1BC4A51FEAFD', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-7D886964-3E67-42D8-B128-5673C4CBBDC5', 'name': 'EndEvent2', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-88A5603E-3CB7-407F-BB1E-0D433397B7C5', 'name': 'EndEvent3', 'incoming': ['Regress?'], 'outgoing': []}

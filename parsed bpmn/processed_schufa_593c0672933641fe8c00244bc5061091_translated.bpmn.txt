@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-8079C2AB-CF96-4BA1-B284-07A93F89DD80', 'name': 'Scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring']}
+{'id': 'sid-E0A0624D-3AB0-4340-9BDD-72C33EEE50A2', 'name': 'Score forward', 'incoming': ['StartEvent0'], 'outgoing': []}
+{'id': 'sid-04ABC715-1D48-4FF0-B55C-461672EA2994', 'name': 'perform scoring (Lv1)', 'incoming': ['Request request'], 'outgoing': ['Normal verb.?']}
+{'id': 'sid-82CBE8D2-2037-4856-ACF6-9AEA3DF830FC', 'name': 'Scoring (Lv 2)', 'incoming': ['Request request'], 'outgoing': ['ParallelGateway1']}
+{'id': 'sid-0EBB9AD2-45BF-49E5-8009-49869072E750', 'name': 'perform scoring (Lv 2)', 'incoming': ['Request request'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-AD26A3E3-1E5F-46FB-897C-5F072351F1E8', 'name': 'Report delay', 'incoming': ['ParallelGateway1'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-61DA0462-5168-4322-A452-AE6578C3E4CC', 'name': 'Submitting results', 'incoming': ['Normal verb.?', 'Request request'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-E243CC4F-E8D3-4999-A5F4-90B3E6DDB552', 'name': 'Normal verb.?', 'incoming': ['Request request'], 'outgoing': ['Submitting results', 'Scoring (Lv 2)']}
+{'id': 'sid-43D51CED-FBC8-4367-B51A-B9B963D4C062', 'name': 'ParallelGateway1', 'incoming': ['Request request'], 'outgoing': ['perform scoring (Lv 2)', 'ParallelGateway2']}
+{'id': 'sid-670D4FF5-D2E6-4F39-93BF-BCDB7C287F8D', 'name': 'ParallelGateway2', 'incoming': ['Request request', 'ParallelGateway1'], 'outgoing': ['Submitting results']}
+{'id': 'sid-621114DF-867F-430C-9BB8-9DC74E48B87C', 'name': 'Scoring', 'incoming': ['StartEvent0'], 'outgoing': ['Score forward']}
+
+Start Events:
+{'id': 'sid-20A78059-1F44-42FA-97CC-41D19DDF4A08', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Score forward']}
+{'id': 'sid-03DAEB13-0B86-4490-9835-949C92273BFF', 'name': 'Request request', 'incoming': [], 'outgoing': ['Submitting results']}
+
+End Events:

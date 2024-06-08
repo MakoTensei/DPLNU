@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-56E0B605-1437-4DF6-B225-BBF854ACAA4B', 'name': 'Case\nCheck', 'incoming': ['Report\nRegression Case'], 'outgoing': ['Regression\npossible?']}
+{'id': 'sid-1AF37EBE-8A50-468B-A530-09C4AC1CE057', 'name': 'Sending payment request', 'incoming': ['Report\nRegression Case'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-F0CEBB90-9775-46F2-B4FC-2860087379DB', 'name': 'Money\nbook', 'incoming': ['Money\nwhat?'], 'outgoing': ['Process\nclose']}
+{'id': 'sid-52ED66A5-4866-4CB5-8D10-5650137F8219', 'name': 'Opposition\nCheck', 'incoming': ['Reimbursement'], 'outgoing': ['Process\nclose']}
+{'id': 'sid-9657BC64-2FED-43D6-B63A-390320ACCF49', 'name': 'Collection\nforward', 'incoming': ['Reimbursement', 'Opposition\navailable?'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-155E263F-A661-4DBF-B5F6-88E58347222C', 'name': 'Regression\npossible?', 'incoming': ['Report\nRegression Case'], 'outgoing': ['Sending payment request', 'Process\nclose']}
+{'id': 'sid-AF586E34-48EB-409A-88C9-6D9D0570549F', 'name': 'Money\nwhat?', 'incoming': ['Report\nRegression Case'], 'outgoing': ['Process\nclose', 'Process\nclose']}
+{'id': 'sid-63B222DE-555B-4A60-AB1B-9199FB566AFE', 'name': 'Opposition\navailable?', 'incoming': ['Reimbursement'], 'outgoing': ['Process\nclose', 'Collection\nforward']}
+{'id': 'sid-52591AF3-E62A-4F08-AD1A-8E08297F0937', 'name': 'Payment\nrefusal\njustified?', 'incoming': ['Reimbursement'], 'outgoing': ['Process\nclose', 'Collection\nforward']}
+{'id': 'sid-93854059-0701-4F14-8F86-DDCCADC6ECE0', 'name': 'Reimbursement', 'incoming': ['Report\nRegression Case'], 'outgoing': ['Collection\nforward']}
+
+Start Events:
+{'id': 'sid-758FA1E7-508E-411D-98EB-821CEC03EF16', 'name': 'Report\nRegression Case', 'incoming': [], 'outgoing': ['Money\nwhat?']}
+
+End Events:
+{'id': 'sid-8BF55463-04EA-4CC9-8CF3-8335262621A9', 'name': 'Process\nclose', 'incoming': ['Regression\npossible?'], 'outgoing': []}
+{'id': 'sid-4CECC4E7-4882-49E3-B8E7-9562CCB1A2A6', 'name': 'Process\nclose', 'incoming': ['Money\nwhat?'], 'outgoing': []}
+{'id': 'sid-BDFF6AB0-8AB9-411D-B079-DCCDD2C95759', 'name': 'Process\nclose', 'incoming': ['Money\nwhat?'], 'outgoing': []}

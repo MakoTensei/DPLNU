@@ -1,0 +1,7 @@
+ The process begins with the event 'Goods are to be shipped', which triggers the 'Check quantity' task. This task, in turn, initiates the 'Size of quantity' gateway, which connects to 'Pick up offers for freight forwarders' and 'ExclusiveGateway3'.
+
+Next, the 'Check insurance requirements' task is triggered by the 'Insurance necessary?' gateway, which connects to 'ExclusiveGateway3' and 'ParallelGateway5'. This task leads to the 'Order Cheapest Spediteur' task, which then connects to 'ExclusiveGateway3'.
+
+The 'Complete insurance' task, triggered by the 'ParallelGateway4', connects to 'Goods delivered'. This task is followed by the 'Packaging goods' task, which connects to 'Delivering goods' and 'ParallelGateway5'.
+
+Finally, the 'Delivering goods' task connects to 'ParallelGateway5', which leads to the 'Goods delivered' event, marking the end of the process.

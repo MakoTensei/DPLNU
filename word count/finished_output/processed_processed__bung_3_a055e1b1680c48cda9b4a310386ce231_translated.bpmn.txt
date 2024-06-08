@@ -1,0 +1,7 @@
+ When a "Regression possibility reported" event occurs, it triggers a series of tasks and gateways to address the issue. First, a "Send a message" task is initiated to communicate the possibility of regression. This message is directed towards the "Question Regression" gateway, which has two outgoing paths: "Reimburse payment request" and "Final event."
+
+If the "Question Regression" gateway leads to the "Reimburse payment request" path, a "Reimburse payment request" task is triggered, which eventually results in a "Book payment receipt" task. This task is connected to the "Incoming payment" event, and upon completion, the case is closed with a payment receipt.
+
+Alternatively, if the "Question Regression" gateway leads to the "Final event" path, a "Final event" task is initiated. This task is connected to the "Case closed with disclosure" event, which is triggered by the "Disclosure of debt collection department" task. The "Disclosure of debt collection department" task is initiated when the "EventBasedGateway3" receives an "Incoming payment" event.
+
+In summary, when a "Regression possibility reported" event occurs, it sets off a chain of tasks and gateways that address the issue, either by reimbursing the payment or closing the case with a disclosure.

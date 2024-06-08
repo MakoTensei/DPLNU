@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-020C5900-D217-415A-A033-FAABFFD2254B', 'name': 'Scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-F898F505-ADA9-467D-8481-3FF14DA7C8C6', 'name': 'Check the feedback', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-0618268A-FA75-4A9D-8496-A055A33225DA', 'name': 'Scoring result back', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Scoring done']}
+{'id': 'sid-88E46474-FCA0-4A5B-9B26-C4D9F3269915', 'name': 'perform first scoring', 'incoming': ['StartEvent1'], 'outgoing': ['Check if there is a delay']}
+{'id': 'sid-104DEED7-C00F-4FCF-B8EF-F9A239CA129C', 'name': 'Check if there is a delay', 'incoming': ['StartEvent1'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-5DBBBA93-1571-44D8-8DC4-768488F68690', 'name': 'Report the first scoring result', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring performed']}
+{'id': 'sid-489800CE-8DAD-4D22-A064-C813CF7C9B79', 'name': 'Report delay', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-4C57BB47-C228-413E-8E38-9BC866B8C043', 'name': 'perform scoring level 2', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-EA0045F8-7980-43C9-AC8B-F693BDCD3942', 'name': 'second scoring back', 'incoming': ['ParallelGateway3'], 'outgoing': ['Scoring performed']}
+
+Gateways:
+{'id': 'sid-682A84A2-0330-4778-A2F7-10FE27236C68', 'name': 'ExclusiveGateway0', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Scoring done', 'sid-00143954-86BB-465A-931A-A1F15FAD9168']}
+{'id': 'sid-3B10D6AB-33D6-46F4-90A7-ED72673F4DAC', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring performed', 'ParallelGateway3']}
+{'id': 'sid-DC87712B-EF8D-4CBA-9459-C7F0B4BBF2EE', 'name': 'ParallelGateway2', 'incoming': ['Check if there is a delay'], 'outgoing': ['ParallelGateway3', 'ParallelGateway3']}
+{'id': 'sid-1CF49845-7D58-4B5B-894A-9F6F0AB4D42D', 'name': 'ParallelGateway3', 'incoming': ['ExclusiveGateway1', 'ParallelGateway2'], 'outgoing': ['Scoring performed']}
+{'id': 'sid-7B87022D-A6BF-4F29-B86C-64D72F15B85F', 'name': 'IntermediateCatchEvent4', 'incoming': ['StartEvent0', 'sid-D531097F-D0AE-4D75-A552-3F5DE1CAB205'], 'outgoing': ['Scoring result back']}
+
+Start Events:
+{'id': 'sid-2C057F8F-DBFB-40CF-BCD2-C8756F8F6283', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Check the feedback']}
+{'id': 'sid-8D53580F-D66A-4682-8B84-2F205579A36A', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Report the first scoring result']}
+
+End Events:
+{'id': 'sid-E48D9072-3243-4F71-B989-893810456751', 'name': 'Scoring done', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-5B00653A-6696-442C-B1A9-2E0898232ADD', 'name': 'Scoring performed', 'incoming': ['ExclusiveGateway1', 'ParallelGateway3'], 'outgoing': []}

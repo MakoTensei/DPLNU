@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-71D7C63D-FE60-4D35-84A7-1444632500E8', 'name': 'Select a court', 'incoming': ['Restaurant\nentering'], 'outgoing': ['Guest is\nin the row']}
+{'id': 'sid-DC0865C7-1EC1-4EC6-82AC-79EF9517815B', 'name': 'Add your order', 'incoming': ['Restaurant\nentering'], 'outgoing': ['Court of Justice']}
+{'id': 'sid-9FB9A9B0-9697-4092-9A05-CADFA6893582', 'name': 'Court of Justice', 'incoming': ['Guest is\nin the row'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-975DC14E-92A9-4143-8702-44353093D99E', 'name': 'Pick up Pieper', 'incoming': ['Guest is\nin the row'], 'outgoing': []}
+{'id': 'sid-D2075BED-48A7-49A7-8A2B-BE7307E09D70', 'name': 'Enter your order', 'incoming': ['StartEvent1'], 'outgoing': ['Money\ncassing']}
+{'id': 'sid-7FB7B15D-CBCE-45D9-8B58-43C251300A3A', 'name': 'Money\ncassing', 'incoming': ['StartEvent1'], 'outgoing': ['Adjust and transfer Pieper']}
+{'id': 'sid-0C828812-14E4-480C-BC5D-CAD463EACCFA', 'name': 'Adjust and transfer Pieper', 'incoming': ['StartEvent1'], 'outgoing': ['inform Koch about ordered meal']}
+{'id': 'sid-122FA638-7D30-4B85-8355-0E67FFD59A87', 'name': 'inform Koch about ordered meal', 'incoming': ['StartEvent1'], 'outgoing': ['Food\nfinished']}
+{'id': 'sid-C0ADE270-748D-49BB-B2BF-12B708F4AEAD', 'name': 'Trigger Pieper', 'incoming': ['StartEvent1'], 'outgoing': []}
+{'id': 'sid-3C6411A9-C726-48C1-A078-8325238DEF73', 'name': 'Preparation of meal', 'incoming': ['Order\nReport'], 'outgoing': ['Putting meal in vain']}
+{'id': 'sid-F18016F0-45AD-48B9-A010-513BFF3E36B9', 'name': 'Putting meal in vain', 'incoming': ['Order\nReport'], 'outgoing': ['Info\nEmployees\ngiven']}
+
+Gateways:
+{'id': 'sid-6FAD0D9D-07E2-4E02-918E-D793FE34F9FB', 'name': 'Guest is\nin the row', 'incoming': ['Restaurant\nentering'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-8636269E-BF80-4440-9FD2-DA125915BCA4', 'name': 'Food\nfinished', 'incoming': ['StartEvent1'], 'outgoing': ['Trigger Pieper']}
+
+Start Events:
+{'id': 'sid-F6EB2A9F-5E10-4029-BA95-495FE134AB29', 'name': 'Restaurant\nentering', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-56E655B9-8BC3-4980-BD54-818DEA24AB17', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Trigger Pieper']}
+{'id': 'sid-A90566FD-BA11-4CBC-870A-C65141A61B74', 'name': 'Order\nReport', 'incoming': [], 'outgoing': ['Putting meal in vain']}
+
+End Events:
+{'id': 'sid-86454D88-3763-4F4B-BC63-63CE5D950349', 'name': 'Info\nEmployees\ngiven', 'incoming': ['Putting meal in vain'], 'outgoing': []}

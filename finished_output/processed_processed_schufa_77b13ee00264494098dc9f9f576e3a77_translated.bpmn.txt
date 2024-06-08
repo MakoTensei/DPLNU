@@ -1,0 +1,11 @@
+ The process begins with an event named 'Scoring Required' which triggers the 'Scoring Request Obtained' task, initiating a request for scoring. This request is then sent to the 'EventBasedGateway1' which processes the request and dispatches the 'Scoring Obtained' message.
+
+Next, the 'Scoring Obtained' message is received by the 'Scoring Carried Out' task, which is responsible for processing the scoring. The task then dispatches the 'Scoring Result Dispatched' message to the 'ParallelGateway2'.
+
+Simultaneously, the 'Scoring Obtained' message is also received by the 'Wait for Scoring Result' task, which waits for the result from 'ParallelGateway2'. Once the result is received, it dispatches the 'Scoring Result Dispatched' message to 'ParallelGateway3'.
+
+Meanwhile, the 'Level 1 Scoring Perform' task, triggered by the 'Scoring Request Obtained' event, processes the scoring and dispatches the 'Scoring Result Dispatched' message to 'Scoring Carried Out'.
+
+The 'Scoring Carried Out' task then dispatches the 'Scoring Result Dispatched' message to 'Level 2 Scoring', which further processes the scoring and dispatches the final 'Scoring Result Dispatched' message.
+
+Finally, the 'Scoring Result Dispatched' messages are received by the 'Scoring Result Dispatched' end events, marking the completion of the entire process.

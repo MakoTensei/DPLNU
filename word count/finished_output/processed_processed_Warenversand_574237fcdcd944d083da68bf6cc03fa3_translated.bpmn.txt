@@ -1,0 +1,11 @@
+ Upon starting the logistics process, the first step is to check if shipping is required. This triggers the 'Check shipping' event, which leads to the selection of a 'Desired forwarder' to handle the shipment.
+
+Once the forwarder is chosen, the process moves to the 'Packing' phase, where goods are prepared for shipment. This is represented by the 'Packing' task with the identifier'sid-4D2E6B2B-B895-4029-8C73-69C03FC97269'. The task has a single incoming event, 'StartEvent0', indicating the initiation of the packing process. The task also has a single outgoing event, 'IntermediateCatchEvent6', which signifies the completion of the packing phase and the readiness of the goods for forwarding.
+
+Following the packing, the 'Provision of goods' task takes place, identified by'sid-0DF6833F-A3F3-403E-956B-6AB5D7C92596'. This task also starts with 'StartEvent0' and concludes with 'EndEvent0', indicating the successful provision of goods for shipping.
+
+Simultaneously, the 'Desired forwarder' task, labeled'sid-0DF6833F-A3F3-403E-956B-6AB5D7C92596', begins with 'Check shipping' and ends with 'Desired forwarder', indicating the selection of a forwarder for the shipment.
+
+As the forwarder is selected, the 'Informing warehouse workers' task, identified by'sid-13CA47CA-97B8-451E-9F8E-7E635CEC6D8C', is triggered. This task has a single incoming event, 'ParallelGateway4', and leads to the 'IntermediateCatchEvent7' outgoing event, which notifies the warehouse workers about the selected forwarder.
+
+The 'IntermediateCatchEvent7' then connects to the 'ExclusiveGateway3

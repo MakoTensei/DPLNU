@@ -1,0 +1,38 @@
+Tasks:
+{'id': 'sid-347AD2B6-8189-4BEF-82AE-BBDFD8C56185', 'name': 'Visit the restaurant', 'incoming': ['Gastronomy'], 'outgoing': ['Select a court']}
+{'id': 'sid-BBCFB905-07D2-4697-9104-344E048413A4', 'name': 'Select a court', 'incoming': ['Gastronomy'], 'outgoing': ['Guest is on the line (can accept order)']}
+{'id': 'sid-98020683-CCBC-4A4A-A7EE-B5B70B575E98', 'name': 'Add your order', 'incoming': ['Gastronomy'], 'outgoing': ['Pay for']}
+{'id': 'sid-109BACF6-086C-4C46-9A0B-DA30A75F2538', 'name': 'Pay for', 'incoming': ['Guest is on the line (can accept order)'], 'outgoing': ['Pieper Watch']}
+{'id': 'sid-68121E76-8148-4FAD-A3F6-D493A5BE28C8', 'name': 'Go to output', 'incoming': ['Pieper reports'], 'outgoing': ['Take food']}
+{'id': 'sid-0D95740F-C60B-4569-9C93-FF99A71AD3F2', 'name': 'Take food', 'incoming': ['Pieper reports'], 'outgoing': ['Eat meal']}
+{'id': 'sid-6853D508-1AD6-4909-9730-7B025FBE60D7', 'name': 'Eat meal', 'incoming': ['Pieper reports'], 'outgoing': ['meal consumed']}
+{'id': 'sid-E8B35FD4-950C-41D6-9104-8E51FD263060', 'name': 'Pieper Watch', 'incoming': ['Guest is on the line (can accept order)'], 'outgoing': ['meal consumed']}
+{'id': 'sid-1239DE0A-05A3-4EE4-89AF-9A756C44756C', 'name': 'Enter your order in the cash register system', 'incoming': ['Order to receive'], 'outgoing': ['Cash']}
+{'id': 'sid-B250FD25-56CC-4FEA-84CD-FDE6B1B1A26F', 'name': 'Cash', 'incoming': ['Order to receive'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-9C616AEE-666C-4A99-95A1-A1FEEAE06DAD', 'name': 'Adjust Pieper', 'incoming': ['Order to receive'], 'outgoing': ['Pieper over']}
+{'id': 'sid-973B75C3-1BD6-4B92-892E-E81EF2EC304F', 'name': 'Pieper over', 'incoming': ['Order to receive'], 'outgoing': ['Koch inform']}
+{'id': 'sid-FA90ECAD-EBD6-400F-AE76-4D0B5D9C9400', 'name': 'Koch inform', 'incoming': ['Order to receive'], 'outgoing': ['meal is prepared and is available in the edition']}
+{'id': 'sid-F9FC97E3-5966-4E48-B6DA-80C0924D1273', 'name': 'Trigger Pieper', 'incoming': ['Order to receive'], 'outgoing': ['Customer appears on the issue']}
+{'id': 'sid-019905ED-CF55-4935-BDBF-EA4323DFC8E7', 'name': 'Leave food', 'incoming': ['Order to receive'], 'outgoing': ['Food is spent']}
+{'id': 'sid-5CE43245-6FB8-4FA9-985E-F2A3490F723F', 'name': 'Retrieve guest', 'incoming': ['meal is prepared and is available in the edition'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-C145ECBF-EF65-48E4-9259-CB35BC590CE3', 'name': 'Preparation of meal', 'incoming': ['Ordered meal'], 'outgoing': ['Putting the meal into the reach']}
+{'id': 'sid-5900BA8F-31B3-4809-A15D-02CADA246931', 'name': 'Putting the meal into the reach', 'incoming': ['Ordered meal'], 'outgoing': ['inform employees']}
+{'id': 'sid-DEFF870D-1549-48C2-BAFB-0B578DD282B6', 'name': 'inform employees', 'incoming': ['Ordered meal'], 'outgoing': ['Order completed']}
+
+Gateways:
+{'id': 'sid-5A67FFBB-D25A-4377-BF46-3119DE1A2986', 'name': 'EventBasedGateway0', 'incoming': ['meal is prepared and is available in the edition', 'EventBasedGateway0'], 'outgoing': ['Food is spent', 'EventBasedGateway0']}
+{'id': 'sid-52347BB3-C9CD-438C-A43B-65F11D100C6D', 'name': 'Guest is on the line (can accept order)', 'incoming': ['Gastronomy'], 'outgoing': ['meal consumed']}
+{'id': 'sid-5F9298C6-0C3A-44BB-9FBE-0383BA651CD6', 'name': 'Pieper reports', 'incoming': ['Pieper Watch'], 'outgoing': ['meal consumed']}
+{'id': 'sid-204FA0A1-941D-4AB9-BCEB-60EBCCDFEAA0', 'name': 'Customer appears on the issue', 'incoming': ['Order to receive'], 'outgoing': ['Food is spent']}
+{'id': 'sid-DC08EA05-3C6E-45BC-ACA8-744CBC50A90D', 'name': '5 minutes have passed', 'incoming': ['meal is prepared and is available in the edition'], 'outgoing': ['Food is spent']}
+{'id': 'sid-229C6834-1092-40CF-B78D-9DA4380137D9', 'name': 'meal is prepared and is available in the edition', 'incoming': ['Order to receive'], 'outgoing': ['Retrieve guest']}
+
+Start Events:
+{'id': 'sid-344B0477-5EF6-4193-BDCD-A859BA290545', 'name': 'Gastronomy', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-8523342B-4BBE-4FF2-9312-C7067C187FFC', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Leave food']}
+{'id': 'sid-E832CD46-FF20-481D-8452-02626826F981', 'name': 'Ordered meal', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-CBF45391-9C30-4FD2-825E-FAA17C31D3D3', 'name': 'meal consumed', 'incoming': ['Guest is on the line (can accept order)'], 'outgoing': []}
+{'id': 'sid-DE38C4DF-5AE9-430D-9BD0-7A5B19D3E46B', 'name': 'Food is spent', 'incoming': ['5 minutes have passed'], 'outgoing': []}
+{'id': 'sid-84C6FC51-E238-4925-B64D-1691D2B0912E', 'name': 'Order completed', 'incoming': ['inform employees'], 'outgoing': []}

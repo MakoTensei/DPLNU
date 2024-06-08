@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-27EA5C65-106C-4101-9345-71817E30DC1D', 'name': 'Send payment request to VN', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-AF2B1F64-7575-4749-B17B-4001223C8502', 'name': 'Check the case', 'incoming': ['Report\n'], 'outgoing': ['Money received']}
+{'id': 'sid-B02209DA-C37D-49C6-8858-8FA9B4571E98', 'name': 'WVL', 'incoming': ['Report\n'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-5A3CDEC2-E96E-4C88-9525-D475396F1CCE', 'name': 'Close', 'incoming': ['ParallelGateway4'], 'outgoing': []}
+{'id': 'sid-FF2CFCD1-75DD-4AFE-9342-5ECE7691CC04', 'name': 'Book the entrance', 'incoming': ['Money received'], 'outgoing': ['Close']}
+{'id': 'sid-0FFFAEE2-95E3-4776-AEFA-43B598D1EA0E', 'name': 'Close', 'incoming': ['Money received'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-EB2F50EA-6C1C-45D5-B07F-EF6184BD479C', 'name': 'Examination', 'incoming': ['VN reclaim'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-BF725ABE-A7DE-4F77-BB83-D8570BC44B81', 'name': 'Delivering debt service providers', 'incoming': ['VN reclaim'], 'outgoing': []}
+{'id': 'sid-D58904D3-FF7F-4A7B-9C29-AEF2D9CB00F6', 'name': 'Close', 'incoming': ['ExclusiveGateway3'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-338CEDE2-04B0-4FA7-A707-7162D9BA5863', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway4', 'ParallelGateway4'], 'outgoing': ['Money received']}
+{'id': 'sid-43BFC4B3-163B-4CCE-95D4-3DF9D8B545C3', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-117A3071-2665-4AD5-9060-A0774041B03A', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway4'], 'outgoing': ['VN reclaim']}
+{'id': 'sid-DFDB1FE8-0D3F-45FB-A8B3-CEED77999941', 'name': 'ExclusiveGateway3', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Close', 'Delivering debt service providers']}
+{'id': 'sid-EB85C35E-B70C-46BB-A6E0-7A8CAB7939CC', 'name': 'ParallelGateway4', 'incoming': ['Report\n'], 'outgoing': ['ExclusiveGateway0', 'Close', 'Money received']}
+{'id': 'sid-6F34DDFE-D927-492B-AAE9-E46914E0A969', 'name': 'Money received', 'incoming': ['Check the case'], 'outgoing': ['Close']}
+{'id': 'sid-C005618C-D66F-43BB-AC90-B3AA74E53618', 'name': 'VN reclaim', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Delivering debt service providers']}
+{'id': 'sid-870A43A7-618E-4086-8F83-FF6ED2C68212', 'name': 'WVL deadline expired', 'incoming': [], 'outgoing': []}
+
+Start Events:
+{'id': 'sid-4E92299F-73A2-4DC3-A6B4-EC26CA79B5F8', 'name': 'Report\n', 'incoming': [], 'outgoing': ['WVL']}
+
+End Events:

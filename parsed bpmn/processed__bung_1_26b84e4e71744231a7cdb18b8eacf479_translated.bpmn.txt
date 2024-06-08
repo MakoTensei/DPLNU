@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-90B69654-15E5-4FB0-8529-C8A599826C65', 'name': 'Fill in the package certificate\n', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-208A9AD8-FFB6-4592-B6F2-45C5D16325E8', 'name': 'Complete insurance', 'incoming': ['Transport insurance'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-6697EE34-4B81-47C2-88B6-C3BA3750C50A', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['Delivering goods']}
+{'id': 'sid-67E436D5-4684-431E-8049-41CCF067C7ED', 'name': 'Delivering goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-B1120412-E4F7-4B67-A797-62AE413C884A', 'name': 'Request a quote', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Select your offer']}
+{'id': 'sid-A0EAE1E9-8270-4ACF-AF77-2CAF84C7D48A', 'name': 'Order', 'incoming': ['Select your offer'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-9D970170-DEC7-4740-8255-30A14F32019E', 'name': 'Clearing the shipping mode', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-458F7465-7B92-4276-B420-D08BCBA7294D', 'name': 'Select your offer', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-D791881A-1AE7-469E-8F97-C93AF26B3202', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent0'], 'outgoing': ['Transport insurance', 'Select your offer']}
+{'id': 'sid-DC47DE56-ABF9-4ED5-A17E-1ED5939E62FF', 'name': 'Transport insurance', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway2']}
+{'id': 'sid-D5262029-F581-4941-9DD8-8B479158EB0E', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway4', 'Fill in the package certificate\n'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-16986338-C420-4DE7-8A76-A8A48B0A7DDA', 'name': 'ExclusiveGateway3', 'incoming': ['Select your offer', 'Fill in the package certificate\n'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-37F3EE9F-713D-40B4-9B75-1893FF7917CE', 'name': 'ParallelGateway4', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'ParallelGateway5']}
+{'id': 'sid-E98DC733-2B5D-4FA2-A434-ABA0CF16623C', 'name': 'ParallelGateway5', 'incoming': ['Clearing the shipping mode', 'Fill in the package certificate\n'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-5B86D4F5-2A2E-44E2-A6A9-578034DB7022', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-F700861C-0A45-4606-83E0-DB34DF5E8E6E', 'name': 'EndEvent0', 'incoming': ['ParallelGateway4'], 'outgoing': []}

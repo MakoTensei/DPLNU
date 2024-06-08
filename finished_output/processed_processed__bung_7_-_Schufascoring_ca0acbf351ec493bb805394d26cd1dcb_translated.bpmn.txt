@@ -1,0 +1,21 @@
+ The process begins with a 'Scoring request' event, which triggers the 'Start Schufascoring process' task. This task initiates the scoring process and sends a 'Scoring request' to 'ExclusiveGateway1'.
+
+Once the scoring process is initiated, 'Scoring calculation (level 1)' task is triggered, which calculates the initial scoring and sends the result to 'ExclusiveGateway1'.
+
+Simultaneously, 'Send Level 2 scoring' task is triggered, which sends the initial scoring to 'ExclusiveGateway0'.
+
+After the initial scoring is obtained, 'Send delay message' task is triggered, which sends a delay message to 'ExclusiveGateway0'.
+
+'Send Level 2 scoring result' task is then triggered, which sends the Level 2 scoring result to 'ExclusiveGateway2'.
+
+'Send Level 2 scoring result' task is also triggered from 'ExclusiveGateway1', which sends the Level 2 scoring result to 'ExclusiveGateway2'.
+
+'Send delay message' task is triggered again, this time from 'ExclusiveGateway1', which sends a delay message to 'EventBasedGateway3'.
+
+'Send Level 2 scoring result' task is triggered from 'ExclusiveGateway2', which sends the Level 2 scoring result to 'Process completed'.
+
+'Get delay notification' task is triggered from 'EventBasedGateway3', which sends a delay notification to 'Send delay message'.
+
+'Get Level 2 scoring' task is triggered from 'ExclusiveGateway0', which sends the Level 2 scoring to 'ExclusiveGateway0'.
+
+The process concludes with the 'Process completed' event, which is triggered from 'ExclusiveGateway1' and 'EventBasedGateway3'. This event signifies the successful completion of the scoring process.

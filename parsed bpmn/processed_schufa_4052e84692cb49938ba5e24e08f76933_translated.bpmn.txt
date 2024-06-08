@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-8D0035AF-3B9C-4D95-8731-5E39D8264B0D', 'name': 'Scoring request', 'incoming': ['Scoring\nRequired'], 'outgoing': ['is a scoring result']}
+{'id': 'sid-029EF1B8-C96D-4C3E-ABED-797AACF35C59', 'name': 'Share Scoring result', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-28B7E8A9-2BE2-47A5-92AB-B02449B39DB9', 'name': 'Level 1 Scoring', 'incoming': ['StartEvent1'], 'outgoing': ['Determining scoring']}
+{'id': 'sid-A3C9EECB-E8A4-4426-991F-AE874A5D1753', 'name': 'Level 2 Scoring', 'incoming': ['Information about delay'], 'outgoing': ['Scoring']}
+{'id': 'sid-5039B32C-DCF7-483E-B1B4-F6F1AB772DC1', 'name': 'Determining scoring', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-CE6322CB-46F4-42E7-905C-09620DDE2725', 'name': 'Scoring', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-322013F1-A1F1-4D4A-9698-A34F819C1AB0', 'name': 'Information about delay', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Scoring']}
+{'id': 'sid-9DC19E4E-0401-478A-8387-FB3BBE27C466', 'name': 'Scoring', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-945E15DE-F570-4C96-A127-EA2D14FC100A', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'IntermediateCatchEvent3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C839E505-CB3C-42AB-96EE-3EE44F99E88E', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'EndEvent1']}
+{'id': 'sid-3AEAA7E7-7AD0-4AC0-A8A2-74E7153F6495', 'name': 'EventBasedGateway2', 'incoming': ['Scoring\nRequired'], 'outgoing': ['is delay message', 'EndEvent0']}
+{'id': 'sid-498E855A-4816-4643-86C3-C154464D5E6E', 'name': 'IntermediateCatchEvent3', 'incoming': ['sid-42811CCE-A3DD-461D-8676-101DAC990B3E'], 'outgoing': ['Share Scoring result']}
+{'id': 'sid-9FCA0976-20EA-4DA1-9D46-AF827D87F15A', 'name': 'is a scoring result', 'incoming': ['Scoring request'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-A8B476BC-95E0-426D-93CA-105B827087FD', 'name': 'is delay message', 'incoming': ['Scoring\nRequired'], 'outgoing': ['sid-A0F2FFC4-DCF8-4712-8A15-59C0CB5DC151']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['is delay message']}
+{'id': 'sid-1643A383-CBB3-40F0-85CE-757D7DD0C89D', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Scoring']}
+
+End Events:
+{'id': 'sid-DEC9872B-868E-42B4-8E38-E9C97E99D520', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-DA895A59-3684-450A-BF48-F5A99FD4B559', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway1', 'ExclusiveGateway1'], 'outgoing': []}

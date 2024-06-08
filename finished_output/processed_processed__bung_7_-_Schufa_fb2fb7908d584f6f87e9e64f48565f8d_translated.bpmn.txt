@@ -1,0 +1,14 @@
+ In the system described, various tasks and events are interconnected through gateways and events, forming a workflow that processes data and triggers specific actions. Here's a natural flow description based on the given data:
+
+1. The workflow starts with two events: `StartEvent0` and `StartEvent1`.
+2. `StartEvent0` initiates the process and sends an incoming event to `EventBasedGateway3`. This event is then forwarded to `ExclusiveGateway0`, which sends the event to `EndEvent0`.
+3. `StartEvent1` also starts a separate process and sends an incoming event to `ExclusiveGateway1`. This event is then forwarded to `EndEvent1`.
+4. A `Scoring request` event is sent to `EventBasedGateway3`, which forwards it to `IntermediateCatchEvent7`. This event is then sent to `ExclusiveGateway0`.
+5. `Report delay` event is sent to `EventBasedGateway3`, which forwards it to `IntermediateCatchEvent7`. This event is then sent to `ExclusiveGateway0`.
+6. `Send a reply` event is triggered by `IntermediateCatchEvent7` and sends an outgoing event to `EndEvent0`.
+7. `IntermediateCatchEvent5` is triggered by `Scoring request` and sends an outgoing event to `EndEvent0`.
+8. `IntermediateCatchEvent6` is triggered by `StartEvent0` and sends an outgoing event to `ExclusiveGateway0`.
+9. `IntermediateCatchEvent7` is triggered by both `Scoring request` and `Report delay` and sends an outgoing event to `ExclusiveGateway0`.
+10. `Waiting` event is sent to `EventBasedGateway3`, which forwards it to `IntermediateCatchEvent8`. This event is then sent to `ExclusiveGateway0`.
+11. `IntermediateCatchEvent9` is triggered by `Waiting` and sends an outgoing event to `EndEvent2`.
+12. `View result` event is triggered by `IntermediateCatchEvent9` and sends an

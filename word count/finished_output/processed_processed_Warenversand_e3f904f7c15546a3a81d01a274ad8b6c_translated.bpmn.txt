@@ -1,0 +1,17 @@
+ The process begins with the 'Order' start event, where the system receives an incoming message indicating that an order has been placed. This triggers the 'Select your offer' gateway, which presents the customer with three options: 'three offers enroll', 'large quantity or small amount?', and 'Insurance Shipment?'.
+
+If the customer chooses 'three offers enroll', the system routes the incoming message to the 'freight forwarders commission' gateway, which then connects to 'ParallelGateway4'.
+
+If the customer chooses 'large quantity or small amount?', the system routes the incoming message to 'ExclusiveGateway2', which then connects to 'ParallelGateway4'.
+
+If the customer chooses 'Insurance Shipment?', the system routes the incoming message to 'ExclusiveGateway2', which then connects to 'ParallelGateway4'.
+
+Once the customer selects an offer, the system proceeds to the corresponding task. For example, if the customer chooses 'three offers enroll', the system moves to the 'Select your offer' task, which connects to 'ParallelGateway3'.
+
+The 'Select your offer' task then connects to 'Filling the package note' task, which in turn connects to 'ParallelGateway4'.
+
+If the customer chooses 'large quantity or small amount?', the system moves to the 'Filling the package note' task, which connects to 'ParallelGateway4'.
+
+If the customer chooses 'Insurance Shipment?', the system moves to the 'Insurance close' task, which connects to 'ParallelGateway4'.
+
+Finally, once all tasks are completed, the system reaches the 'EndEvent0' end event, which connects to 'ParallelGateway4' and completes the process.

@@ -1,0 +1,9 @@
+ When a scoring inquiry is desired for Schufa, the process begins with an event named 'Schufascoring desired'. This event triggers the 'Information about delay' task, which sends a notification to the bank about the potential delay in scoring. Once the scoring request arrives, the 'Report delay of the bank' task is initiated to inform the bank about the delay.
+
+Simultaneously, the 'Send scoring inquiry to Schufa' task is executed, which sends the scoring inquiry to Schufa. Upon receiving the results, the 'Results arrived' task is triggered, and it communicates with the 'ExclusiveGateway1' to process the scoring request.
+
+The 'Level 1 Scoring' task is then initiated, which sends the scoring request to the 'ExclusiveGateway1'. After the exclusive gateway processes the request, the 'Report result to Bank' task is triggered, sending the results back to the bank.
+
+If the results are available, the 'Level 2 (final) Scoring' task is executed, which sends the results to the 'ExclusiveGateway1'. The 'ExclusiveGateway1' then sends the results back to the bank and the scoring request.
+
+In case of a delay in scoring, the 'Delay reported' event is triggered, which sends a notification to the bank about the delay. The 'Schufa request processed' event is then executed, completing the process.

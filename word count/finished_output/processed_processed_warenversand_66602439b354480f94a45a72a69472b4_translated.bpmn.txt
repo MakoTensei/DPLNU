@@ -1,0 +1,13 @@
+ The logistics process begins with the dispatch of goods, which triggers the 'Goods ready for dispatch' event. This event is connected to the 'ParallelGateway5', which in turn leads to the 'Goods are shipped' event.
+
+Simultaneously, the logistics manager closes the insurance for the dispatched goods, which is an event that connects to 'ExclusiveGateway3'. This action is also linked to the 'large quantity' event, which further leads to the 'Goods are shipped' event.
+
+Meanwhile, the packaging of the goods is handled by the packaging team, which is an event connected to 'ParallelGateway5'. This event is also linked to the 'Select offers' event, which is connected to 'ExclusiveGateway3'.
+
+The 'Select offers' event is triggered by the 'large quantity' event and leads to the 'ExclusiveGateway3', which in turn leads to the 'Goods are shipped' event.
+
+The 'Secretariat' checks who takes delivery of the goods, which is an event connected to 'ParallelGateway4'. This event is also linked to the 'Secretariate checks who takes delivery' event, which is connected to 'ExclusiveGateway1'.
+
+The 'Secretariate' also fills the package certificate for the large quantity of goods, which is an event connected to 'Secretary fills\nPackage certificate'. This event is linked to 'ExclusiveGateway1', which in turn leads to the 'Goods are shipped' event.
+
+In summary, the logistics process involves the dispatch of goods, insurance closure, packaging, select offers, and delivery checks, all leading to the final event of 'Goods are shipped'. The process is facilitated by various gateways, including 'ParallelGateway5', 'ExclusiveGateway1', and 'ExclusiveGateway3'.

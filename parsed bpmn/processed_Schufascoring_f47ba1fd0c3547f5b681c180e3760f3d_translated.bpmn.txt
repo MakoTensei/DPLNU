@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-FEC0F3DB-D5B8-4EDA-AD99-4E29747B5218', 'name': 'Send scoring inquiry to Schufa', 'incoming': ['Schufascoring\nProcess started'], 'outgoing': ['Message received']}
+{'id': 'sid-C50A01D6-9014-4620-B648-D70E1480B7C2', 'name': 'forward result to Frontend Bank', 'incoming': ['Result is time delay?'], 'outgoing': ['Consultation']}
+{'id': 'sid-97C4DC3E-129F-48C8-9CD8-B17DD2C72B78', 'name': 'Check the results', 'incoming': ['Schufascoring\nProcess started'], 'outgoing': ['Consultation']}
+{'id': 'sid-8E7023D9-1B64-4938-BDF9-B205FC2088AB', 'name': 'Send notification to sales staff via delay', 'incoming': ['Message received'], 'outgoing': ['Message received']}
+{'id': 'sid-F0C0589B-AAD5-4F8C-BA17-FA04F31213BC', 'name': 'perform scoring levels 1', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-CF54461D-0C3C-4EFD-AC36-4321F6C333B2', 'name': 'Share result', 'incoming': ['Results determined'], 'outgoing': ['Consultation']}
+{'id': 'sid-1ABE5BBB-4F87-4F34-A15B-C8D3F91801EC', 'name': 'Report delay to Bank', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['perform scoring level 2']}
+{'id': 'sid-D18BFA74-17AC-4BE4-95E6-559C133A968A', 'name': 'perform scoring level 2', 'incoming': ['Delay occurred?'], 'outgoing': ['Results determined']}
+
+Gateways:
+{'id': 'sid-D5626294-016D-41AE-B3AE-DBD1908D9A80', 'name': 'Result is time delay?', 'incoming': ['Message received'], 'outgoing': ['Send notification to sales staff via delay', 'Consultation']}
+{'id': 'sid-A137557A-5C6E-4E54-A8D7-272990142D5C', 'name': 'Delay occurred?', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Consultation', 'perform scoring level 2']}
+{'id': 'sid-FB4B93BB-101E-44E9-A5AA-6EA4C2933DCF', 'name': 'ExclusiveGateway2', 'incoming': ['Results determined', 'perform scoring levels 1'], 'outgoing': ['Consultation']}
+{'id': 'sid-39061C04-B6F8-45A6-978D-D8C5CA45BEE6', 'name': 'Message received', 'incoming': ['Schufascoring\nProcess started', 'Message received'], 'outgoing': ['Result is time delay?']}
+{'id': 'sid-9E26AB25-27F1-481F-A8B8-B60ABF1D3111', 'name': 'Results determined', 'incoming': ['perform scoring level 2'], 'outgoing': ['Share result']}
+
+Start Events:
+{'id': 'sid-D5DC0D66-2BDD-496F-A0CF-1A4B440D04FF', 'name': 'Schufascoring\nProcess started', 'incoming': [], 'outgoing': ['Check the results']}
+{'id': 'sid-3B308BDD-83F2-4CB7-BE8B-90864C4E177C', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['Report delay to Bank']}
+
+End Events:
+{'id': 'sid-9AAC70B3-C735-4312-903F-FFD22958950C', 'name': 'Consultation', 'incoming': ['Check the results'], 'outgoing': []}
+{'id': 'sid-599F7FFF-D0E3-4125-88A3-D8FC84D487D6', 'name': 'Consultation', 'incoming': ['Delay occurred?'], 'outgoing': []}

@@ -1,0 +1,17 @@
+ In the process of scoring requests, the system follows a sequence of events and interactions between various gateways and services. Here's a natural flow description of the described system:
+
+1. A 'Schufascoring request' is obtained, triggering the start event.
+2. The system sends a 'Schufascoring query' to obtain the necessary information.
+3. The 'Schufaservice' provides feedback, which is then used to determine if the scoring is successful.
+4. If the scoring is successful, the system sends a 'Scoring result' report.
+5. If the scoring is not successful, the system sends a 'Delay message' to forward the request.
+6. The 'Delay message' is received, and the system sends a 'Scoring query' to re-evaluate the request.
+7. The 'Schufaservice' provides feedback again, and the system determines if the scoring is successful.
+8. If the scoring is successful, the system sends a 'Report scoring result' to summarize the outcome.
+9. If the scoring is not successful, the system sends a 'Report delay message' to indicate the need for re-evaluation.
+10. The 'Report delay message' is received, and the system implements a second scoring attempt.
+11. The second scoring attempt is completed, and the system sends a 'Report scoring result 2' to summarize the outcome.
+12. The system sends a 'Scoring query' to confirm the completion of the second scoring attempt.
+13. The 'Scoring query' is completed, and the process ends.
+
+The system's flow is managed by various gateways and services, such as 'ExclusiveGateway1', 'Feedback from Schufaservice', and 'Scoring 1 successful?' gateways, which help in routing and processing the requests and feedback.

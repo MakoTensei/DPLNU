@@ -1,0 +1,9 @@
+ When a regression report arrives, it triggers a series of tasks and gateways to ensure the proper handling of the report. First, the report is sent to ExclusiveGateway1, which then decides whether a regression is possible. If a regression is deemed necessary, the process continues to ExclusiveGateway1 and ExclusiveGateway3.
+
+If a regression is not required, the report is sent to BookPaymentReceipt, which records the incoming payment and sends it to ExclusiveGateway1. In the case of a default period expiration or a contradiction with the VN, the report is directed to ExclusiveGateway1 as well.
+
+Meanwhile, if the regression report justifies opposition, the process moves to the Debt Collection Office, which sends the report to ExclusiveGateway1.
+
+Once the process reaches ExclusiveGateway3, it can either proceed to Close the Process if the opposition is justified or return to ExclusiveGateway1 if a regression is necessary.
+
+In the end, regardless of the path taken, the process concludes at EndEvent0, which marks the completion of the process.

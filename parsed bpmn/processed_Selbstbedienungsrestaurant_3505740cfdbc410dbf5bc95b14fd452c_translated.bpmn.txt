@@ -1,0 +1,39 @@
+Tasks:
+{'id': 'sid-F8D3EC32-75B9-4C17-BBDC-281157486A40', 'name': 'Visit the restaurant', 'incoming': ['Hunger'], 'outgoing': ['Select a court']}
+{'id': 'sid-12714953-2DC5-4B74-9FFC-0CC3755772A3', 'name': 'Select a court', 'incoming': ['Hunger'], 'outgoing': ['Order request']}
+{'id': 'sid-437BBC31-A99D-4C31-8CCD-FA02E1602E7F', 'name': 'Add your order', 'incoming': ['Hunger'], 'outgoing': ['Payment request']}
+{'id': 'sid-7B368AE9-F28D-4541-8C66-4A207D4C4E1C', 'name': 'Pay money', 'incoming': ['Hunger'], 'outgoing': ['Get Pieper', 'Get Pieper']}
+{'id': 'sid-620655BF-8CA0-45DE-B044-9ABFA45CA222', 'name': 'Pick up food', 'incoming': ['Hunger'], 'outgoing': ['Eat meal']}
+{'id': 'sid-DB311E9D-EC70-476C-B634-64F7D30412B9', 'name': 'Eat meal', 'incoming': ['Pieper sounds'], 'outgoing': ['Process completed']}
+{'id': 'sid-6F57D610-26BB-41D3-8AD5-00B256FE1D3B', 'name': 'Enter your order in cash system', 'incoming': ['Order to receive'], 'outgoing': ['Cash']}
+{'id': 'sid-DF580084-2EAA-4B37-8A12-80C7A70BD074', 'name': 'Cash', 'incoming': ['Order to receive'], 'outgoing': ['Get money']}
+{'id': 'sid-4BE8AF77-5775-40FF-8FFB-6BFDA9AF0FAA', 'name': 'Adjust Pieper', 'incoming': ['Order to receive'], 'outgoing': ['Pieper over']}
+{'id': 'sid-2FB36826-1478-4896-9BE1-9C510203C500', 'name': 'Pieper over', 'incoming': ['Get money'], 'outgoing': ['Koch inform']}
+{'id': 'sid-A2C017EE-121A-4F39-BFF8-94F3986768B3', 'name': 'Koch inform', 'incoming': ['Get money'], 'outgoing': ['Answer']}
+{'id': 'sid-4225139F-067D-4DB8-B623-2DCF1A10AEC0', 'name': 'Trigger Pieper', 'incoming': ['Get money'], 'outgoing': ['Get food request']}
+{'id': 'sid-DF1A9CE1-05A0-453E-AD6C-4FEE2B5D2E74', 'name': 'Retrieve guest', 'incoming': ['After 5 minutes'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-C3FA62F3-DD1E-47F4-AD20-387EB9EC4B5A', 'name': 'Leave food', 'incoming': ['Get food request'], 'outgoing': ['Process completed']}
+{'id': 'sid-6E9904FA-2238-41C4-A249-682C2122F52E', 'name': 'Preparation of meal', 'incoming': ['Message received'], 'outgoing': ['Putting meal in vain']}
+{'id': 'sid-8F468CD8-3629-4CE4-9C4C-1618AA48EBD0', 'name': 'Putting meal in vain', 'incoming': ['Message received'], 'outgoing': ['inform employees']}
+{'id': 'sid-5FD2AAC6-F7B2-46B4-AF1B-26455E976AED', 'name': 'inform employees', 'incoming': ['Message received'], 'outgoing': ['Process completed']}
+
+Gateways:
+{'id': 'sid-68647949-F8F6-4506-A62E-DDE8A9A93285', 'name': 'EventBasedGateway0', 'incoming': ['Answer', 'Answer'], 'outgoing': ['Process completed', 'Process completed']}
+{'id': 'sid-62BFDEA1-1A56-4142-9EA5-6E128659AE32', 'name': 'Order request', 'incoming': ['Hunger'], 'outgoing': ['Add your order']}
+{'id': 'sid-95AA9188-E4F4-4490-9609-0DA45D5DBDBC', 'name': 'Payment request', 'incoming': ['Hunger'], 'outgoing': ['Process completed']}
+{'id': 'sid-686E6FA2-F9C0-49A7-85B6-DE83DA7BD58D', 'name': 'Pieper sounds', 'incoming': ['Payment request'], 'outgoing': ['Process completed']}
+{'id': 'sid-A82A83DF-E94D-4F63-833D-63659DC08CC9', 'name': 'Get Pieper', 'incoming': ['Hunger', 'Payment request'], 'outgoing': ['Pick up food']}
+{'id': 'sid-5C7A4A1F-4291-4308-A71D-B01C1888171C', 'name': 'Answer', 'incoming': ['Get money'], 'outgoing': ['Process completed']}
+{'id': 'sid-C7A13B22-9B70-4763-917B-6C08420CEC3F', 'name': 'Get money', 'incoming': ['Order to receive'], 'outgoing': ['Get food request']}
+{'id': 'sid-763102DA-E654-4817-BF5B-41FBA9C98F69', 'name': 'After 5 minutes', 'incoming': ['Answer'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-9915A085-5788-406F-9280-A57FD811DE16', 'name': 'Get food request', 'incoming': ['Get money'], 'outgoing': ['Process completed']}
+
+Start Events:
+{'id': 'sid-B9A676B0-E7C3-40C7-851A-92175550432A', 'name': 'Hunger', 'incoming': [], 'outgoing': ['Pick up food']}
+{'id': 'sid-96639D63-D4C1-42A8-9404-F1A555AA149D', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-912025C3-F366-4814-9725-869E070415BF', 'name': 'Message received', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-F52C949B-8EB9-4F95-A52F-4CF43882686B', 'name': 'Process completed', 'incoming': ['Payment request'], 'outgoing': []}
+{'id': 'sid-9F38B133-03D1-4D68-B55B-68EBB6FFB7C5', 'name': 'Process completed', 'incoming': ['Answer'], 'outgoing': []}
+{'id': 'sid-2A021A27-0F51-49ED-8016-6CC1054BEB79', 'name': 'Process completed', 'incoming': ['inform employees'], 'outgoing': []}

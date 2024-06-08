@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-9FF75779-24C3-4D8A-9E6F-33AA6C6E1843', 'name': 'Check quantity', 'incoming': ['ParallelGateway3'], 'outgoing': ['A lot big?\n']}
+{'id': 'sid-ED09922B-4185-4604-B715-467434A38A45', 'name': 'Filling the package note', 'incoming': ['A lot big?\n'], 'outgoing': ['Need to check insurance']}
+{'id': 'sid-EDA64AEE-A3CD-4A69-B3DB-6C7B2B07619A', 'name': 'Need to check insurance', 'incoming': ['A lot big?\n'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-93F04455-BF66-4FDB-AFFF-3850E53AFBB7', 'name': 'Pick up special delivery from Spediteur 1', 'incoming': ['Shipment commissioned\n'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-4CC1AC6A-BD68-4741-B0B8-A16E51EBE0C9', 'name': 'Pick up special delivery by Spediteur 2\n', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-56CC15BA-AE88-42FF-B67C-E05C70EA2EFF', 'name': 'Pick up special delivery by Spediteur 3', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-49529D2E-0BFF-4FE1-87C3-0B66CCE4CDAB', 'name': 'Select an offer for special shipment', 'incoming': ['Shipment commissioned\n'], 'outgoing': ['freight forwarders\ncommission']}
+{'id': 'sid-1656160C-FB01-4B92-9A90-B33594D6CEA4', 'name': 'freight forwarders\ncommission', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-DE04596D-A470-4B0A-899D-E81CE54E6AE5', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-899DD09D-D7B8-40C7-99F2-ED3421383637', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway6'], 'outgoing': ['Goods provided for collection']}
+{'id': 'sid-EFF2C5CC-BD42-4FDD-814C-E2F3B725BEE4', 'name': 'Complete insurance', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-036EC6FC-6651-4B5E-BB81-FEC568DAAE56', 'name': 'A lot big?\n', 'incoming': ['ParallelGateway3'], 'outgoing': ['Goods provided for collection', 'ExclusiveGateway2']}
+{'id': 'sid-6DBA3204-92E2-40B6-88E4-BFE497CE9C89', 'name': 'Insurance necessary?', 'incoming': ['A lot big?\n'], 'outgoing': ['ParallelGateway6', 'Complete insurance']}
+{'id': 'sid-B610E337-D553-401D-9EDE-1D431637E921', 'name': 'ExclusiveGateway2', 'incoming': ['Complete insurance', 'Need to check insurance', 'A lot big?\n'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-CB1E9F12-A1A1-4FE2-9B8C-FECFAEDC2A2B', 'name': 'ParallelGateway3', 'incoming': ['Shipment commissioned\n'], 'outgoing': ['ParallelGateway6', 'ParallelGateway5']}
+{'id': 'sid-988B7ECD-BDEA-4245-84F6-54E43FC7C695', 'name': 'ParallelGateway4', 'incoming': ['Shipment commissioned\n'], 'outgoing': ['Pick up special delivery from Spediteur 1', 'ParallelGateway5', 'ParallelGateway5']}
+{'id': 'sid-1069A75D-9F8A-4732-A714-3D047CEC7D46', 'name': 'ParallelGateway5', 'incoming': ['Shipment commissioned\n', 'A lot big?\n', 'ParallelGateway3'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-316C8149-320E-460F-8F95-9FEC34A12F49', 'name': 'ParallelGateway6', 'incoming': ['ParallelGateway3', 'A lot big?\n'], 'outgoing': ['Goods provided for collection']}
+
+Start Events:
+{'id': 'sid-BDF700DE-AE39-4DD4-B670-3622B1B321A2', 'name': 'Shipment commissioned\n', 'incoming': [], 'outgoing': ['Select an offer for special shipment']}
+
+End Events:
+{'id': 'sid-E3F705A4-1CF8-46E3-9A8E-87EAFC4E3418', 'name': 'Goods provided for collection', 'incoming': ['A lot big?\n'], 'outgoing': []}

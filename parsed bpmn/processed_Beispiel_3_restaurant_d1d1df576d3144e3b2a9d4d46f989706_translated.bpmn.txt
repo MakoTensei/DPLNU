@@ -1,0 +1,35 @@
+Tasks:
+{'id': 'sid-71BD57C7-C8ED-4F98-A3D1-0540DB9217A8', 'name': 'reviewing meal range', 'incoming': ['hunger\nReport'], 'outgoing': ['a dish']}
+{'id': 'sid-FEB52D97-4EF8-4DE3-A9CD-7C7FFB526C67', 'name': 'a dish', 'incoming': ['hunger\nReport'], 'outgoing': ['place']}
+{'id': 'sid-758CBD54-B838-40EC-B8D2-FB0B4725F1BF', 'name': 'place', 'incoming': ['hunger\nReport'], 'outgoing': ['pay for order']}
+{'id': 'sid-05ACAEE7-175E-4847-8668-07606DA7E841', 'name': 'pay for order', 'incoming': ['hunger\nReport'], 'outgoing': ['take buzzer waiting for meal']}
+{'id': 'sid-73923102-3C52-40E1-95D1-952C144CBF55', 'name': 'take buzzer waiting for meal', 'incoming': ['hunger\nReport'], 'outgoing': ['buzzer\nactivated']}
+{'id': 'sid-DECB4D08-9348-443A-AF16-6A1BC8E8D8B2', 'name': 'pick up meal', 'incoming': ['hunger\nReport'], 'outgoing': ['eat meal']}
+{'id': 'sid-848DADFB-C02C-42E0-95E9-B5B38A0CC7A4', 'name': 'eat meal', 'incoming': ['buzzer\nactivated'], 'outgoing': ['hunger\nsatisfied']}
+{'id': 'sid-0D2E3D26-0245-4004-933C-78712AD033EE', 'name': 'order in POS', 'incoming': ['order\nrecieved'], 'outgoing': ['collect money from guest']}
+{'id': 'sid-8990DCD5-DF6B-428F-BA8C-F2CA081AA949', 'name': 'collect money from guest', 'incoming': ['order\nrecieved'], 'outgoing': ['set up a buzzer and hand to guest']}
+{'id': 'sid-B8DA619C-D194-4220-A8B1-2CF0DEE0EEB5', 'name': 'set up a buzzer and hand to guest', 'incoming': ['order\nrecieved'], 'outgoing': ['inform chef about order']}
+{'id': 'sid-B134E7BF-6EE1-45A6-96A3-051882A0F7A4', 'name': 'inform chef about order', 'incoming': ['order\nrecieved'], 'outgoing': ['meal in\nhas']}
+{'id': 'sid-D09770AF-6A7D-429D-9F02-4101EE061FC8', 'name': 'set off buzzer', 'incoming': ['order\nrecieved'], 'outgoing': ['appeared']}
+{'id': 'sid-018A9A71-DEA5-42FD-B79A-C59302CD2CAE', 'name': 'hand over', 'incoming': ['order\nrecieved'], 'outgoing': ['order done']}
+{'id': 'sid-A1F87202-B423-4935-9E8C-8B963C54839F', 'name': 'the', 'incoming': ['5 min'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-D44EC6CF-677A-4AE7-B49A-BEA9EDB1AB85', 'name': 'Preparing meal', 'incoming': ['cooking\nrecieved'], 'outgoing': ['meal done']}
+{'id': 'sid-1FBB8196-5861-47C5-A5FF-D7FA35FB7B8E', 'name': 'food in service hatch', 'incoming': ['cooking\nrecieved'], 'outgoing': ['cooking\ncompleted']}
+
+Gateways:
+{'id': 'sid-BFCB762F-4FDC-4419-BCB3-EE3426330D3E', 'name': 'EventBasedGateway0', 'incoming': ['meal in\nhas', 'EventBasedGateway0'], 'outgoing': ['order done', 'EventBasedGateway0']}
+{'id': 'sid-F7FADB8D-416E-4D74-9263-51B2D47C871C', 'name': 'buzzer\nactivated', 'incoming': ['hunger\nReport'], 'outgoing': ['hunger\nsatisfied']}
+{'id': 'sid-A51EB133-1EDB-48A0-B802-7E845C98D2BB', 'name': 'meal in\nhas', 'incoming': ['order\nrecieved'], 'outgoing': ['order done']}
+{'id': 'sid-49378A2E-5739-4EF9-A234-974AAB9EB1AF', 'name': '5 min', 'incoming': ['meal in\nhas'], 'outgoing': ['order done']}
+{'id': 'sid-70D2BCB2-3529-4BBE-876A-9741395DDC18', 'name': 'appeared', 'incoming': ['order\nrecieved'], 'outgoing': ['order done']}
+{'id': 'sid-39EF47AD-4582-41F0-B1F2-1B79FCCF9D11', 'name': 'meal done', 'incoming': ['cooking\nrecieved'], 'outgoing': ['cooking\ncompleted']}
+
+Start Events:
+{'id': 'sid-6C05665F-5454-470A-8014-E810686336FA', 'name': 'hunger\nReport', 'incoming': [], 'outgoing': ['pick up meal']}
+{'id': 'sid-4A65937D-85C3-4EF6-A98E-F960E93EB266', 'name': 'order\nrecieved', 'incoming': [], 'outgoing': ['hand over']}
+{'id': 'sid-45C90A1F-36AB-4B45-A928-418FA1C1D752', 'name': 'cooking\nrecieved', 'incoming': [], 'outgoing': ['food in service hatch']}
+
+End Events:
+{'id': 'sid-C3181A16-0E5A-4B89-A9EE-CB9DE70079BC', 'name': 'hunger\nsatisfied', 'incoming': ['buzzer\nactivated'], 'outgoing': []}
+{'id': 'sid-3524C39D-1DD4-45C0-A05F-47FCA6DE2DD4', 'name': 'order done', 'incoming': ['meal in\nhas'], 'outgoing': []}
+{'id': 'sid-52A5C0EA-AADD-4A8E-A769-582579D8810E', 'name': 'cooking\ncompleted', 'incoming': ['meal done'], 'outgoing': []}

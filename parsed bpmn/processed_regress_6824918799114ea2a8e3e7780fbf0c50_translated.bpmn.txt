@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-E2FDF8BD-6C46-4E38-BAF7-D526715F7529', 'name': 'Examination of the case', 'incoming': ['Regression report'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-FD931B7D-664F-4FE9-A599-7A9C5E84AD41', 'name': 'process', 'incoming': ['Objection is justified?'], 'outgoing': ['internal regression measure completed']}
+{'id': 'sid-39FFD43B-4EC3-4567-9782-02025D7927A9', 'name': 'send VN payment request to VN', 'incoming': ['is possible regression against VN?'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-8BF6A1FF-B071-4E32-BC2C-701549B15B33', 'name': 'Set process for resubmission', 'incoming': ['is possible regression against VN?'], 'outgoing': ['Cash receipt from the VN']}
+{'id': 'sid-8E324D43-9511-4669-A12A-E45EE9D9CAC7', 'name': 'Book the entrance', 'incoming': ['Cash receipt from the VN'], 'outgoing': ['internal regression measure completed']}
+{'id': 'sid-41C7127C-D45D-4843-AB23-C87FCB7E00CA', 'name': 'Verify opposition', 'incoming': ['Opposition arrived'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-06957E03-5FDB-4D7F-8105-11FC15079088', 'name': 'Transfer process to debt collection service provider', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['RF case delivered to debt collection']}
+
+Gateways:
+{'id': 'sid-42789086-BC7E-41EF-9C73-0C45D8DBBCF6', 'name': 'is possible regression against VN?', 'incoming': ['Regression report'], 'outgoing': ['ExclusiveGateway1', 'Reimbursement period expired']}
+{'id': 'sid-DF95200A-08BE-4F44-A20A-942F93779D6C', 'name': 'ExclusiveGateway1', 'incoming': ['Opposition arrived', 'Regression report'], 'outgoing': ['internal regression measure completed']}
+{'id': 'sid-8C662018-67F4-4125-9818-709622DF230E', 'name': 'Objection is justified?', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['process', 'ExclusiveGateway3']}
+{'id': 'sid-69C14F20-9C4F-4111-B7B3-5930928824E7', 'name': 'ExclusiveGateway3', 'incoming': ['IntermediateCatchEvent5', 'Verify opposition'], 'outgoing': ['RF case delivered to debt collection']}
+{'id': 'sid-302FEFF2-CF6B-4EA2-ACB1-B44219F37B5C', 'name': 'ExclusiveGateway4', 'incoming': ['Examination of the case', 'IntermediateCatchEvent5'], 'outgoing': ['internal regression measure completed']}
+{'id': 'sid-E094F76E-F2DE-42D5-9CE0-76342A57C5F4', 'name': 'IntermediateCatchEvent5', 'incoming': ['is possible regression against VN?'], 'outgoing': ['ExclusiveGateway4', 'Transfer process to debt collection service provider', 'Objection is justified?']}
+{'id': 'sid-68134411-13C0-401B-9AFD-29C8096FCA92', 'name': 'Cash receipt from the VN', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-928E4F3C-E4D4-4F37-B2F9-4E3867232B34', 'name': 'Reimbursement period expired', 'incoming': ['is possible regression against VN?'], 'outgoing': ['RF case delivered to debt collection']}
+{'id': 'sid-02C5051E-093E-4074-A5CF-6538C09C6038', 'name': 'Opposition arrived', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-5DC627C5-A62B-43D2-99D0-73A68FB72633', 'name': 'Regression report', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-83B77FB6-2964-4FBA-B490-79B433D16981', 'name': 'internal regression measure completed', 'incoming': ['Book the entrance'], 'outgoing': []}
+{'id': 'sid-CA255F66-1514-4133-ACBE-D45970FBD9F4', 'name': 'RF case delivered to debt collection', 'incoming': ['Reimbursement period expired'], 'outgoing': []}

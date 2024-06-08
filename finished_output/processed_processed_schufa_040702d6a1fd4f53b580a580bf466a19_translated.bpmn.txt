@@ -1,0 +1,9 @@
+ When a scoring request is initiated, it triggers a sequence of events and interactions between various components in the system. The process begins with the 'StartEvent0', which sends a 'Report scoring to Frontend' message to the 'Responsibility\nScoring' gateway. This gateway, upon receiving the request, sends an 'expect response' message back to the 'StartEvent0'.
+
+Once the 'expect response' message is received, the 'ExclusiveGateway1' gateway processes the request and sends an 'EndEvent0' message to the 'Responsibility\nScoring' gateway. Simultaneously, it also sends a 'Send a waiting message to Frontend' message to the 'Frontend' component.
+
+The 'Frontend' component, upon receiving the 'Send a waiting message to Frontend' message, awaits a response from the 'Responsibility\nScoring' gateway. Once the response is received, the 'Responsibility\nScoring' gateway sends an 'EndEvent0' message to the 'ExclusiveGateway1' and an 'Expect response' message back to the 'StartEvent0'.
+
+The 'ExclusiveGateway1' then sends an 'EndEvent0' message to the 'StartEvent0' and a 'Send scoring result' message to the 'ExclusiveGateway2'. The 'ExclusiveGateway2', upon receiving the 'Send scoring result' message, sends an 'EndEvent1' message to the 'StartEvent1' and a 'Send scoring result' message to the 'ExclusiveGateway3'.
+
+Finally, the 'ExclusiveGateway3' sends an 'EndEvent1' message to the 'StartEvent1' and awaits a response from the 'ExclusiveGateway2'. Once the response is received, the process concludes, and the scoring result is reported back to the 'Frontend'.

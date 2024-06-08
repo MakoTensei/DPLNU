@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-DA4369D1-8402-4909-BCDD-E2856AE60B6C', 'name': 'Check the case', 'incoming': ['Check regression'], 'outgoing': ['Regress possible?']}
+{'id': 'sid-4EF4A8FA-B9DD-4C5B-B92A-85B2E06CF236', 'name': 'Check payment receipt', 'incoming': ['Reimbursement'], 'outgoing': ['Payment received?']}
+{'id': 'sid-CFB46523-3D6A-4FD1-82B2-EDFF760D669C', 'name': 'Proceedings', 'incoming': ['VN appeals'], 'outgoing': ['Objection justified?']}
+{'id': 'sid-D518CC7A-4A6B-4644-B111-C93056DB38AF', 'name': 'Book payment', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Closed']}
+
+Gateways:
+{'id': 'sid-6443C56B-77AA-45D4-9512-721A9FEB3EF2', 'name': 'Regress possible?', 'incoming': ['Check regression'], 'outgoing': ['Closed', 'sid-DE2C6D2F-85BA-4E69-9177-867E217C4E8E']}
+{'id': 'sid-4FA82259-D21B-4ECD-BC0B-029AF979AEA5', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['sid-E8EC85AD-A81F-40CE-B0A0-FDA769315B43', 'sid-56E83FFD-9815-4562-B7BA-1FEDFBAD7147']}
+{'id': 'sid-89A7AE64-CB09-4D25-BCCA-8FA8398AEF39', 'name': 'Payment received?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Closed', 'sid-51B5EFE4-63FF-4C70-BD00-82D0B9DEC370']}
+{'id': 'sid-B2CEA949-D0F0-4AF0-8FFA-EAE2A1B98EC8', 'name': 'EventBasedGateway3', 'incoming': ['sid-F9A059F4-8782-4D9D-80AB-7C44940980F0'], 'outgoing': ['Objection justified?', 'Book payment']}
+{'id': 'sid-116F305D-1728-4B55-9D39-9DCCE40AF7A2', 'name': 'Reimbursement', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Closed']}
+{'id': 'sid-A067F907-2EDD-4D9A-BA1A-18A6A1499379', 'name': 'VN appeals', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Objection justified?']}
+
+Start Events:
+{'id': 'sid-AD93C73A-3F4D-4DD3-9E9A-08C5F127501F', 'name': 'Check regression', 'incoming': [], 'outgoing': ['Regress possible?']}
+
+End Events:
+{'id': 'sid-837D7CEA-A48D-4E2B-93EC-F59836A8E0CF', 'name': 'Closed', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-0C677AA0-6ED5-4553-B1F3-EB333C3612BB', 'name': 'Closed', 'incoming': ['Reimbursement', 'sid-0F7128DD-7324-4DC8-A8ED-B405F03931C7', 'sid-4BE311F2-061F-49EC-9F58-EBB9A03F29C3'], 'outgoing': []}

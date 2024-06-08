@@ -1,0 +1,9 @@
+ In the credit transfer process, a scoring request initiates the sequence. The request, identified by'sid-924A4905-BBB1-4311-A2C0-4609B7A51ECA', triggers the 'Scoring request' task, which then sends the scoring data to the 'Credit Transfer Frontend' through 'Send Scoring to Credit Transfer Frontend' event.
+
+Simultaneously, the 'Scoring immediately available?' gateway, identified by'sid-828ED9C8-740E-41DB-864C-BE23EDD9CDD7', checks if the scoring results are ready. If available, it completes the scoring process and sends the 'Scoring completed' event. If not, it triggers the 'Submitting delay' task, identified by'sid-C8BCFA08-ECC9-4BAA-9A8C-75550E9BCEF5', which further processes the scoring data.
+
+Meanwhile, the 'ExclusiveGateway1' gateway, identified by'sid-C972F9BC-A1F9-4691-B98F-40F4A2D65EA0', receives the '1. perform scoring' and 'IntermediateCatchEvent5' tasks. It then determines the final scoring result and completes the scoring process, sending the 'Scoring completed' event.
+
+The 'IntermediateCatchEvent2' and 'IntermediateCatchEvent4' tasks, identified by'sid-6C2F2333-CC0A-4CB8-9C2F-69821A893A8D' and'sid-324F1D57-0C35-40BC-A582-F62FD5813B83' respectively, handle the intermediate steps in the scoring process. The 'IntermediateCatchEvent4' task, in particular, receives the 'Scoring request' and sends the 'Scoring completed' event once the scoring is done.
+
+Finally,

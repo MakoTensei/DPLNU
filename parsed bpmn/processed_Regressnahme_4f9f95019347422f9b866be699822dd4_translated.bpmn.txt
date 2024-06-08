@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-7086DE0D-4B83-4331-ADD1-98209A9A5AA1', 'name': 'Check regression', 'incoming': ['Regression possible\n'], 'outgoing': ['Regressive challenge?']}
+{'id': 'sid-4DA2ED70-25C7-44F1-8A90-057286B4FD5F', 'name': 'Creating a Scent & Time', 'incoming': ['Regression possible\n'], 'outgoing': ['sid-01A5A609-8BFC-4E7D-86E3-4DDB3E1492C1']}
+{'id': 'sid-F6F8B6DE-D02E-4361-AC7C-CF08966DA5AD', 'name': 'Book money receipt', 'incoming': ['Transfer received'], 'outgoing': ['Regress successful']}
+{'id': 'sid-72966BD3-7802-4FBB-9323-85CC53F0B8AF', 'name': 'Examination', 'incoming': ['References'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-670F9374-BF7F-4B84-AB5F-02582F8D787E', 'name': 'Turn on debt collection service provider', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Incaso service provider\nMission']}
+
+Gateways:
+{'id': 'sid-115A6FF7-A92D-4CD4-B097-881E353DAB5D', 'name': 'Regressive challenge?', 'incoming': ['Regression possible\n'], 'outgoing': ['no regression possible', 'Creating a Scent & Time']}
+{'id': 'sid-9DB8D749-EE7C-4969-BD15-24C82D246C9D', 'name': 'Denial of payment\njustified?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Regress not successful', 'ExclusiveGateway2']}
+{'id': 'sid-12FEF028-58A1-481B-B442-89B7F4059658', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3', 'Examination'], 'outgoing': ['Incaso service provider\nMission']}
+{'id': 'sid-B8CFEA84-C38A-4173-98BE-AAC2D8B03B6E', 'name': 'EventBasedGateway3', 'incoming': ['sid-D537D9A6-9C5C-4349-BFF3-76E9F1FF3F1D'], 'outgoing': ['Turn on debt collection service provider', 'Regress successful', 'Denial of payment\njustified?']}
+{'id': 'sid-FB34EDB1-C006-475D-96AE-090BA26734AE', 'name': 'Date of expiry', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Incaso service provider\nMission']}
+{'id': 'sid-9A277D99-B35B-43B0-B83B-5D58AD01BA85', 'name': 'Transfer received', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Regress successful']}
+{'id': 'sid-28AF994B-10D4-4B89-B639-DD1FDDDD560E', 'name': 'References', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Regress not successful']}
+
+Start Events:
+{'id': 'sid-E3E994B3-CC31-43EE-B244-7100AB00A726', 'name': 'Regression possible\n', 'incoming': [], 'outgoing': ['Creating a Scent & Time']}
+
+End Events:
+{'id': 'sid-12E2857D-FAAE-4239-8471-421789AD1EF7', 'name': 'no regression possible', 'incoming': ['Regressive challenge?'], 'outgoing': []}
+{'id': 'sid-95C0F0F5-0D06-4F3B-B06C-69074592BD09', 'name': 'Regress successful', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-01D41163-9687-48DC-A87C-94931FFAD551', 'name': 'Regress not successful', 'incoming': ['References'], 'outgoing': []}
+{'id': 'sid-A551926D-D497-456E-B296-A025A9635639', 'name': 'Incaso service provider\nMission', 'incoming': ['Date of expiry'], 'outgoing': []}

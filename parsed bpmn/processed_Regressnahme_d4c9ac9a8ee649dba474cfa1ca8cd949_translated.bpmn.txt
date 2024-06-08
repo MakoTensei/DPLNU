@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-D5F596B5-AF60-4C49-8333-5E89D8E77430', 'name': 'Check the case', 'incoming': ['Possible\nRegression\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-A31D7D85-7E9C-45E9-94B4-1C22B129FDB1', 'name': 'Payment method\nsend a message', 'incoming': ['Possible\nRegression\nReport'], 'outgoing': ['Reimbursement period']}
+{'id': 'sid-8061C9B6-8287-4E1D-8EBD-DA3809F91DD5', 'name': 'Book the entrance', 'incoming': ['Money\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-90E6D7A1-9D56-4A4F-BB20-B7F907B389A7', 'name': 'Close', 'incoming': ['Money\nReport'], 'outgoing': ['Closed']}
+{'id': 'sid-32C40BEA-B555-42B9-95CA-66D2575D8BCC', 'name': 'Proceedings', 'incoming': ['Opposition\ninlaid'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-E5A8D2D3-3DAD-4B37-97DE-D48353C7F69F', 'name': 'Dispense process to collection service providers', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process\nDebt service provider\ndelivered']}
+{'id': 'sid-009A0AC1-7E0F-4E9D-90C8-2CA02718C083', 'name': 'Reimbursement period', 'incoming': ['Regression\npossible?'], 'outgoing': ['Process\nDebt service provider\ndelivered']}
+
+Gateways:
+{'id': 'sid-DBEA0139-5771-4ED1-B55D-445EBDB61F9C', 'name': 'Regression\npossible?', 'incoming': ['Possible\nRegression\nReport'], 'outgoing': ['Process\nDebt service provider\ndelivered', 'ExclusiveGateway2']}
+{'id': 'sid-BF0FA3E6-26DC-4252-AA09-727323091914', 'name': 'Opposition\nmade out?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-00156269-422F-40D8-A59F-2892883AC359', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Proceedings', 'Check the case'], 'outgoing': ['Closed']}
+{'id': 'sid-58D3E87E-B28B-45F7-BDE4-B77D8E92EEB0', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Opposition\ninlaid'], 'outgoing': ['Process\nDebt service provider\ndelivered']}
+{'id': 'sid-E870788E-5C45-4FB1-B11C-6BC6CC4088A0', 'name': 'EventBasedGateway4', 'incoming': ['Reimbursement period'], 'outgoing': ['Opposition\nmade out?', 'Closed', 'Dispense process to collection service providers']}
+{'id': 'sid-56A3F3C2-B8A1-4E21-8F75-D84CA07443FC', 'name': 'Opposition\ninlaid', 'incoming': ['Reimbursement period'], 'outgoing': ['Process\nDebt service provider\ndelivered']}
+{'id': 'sid-A047A45A-F047-4F69-BA8F-C1125E389724', 'name': 'Money\nReport', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Close']}
+{'id': 'sid-38EE96DE-498F-438D-84B1-F42A391C1C3D', 'name': 'Date\nExpired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-B271B244-C26B-438B-B3F4-F2AF1B521433', 'name': 'Possible\nRegression\nReport', 'incoming': [], 'outgoing': ['Payment method\nsend a message']}
+
+End Events:
+{'id': 'sid-59DFCF90-3B16-43FF-B32D-F878F0FE1F4F', 'name': 'Closed', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-63815E5F-8F73-4954-8C2A-15BC4B17FC35', 'name': 'Process\nDebt service provider\ndelivered', 'incoming': ['Regression\npossible?'], 'outgoing': []}

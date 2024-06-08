@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-09FB438C-9DC5-4760-ADBE-56C87F6C0209', 'name': 'Packaging goods', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Provide goods for collection']}
+{'id': 'sid-F6B712D1-60CE-476B-9EEA-E31679EB0141', 'name': 'Provide goods for collection', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['Goods ready for collection']}
+{'id': 'sid-92BD427C-789D-4DC3-92B8-3B7BF60A87FA', 'name': 'Evaluate quantity', 'incoming': ['Goods are to be shipped'], 'outgoing': ['A lot big?']}
+{'id': 'sid-C88F2D05-33D8-4E37-90A3-10260A34DF0D', 'name': 'Pick up three forwardings', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Select your offer']}
+{'id': 'sid-07B28BE5-CF53-4B75-80B5-7BB55E68B8A6', 'name': 'Select your offer', 'incoming': ['A lot big?'], 'outgoing': ['Specialist']}
+{'id': 'sid-085D70B1-92DC-4F79-8469-4AB05C433268', 'name': 'Specialist', 'incoming': ['A lot big?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-D546BEE6-1310-465A-8AE2-08FFC8AB1962', 'name': 'Fill in packaging paper', 'incoming': ['A lot big?'], 'outgoing': ['Check insurance requirements']}
+{'id': 'sid-92642B67-354C-40EA-A8F7-9AFBAA614AFE', 'name': 'Check insurance requirements', 'incoming': ['A lot big?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-A70FE8E1-CB24-4E07-A8C2-7BB65BC40F12', 'name': 'Insurance close', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-212ED64A-DE6E-4856-9109-3C082BC0D6F8', 'name': 'A lot big?', 'incoming': ['Goods are to be shipped'], 'outgoing': ['ExclusiveGateway1', 'Goods ready for collection']}
+{'id': 'sid-E476D93C-D3D7-4C50-A760-4913E00591F7', 'name': 'ExclusiveGateway1', 'incoming': ['A lot big?', 'Insurance necessary?'], 'outgoing': ['Goods ready for collection']}
+{'id': 'sid-FF3FD784-631A-4327-880A-C000C70B5804', 'name': 'Insurance necessary?', 'incoming': ['A lot big?'], 'outgoing': ['Goods ready for collection', 'Insurance close']}
+{'id': 'sid-A929F140-C903-4CE2-99B2-0D955B86C605', 'name': 'ExclusiveGateway3', 'incoming': ['Check insurance requirements', 'Insurance close'], 'outgoing': ['Provide goods for collection']}
+
+Start Events:
+{'id': 'sid-63E6DB17-5431-4DAA-83C0-3DEFE62C2608', 'name': 'Goods are to be shipped', 'incoming': [], 'outgoing': ['Pick up three forwardings']}
+
+End Events:
+{'id': 'sid-8D4EFF27-7E07-4018-8039-C7E91A7B4C2E', 'name': 'Goods ready for collection', 'incoming': ['A lot big?'], 'outgoing': []}

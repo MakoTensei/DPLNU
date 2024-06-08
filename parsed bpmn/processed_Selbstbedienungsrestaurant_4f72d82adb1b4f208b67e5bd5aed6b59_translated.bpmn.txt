@@ -1,0 +1,39 @@
+Tasks:
+{'id': 'sid-7BD86E08-C4E8-45A0-A51D-D3C202B7D8AD', 'name': 'Select a court', 'incoming': ['Hunger'], 'outgoing': ['wait until you get in line']}
+{'id': 'sid-4978DBC9-1615-4FF3-A79F-F13C92C60B23', 'name': 'Add your order', 'incoming': ['Hunger'], 'outgoing': ['Order payment']}
+{'id': 'sid-B8659998-393C-41BC-A4EA-CDD7DBD6BA9C', 'name': 'wait until Pieper gives a signal', 'incoming': ['IntermediateCatchEvent1'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-A943813B-9831-456E-A000-E035B4390495', 'name': 'respond to Pieper, pick up food', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Take food']}
+{'id': 'sid-34DEB6ED-F1AA-4BAB-8254-EFB45270A631', 'name': 'Take food', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Eat meal']}
+{'id': 'sid-F910CDB2-C350-40BC-BF50-4EC5084722C4', 'name': 'Order payment', 'incoming': ['wait until you get in line'], 'outgoing': ['Pieper piept']}
+{'id': 'sid-644FBEE3-7C75-4F6C-88B1-DAEA31AD4937', 'name': 'Enter your order in cash', 'incoming': ['StartEvent1'], 'outgoing': ['Cash']}
+{'id': 'sid-941C6824-B42E-4117-A372-5444B37315F3', 'name': 'Cash', 'incoming': ['StartEvent1'], 'outgoing': ['Get money']}
+{'id': 'sid-4EDA17B4-8981-409C-AFC8-43DBEBD967C2', 'name': 'Adjust Pieper', 'incoming': ['StartEvent1'], 'outgoing': ['Pieper guest give']}
+{'id': 'sid-B2B58C19-3E4D-49BA-90D0-33B388A9B39F', 'name': 'Pieper guest give', 'incoming': ['Get money'], 'outgoing': ['inform Koch about ordered meal']}
+{'id': 'sid-34B519D7-291E-4F35-84B1-649D8BBAE6F5', 'name': 'inform Koch about ordered meal', 'incoming': ['Get money'], 'outgoing': ['Food is ready']}
+{'id': 'sid-26A795EA-7E38-42B8-AA1C-BBA8F5BAD018', 'name': 'Trigger Pieper', 'incoming': ['Food is ready'], 'outgoing': ['5 minutes, guest does not appear']}
+{'id': 'sid-283B5ECF-102C-456B-BEF1-805414249977', 'name': 'Deliver food', 'incoming': ['Guest picks up meal'], 'outgoing': ['Ordering process completed']}
+{'id': 'sid-6F9D350C-D31C-4248-9275-F32C53E2C6B1', 'name': 'Retrieve guest', 'incoming': ['5 minutes, guest does not appear'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-FE06FD27-79ED-4A28-97DA-A012A9DC37AE', 'name': 'Preparation of meal', 'incoming': ['Milling preparation'], 'outgoing': ['Putting the meal into the reach']}
+{'id': 'sid-B273C11E-DE4D-48DC-A5F6-2000D7D127D7', 'name': 'Putting the meal into the reach', 'incoming': ['Milling preparation'], 'outgoing': ['Preparation meal completed']}
+
+Gateways:
+{'id': 'sid-0775CF91-F11D-4706-8C2C-4AEA17151AF9', 'name': 'EventBasedGateway0', 'incoming': ['Get money', 'Info, food is ready'], 'outgoing': ['Ordering process completed', 'EventBasedGateway0']}
+{'id': 'sid-C30665DD-8667-43A5-885F-500EB377B671', 'name': 'IntermediateCatchEvent1', 'incoming': ['wait until you get in line'], 'outgoing': ['Eat meal']}
+{'id': 'sid-3A122C8A-5E6C-4EA7-86E8-C50112929D37', 'name': 'Pieper piept', 'incoming': ['Order payment'], 'outgoing': ['Eat meal']}
+{'id': 'sid-9C7A7A40-1495-4BA1-BBBC-EDA650511FC3', 'name': 'wait until you get in line', 'incoming': ['Hunger'], 'outgoing': ['Eat meal']}
+{'id': 'sid-D002C25C-6709-440E-9412-BC36D598ADA3', 'name': 'IntermediateCatchEvent4', 'incoming': ['wait until Pieper gives a signal'], 'outgoing': ['Eat meal']}
+{'id': 'sid-759E5E72-6595-4E9A-8EE3-D2ED46D98C4D', 'name': 'Get money', 'incoming': ['StartEvent1'], 'outgoing': ['Ordering process completed']}
+{'id': 'sid-A125E723-67CF-4BFE-93B4-2D615A796881', 'name': 'Info, food is ready', 'incoming': ['Get money'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-CBABEE02-B781-4C19-87D8-6B8478EC38D8', 'name': 'Food is ready', 'incoming': ['inform Koch about ordered meal'], 'outgoing': ['Guest picks up meal']}
+{'id': 'sid-641EE9F3-F7E5-44D9-9729-EF1272DDB184', 'name': 'Guest picks up meal', 'incoming': ['Food is ready'], 'outgoing': ['Ordering process completed']}
+{'id': 'sid-D3A04CC7-615D-4BA4-840D-81DB56602AB0', 'name': '5 minutes, guest does not appear', 'incoming': ['Trigger Pieper'], 'outgoing': ['EventBasedGateway0']}
+
+Start Events:
+{'id': 'sid-6579EB52-3A0C-453D-8F57-A8E2DED611F0', 'name': 'Hunger', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-C5DE9B76-809B-4325-9CFF-EE1F07BA6145', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-824FA991-6CC8-4336-998B-CB67FD112D74', 'name': 'Milling preparation', 'incoming': [], 'outgoing': ['Putting the meal into the reach']}
+
+End Events:
+{'id': 'sid-F0A131E2-1FFA-45B9-B01F-A85BA1B55B73', 'name': 'Eat meal', 'incoming': ['wait until you get in line'], 'outgoing': []}
+{'id': 'sid-475A3D1F-1246-4A34-B54D-82D8125FC11E', 'name': 'Ordering process completed', 'incoming': ['Get money'], 'outgoing': []}
+{'id': 'sid-D36C4EDB-778F-44B0-AEE4-2EAA17C28F2D', 'name': 'Preparation meal completed', 'incoming': ['Putting the meal into the reach'], 'outgoing': []}

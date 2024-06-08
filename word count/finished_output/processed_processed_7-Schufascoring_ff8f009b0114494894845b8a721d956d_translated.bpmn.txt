@@ -1,0 +1,17 @@
+ The process begins with the 'Schufascoring\nStart' event, which triggers the 'Start Schufascoring' task. This task initiates the scoring process and shares the delay with the 'Share delay' task.
+
+Simultaneously, the 'StartEvent1' event kicks off the 'Scoring\nforward the result' task, which forwards the initial scoring result to 'ExclusiveGateway2'.
+
+As the scoring process progresses, the 'Scoring result\ndelays' event is generated, which triggers the 'perform scoring\n(1st level)' task. This task performs the initial scoring and sends the results to 'Scoring result\ndelays'.
+
+The 'Scoring result\ndelays' event then triggers the 'perform scoring\n(2nd level)' task, which performs a second level of scoring and sends the results after some minutes.
+
+The 'Scoring result\ndelays' event also triggers the 'Delay\nReport' task, which reports the delay and forwards the results to 'perform scoring\n(2nd level)'.
+
+After some minutes, the'some\nminutes' event is generated, which triggers the 'Scoring\nforward the result' task again, forwarding the results to 'ExclusiveGateway2'.
+
+The 'Scoring result\ndetermined' event is then generated, which triggers the 'Scoring\nforward the result' task once more, forwarding the results to 'ExclusiveGateway0'.
+
+Finally, the 'Scoring\ncompleted' event is generated, which signifies the completion of the scoring process and triggers the 'ExclusiveGateway0' task to complete the process.
+
+In summary, the scoring process starts with the 'Schufascoring\nStart' event, which triggers a series of tasks to perform scoring, report delays, and forward results to the appropriate gateways until the 'Scoring\ncompleted' event signifies the completion of the process.

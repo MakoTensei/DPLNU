@@ -1,0 +1,11 @@
+ In the case of a regress, the system initiates a series of tasks and gateways to manage the situation. First, the 'Regress' event triggers the 'Check the case' task, which then sends a message to 'Send a message' task. This message is directed towards 'Payment request' task, which in turn prompts 'Deposit money' task. Concurrently, 'Regress' event also leads to 'Proceedings' task, which initiates 'Debt collection' task.
+
+The 'Regress?' gateway receives the 'Regress' event and directs it to 'Book the entrance' task, which closes the process. Additionally, it also sends 'Close process' to 'Notification' and 'Objection' tasks.
+
+Meanwhile, 'EventBasedGateway3' receives 'Regress' event and routes it to 'Money received' task, 'Rejection of payment right?' task, and 'Debt collection' task.
+
+The 'Payment auff.' gateway, upon receiving 'Payment request' event, triggers 'Deposit money' task and 'Objection' task.
+
+Lastly, 'Reimbursement' gateway, upon receiving 'Regress' event, sends 'Money received' task to close the process.
+
+In summary, the system handles a regress by initiating tasks and gateways to check the case, send messages, book the entrance, proceed with debt collection, and close the process.

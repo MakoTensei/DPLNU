@@ -1,0 +1,19 @@
+Tasks:
+{'id': 'sid-E02E2649-FD12-4EBB-8375-E68F93603147', 'name': 'Schufa Scoring', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-0CD28870-5486-419F-B0A1-9DED34C33D26', 'name': 'Level 1 Score', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-08CAFB36-AF0C-4D21-8CCA-3B85FDE5798F', 'name': 'Level 2 Score', 'incoming': ['sid-0836A58B-11C9-4471-BA79-85FC98EEF7D8'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-26B1AD29-049F-4272-8C1F-AEA5327C799C', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'sid-DD00F550-269A-4A5D-9EFC-7D86622FDA2F']}
+{'id': 'sid-86AEC5B3-5FA9-4434-804A-D6AA7B36F4CB', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent0', 'sid-C546C09C-0347-4DE8-B16A-6A67568C80A2'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-267EC84F-2A55-42F1-B714-B5A95ABEBA4B', 'name': 'ExclusiveGateway2', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'sid-53208E09-5E45-4928-98B4-128054D79E23']}
+{'id': 'sid-284A5D31-8405-4746-9E01-1E0F9C69A046', 'name': 'ExclusiveGateway3', 'incoming': ['StartEvent1', 'Level 2 Score'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-0D026506-8DB4-4F55-B671-E3633FF4FA6B', 'name': 'IntermediateCatchEvent4', 'incoming': ['Schufa Scoring'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-6CDFE741-BF8D-494A-8B98-6EF480D6D76A', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-B1DC3AA4-DDE5-48F7-B759-C9270C208E5D', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['ExclusiveGateway3']}
+
+End Events:
+{'id': 'sid-97142B79-327E-4BA2-B843-BFB7639C1CB4', 'name': 'EndEvent0', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': []}
+{'id': 'sid-8238EBE7-D0D2-45F3-8698-195C51380558', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}

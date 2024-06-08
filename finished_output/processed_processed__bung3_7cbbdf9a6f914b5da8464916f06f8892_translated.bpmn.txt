@@ -1,0 +1,15 @@
+ The process begins with the 'Regressability' task, which checks if a regress is possible. This task is triggered by the 'Regressability' event and leads to the 'Send payment request' process, which is initiated by the 'ExclusiveGateway0'.
+
+The 'Send payment request' process is then followed by the 'Set process for re-submission' task, which is triggered by the 'Money received' event. This task is connected to the 'ExclusiveGateway0' and leads to the 'Process completed' task.
+
+The 'ExclusiveGateway0' also connects to the 'ExclusiveGateway1', which is triggered by the 'EventBasedGateway3'. This gateway leads to the 'Process completed' task.
+
+The 'ExclusiveGateway1' is also connected to the 'ExclusiveGateway2', which is triggered by the 'EventBasedGateway3' and 'Examination of the objection' events. This gateway leads to the 'Process completed' task.
+
+The 'ExclusiveGateway2' is connected to the 'EventBasedGateway3', which is triggered by the 'Set process for re-submission' event. This gateway leads to the 'Process completed' task.
+
+The 'ExclusiveGateway0' is also connected to the 'EventBasedGateway3', which is triggered by the 'Reclaimed by VN' event. This gateway leads to the 'Process completed' task.
+
+The 'EventBasedGateway3' is also connected to the 'Timetable' task, which is triggered by the 'EventBasedGateway3' event. This task leads to the 'Process completed' task.
+
+The process concludes with the 'Process completed' task, which is triggered by the 'ExclusiveGateway0', 'EventBasedGateway3', 'Reclaimed by VN', and 'Timetable' events.

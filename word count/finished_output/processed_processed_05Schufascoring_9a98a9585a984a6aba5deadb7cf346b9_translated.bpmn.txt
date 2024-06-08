@@ -1,0 +1,13 @@
+ In a workflow system, various tasks and events are interconnected through gateways and end events. Let's break down the described scenario into a more natural flow description:
+
+1. The process starts with the 'Start Schufascoring' event, which triggers the 'Start scoring' task. This task is initiated by'sid-06B7D46D-9130-4C23-8DF5-03B51E92B2D0' and has no incoming connections.
+
+2. The 'Start scoring' task has two outgoing connections:'sid-20FA6EE6-DD02-4DD5-B2F2-92006B48E236' to send a final result and'sid-1A1AB148-B565-4E6B-9973-A82D4AC68932' to handle the scenario where scoring takes longer than usual.
+
+3. The 'Start scoring' task also has an incoming connection from'sid-3C293DC3-E09D-475D-B9C8-7B4FE5458DE0', which is the 'EventBasedGateway1'.
+
+4. The 'EventBasedGateway1' has two outgoing connections:'sid-3154969D-34C5-4692-B3A6-4F3F06B97555' to send a reply in case of a delay and'sid-33E9CF3D-F535-44D3-ABDF-E73AADBFC95C' to send a final result.
+
+5. The 'EventBasedGateway1' also has an incoming connection from'sid-12BB4195-64ED-433D-A4D0-84A538BA1822', which is the 'Start Schufascoring' event.
+
+6. The 'Start Schufascoring' event has an outgoing connection to'sid-387

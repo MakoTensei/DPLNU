@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-92AC8FF6-2AA6-4EB1-9301-CC6ED4884AE3', 'name': 'Visit the restaurant', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Court of Justice\nSelect']}
+{'id': 'sid-78DE0608-00D7-45EE-BE0D-A59D5880BCBE', 'name': 'Court of Justice\nSelect', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['the\nSeries']}
+{'id': 'sid-B0EAF82A-DD31-4705-8505-8E6856D8ADAD', 'name': 'Account\nNumber', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Receive Pieper']}
+{'id': 'sid-D24D2EA8-02C6-4E90-A912-DD6C2AE07DD1', 'name': 'Receive Pieper', 'incoming': ['the\nSeries'], 'outgoing': ['Meals\nready for collection']}
+{'id': 'sid-312973E3-3053-4606-AF2E-1183B6979DF1', 'name': 'Meals\nretrieval', 'incoming': ['the\nSeries'], 'outgoing': ['Meals\nbeeping']}
+{'id': 'sid-AAE56476-7549-4C31-BE61-B3CDB71D28C9', 'name': 'Meals\nbeeping', 'incoming': ['Meals\nready for collection'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-7480756F-81CD-4223-90B5-12129AFD42BF', 'name': 'Order\nEnter', 'incoming': ['Order\nobtained'], 'outgoing': ['Money\ncassing']}
+{'id': 'sid-BC180BE3-9DF9-4517-B6A2-A5315219D25F', 'name': 'Money\ncassing', 'incoming': ['Order\nobtained'], 'outgoing': ['Pieper\nAdjust']}
+{'id': 'sid-C581C111-11B2-4715-BC1D-C009543CD9C4', 'name': 'Pieper over', 'incoming': ['Pieper\nAdjust'], 'outgoing': ['Cooking order\nobtained']}
+{'id': 'sid-D9539727-51A6-4F86-A36A-FAD15F9AFDAC', 'name': 'Cooking order\nobtained', 'incoming': ['Pieper\nAdjust'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-EECAC7EF-880A-46BF-9404-7AA53B199B59', 'name': 'Pieper\ntrigger', 'incoming': ['Meals\nready for collection'], 'outgoing': ['Customer\nappears']}
+{'id': 'sid-18766226-464A-48D7-8E67-BC6ECF00223A', 'name': 'Guest\nCall', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-05F0E861-E413-4CE5-AB73-0A4E5B3CE4CC', 'name': 'Food\noutput', 'incoming': ['Customer\nappears'], 'outgoing': ['Food\navailable']}
+{'id': 'sid-F885F4C9-09B6-47BA-A35E-90B75552ED19', 'name': 'Pieper\nAdjust', 'incoming': ['Order\nobtained'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-1F2F7C16-9807-4646-ACE4-C7D6A72E389F', 'name': 'Preparation of meal', 'incoming': ['Cooking order\nobtained'], 'outgoing': ['Putting the meal into the reach']}
+{'id': 'sid-76ACABCA-88EF-4CB4-AA8A-4CD8D1E4F457', 'name': 'Putting the meal into the reach', 'incoming': ['Cooking order\nobtained'], 'outgoing': ['Employees\ninformation']}
+{'id': 'sid-6FDE4C24-FA97-4570-9C46-917F2DDC7BF8', 'name': 'Employees\ninformation', 'incoming': ['Cooking order\nobtained'], 'outgoing': ['Food\nPrepared']}
+
+Gateways:
+{'id': 'sid-4EF04F66-E3F9-4EA5-AE5C-2420E2E46488', 'name': 'Meals\nready for collection', 'incoming': ['the\nSeries'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-3EAB63EB-4DB6-4530-9C21-8C7333D9858F', 'name': 'the\nSeries', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Meals\nretrieval']}
+{'id': 'sid-FBEC7E3D-447A-4DDC-B1FB-4007D6542BBD', 'name': '5 min.', 'incoming': ['Order\nobtained'], 'outgoing': ['Guest\nCall']}
+{'id': 'sid-D62302D9-6911-4FAF-BC20-4875939F7C49', 'name': 'Meals\nready for collection', 'incoming': ['Order\nobtained'], 'outgoing': ['5 min.']}
+{'id': 'sid-2BCC2F58-5493-4A47-9DAD-7F0909315FFD', 'name': 'IntermediateCatchEvent4', 'incoming': ['Pieper\nAdjust', 'Pieper\nAdjust'], 'outgoing': ['Food\navailable', 'Food\navailable']}
+{'id': 'sid-216D3441-42B7-4B7E-8BA1-6C166FC24C45', 'name': 'Customer\nappears', 'incoming': ['Pieper\ntrigger'], 'outgoing': ['Food\navailable']}
+
+Start Events:
+{'id': 'sid-858E74AD-1814-400D-883C-D339D9D71595', 'name': 'Hunger\nNot applicable', 'incoming': [], 'outgoing': ['Account\nNumber']}
+{'id': 'sid-470C1D1D-A96A-48A8-BBE8-42D5BB1599A5', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['5 min.']}
+{'id': 'sid-14F55286-F9D1-4F02-BD36-038DAF6DDD12', 'name': 'Cooking order\nobtained', 'incoming': [], 'outgoing': ['Employees\ninformation']}
+
+End Events:
+{'id': 'sid-D3E09FA5-A88E-469C-999F-BDF2981947AA', 'name': 'Hunger\ndistilled', 'incoming': ['Cooking order\nobtained'], 'outgoing': []}
+{'id': 'sid-61463D70-9514-4200-AB28-EFABEEB4A317', 'name': 'Food\navailable', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': []}
+{'id': 'sid-BDEF6705-6887-4047-B331-CDE0E6220A9E', 'name': 'Food\nPrepared', 'incoming': ['Employees\ninformation'], 'outgoing': []}

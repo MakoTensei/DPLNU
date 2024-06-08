@@ -1,0 +1,11 @@
+ The process begins with a guest feeling hungry, triggering the event "Feeling hungry" which sends the guest to ExclusiveGateway1. At ExclusiveGateway1, the guest's order is processed, leading to the event "Guest ordered". This event triggers Pieper to prepare the meal, sending the "Order\nto prepare" event to ExclusiveGateway2.
+
+Meanwhile, ExclusiveGateway0 receives the "Feeling hungry" event and sends the guest to ExclusiveGateway1. ExclusiveGateway1 then sends the guest's order to Pieper, triggering the "Pieper\nreceived" event. This event sends the guest's order to ExclusiveGateway1, which then sends the "Pieper\nAdjust" event to ExclusiveGateway2.
+
+ExclusiveGateway2 receives the "Guest ordered" event and triggers Pieper to prepare the meal, sending the "Meals\nfinished" event to ExclusiveGateway2. ExclusiveGateway2 then sends the "exclamation" event to ExclusiveGateway2, which triggers the "Deliver food" event to ExclusiveGateway2.
+
+ExclusiveGateway2 receives the "Meals\nfinished" event and sends the "Food collected" event to ExclusiveGateway2. ExclusiveGateway2 also sends the "exclamation" event to ExclusiveGateway2, which triggers the "Meals\nto prepare" event to ExclusiveGateway0.
+
+ExclusiveGateway0 receives the "Feeling hungry" event and sends the guest to ExclusiveGateway1. ExclusiveGateway1 sends the guest's order to Pieper, triggering the "Pieper\nreceived" event. This event sends the guest's order to ExclusiveGateway1, which then sends the "Pieper\nAdjust" event to ExclusiveGateway2.
+
+ExclusiveGateway2 receives the "Guest ordered" event and triggers Pieper to prepare the meal, sending

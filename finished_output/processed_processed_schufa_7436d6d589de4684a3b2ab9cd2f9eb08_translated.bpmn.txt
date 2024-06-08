@@ -1,0 +1,9 @@
+ In a system where tasks and gateways interact to process events, the following sequence of operations takes place:
+
+When a 'Request' event occurs, it triggers the 'Send request' task with the ID'sid-16B83327-7D11-4CF6-A0F9-214E92BF618E'. This task sends a 'delayed' message to the 'ExclusiveGateway0' with the ID'sid-6681AEA4-B468-4966-9977-E297031D08B6'.
+
+The 'ExclusiveGateway0' then receives the 'delayed' message and routes it to the 'EventBasedGateway2' with the ID'sid-D84773A4-88BC-4F84-BD3D-1F27BED87C42'. This gateway processes the 'delayed' message and triggers the 'Report delay' task with the ID'sid-B5A7A112-8418-4B78-9186-8D24FCDC4DDC'. The 'Report delay' task sends a'score get' message to the 'ExclusiveGateway0'.
+
+Simultaneously, the 'EventBasedGateway2' also processes the 'delayed' message and triggers the 'Report delay' task with the ID'sid-EA8B773C-FEC5-44CF-8C31-0344CC33B8E4'. This task sends a 'Score level2' message to the 'StartEvent1' with the ID'sid-536BBFEB-9FA5-40B1-A206-7559131528A8'.
+
+The 'StartEvent1' then initiates the 'Conduct scoring (level 1)' task with the ID'sid-71DA8972-0A08-4C1A-8F3C-A9E4BB337766'. This task

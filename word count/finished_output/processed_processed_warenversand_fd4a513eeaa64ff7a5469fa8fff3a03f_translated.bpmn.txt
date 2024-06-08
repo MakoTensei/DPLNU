@@ -1,0 +1,9 @@
+ When goods are to be shipped, the process begins with the task of packaging the goods, which involves the ParallelGateway5. Once packaged, the goods are then directed to the task of selecting the cheapest offer, which is facilitated by the ExclusiveGateway2. This selection process is triggered by the incoming event of a big crowd. After choosing the cheapest offer, the freight forwarder is ordered through ExclusiveGateway2.
+
+Simultaneously, a separate task of filling standardized parcel notes is initiated, which also involves ParallelGateway5. This task is triggered by the incoming event of a big crowd. The filled parcel notes are then sent to ParallelGateway6.
+
+Once the cheapest offer is selected and the freight forwarder is ordered, the goods are ready for collection. This event is triggered by the incoming event of a big crowd and results in the goods being sent to ParallelGateway6.
+
+In parallel, the task of completing insurance is initiated by the incoming event of no crowd. This task is directed to ExclusiveGateway4, which then sends the goods ready for collection to ParallelGateway6.
+
+In summary, the process starts with packaging the goods and selecting the cheapest offer, followed by ordering the best freight forwarder and filling standardized parcel notes. The goods are then ready for collection, which is triggered by the big crowd event and involves multiple gateways and tasks.

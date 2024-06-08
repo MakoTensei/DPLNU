@@ -1,0 +1,15 @@
+ In the process of scoring requests to Schufa, the system initiates with a 'Schufascoring - Request' event, where the team has discussed the request. This event triggers a series of interactions:
+
+1. The 'Schufascoring - Request' event is received by the 'Scoring Result Available?' gateway, which then sends a 'Report Delay' message to the 'Exclusive Gateway 1' and 'Event-Based Gateway 2'.
+
+2. Concurrently, the 'Schufascoring - Request' event also reaches the 'Exclusive Gateway 1', which processes the 'Scoring Level1 - Perform' event. Upon completion, it sends a 'Scoring Completed' message back to the 'Scoring Result Available?' gateway.
+
+3. The 'Schufascoring - Request' event also reaches the 'Event-Based Gateway 2', which processes the 'Proceedings - Report' event. After processing, it sends a 'Scoring Completed' message back to the 'Scoring Result Available?' gateway.
+
+4. Meanwhile, the 'Schufascoring - Request' event also triggers the 'Scoring Level2 - Perform' event, which is processed by the 'Scoring Completed' gateway, resulting in a 'Scoring Completed' message.
+
+5. The 'Scoring Result Available?' gateway receives the 'Scoring Completed' messages from both the 'Exclusive Gateway 1' and 'Event-Based Gateway 2', and sends a 'Scoring Completed' message back to the 'Schufascoring - Request' event.
+
+6. Finally, the 'Scoring Completed' event is received by the 'Schufascoring - Request' event, marking the end of the scoring process.
+
+This flow ensures that the scoring process is efficiently managed, with each event and gateway playing a crucial role in the overall process.

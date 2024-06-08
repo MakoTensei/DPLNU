@@ -1,0 +1,5 @@
+ Upon receiving a regression report, the system initiates a sequence of tasks to address the issue. First, the 'Check the case' task is triggered, which sends a message to 'ExclusiveGateway1'. If the case is deemed valid, the system proceeds to 'Book the entrance' task, which in turn sends an event to 'EndEvent1'. Concurrently, 'EventBasedGateway4' receives the regression report and can either proceed to 'donate to debtors' or send a message to 'ExclusiveGateway1'.
+
+If the case is not valid, the system moves to the 'Denial of payment' task, which sends a message to 'ExclusiveGateway3'. This task is connected to 'EventBasedGateway4', which can also send a message to 'ExclusiveGateway1'. The 'Reimbursement period Expired' task is then triggered, sending an event to 'EndEvent0'.
+
+In summary, the system processes the regression report by checking the case, booking the entrance, and potentially donating to debtors, while also handling payment denials and expired reimbursement periods.

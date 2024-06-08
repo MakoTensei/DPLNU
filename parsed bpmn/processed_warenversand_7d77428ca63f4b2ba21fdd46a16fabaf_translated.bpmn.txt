@@ -1,0 +1,19 @@
+Tasks:
+{'id': 'sid-DBB06E3D-8A12-4318-B4AC-F25A4C0D2397', 'name': 'Separation of shipping', 'incoming': ['StartEvent0'], 'outgoing': ['Special delivery']}
+{'id': 'sid-F6A835F7-0BBD-4956-98C1-265530239177', 'name': 'three offers', 'incoming': ['StartEvent0'], 'outgoing': ['Select your offer']}
+{'id': 'sid-9BDCF461-DA6C-4766-9246-AA1BB5EF1037', 'name': 'normal mail order', 'incoming': ['Special delivery'], 'outgoing': ['Fill in packages']}
+{'id': 'sid-A9821CC7-C913-4228-8BE8-D16047F271DE', 'name': 'Fill in packages', 'incoming': ['Special delivery'], 'outgoing': ['Insurance?']}
+{'id': 'sid-34BB78DE-965C-4C4B-BB98-704527CBDA8D', 'name': 'Select your offer', 'incoming': ['Special delivery'], 'outgoing': ['Specialist']}
+{'id': 'sid-8FBACCC3-8908-4688-BB9C-20D4AEC10833', 'name': 'Specialist', 'incoming': ['Special delivery'], 'outgoing': ['sid-66206DE1-783B-4E3F-8168-90994690C55C']}
+{'id': 'sid-22295B0E-D383-4FFB-A21C-3DC4269A6B2E', 'name': 'Goods ready for collection', 'incoming': ['Insurance close'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-48B3D8DF-8356-495F-8A78-33B2901FE11A', 'name': 'Insurance close', 'incoming': ['Insurance?'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-51298EA5-040B-463E-94E8-34612C866C05', 'name': 'Special delivery', 'incoming': ['StartEvent0'], 'outgoing': ['Specialist', 'Insurance?']}
+{'id': 'sid-9DC1802B-AA7A-41FC-8860-13ADBEC3CA84', 'name': 'Insurance?', 'incoming': ['Special delivery'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-7EEE48F4-59D6-4AF6-B2F0-0467540DBE05', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['three offers']}
+
+End Events:
+{'id': 'sid-9D529EE4-2470-4138-BD9A-C567279360E1', 'name': 'EndEvent0', 'incoming': ['Insurance?'], 'outgoing': []}

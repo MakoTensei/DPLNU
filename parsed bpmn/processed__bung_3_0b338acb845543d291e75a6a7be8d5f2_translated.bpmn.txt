@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-402FDC99-AEE8-44F3-A547-5B3E00F7FAFB', 'name': 'Check regression', 'incoming': ['regression report'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-85DA046F-36CF-4C7F-AA28-48B09AA7A16A', 'name': 'Send a message', 'incoming': ['regression report'], 'outgoing': ['Incoming payment']}
+{'id': 'sid-3EEA7988-69CE-4B86-8DCF-2FD9A5FFAE65', 'name': 'Book payment receipt', 'incoming': ['Incoming payment'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-3ED0B0B3-AC9B-45E1-820F-158A223A77F9', 'name': 'Close the process', 'incoming': ['Opposition\njustified'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C379AFDA-9392-4EC9-A665-D6CE19854649', 'name': 'Proceedings', 'incoming': ['regression report'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-9DE6D21F-1625-40AE-9562-A37A135E4EAE', 'name': 'Debt collection office', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-C3ED3EDA-07B4-4F13-B8C4-FDD6CE30F909', 'name': 'Regress possible?', 'incoming': ['regression report'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-6F30AA1E-2C83-40DA-AB1F-742F97D1D171', 'name': 'ExclusiveGateway1', 'incoming': ['Regress possible?', 'Default period expired', 'VN contradicts', 'Check regression'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-2421B769-0758-4A73-ABFE-0E4EC04293E0', 'name': 'Opposition\njustified', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Close the process', 'ExclusiveGateway3']}
+{'id': 'sid-9A8A877B-8DD1-45DE-A535-7A3017E12EDD', 'name': 'ExclusiveGateway3', 'incoming': ['regression report', 'EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-A72BC86E-D7B2-449B-904B-D3E4CF309A63', 'name': 'EventBasedGateway4', 'incoming': ['regression report'], 'outgoing': ['EndEvent0', 'Opposition\njustified', 'Debt collection office']}
+{'id': 'sid-9837FFB1-8F6F-442D-8412-F6889C5CD80F', 'name': 'Incoming payment', 'incoming': ['Regress possible?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-A74D7662-DC48-4F94-BA03-7E8F3DFB378B', 'name': 'VN contradicts', 'incoming': ['regression report'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-DB77B343-C017-43B6-9595-3C305258A052', 'name': 'Default period expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-8B80DF15-9014-4253-8ABF-42918B99AEE6', 'name': 'regression report', 'incoming': [], 'outgoing': ['ExclusiveGateway3']}
+
+End Events:
+{'id': 'sid-C9DA49FA-6FDE-42FB-9AF7-DBA4FF1221F0', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway4'], 'outgoing': []}

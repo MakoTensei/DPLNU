@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-9BAB6FBB-F4CE-4F00-9D39-A2A6B8EC4D1F', 'name': 'Check shipping', 'incoming': ['Goods\nShip'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-12673933-8944-4581-A601-D6B856679958', 'name': 'Pick up offers', 'incoming': ['Goods\nShip'], 'outgoing': ['Select your offer']}
+{'id': 'sid-97D0E887-DDE2-4D7F-9A52-C8231B52991F', 'name': 'Filling the package note', 'incoming': ['Quantity'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-B0E571B0-471B-4D45-9F0A-870BC7A7B21F', 'name': 'Select your offer', 'incoming': ['Quantity'], 'outgoing': ['Specialist']}
+{'id': 'sid-567F8A6A-98C8-413B-BBCF-1CB77DC0FD0A', 'name': 'Specialist', 'incoming': ['Quantity'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-FE1F685A-82B3-42C7-98CE-8048F54E00E5', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-B3C6ECC4-7893-4166-B704-9FEB2168EB8C', 'name': 'packaged\nGoods\nprovide', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods\nready for dispatch']}
+{'id': 'sid-3323813E-3D65-4E8D-ACD6-A35D9AE55BA1', 'name': 'Complete insurance', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-B4727B2B-323B-48A2-AF67-8844E0CE8DD1', 'name': 'Quantity', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway2', 'Goods\nready for dispatch']}
+{'id': 'sid-0686C1D6-F6D0-438C-8379-EB1C2182009F', 'name': 'Insurance\nnecessary?', 'incoming': ['Quantity'], 'outgoing': ['ParallelGateway4', 'Complete insurance']}
+{'id': 'sid-958D182D-ABFD-4E0F-AA48-7B88DDAB549B', 'name': 'ExclusiveGateway2', 'incoming': ['Complete insurance', 'Filling the package note', 'Quantity'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-1630CA62-1A9A-4E87-AE27-BA03EB6A6270', 'name': 'ParallelGateway3', 'incoming': ['Goods\nShip'], 'outgoing': ['Pick up offers', 'ParallelGateway4']}
+{'id': 'sid-876841FF-811D-44D0-9C7F-148B5FA6954F', 'name': 'ParallelGateway4', 'incoming': ['Quantity', 'ParallelGateway3'], 'outgoing': ['Goods\nready for dispatch']}
+
+Start Events:
+{'id': 'sid-DF0145CF-A302-4363-B941-69B6567E59F0', 'name': 'Goods\nShip', 'incoming': [], 'outgoing': ['Pick up offers']}
+
+End Events:
+{'id': 'sid-33D575B9-77B6-4D8C-BAB7-230C8858A17E', 'name': 'Goods\nready for dispatch', 'incoming': ['Quantity'], 'outgoing': []}

@@ -1,0 +1,13 @@
+ When a notification of regression is received, the system initiates a series of tasks to address the issue. First, the 'Regression possibility' gateway is triggered, which then leads to the 'Check regression' task. This task evaluates the possibility of a regression and, if confirmed, sends a notification to the 'Debt collection' gateway.
+
+Simultaneously, the 'Regression possibility' gateway also sends a notification to the 'Notification' event, which in turn closes the 'Notification of regression' task.
+
+If the 'Check regression' task determines that a regression has occurred, it proceeds to the 'Set to reimbursement' task. This task sends a message to the'set to reimbursement' gateway, which then closes the 'Regression possibility' gateway and submits the reimbursement request.
+
+Meanwhile, the 'Debt collection' gateway receives the notification and triggers the 'Debt collection' task. This task submits the debt collection request to the 'Submitted' gateway.
+
+If the 'Debt collection' task is successful, the 'EventBasedGateway3' gateway is triggered, which then closes the 'Notification of regression' task and the 'Notification' event.
+
+In the case of receiving money, the 'Money received' event is triggered, which then closes the 'EventBasedGateway3' gateway and the 'Notification of regression' task.
+
+Overall, the system efficiently manages the notification of regression by coordinating various tasks and gateways to ensure timely and accurate handling of the issue.

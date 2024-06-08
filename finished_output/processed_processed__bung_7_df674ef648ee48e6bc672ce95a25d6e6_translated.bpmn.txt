@@ -1,0 +1,11 @@
+ The process begins with a 'Request request' event, which triggers the 'Scoring 1 interpret' task. This task receives the 'Request request' and sends it to the 'Recipient' gateway. The 'Recipient' gateway then sends the 'Request request' to the 'Check scoring again' task.
+
+The 'Check scoring again' task receives the 'Request request' and sends it to the 'Scoring immediately possible?' gateway. The 'Scoring immediately possible?' gateway receives the 'Request request' and sends it to the 'Scoring 1 determined' task.
+
+The 'Scoring 1 determined' task receives the 'Scoring immediately possible?' and determines that scoring is possible. It then sends a message to the 'Results obtained?' gateway, which receives the message and determines that scoring is possible. The 'Results obtained?' gateway sends a message to the 'Scoring 1 interpret' task, which then sends a message to the 'Transfer scoring 1' gateway.
+
+The 'Transfer scoring 1' gateway receives the message from the 'Scoring 1 interpret' task and sends it to the 'Scoring 1' task. The 'Scoring 1' task receives the message and determines the scoring. It then sends a message to the 'Scoring determined' gateway, which receives the message and determines that scoring is determined.
+
+Meanwhile, the 'Scoring immediately possible?' gateway receives the 'Request request' and sends it to the 'Scoring 2 determined' task. The 'Scoring 2 determined' task receives the message and determines that scoring is possible. It then sends a message to the 'Scoring 2' task, which receives the message and determines the scoring. The 'Scoring 2' task sends a message to the 'Scoring determined' gateway, which receives the message and determines that scoring is determined.
+
+In summary, the process involves a series of tasks and gateways that work together to determine the scoring based on the 'Request request' event. The process starts with the 'Request request' event, which triggers the 'Scoring 1 interpret' task. The 'Scoring 1 interpret' task sends the 'Request request' to the 'Recipient' gateway, which sends

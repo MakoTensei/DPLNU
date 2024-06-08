@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-906F02F0-E71F-4187-87F7-D28BE893D584', 'name': 'Request Schufascoring', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Answer']}
+{'id': 'sid-BF3D13DE-789A-4D58-B1A8-6100D0E57017', 'name': 'Schufa Review reply', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Final\nResult\navailable?']}
+{'id': 'sid-067EF669-47D2-4A14-B014-3D1057910997', 'name': 'Report the final result', 'incoming': ['Answer'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-A81601E8-E754-43DF-91E8-71F18C32E7AD', 'name': 'Report the waiting period', 'incoming': ['Final\nResult\navailable?'], 'outgoing': ['Final\nResult']}
+{'id': 'sid-A8C7A5BC-728B-4BA3-A500-F4D1C8C1076A', 'name': 'Report final result', 'incoming': ['Final\nResult'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-5023F2D6-E554-436C-9A56-2052C5DB9B64', 'name': 'Conduct Level1 scoring', 'incoming': ['Request\narrived'], 'outgoing': ['sid-5BE92DC7-CFA9-4B3E-ACFD-C854AAE816FB']}
+{'id': 'sid-22AA41D1-C3E0-4B8C-869B-F83C9B8E9F83', 'name': 'Conduct Level2 scoring', 'incoming': ['Level1 scoring\nsufficient?'], 'outgoing': ['Level2 Report result']}
+{'id': 'sid-B3966ED5-7D29-4BC1-AD82-F13FFC4C9ACD', 'name': 'Level2 Report result', 'incoming': ['Level1 scoring\nsufficient?'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-B481F81F-CB29-460D-B623-7924BA827446', 'name': 'Final\nResult\navailable?', 'incoming': ['Answer'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-A8B5E0CE-E199-473A-9567-06577A3FB7C4', 'name': 'Level1 scoring\nsufficient?', 'incoming': ['sid-77A751C4-40DD-4E5C-8186-DA6F66498647'], 'outgoing': ['EndEvent2', 'EndEvent3']}
+{'id': 'sid-55B302B5-0CE0-44BB-8309-200FC3C17B14', 'name': 'Final\nResult', 'incoming': ['Final\nResult\navailable?'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-97E3C183-1E4B-43FF-B4A0-1C121545259F', 'name': 'Answer', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Report the final result']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['Schufa Review reply']}
+{'id': 'sid-2BBE200C-1D1C-4EA9-B4E7-A7B94EC7E650', 'name': 'Request\narrived', 'incoming': [], 'outgoing': ['Conduct Level1 scoring']}
+
+End Events:
+{'id': 'sid-DD4C0F83-6985-4613-8966-27A182ACBD23', 'name': 'EndEvent0', 'incoming': ['Final\nResult\navailable?'], 'outgoing': []}
+{'id': 'sid-35FEE092-B45B-4C93-B997-246F937E27B3', 'name': 'EndEvent1', 'incoming': ['Final\nResult\navailable?'], 'outgoing': []}
+{'id': 'sid-20FC7DDA-551F-4ECE-B8C0-69478971A7F4', 'name': 'EndEvent2', 'incoming': ['Level1 scoring\nsufficient?'], 'outgoing': []}
+{'id': 'sid-4C5A471E-78D2-4547-BB30-36F9937C3D20', 'name': 'EndEvent3', 'incoming': ['Level1 scoring\nsufficient?'], 'outgoing': []}

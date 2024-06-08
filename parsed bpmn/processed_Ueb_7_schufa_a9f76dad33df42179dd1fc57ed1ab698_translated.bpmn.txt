@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-DC4986CA-7174-4371-A967-C161C43181D9', 'name': 'Scoring request\nsend', 'incoming': ['Schufaanfrag\nobtained'], 'outgoing': ['Results obtained']}
+{'id': 'sid-95A4C129-EB51-4D3F-8FA0-3F1EA18BEB4C', 'name': 'Follow-up', 'incoming': ['Results obtained'], 'outgoing': ['Result sent']}
+{'id': 'sid-CF849156-F594-43B7-9D4A-E777E0EFE84D', 'name': 'Follow-up', 'incoming': ['Results obtained'], 'outgoing': ['Result sent']}
+{'id': 'sid-E9FD569E-36A5-47A9-A4D5-B09A1AE0EE25', 'name': 'distributive agent notification', 'incoming': ['Schufaanfrag\nobtained'], 'outgoing': ['Result sent']}
+{'id': 'sid-95910B77-845C-4527-AD0E-E25A142DA24E', 'name': 'Level 1 scoring\nperform', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Scoring successful?']}
+{'id': 'sid-F759CACD-FF89-4436-9252-EF70F8034C60', 'name': 'Send result to bank', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['L1 scoring\ndispatched\n']}
+{'id': 'sid-B5D52E3C-92FE-49F2-B1D7-6F60309D5B94', 'name': 'Level 2 scoring\nperform', 'incoming': ['sid-DC313C8E-7AD6-4536-84F2-4DE23592870A'], 'outgoing': ['Send result to bank']}
+{'id': 'sid-37007118-587E-4ABD-8362-88A74F26EB6F', 'name': 'Send result to bank', 'incoming': ['Level 2 scoring\nperform'], 'outgoing': ['L2 scoring\ndispatched']}
+
+Gateways:
+{'id': 'sid-E79BCB55-1170-4BDD-9B17-2438254BCB83', 'name': 'Scoring successful?', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['sid-81A6DE3D-1B17-44DE-BD99-740B3D1EEA63', 'L1 scoring\ndispatched\n']}
+{'id': 'sid-B1F144F8-3C21-476A-9727-7F2FCF4AD74B', 'name': 'EventBasedGateway1', 'incoming': ['Schufaanfrag\nobtained'], 'outgoing': ['Result sent', 'Result sent']}
+{'id': 'sid-D4E896FE-83E6-41C6-8E3A-D0CDFBAEF345', 'name': 'Results obtained', 'incoming': ['Scoring request\nsend'], 'outgoing': ['Result sent']}
+{'id': 'sid-4F316CFA-EBD1-4FB0-AD93-2F68F2852F53', 'name': 'Delay\nGet a message', 'incoming': ['Schufaanfrag\nobtained'], 'outgoing': ['Result sent']}
+{'id': 'sid-0033EBD6-2A50-4119-938D-119820E00B1B', 'name': 'Results obtained', 'incoming': ['Schufaanfrag\nobtained'], 'outgoing': ['Result sent']}
+
+Start Events:
+{'id': 'sid-D91F8D05-BC0E-4E46-8E4F-D015A1F0D32A', 'name': 'Schufaanfrag\nobtained', 'incoming': [], 'outgoing': ['Results obtained']}
+{'id': 'sid-31FB0261-A344-4E04-BAC7-971C1E9C1C37', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['Send result to bank']}
+
+End Events:
+{'id': 'sid-49113553-6E03-4C42-9001-5727D3C30A72', 'name': 'Result sent', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-3E4F5D1D-AF34-443B-A3B2-30E2FEFE095D', 'name': 'Result sent', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-6C832F32-D5A6-479F-B474-884716A84E5C', 'name': 'L1 scoring\ndispatched\n', 'incoming': ['Scoring successful?'], 'outgoing': []}
+{'id': 'sid-1EA5409A-406E-466A-ADFD-701511084716', 'name': 'L2 scoring\ndispatched', 'incoming': ['Send result to bank'], 'outgoing': []}

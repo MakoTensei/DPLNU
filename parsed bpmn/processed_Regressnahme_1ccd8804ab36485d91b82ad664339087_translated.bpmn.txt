@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-FDF2B9C8-13DE-4EBE-9E07-52FFD0621137', 'name': 'Check the case\n', 'incoming': ['Regression request\n'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-D14F55DD-6885-4D0D-9879-5F7CD20AD168', 'name': 'Proceedings', 'incoming': ['VN has contradicted\n'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-55BAA144-CA9F-4E61-85F1-F7261705951F', 'name': 'Book money receipt', 'incoming': ['VN paid\n'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-0CAA1756-F097-4DA1-BC43-D633E9968FB1', 'name': 'Close', 'incoming': ['EventBasedGateway5'], 'outgoing': ['Closed\n']}
+
+Gateways:
+{'id': 'sid-DBA48E78-11AD-4814-8CCD-B2D4753BE089', 'name': 'Regress possible?\n', 'incoming': ['Regression request\n'], 'outgoing': ['ExclusiveGateway1', 'sid-D087ADD3-0A73-4F84-BFFF-303F866D9A67']}
+{'id': 'sid-0B982389-FF2D-4656-9B6E-11A4C8F132D1', 'name': 'ExclusiveGateway1', 'incoming': ['Check the case\n', 'sid-31335DC4-33E1-423B-9103-0F6D1B4004EC', 'Opposition\njustified?'], 'outgoing': ['Closed\n']}
+{'id': 'sid-199E51C7-CF25-4E7E-A5C5-0869601AE4EA', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway5'], 'outgoing': ['Close', 'ExclusiveGateway4']}
+{'id': 'sid-8FCD0BFA-0FA4-412D-A236-8D9CDE591E15', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway5', 'Proceedings'], 'outgoing': ['Closed\n']}
+{'id': 'sid-08B185B4-F7C7-48CE-A8DD-07517C3F5E34', 'name': 'ExclusiveGateway4', 'incoming': ['EventBasedGateway5', 'VN has contradicted\n'], 'outgoing': ['sid-0E50F881-A20F-4B36-8585-D0560D159091']}
+{'id': 'sid-E8BD6A8F-FE9A-404C-B15D-1D2EB7BE36A0', 'name': 'EventBasedGateway5', 'incoming': ['sid-88EF4982-771C-48CD-ADBE-D4E81B5B07C0'], 'outgoing': ['Closed\n', 'ExclusiveGateway4', 'Close']}
+{'id': 'sid-E8D4745D-F9D8-48B5-86AC-61A97DE68D9D', 'name': 'Reimbursement\n', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-7FDE2997-09F2-42F0-AC10-DBDB8139FFD1', 'name': 'VN paid\n', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-B3394583-0D9F-4612-B115-5FAC4EBBB393', 'name': 'VN has contradicted\n', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway4']}
+
+Start Events:
+{'id': 'sid-497C5DE0-2F48-4366-97D3-8742F3C8523A', 'name': 'Regression request\n', 'incoming': [], 'outgoing': ['Regress possible?\n']}
+
+End Events:
+{'id': 'sid-0E70A363-DB31-44BF-A974-F3FDB4896CDF', 'name': 'Closed\n', 'incoming': ['EventBasedGateway5'], 'outgoing': []}

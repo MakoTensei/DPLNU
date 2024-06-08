@@ -1,0 +1,13 @@
+ When the system receives a 'Schufascoring required' event, it initiates a scoring process. This process starts with the creation of a scoring request, which is then routed to Level 1. Once Level 1 completes its task, it sends a signal to EndEvent0, marking the completion of the initial scoring phase.
+
+
+Simultaneously, if a 'StartEvent1' is triggered, it prompts a delay in the scoring process. This delay is communicated to the ExclusiveGateway2, which then sends a 'Report delay' message to EndEvent1, indicating that the scoring process is on hold.
+
+
+During the delay, the system can either proceed to Level 2 or wait for further instructions. If Level 2 is chosen, the system sends a 'Schufascoring required' event to ExclusiveGateway0, which then directs the process to Level 1 again.
+
+
+Alternatively, if the delay is to be reported, the system sends a 'Report the result' message to ExclusiveGateway2, which then concludes the process by sending the result to EndEvent1.
+
+
+In summary, the system handles scoring requests by creating a request, delaying the process if necessary, and reporting the results. The flow of events and the corresponding actions are managed through a series of gateways and levels, ensuring a structured and efficient scoring process.

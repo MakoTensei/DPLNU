@@ -1,0 +1,19 @@
+ In a complex logistics and shipping process, three companies, referred to as Company 1, Company 2, and Company 3, are involved in a series of tasks and decisions. The process begins with a Start Event, which triggers the initiation of the workflow.
+
+The Start Event sends Company 3 to the ExclusiveGateway1, where it receives an offer from Offers 3 companies. From there, Company 3 is directed to the ParallelGateway5.
+
+Simultaneously, Company 2 and Company 1 are also presented with the offer from Offers 3 companies. Company 2 proceeds to the ParallelGateway5, while Company 1 is directed to the ExclusiveGateway3.
+
+At ExclusiveGateway3, Company 1 receives a package ticket and is directed to the EndEvent1. Meanwhile, Company 2 is directed to the ParallelGateway7.
+
+Company 3, after receiving the offer, is directed to the ParallelGateway6. Here, it encounters the Start Event, which sends it to the EndEvent1.
+
+ParallelGateway6 also receives incoming tasks from the Start Event and the Insurance\nclose event. It sends Company 3 to the EndEvent1 and directs Company 2 and Company 1 to the ParallelGateway4.
+
+ParallelGateway4, in turn, receives incoming tasks from ParallelGateway5 and ParallelGateway6. It sends Company 2 and Company 1 to the EndEvent1.
+
+The EndEvent0 is triggered by the who takes delivery?\n event at ParallelGateway6. It sends Company 3 to the EndEvent0.
+
+The EndEvent1 is triggered by the ParallelGateway6 and is responsible for the final step in the process.
+
+In summary, the Start Event initiates the process by sending Company 3 to ExclusiveGateway1. Company 2 and Company 1 receive the offer and are directed to ParallelGateway5. Company 1 is further directed to ExclusiveGateway3, where it receives a package ticket and is sent to EndEvent1. Company 3 encounters the Start Event at ParallelGateway

@@ -1,0 +1,19 @@
+Tasks:
+{'id': 'sid-57FBCCD8-058A-4C2F-8B88-FAADAA36C401', 'name': 'Check the procedure', 'incoming': ['News about Regress'], 'outgoing': ['Regression claim justified']}
+{'id': 'sid-EE8A7B65-B3DD-4C5A-986B-93EC8E7865E3', 'name': 'Book the entrance', 'incoming': ['Money goes'], 'outgoing': ['Complete the process']}
+{'id': 'sid-19F4657C-E0DE-41A6-BAEB-D3208134E488', 'name': 'Proceedings', 'incoming': ['VN repeats'], 'outgoing': ['Complete the process']}
+
+Gateways:
+{'id': 'sid-DCE44C75-8E09-48EC-A40C-94AE553A9B5D', 'name': 'Regression claim justified', 'incoming': ['News about Regress'], 'outgoing': ['sid-7E29D086-8B9D-4AF4-B4A0-86DF7C9E257F', 'Complete the process']}
+{'id': 'sid-36391E1E-B0A4-4B12-8BF9-9934B46A5E47', 'name': 'Objection justified?', 'incoming': ['VN repeats'], 'outgoing': ['Send case to debt collection service provider', 'Complete the process']}
+{'id': 'sid-26D33D00-BCA3-44D7-A791-505F69D6D190', 'name': 'Process on WV', 'incoming': ['sid-2A4576C6-146B-4D00-A13E-07E407A2BC95'], 'outgoing': ['Send case to debt collection service provider', 'Complete the process', 'VN repeats']}
+{'id': 'sid-F12A1CCA-8F2C-4F16-A361-06771061929B', 'name': 'Money goes', 'incoming': ['Process on WV'], 'outgoing': ['Complete the process']}
+{'id': 'sid-277A925C-1E08-4A51-90B1-9781DDB3DC51', 'name': 'Date of expiry', 'incoming': ['Process on WV'], 'outgoing': ['Send case to debt collection service provider']}
+{'id': 'sid-699F371C-BAF0-48EC-A183-96AB590FB857', 'name': 'VN repeats', 'incoming': ['Process on WV'], 'outgoing': ['Send case to debt collection service provider']}
+
+Start Events:
+{'id': 'sid-BBFCFAC2-FD83-42CD-B219-0D36B2B84D33', 'name': 'News about Regress', 'incoming': [], 'outgoing': ['Regression claim justified']}
+
+End Events:
+{'id': 'sid-94DEB33C-CC91-4ED9-A434-F6CEF009353B', 'name': 'Complete the process', 'incoming': ['Proceedings', 'Regression claim justified', 'Process on WV'], 'outgoing': []}
+{'id': 'sid-BBD03ADF-4AE0-40EF-AE7E-60271B95D0DC', 'name': 'Send case to debt collection service provider', 'incoming': ['VN repeats', 'Process on WV'], 'outgoing': []}

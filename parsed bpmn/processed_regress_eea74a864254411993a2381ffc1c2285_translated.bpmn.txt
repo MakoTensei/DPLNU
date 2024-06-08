@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-FB606D65-4734-4C00-BAEC-7ED59578E074', 'name': 'Check the case', 'incoming': ['VN possibly\nto take in Regress'], 'outgoing': ['Possibility\nfor a regression?']}
+{'id': 'sid-EF36CCCB-39E9-4D22-8E3A-307EEA017464', 'name': 'Process\nclose', 'incoming': ['VN possibly\nto take in Regress'], 'outgoing': ['VN not in\nRegressed']}
+{'id': 'sid-28149565-FED6-450A-BE9C-C2D6F42112B3', 'name': 'Entrance\nbook', 'incoming': ['Money received'], 'outgoing': ['Process\nclose']}
+{'id': 'sid-24186511-0EFE-46E9-A5BE-A9133FA29F77', 'name': 'Process\nclose', 'incoming': ['Money received'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-EE023D36-B7DF-4791-A854-C8D590924B0A', 'name': 'Opposition\nCheck', 'incoming': ['VN has contradicted'], 'outgoing': ['Opposition\njustified?']}
+{'id': 'sid-A0F624A5-387D-49FA-A24E-0A2E54880377', 'name': 'Process\nclose', 'incoming': ['VN has contradicted'], 'outgoing': ['Opposition\ngranted']}
+
+Gateways:
+{'id': 'sid-7CB431C9-7E20-4BCC-BEEB-7D5B468F7700', 'name': 'Possibility\nfor a regression?', 'incoming': ['VN possibly\nto take in Regress'], 'outgoing': ['VN not in\nRegressed', 'sid-32271E64-C1F9-49F2-A609-AC946628A6EA']}
+{'id': 'sid-06010FD5-3B93-4773-8ED6-06BA6A4C1839', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Opposition\ngranted', 'sid-1962B7E8-A438-4447-BA1E-F61727CA96AA']}
+{'id': 'sid-DC5400C4-0EEE-4451-A207-0888DA287C1A', 'name': 'EventBasedGateway2', 'incoming': ['sid-10EAD93C-6919-4C1B-9D15-7AAC712FC4D7'], 'outgoing': ['Regression\ncompleted', 'Date of expiry', 'Opposition\ngranted']}
+{'id': 'sid-06948762-BEBD-4458-BE0C-331E5EEB28FD', 'name': 'Date of expiry', 'incoming': ['EventBasedGateway2'], 'outgoing': ['sid-370C852A-E17F-4F8F-9C8C-827A8C690B54']}
+{'id': 'sid-645FD464-874E-4129-9560-4C6DED767F40', 'name': 'Money received', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Regression\ncompleted']}
+{'id': 'sid-366C84B6-8041-4306-8F20-A62689A6AEC5', 'name': 'VN has contradicted', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Process\nclose']}
+
+Start Events:
+{'id': 'sid-1E87A5FF-43F4-40FE-89E8-5766C85D3339', 'name': 'VN possibly\nto take in Regress', 'incoming': [], 'outgoing': ['Process\nclose']}
+
+End Events:
+{'id': 'sid-87649B40-8F1D-44DA-ADDA-0E7A8D908096', 'name': 'VN not in\nRegressed', 'incoming': ['Possibility\nfor a regression?'], 'outgoing': []}
+{'id': 'sid-021D84B3-7239-4360-8F56-907AB29D7E28', 'name': 'Regression\ncompleted', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-201A33BB-ED81-4A1F-98FA-6B6276F4563F', 'name': 'Opposition\ngranted', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-9B5247DD-3E05-439C-A54B-72C05CB075E7', 'name': 'Process for SA\ncompleted', 'incoming': ['sid-AA4EC296-08B5-4B24-8A3F-FCA2927D1A01'], 'outgoing': []}
+{'id': 'sid-CA15127E-82B3-4BC6-BDEF-4725363B8E91', 'name': 'Process for SA\ncompleted', 'incoming': ['sid-163D349E-92D3-4A22-A58D-9B690F3DA6CE'], 'outgoing': []}

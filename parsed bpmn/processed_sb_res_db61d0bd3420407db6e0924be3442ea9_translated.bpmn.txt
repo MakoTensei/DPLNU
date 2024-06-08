@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-A82FC18E-552D-4B6F-A463-076F39571D28', 'name': 'Select a court', 'incoming': ['Famine'], 'outgoing': ['Start your order']}
+{'id': 'sid-6E2B27DA-3FF2-437B-B41E-68CC4CAD054B', 'name': 'Start your order', 'incoming': ['Famine'], 'outgoing': ['Court of Justice']}
+{'id': 'sid-C73EC700-4235-4F5E-A807-8A85C97B89C1', 'name': 'Court of Justice', 'incoming': ['Famine'], 'outgoing': ['Pieper vibrates']}
+{'id': 'sid-C7DD9DD0-DE3A-48BD-A9E4-5DD15B0E7734', 'name': 'Pick up food', 'incoming': ['Pieper vibrates'], 'outgoing': ['Eat court']}
+{'id': 'sid-1DC44556-E737-4F1B-9220-222DC965D27A', 'name': 'Eat court', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Famine']}
+{'id': 'sid-15A60544-815D-4F2F-8E18-E2756AAE6661', 'name': 'Processing', 'incoming': ['Order\nobtained'], 'outgoing': ['Cash']}
+{'id': 'sid-2A0E230C-FABF-428D-BEFE-93C45C7A0065', 'name': 'Cash', 'incoming': ['Order\nobtained'], 'outgoing': ['Configure Pieper']}
+{'id': 'sid-18DC421D-A35C-4673-8AE8-742BAF3E73C2', 'name': 'Configure Pieper', 'incoming': ['Order\nobtained'], 'outgoing': ['Court of First Instance']}
+{'id': 'sid-8B3C131F-1734-4488-914F-F7C6ABDC419A', 'name': 'Court of First Instance', 'incoming': ['Order\nobtained'], 'outgoing': ['Court of Justice']}
+{'id': 'sid-FE90F01C-CD0D-4644-BDBB-1D065EC3B4EF', 'name': 'Trigger Pieper', 'incoming': ['Order\nobtained'], 'outgoing': ['5 minutes']}
+{'id': 'sid-6E1CCDA0-2F6B-40CA-AF2A-99D7725CDFFA', 'name': 'Deliver food', 'incoming': ['Order\nobtained'], 'outgoing': ['Guest satisfaction\nnd services']}
+{'id': 'sid-371DF51B-01D9-4C9A-9126-11CA05247588', 'name': 'Retrieve guest', 'incoming': ['5 minutes'], 'outgoing': ['IntermediateCatchEvent6']}
+{'id': 'sid-65715786-05B7-4237-B970-B9FC06E23403', 'name': 'prepare court', 'incoming': ['Order\nobtained'], 'outgoing': ['Court of First Instance']}
+{'id': 'sid-3D8F0E55-75BA-4261-9FF4-12066780A8A0', 'name': 'Court of First Instance', 'incoming': ['Order\nobtained'], 'outgoing': ['Prepared meals\nand picked up']}
+
+Gateways:
+{'id': 'sid-096C602C-5FDD-4587-A070-F5B370F21C32', 'name': 'ExclusiveGateway0', 'incoming': ['IntermediateCatchEvent3', 'IntermediateCatchEvent3'], 'outgoing': ['Get Pieper']}
+{'id': 'sid-6F220B7D-BDA7-4431-A590-0548F043A01E', 'name': 'Get Pieper', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Pieper vibrates']}
+{'id': 'sid-C93A16F5-69A4-43CE-AEFC-EAF82C5BB0D5', 'name': 'Pieper vibrates', 'incoming': ['Court of Justice'], 'outgoing': ['Pick up food']}
+{'id': 'sid-A237425D-BB54-4BE3-9776-09EC9270BEEB', 'name': 'IntermediateCatchEvent3', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Eat court', 'Get Pieper']}
+{'id': 'sid-D8E02A5C-CD0D-4D80-A2DF-C67C4BA55401', 'name': 'Speakers\nthrough-age', 'incoming': ['Famine'], 'outgoing': ['Get Pieper']}
+{'id': 'sid-7506BF80-446A-4A0E-870B-7D41A9368EF2', 'name': 'Court of Justice', 'incoming': ['Order\nobtained'], 'outgoing': ['Guest satisfaction\nnd services']}
+{'id': 'sid-76350B95-0264-4CA7-95CA-D8DCD0E6BFA2', 'name': 'IntermediateCatchEvent6', 'incoming': ['Order\nobtained', 'Court of Justice'], 'outgoing': ['Guest satisfaction\nnd services', 'Guest satisfaction\nnd services']}
+{'id': 'sid-F727F174-A3B2-4CDB-B941-A2DE89B80837', 'name': '5 minutes', 'incoming': ['Court of Justice'], 'outgoing': ['Guest satisfaction\nnd services']}
+{'id': 'sid-2706FCA9-6C31-4769-B8A6-2F0C49DD169E', 'name': 'Guest', 'incoming': ['Order\nobtained'], 'outgoing': ['Guest satisfaction\nnd services']}
+
+Start Events:
+{'id': 'sid-D9797CF7-DBFB-4B57-9D38-8959B2DDF41C', 'name': 'Famine', 'incoming': [], 'outgoing': ['Get Pieper']}
+{'id': 'sid-D4FDE64F-C162-4781-8890-8427BA5DC16B', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['Deliver food']}
+{'id': 'sid-5D4692F7-5660-4D04-94F8-E47281BEB239', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['Court of First Instance']}
+
+End Events:
+{'id': 'sid-F0059420-ED58-49B6-8A7A-DE63E2137A91', 'name': 'Famine', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': []}
+{'id': 'sid-7B857DDB-D02E-4706-84C3-170BCC46CD47', 'name': 'Guest satisfaction\nnd services', 'incoming': ['Court of Justice'], 'outgoing': []}
+{'id': 'sid-9F6CD321-8647-4D03-A399-46C4CD1FB430', 'name': 'Prepared meals\nand picked up', 'incoming': ['Court of First Instance'], 'outgoing': []}

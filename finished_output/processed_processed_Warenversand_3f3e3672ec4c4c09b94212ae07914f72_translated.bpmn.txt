@@ -1,0 +1,15 @@
+ When a shipment of goods arrives, it triggers the 'Goods\nShipping' start event, which initiates a series of tasks and interactions between various gateways and services. The process begins with the 'Shipping\nSet quantity' task, which sets the quantity of goods to be shipped. This task has incoming connections to 'Goods\nShipping' and outgoing connections to 'ParallelGateway3'.
+
+Next, the 'courses' task is triggered, which has incoming connections to 'Goods\nShipping' and outgoing connections to 'Choose your favorite'. This task is linked to the 'ExclusiveGateway0', which has incoming connections from 'Goods\nShipping' and outgoing connections to 'ExclusiveGateway1'.
+
+The 'Choose your favorite' task, with incoming connections from 'Exclusic
+
+- response: 'ExclusiveGateway1' and outgoing connections to 'ExclusiveGateway1', allows the user to select their preferred course.
+
+Following this, the 'Fill in the package voucher' task is initiated, which has incoming connections from 'ParallelGateway3' and outgoing connections to 'Insurance desired?\n'. This task leads to the 'Insurance close' task, which has incoming connections from 'Insurance desired?\n' and outgoing connections to 'ParallelGateway4'.
+
+The 'Insurance close' task is connected to 'ParallelGateway4', which has incoming connections from 'Insurance desired?\n' and 'Packaging goods', and no outgoing connections.
+
+The 'Packaging goods' task, with incoming connections from 'ParallelGateway4', leads to the final task, 'Packaging goods', which has incoming connections from 'ParallelGateway4' and no outgoing connections.
+
+In summary, the shipment of goods initiates a sequence of tasks and interactions between various gateways and services, starting with setting the quantity of goods to be shipped, selecting a preferred course, filling in the package voucher, closing the insurance, and finally packaging the goods. Each task is connected to the appropriate incoming and outgoing gateways, ensuring a smooth and efficient process.

@@ -1,0 +1,37 @@
+Tasks:
+{'id': 'sid-EDFC1B06-63F1-403D-A5D0-EBFD6AAE16E3', 'name': 'Visit the restaurant', 'incoming': ['Hunger'], 'outgoing': ['Select a court']}
+{'id': 'sid-D77256E9-83DC-4D28-8526-F012A1E1BE51', 'name': 'Select a court', 'incoming': ['Hunger'], 'outgoing': ['Place in a snake']}
+{'id': 'sid-C9E1A11E-8D88-4E95-A3AF-44476EE0BC64', 'name': 'Place in a snake', 'incoming': ['Hunger'], 'outgoing': ['On the row']}
+{'id': 'sid-AB560A82-31B8-4D62-A30A-97439A2415C6', 'name': 'Add your order', 'incoming': ['Hunger'], 'outgoing': ['Payment of invoice']}
+{'id': 'sid-2515969E-771D-44D9-98F2-1973C219DF63', 'name': 'Payment of invoice', 'incoming': ['On the row'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-19CEA292-6C5E-4FB0-BC2F-E29F9C98FE82', 'name': 'Pick up food', 'incoming': ['Piper piept\n'], 'outgoing': ['Eat food']}
+{'id': 'sid-2304C57B-F596-4405-81DC-1B0AC07D0799', 'name': 'Eat food', 'incoming': ['Piper piept\n'], 'outgoing': ['Famine']}
+{'id': 'sid-D53E36D9-A7BA-415B-94ED-0CE08C3F3EA8', 'name': 'Pick up Pieper', 'incoming': ['On the row'], 'outgoing': ['Famine']}
+{'id': 'sid-6D58A3A7-9AF0-4A4A-A830-7876DA2A0B41', 'name': 'Enter your order in the cash register system', 'incoming': ['Order received'], 'outgoing': ['Cash']}
+{'id': 'sid-E1F4EC53-CE27-4E1F-90DB-C243779A4498', 'name': 'Adjust Pieper and hand over to the customer', 'incoming': ['Cash'], 'outgoing': ['inform Koch about order']}
+{'id': 'sid-0DA2C00E-5792-4322-95C3-89F039C97FD8', 'name': "Trigger the guest's Pieper", 'incoming': ['Koch reports:\nFood ready'], 'outgoing': ['Guest is\nthe issue']}
+{'id': 'sid-636FB2EB-AF02-42BC-AF2D-03B61AA11513', 'name': 'Deliver food to guest', 'incoming': ['Guest is\nthe issue'], 'outgoing': ['Order\ncompleted']}
+{'id': 'sid-6A233A6E-B47A-4A0E-9460-6A33442B592B', 'name': 'Cash', 'incoming': ['Order received'], 'outgoing': ['inform Koch about order']}
+{'id': 'sid-1683880F-6EF5-45C3-87F8-4FD2FEDC26DB', 'name': 'Retrieve guest', 'incoming': ['5 min past'], 'outgoing': ['Order\ncompleted']}
+{'id': 'sid-D69AF7B9-AFE9-4268-B03C-25DECDA3C39F', 'name': 'inform Koch about order', 'incoming': ['Order received'], 'outgoing': ['sid-4A54E3E6-11F6-4F4F-9993-EFE6C8D43BBE']}
+{'id': 'sid-58D25E73-3A52-46AB-8F0F-CD8EAB391D72', 'name': 'Preparation of meal', 'incoming': ['Order received'], 'outgoing': ['Putting the meal into the reach']}
+{'id': 'sid-0E62C1DD-37B2-4C88-9FD4-4A9BB3A6FDC8', 'name': 'Putting the meal into the reach', 'incoming': ['Order received'], 'outgoing': ['inform employees']}
+{'id': 'sid-79B9EFA4-CD65-4B92-AF02-431EB392533A', 'name': 'inform employees', 'incoming': ['Order received'], 'outgoing': ['Order completed']}
+
+Gateways:
+{'id': 'sid-4C1EAA2A-CF2C-4195-8CF9-6D315B472FF1', 'name': 'EventBasedGateway0', 'incoming': ['Koch reports:\nFood ready', 'Koch reports:\nFood ready'], 'outgoing': ['Order\ncompleted', 'EventBasedGateway0']}
+{'id': 'sid-074597DB-6E8E-4F90-9226-57F54285C782', 'name': 'On the row', 'incoming': ['Hunger'], 'outgoing': ['Famine']}
+{'id': 'sid-220C9FEB-D7C2-4A2A-B8FF-FAD605E54EE8', 'name': 'Piper piept\n', 'incoming': ['Pick up Pieper'], 'outgoing': ['Famine']}
+{'id': 'sid-42231019-E9C1-40A0-B3A6-63B70BE9A492', 'name': 'Koch reports:\nFood ready', 'incoming': ['sid-FF2A8237-3C0A-4BA4-BCED-33BA74E29862'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-E8B07C0A-C213-4EE0-B279-8A4A873754DF', 'name': '5 min past', 'incoming': ['Koch reports:\nFood ready'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-B0B0435F-C805-4074-BFE4-ABD943B6694A', 'name': 'Guest is\nthe issue', 'incoming': ["Trigger the guest's Pieper"], 'outgoing': ['Order\ncompleted']}
+
+Start Events:
+{'id': 'sid-8FE998A6-B8CC-4F8D-B8ED-C6B00700BF60', 'name': 'Hunger', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-A44E40A6-19EF-44F2-B5EF-927FEBED649E', 'name': 'Order received', 'incoming': [], 'outgoing': ['inform Koch about order']}
+{'id': 'sid-331A26FC-744B-4BEF-9F2C-93881D4EB5DB', 'name': 'Order received', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-5ED965B4-2B7F-44C6-B317-2A4AE20C1835', 'name': 'Famine', 'incoming': ['On the row'], 'outgoing': []}
+{'id': 'sid-AB5E59B1-F6A3-461E-94BD-3EE699AC6B9C', 'name': 'Order\ncompleted', 'incoming': ['Retrieve guest'], 'outgoing': []}
+{'id': 'sid-AE600C4D-3012-4108-B29E-5E4F32D7B4D2', 'name': 'Order completed', 'incoming': ['inform employees'], 'outgoing': []}

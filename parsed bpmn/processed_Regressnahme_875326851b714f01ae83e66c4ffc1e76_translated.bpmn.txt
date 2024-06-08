@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-A9993C8D-10A8-4A0A-B66B-D57ED306AB70', 'name': 'Case study', 'incoming': ['Regressability'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-3358FE2F-657E-42F0-A543-9F34016C7C51', 'name': 'Close', 'incoming': ['ExclusiveGateway4'], 'outgoing': ['Internal process closed']}
+{'id': 'sid-06ECE6E3-84E6-489A-BF29-D2E1CA3440E4', 'name': 'Send payment request', 'incoming': ['Regressability'], 'outgoing': ['Cash receipt']}
+{'id': 'sid-79F6E3EB-42D3-49ED-B32B-54296D15ADBA', 'name': 'Set process for resubmission', 'incoming': ['ParallelGateway7'], 'outgoing': ['ParallelGateway8']}
+{'id': 'sid-336D7067-679F-495A-B69B-8392C24DC0A0', 'name': 'Book money receipt', 'incoming': ['Cash receipt'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-E2D92A39-EDB4-424E-93ED-19972EBE86ED', 'name': 'Proceedings', 'incoming': ['Regressability'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-B5647944-BBF4-4D30-894A-5D1D8E580EE8', 'name': 'Process transferred to collection', 'incoming': ['EventBasedGateway6'], 'outgoing': ['ExclusiveGateway5']}
+
+Gateways:
+{'id': 'sid-17EADF0C-FEB4-4A68-A12B-99647831AAA1', 'name': 'ExclusiveGateway0', 'incoming': ['Regressability'], 'outgoing': ['ExclusiveGateway4', 'ExclusiveGateway1']}
+{'id': 'sid-4720A43D-8E85-44C7-A453-40B71E756311', 'name': 'ExclusiveGateway1', 'incoming': ['Objection justified?', 'Case study'], 'outgoing': ['Internal process closed']}
+{'id': 'sid-1D2AA365-509E-4120-A084-D638C51FA8DD', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway6'], 'outgoing': ['Internal process closed', 'sid-C60324AA-A047-45E6-BFA8-426CCB1565C0']}
+{'id': 'sid-A08C2C75-761B-49B1-934B-8889FEBA8779', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway6'], 'outgoing': ['Process transferred to collection']}
+{'id': 'sid-FBD138DA-B163-422C-97A8-9F19FA43056C', 'name': 'ExclusiveGateway4', 'incoming': ['Regressability', 'ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-18D1E5DE-01D3-4D74-9D68-EE49F9D20EC7', 'name': 'ExclusiveGateway5', 'incoming': ['Book money receipt', 'EventBasedGateway6'], 'outgoing': ['Internal process closed']}
+{'id': 'sid-60826172-4156-49E2-A2EB-C089FE344211', 'name': 'EventBasedGateway6', 'incoming': ['Regressability'], 'outgoing': ['Cash receipt', 'Objection justified?', 'ExclusiveGateway5']}
+{'id': 'sid-44545E6C-053E-46D2-A872-037E37BAD7F5', 'name': 'ParallelGateway7', 'incoming': ['Regressability'], 'outgoing': ['Cash receipt', 'ParallelGateway8']}
+{'id': 'sid-2BB17A24-56B8-4237-8599-ACE58F93AEB7', 'name': 'ParallelGateway8', 'incoming': ['Regressability', 'ParallelGateway7'], 'outgoing': ['Cash receipt']}
+{'id': 'sid-6C488ABE-29AA-4A26-925D-CCFD5209D1AA', 'name': 'Cash receipt', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-DECA7BD9-024A-4BF2-9224-46C398468F8B', 'name': 'VN opposition', 'incoming': ['Regressability'], 'outgoing': ['Internal process closed']}
+{'id': 'sid-E5198860-FDF9-4180-9A63-46F4A1AB629A', 'name': 'WV deadline', 'incoming': ['EventBasedGateway6'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-B35F6E94-4D6B-4896-9DD2-0D9B18FBB26C', 'name': 'Regressability', 'incoming': [], 'outgoing': ['ExclusiveGateway4']}
+
+End Events:
+{'id': 'sid-05E04888-25B5-4973-BAC7-D07FD6BF7185', 'name': 'Internal process closed', 'incoming': ['VN opposition'], 'outgoing': []}

@@ -1,0 +1,7 @@
+ The process begins with the 'StartEvent0', which triggers the 'diverging shipping' task. This task diverges into two paths: one leading to 'Packaging goods' and the other to 'Filling the package note'. The 'Packaging goods' task receives goods from 'ParallelGateway3' and sends them to 'ParallelGateway2'. Concurrently, the 'Filling the package note' task also receives goods from 'ParallelGateway3' and checks whether insurance is necessary.
+
+The 'diverging shipping' task also sends goods to 'ExclusiveGateway0', which further splits into two paths. One path leads to 'Delivering goods', which receives goods from 'ParallelGateway3' and sends them to 'EndEvent0'. The other path leads to 'Choose the cheapest offer', which receives offers from 'ExclusiveGateway0' and selects the cheapest one.
+
+The 'Choose the cheapest offer' task then sends the selected offer to a 'Specialist', which is represented by 'ParallelGateway2'. The 'Specialist' then completes the insurance process, which is represented by the 'Complete insurance' task. This task receives insurance information from 'ExclusiveGateway1' and sends it to 'ParallelGateway2'.
+
+Finally, all tasks converge at 'EndEvent0', which receives goods from 'ParallelGateway2' and 'ExclusiveGateway0', and sends them to the end of the process.

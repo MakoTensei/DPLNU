@@ -1,0 +1,17 @@
+ The process begins with the 'Schufascoring\nrequired' event, which triggers the 'Result Level 2 forward' task. This task is responsible for transmitting the 'Results Level 2\nsubmitted' data to the 'ExclusiveGateway1'.
+
+Next, the 'Scoring request\nReport' event initiates the 'ExclusiveGateway1' task, which in turn reports the 'Results Level 1\nsubmitted' data.
+
+Following this, the 'Result Level 1\nsubmitted' data is transmitted to the 'EventBasedGateway2', which then triggers the 'Result Level 1\ntransmitted' task.
+
+Simultaneously, the 'Schufascoring\nrequired' event also triggers the 'Report delay' task, which reports the 'Delay\nReport' data.
+
+The 'Delay\nReport' data is then transmitted to the 'Result Level 2\nsubmitted' task, which sends the 'Results Level 2\ntransmitted' data to the 'ExclusiveGateway1'.
+
+The 'ExclusiveGateway1' task receives the 'Results Level 2\ntransmitted' data and triggers the 'Result (level 2) report' task.
+
+The 'Result (level 2) report' task reports the 'Reported' data, which is then transmitted to the 'Result is fixed?' task.
+
+The 'Result is fixed?' task triggers the 'Determining scoring results' task, which in turn reports the 'Result (level 2) report' data.
+
+Finally, the 'Result (level 2) report' data is transmitted to the 'ExclusiveGateway1', completing the process.

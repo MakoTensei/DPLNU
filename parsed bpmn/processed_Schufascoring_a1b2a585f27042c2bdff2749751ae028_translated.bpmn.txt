@@ -1,0 +1,30 @@
+Tasks:
+{'id': 'sid-BF2606FF-BF8C-4996-845D-F348AAF33E7E', 'name': 'Trigger scoring request', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['Scoring result\nwe have discussed']}
+{'id': 'sid-5CA79935-E853-4A7D-9CD4-338181103C97', 'name': 'Information about delay\nto sales', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['Results Level 2\nReport']}
+{'id': 'sid-3C85651E-35B4-4120-AA1E-AC7F94139D38', 'name': 'forwarding result\nto sales', 'incoming': ['Scoring result\nwe have discussed'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C48A449A-5D06-462D-BDFC-B1F12845A89F', 'name': 'forwarding Result to sales', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-E13BF527-A751-4262-94AE-218335CEBD40', 'name': 'Implementation\nfirst scoring\n', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Scoring result\nobtained\nLevel 1']}
+{'id': 'sid-EFD765FB-A5E0-464F-A57E-B8C32D34F8D1', 'name': 'Implementation\nsecond scoring', 'incoming': ['Message\nSend delay to Bank'], 'outgoing': ['Scoring Level 2\nobtained']}
+{'id': 'sid-527E37EB-90A9-4B5E-BE61-05D7D887FCED', 'name': 'Shipping', 'incoming': ['Scoring result\nobtained\nLevel 1'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-2DA8BB53-CB89-434F-82EC-7FF4AE2B37D2', 'name': 'Message\nSend delay to Bank', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Scoring Level 2\nobtained']}
+{'id': 'sid-CA3BC324-1D5A-4CF4-8D47-DAECF4AB3A58', 'name': 'Result\nShip', 'incoming': ['Scoring request\nReport'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-5597CA14-1C4F-43B8-901D-AE07888FCB2A', 'name': 'EventBasedGateway0', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['EndEvent0', 'Message\nDelay\nwe have discussed']}
+{'id': 'sid-23D04A76-1917-44CD-864C-4A2CBDD1C0A0', 'name': 'EventBasedGateway1', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Delay\n', 'EndEvent2']}
+{'id': 'sid-7BE06506-BA7A-49F8-ABC3-6166C190E77C', 'name': 'Scoring result\nwe have discussed', 'incoming': ['Trigger scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-EA6DAF79-3B71-4427-9AAA-56CF2745D561', 'name': 'Message\nDelay\nwe have discussed', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['Information about delay\nto sales']}
+{'id': 'sid-4C19A698-7BAA-4FA1-AA79-DD78FF7A1911', 'name': 'Results Level 2\nReport', 'incoming': ['Schufascoring request\nwe have discussed'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-15E4B982-9BC8-4B09-9D95-981EF6FB2FE0', 'name': 'Scoring result\nobtained\nLevel 1', 'incoming': ['Implementation\nfirst scoring\n'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-4E1ED78D-D10F-4A65-B9DF-BFB786AD223C', 'name': 'Delay\n', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Message\nSend delay to Bank']}
+{'id': 'sid-C31FEDE0-BB2E-449D-81A3-2067BC64F27A', 'name': 'Scoring Level 2\nobtained', 'incoming': ['Scoring request\nReport'], 'outgoing': ['EndEvent3']}
+
+Start Events:
+{'id': 'sid-C9D6A446-5E1C-4CC9-BF66-9134C1A0A633', 'name': 'Schufascoring request\nwe have discussed', 'incoming': [], 'outgoing': ['forwarding Result to sales']}
+{'id': 'sid-D5F6DA24-1AC8-43AC-AAB4-F5BEB12C48CD', 'name': 'Scoring request\nReport', 'incoming': [], 'outgoing': ['Result\nShip']}
+
+End Events:
+{'id': 'sid-579E3452-5424-4736-88D1-B1BC9D71DD53', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-FB939484-AF2D-44E7-8CAD-C6B67769BD64', 'name': 'EndEvent1', 'incoming': ['Results Level 2\nReport'], 'outgoing': []}
+{'id': 'sid-D95F7C13-1509-4B41-987D-3CC9C837CE97', 'name': 'EndEvent2', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-EA133E80-2B51-43C4-AEFD-AEEFF3ED52BA', 'name': 'EndEvent3', 'incoming': ['Scoring Level 2\nobtained'], 'outgoing': []}

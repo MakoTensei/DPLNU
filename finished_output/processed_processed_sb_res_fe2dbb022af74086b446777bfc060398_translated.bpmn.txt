@@ -1,0 +1,13 @@
+ When a customer feels hungry, they trigger the 'Hunger' start event, which leads to the 'Add your order' task. This task allows the customer to select a meal, and upon completion, the 'When in series' gateway connects the 'Add your order' task to the 'Add your order' task, which then proceeds to the 'Add your order' task.
+
+Once the order is received, the 'Order received' start event initiates the 'Deliver food' task. The 'Deliver food' task connects to the 'Food ready' task through the 'When in series' gateway, which is triggered by the 'Order received' start event.
+
+The 'Food ready' task, upon completion, triggers the 'Enable beeps' task, which allows the customer to pick up their food. The 'Customer picks food' task connects to the 'Finished' end event through the 'When in series' gateway, signaling the completion of the food pickup process.
+
+Meanwhile, the 'Add your order' task connects to the 'Pick up Pieper' task through the 'When in series' gateway, which is triggered by the 'Add your order' task. The 'Pick up Pieper' task then connects to the 'Piepser piept' task, which is triggered by the 'Pick up Pieper' task.
+
+The 'Piepser piept' task connects to the 'Pieper transferred to customers' task through the 'When in series' gateway, which is triggered by the 'Piepser piept' task. The 'Pieper transferred to customers' task connects to the 'Food ready' task through the 'When in series' gateway, which is triggered by the 'Pieper transferred to customers' task.
+
+The 'Food ready' task connects to the 'Enable beeps' task through the 'When in series' gateway, which is triggered by the 'Food ready' task. The 'Enable beeps' task connects to the 'Customer picks food' task through the 'When in series' gateway, which is triggered by the 'Enable beeps' task.
+
+The 'Customer picks food' task connects to the 'Finished' end event through the 'When in series' gateway,

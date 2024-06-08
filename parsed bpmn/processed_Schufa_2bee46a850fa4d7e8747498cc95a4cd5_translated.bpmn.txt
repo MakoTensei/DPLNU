@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-8886FB3B-76C1-473E-9CF8-E66E3B67BC99', 'name': 'Scoring\nask for Schufa', 'incoming': ['Scoring request'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-C92FC6AA-545E-43F2-9842-C1534C4960DC', 'name': 'Report delay to the fronted', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': []}
+{'id': 'sid-FD21D19E-A235-47BC-A5BE-DFBC050E75D2', 'name': 'Report Scoring result to the Fronted', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B180274A-1C42-4D99-9A06-FD4D8DBF142E', 'name': 'Scoring request Level 1', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-41CCF76D-93CE-4EFE-B918-E8532768249E', 'name': 'Scoring calculation Level 2', 'incoming': ['sid-39B87AA6-648A-470C-820C-0A1185752A27'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-55BFD6AB-5073-4BA3-A4DE-DE0328AFBC8B', 'name': 'Scoring request calculated?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'sid-1CD89BE5-C20B-439A-B530-80A5A32D61C3']}
+{'id': 'sid-AE814E7E-1903-4724-8F4D-C9EDC8A04CC3', 'name': 'EventBasedGateway1', 'incoming': ['Scoring request'], 'outgoing': ['IntermediateCatchEvent2', 'EndEvent0']}
+{'id': 'sid-4CBD6599-335A-4A89-8072-365A010CE08E', 'name': 'IntermediateCatchEvent2', 'incoming': ['Scoring\nask for Schufa'], 'outgoing': ['Report delay to the fronted']}
+{'id': 'sid-BB5F3423-FC25-4A3A-83C4-EEDCF62DA3AF', 'name': 'IntermediateCatchEvent3', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-88216BC2-50D6-4693-8E6E-86A05CEC889B', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Report Scoring result to the Fronted']}
+{'id': 'sid-E306A55D-1ABF-4C1A-A51A-46179E7B3253', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Scoring request calculated?']}
+
+End Events:
+{'id': 'sid-082D64B6-956C-449F-AC45-E09A89695BAB', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-9E28FE98-2CC4-4945-B3CF-A84F2D637C3E', 'name': 'EndEvent1', 'incoming': ['Scoring request Level 1'], 'outgoing': []}
+{'id': 'sid-0BB04C1B-AB74-4841-879D-BBB650DF7447', 'name': 'EndEvent2', 'incoming': ['Scoring calculation Level 2'], 'outgoing': []}

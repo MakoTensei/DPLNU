@@ -1,0 +1,22 @@
+ When a shipment is initiated, the process begins with the 'Goods the Shipping' event, which triggers the 'ExclusiveGateway0' to handle the necessary tasks. This gateway will then route the shipment to the 'Provide shipping documents' task if insurance is required, or directly to the 'Set shipping route' task if the shipping of goods is the primary concern.
+
+
+If insurance is deemed necessary, the 'Insurance Necessary?' event will be triggered, leading to the 'ExclusiveGateway1' to either provide shipping documents or route the shipment to the 'Specialist' for further processing.
+
+
+The 'Specialist' will then handle the insurance-related tasks and route the shipment to the 'ParallelGateway5', which is responsible for preparing the goods for dispatch.
+
+
+Alternatively, if the shipping route is the priority, the 'Set Shipping Route' task will be initiated, and the shipment will be routed to the 'ParallelGateway5' for dispatch preparation.
+
+
+Once the goods are ready for dispatch, the 'Goods Ready for Dispatch' event will be triggered, and the shipment will be completed through the 'ParallelGateway5'.
+
+
+In summary, the process flows as follows:
+
+1. 'Goods the Shipping' event initiates the process and routes to 'ExclusiveGateway0'.
+2. 'ExclusiveGateway0' routes to 'Provide Shipping Documents' if insurance is needed or to 'Set Shipping Route' if not.
+3. If insurance is needed, 'Insurance Necessary?' event routes to 'ExclusiveGateway1', which then routes to 'Specialist'.
+4. 'Specialist' routes to 'ParallelGateway5' for dispatch preparation.
+5. 'Goods Ready for Dispatch' event completes the process through 'ParallelGateway5'.

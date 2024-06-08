@@ -1,0 +1,18 @@
+ In the process of shipping goods, the workflow begins with the 'Shipping order' start event, which triggers the 'ParallelGateway3'. This gateway then initiates the 'Packaging goods' task, which requires the 'Shipping order' as input and produces 'Quantity' and 'Delivering goods' as outputs.
+
+The 'Quantity' task is then passed to the 'Quantity' gateways, which further processes the 'Quantity' and sends it to the 'Delivering goods' task. The 'Delivering goods' task, in turn, requires the 'Shipping order' as input and produces 'Delivering goods' as output.
+
+Meanwhile, the 'Packaging goods' task also requires 'Insurance necessary?' as input, which is provided by the 'Filling the package note' task. The 'Insurance necessary?' task, upon receiving the input, sends the output to the 'ExclusiveGateway1'.
+
+The 'ExclusiveGateway1' then processes the 'Insurance necessary?' and sends the output to the 'EndEvent0' and 'ExclusiveGateway2'. The 'EndEvent0' is triggered by the 'Delivering goods' task, which requires 'Delivering goods' as input and produces 'EndEvent0' as output.
+
+The 'ExclusiveGateway2' receives the output from the 'Insurance necessary?' task and sends it to the 'Insurance necessary?' task again, which then sends the output to the 'EndEvent0'.
+
+In summary, the workflow involves the following tasks and gateways:
+
+1. 'Shipping order' start event triggers 'ParallelGateway3'.
+2. 'ParallelGateway3' initiates 'Packaging goods' task, which requires 'Shipping order' and produces 'Quantity' and 'Delivering goods'.
+3. 'Quantity' task is processed by 'Quantity' gateways, which sends the output to 'Delivering goods'.
+4. 'Packaging goods' task requires 'Insurance necessary?' as input, which is provided by 'Filling the package note'.
+5. 'Insurance necessary?' task sends the output to 'ExclusiveGateway1'.
+6.

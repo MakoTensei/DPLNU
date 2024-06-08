@@ -1,0 +1,33 @@
+ In a more natural and flowing description, the following tasks and their interactions can be described as follows:
+
+1. **Start Scoring Request**: This task initiates the scoring process. It sends a request to begin scoring and expects an immediate result.
+
+   - **Outgoing**: The result is sent to **EndEvent4**.
+
+2. **Continue Scoring**: This task continues the scoring process after the initial request. It requires the presence of **Schufascoring\nRequirements** to proceed.
+
+   - **Outgoing**: The task concludes at **EndEvent1**.
+
+3. **Forward Scoring**: This task advances the scoring process. It requires **Schufascoring\nRequirements** to proceed and sends the result to **EndEvent4**.
+
+   - **Outgoing**: The task concludes at **EndEvent4**.
+
+4. **Report the Result**: This task reports the scoring result. It requires a **Scoring\nRequest** to begin and sends the result to **EndEvent2**.
+
+   - **Outgoing**: The task concludes at **EndEvent2**.
+
+5. **Report Delay**: This task reports a delay in the scoring process. It requires an **Instant result?** to start and sends the result to **EndEvent3**.
+
+   - **Outgoing**: The task concludes at **EndEvent3**.
+
+6. **More Scoring\n(level 2)**: This task continues the scoring process at a higher level. It requires an **Instant result?** to start and sends the result to **EndEvent3**.
+
+   - **Outgoing**: The task concludes at **EndEvent3**.
+
+7. **Request Schufascoring**: This task initiates the Schufascoring process. It sends a request to start scoring and expects an immediate result.
+
+   - **Outgoing**: The result is sent to **EndEvent4**.
+
+8. **Start Event 2**: This event triggers the beginning of the scoring process. It does not require any incoming tasks.
+
+   - **Outgoing**: The event concludes at **EndEvent5**

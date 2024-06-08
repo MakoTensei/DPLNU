@@ -1,0 +1,9 @@
+ When a 'Get Schufa request' event occurs, it triggers a sequence of tasks and gateways to process the request. First, the 'Send scoring inquiry to Schufa' task is initiated, which sends the request to Schufa. This task has an 'outgoing' relationship with the 'Scoring' task, indicating that the inquiry will lead to a scoring process.
+
+Simultaneously, the 'EventBasedGateway1' gateway is activated due to the incoming 'Get Schufa request'. This gateway has two outgoing relationships: 'Scoring request completed' and 'Delay detected'. The 'Scoring request completed' relationship connects to the 'Scoring' task, indicating that the scoring process has been finished. The 'Delay detected' relationship connects to the 'forward deceleration report' task, which is triggered if there is a delay in the scoring process.
+
+If a delay is detected, the 'forward deceleration report' task is executed, and the 'Delay detected' relationship is activated, which connects to the 'Make feedback to the bank' task. This task sends feedback to the bank regarding the delay.
+
+If there is no delay, the 'Scoring' task is executed, and the 'Scoring request completed' relationship is activated, indicating that the scoring process has been finished.
+
+In summary, the 'Get Schufa request' event initiates a series of tasks and gateways to process the request, with the 'Scoring' task and 'EventBasedGateway1' gateway playing crucial roles in determining the outcome of the process.

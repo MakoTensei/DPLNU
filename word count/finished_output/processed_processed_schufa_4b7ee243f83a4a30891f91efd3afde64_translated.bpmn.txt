@@ -1,0 +1,11 @@
+ In the realm of event-driven architecture, we have a series of gateways and events that orchestrate the flow of data and trigger specific actions. Let's dive into the details:
+
+1. EventBasedGateway0: This gateway, identified by the ID'sid-EEA9F1A9-152E-43B5-AB06-8D475D6165F0', acts as a starting point for events related to scoring. It has two incoming connections from EventBasedGateway1 and Level1 scoring, and it sends data to EventBasedGateway1, EventBasedGateway1, and Level1 scoring.
+
+2. EventBasedGateway1: With the ID'sid-1AD91EE2-D94E-4CB7-872D-7D6A51DDBB81', this gateway is responsible for handling events related to scoring and delay reporting. It receives data from EventBasedGateway0 and Level1 scoring, and sends data to EventBasedGateway0, EventBasedGateway1, and Delay Report.
+
+3. Level1 scoring: This gateway, identified by the IDs'sid-47CE1E5A-B248-4D68-8721-DA6C35325BDD' and'sid-F83C67E5-58EE-4BC8-A758-62AD558548D2', is responsible for processing scoring events at the first level. It receives data from EventBasedGateway0 and EventBasedGateway1, and sends data to EventBasedGateway0 and Scoringback Report.
+
+4. Scoringback Report: This gateway, identified by the ID'sid-F7AEA6EC-366A-4A78-9DF1-2223800B6B31', is responsible for reporting the results of scoring events. It receives data from Level1 scoring and sends data to EventBasedGateway0.
+
+5. EventScoringRequest: This event, identified by

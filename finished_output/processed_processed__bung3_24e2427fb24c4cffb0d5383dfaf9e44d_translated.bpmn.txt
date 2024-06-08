@@ -1,0 +1,19 @@
+ In a financial transaction process, a series of events and gateways are triggered to ensure the proper handling of payments and receipts. Here's a natural flow description of the described system:
+
+1. The process begins when the event 'VN may be taken into regression' is triggered, which initiates the 'Is Regress possibility?' task. This task checks if there is a possibility of the transaction being reversed.
+
+2. If the 'Is Regress possibility?' task determines that there is a possibility of regression, it sends a request to the 'Dispense process to collection service providers' task. This task is responsible for initiating the collection process for the payment.
+
+3. Concurrently, the 'Check the case' task is triggered by the 'VN may be taken into regression' event. This task checks the case and, if necessary, starts the 'Inkasso procedure.'
+
+4. The 'Inkasso procedure' is initiated by the 'Is Regress possibility?' task, which sends an incoming event to the 'ExclusiveGateway2' task. This gateways determines the next course of action based on the incoming event.
+
+5. If the 'Is Regress possibility?' task determines that there is no possibility of regression, it sends an incoming event to the 'Check the payment request to VN' task. This task sends a payment request to Vietnam.
+
+6. The 'Check the payment request to VN' task sends an incoming event to the 'IntermediateCatchEvent7' task. This task captures the intermediate event and sends an outgoing event to the 'ExclusiveGateway2' task.
+
+7. The 'ExclusiveGateway2' task receives the incoming event from the 'IntermediateCatchEvent7' task and decides to either continue the process or close it. If the process continues, it sends an outgoing event to the 'Check the receipt of funds' task.
+
+8. The 'Check the receipt of funds' task receives the incoming event from the 'ExclusiveGateway2' task and checks if the funds have been received. If the funds have been received, it sends an outgoing event to the 'Book money receipt' task.
+
+9. The 'Book money receipt' task receives the incoming

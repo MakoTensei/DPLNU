@@ -1,0 +1,27 @@
+ In the shipping process, there are several tasks and gateways involved to ensure the smooth delivery of goods. Let's break down the tasks and their corresponding gateways:
+
+1. Check DHL: This task involves selecting a shipping service provider (Spediteur selection) and has an outgoing gateway, ParallelGateway7.
+
+2. Check offer HVS: This task is triggered when goods are to be shipped and has an outgoing gateway, ParallelGateway7.
+
+3. Check MR: This task also involves selecting a shipping service provider (Spediteur selection) and has an outgoing gateway, ParallelGateway7.
+
+4. Appoint forwarding: This task is initiated when goods are to be shipped and has an outgoing gateway, ExclusiveGateway3.
+
+5. Filling the package note: This task is triggered by shipping costs and has an outgoing gateway, ParallelGateway5.
+
+6. Insurance close: This task is initiated by shipping costs and has an outgoing gateway, ExclusiveGateway2.
+
+7. Packaging goods: This task is triggered by ParallelGateway4 and has an outgoing gateway, ParallelGateway5.
+
+8. Goods delivered: This task is triggered by ParallelGateway5 and has an outgoing gateway, EndEvent0.
+
+The start event for the shipping process is "Goods are to be shipped," which triggers the Appoint forwarding task. The end event is "EndEvent0," which signifies the successful delivery of goods.
+
+The gateways involved in the process are:
+
+- Shipping costs: This gateway receives incoming traffic from Goods are to be shipped and ExclusiveGateway1. It has outgoing gateways ExclusiveGateway2 and ExclusiveGateway3.
+
+- ExclusiveGateway1: This gateway receives incoming traffic from Shipping costs and has outgoing gateways ExclusiveGateway2 and ExclusiveGateway3.
+
+- ExclusiveGateway2: This gateway receives incoming traffic from ParallelGateway4 and ExclusiveGateway1. It has an outgoing gateway, End

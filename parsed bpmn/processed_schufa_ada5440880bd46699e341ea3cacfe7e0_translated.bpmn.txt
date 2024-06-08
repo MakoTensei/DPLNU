@@ -1,0 +1,17 @@
+Tasks:
+{'id': 'sid-ECB8D039-9E99-4720-A5F8-C962D9E968F9', 'name': 'second scoring: Define final scoring', 'incoming': ['ParallelGateway2'], 'outgoing': []}
+{'id': 'sid-B0641659-C590-499D-9920-11C9EC59F0C3', 'name': 'perform first scoring', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-CAC0CA36-368C-4D4F-8091-2C8E3FBFAB55', 'name': 'Scoring result\navailable?', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1', 'ParallelGateway2']}
+{'id': 'sid-6F74CB9B-2C1E-4242-81EE-405632878552', 'name': 'ExclusiveGateway1', 'incoming': ['final scoring', 'perform first scoring'], 'outgoing': ['sid-076C2573-B543-471E-9B78-E420A619B7BB']}
+{'id': 'sid-4EFCB245-89F1-4F2E-8B38-9B186E951378', 'name': 'ParallelGateway2', 'incoming': ['StartEvent0'], 'outgoing': ['sid-A1BE8122-6CEE-4175-9D3A-74F33754818E', 'second scoring: Define final scoring']}
+{'id': 'sid-FAB7F978-B88E-4E94-BDD8-5A101EBAC8C9', 'name': 'ParallelGateway3', 'incoming': ['sid-CD9E539F-8532-4DB4-AB3B-4D40AFAA9BE7', 'final scoring'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-F9A55D38-90F0-4348-AC10-67557EC8B157', 'name': 'final scoring', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-0D5B4F1C-6F6D-4993-A193-0EEAF8EC2D2E', 'name': 'Scoring\ncompleted\n+ result', 'incoming': ['Scoring result\navailable?'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-A8EC0E68-858F-43F8-96C2-D68468018E30', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ParallelGateway2']}
+
+End Events:
+{'id': 'sid-6581B712-B736-4CBA-BAC2-9F4C7D905EEE', 'name': 'EndEvent0', 'incoming': ['sid-569FCF74-0F58-4DA1-8AFE-5EB12A96C90E'], 'outgoing': []}

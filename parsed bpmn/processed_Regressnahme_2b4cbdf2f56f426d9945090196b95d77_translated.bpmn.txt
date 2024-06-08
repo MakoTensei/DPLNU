@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-E4C7EB16-DC67-4F5C-92F7-F51A36BA68D3', 'name': 'Check the case', 'incoming': ['Report\nRegression'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-FB0FC4AE-35A2-47DB-A857-F232BC0C91E3', 'name': 'Send payment request', 'incoming': ['Report\nRegression'], 'outgoing': ['Reimbursement\nachieved']}
+{'id': 'sid-C622E769-2B8C-46C6-95C5-48DBDD361A6D', 'name': 'Close', 'incoming': ['justified?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-915E60F8-9851-42B7-94B5-9FC6487553C8', 'name': 'Payment\ntest', 'incoming': ['Report\nRegression'], 'outgoing': ['paid?']}
+{'id': 'sid-EC850267-D8E9-416C-8F95-3542B9575250', 'name': 'Proceedings', 'incoming': ['Rigid\n?'], 'outgoing': ['justified?']}
+{'id': 'sid-70740DFF-3C50-4AE8-A599-1D4531A47CE2', 'name': 'Debt collection', 'incoming': ['ExclusiveGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-605D1511-BA4F-438A-83A3-0D6D5315D12D', 'name': 'book', 'incoming': ['Reimbursement\nachieved'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-9D70FD66-6FDB-4BC6-AA87-04F9CEEBD8A5', 'name': 'Check inbox', 'incoming': ['paid?'], 'outgoing': ['ExclusiveGateway5']}
+
+Gateways:
+{'id': 'sid-BB48C88A-C5E0-4C7E-949D-DD14000EF6CC', 'name': 'Regress\ncapable', 'incoming': ['Report\nRegression'], 'outgoing': ['Send payment request', 'EndEvent0']}
+{'id': 'sid-CC009017-5C43-402C-A7EB-58FBAFFC2BDF', 'name': 'paid?', 'incoming': ['Reimbursement\nachieved'], 'outgoing': ['book', 'Check inbox']}
+{'id': 'sid-6F2E2690-3330-4F52-B889-77000989C9CA', 'name': 'ExclusiveGateway2', 'incoming': ['Reimbursement\nachieved', 'justified?', 'Check the case'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-88E3EB95-0137-43D6-8C91-138AF67683F4', 'name': 'justified?', 'incoming': ['Rigid\n?'], 'outgoing': ['Close', 'EndEvent0']}
+{'id': 'sid-1FFF7B86-96F2-457F-A2B9-DBED56A913BE', 'name': 'Rigid\n?', 'incoming': ['Check inbox'], 'outgoing': ['ExclusiveGateway5', 'ExclusiveGateway5']}
+{'id': 'sid-AE5E1126-F783-41D7-B5A3-406B9A57EEF2', 'name': 'ExclusiveGateway5', 'incoming': ['Check inbox', 'Rigid\n?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-35868BB5-C2AC-4AB1-A2E5-1A51A96304A1', 'name': 'Reimbursement\nachieved', 'incoming': ['Report\nRegression'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-06DD9AB4-4284-435C-807A-A50996EA32CB', 'name': 'Report\nRegression', 'incoming': [], 'outgoing': ['Payment\ntest']}
+
+End Events:
+{'id': 'sid-8CD13AB3-D4E3-414A-89B4-3F96E78B2716', 'name': 'EndEvent0', 'incoming': ['Regress\ncapable', 'justified?'], 'outgoing': []}

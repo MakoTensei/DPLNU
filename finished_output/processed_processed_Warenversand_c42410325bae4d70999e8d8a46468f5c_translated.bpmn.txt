@@ -1,0 +1,7 @@
+ In the logistics process, various tasks are handled by different gateways and start events. For instance, when a shipment starts, it goes through ExclusiveGateway0, which can either route to ExclusiveGateway1 or ExclusiveGateway2. If it goes to ExclusiveGateway1, it can further route to ExclusiveGateway2. If it goes to ExclusiveGateway2, it can either go to ParallelGateway4 or trigger the Insurance required process.
+
+When goods are ready for collection, they are routed to ParallelGateway4, which sends them to Goods for shipping. Similarly, when picking up offers, they are routed to ExclusiveGateway0, which can route to ExclusiveGateway1 or ExclusiveGateway2. If it goes to ExclusiveGateway1, it can further route to ExclusiveGateway2. If it goes to ExclusiveGateway2, it can either go to ParallelGateway4 or trigger the Insurance required process.
+
+Insurance required is triggered when goods are picked up and are routed to ExclusiveGateway2, which sends them to Insurance required. After the insurance process, the goods are sent to Goods for shipping.
+
+In summary, the logistics process starts with a shipment event, which can lead to various tasks such as packaging goods, picking up offers, and selecting offers. These tasks are then routed through different gateways, which can further route the goods to other gateways or trigger additional processes like insurance. The process ends with the goods being ready for shipping.

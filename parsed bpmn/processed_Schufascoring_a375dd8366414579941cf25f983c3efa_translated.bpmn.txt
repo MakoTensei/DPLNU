@@ -1,0 +1,18 @@
+Tasks:
+{'id': 'sid-4ADE91E6-8AB3-4916-B09D-FABF638A0C77', 'name': 'Start scoring request', 'incoming': ['Start scoring'], 'outgoing': ['Result Schufa']}
+{'id': 'sid-1095F445-3121-4440-BE45-5AD51368F5AE', 'name': 'First result scoring', 'incoming': ['Start scoring'], 'outgoing': ['sid-6C910084-27AA-4A62-AAA8-F7BC9E6F2741']}
+{'id': 'sid-59E20717-3F6A-42E7-AB0F-E9AADDE12670', 'name': 'Result Scoring Final', 'incoming': ['sid-EF7AFF09-1350-4FC6-A43F-D76A569E1E73'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-481A5EA1-6A3D-454D-B536-BCA69FC471B3', 'name': 'perform scoring level 1', 'incoming': ['Start scoring'], 'outgoing': ['Result 1Level']}
+{'id': 'sid-47BA46B3-D79C-4F19-9191-3C9CF6F80213', 'name': 'perform scoring level 2', 'incoming': ['sid-BED21B19-C011-4FB0-8CC7-E72104E78879'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-473AC1C9-BC86-42DD-A3FD-54475D3C7BC6', 'name': 'Result Schufa', 'incoming': ['Start scoring'], 'outgoing': ['First result scoring']}
+{'id': 'sid-32C4C35F-B02D-4E43-B19E-4FCB8EAB2A4A', 'name': 'Result 1Level', 'incoming': ['Start scoring'], 'outgoing': ['sid-CDC40411-3341-4CC1-8B76-7C0DBC96F620']}
+
+Start Events:
+{'id': 'sid-C4F6B5C5-4704-4D01-8722-2F87BA6389BB', 'name': 'Start scoring', 'incoming': [], 'outgoing': ['First result scoring']}
+{'id': 'sid-58F0F910-0BAD-4F35-A1CD-2D632E8D918F', 'name': 'Start scoring', 'incoming': [], 'outgoing': ['Result 1Level']}
+
+End Events:
+{'id': 'sid-910AA9EA-BA7A-4FEE-83D7-021232CC7F8F', 'name': 'EndEvent0', 'incoming': ['Result Scoring Final'], 'outgoing': []}
+{'id': 'sid-BA59121C-5AFD-45B9-8CC1-C5E1C4AFC747', 'name': 'EndEvent1', 'incoming': ['perform scoring level 2'], 'outgoing': []}

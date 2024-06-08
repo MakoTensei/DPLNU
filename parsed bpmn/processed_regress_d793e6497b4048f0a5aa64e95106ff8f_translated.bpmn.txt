@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-AF494C67-04E5-402E-A43F-30C758C3AEA1', 'name': 'Close', 'incoming': ['Regress possible?'], 'outgoing': ['End']}
+{'id': 'sid-C46386A0-1E87-4C90-ABBC-4A45A065BE83', 'name': 'Send a message', 'incoming': ['Regress possible?'], 'outgoing': ['on resubmission']}
+{'id': 'sid-FE594F12-D851-4989-A47D-2E056B074BFA', 'name': 'on resubmission', 'incoming': ['Regress possible?'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-0C5572AC-9B45-4E55-BDA0-8C145A30DA08', 'name': 'Accounting amount', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['End']}
+{'id': 'sid-F47FA1FE-ACAC-42CA-9026-1602F4EFDC01', 'name': 'Proceedings', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-3D107BBF-DAAD-4766-B86A-17E0EA05265D', 'name': 'Process closed', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['End']}
+{'id': 'sid-BBF3C380-7AFE-40F0-8162-B3B8EA5CE25B', 'name': 'Reporting to debt collection office', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['End']}
+{'id': 'sid-AB5BC755-06B9-4727-9DB3-B32026E25F7E', 'name': 'Reporting to debt collection office', 'incoming': ['Reimbursement period expired'], 'outgoing': ['End']}
+{'id': 'sid-1C08730A-EF26-4D8C-A622-6BE93F56EDDA', 'name': 'Check the case', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent5']}
+
+Gateways:
+{'id': 'sid-163854D8-9234-49C3-9DBB-992E71DA0615', 'name': 'Regress possible?', 'incoming': ['StartEvent0'], 'outgoing': ['End', 'End']}
+{'id': 'sid-D281C73F-CE3C-423A-B29D-6DB34BCB50CE', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway2'], 'outgoing': ['End', 'End']}
+{'id': 'sid-EEF06058-3CD9-484D-B4D5-823DA83E6F28', 'name': 'EventBasedGateway2', 'incoming': ['Check the case'], 'outgoing': ['End', 'End', 'Reimbursement period expired']}
+{'id': 'sid-E769FFDF-8AF5-4742-AAF1-C6F08E437BBA', 'name': 'IntermediateCatchEvent3', 'incoming': ['on resubmission'], 'outgoing': ['End']}
+{'id': 'sid-015A3920-9E76-4EFD-919A-823F42DEED26', 'name': 'Reimbursement period expired', 'incoming': ['StartEvent0'], 'outgoing': ['End']}
+{'id': 'sid-13A07F03-3B5E-46F6-A4EC-B23969204E5A', 'name': 'IntermediateCatchEvent5', 'incoming': ['Check the case'], 'outgoing': ['Process closed']}
+
+Start Events:
+{'id': 'sid-64F2C8A0-423A-4539-98C4-E4AE008C31B0', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Reimbursement period expired']}
+
+End Events:
+{'id': 'sid-9C0A80B5-89B0-4EE3-85CE-997AF599B0C2', 'name': 'End', 'incoming': ['EventBasedGateway2', 'ExclusiveGateway1', 'Regress possible?', 'EventBasedGateway2', 'Regress possible?'], 'outgoing': []}

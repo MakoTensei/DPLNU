@@ -1,0 +1,33 @@
+Tasks:
+{'id': 'sid-2BD32548-42D9-43CB-B8CE-FFD73204280B', 'name': 'Examination for regression', 'incoming': ['VN in\nRegression\ntake'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-49094A38-A25E-487B-A59E-439142512746', 'name': 'Send payment request to VN', 'incoming': ['VN in\nRegression\ntake'], 'outgoing': ['Default period\nExpired']}
+{'id': 'sid-FDD91D77-BB56-40B6-B1E1-0310ACF941F3', 'name': 'Close the case', 'incoming': ['Denial of payment\njustified?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-DE9A5D4C-D905-4C6F-994E-7E22F2FB725A', 'name': 'Book the entrance', 'incoming': ['Money\nReport'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-68367671-5937-4296-A62C-147EBEA24506', 'name': 'Proceedings', 'incoming': ['Opposition\nReport'], 'outgoing': ['Denial of payment\njustified?']}
+{'id': 'sid-807CA567-0A05-42C5-A8F8-28BBFB5ED90C', 'name': 'Check AN feedback', 'incoming': ['Default period\nExpired'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-3CC0DBF4-4C8B-4C27-A4C9-E8FD5C4950B1', 'name': 'Process of debt service providers', 'incoming': ['cash receipt or\nObjection of AN?'], 'outgoing': ['ExclusiveGateway7']}
+{'id': 'sid-000F0EFB-C250-4708-BEBA-4B8C08537567', 'name': 'Process of debt service providers', 'incoming': ['cash receipt or\nObjection of AN?'], 'outgoing': ['ExclusiveGateway7']}
+{'id': 'sid-FA63C433-1341-411A-9BF9-8C6774B6C605', 'name': 'Execution of payment', 'incoming': ['ParallelGateway8'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-4BDDD97C-ADBC-48E4-813E-479B044B509E', 'name': 'Opposition', 'incoming': ['VN in\nRegression\ntake'], 'outgoing': ['Opposition\nReport']}
+{'id': 'sid-250A4292-E855-4FB5-8CC3-2F9CA5B54CBA', 'name': 'money', 'incoming': ['ExclusiveGateway7'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-72C95042-39EF-45FF-B6D6-6D4A2AB8D4C7', 'name': 'Regression possibility\navailable?', 'incoming': ['VN in\nRegression\ntake'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-05FF5591-17C7-4145-9AFA-410BBB97FC3B', 'name': 'ExclusiveGateway1', 'incoming': ['Examination for regression', 'Regression possibility\navailable?', 'Default period\nExpired'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-FDAEDAB1-EDB6-46C0-8E63-55731B04E884', 'name': 'Denial of payment\njustified?', 'incoming': ['cash receipt or\nObjection of AN?'], 'outgoing': ['Close the case', 'ExclusiveGateway7']}
+{'id': 'sid-2358B016-3648-4F1E-A5FE-AB18209C608A', 'name': 'cash receipt or\nObjection of AN?', 'incoming': ['Regression possibility\navailable?'], 'outgoing': ['ExclusiveGateway7', 'Process of debt service providers', 'ExclusiveGateway1']}
+{'id': 'sid-2670E5D2-6B87-4DC0-B81F-834762BC1D3D', 'name': 'ExclusiveGateway4', 'incoming': ['ParallelGateway8', 'Check AN feedback'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-1C5A4150-DCF1-4261-9C17-5561AB7E7F45', 'name': 'ExclusiveGateway5', 'incoming': ['VN in\nRegression\ntake', 'ParallelGateway8'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-123A8F49-E90C-4DDB-9954-8165D78A2EF8', 'name': 'With\nPayment appropriations\nAgreed?', 'incoming': ['VN in\nRegression\ntake'], 'outgoing': ['EndEvent0', 'Opposition']}
+{'id': 'sid-8BAA2ABA-A066-4201-94CF-666FB4A21AF6', 'name': 'ExclusiveGateway7', 'incoming': ['Denial of payment\njustified?', 'cash receipt or\nObjection of AN?'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-C0A22708-EAC0-42FE-AD18-ECF14A320AF8', 'name': 'ParallelGateway8', 'incoming': ['VN in\nRegression\ntake'], 'outgoing': ['ExclusiveGateway4', 'ExclusiveGateway5']}
+{'id': 'sid-223DA553-0141-4763-89DE-B6637D6A0958', 'name': 'Money\nReport', 'incoming': ['ParallelGateway8'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-765527F8-D512-4038-8C0A-75254E521443', 'name': 'Opposition\nReport', 'incoming': ['VN in\nRegression\ntake'], 'outgoing': ['Proceedings']}
+{'id': 'sid-194CAD2E-703B-4DFC-9492-5454CD5707CC', 'name': 'Default period\nExpired', 'incoming': ['Regression possibility\navailable?'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-CDBF3968-AC07-4591-8ABF-AFACDB1770F0', 'name': 'VN in\nRegression\ntake', 'incoming': [], 'outgoing': ['ExclusiveGateway5']}
+
+End Events:
+{'id': 'sid-DF1AC012-1198-418B-9A7E-FAB5B87F8395', 'name': 'EndEvent0', 'incoming': ['With\nPayment appropriations\nAgreed?'], 'outgoing': []}
+{'id': 'sid-E9E54F02-DBF3-4CB0-A3BE-44E4EC3D9440', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway7'], 'outgoing': []}

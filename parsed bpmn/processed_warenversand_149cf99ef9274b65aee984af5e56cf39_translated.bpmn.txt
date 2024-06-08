@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-B15658B2-5A1E-4A80-87CF-585948474D92', 'name': 'fill out standard parcels and forward them to warehouse workers.', 'incoming': ['Lot?'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-666497CF-3890-4DDA-A4D2-77DBD2DB50BA', 'name': 'Pick up a quote from the forwarders', 'incoming': ['Order end consumers'], 'outgoing': ['Spediteur creates offer']}
+{'id': 'sid-9B876C61-08CD-4D51-89D7-8C29ABD326B6', 'name': 'Check the offer', 'incoming': ['Offer of the freight forwarder'], 'outgoing': ['Select and order freight forwarders']}
+{'id': 'sid-F76A9185-7D80-4185-94D5-A3A1EE806B31', 'name': 'Select and order freight forwarders', 'incoming': ['Offer of the freight forwarder'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-B457BB67-9E2E-4398-AA66-50925A1201F0', 'name': 'Spediteur creates offer', 'incoming': ['Lot?'], 'outgoing': ['Send offers to retailers']}
+{'id': 'sid-23664995-EFE5-4A26-8CD4-D2F86E0B4D5F', 'name': 'Send offers to retailers', 'incoming': ['Lot?'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-36D8C6E3-652F-4E44-8EDA-4EC87F8A10E0', 'name': 'Complete insurance', 'incoming': ['Order retailers'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-9D57BE57-B0EE-4686-AF6A-27930DDA8328', 'name': 'Pack the goods and glue the parcel note', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-96091521-91D3-415A-8302-3B86BE519FE1', 'name': 'Deliver goods for collection', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-96E41ECC-6538-4A44-8DA4-467311112C6A', 'name': 'Lot?', 'incoming': ['Order retailers', 'Order end consumers'], 'outgoing': ['EndEvent1', 'EndEvent0']}
+{'id': 'sid-50F1180C-9D52-4387-9F35-CB16636C47C6', 'name': 'Insurance expandable?', 'incoming': ['Order retailers'], 'outgoing': ['Complete insurance', 'EndEvent0']}
+{'id': 'sid-4F7A62E4-BAE3-4FB3-927F-5EE94B923DEC', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway3', 'Order retailers'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-9FB9A0FF-5EE4-483B-B964-304852E65B7B', 'name': 'ParallelGateway3', 'incoming': ['Order retailers'], 'outgoing': ['EndEvent0', 'Deliver goods for collection']}
+{'id': 'sid-25BE76EE-B703-4993-A4CB-9480AC43A35A', 'name': 'Offer of the freight forwarder', 'incoming': ['Send offers to retailers', 'sid-B93C6749-27FF-4272-A899-E6EE799DB679'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-57F04535-1CF0-4F3C-941B-323B7DFA090B', 'name': 'Order end consumers', 'incoming': [], 'outgoing': ['Pick up a quote from the forwarders']}
+{'id': 'sid-22F3A047-2439-47FD-ACA9-B9C82CEA89FE', 'name': 'Order retailers', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-EC50023C-3326-4A93-A5E7-A8800B90CAE2', 'name': 'EndEvent0', 'incoming': ['Lot?'], 'outgoing': []}
+{'id': 'sid-0375923C-F346-40BE-84F9-B5AC716D8C99', 'name': 'EndEvent1', 'incoming': ['Lot?'], 'outgoing': []}
+{'id': 'sid-BF3A3D3D-0234-4635-9DE4-0DE18D5FF378', 'name': 'EndEvent2', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}

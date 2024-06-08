@@ -1,0 +1,9 @@
+ Upon receiving information about a possible regression, the system initiates a sequence of tasks and gateways to address the issue. First, the 'Check regression' task is triggered, which sends a notification to Vietnam (VN) for their opposition. Concurrently, a 'Cash receipt' task is initiated to book the money receipt. If VN opposes the regression, the 'Not justified' gateway is activated, leading to the 'ExclusiveGateway3' task.
+
+If VN does not oppose the regression, the 'Regress possible' task proceeds to the 'Regress possible' gateway, which then sends the case to 'ExclusiveGateway2'. This gateway, in turn, completes the 'Regression case' and sends a notification to the 'Close' task.
+
+Alternatively, if the 'Cash receipt' task is completed, the 'Close' task is triggered, which also sends a notification to the 'Regression case completed' gateway.
+
+In the case of an opposition from VN, the 'Proceedings' task is activated, leading to the 'ExclusiveGateway3' task. If the opposition period expires, the 'expiry of the opposition period' task is triggered, which also sends a notification to the 'Regression case completed' gateway.
+
+In summary, the system handles possible regressions by coordinating tasks and gateways to either proceed with the regression case or close it, depending on the outcome of the opposition and the completion of the cash receipt.

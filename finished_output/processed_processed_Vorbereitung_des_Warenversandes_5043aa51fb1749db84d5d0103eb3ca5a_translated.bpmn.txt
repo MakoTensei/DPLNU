@@ -1,0 +1,17 @@
+ The process begins with the 'Start' event, which triggers the 'Check quantity' task, receiving input from 'ParallelGateway4'. This task then sends output to 'ParallelGateway4' and 'Lot?'. The 'Lot?' gateway, in turn, sends its output to 'ExclusiveGateway1' and 'ExclusiveGateway1'.
+
+Simultaneously, the 'Start' event also initiates the 'Filling the package note' task, which receives input from 'Start' and sends output to 'ParallelGateway5' and 'Filling the package note'.
+
+The 'Lot?' gateway also sends its output to 'ExclusiveGateway3' and 'ExclusiveGateway1'. The 'ExclusiveGateway1' then sends its output to 'ParallelGateway5'.
+
+The 'Check insurance requirements' task, triggered by 'Lot?', receives input from 'Lot?' and sends output to 'ParallelGateway5' and 'ExclusiveGateway3'. The 'ExclusiveGateway3' sends its output to 'ParallelGateway5'.
+
+The 'Select the Spediteur' task, triggered by 'Lot?', receives input from 'Lot?' and sends output to 'ExclusiveGateway1'.
+
+The 'Complete insurance' task, triggered by 'Insurance?', receives input from 'Insurance?' and sends output to 'ExclusiveGateway3'.
+
+The 'Collect and pack goods' task, triggered by 'ParallelGateway4', receives input from 'ParallelGateway4' and sends output to 'ParallelGateway5'.
+
+Finally, the 'Provide for collection' task, triggered by 'ParallelGateway5', receives input from 'ParallelGateway5' and sends output to 'Goods delivered'.
+
+In summary, the process starts with the 'Start' event, which triggers multiple tasks that involve checking quantity, filling the package note, requesting freight forwarders, selecting a shipping company, completing insurance, collecting and packing goods, and providing for collection. The process ends with the 'Goods delivered' event.

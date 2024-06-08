@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-80ACDBF8-AEB8-489A-8750-7CB12D249221', 'name': 'Scoring request', 'incoming': ['Scoring order'], 'outgoing': ['Information\non\nDelay']}
+{'id': 'sid-70238D92-3925-4751-B107-D09B5281A5AD', 'name': 'Report delay', 'incoming': ['Information\non\nDelay'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-30A325A4-032B-4D93-8A42-98E8FDA7DFC6', 'name': 'Scoring result back', 'incoming': ['Scoring order'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E17D6083-F1C6-4ABB-A7D9-116A2A7F5B64', 'name': 'Scoring Level 1', 'incoming': ['Scoring request'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-B79B9046-ED8B-44CC-9C9C-E429A75E3E02', 'name': 'Scoring result back', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-302C5B9F-8592-4EBE-B567-8158E1F00198', 'name': 'Report delay', 'incoming': ['Scoring request'], 'outgoing': ['Scoring Level 2']}
+{'id': 'sid-BA1B11E2-D7B4-4529-AFC7-ABBF37D180A2', 'name': 'Scoring Level 2', 'incoming': ['Scoring result\navailable?'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-87833F42-4CD2-4F90-859C-71164B6DBA12', 'name': 'Scoring result\navailable?', 'incoming': ['Scoring request'], 'outgoing': ['Scoring Level 2', 'EndEvent1']}
+{'id': 'sid-E460CCDE-9C27-463F-BAED-9B95E2466E9E', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring Level 2', 'Scoring Level 1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-A77C5947-21D8-46A6-88EA-E4C929DF36D3', 'name': 'EventBasedGateway2', 'incoming': ['Scoring order', 'Information\non\nDelay'], 'outgoing': ['EventBasedGateway2', 'EndEvent0']}
+{'id': 'sid-8C15BA8E-12A1-4D5C-9E82-1CD727CE3A41', 'name': 'Information\non\nDelay', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-1D36C06F-E815-415E-97F5-49842CCE3BB5', 'name': 'Scoring\nresult', 'incoming': ['Scoring order'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-FCE9F9F8-FFBD-44B0-8D45-59622671095B', 'name': 'Scoring order', 'incoming': [], 'outgoing': ['Scoring result back']}
+{'id': 'sid-CE7437FF-C055-4E3F-A761-18EB9F25BC05', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Report delay']}
+
+End Events:
+{'id': 'sid-6684E01E-AD65-4C89-8484-B5E22C71AEE1', 'name': 'EndEvent0', 'incoming': ['Information\non\nDelay'], 'outgoing': []}
+{'id': 'sid-4307716E-17AF-402F-B715-6E987A1BE170', 'name': 'EndEvent1', 'incoming': ['Scoring result\navailable?'], 'outgoing': []}

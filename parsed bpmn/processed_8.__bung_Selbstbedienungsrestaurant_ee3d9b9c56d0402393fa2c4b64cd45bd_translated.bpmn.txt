@@ -1,0 +1,32 @@
+Tasks:
+{'id': 'sid-CDDC1224-9F9E-4250-93E8-A0E42A9B5665', 'name': 'Select a court', 'incoming': ['Hunger'], 'outgoing': ['Add your order']}
+{'id': 'sid-20BD8D6B-420D-4A3F-8E18-24DD35F1BDEB', 'name': 'Court of Justice', 'incoming': ['Pieper triggered'], 'outgoing': ['Eat court']}
+{'id': 'sid-462A016F-D85F-41B0-A5A7-0F7E5E465997', 'name': 'Eat court', 'incoming': ['Pieper triggered'], 'outgoing': ['Famine']}
+{'id': 'sid-AE7B937F-A033-4FBE-B869-AEC54006035E', 'name': 'Add your order', 'incoming': ['Hunger'], 'outgoing': ['Pay money']}
+{'id': 'sid-F3DD9F5D-23D5-4F7B-9108-AAFFD5E04FA2', 'name': 'Pay money', 'incoming': ['Hunger'], 'outgoing': ['Get Pieper']}
+{'id': 'sid-E0D3C80B-E7DC-47ED-AF63-6646CD6B3C57', 'name': 'Get Pieper', 'incoming': ['Hunger'], 'outgoing': ['Famine']}
+{'id': 'sid-54ADB754-6CE2-4F5A-AE1F-E1307774277D', 'name': 'Cash', 'incoming': ['Order to receive'], 'outgoing': ['Pieper over']}
+{'id': 'sid-F05414D7-0A34-47CE-AEB4-18EB47C07C20', 'name': 'Pieper over', 'incoming': ['Order to receive'], 'outgoing': ['forward order']}
+{'id': 'sid-1E10594E-6262-4A90-8CF7-709F1C572BDD', 'name': 'forward order', 'incoming': ['Order to receive'], 'outgoing': []}
+{'id': 'sid-D8BC3422-1321-456C-A691-68DA6AC25275', 'name': 'Trigger Pieper', 'incoming': ['cooked'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-66842C27-B91D-45F2-B01F-52523FD16899', 'name': 'Retrieve guest', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Court of First Instance']}
+{'id': 'sid-A6ED6B3B-6E4A-436F-A8D6-0D1883804D4C', 'name': 'Court of First Instance', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-2321CA18-E953-4D3D-BEB6-744D749DCF56', 'name': 'Cook food', 'incoming': ['StartEvent2'], 'outgoing': ['Place court']}
+{'id': 'sid-A4493AB2-633B-42AE-9071-54724E7D28C3', 'name': 'Place court', 'incoming': ['StartEvent2'], 'outgoing': ['Court of First Instance']}
+
+Gateways:
+{'id': 'sid-D07708CB-8EFB-4B0F-A323-A264F74F7853', 'name': 'Court of Justice\npicked up?', 'incoming': ['cooked'], 'outgoing': ['EndEvent2', 'EndEvent1']}
+{'id': 'sid-DD11BA7F-F9F6-41E9-94BC-DB0E40613A0D', 'name': 'Pieper triggered', 'incoming': ['Hunger'], 'outgoing': ['Famine']}
+{'id': 'sid-D7DF265A-AB8E-4D14-8872-FC32B277F55C', 'name': 'cooked', 'incoming': [], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-860FA154-3566-4B7F-A8FF-103E831D4C34', 'name': 'IntermediateCatchEvent3', 'incoming': ['cooked'], 'outgoing': ['EndEvent2']}
+
+Start Events:
+{'id': 'sid-F327DEA9-FC36-49C9-90DE-DFA135171F6E', 'name': 'Hunger', 'incoming': [], 'outgoing': ['Pieper triggered']}
+{'id': 'sid-712BEBBC-E645-4119-A6A8-73E593D697F0', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['forward order']}
+{'id': 'sid-4E03E4B1-A532-4A1E-8AE5-426CAB816EB9', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['Place court']}
+
+End Events:
+{'id': 'sid-DB122112-0665-48BA-8F85-66A4296E61F8', 'name': 'Famine', 'incoming': ['Get Pieper'], 'outgoing': []}
+{'id': 'sid-F5571386-DEC9-47D8-A872-51B827CC1D21', 'name': 'EndEvent1', 'incoming': ['Trigger Pieper'], 'outgoing': []}
+{'id': 'sid-E39F8BDA-0E4A-44D4-8B1D-7D11F30B1BAB', 'name': 'EndEvent2', 'incoming': ['Court of Justice\npicked up?'], 'outgoing': []}
+{'id': 'sid-16178FBF-841F-4F83-AF0B-F574B3214072', 'name': 'Court of First Instance', 'incoming': ['Place court'], 'outgoing': []}

@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-71C479BB-4246-4B48-92F1-89E67C71A59A', 'name': 'Check the procedure', 'incoming': ['Check regression'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-802F384F-B66C-45B8-9479-554D8BE01434', 'name': 'Send payment request to VN', 'incoming': ['Check regression'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-92887A14-1D29-4788-8219-240C126E3F5F', 'name': 'Book payment', 'incoming': ['Payment\n'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-F4038175-1C57-4500-8002-260720D3D76C', 'name': 'Proceedings', 'incoming': ['Notification'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-7E34078D-A962-4BB0-85D8-264247E54BB8', 'name': 'Disclosure of debt collection', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-27103677-3725-4762-BE53-9509FA1D6004', 'name': 'Reimbursement', 'incoming': ['Regress possible?'], 'outgoing': ['Payment\n']}
+{'id': 'sid-C6D2ACBD-D928-4073-83C0-E539241B56F2', 'name': 'Check payment receipt\n', 'incoming': ['Date of expiry'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-390EB17F-1033-45CC-B7F8-692E73C84062', 'name': 'Complete the process', 'incoming': ['EventBasedGateway6'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-5D56D3D9-D7EF-4D95-8E40-6EC4F5B6DD23', 'name': 'Regress possible?', 'incoming': ['Check regression'], 'outgoing': ['ExclusiveGateway5', 'ExclusiveGateway4']}
+{'id': 'sid-B0FE33F3-AEF8-4410-9835-A9127516B676', 'name': 'Objection justified?\n', 'incoming': ['EventBasedGateway6'], 'outgoing': ['ExclusiveGateway5', 'ExclusiveGateway5']}
+{'id': 'sid-594E7C45-6E63-4C43-A26B-922CBA0BCF35', 'name': 'Payment received?', 'incoming': ['EventBasedGateway6'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway5']}
+{'id': 'sid-C7AE237F-E530-47CB-98A2-C85CC7971074', 'name': 'ExclusiveGateway3', 'incoming': ['Proceedings', 'Check payment receipt\n'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-70C7CB62-E868-4020-BE5D-E71E34E3D873', 'name': 'ExclusiveGateway4', 'incoming': ['EventBasedGateway6', 'Check the procedure'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-475A91AE-E672-46B4-A6B0-EF72685CFE52', 'name': 'ExclusiveGateway5', 'incoming': ['Check the procedure', 'EventBasedGateway6', 'Date of expiry', 'Regress possible?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-55008179-75BD-485B-8467-372D28D08B68', 'name': 'EventBasedGateway6', 'incoming': ['Regress possible?'], 'outgoing': ['ExclusiveGateway4', 'Complete the process', 'Payment received?']}
+{'id': 'sid-09E3E189-B8C1-41A9-BBC2-A1A43E4CC7BE', 'name': 'Payment\n', 'incoming': ['Reimbursement'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-20A11277-3BD7-44FD-A260-4AF5723CD8F0', 'name': 'Notification', 'incoming': ['Regress possible?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-033D145C-15C7-4847-BFC7-BD8F25A61B73', 'name': 'Date of expiry', 'incoming': ['EventBasedGateway6'], 'outgoing': ['ExclusiveGateway5']}
+
+Start Events:
+{'id': 'sid-8A7C517A-E668-401C-A7C8-FFD8B8B37A7F', 'name': 'Check regression', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:
+{'id': 'sid-EF96EB45-C294-418B-8C84-3597F88FCB98', 'name': 'EndEvent0', 'incoming': ['Notification'], 'outgoing': []}

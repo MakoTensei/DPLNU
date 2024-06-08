@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-20236CD9-869B-449F-90F9-C1E1ADAB69D5', 'name': 'Scoring request', 'incoming': ['Schufascoring requested'], 'outgoing': ['Results obtained']}
+{'id': 'sid-A4BB0FCB-9B66-48B0-8408-3AE146D4E9BD', 'name': 'forward scoring result', 'incoming': ['Schufascoring requested'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-94234EE3-BCE1-460D-AB0E-E8129AC61AF1', 'name': 'Conducting First Scoring', 'incoming': ['Scoring request'], 'outgoing': ['Result?']}
+{'id': 'sid-FC5AD550-FBE4-4EC2-B3F6-09320FC14065', 'name': 'Second scoring', 'incoming': ['sid-E4C0589C-E9C3-4DB2-94F5-6A3E79C2871C'], 'outgoing': ['sid-9471A7B8-55CE-431B-A659-60049B211430']}
+
+Gateways:
+{'id': 'sid-5FD53D76-64D7-468E-AFB9-104684B4C543', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'EventBasedGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-69E2312A-EB79-4EEE-BE7D-983740EFDB77', 'name': 'Result?', 'incoming': ['Scoring request'], 'outgoing': ['sid-5A66D59A-F57B-4B56-A039-F88F5F8BBFF7', 'sid-1223976F-3321-4995-8984-A2CC203E884D']}
+{'id': 'sid-97FB65D2-E37C-498D-A213-2EF45344B6D8', 'name': 'EventBasedGateway2', 'incoming': ['Schufascoring requested'], 'outgoing': ['ExclusiveGateway0', 'EndEvent0']}
+{'id': 'sid-D4B02958-1F97-42E2-B00A-5F07DA314A40', 'name': 'Delay to take note', 'incoming': ['Scoring request'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-16451ACC-67E8-4A71-8B3B-D3149F2BFF3F', 'name': 'receive result', 'incoming': ['Schufascoring requested'], 'outgoing': ['forward scoring result']}
+{'id': 'sid-8658B97C-0932-4EF5-8224-DC8F31C48BBE', 'name': 'Results obtained', 'incoming': ['Scoring request'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-CBA8162D-7856-4AC9-ACC8-D87B9CC73E08', 'name': 'Schufascoring requested', 'incoming': [], 'outgoing': ['forward scoring result']}
+{'id': 'sid-E34B4B38-CDA9-4F46-A83E-5F985AE0A6AE', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Result?']}
+
+End Events:
+{'id': 'sid-4159E9F3-1BCF-4F34-87A8-BD2ECDC9B772', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-0FE4EAE3-2D7F-4F4B-B51E-AA0A1E07E938', 'name': 'EndEvent1', 'incoming': ['sid-27DFFD45-6CDB-497D-9E80-9CEF498C1AD0'], 'outgoing': []}

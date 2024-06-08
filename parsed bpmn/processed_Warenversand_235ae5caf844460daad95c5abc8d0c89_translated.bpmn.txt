@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-2F95422E-F711-496B-AF76-64B7F2B5B05B', 'name': 'Select type of offer', 'incoming': ['ParallelGateway3'], 'outgoing': ['Type of shipping?\n']}
+{'id': 'sid-B7B2F24F-8F44-4BC5-A49F-832D75F9DA7D', 'name': 'Request a quote', 'incoming': ['Goods for shipping'], 'outgoing': ['Select offers']}
+{'id': 'sid-3EB121AB-BAFF-4383-AAFB-CD530B5A15AF', 'name': 'Select offers', 'incoming': ['Type of shipping?\n'], 'outgoing': ['Appoint forwarding']}
+{'id': 'sid-D45BF57D-8819-42F4-B841-9C47CE1F5F86', 'name': 'Appoint forwarding', 'incoming': ['Type of shipping?\n'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-6CF89044-2E28-48AC-A5CC-0E065261E7A7', 'name': 'Fill standard package voucher', 'incoming': ['Type of shipping?\n'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-60556E26-B96C-43AE-8B7E-2A017460CE76', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-5257C717-C1F6-4850-8AD5-356245540FEE', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6971E5C3-755C-47E9-9CAC-122F3BC9F39D', 'name': 'Complete insurance', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-1CFE4D8F-FD4C-43DB-94D1-F83E9DB2AE48', 'name': 'Type of shipping?\n', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway2', 'EndEvent0']}
+{'id': 'sid-FC908E37-63F9-43D8-86C9-5F154AB4A70F', 'name': 'Insurance necessary?', 'incoming': ['Type of shipping?\n'], 'outgoing': ['Complete insurance', 'ParallelGateway4']}
+{'id': 'sid-8E3ADE6D-7FDE-45DA-8B2B-538FE47F9183', 'name': 'ExclusiveGateway2', 'incoming': ['Type of shipping?\n', 'Complete insurance', 'Fill standard package voucher'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-550CB4C1-6ED8-44FD-BCC9-2968F3B85829', 'name': 'ParallelGateway3', 'incoming': ['Goods for shipping'], 'outgoing': ['Request a quote', 'ParallelGateway4']}
+{'id': 'sid-24AFED21-833D-41B5-AC20-6E886F810F4E', 'name': 'ParallelGateway4', 'incoming': ['Type of shipping?\n', 'ParallelGateway3'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-607147E9-5953-4346-A9B5-93B29115F0EB', 'name': 'Goods for shipping', 'incoming': [], 'outgoing': ['Request a quote']}
+
+End Events:
+{'id': 'sid-A65E9E55-497A-494C-A09F-F63C3FE81129', 'name': 'EndEvent0', 'incoming': ['Type of shipping?\n'], 'outgoing': []}

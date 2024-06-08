@@ -1,0 +1,17 @@
+ The process begins with a 'Scoring request' event, which triggers the 'Scoring request Level 1' task. This task then sends a 'Report delay' message to the 'Waiting for result' gateway, indicating that the scoring process is underway.
+
+Simultaneously, the 'Scoring request Level 1' task also sends a 'forward scoring level 1' message to the 'forward result to the frontend' gateway. This gateway, in turn, sends a 'Process completed' message to the 'EventBasedGateway1'.
+
+The 'EventBasedGateway1' receives the 'Process completed' message and sends it back to the 'Scoring request Level 1' task, completing the first part of the process.
+
+Meanwhile, the 'Scoring request Level 1' task also sends a 'Results available?' message to the 'Results available?' gateway. This gateway receives the message and sends a 'Process completed' message to both the 'Waiting for result' gateway and the 'forward result to the frontend' gateway.
+
+The 'forward result to the frontend' gateway then sends a 'Process completed' message to the 'Send a reply' gateway, which in turn sends a 'Process completed' message to the 'Scoring request Level 1' task, completing the first part of the process.
+
+The 'Scoring request Level 1' task also sends a 'forward scoring level 2' message to the 'Evaluate scoring level 2' gateway. This gateway receives the message and sends a 'Process completed' message to the 'Send a reply' gateway.
+
+The 'Send a reply' gateway then sends a 'Process completed' message to the 'Scoring request Level 1' task, completing the second part of the process.
+
+Finally, the 'Scoring request Level 1' task sends a 'Results available?' message to the 'Results available?' gateway, which receives the message and sends a 'Process completed' message to the 'EventBasedGateway1'.
+
+The 'EventBasedGateway1' receives the 'Process completed' message and sends it back to the 'Scoring request Level 1' task, completing the entire process.

@@ -1,0 +1,34 @@
+ Let's reorganize the given tasks and gateways into a more natural flow description:
+
+1. Start by selecting a court to begin the process.
+2. Once you've chosen a court, wait in line until it's your turn.
+3. When it's your turn, inform Koch about the order.
+4. Koch will then trigger Pieper, and after 5 minutes, retrieve the guest.
+5. The guest will be published, and the order procedure will be completed.
+6. After the order procedure is completed, the food preparation will begin.
+7. Once the food is prepared, it will be ready for pickup.
+8. Inform the employees about the completion of the food preparation.
+9. The guest will be served with the prepared meal.
+
+Here's the detailed flow with the corresponding IDs:
+
+1. Select a court:
+   - Task ID: sid-sid-B7480828-E369-4301-AB08-3F2928CCB98A
+   - Name: Enter your order in cash system
+   - Incoming: ['Order to receive']
+   - Outgoing: ['inform Koch about order']
+
+2. Wait in line:
+   - Gateway ID: sid-sid-DA98E914-4986-4689-B351-CDC3A21EAC70
+   - Name: EventBasedGateway0
+   - Incoming: ['Payments\ncompleted', 'Payments\ncompleted']
+   - Outgoing: ['Order procedure\ncompleted', 'Order procedure\ncompleted']
+
+3. Inform Koch about the order:
+   - Task ID: sid-sid-FEECE1E8-C8DB-4880-BFB4-3EE0E4D0E240
+   - Name: Payments\ncompleted
+   - Incoming: ['Order to receive']
+   - Outgoing: ['Message\nCompletion\nobtained']
+
+4. Trigger Pieper after 5 minutes:
+   - Task ID: sid-sid-FEECE

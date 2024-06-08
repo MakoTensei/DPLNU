@@ -1,0 +1,7 @@
+ In the process of handling a regression, the system initiates with the 'Regression' event, which triggers the 'Check the procedure' task, sending a message to 'ExclusiveGateway1'. If the regression is possible, the 'Regress possible?' event leads to the 'ExclusiveGateway1' task, which can either close the process or forward it to 'Objection' or 'ExclusiveGateway3'.
+
+If the objection is justified, the 'EventBasedGateway4' event sends the process to 'ExclusiveGateway3', which then transfers the process to 'Process transferred to collection'. On the other hand, if the objection is not justified, the 'Cash receipt' event sends the process back to 'ExclusiveGateway1', which can close the process.
+
+Meanwhile, the 'Book back payment' task is triggered by the 'Cash receipt' event, which sends the process to 'ExclusiveGateway1'. If the opposition period expires, the 'expiry of the opposition period' event sends the process to 'Process transferred to collection'.
+
+In summary, the process starts with a 'Regression' event, which can lead to various tasks and gateways depending on the outcome of the regression and objection. The process can either be closed or transferred to collection, depending on the events and tasks triggered along the way.

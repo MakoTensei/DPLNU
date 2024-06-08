@@ -1,0 +1,18 @@
+Tasks:
+{'id': 'sid-FD1B0044-66E2-4AA5-AFA8-E2C7838B47E8', 'name': 'Request scoring', 'incoming': ['StartEvent0'], 'outgoing': ['Result\nRequest?']}
+{'id': 'sid-2C416E40-FDF2-409F-8F30-FE923C8277E3', 'name': 'forward delay', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-AADB2179-EF02-4D77-9168-954F7190AFE0', 'name': 'Scoring\nCreate Level1', 'incoming': ['Scoring request'], 'outgoing': ['Result\ndetermined?']}
+{'id': 'sid-E3A3E866-955D-442C-8269-359434A61F9C', 'name': 'Scoring\nCreate Level2', 'incoming': ['sid-E51B5173-1F6E-47E2-89C7-5512A3D82A5B'], 'outgoing': ['sid-69481BAB-CF5E-4A05-ABEE-CE0AF4479F47']}
+
+Gateways:
+{'id': 'sid-7ECAA166-52ED-4F07-9AC4-A3C6AE98F90E', 'name': 'Result\nRequest?', 'incoming': ['StartEvent0'], 'outgoing': ['forward delay', 'sid-C5633DA5-E84E-4EAC-B43C-3D698DAABB24']}
+{'id': 'sid-25503891-7AB2-40D9-A541-521C474E2859', 'name': 'Result\ndetermined?', 'incoming': ['Scoring request'], 'outgoing': ['sid-58177B66-3737-4954-A96C-776A7B487B36', 'sid-37D56F4F-839E-4D90-A9B4-ECDC6DB780BE']}
+{'id': 'sid-6E43D906-50C9-4866-9CD7-31C10DAEF642', 'name': 'IntermediateCatchEvent2', 'incoming': ['StartEvent0'], 'outgoing': []}
+
+Start Events:
+{'id': 'sid-F6214520-FB1B-4A2C-939D-97BEBE4BDE09', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-CED974C4-DD76-4B63-B0A5-C6983906AF19', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Result\ndetermined?']}
+
+End Events:
+{'id': 'sid-85840027-8901-48B5-9092-3044D63CB276', 'name': 'Bank scoring\nFinished', 'incoming': ['sid-CB812539-5749-4F12-BCE7-885713BFBC4B'], 'outgoing': []}
+{'id': 'sid-595A2DE3-2349-465E-8D68-17E44E43700D', 'name': 'Scoring ends', 'incoming': ['sid-9658406F-2CBC-4125-B701-0158A2D07004'], 'outgoing': []}

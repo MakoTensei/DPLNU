@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-42EA479B-2A43-4077-88ED-86D468C50909', 'name': 'Select a court', 'incoming': ['Visit the restaurant'], 'outgoing': ['Place in queue']}
+{'id': 'sid-FD7DB768-43F4-41FD-AF34-E8A0F50E49C2', 'name': 'Place in queue', 'incoming': ['Visit the restaurant'], 'outgoing': []}
+{'id': 'sid-746E90BA-EC4C-45E9-88BE-CDFFFCA36990', 'name': 'Add your order', 'incoming': ['sid-9D435B68-29AE-47F3-888A-E0024D776503'], 'outgoing': ['Order payment']}
+{'id': 'sid-EC5E5685-010C-4458-AE03-94E72090B6A8', 'name': 'Order payment', 'incoming': ['Add your order'], 'outgoing': ['Get instructions for Pieper']}
+{'id': 'sid-AD8A7180-AB46-4C85-B6E9-2D6B9EA196EA', 'name': 'Pick up food\n', 'incoming': ['Pieper alarmed'], 'outgoing': ['Famine']}
+{'id': 'sid-D89982B8-496A-4CC1-88BF-FBBE59438797', 'name': 'Visit the restaurant', 'incoming': ['Hunger'], 'outgoing': ['Place in queue']}
+{'id': 'sid-16535F29-AE76-4C01-BB7A-095EF840CC2E', 'name': 'Get instructions for Pieper', 'incoming': ['Order payment'], 'outgoing': ['Famine']}
+{'id': 'sid-F208A2A1-0B51-4F7B-9013-E73AAFF69F1F', 'name': 'Cash in', 'incoming': ['Enter your order'], 'outgoing': ['Enable Pieper']}
+{'id': 'sid-697B1123-A01C-4157-90C8-16A5C42D11B5', 'name': 'Enter your order', 'incoming': ['StartEvent1'], 'outgoing': ['Enable Pieper']}
+{'id': 'sid-BEA77BE7-363E-427D-875D-2645789CB63F', 'name': 'Enable Pieper', 'incoming': ['StartEvent1'], 'outgoing': ['Customer instruct (Pieper)']}
+{'id': 'sid-5A371AF6-04F3-496F-B89D-6D45681148EA', 'name': 'Customer instruct (Pieper)', 'incoming': ['StartEvent1'], 'outgoing': ['Koch inform']}
+{'id': 'sid-5599546D-5EB3-41EA-A07F-A874182A5B8F', 'name': 'Koch inform', 'incoming': ['StartEvent1'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-807F16F6-A7F2-403B-9381-C55C1EB90AE6', 'name': 'Leave food', 'incoming': ['Customer will appear'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-09105F84-64C6-422A-A41B-1251208DD77D', 'name': 'Restart beepser', 'incoming': ['5 minutes'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-1BB1BE1C-4F7E-431F-A457-7CABBF3A9AE6', 'name': 'Piesper trigger', 'incoming': ['StartEvent1'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-0596ACA8-238C-45BD-8F2A-C0DBD4832E18', 'name': 'Informing employees', 'incoming': ['providing meal'], 'outgoing': ['Prepared meal']}
+{'id': 'sid-D5DEBB66-4B39-4027-9A60-2EF13814D5CE', 'name': 'Preparation of meal', 'incoming': ['Spreading meal'], 'outgoing': ['providing meal']}
+{'id': 'sid-FE33B073-314C-43C0-8B79-63B091641A05', 'name': 'providing meal', 'incoming': ['Spreading meal'], 'outgoing': ['Prepared meal']}
+
+Gateways:
+{'id': 'sid-D23EEF84-0890-4591-A7E9-E372C483C21E', 'name': 'EventBasedGateway0', 'incoming': ['IntermediateCatchEvent2', 'IntermediateCatchEvent2'], 'outgoing': ['EventBasedGateway0', 'Customer will appear']}
+{'id': 'sid-EE2DB615-8DAE-4382-9980-B39957CD789F', 'name': 'Pieper alarmed', 'incoming': ['Get instructions for Pieper'], 'outgoing': ['Famine']}
+{'id': 'sid-295652FE-35A1-40D5-BCC9-8AFF103011E3', 'name': 'IntermediateCatchEvent2', 'incoming': ['StartEvent1'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-E2B88330-3B2F-40B8-A136-9283EA1E2325', 'name': '5 minutes', 'incoming': ['Restart beepser'], 'outgoing': ['Customer will appear']}
+{'id': 'sid-E1F6B8B2-749D-453E-BB1C-DE9645B4EE69', 'name': 'Customer will appear', 'incoming': ['Restart beepser'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-02280D49-38BB-475B-BFD3-A0E730253BE9', 'name': 'Hunger', 'incoming': [], 'outgoing': ['Visit the restaurant']}
+{'id': 'sid-80F1F8B4-F1BA-4E48-99CB-FF47661CEDA8', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Piesper trigger']}
+{'id': 'sid-F10EF4BA-1266-4E91-B1B9-84C590E771A5', 'name': 'Spreading meal', 'incoming': [], 'outgoing': ['providing meal']}
+
+End Events:
+{'id': 'sid-8B31F955-C497-4E19-B933-C8A1618B6EDB', 'name': 'Famine', 'incoming': ['Get instructions for Pieper'], 'outgoing': []}
+{'id': 'sid-F3293DD2-9852-4D93-A019-A0ED33342364', 'name': 'EndEvent1', 'incoming': ['Restart beepser'], 'outgoing': []}
+{'id': 'sid-8A66648D-9514-426F-AB05-A9B108FE4C4E', 'name': 'Prepared meal', 'incoming': ['providing meal'], 'outgoing': []}

@@ -1,0 +1,25 @@
+ When a Vendor Number (VN) is taken into regress, the following sequence of tasks and gateways is triggered:
+
+1. The VN taken in Regress triggers the "Check regression" task, which sends a message to the "ExclusiveGateway0" to proceed with the process.
+
+2. The "ExclusiveGateway0" then forwards the message to the "Book payment receipt" task, which records the payment receipt for the VN.
+
+3. The "Book payment receipt" task sends the message to the "EndEvent1" to mark the completion of the process.
+
+4. Meanwhile, the "Check regression" task also sends a message to the "Prompt payment by VN" task, which initiates the prompt payment process.
+
+5. The "Prompt payment by VN" task sends a message to the "ExclusiveGateway2" to proceed with the process.
+
+6. The "ExclusiveGateway2" then forwards the message to the "Proceedings" task, which moves the VN to the next stage.
+
+7. The "Proceedings" task sends a message to the "EndEvent2" to mark the completion of the process.
+
+8. Concurrently, the "Check regression" task sends a message to the "handed over to debt collection companies" task, which initiates the debt collection process.
+
+9. The "handed over to debt collection companies" task sends messages to the "EndEvent3" and "EventBasedGateway3" to mark the completion of the process and to handle the VN accordingly.
+
+10. The "EventBasedGateway3" receives the message from the "VN taken in Regress" and sends messages to the "EndEvent1" and "EndEvent2" to mark the completion of the process.
+
+11. Additionally, the "EventBasedGateway3" also receives the message from the "Default period expired" task, which triggers the "EndEvent3" to mark the completion of the process.
+
+In summary, when a VN is taken in Regress, it triggers a series of tasks and gateways that handle the regress, prompt payment, proceedings, and deb

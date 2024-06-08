@@ -1,0 +1,20 @@
+ Starting with an 'Order' event, the process unfolds as follows:
+
+1. The 'Order' event triggers the 'Packaging goods' task, which is connected to 'ParallelGateway6'.
+2. Concurrently, the 'Order' event also triggers the 'Filling the package note' task, which is connected to 'ExclusiveGateway3'.
+3. The 'Filling the package note' task then leads to the 'Insurance\nnecessary?' task, which is connected to 'ExclusiveGateway3'.
+4. The 'Insurance\nnecessary?' task results in the 'Insurance\nclose' task, which is connected to 'ExclusiveGateway0'.
+5. The 'Insurance\nclose' task is linked to 'ParallelGateway6', which in turn connects to 'Goods\nready for collection'.
+6. Meanwhile, the 'Packaging goods' task also leads to the 'Goods\nprovide' task, which is connected to 'ExclusiveGateway2'.
+7. The 'Goods\nprovide' task is linked to 'Goods\nready for collection'.
+
+Simultaneously, the 'Order' event also triggers the 'Special offer\nSelect' task, which is connected to 'ParallelGateway7'.
+
+1. The 'Special offer\nSelect' task connects to 'ExclusiveGateway2' twice.
+2. The first connection to 'ExclusiveGateway2' leads to 'Goods\nready for collection'.
+3. The second connection to 'ExclusiveGateway2' leads to 'Decision\nType of transport'.
+4. The 'Decision\nType of transport' task is connected to 'ParallelGateway4'.
+5. 'ParallelGateway4' connects to 'ExclusiveGateway3'.
+6. 'ExclusiveGateway3' connects to 'Goods\nready for collection'.
+
+In summary, the 'Order' event initiates the packaging and insurance processes, which eventually lead to the 'Goods\nready for collection' event. Simultaneously, the 'Order' event

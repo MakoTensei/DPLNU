@@ -1,0 +1,13 @@
+ In the process of handling a case, the system initiates with the receipt of a Regression Report. This triggers a task to send a message to set the process in re-preparation. If the possibility of regression is determined, the system proceeds to send a message to initiate the debt collection process. Concurrently, the system also checks if the case is ready for closure, which would lead to the process being closed without any result.
+
+
+As the case progresses, if the re-preparation is deemed necessary, the system sets the process in re-preparation and evaluates if the case is justified, which could lead to the case proceeding to ExclusiveGateway2 or ExclusiveGateway3. If the case is justified, the system may also send a message to initiate the debt collection process.
+
+
+When the case is ready for closure, the system checks if the case has been closed without any result, which would be the case if the ExclusiveGateway3 is the incoming gateway. Alternatively, if the case is closed successfully, it is marked as such.
+
+
+Throughout the process, the system also handles debt collection, which can be triggered by the Regress possible? gateway. If the case is not regressing, the debt collection process is given.
+
+
+Finally, the system handles the receipt of Money, which leads to the successful closure of the case.

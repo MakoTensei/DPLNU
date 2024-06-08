@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-5C9A714F-BD48-4E89-B8C9-20620F8C1120', 'name': 'Send a message', 'incoming': ['Regression'], 'outgoing': ['Set the process to the counter']}
+{'id': 'sid-61E9442F-4862-46EE-B79B-15CE6C1E7497', 'name': 'Book money', 'incoming': ['sid-68E0213D-0E8E-4EAD-ACC4-F473297432A5'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-A98BD270-58F9-4E72-9D3A-834D91D54EC0', 'name': 'Examination', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-BDAB33BB-0671-48F3-9704-1B3DC76B3645', 'name': 'Incaso process', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-5AB43BC4-C864-499B-9A7D-40A4D1105D78', 'name': 'Set the process to the counter', 'incoming': ['Regression report'], 'outgoing': ['ExclusiveGateway0']}
+
+Gateways:
+{'id': 'sid-0CFAF0C0-778B-4544-A9C9-3EA2837F4BD2', 'name': 'ExclusiveGateway0', 'incoming': ['Book money', 'EventBasedGateway3', 'Reimbursement period expired', 'Regression'], 'outgoing': ['Process']}
+{'id': 'sid-2486748A-1686-487B-BCFE-053D9E3C2CD3', 'name': 'WS justified?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Process', 'ExclusiveGateway2']}
+{'id': 'sid-BBE5219E-2FA5-4B2B-878D-7B02DDB61F71', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3', 'Examination'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-23485EAD-BE86-40E2-80EF-B1C8AB8B2C62', 'name': 'EventBasedGateway3', 'incoming': ['Regression report'], 'outgoing': ['sid-9FD39683-A723-4F1D-8671-F2010B420ED5', 'Regression', 'ExclusiveGateway0', 'Incaso process']}
+{'id': 'sid-3CD4ABD3-F9B9-4E54-9EE5-BC270245A3B4', 'name': 'Regression', 'incoming': ['Regression report'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-A8F768AC-508F-428E-860B-3AC1729FA133', 'name': 'Opposition', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Process']}
+{'id': 'sid-55152BAB-8A40-4054-A7F3-03C285F16E72', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-D5B86B07-73A8-42C2-96CE-02015A27A965', 'name': 'Regression report', 'incoming': [], 'outgoing': ['Set the process to the counter']}
+{'id': 'sid-019F70F9-CC16-4633-BCB2-91CC482C3CB1', 'name': 'Cash receipt', 'incoming': [], 'outgoing': ['sid-07DF78CC-2B8A-42F7-AE91-2C20101305AA']}
+
+End Events:
+{'id': 'sid-CF55FC50-84F8-4651-9FCD-218C384DA14D', 'name': 'Process', 'incoming': ['Opposition'], 'outgoing': []}

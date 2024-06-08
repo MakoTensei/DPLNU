@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-10BA0A02-AF0B-4CFF-9B14-AC5070B71389', 'name': 'Request information', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Scoring\nobtained']}
+{'id': 'sid-ABD6D3E5-A1BF-4E86-9919-92FA7B456DF4', 'name': 'Scoring', 'incoming': ['Scoring\nobtained'], 'outgoing': ['Scoring request\nFinished']}
+{'id': 'sid-0C1FA34E-9E28-4928-8E8E-318460471A9F', 'name': 'Send delay', 'incoming': ['Scoring request\nReport'], 'outgoing': ['EventBasedGateway1']}
+{'id': 'sid-CFD3DA00-17C1-4B0B-8127-0540F1350C88', 'name': 'Level 1 Scoring', 'incoming': ['Information request\ningress'], 'outgoing': ['Results available?']}
+{'id': 'sid-E2B5B0EC-79EC-4A75-8158-98122929E84E', 'name': 'Scoring', 'incoming': ['Information request\ningress'], 'outgoing': ['Information']}
+{'id': 'sid-C19CF103-08C5-420A-A7CF-810F69EB1F88', 'name': 'Report delay', 'incoming': ['Results available?'], 'outgoing': ['Level 2 Scoring']}
+{'id': 'sid-774575BC-E662-4D36-87A9-C777242F0554', 'name': 'Level 2 Scoring', 'incoming': ['Results available?'], 'outgoing': ['Information']}
+
+Gateways:
+{'id': 'sid-60A13BEA-D9AD-414D-996F-3873D6E48EDA', 'name': 'Results available?', 'incoming': ['Information request\ningress', 'Results available?'], 'outgoing': ['Results available?', 'Information']}
+{'id': 'sid-BC89B53B-3FE9-40FE-9BCE-5DAA08CF688C', 'name': 'EventBasedGateway1', 'incoming': ['Scoring request\nReport', 'EventBasedGateway1'], 'outgoing': ['Scoring request\nFinished', 'EventBasedGateway1']}
+{'id': 'sid-AAFF647E-5ACD-4B89-BDB6-9D7AFF4CAF59', 'name': 'Scoring\nobtained', 'incoming': ['Request information'], 'outgoing': ['Scoring request\nFinished']}
+{'id': 'sid-1E1E0AAA-5286-4E0D-A6F0-3D3942DF11D7', 'name': 'Delay\nobtained', 'incoming': ['Scoring request\nReport'], 'outgoing': ['Scoring request\nFinished']}
+
+Start Events:
+{'id': 'sid-C1C747B0-EB14-49AA-9A93-5F29B9ACBECA', 'name': 'Scoring request\nReport', 'incoming': [], 'outgoing': ['Send delay']}
+{'id': 'sid-802A0E61-A964-458E-B3A4-4963B8228B13', 'name': 'Information request\ningress', 'incoming': [], 'outgoing': ['Scoring']}
+
+End Events:
+{'id': 'sid-E30E4EFB-F577-418B-BE0B-219DBA1D808B', 'name': 'Scoring request\nFinished', 'incoming': ['Delay\nobtained'], 'outgoing': []}
+{'id': 'sid-D47E3EA7-3D59-4D5B-B3FE-3FEFB32E9A58', 'name': 'Information', 'incoming': ['Level 2 Scoring'], 'outgoing': []}

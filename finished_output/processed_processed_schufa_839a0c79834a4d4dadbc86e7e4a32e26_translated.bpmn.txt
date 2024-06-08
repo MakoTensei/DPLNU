@@ -1,0 +1,9 @@
+ In the process of handling credit scoring requests, several tasks and gateways are involved to ensure a smooth workflow. The first task, 'Send Schufa request', is initiated when the 'Scoring\nRequired' start event occurs. This task sends a request to Schufa and awaits a response, which is represented by the 'Schufascore immediately determined?' gateways. Once the Schufa Answer is received, the 'Reporting the delay' task is triggered.
+
+Simultaneously, the 'Report back the scoring' task is activated when the 'Schufascore immediately determined?' gateways receive the Schufa Answer. This task communicates the scoring result back to the system.
+
+The 'perform scoring' task is triggered by the 'StartEvent1' start event and is responsible for calculating the credit score. It connects to the 'ParallelGateway3' and 'ExclusiveGateway2' gateways, which further process the scoring result.
+
+The 'IntermediateCatchEvent6' task is triggered when the 'Schufascore immediately determined?' gateways receive the scoring result. This task reports back the scoring result to the system.
+
+In summary, the process begins with the 'Scoring\nRequired' start event, which triggers the 'Send Schufa request' task. Upon receiving the Schufa Answer, the 'Reporting the delay' task is initiated. The 'Schufa Answer received' gateways then trigger the 'Report back the scoring' task, which communicates the scoring result. The 'perform scoring' task, initiated by the 'StartEvent1' start event, calculates the credit score and connects to the 'ParallelGateway3' and 'ExclusiveGateway2' gateways. Finally, the 'IntermediateCatchEvent6' task reports back the scoring result to the system.

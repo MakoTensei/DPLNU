@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-E8025455-EED0-46BA-B7D1-E3281229145B', 'name': 'Add a message', 'incoming': ['Message\nobtained'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-9D59F9D8-48EE-4906-8315-64431973CAE7', 'name': 'perform scoring level 1', 'incoming': ['Scoring request\nmade available'], 'outgoing': ['Scoring result reported']}
+{'id': 'sid-BF872964-B90D-4C93-8CF9-41843852DFCF', 'name': 'perform scoring level 2', 'incoming': ['sid-5E42DC99-F1F1-4459-94DC-876AB71D57D2'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-29F3DB9C-9803-43B8-8762-A4E8962C8AAA', 'name': 'Scoring result\navailable?', 'incoming': ['Message\nobtained'], 'outgoing': ['ExclusiveGateway1', 'sid-CDA1EBBA-0AE5-4A85-A083-3688E31BB701']}
+{'id': 'sid-0AD2126D-8FC4-4678-8124-3070154D7CD1', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring result\nobtained', 'Add a message'], 'outgoing': ['Scoring result\nReport']}
+{'id': 'sid-D7FBEB2C-7CAA-4F78-8312-2AC58482315D', 'name': 'Result\navailable?', 'incoming': ['Scoring request\nmade available'], 'outgoing': ['sid-3EB57400-1DBB-46EC-B67A-9FF30F5896FC', 'ExclusiveGateway3']}
+{'id': 'sid-C8BDB9BC-3B06-4912-8968-073D1D0C946E', 'name': 'ExclusiveGateway3', 'incoming': ['perform scoring level 1', 'perform scoring level 2'], 'outgoing': ['Scoring result reported']}
+{'id': 'sid-37A8908F-698F-4E93-9D73-A52741A0F9E3', 'name': 'Message\nobtained', 'incoming': ['sid-ABBCE77A-9E80-4528-AC19-EBBF46CD940B'], 'outgoing': ['Scoring result\navailable?']}
+{'id': 'sid-36B25DE9-1A41-4E5E-B027-31B067815E55', 'name': 'Scoring result\nobtained', 'incoming': ['sid-6CA42BB4-E9F1-4AAF-84B4-9D758A6798E0'], 'outgoing': ['Scoring result\nReport']}
+
+Start Events:
+{'id': 'sid-AC0751DA-E820-4C3E-A1D7-6303196B7E61', 'name': 'Schufascoring\nrequested', 'incoming': [], 'outgoing': ['sid-959F725A-B3E0-4E71-A633-C12C35B1FA2D']}
+{'id': 'sid-215B78E9-7B52-4440-9428-815A9D89AF5C', 'name': 'Scoring request\nmade available', 'incoming': [], 'outgoing': ['Result\navailable?']}
+
+End Events:
+{'id': 'sid-9EB5C5A0-AD88-4352-9CEC-66A40AD536C6', 'name': 'Scoring result\nReport', 'incoming': ['Scoring result\nobtained'], 'outgoing': []}
+{'id': 'sid-EF47A72D-747B-4AC3-B34F-C7138C01513E', 'name': 'Scoring result reported', 'incoming': ['perform scoring level 1'], 'outgoing': []}

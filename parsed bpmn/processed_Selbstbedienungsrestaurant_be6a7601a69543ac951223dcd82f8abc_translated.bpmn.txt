@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-0E4E75E0-9141-4A85-9D07-3A48FE52792C', 'name': 'Restaurant\nentering', 'incoming': ['Hunger\nActing'], 'outgoing': ['Court of Justice\nSelect']}
+{'id': 'sid-51ABF8B5-A762-4425-8A71-B36D1DB1C715', 'name': 'Court of Justice\nSelect', 'incoming': ['Hunger\nActing'], 'outgoing': ['on\nThe series']}
+{'id': 'sid-B516BD89-1779-4B3A-8E96-7B203DD18AF9', 'name': 'Order\ngive up', 'incoming': ['Hunger\nActing'], 'outgoing': ['Court of Justice\nPay']}
+{'id': 'sid-15A43D70-FDF9-4FCF-81FE-0F693417C120', 'name': 'Court of Justice\nPay', 'incoming': ['on\nThe series'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-94146E4C-880F-4613-8504-CEED6AD9CB75', 'name': 'Court of Justice\nretrieval', 'incoming': ['Pieper\npiept'], 'outgoing': ['Court of Justice\naccepted']}
+{'id': 'sid-7642BD3C-DC1F-43FC-8681-5215FEB7C65E', 'name': 'Court of Justice\nbeeping', 'incoming': ['Court of Justice\naccepted'], 'outgoing': []}
+{'id': 'sid-C08D982D-D36E-4A38-90F3-8420B6E2F0A5', 'name': 'Pick up Pieper', 'incoming': ['on\nThe series'], 'outgoing': ['Court of Justice\naccepted']}
+{'id': 'sid-78547D5F-8BD6-4137-8B2D-D825C894E066', 'name': 'Enter your order', 'incoming': ['Order\nDate'], 'outgoing': ['Cash']}
+{'id': 'sid-C91FD7A3-6674-4009-B4A5-DE4E5D36EFEA', 'name': 'Cash', 'incoming': ['Order\nDate'], 'outgoing': ['Pieper\nAdjust']}
+{'id': 'sid-A64591C5-5A63-4336-9C2F-43F5AA37763E', 'name': 'Pieper\nAdjust', 'incoming': ['Order\nDate'], 'outgoing': ['Pieper over']}
+{'id': 'sid-AEE3AB04-B4D7-4982-BCF7-1F4A28A479C7', 'name': 'Pieper over', 'incoming': ['Order\nDate'], 'outgoing': ['forward order']}
+{'id': 'sid-9CBB7F28-1D46-435C-8FD8-48416BECB2AC', 'name': 'forward order', 'incoming': ['Order\nDate'], 'outgoing': ['Court of Justice\nfinished']}
+{'id': 'sid-44FABB1A-0AEE-41A5-B1DA-7425EFA10F8F', 'name': 'Pieper\ntrigger', 'incoming': ['Court of Justice\nfinished'], 'outgoing': ['5 minutes\npast']}
+{'id': 'sid-10A0D072-8680-45EC-B67E-0E6FA188E9FD', 'name': 'Court of Justice\nhand over', 'incoming': ['Guest stands for\nIssue'], 'outgoing': []}
+{'id': 'sid-07AA78C0-5CDF-40F7-B6C5-7ABF2B577EA1', 'name': 'Retrieve guest', 'incoming': ['5 minutes\npast'], 'outgoing': ['Guest stands for\nIssue']}
+{'id': 'sid-E4DABCCD-84DC-4528-BB61-895DBA58E1C4', 'name': 'prepare court', 'incoming': ['Court of Justice\nMission'], 'outgoing': ['Place court in vain']}
+{'id': 'sid-187C016A-BDD0-46AA-AB00-2D535DA9A916', 'name': 'Place court in vain', 'incoming': ['Court of Justice\nMission'], 'outgoing': ['inform employees']}
+{'id': 'sid-BE04FBC9-BAF6-4864-A5C3-5E7D4E080C7E', 'name': 'inform employees', 'incoming': ['Court of Justice\nMission'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-00CB1E23-998C-478E-8C97-7458D746872B', 'name': 'EventBasedGateway0', 'incoming': ['Order\nDate'], 'outgoing': ['Guest stands for\nIssue', 'EventBasedGateway1']}
+{'id': 'sid-1FD0E07F-3578-4D3C-8C5B-2204F7590281', 'name': 'EventBasedGateway1', 'incoming': ['Order\nDate'], 'outgoing': ['Guest stands for\nIssue', '5 minutes\npast']}
+{'id': 'sid-8A802F01-E389-4B9A-ABE6-5FFE5BE5F9DC', 'name': 'on\nThe series', 'incoming': ['Hunger\nActing'], 'outgoing': ['Pieper\npiept']}
+{'id': 'sid-84B3A9DF-E3A2-4E5C-90EF-C0F7FF91C4BF', 'name': 'Pieper\npiept', 'incoming': ['on\nThe series'], 'outgoing': ['Court of Justice\naccepted']}
+{'id': 'sid-DC4E90CA-90C5-41DB-A8FD-9F1C5D9EAAEC', 'name': 'Court of Justice\naccepted', 'incoming': ['Pick up Pieper'], 'outgoing': ['Court of Justice\nbeeping']}
+{'id': 'sid-56C7156A-0DD2-4749-9ED6-5BFD6E65F433', 'name': 'Order\nDate', 'incoming': [], 'outgoing': ['5 minutes\npast']}
+{'id': 'sid-F14CCCB7-7889-43E5-922B-87DB2120A670', 'name': 'Court of Justice\nfinished', 'incoming': ['Order\nDate'], 'outgoing': ['Guest stands for\nIssue']}
+{'id': 'sid-433B092F-8964-4624-B578-0CB0537AF112', 'name': 'Guest stands for\nIssue', 'incoming': ['Court of Justice\nfinished', 'Retrieve guest'], 'outgoing': ['Court of Justice\nhand over']}
+{'id': 'sid-8248F522-435F-49E8-B3DE-36AE4A0CEE20', 'name': '5 minutes\npast', 'incoming': ['Pieper\ntrigger', 'Order\nDate'], 'outgoing': ['5 minutes\npast']}
+{'id': 'sid-BE500AA1-918F-44A6-BED7-B839758A3408', 'name': 'Court of Justice\nMission', 'incoming': [], 'outgoing': ['inform employees']}
+
+Start Events:
+{'id': 'sid-50D383D8-FF41-4321-8F59-98C2B964CE81', 'name': 'Hunger\nActing', 'incoming': [], 'outgoing': ['Order\ngive up']}
+
+End Events:

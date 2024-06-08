@@ -1,0 +1,33 @@
+Tasks:
+{'id': 'sid-D04BB02C-874A-46D6-907E-CEA3BD145D5B', 'name': 'Visit the restaurant', 'incoming': ['Hungaea!'], 'outgoing': ['Selects court']}
+{'id': 'sid-3C9C42A7-1433-47DF-A4B0-F2342C6964B7', 'name': 'Selects court', 'incoming': ['Hungaea!'], 'outgoing': ['Addressed by the waiter']}
+{'id': 'sid-768213C1-A2B4-4947-BF9A-EF888033898C', 'name': 'goes insulted after home', 'incoming': ['Hungaea!'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F418CA03-A75D-4C7B-BB9A-82E6EB857093', 'name': 'Add to cart', 'incoming': ['Addressed by the waiter'], 'outgoing': ['waiter ready to cash']}
+{'id': 'sid-8168FD15-7F7A-4223-A0EB-F19EEAB0015E', 'name': 'Payment', 'incoming': ['waiter ready to cash'], 'outgoing': ['welcome Pieper']}
+{'id': 'sid-C4FB109D-2CDF-4149-8782-92756A79D7E3', 'name': 'Go to output', 'incoming': ['welcome Pieper'], 'outgoing': ['sid-417138C6-2829-40F9-B40F-368425A5014B']}
+{'id': 'sid-6B3E64E2-9A2F-441B-ACB0-FCFAE5F1EA4E', 'name': 'Eat meal', 'incoming': ['sid-95FC1BC5-F938-4990-BEFA-2ED93CDA3ADB'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-F255A9C5-61B3-4229-88EB-C2F534DF2287', 'name': 'Contact the guest', 'incoming': ['Guest has chosen'], 'outgoing': ['Guest has ordered']}
+{'id': 'sid-736139E6-7FDD-4C5F-8CC2-A1E9B31DD77F', 'name': 'Informed Cook', 'incoming': ['Pieper to customer'], 'outgoing': ['Food in Anreich']}
+{'id': 'sid-A375940E-3D1E-4E4D-BC3D-F390AC900307', 'name': 'Add to cart', 'incoming': ['Guest has chosen'], 'outgoing': ['Cash']}
+{'id': 'sid-8DEEC065-A4CA-4CDF-82C7-AFC24FF4A848', 'name': 'Cash', 'incoming': ['Guest has ordered'], 'outgoing': ['Guest has paid']}
+{'id': 'sid-72DA5919-A5B1-43C5-9412-1FAF4DA57530', 'name': 'Pieper to customer', 'incoming': ['Guest has paid'], 'outgoing': ['Food in Anreich']}
+{'id': 'sid-158240C3-8902-46E7-AB60-A9CB464B7081', 'name': 'beeps', 'incoming': ['Guest has paid'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-155C72BB-6C76-479F-B5A2-983F3BB1CCBB', 'name': 'ExclusiveGateway0', 'incoming': ['Eat meal', 'EventBasedGateway1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-BB8B8889-0DF3-49C3-9E2D-9E1230ACC86C', 'name': 'EventBasedGateway1', 'incoming': ['Hungaea!'], 'outgoing': ['welcome Pieper', 'ExclusiveGateway0']}
+{'id': 'sid-7FAEEC19-9723-414A-BA30-2B96B0C44A59', 'name': 'Addressed by the waiter', 'incoming': ['Selects court'], 'outgoing': ['Become a pistol']}
+{'id': 'sid-2EBA5120-6022-4707-8DBD-81462228F3D7', 'name': 'Wait 10 min', 'incoming': ['Hungaea!'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-AD7C74B0-A0D9-437E-90A8-B19E5F569ED5', 'name': 'Become a pistol', 'incoming': ['Addressed by the waiter'], 'outgoing': ['Go to output']}
+{'id': 'sid-F8800E17-2525-4780-BFCF-358D1FE20968', 'name': 'waiter ready to cash', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Become a pistol']}
+{'id': 'sid-345987C5-F900-48E5-8494-995616BC5C70', 'name': 'welcome Pieper', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Go to output']}
+{'id': 'sid-978F7B65-9CEC-4797-B736-DA4D0D52845C', 'name': 'Guest has ordered', 'incoming': ['Guest has chosen'], 'outgoing': ['Food in Anreich']}
+{'id': 'sid-8A836D30-E26D-40E1-AFC4-ECD1EBDF10B0', 'name': 'Food in Anreich', 'incoming': ['Guest has ordered'], 'outgoing': ['beeps']}
+{'id': 'sid-D2F4E6D9-ED77-4D74-A3F3-8F6FD0ED0BE5', 'name': 'Guest has paid', 'incoming': ['Guest has ordered'], 'outgoing': ['beeps']}
+
+Start Events:
+{'id': 'sid-C3F1B8F6-F507-4718-8E36-BBDCBF184F64', 'name': 'Hungaea!', 'incoming': [], 'outgoing': ['goes insulted after home']}
+{'id': 'sid-AA080600-D685-4590-BF6D-154D55B95FAB', 'name': 'Guest has chosen', 'incoming': [], 'outgoing': ['Add to cart']}
+
+End Events:
+{'id': 'sid-F466AE4D-3EBF-41F6-84F6-51FD0BECA2DD', 'name': 'EndEvent0', 'incoming': ['goes insulted after home'], 'outgoing': []}

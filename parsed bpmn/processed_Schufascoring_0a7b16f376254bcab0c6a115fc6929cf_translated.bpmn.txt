@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-880B524F-8C1D-4E34-B285-3C86459766C9', 'name': 'Scoring request to Schufa', 'incoming': ['Schufascoring\n-Request\nwe have discussed'], 'outgoing': ['Proceedings\nReport']}
+{'id': 'sid-D044DA15-46DF-47FA-B2D3-9D17F2E27F09', 'name': 'Share delay', 'incoming': ['Proceedings\nReport'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-4139294B-EB62-40B6-91CB-951DC70A4A62', 'name': 'Scoring result\nReport', 'incoming': ['Schufascoring\n-Request\nwe have discussed'], 'outgoing': ['Scoring completed']}
+{'id': 'sid-17E3541B-08AB-4D0A-91A1-B7B09983E737', 'name': 'Scoring Level1\nperform', 'incoming': ['Schufascoring\n-Request\nwe have discussed'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-E780CC44-3382-49DA-ADAC-F8DD9548FBB7', 'name': 'Scoring result back', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Scoring completed']}
+{'id': 'sid-2BD410FB-FBB8-4208-B4AF-A0726223C870', 'name': 'Scoring Level2\nperform', 'incoming': ['Report delay'], 'outgoing': ['Scoring completed']}
+{'id': 'sid-23408BD6-E04C-4F58-B097-0ECD15EE38C9', 'name': 'Report delay', 'incoming': ['Schufascoring\n-Request\nwe have discussed'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-0950876F-888B-432D-810D-338CC7C50E61', 'name': 'Scoring\nResult\navailable?', 'incoming': ['Schufascoring\n-Request\nwe have discussed'], 'outgoing': ['Report delay', 'ExclusiveGateway1']}
+{'id': 'sid-5241EDE3-FE4B-4A5A-B7CA-F9517824CADE', 'name': 'ExclusiveGateway1', 'incoming': ['Schufascoring\n-Request\nwe have discussed', 'Scoring Level1\nperform'], 'outgoing': ['Scoring completed']}
+{'id': 'sid-A7A9EEDE-8FCC-42DA-B960-4DDCE9669297', 'name': 'EventBasedGateway2', 'incoming': ['Schufascoring\n-Request\nwe have discussed', 'Proceedings\nReport'], 'outgoing': ['EventBasedGateway2', 'Scoring completed']}
+{'id': 'sid-CABCA445-DC03-4C46-93DD-1B12DD5B63C3', 'name': 'Proceedings\nReport', 'incoming': ['Scoring request to Schufa'], 'outgoing': ['Scoring completed']}
+{'id': 'sid-7E2CCEB1-76A5-4136-94C8-77C6B679219F', 'name': 'Scoring result received', 'incoming': ['Schufascoring\n-Request\nwe have discussed'], 'outgoing': ['Scoring completed']}
+
+Start Events:
+{'id': 'sid-773695B8-6603-4E5C-BF9C-9B257CA54041', 'name': 'Schufascoring\n-Request\nwe have discussed', 'incoming': [], 'outgoing': ['Scoring result\nReport']}
+{'id': 'sid-3F567C51-8B65-47F2-94EA-879D0A25A7CF', 'name': 'Schufascoring\n-Request\nwe have discussed', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-EE79F4AE-CC9A-456B-8769-DEFBC58F62F2', 'name': 'Scoring completed', 'incoming': ['Proceedings\nReport'], 'outgoing': []}
+{'id': 'sid-2E2BBB8D-5B82-4EF5-AF00-FD35627B057E', 'name': 'Scoring completed', 'incoming': ['Scoring Level2\nperform'], 'outgoing': []}

@@ -1,0 +1,30 @@
+ Let's describe the workflow in a more natural and flowing description:
+
+1. A guest feels hungry, triggering the process to enter a restaurant and select a court.
+2. The guest waits in line until it's their turn.
+3. Once the guest is in line, they add their order to the system.
+4. The system processes the order and prompts the guest to pay for their meal.
+5. After payment, the guest receives a Pieper (a food item) and waits for it to be ready.
+6. The restaurant's employees are informed about the meal preparation.
+7. The meal is prepared and put in abundance.
+8. The restaurant's employees are informed that the meal is ready.
+9. The guest is notified that their food is ready, and they appear at the restaurant.
+10. The guest picks up their food and starts eating.
+11. After finishing their meal, the guest experiences satisfaction (famine) and the process ends.
+
+Gateways:
+
+1. When the guest feels hungry and is waiting for the food to be ready, the system triggers the EventBasedGateway0, which either ends the process or sets a timer for 5 minutes.
+2. If the guest is waiting in line, the system triggers the famine event, which ends the process.
+
+Start Events:
+
+1. The guest feels hungry, initiating the process to enter a restaurant and select a court.
+2. The guest gives their order, prompting the retrieval of the guest.
+3. The restaurant prepares the meal, informing the employees.
+
+End Events:
+
+1. The guest experiences satisfaction (famine) after eating, ending the process.
+2. The process ends when the EventBasedGateway0 is triggered, either by the guest's food being ready or after 5 minutes.
+3. The process ends when the guest is retrieved after giving their order.

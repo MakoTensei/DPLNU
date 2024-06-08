@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-6678FB23-2863-4C3B-8247-19B4917CB79A', 'name': 'Transfer of credit', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-793954BB-5A02-49A0-8E08-D5B74102A817', 'name': 'Share delay information', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-5628D2F1-6843-4930-856C-BC642582C016', 'name': 'Conducting First Scoring', 'incoming': ['StartEvent2'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-25406BB7-8E7B-404D-9923-9E49E89B4217', 'name': 'Submitting results', 'incoming': ['StartEvent2'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-9AF9A888-5426-4B98-8768-5E148879A387', 'name': 'Report to Bank', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Perform further scoring']}
+{'id': 'sid-066F8379-9D9C-4E5F-BA3D-9BCB7323328C', 'name': 'Perform further scoring', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Result\nthe']}
+{'id': 'sid-C6084411-F96A-4B88-99DB-87B97D0BF095', 'name': 'Submitting results', 'incoming': ['Result\nthe'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-5BD08AB3-1D3B-42B6-9808-A0EA162A9C47', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent2'], 'outgoing': ['Some\nminutes', 'EndEvent2']}
+{'id': 'sid-934F1CEF-4728-434C-8137-5B95361F74C8', 'name': 'Some\nminutes', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Result\nthe']}
+{'id': 'sid-A1D87FA6-F8C0-40BB-A836-55D10065FDD2', 'name': 'Result\nthe', 'incoming': ['Perform further scoring'], 'outgoing': ['EndEvent3']}
+
+Start Events:
+{'id': 'sid-59A83F3C-86FE-48FB-BACD-EBF838937716', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Transfer of credit']}
+{'id': 'sid-3FC384A8-DCD3-4E16-AB3B-886D326AF8B0', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Share delay information']}
+{'id': 'sid-9AEDB4E1-9B85-494B-A7E4-32CFF7D40DD2', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['Submitting results']}
+
+End Events:
+{'id': 'sid-84405EB4-8387-44CD-A9BC-2D590D3B8DFA', 'name': 'EndEvent0', 'incoming': ['Transfer of credit'], 'outgoing': []}
+{'id': 'sid-0837315E-25E3-4E41-81D0-55097BBD524A', 'name': 'EndEvent1', 'incoming': ['Share delay information'], 'outgoing': []}
+{'id': 'sid-34910E07-34A6-4499-B050-0EA9A476E66E', 'name': 'EndEvent2', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-0A906B32-C6B2-4281-BEFB-3668FE21ABE8', 'name': 'EndEvent3', 'incoming': ['Result\nthe'], 'outgoing': []}

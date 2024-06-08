@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-94D40A74-1A80-4D36-936C-53F75E4488A0', 'name': 'Pick up offers', 'incoming': ['large\nLot?'], 'outgoing': []}
+{'id': 'sid-CAC18FB9-3353-481A-B05C-034AC3C38D1A', 'name': 'Select your offer', 'incoming': ['sid-FB3E9D4B-C054-4C5D-978A-3442B4A37DAA'], 'outgoing': ['sid-9106F21C-9764-41BF-BA8D-70A05987402F']}
+{'id': 'sid-47754A32-961D-4C6C-AAD2-667BFBC681A7', 'name': 'Filling the package note', 'incoming': ['ParallelGateway3'], 'outgoing': ['Insurance?']}
+{'id': 'sid-1020BD62-D524-48AB-9CB2-9E89B1F6223A', 'name': 'Shipping\ncommission', 'incoming': ['sid-B41C389E-6D84-4BA5-B4F8-1317180EF54F'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-E3094F33-FAEF-4320-A10F-A640053A3DC7', 'name': 'Run shipping', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-42F2FEF1-8EBB-44C4-9224-39A7260F6E21', 'name': 'Run shipping', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-451AFD39-0663-4EE8-B555-49A9F167514C', 'name': 'Insurance\nclose', 'incoming': ['ParallelGateway3'], 'outgoing': ['sid-0C42A562-1054-4CCE-9890-FDD836A03DD2']}
+{'id': 'sid-93C6A3D7-95EA-4072-A282-8DB587913DE8', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['sid-C00DD631-4398-466A-B871-A5D8826E10DC']}
+
+Gateways:
+{'id': 'sid-5DCF8753-45ED-4A88-BCFC-A2C7E20C91D4', 'name': 'large\nLot?', 'incoming': ['Shipment'], 'outgoing': ['Filling the package note', 'Pick up offers']}
+{'id': 'sid-887DDF8D-45AF-44AE-885C-6795C1BC01EC', 'name': 'Insurance?', 'incoming': ['ParallelGateway3'], 'outgoing': ['sid-0CAFC873-0F40-404D-8977-83D7D43A10D0', 'Insurance\nclose']}
+{'id': 'sid-5DA30A11-FC9E-4FFC-973A-73744F0C12DE', 'name': 'ExclusiveGateway2', 'incoming': ['Shipping\ncommission'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-462819F8-454A-4603-B775-4D153A2B3A14', 'name': 'ParallelGateway3', 'incoming': ['Shipment'], 'outgoing': ['Insurance\nclose', 'Packaging goods']}
+
+Start Events:
+{'id': 'sid-C971E6DF-C3BD-43E0-8385-CF44DE2A1CBA', 'name': 'Shipment', 'incoming': [], 'outgoing': ['large\nLot?']}
+
+End Events:
+{'id': 'sid-4222449A-CFA7-41DE-90A7-8B8A26E3BEAC', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}
+{'id': 'sid-5DE008E9-D5D7-4802-BCE1-F9ADBC054B4E', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}

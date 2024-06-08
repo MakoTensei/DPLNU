@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-2098E889-4118-46CE-BFC2-4DDD89653233', 'name': 'Start your search', 'incoming': ['Schufa request\ndemand'], 'outgoing': ['Delay message\nobtained']}
+{'id': 'sid-1936C752-3F37-49A0-B562-0AF848D22E84', 'name': 'Send a reply to Frontend', 'incoming': ['Schufa request\ndemand'], 'outgoing': ['Schufa request\nFrontend answered']}
+{'id': 'sid-3CCC97CE-E34D-40C2-976F-0827C1F96322', 'name': 'Send delay message to Frontend', 'incoming': ['Delay message\nobtained'], 'outgoing': ['Answer']}
+{'id': 'sid-A387B38E-183E-445A-A209-F541914B6C0A', 'name': 'Edit on Level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Result\npresent?']}
+{'id': 'sid-A8AC88D2-EBF1-4576-9638-38F39E2F47DC', 'name': 'Return to Bank', 'incoming': ['StartEvent1'], 'outgoing': ['Schufa request\ndelivered to bank']}
+{'id': 'sid-5BCD2DB1-DA58-415F-93C4-F64F47AD41A8', 'name': 'Send delay message to Bank', 'incoming': ['Result\npresent?'], 'outgoing': ['Edit on Level 2']}
+{'id': 'sid-6E04FABE-51E2-47B0-811E-C80834224469', 'name': 'Edit on Level 2', 'incoming': ['Result\npresent?'], 'outgoing': ['Return to Bank']}
+{'id': 'sid-1D0BDEBF-17CB-42E9-A4A6-7382439D2453', 'name': 'Return to Bank', 'incoming': ['Result\npresent?'], 'outgoing': ['Schufa request\ndelivered to bank']}
+
+Gateways:
+{'id': 'sid-9756E2AE-62D3-4D6D-8280-38D7D3A65F32', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway2', 'Delay message\nobtained'], 'outgoing': ['Schufa request\nFrontend answered']}
+{'id': 'sid-DAE9E366-7214-4FA6-8541-50BE252FB98D', 'name': 'Result\npresent?', 'incoming': ['StartEvent1'], 'outgoing': ['Schufa request\ndelivered to bank', 'Schufa request\ndelivered to bank']}
+{'id': 'sid-AAF4B935-D352-417C-BCE6-D68057AA9570', 'name': 'EventBasedGateway2', 'incoming': ['Schufa request\ndemand'], 'outgoing': ['Answer', 'Schufa request\nFrontend answered']}
+{'id': 'sid-08E311FE-F4E4-4266-A338-6F5611FF9CD4', 'name': 'Delay message\nobtained', 'incoming': ['Start your search'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-2AFEFD45-19EE-443E-944D-095533B2682D', 'name': 'Answer', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Send a reply to Frontend']}
+{'id': 'sid-C864DD6B-AB0E-4F4C-81DC-EE4858F13D04', 'name': 'Answer', 'incoming': ['Schufa request\ndemand'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-0C2B0DC5-085A-4DFD-A6A5-555919E7ADD2', 'name': 'Schufa request\ndemand', 'incoming': [], 'outgoing': ['Send a reply to Frontend']}
+{'id': 'sid-D14268FB-6370-41C5-A1D1-526E707585C8', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Return to Bank']}
+
+End Events:
+{'id': 'sid-9CEED068-7D68-4DF6-9DAE-1B6A6B5D50C2', 'name': 'Schufa request\nFrontend answered', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-9C9767AA-42CA-4450-A94D-C4535C95647D', 'name': 'Schufa request\ndelivered to bank', 'incoming': ['Result\npresent?', 'Result\npresent?'], 'outgoing': []}

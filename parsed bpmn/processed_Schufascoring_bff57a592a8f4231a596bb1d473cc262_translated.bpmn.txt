@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-B44C2A69-1C96-437C-BE42-B8BFF650F321', 'name': 'Start the process', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-C0FB111F-C84C-470D-85C0-EBC4AB6C4341', 'name': 'forward waiting message', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent6']}
+{'id': 'sid-01D2F00E-71BF-4BF5-82BB-81DE7092BABA', 'name': 'Delivering results', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6EBAFCB5-170B-40C4-828B-868D0F077503', 'name': 'perform scoring level1', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-CF517B8B-6087-42BB-95DA-ACD3DED76E77', 'name': 'Scoring Result Back', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-20ABFFD7-3CBB-4FA1-A4CD-226E6247642F', 'name': 'Send a message', 'incoming': ['StartEvent1'], 'outgoing': ['perform scoring level 2']}
+{'id': 'sid-5AE1FAC3-06B6-4DF7-A9E9-EAE9F58ED367', 'name': 'perform scoring level 2', 'incoming': ['Level 1 possible?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-DA794F0F-74F9-4DDD-81BF-C9581DFF8230', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-00595F2C-FAF4-4B0E-8E61-FA29F41F8866', 'name': 'Level 1 possible?', 'incoming': ['StartEvent1'], 'outgoing': ['perform scoring level 2', 'EndEvent1']}
+{'id': 'sid-F76E471B-6CA0-4064-A2E3-D85CAE39AA9C', 'name': 'ExclusiveGateway2', 'incoming': ['perform scoring level1', 'perform scoring level 2'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-386D8F09-5E5A-4ABC-ACFA-AFA2990381EA', 'name': 'EventBasedGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['Delivering results', 'IntermediateCatchEvent5']}
+{'id': 'sid-E63FD10E-7D16-45D0-8CC7-66F3A9345441', 'name': 'IntermediateCatchEvent4', 'incoming': ['Start the process'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-735C4679-8042-4527-92F1-C39C173DC918', 'name': 'IntermediateCatchEvent5', 'incoming': ['StartEvent0'], 'outgoing': ['forward waiting message']}
+{'id': 'sid-07A0108B-C94C-4B74-BA55-D59B9B4D64D0', 'name': 'IntermediateCatchEvent6', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-EEF04EAF-1C00-4D23-808A-4654AD97A410', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-06F08C26-DC82-439B-941F-93B8CD0724F6', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-CDE5D93D-AC57-4404-9959-C58CE882C299', 'name': 'EndEvent0', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': []}
+{'id': 'sid-AC62679D-FC31-4517-9884-755DFF609530', 'name': 'EndEvent1', 'incoming': ['Level 1 possible?'], 'outgoing': []}

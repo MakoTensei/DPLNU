@@ -1,0 +1,25 @@
+ In the order fulfillment process, the following tasks are carried out:
+
+1. The process begins with the 'Start' event, which triggers the 'Clearing the shipping mode' task. This task is responsible for clearing the shipping mode and sends the data to the 'InclusiveGateway2'.
+
+2. The 'Special delivery - 3 offers' task is initiated by the 'ParallelGateway4'. This task selects a quote and forwards the order to the 'ExclusiveGateway1'.
+
+3. The 'Shipping insurance' task is triggered by the 'InclusiveGateway2'. This task provides shipping insurance and sends the data to the 'InclusiveGateway3'.
+
+4. The 'Provide goods for collection' task is initiated by the 'ParallelGateway5'. This task provides the goods for collection and sends the data to the 'EndEvent0'.
+
+5. The 'Packaging goods' task is initiated by the 'ParallelGateway4'. This task packages the goods and sends the data to the 'EndEvent0'.
+
+6. The 'Check quantity' task is initiated by the 'Start' event. This task checks the quantity and sends the data to the 'ParallelGateway4'.
+
+7. The 'Filling the package note' task is initiated by the 'Start' event. This task fills the package note and sends the data to the 'ParallelGateway5'.
+
+8. The 'Special delivery - 3 offers' task sends the data to the 'ParallelGateway5' and triggers the 'EndEvent0'.
+
+9. The 'ParallelGateway4' sends the data to the 'ExclusiveGateway1' and 'EndEvent0'.
+
+10. The 'ParallelGateway5' receives data from 'Packaging goods' and 'Special delivery - 3 offers' tasks and sends the data to the 'EndEvent0'.
+
+11. The 'InclusiveGateway2' receives data from the 'Start' event and sends the data to 'ParallelGateway5' and 'InclusiveGateway3'.
+
+12. The 'InclusiveGateway

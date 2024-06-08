@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-7DC2C925-DE1F-431B-A11D-FBA90AB559D6', 'name': 'Select a court', 'incoming': ['Feeling hungry'], 'outgoing': ['Place']}
+{'id': 'sid-89C3DF69-DC56-497A-B9A0-47821EC556BD', 'name': 'Place', 'incoming': ['Feeling hungry'], 'outgoing': ["It's"]}
+{'id': 'sid-75FC561F-EAF7-4EC1-BE16-5DEE469DC600', 'name': 'Add your order', 'incoming': ['Feeling hungry'], 'outgoing': ['Payment']}
+{'id': 'sid-C402DE68-A0A7-4CE6-8A58-6873EA62AEB3', 'name': 'Payment', 'incoming': ["It's"], 'outgoing': ['Take Pieper and Search Waiting Position']}
+{'id': 'sid-63F32914-7333-456E-AA62-B4AC72FFA65A', 'name': 'Take Pieper and Search Waiting Position', 'incoming': ["It's"], 'outgoing': ['Pieper piept']}
+{'id': 'sid-02EAC227-E1BD-4415-822C-10AFE65645BE', 'name': 'Pick up food', 'incoming': ['Pieper piept'], 'outgoing': ['Eat meal']}
+{'id': 'sid-CB9AE1E3-CF62-4568-9EEB-E8A909101075', 'name': 'Eat meal', 'incoming': ['Pieper piept'], 'outgoing': ['Sat']}
+{'id': 'sid-FA4A4923-68E7-4B4D-88B7-C66B112C8CF1', 'name': 'Enter your order', 'incoming': ['Work begins'], 'outgoing': ['Cash']}
+{'id': 'sid-053ADE78-9E13-4950-896C-6014B5733A6C', 'name': 'Cash', 'incoming': ['Order goes on'], 'outgoing': ['Adjust and transfer Pieper']}
+{'id': 'sid-7F635C48-ABF8-4021-A34E-2F8522F1A9BF', 'name': 'Adjust and transfer Pieper', 'incoming': ['Order goes on'], 'outgoing': ['Add order to kitchen']}
+{'id': 'sid-5092960C-B81A-4F87-A95C-94B374DEEE1C', 'name': 'Add order to kitchen', 'incoming': ['Order goes on'], 'outgoing': []}
+{'id': 'sid-B169A2E1-B45A-4D8A-B9FB-2816D01B588B', 'name': 'Deliver food', 'incoming': ['Guest is standing'], 'outgoing': ['Going home']}
+{'id': 'sid-830BD22A-17EB-4733-BB00-62323A9014EE', 'name': 'Retrieve guest', 'incoming': ['5 min.'], 'outgoing': ['Order goes on']}
+{'id': 'sid-FBDAD4E8-61B4-4D4D-8DF7-421A4608C0FF', 'name': 'Cooking', 'incoming': ['Order\nReport'], 'outgoing': ['Introducing the Intermediate']}
+{'id': 'sid-2F00A6F8-E712-45DC-9007-DE5AEEEA3C2F', 'name': 'Introducing the Intermediate', 'incoming': ['Order\nReport'], 'outgoing': ['Food ready']}
+
+Gateways:
+{'id': 'sid-A8A2BC66-3B12-46D2-B6AD-D1CE2D53F67D', 'name': 'Working hours over?', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Going home', 'Order goes on']}
+{'id': 'sid-B8C0211A-F9F9-43C1-9D62-A77FB67603A6', 'name': 'EventBasedGateway1', 'incoming': ['sid-0D530CBF-3BCD-4824-8C50-B81FB9025BA0', 'EventBasedGateway1'], 'outgoing': ['Working hours over?', 'Working hours over?']}
+{'id': 'sid-44979913-76DF-42D3-811B-2D1E502D6C6C', 'name': "It's", 'incoming': ['Feeling hungry'], 'outgoing': ['Sat']}
+{'id': 'sid-80757EEC-DA11-4CAE-9068-595FCBF0B368', 'name': 'Pieper piept', 'incoming': ["It's"], 'outgoing': ['Sat']}
+{'id': 'sid-813FF00C-38CE-4B30-BCFB-61DA4B8F67A4', 'name': 'Food ready', 'incoming': [], 'outgoing': ['sid-774E25B4-67EA-450C-B1B9-D8DDF49539E9']}
+{'id': 'sid-E45D3EDA-8A2A-40E6-833A-406C2EE80C86', 'name': 'Guest is standing', 'incoming': ['Retrieve guest'], 'outgoing': ['Order goes on']}
+{'id': 'sid-CD737711-0A20-4D5E-B952-3A0E869F6BBA', 'name': '5 min.', 'incoming': ['5 min.'], 'outgoing': ['5 min.']}
+{'id': 'sid-AA3110A8-8657-4432-9D25-90171CDA0661', 'name': 'Order goes on', 'incoming': ['Work begins', 'Retrieve guest'], 'outgoing': ['Add order to kitchen']}
+
+Start Events:
+{'id': 'sid-DA67BBDD-4DAA-439F-BB14-3F498F388100', 'name': 'Feeling hungry', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-9B2DC894-85C0-47AC-AB25-E276D1A68FD8', 'name': 'Work begins', 'incoming': [], 'outgoing': ['Enter your order']}
+{'id': 'sid-32DF6CA3-5902-49CD-9F33-A8C3E126983C', 'name': 'Order\nReport', 'incoming': [], 'outgoing': ['Introducing the Intermediate']}
+
+End Events:
+{'id': 'sid-B353540B-CCF0-49D4-A046-671E778AF9F0', 'name': 'Sat', 'incoming': ["It's"], 'outgoing': []}
+{'id': 'sid-04ADB864-0051-4422-A34D-D880C5E0613A', 'name': 'Going home', 'incoming': ['Deliver food'], 'outgoing': []}
+{'id': 'sid-7311BACF-C4CD-485D-8ED7-78C13FA9029F', 'name': 'Food ready', 'incoming': ['Introducing the Intermediate'], 'outgoing': []}

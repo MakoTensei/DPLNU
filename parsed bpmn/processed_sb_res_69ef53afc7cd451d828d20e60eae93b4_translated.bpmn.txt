@@ -1,0 +1,34 @@
+Tasks:
+{'id': 'sid-11A1C6B7-E60F-4E52-B535-7F733EC4D066', 'name': 'Court of Justice\nSelect', 'incoming': ['Hunger\nfelt'], 'outgoing': ['In the row waiting that you can order']}
+{'id': 'sid-E6ABEF6E-E19C-409C-A9E2-9B32DFFC8874', 'name': 'In the row waiting that you can order', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Order\ngive up']}
+{'id': 'sid-E616E1F0-3914-4124-A248-D8BACCE0C4D3', 'name': 'Order\ngive up', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Order\nPay']}
+{'id': 'sid-4F21764F-D304-4529-B8C7-2992BE11FBF4', 'name': 'Order\nPay', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Pieper\nin reception\ntake']}
+{'id': 'sid-890D7063-CA28-46AE-98BB-B61421B96E45', 'name': 'Pieper\nin reception\ntake', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Food is\nready for collection']}
+{'id': 'sid-4B80FF45-E1B0-475E-B35C-0528F39289FB', 'name': 'Food\ncounter-\ntake', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Meals\nbeeping']}
+{'id': 'sid-B98AF7B1-15EB-4480-A756-A52C60473D5A', 'name': 'Meals\nbeeping', 'incoming': ['Food is\nready for collection'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-E48153D0-642C-4D0E-9FF0-B7FD41EF4BF2', 'name': 'Order in\nCash system\nEnter', 'incoming': ['Entrance\nOrder'], 'outgoing': ['Money\ncassing\n']}
+{'id': 'sid-1B1A6435-BCA9-474D-9440-292319BA174E', 'name': 'Money\ncassing\n', 'incoming': ['Entrance\nOrder'], 'outgoing': ['Pieper in guest\nhand over']}
+{'id': 'sid-755B66EE-EC69-4492-98B6-5A3A8109C849', 'name': 'Pieper in guest\nhand over', 'incoming': ['Entrance\nOrder'], 'outgoing': ['Cook over\nOrder\ninformation']}
+{'id': 'sid-99B5783B-513B-45D7-B6B1-4AF2C38A5ABA', 'name': 'Cook over\nOrder\ninformation', 'incoming': ['Entrance\nOrder'], 'outgoing': ['meal is\nfinished']}
+{'id': 'sid-34D9BD5D-6B17-4307-90C8-C93AB5C6296D', 'name': 'Pieper\ntrigger', 'incoming': ['Entrance\nOrder'], 'outgoing': ['Guest fetched\nFood from']}
+{'id': 'sid-9DF8FC39-BC0A-4876-9A73-923BE2A1C3DC', 'name': 'Food\nhand over', 'incoming': ['Entrance\nOrder'], 'outgoing': ['Order\ndesign']}
+{'id': 'sid-8D835681-962D-45C2-B041-2AD7FD6D5237', 'name': 'Guest\nexcl.', 'incoming': ['5 minutes'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-C268BC6C-495E-43AE-8A0D-523521D5D473', 'name': 'grinding time\nPrepared', 'incoming': ['Entrance\nOrder'], 'outgoing': ['As soon as meal is finished,\nEnriched\nmade available']}
+{'id': 'sid-61AAF6FD-7E80-4203-9DF2-FF1DC631CD9C', 'name': 'As soon as meal is finished,\nEnriched\nmade available', 'incoming': ['Entrance\nOrder'], 'outgoing': ['Order\ndesign']}
+
+Gateways:
+{'id': 'sid-9287FEF9-7233-47A9-B3BB-D22650963558', 'name': 'EventBasedGateway0', 'incoming': ['meal is\nfinished', 'EventBasedGateway0'], 'outgoing': ['EventBasedGateway0', 'Order\ndesign']}
+{'id': 'sid-EA11E9D5-D4F5-4CF7-BD64-EF0602C5F2BD', 'name': 'Food is\nready for collection', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-E930658A-892D-4B09-A79A-036A25DFEDEE', 'name': 'meal is\nfinished', 'incoming': ['Entrance\nOrder'], 'outgoing': ['Order\ndesign']}
+{'id': 'sid-58435D0C-2EFA-481D-A2A2-AE03E67E02BC', 'name': '5 minutes', 'incoming': ['meal is\nfinished'], 'outgoing': ['Order\ndesign']}
+{'id': 'sid-715F007B-C2DE-4489-8469-3ED7EF1D56F1', 'name': 'Guest fetched\nFood from', 'incoming': ['Entrance\nOrder'], 'outgoing': ['Order\ndesign']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Food\ncounter-\ntake']}
+{'id': 'sid-B2303EBA-3EC8-438C-B9B4-6FD0F3428A04', 'name': 'Entrance\nOrder', 'incoming': [], 'outgoing': ['Food\nhand over']}
+{'id': 'sid-6A54DFB8-6163-4A96-82E0-FAC51162DAE2', 'name': 'Entrance\nOrder', 'incoming': [], 'outgoing': ['As soon as meal is finished,\nEnriched\nmade available']}
+
+End Events:
+{'id': 'sid-6239C900-D03D-488A-A477-2F37891E78D1', 'name': 'Hunger\ndistilled', 'incoming': ['Food is\nready for collection'], 'outgoing': []}
+{'id': 'sid-F210B001-DBEF-4E14-A550-5DC76B033E0F', 'name': 'Order\ndesign', 'incoming': ['meal is\nfinished'], 'outgoing': []}
+{'id': 'sid-5D059EAB-CE25-4A2E-9F8D-43E5B78588DE', 'name': 'Order\ndesign', 'incoming': ['As soon as meal is finished,\nEnriched\nmade available'], 'outgoing': []}

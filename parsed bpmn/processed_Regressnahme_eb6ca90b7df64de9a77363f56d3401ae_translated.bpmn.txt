@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-F05C19E9-CA25-4FC4-802B-D93C0B358C5C', 'name': 'Take VN in Regress?', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-10AE12D7-66E7-43E8-A56F-5EA3B5870D58', 'name': 'Send a payment request and submit an objection', 'incoming': ['StartEvent0'], 'outgoing': ['Get money', 'VN']}
+{'id': 'sid-C128983F-9226-4548-B1AD-99A08B3EF6CD', 'name': 'Case closing', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Closed']}
+{'id': 'sid-EE5F3297-463B-4EB5-8483-DE42C1723DE6', 'name': 'Book payment receipt', 'incoming': ['Get money'], 'outgoing': ['Processed']}
+{'id': 'sid-C30021D8-6127-476C-BD44-F324FB2637A0', 'name': 'Proceedings', 'incoming': ['VN'], 'outgoing': ['Close', 'sid-5B34431B-FAB5-4B94-A745-2A894FA3FD15']}
+{'id': 'sid-5FE8C242-12A5-4F46-AE6C-47116EFFDB50', 'name': 'Close', 'incoming': ['VN'], 'outgoing': []}
+{'id': 'sid-60DCC323-21B2-4972-92C3-2B2A946A25A9', 'name': 'WV deadline expired', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Debt collection agency']}
+{'id': 'sid-5DBF30FD-1517-4AB1-AC69-9C525C9F31D7', 'name': 'Debt collection agency', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Subject matter']}
+
+Gateways:
+{'id': 'sid-A3D816B1-108D-4A34-917F-4A1BF112D429', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent4', 'Closed']}
+{'id': 'sid-38EA7C5E-26CF-4AE6-9DF2-BE2DDE50D0B7', 'name': 'ExclusiveGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['VN']}
+{'id': 'sid-76E3EB0B-186B-49EC-8E54-05F96E88B541', 'name': 'EventBasedGateway2', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['IntermediateCatchEvent4', 'Processed']}
+{'id': 'sid-0EA45FF2-7766-42BD-B8D2-374F8BD9CD41', 'name': 'Get money', 'incoming': ['Send a payment request and submit an objection'], 'outgoing': ['Processed']}
+{'id': 'sid-70F1D1D6-B265-460F-9AB0-964381BE9A9F', 'name': 'IntermediateCatchEvent4', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Subject matter']}
+{'id': 'sid-20BA0B7E-1599-48CD-96A5-AEEE088EC52B', 'name': 'VN', 'incoming': ['Send a payment request and submit an objection'], 'outgoing': ['Close']}
+
+Start Events:
+{'id': 'sid-513FCCFE-4F13-4D65-8BAF-99E6B58B7560', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-50393AA4-FD28-4560-A4E1-5C90AE2C3CB3', 'name': 'Processed', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-58530235-27B2-4555-841D-615A107CDEAD', 'name': 'Subject matter', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': []}
+{'id': 'sid-62E3F371-B744-4670-9B90-A85761FC3EBB', 'name': 'Closed', 'incoming': ['ExclusiveGateway0', 'sid-949CB00D-F9D9-457E-88C6-780A00094960'], 'outgoing': []}

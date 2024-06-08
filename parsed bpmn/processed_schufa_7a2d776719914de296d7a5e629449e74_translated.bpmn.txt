@@ -1,0 +1,19 @@
+Tasks:
+{'id': 'sid-CC188F08-2285-4C3C-AE93-5416C2E65680', 'name': 'Level 1 scoring\nDebt', 'incoming': ['StartEvent1'], 'outgoing': ['Is the result fixed?']}
+{'id': 'sid-2B3AA886-02C3-4096-A347-BDED709F14A8', 'name': 'Level 2 scoring\nDebt', 'incoming': ['sid-24B00A6F-13F5-4D7B-B654-DEB742818BB2'], 'outgoing': ['sid-8D0ADC68-A29B-45F1-A9D3-03D62F32D8F8']}
+
+Gateways:
+{'id': 'sid-6D7345A3-DB9D-4C35-9215-90C9CB9D0D08', 'name': 'ExclusiveGateway0', 'incoming': ['sid-2C3B943F-5002-4087-B157-592E750A988A', 'sid-DD448352-3069-442A-BFD5-23E59F14166E'], 'outgoing': ['scoring determined']}
+{'id': 'sid-D0068671-48F7-4283-99B1-00D328F1E733', 'name': 'Is the result fixed?', 'incoming': ['StartEvent1'], 'outgoing': ['sid-C7A3E6BE-AFE2-4A9E-A743-C754FD9DAB01', 'sid-DFD6DFB1-6BD8-4329-B6A4-85451BC3DEB7']}
+{'id': 'sid-D612911B-189B-43CD-972D-35BA5A7B9CFB', 'name': 'EventBasedGateway2', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Delay', 'scoring determined']}
+{'id': 'sid-4458EBDD-D214-4518-A0DA-3031E2C74C7E', 'name': 'scoring determined', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['sid-EBAD73EC-E414-4E1F-AF28-9DF6351A92B5']}
+{'id': 'sid-6801768A-45B7-4619-81D4-965C6ABEFBA7', 'name': 'Delay', 'incoming': ['EventBasedGateway2'], 'outgoing': ['sid-120EDDEC-CCF3-4A5D-9607-0763BAC9E643']}
+
+Start Events:
+{'id': 'sid-0812675C-66EA-4D9A-87A3-58EF20353B3A', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['sid-BD090DCA-4204-4ADD-9B42-0248E13B9738']}
+{'id': 'sid-10619E9A-6896-4C46-999F-EAE0E31B4FAF', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Is the result fixed?']}
+
+End Events:
+{'id': 'sid-AEBE440E-149D-4BAB-95DB-3501179E2B14', 'name': 'EndEvent0', 'incoming': ['sid-B69FA18C-9E1C-4D0B-8F8B-5E4A55DE3344'], 'outgoing': []}
+{'id': 'sid-CC04B631-C08E-4317-B2A0-7A51E29FE7D0', 'name': 'EndEvent1', 'incoming': ['sid-9BB9F136-2F88-4B46-A6AA-2BB33429C3B1'], 'outgoing': []}
+{'id': 'sid-78F5AAE8-904B-45C7-BD4D-6222D5121F1E', 'name': 'EndEvent2', 'incoming': ['sid-0F2641C5-E448-459F-9A3D-48ECCC1D6657'], 'outgoing': []}

@@ -1,0 +1,7 @@
+ In the logistics process, the journey of goods begins with the 'Goods must be shipped' event, which triggers the 'ParallelGateway3' to initiate the packaging of goods. This task is assigned to 'Packaging goods' with 'ParallelGateway2' as its incoming gateway. Once the goods are packaged, '3 Spediteur offers to get' is generated, and the task is forwarded to'sid-BFDF6CCE-F1F7-4FDF-BAD2-48FD009F91E5'.
+
+Next, the 'Type of shipping?' event is triggered by 'ParallelGateway2', leading to the 'Transport insurance?' task. This task is then passed to 'Transport insurance?' with 'Goods ready for collection' as its outgoing gateway. The 'Check offer and commission forwarder' task is also initiated, which sends the goods to 'ParallelGateway3'.
+
+The 'Check whether transport insurance is required' task is triggered by 'Type of shipping?' and sends the goods to 'ParallelGateway3'. This task is then passed to 'Goods ready for collection' with 'Transport insurance?' as its outgoing gateway.
+
+Finally, the 'Goods ready for collection' event is triggered, which requires the goods to have transport insurance. The 'Transport insurance?' task is then passed to 'Goods ready for collection' as its outgoing gateway, completing the logistics process.

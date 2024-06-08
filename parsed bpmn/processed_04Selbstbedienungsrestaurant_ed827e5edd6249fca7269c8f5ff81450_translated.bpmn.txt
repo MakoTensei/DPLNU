@@ -1,0 +1,34 @@
+Tasks:
+{'id': 'sid-8F4AC695-9386-479E-AECF-F4A6ADDFD96F', 'name': 'Visit the restaurant', 'incoming': ['Speaking of hunger'], 'outgoing': ['wait until the row']}
+{'id': 'sid-9178E9DB-6428-474A-A616-F7A8FD8A6583', 'name': 'Select a court', 'incoming': ['Speaking of hunger'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-6C20B3E2-2296-4804-BF35-3244389E5F8E', 'name': 'Pay', 'incoming': ['sid-8E151860-C9B6-40D8-9070-116A2545BF7B'], 'outgoing': ['Get Pieper']}
+{'id': 'sid-AB1C5A2A-24C7-4096-87CA-9C482898ED92', 'name': 'Get Pieper', 'incoming': ['Pay'], 'outgoing': ['wait until the Pieper reports']}
+{'id': 'sid-2354898F-4A3F-46EA-BCF2-BC922F324E97', 'name': 'Eat', 'incoming': ['Pick up food'], 'outgoing': ['Leave a restaurant']}
+{'id': 'sid-E7C9CCF8-EE51-408C-A103-7B64FB20FD76', 'name': 'Pick up food', 'incoming': ['wait until the Pieper reports'], 'outgoing': ['Leave a restaurant']}
+{'id': 'sid-85EC07E4-2080-4BAB-B8E5-BD7CBFA0904C', 'name': 'Recording', 'incoming': ['StartEvent1'], 'outgoing': ['Cash']}
+{'id': 'sid-2965485F-1E53-452D-A75F-9DA613DBFAB3', 'name': 'Cash', 'incoming': ['StartEvent1'], 'outgoing': ['Provide Pieper']}
+{'id': 'sid-51530B47-CF17-44A0-9211-58ED0DB7DAB8', 'name': 'Provide Pieper', 'incoming': ['StartEvent1'], 'outgoing': ['sid-5D5ECE26-37B8-4080-8C8E-6325F95325F7']}
+{'id': 'sid-15ED7EF1-A0DB-4F95-949E-7A3E9C02476C', 'name': 'Add food', 'incoming': ['Gastronomy'], 'outgoing': ['Order ready']}
+{'id': 'sid-1CC5B5CD-EC96-4994-AD4D-0C77CACFC233', 'name': 'Retrieve guest', 'incoming': ['5min'], 'outgoing': ['Order ready']}
+{'id': 'sid-8DA6F897-886A-4B60-B303-C6A2A04C4700', 'name': 'Trigger Pieper', 'incoming': ['meal ready'], 'outgoing': []}
+{'id': 'sid-664BD165-7C12-47D0-990B-FF1ECAE95CBE', 'name': 'Prepare your order', 'incoming': ['Order to receive'], 'outgoing': ['inform court completion']}
+
+Gateways:
+{'id': 'sid-FD67E444-9827-41B8-B11D-87B3C2355899', 'name': 'EventBasedGateway0', 'incoming': ['EventBasedGateway0'], 'outgoing': ['Gastronomy', 'EventBasedGateway0']}
+{'id': 'sid-DBDE79A6-88C4-4E60-85B9-F2D959DC9F6D', 'name': 'ParallelGateway1', 'incoming': ['Speaking of hunger'], 'outgoing': ['Select a court', 'ParallelGateway2']}
+{'id': 'sid-4419A508-46CF-4E50-BEED-0C11B1229F8C', 'name': 'ParallelGateway2', 'incoming': ['Speaking of hunger', 'ParallelGateway1'], 'outgoing': ['sid-23EC98C1-A452-4A7F-8F29-D2C4DE4F30CF']}
+{'id': 'sid-88E36832-D1C9-41BA-88DE-0E9D9173EECF', 'name': 'wait until the row', 'incoming': ['Visit the restaurant'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-01099EC6-1132-4A98-9B1F-BAE077710CF1', 'name': 'wait until the Pieper reports', 'incoming': ['Get Pieper'], 'outgoing': ['Leave a restaurant']}
+{'id': 'sid-43A26EF8-07B1-4C73-BDAF-E51B920789D6', 'name': 'meal ready', 'incoming': ['sid-2EAA3EF5-1396-4DDE-8D09-6D6D14EF27F9'], 'outgoing': ['Trigger Pieper']}
+{'id': 'sid-E16535CC-400A-46AC-926E-59E3E1D50EDA', 'name': 'Gastronomy', 'incoming': ['Retrieve guest'], 'outgoing': ['Order ready']}
+{'id': 'sid-0CBF57D4-E279-44DD-AD62-E62CCEEFF0E7', 'name': '5min', 'incoming': ['5min'], 'outgoing': ['5min']}
+
+Start Events:
+{'id': 'sid-620819FF-A2A3-47B8-B301-2A39EA52B3E5', 'name': 'Speaking of hunger', 'incoming': [], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-1E3656A5-E04C-46FE-BD6B-D408612E7A93', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Provide Pieper']}
+{'id': 'sid-E4C7C7CF-D443-41A7-9F4B-11859E39A479', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['Prepare your order']}
+
+End Events:
+{'id': 'sid-139BF566-7F33-4695-8770-5F51261D2E02', 'name': 'Leave a restaurant', 'incoming': ['wait until the Pieper reports'], 'outgoing': []}
+{'id': 'sid-61CF66A0-D61C-474E-999A-0088D4C8818E', 'name': 'Order ready', 'incoming': ['Retrieve guest'], 'outgoing': []}
+{'id': 'sid-B473B151-9964-42ED-B8C8-282EAAA02EFA', 'name': 'inform court completion', 'incoming': ['Prepare your order'], 'outgoing': []}

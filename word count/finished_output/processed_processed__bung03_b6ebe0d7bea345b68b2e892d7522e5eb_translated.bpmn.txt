@@ -1,0 +1,7 @@
+ The process begins with the 'Regressname\nReport' event, which triggers the 'Send a message' task. This task sends a message to the 'ExclusiveGateway2'. The 'ExclusiveGateway2' then receives the 'Check the case' task, which checks the case and sends it to the 'Process\nclosed' task. The 'Process\nclosed' task closes the case and sends a 'Cash receipt\nbook' event.
+
+Meanwhile, the 'Send a message' task also sends a message to the 'Representation\nset' task. The 'Representation\nset' task then sends a message to the 'Justified?' gateway, which in turn sends a message to the 'ExclusiveGateway2'. The 'ExclusiveGateway2' receives the 'Reasons\nCheck' task, which checks the reasons and sends it to the 'Case\ndelivered' task. The 'Case\ndelivered' task delivers the case and sends a message to the 'Opposition\nobtained' task.
+
+The 'Opposition\nobtained' task sends a message to the 'ExclusiveGateway3', which delivers the case. The 'ExclusiveGateway3' also receives the 'Representation\nExpired' task, which expires the representation and sends a message to the 'ExclusiveGateway2'. The 'ExclusiveGateway2' then receives the 'Debt service provider\ncommission' task, which sends a commission to the 'Case\ndelivered' task.
+
+Finally, the 'Cash receipt\nbook' event is sent to the 'Process\nclosed' task, which closes the process.

@@ -1,0 +1,11 @@
+ When a possible regression is identified, the system initiates a series of tasks to address the issue. First, a task is created to check the case, which is assigned the ID'sid-D1D6306C-5A59-4B1E-90CF-691B897638AD' and is named 'Check the case'. This task has incoming triggers from a 'possible regression' and outgoing triggers to 'Regress possible'.
+
+Next, a task is created to send a payment request, with the ID'sid-1DA83AA8-8F4B-4300-8D7C-5A3CD4A06424' and named 'Send payment request'. This task also has incoming triggers from a 'possible regression' and outgoing triggers to'set to reimbursement'.
+
+Once the payment request is sent, the system proceeds to close the case. This is done through a task with the ID'sid-EE220D09-CA1D-46FB-8168-DD6D1B421AA5' and named 'Close'. The task has incoming triggers from 'Regress possible' and outgoing triggers to 'EndEvent0'.
+
+After the case is closed, the system book a payment receipt. This is achieved through a task with the ID'sid-64E33E76-EE2E-42F1-BE49-F32058F0417B' and named 'Book payment receipt'. The task has incoming triggers from 'Money received' and outgoing triggers to 'ExclusiveGateway2'.
+
+The system then proceeds to the next step, which is to handle the reimbursement period. This is done through a task with the ID'sid-1AC66867-E5C5-4085-9BA9-0246BB1DE9D4' and named 'Proceedings'. The task has incoming triggers from 'Opposition' and outgoing triggers to 'ExclusiveGateway2'.
+
+Once the reimbursement period is over, the system hands over the case to collection. This

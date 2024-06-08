@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-D29E9389-6EBC-4B9D-B6D7-D3349BECA306', 'name': 'Request scoring', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-DF913FD2-099F-4A15-A26E-5089ABF5F0E5', 'name': 'Scoring immediately\nhand over', 'incoming': ['StartEvent0'], 'outgoing': ['sid-864284B6-46B3-4189-9332-233035533662']}
+{'id': 'sid-2725C31A-ADAA-4D34-9FFE-11DC3FF2D46A', 'name': 'Delay', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['ParallelGateway0']}
+{'id': 'sid-7820AA83-A107-451C-8D55-F85384BA0162', 'name': 'delay. Scoring', 'incoming': ['Waiting for L2 Scoring'], 'outgoing': ['sid-BE1BC600-3D20-4496-8D7C-12229D301E98']}
+{'id': 'sid-1181960C-46BC-4B3C-ACA1-55F18ED70938', 'name': 'Determining Scoring', 'incoming': ['StartEvent1'], 'outgoing': ['sid-A48972BC-96ED-447F-9CD2-EB7CA4C5D666']}
+{'id': 'sid-ACE2131F-4790-4885-AD17-612C46A3BE3A', 'name': 'Prepare for scoring', 'incoming': ['sid-22C6CBBF-260C-4D7A-83E1-656D7179E8FD'], 'outgoing': ['ParallelGateway1']}
+{'id': 'sid-0EBC131B-A8F1-4726-97BC-7B5BECD608EC', 'name': 'perform L2 scoring', 'incoming': ['ParallelGateway1'], 'outgoing': ['sid-2A5F9436-313B-4F2A-81BD-34423350CEFA']}
+
+Gateways:
+{'id': 'sid-70A7BD16-14AD-4AFE-9A76-B4779C012B82', 'name': 'ParallelGateway0', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['sid-FCA43808-2045-4B20-A6AB-EE7996D3F0B9', 'Waiting for L2 Scoring']}
+{'id': 'sid-01014D9B-FB94-4A82-B640-0760C6F35EAA', 'name': 'ParallelGateway1', 'incoming': ['Prepare for scoring'], 'outgoing': ['perform L2 scoring', 'sid-045A8088-FE01-4606-9C8E-F2B4E22DA589']}
+{'id': 'sid-C071D13F-F14F-4A8D-B530-3D8C79DD8A30', 'name': 'IntermediateCatchEvent2', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Scoring immediately\nhand over']}
+{'id': 'sid-67EFF89E-2667-4F94-B53C-4D29C4D4506C', 'name': 'IntermediateCatchEvent3', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['Waiting for L2 Scoring']}
+{'id': 'sid-2D6C58B7-6FAC-4D54-8626-6B088E725AA7', 'name': 'IntermediateCatchEvent4', 'incoming': ['StartEvent0'], 'outgoing': ['Delay', 'Scoring immediately\nhand over']}
+{'id': 'sid-15486C1C-F3C5-4830-BC7B-2B87E1051062', 'name': 'Waiting for L2 Scoring', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['delay. Scoring']}
+
+Start Events:
+{'id': 'sid-EA3D5C7E-CEED-4DE9-91DC-16FBEB4C2969', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Scoring immediately\nhand over']}
+{'id': 'sid-D013B807-63A2-400C-8685-579190065409', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Determining Scoring']}
+
+End Events:
+{'id': 'sid-AF0E52FE-3249-4B1D-83C2-E579DC9AF84B', 'name': 'EndEvent0', 'incoming': ['sid-6D0E45FC-9BE9-4471-9A14-485BC1729BDA'], 'outgoing': []}
+{'id': 'sid-19277238-1DA7-4710-ABC4-62123B3BA7A9', 'name': 'EndEvent1', 'incoming': ['sid-ED131806-D6D9-44EC-A8A9-B7606DF3A15D'], 'outgoing': []}
+{'id': 'sid-8638D9E1-C2A9-4609-AB08-6B2E69A9FDBC', 'name': 'EndEvent2', 'incoming': ['sid-E263B058-3C8A-43D6-AC26-D5120054C609'], 'outgoing': []}
+{'id': 'sid-49482740-ABE5-4DAD-BB81-3B5358D45F41', 'name': 'EndEvent3', 'incoming': [], 'outgoing': []}
+{'id': 'sid-DE675931-BC21-48A2-981C-163541EB448A', 'name': 'EndEvent4', 'incoming': ['sid-F8ED81DC-402B-4566-AB13-EA648CBED9FF'], 'outgoing': []}
+{'id': 'sid-5A9F7775-282F-4680-86DF-DBF00618CE99', 'name': 'EndEvent5', 'incoming': ['sid-AC8B77C9-36DC-4017-9DAB-FD46C0D77BC7'], 'outgoing': []}

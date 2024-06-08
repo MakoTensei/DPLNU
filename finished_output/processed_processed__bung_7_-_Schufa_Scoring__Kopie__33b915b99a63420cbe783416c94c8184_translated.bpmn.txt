@@ -1,0 +1,21 @@
+ In the workflow, we have several tasks and gateways that handle the process of scoring and inquiries to Schufa. Here's a natural flow description of the system:
+
+1. The process starts with the 'Scoring\nRequired' event, which triggers the 'forward scoring' task. This task is responsible for initiating the scoring process.
+
+2. The 'forward scoring' task sends an 'incoming' message to the 'EventBasedGateway2' task. This gateway is responsible for handling the 'Scoring\nRequired' event and directing the flow to the 'level 1 scoring' task.
+
+3. The 'level 1 scoring' task processes the scoring and sends a'scoring 1 result' message to the'scoring 1 result' task.
+
+4. The'scoring 1 result' task sends an 'incoming' message to the'scoringergenmis is fixed?' gateway. This gateway checks if the issue with'scoringergenmis' is resolved.
+
+5. If'scoringergenmis' is fixed, the gateway sends a 'forward delay' task to the 'forward scoring' task. This task handles the 'Scoring\nRequired' event and directs the flow to the'scoring 2 result' task.
+
+6. The'scoring 2 result' task processes the second level of scoring and sends a'scoring 2 finished' message to the'scoring 2 finished' task.
+
+7. The'scoring 2 finished' task sends an 'incoming' message to the 'ExclusiveGateway1' task. This gateway checks if the'scoringergenmis' issue is fixed and directs the flow to the 'EndEvent2' task.
+
+8. The 'EndEvent2' task marks the end of the process and sends an 'outgoing' message to the 'ergenis return' task.
+
+9. The 'ergenis return' task sends an 'incoming' message to the 'ExclusiveGateway1' task, which checks if the'scoringergenmis' issue is fixed and directs the flow to the 'EndEvent2' task.
+
+10. The 'EndEvent2' task marks the end of the

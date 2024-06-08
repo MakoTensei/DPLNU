@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-47B895F7-FA2F-4BEB-ACFA-7A556E7970A6', 'name': 'Check Regress Claim', 'incoming': ['Regression check\nStart'], 'outgoing': ['Regression claim?']}
+{'id': 'sid-1C427622-24D1-4F77-B848-DFE8570542DB', 'name': 'Close', 'incoming': ['Regression check\nStart'], 'outgoing': ['Closed']}
+{'id': 'sid-EA53FAEE-3884-4821-8236-6CBAA8BA57B0', 'name': 'Send payment request to VN', 'incoming': ['Regression claim?'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-1A253A2F-0711-4E24-997D-3CCFE7561859', 'name': 'Book payment receipt', 'incoming': ['Payment\nReport'], 'outgoing': ['Close']}
+{'id': 'sid-349B8852-0E7A-4A0E-BE38-80C3608B38E1', 'name': 'Close', 'incoming': ['Payment\nReport'], 'outgoing': ['process with\nIncoming payment\nclosed']}
+{'id': 'sid-CE220533-2937-4CA7-A599-66D9C47A8836', 'name': 'Proceedings', 'incoming': ['Opposition\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-EB327942-D116-48E6-A118-E7C19E219647', 'name': 'Close', 'incoming': ['Opposition\nReport'], 'outgoing': ['Procedure without payment\nclosed']}
+{'id': 'sid-18FA2F91-A057-44E5-B99E-13C4FE263ECB', 'name': 'Debt collection service provider', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Process\ndebtor\ndelivered']}
+{'id': 'sid-D733CC89-5F7D-404F-920E-FE11B2B54FE5', 'name': 'Set process for resubmission', 'incoming': ['Regression claim?'], 'outgoing': ['Payment\nReport']}
+
+Gateways:
+{'id': 'sid-85CED170-747E-45C7-8A28-C1B2EC4965AC', 'name': 'Regression claim?', 'incoming': ['Regression check\nStart'], 'outgoing': ['Set process for resubmission', 'Closed']}
+{'id': 'sid-7C618FF4-8BC6-4E22-A466-0257C0DFD029', 'name': 'Justified?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Procedure without payment\nclosed', 'ExclusiveGateway2']}
+{'id': 'sid-AEE74009-E207-4472-9E8E-6C72EA8853C9', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3', 'Proceedings'], 'outgoing': ['Process\ndebtor\ndelivered']}
+{'id': 'sid-25775120-246F-4519-B0A3-8119FE9681C1', 'name': 'EventBasedGateway3', 'incoming': ['Set process for resubmission'], 'outgoing': ['Debt collection service provider', 'process with\nIncoming payment\nclosed', 'Procedure without payment\nclosed']}
+{'id': 'sid-2C625F0C-DECE-4187-8750-2894C34F3393', 'name': 'Payment\nReport', 'incoming': ['Set process for resubmission'], 'outgoing': ['process with\nIncoming payment\nclosed']}
+{'id': 'sid-4260864C-8AC2-4FEB-8B64-5AA19ED19921', 'name': 'Opposition\nReport', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Close']}
+{'id': 'sid-2D3793FD-1318-46A2-9E09-D75B61AB6E27', 'name': 'Representation\nExpired', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Process\ndebtor\ndelivered']}
+
+Start Events:
+{'id': 'sid-6844DA76-9D8A-48C6-8E88-DC61243AB330', 'name': 'Regression check\nStart', 'incoming': [], 'outgoing': ['Close']}
+
+End Events:
+{'id': 'sid-0C2EA860-F9FE-42D0-8D75-608603CE462A', 'name': 'Closed', 'incoming': ['Regression claim?'], 'outgoing': []}
+{'id': 'sid-8D03E048-7C06-4670-A648-635E49C1FC56', 'name': 'process with\nIncoming payment\nclosed', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-DD4042A6-B1B6-473F-AE3D-6E43B620864D', 'name': 'Procedure without payment\nclosed', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-5BA5F097-51C0-49F2-A947-EA455C7CA8CF', 'name': 'Process\ndebtor\ndelivered', 'incoming': ['Representation\nExpired'], 'outgoing': []}

@@ -1,0 +1,7 @@
+ When a customer initiates a shipping process with the event 'Goods for shipping', the system triggers the 'Get Spedition Offers' task, which requires the customer to specify the type of shipping. This information is then passed to the 'Type of shipping?' gateway, which connects to both 'ExclusiveGateway1' and 'ParallelGateway4'. Depending on the chosen shipping method, the process diverges:
+
+1. If the customer opts for insurance, the 'Insurance necessary?' gateway is activated, leading to the 'Insurance close' task. This task connects to 'ExclusiveGateway1', which in turn dispatches the goods ready for dispatch.
+
+2. If the customer chooses a shipping method through 'ParallelGateway4', the 'Goods packaging' task is triggered, which connects to 'Goods\npackaging' and subsequently to 'ParallelGateway5'. This gateway then dispatches the goods ready for dispatch.
+
+In summary, the shipping process begins with the customer's request for shipping, leading to the selection of shipping type and potential insurance. Based on these choices, the goods are either packaged and dispatched or insured and dispatched, ensuring a smooth and efficient delivery process.

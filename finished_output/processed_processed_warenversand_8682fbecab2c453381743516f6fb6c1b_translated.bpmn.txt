@@ -1,0 +1,13 @@
+ When an order goes on, it triggers a series of tasks and interactions between different gateways and services. Here's a natural flow description of the process:
+
+1. The order goes on, initiating the 'Order goes on' event. This event has no incoming connections but triggers the 'three quotes' service.
+
+2. The 'three quotes' service, identified by'sid-8D9C9A73-7E7A-4AFC-9A0F-F7B70FF0E7C8', receives the incoming connection from the 'Order goes on' event. It then sends outgoing connections to 'InclusiveGateway4' and 'Select best offer' services.
+
+3. 'InclusiveGateway4', identified by'sid-2A166EED-DFF1-4517-B5BA-E0CEF450F0C9', receives incoming connections from 'ParallelGateway6' and 'three quotes' services. It sends outgoing connections to 'Upgrade 1', 'Goods collected', and 'InclusiveGateway5'.
+
+4. 'Upgrade 1', identified by'sid-A056E332-8BDF-4778-BCED-A31EE1D143FA', receives incoming connections from 'InclusiveGateway4'. It sends outgoing connections to 'InclusiveGateway5'.
+
+5. 'InclusiveGateway5', identified by'sid-44CF3FCD-3466-42C0-A039-4DE2432224AA', receives incoming connections from 'ParallelGateway6' and 'InclusiveGateway4'. It sends outgoing connections to 'ExclusiveGateway1'.
+
+6. 'ExclusiveGateway1', identified by'sid-A6753F7D-834C-46CB-9F34-5743B96CE05B', receives incoming connections from 'InclusiveGateway4' and 'Type of shipping?'. It sends outgoing connections to '

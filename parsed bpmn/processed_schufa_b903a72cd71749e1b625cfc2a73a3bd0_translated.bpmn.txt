@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-E36689DC-A712-4C18-8079-82665EF81CD4', 'name': 'Executing Schufascoring Process', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-0F73ACBA-94A3-4F7B-B8F8-3115FB5F0D96', 'name': 'Message Delay to Bank', 'incoming': ['Results available?'], 'outgoing': ['Level 2 scoring']}
+{'id': 'sid-F34B827B-61BD-4916-9851-9A98BEB452A6', 'name': 'Level 2 scoring', 'incoming': ['Results available?'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-7D83F2DD-6007-45C0-AC57-48B8D2F1C417', 'name': 'Level 1 scoring', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-C257EFBD-71E0-4982-A629-6695AAA3FFF3', 'name': 'Pick up Schufascoring and view results', 'incoming': ['StartEvent2'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-25858AC4-ACCB-4F4D-853A-C7CE0F8DBE2B', 'name': 'Results available?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2', 'EndEvent1']}
+{'id': 'sid-8A5E8821-8C10-44E1-BFC9-7E87DEDE1247', 'name': 'IntermediateCatchEvent1', 'incoming': ['StartEvent2'], 'outgoing': ['EndEvent3']}
+
+Start Events:
+{'id': 'sid-4C4BBDA9-AD2A-46BE-A080-F9BFD4BCA2ED', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Executing Schufascoring Process']}
+{'id': 'sid-A036466C-5C84-4492-A2EF-4AA4492C7BE9', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Results available?']}
+{'id': 'sid-74C0F503-D0F1-44FA-8B94-DC762F6DF826', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['IntermediateCatchEvent1']}
+
+End Events:
+{'id': 'sid-80CCA706-DE82-4C52-804D-9106B538D226', 'name': 'EndEvent0', 'incoming': ['Executing Schufascoring Process'], 'outgoing': []}
+{'id': 'sid-D1125D01-5661-4D42-9121-E9BAF18459D2', 'name': 'EndEvent1', 'incoming': ['Level 1 scoring'], 'outgoing': []}
+{'id': 'sid-94AB0FDA-4C25-4ED5-9CCE-A909B562B177', 'name': 'EndEvent2', 'incoming': ['Results available?'], 'outgoing': []}
+{'id': 'sid-A78F47B9-902C-4F95-98B2-43E36350615D', 'name': 'EndEvent3', 'incoming': ['Pick up Schufascoring and view results'], 'outgoing': []}

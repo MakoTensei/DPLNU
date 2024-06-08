@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-E6D76964-6B92-41F2-A377-BE1F9BB13DEF', 'name': 'TESTS', 'incoming': ['RESULTS'], 'outgoing': ['REGRESS']}
+{'id': 'sid-E7BF5BD6-19D7-46AA-B4F1-4B184E4BB3D5', 'name': 'PAYMENT REQUIREMENT\nSCIENCE', 'incoming': ['RESULTS'], 'outgoing': ['GELD IST']}
+{'id': 'sid-8ADD0EBC-8F10-4D17-A6B8-F51C2C49D50D', 'name': 'SURVEY', 'incoming': ['GELD IST'], 'outgoing': ['REGRESS']}
+{'id': 'sid-18E239B0-5EF2-44A6-9435-4B47AEEC3699', 'name': 'WIDERESPRUCH TEST', 'incoming': ['RESULTS'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-C61EBD50-3CF5-41C7-ABD6-97573EB1CAC8', 'name': 'INCLUDED', 'incoming': ['WIDERSPRUCH INGEGANGES'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-361D9167-9AC5-4F8C-B1DD-A93C53AB77E6', 'name': 'INCLUDING', 'incoming': ['WOMAN'], 'outgoing': ['EndEvent4']}
+
+Gateways:
+{'id': 'sid-28A986B9-FBB1-42B4-90C5-286916C95023', 'name': 'REGRESS', 'incoming': ['RESULTS'], 'outgoing': ['kEIN rGERESS', 'kEIN rGERESS']}
+{'id': 'sid-298277C5-D0BF-4D57-B2AF-C2D92065E5BA', 'name': 'GRAPH ACTIVITIES', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent2', 'EndEvent3']}
+{'id': 'sid-6EBF08AD-DFEA-402D-8694-8A8C33136DC8', 'name': 'EventBasedGateway2', 'incoming': ['RESULTS'], 'outgoing': ['GELD IST', 'EndEvent3', 'WOMAN']}
+{'id': 'sid-BBEED776-CB24-42F9-8206-2CD2111A664E', 'name': 'GELD IST', 'incoming': ['EventBasedGateway2'], 'outgoing': ['GELD IST']}
+{'id': 'sid-708C5C07-5E95-4B5F-BCED-AECB79F8776F', 'name': 'WIDERSPRUCH INGEGANGES', 'incoming': ['RESULTS'], 'outgoing': ['INCLUDED']}
+{'id': 'sid-C99A6A48-69C7-44DE-96BC-A7052CF76270', 'name': 'WOMAN', 'incoming': ['EventBasedGateway2'], 'outgoing': ['EndEvent4']}
+
+Start Events:
+{'id': 'sid-3E84A91E-97DF-40B5-8C60-E7AEE908271B', 'name': 'RESULTS', 'incoming': [], 'outgoing': ['WIDERESPRUCH TEST']}
+
+End Events:
+{'id': 'sid-10CBBE91-00CE-49FD-85E5-4653208E5FB4', 'name': 'kEIN rGERESS', 'incoming': ['REGRESS'], 'outgoing': []}
+{'id': 'sid-C150F89E-7F0B-4E68-93F6-50E34247B7AB', 'name': 'REGRESS', 'incoming': ['REGRESS'], 'outgoing': []}
+{'id': 'sid-8EBD9A45-7C36-445E-9BB7-8B13C9A89C2F', 'name': 'EndEvent2', 'incoming': ['WIDERESPRUCH TEST'], 'outgoing': []}
+{'id': 'sid-F094BC7A-2010-4B3B-BEB7-B15910AC54A9', 'name': 'EndEvent3', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-4EF3C823-6E88-4573-B22D-C1A65C82F473', 'name': 'EndEvent4', 'incoming': ['WOMAN'], 'outgoing': []}

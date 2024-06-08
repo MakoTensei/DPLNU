@@ -1,0 +1,61 @@
+ 1. Request Sales Initiated:
+   - Task: Send inquiry to Schufa
+   - Gateway: EventBasedGateway0
+   - Outcome: Awaiting Scoring Result
+
+2. Scoring Inquiry Received:
+   - Task: Wait for Scoring Level 2
+   - Gateway: ParallelGateway2
+   - Outcome: Awaiting Scoring Result
+
+3. Scoring Level 2 Awaiting:
+   - Task: Notify Sales Staff
+   - Gateway: ParallelGateway3
+   - Outcome: Awaiting Scoring Result
+
+4. Scoring Result Received:
+   - Task: Inform Front
+   - Gateway: Scoring Result
+   - Outcome: Request Closed
+
+5. Scoring Completed:
+   - Task: Close Request
+   - Gateway: Scoring Result
+   - Outcome: Request Closed
+
+6. Scoring Level 1 Executed:
+   - Task: Evaluate Scoring
+   - Gateway: EventBasedGateway1
+   - Outcome: Awaiting Scoring Completion
+
+7. Scoring Completed:
+   - Task: Notify Sales Staff
+   - Gateway: ParallelGateway3
+   - Outcome: Request Closed
+
+8. Scoring Result Determined:
+   - Task: Report to Bank
+   - Gateway: Scoring Result
+   - Outcome: Scoring Completed
+
+9. Scoring Completed:
+   - Task: Close Request
+   - Gateway: Scoring Result
+   - Outcome: Request Closed
+
+10. Scoring Level 2 Completed:
+    - Task: Notify Bank
+    - Gateway: Scoring Result
+    - Outcome: Scoring Completed
+
+11. Evaluation of Scoring:
+    - Task: Evaluate Scoring
+    - Gateway: EventBasedGateway1
+    - Outcome: Awaiting Scoring Completion
+
+12. Scoring Completed:
+    - Task: Notify Sales Staff
+    - Gateway: ParallelGateway3
+    - Outcome: Request Closed
+
+13

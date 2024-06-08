@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-5D81C8FD-024E-4611-8A4A-AC171DC3FE60', 'name': 'Check regression', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-A06FA439-0519-4E4C-9C7A-4B491216B17C', 'name': 'Send a message', 'incoming': ['StartEvent0'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-FB20D307-EA00-481C-8B55-749A8B93D02A', 'name': 'Close', 'incoming': ['Justified?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9C301F04-F4A5-4672-8EB3-ADF2401CEACD', 'name': 'Set process for resubmission', 'incoming': ['Possibility?'], 'outgoing': ['Opposition']}
+{'id': 'sid-1EADB911-D384-42D9-BCF6-0351196C3B62', 'name': 'Proceedings', 'incoming': ['Opposition'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-D67C5346-1DC8-44E6-AF0F-FECBDEC7F6A5', 'name': 'Transfer of debtors', 'incoming': ['EventBasedGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-CD6F4808-49B6-448A-ADC7-F5F572F454EF', 'name': 'Book money receipt', 'incoming': ['Cash receipt'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-943ED3A4-B25E-41B2-8214-7C17F66EB6F9', 'name': 'Possibility?', 'incoming': ['StartEvent0'], 'outgoing': ['Cash receipt', 'ExclusiveGateway1']}
+{'id': 'sid-77B2A89F-D37E-452C-B360-0221512893DE', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway5', 'Check regression'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-8C44C3F8-F181-45A9-96E5-87589B41A7EA', 'name': 'Justified?', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway4', 'Close']}
+{'id': 'sid-65291F20-95AF-4135-BFD0-8027037E581C', 'name': 'ExclusiveGateway3', 'incoming': ['Proceedings', 'Cash receipt'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-427F5195-6917-492F-AB75-9397A1CD6CF0', 'name': 'ExclusiveGateway4', 'incoming': ['EventBasedGateway5', 'Opposition'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-47D2810D-8D86-4347-92C4-05DC70781B20', 'name': 'EventBasedGateway5', 'incoming': ['Possibility?'], 'outgoing': ['Cash receipt', 'ExclusiveGateway1', 'Transfer of debtors']}
+{'id': 'sid-C13D666F-BE0E-4266-9CA1-BB46F5E5F78B', 'name': 'Opposition', 'incoming': ['Set process for resubmission'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-0E9D0605-77E9-4D37-9BEF-0070DFFC6B58', 'name': 'Cash receipt', 'incoming': ['Possibility?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-09DDA38B-C900-408D-B3A7-5FEEDF981746', 'name': 'Expiry\nReimbursement period\n', 'incoming': ['EventBasedGateway5'], 'outgoing': ['ExclusiveGateway4']}
+
+Start Events:
+{'id': 'sid-C8D424D0-9032-467A-85A0-490D3EC49FFE', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Send a message']}
+
+End Events:
+{'id': 'sid-A5ED8A60-C018-4CEB-9EF9-A08B9F2D9F0F', 'name': 'EndEvent0', 'incoming': ['Proceedings', 'Opposition'], 'outgoing': []}

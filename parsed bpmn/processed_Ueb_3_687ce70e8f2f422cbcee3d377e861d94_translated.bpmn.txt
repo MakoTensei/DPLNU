@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-4DF73FC8-255E-48E7-ADD3-983222D6E8AF', 'name': 'Check the case', 'incoming': ['Regression possibility\nsubmitted'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-A03C32EB-C791-4697-A8AF-BAB8B01484E6', 'name': 'Send payment request', 'incoming': ['Regression possibility\nsubmitted'], 'outgoing': ['Set up WV']}
+{'id': 'sid-61D13D4F-3552-4F2E-A3C0-659531308888', 'name': 'Close the case', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-7186A94B-C4C3-42D3-8F15-537C5387F7BC', 'name': 'Set up WV', 'incoming': ['Regression possibility?'], 'outgoing': ['Payment\nReport']}
+{'id': 'sid-A60E774F-63F9-48F6-A87F-2B0C1A32F180', 'name': 'Book money receipt', 'incoming': ['Payment\nReport'], 'outgoing': ['Close']}
+{'id': 'sid-29F6239B-28A8-4F8F-B01B-3C45F1C4A025', 'name': 'Close', 'incoming': ['Payment\nReport'], 'outgoing': ['Process with cash receipt\nclosed']}
+{'id': 'sid-D5EF1415-8134-4451-A417-8C8634517462', 'name': 'Proceedings', 'incoming': ['Opposition\nobtained'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-EA2E5649-FA33-4FC1-BBAB-D9F3065525F7', 'name': 'forward to service providers', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process\nforwarded']}
+
+Gateways:
+{'id': 'sid-3DC49590-8215-4F59-99C6-EC1A9CAEE891', 'name': 'Regression possibility?', 'incoming': ['Regression possibility\nsubmitted'], 'outgoing': ['justified?', 'Process\nclosed']}
+{'id': 'sid-344CAD8A-86AB-412A-B60C-C02949919FE6', 'name': 'justified?', 'incoming': ['Regression possibility?'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-0E4E61E4-B7DA-4D84-A6AC-960375152F4E', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['Process\nforwarded']}
+{'id': 'sid-56ECAA8A-573A-4EDD-B479-EE126CB5C7EF', 'name': 'ExclusiveGateway3', 'incoming': ['Check the case', 'EventBasedGateway4'], 'outgoing': ['Process\nclosed']}
+{'id': 'sid-14FC41A4-3245-45A8-960C-24B8522FE450', 'name': 'EventBasedGateway4', 'incoming': ['Regression possibility?'], 'outgoing': ['Process with cash receipt\nclosed', 'ExclusiveGateway3', 'forward to service providers']}
+{'id': 'sid-AF6FBB6F-D747-49C0-BCF4-F574172F4F20', 'name': 'Payment\nReport', 'incoming': ['Set up WV'], 'outgoing': ['Process with cash receipt\nclosed']}
+{'id': 'sid-E032E5BC-3309-4C8E-BE2F-6EF3F2792725', 'name': 'Opposition\nobtained', 'incoming': ['Regression possibility?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-3A5C9871-2B8E-4190-B321-DA62407A6868', 'name': 'WV occurred', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process\nforwarded']}
+
+Start Events:
+{'id': 'sid-60D4B819-7242-459D-91FA-375EA79BF04E', 'name': 'Regression possibility\nsubmitted', 'incoming': [], 'outgoing': ['Send payment request']}
+
+End Events:
+{'id': 'sid-23753FC5-D505-4710-948E-4F92D8305548', 'name': 'Process with cash receipt\nclosed', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-EA0D0B76-3600-4A74-85E7-0EF16B3C6105', 'name': 'Process\nforwarded', 'incoming': ['WV occurred'], 'outgoing': []}
+{'id': 'sid-C30594B5-AB04-4A5F-B836-F9759C3717D5', 'name': 'Process\nclosed', 'incoming': ['Regression possibility?'], 'outgoing': []}

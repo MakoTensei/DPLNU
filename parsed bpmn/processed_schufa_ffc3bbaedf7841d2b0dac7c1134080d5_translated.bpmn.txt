@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-06E43DF1-4D2F-4170-86A5-EFB4C9799D68', 'name': 'Scoring Send request', 'incoming': ['Process start'], 'outgoing': ['Result Level 1']}
+{'id': 'sid-5FC34F05-4889-4115-BA5F-BBDF62309C39', 'name': 'Communication delay', 'incoming': ['Process start'], 'outgoing': ['Level 2\nScoring result obtained']}
+{'id': 'sid-22D2D992-133E-4354-8D9F-6EBF651417A6', 'name': 'Communicating result to frontend', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-854AEA20-F887-4D51-93DE-3DE7D412497A', 'name': 'Level 1 Scoring', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Results obtained?']}
+{'id': 'sid-A5DEDD7E-2BC9-4CD1-92CE-92126C6255E9', 'name': 'Level 1 Result Report', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-758F7C70-F7E4-4139-8209-95C7A9112F01', 'name': 'Report delay', 'incoming': ['Results obtained?'], 'outgoing': ['Level 2 Scoring']}
+{'id': 'sid-0B0630AB-FBF4-4979-AB9E-7C385585F968', 'name': 'Level 2 Scoring', 'incoming': ['Results obtained?'], 'outgoing': ['Level 2 Report result']}
+{'id': 'sid-D8F5180F-E809-40E5-990D-A3CD2CE5D15B', 'name': 'Level 2 Report result', 'incoming': ['Results obtained?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-7549B51A-028A-4FA1-9FF6-342E2305E041', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'Process start'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-63666AAC-5DAF-441B-8C17-E6EEEC35F062', 'name': 'Results obtained?', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['EndEvent1', 'Level 2 Report result']}
+{'id': 'sid-F8A9FBF9-F7DE-4A7F-8E52-AAC56989C8F2', 'name': 'ExclusiveGateway2', 'incoming': ['Level 2 Report result', 'Scoring request\nobtained'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-35F1A64A-4836-46BD-9D63-09FB5FCFC45F', 'name': 'EventBasedGateway3', 'incoming': ['Process start'], 'outgoing': ['Communicating result to frontend', 'Info about delay\nobtained']}
+{'id': 'sid-1B4480C4-12CA-4D2F-A921-E58C58188BC8', 'name': 'Result Level 1', 'incoming': ['Scoring Send request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-641F389A-50E8-4043-B805-E8FBC28EE4D0', 'name': 'Info about delay\nobtained', 'incoming': ['Process start'], 'outgoing': ['Communication delay']}
+{'id': 'sid-BD31945D-936A-4A7F-9B00-B4A5ACC5982A', 'name': 'Level 2\nScoring result obtained', 'incoming': ['Process start'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-C426DCDF-7ABF-47A8-B088-F561BDA78846', 'name': 'Process start', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-79424C48-6C85-4477-8178-975B4B33258C', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-EBD56DA0-7071-46D4-BAA9-D9C9112C88E1', 'name': 'EndEvent0', 'incoming': ['Result Level 1'], 'outgoing': []}
+{'id': 'sid-A3DA7834-05C2-487F-AC1E-959A67707C62', 'name': 'EndEvent1', 'incoming': ['Results obtained?'], 'outgoing': []}

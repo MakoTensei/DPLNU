@@ -1,0 +1,18 @@
+Tasks:
+{'id': 'sid-1A7FC8EF-12FD-473C-8EBE-60CF418FE867', 'name': 'Send Scroringanfrgae', 'incoming': ['StartEvent0'], 'outgoing': ['Result\n?']}
+{'id': 'sid-9FBE840B-915A-4EBE-B228-1BA482257643', 'name': 'Determining Scroring\n(Level1)', 'incoming': ['StartEvent1'], 'outgoing': ['sid-055E2D40-153A-494B-9BE3-CEEF20A339EB']}
+{'id': 'sid-148C5864-79A1-4933-A7A4-6633211F6E26', 'name': 'Determining scoring (Level2)', 'incoming': ['Result\nis it?'], 'outgoing': ['Result\nsend']}
+
+Gateways:
+{'id': 'sid-5FF073AE-E45A-4940-B758-4B052D121C75', 'name': 'Result\n?', 'incoming': ['StartEvent0'], 'outgoing': ['sid-C5DA697F-E445-4897-8AC5-840FFC7E6A3C', 'Result\na.']}
+{'id': 'sid-3211F4A1-CB66-486F-B72D-11441249B36A', 'name': 'Result\nis it?', 'incoming': ['sid-22720F6E-BE04-4E7F-9C0B-E3DBC39FA8F3'], 'outgoing': ['EndEvent2', 'Result\nsend']}
+{'id': 'sid-AD4DFAF5-E6F8-42E9-89BD-F3374E22DBB9', 'name': 'Waiting for answer', 'incoming': ['sid-ED00ECD8-B2C2-4EFB-948E-F91ABEF09D1B'], 'outgoing': ['Result\na.']}
+
+Start Events:
+{'id': 'sid-491D102E-965B-47EB-9564-3970DD3F182E', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Result\n?']}
+{'id': 'sid-54BFBAD5-A2A0-4181-92C9-91C3E2EEFB61', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Determining Scroring\n(Level1)']}
+
+End Events:
+{'id': 'sid-D9BE73CB-EFC4-4EC8-B32C-B57AE1DA23F4', 'name': 'Result\na.', 'incoming': ['Result\n?', 'Waiting for answer'], 'outgoing': []}
+{'id': 'sid-93E90E32-52C0-4811-9D4E-F842EEFD728F', 'name': 'Result\nsend', 'incoming': ['Result\nis it?'], 'outgoing': []}
+{'id': 'sid-607EABCD-5780-4E33-BF34-487D08F434E5', 'name': 'EndEvent2', 'incoming': ['Result\nis it?'], 'outgoing': []}

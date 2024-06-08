@@ -1,0 +1,9 @@
+ In the insurance case handling process, a possible regression claim report triggers a series of tasks and interactions between different systems and gateways. Initially, the report is received, which then leads to the creation of a payment request to address the claim. This request is processed through ExclusiveGateway3, which subsequently connects to the ExclusiveGateway2.
+
+Once the claim is deemed right, the process moves to ExclusiveGateway3 again, where the deadline for opposition expires, and the process transitions to Debt collection. Concurrently, the ExclusiveGateway2 also sends the claim to the Debt collection process.
+
+As the case progresses, the ExclusiveGateway3 receives an objection, which is then directed to the ExclusiveGateway2. The objection is resolved, and the process moves forward to the Debt collection process.
+
+In parallel, the ExclusiveGateway3 also receives a money received event, which is routed to ExclusiveGateway3. This event signifies the successful receipt of payment related to the insurance case.
+
+Finally, the process concludes with the completion of the insurance case, which is marked by the ExclusiveGateway2 and the EventBasedGateway4. The case is now considered completed, and no further actions are required.

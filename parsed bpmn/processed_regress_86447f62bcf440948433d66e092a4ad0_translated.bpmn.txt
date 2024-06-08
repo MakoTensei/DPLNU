@@ -1,0 +1,27 @@
+Tasks:
+{'id': 'sid-C9A52548-337E-43AD-B02C-6EEF10E959B7', 'name': 'Check regression', 'incoming': ['possible regression\nagainst VN'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-B935887C-B9CB-404F-A0F5-B112E015CB9D', 'name': 'Send payment request to VN', 'incoming': ['possible regression\nagainst VN'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-D3DC7A1F-2F15-41AE-829B-5C5842EA0301', 'name': 'Close', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-32719AB4-402C-4331-8A2B-A87CA3B79FBA', 'name': 'Book the entrance', 'incoming': ['Money received'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-21BD8763-8F2E-48BE-82D8-1C9C6FAF917D', 'name': 'Verify your objection', 'incoming': ['Objection of VN'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-5AB004BA-ABBF-485A-BEFF-A251BBB22A6D', 'name': 'forward case to debt collection service providers', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': ['Process delivered to debt collection service provider']}
+{'id': 'sid-08B370D6-C336-4C53-ADDB-DF7FA6CDB4D3', 'name': 'Reimbursement', 'incoming': ['possible regression\nagainst VN'], 'outgoing': ['Process delivered to debt collection service provider']}
+
+Gateways:
+{'id': 'sid-D6AC9DE4-1CCA-402F-85EB-D58E75A4CBB8', 'name': 'possibility\nfor Regress\nis there?', 'incoming': ['possible regression\nagainst VN'], 'outgoing': ['Send payment request to VN', 'ExclusiveGateway2']}
+{'id': 'sid-527CDCE5-5A39-4CA8-9F40-B2F86883C74F', 'name': 'Denial of payment\njustified?', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-C2C19E7D-412F-43F1-84FB-63BF5F76436F', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway5', 'Verify your objection', 'Check regression'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-31E1E357-F5A8-4DA9-84AB-127BBD434B99', 'name': 'ExclusiveGateway3', 'incoming': ['Objection of VN', 'IntermediateCatchEvent6'], 'outgoing': ['Process delivered to debt collection service provider']}
+{'id': 'sid-B42F7FE9-8B4F-4449-872B-168E839FA42A', 'name': 'ParallelGateway4', 'incoming': ['possible regression\nagainst VN'], 'outgoing': ['Process delivered to debt collection service provider', 'sid-904E8202-B657-4ACF-8BC4-14FF086EEFB0']}
+{'id': 'sid-43E10D3E-181E-40C3-916D-5B8709F931BE', 'name': 'ParallelGateway5', 'incoming': ['sid-0F298B6A-3DE8-4B26-99B3-4F701FE59BD7', 'possible regression\nagainst VN'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-6FCCBEDC-2256-4F60-82C1-6FDC5E12532C', 'name': 'IntermediateCatchEvent6', 'incoming': ['Reimbursement'], 'outgoing': ['Money received', 'forward case to debt collection service providers', 'Denial of payment\njustified?']}
+{'id': 'sid-01630E3D-604F-4AE1-A59B-D49EDFDC99DB', 'name': 'Money received', 'incoming': ['possible regression\nagainst VN'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C9AB39E0-64C3-4163-A117-2599BCE40F6B', 'name': 'Objection of VN', 'incoming': ['Reimbursement'], 'outgoing': ['Process delivered to debt collection service provider']}
+{'id': 'sid-F0F2E3A6-19DD-43E1-AF93-4130570EFAEA', 'name': 'Representation\nExpired', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-859218AD-9EF6-4C76-A702-DE5A4D4615C7', 'name': 'possible regression\nagainst VN', 'incoming': [], 'outgoing': ['Money received']}
+
+End Events:
+{'id': 'sid-DF6FECBC-4BF1-4296-B56D-C2DA2B3375A8', 'name': 'EndEvent0', 'incoming': ['Book the entrance'], 'outgoing': []}
+{'id': 'sid-7010DE44-7F7D-48A7-B8EC-96DF30CEE435', 'name': 'Process delivered to debt collection service provider', 'incoming': ['ParallelGateway4'], 'outgoing': []}

@@ -1,0 +1,15 @@
+ When a possible regression is detected, the system initiates a series of tasks to address the issue. First, the 'Check the case' task is triggered, which examines the potential regression and determines if it's a valid concern. If it is, the system then sends a 'Regress possible?' request to the 'ExclusiveGateway2' to further investigate the issue.
+
+Simultaneously, the 'Send payment request' task is activated to secure funds for any necessary actions to resolve the regression. This task is linked to the 'Get money' event, which is also connected to 'ExclusiveGateway2'.
+
+The 'Book the entrance' task is initiated to reserve resources for the upcoming examination process. This task is dependent on receiving 'Get money' and will lead to the 'ExclusiveGateway2' event.
+
+The 'Examination' task is also triggered, which is connected to the 'Possible\nRegression' event and 'ExclusiveGateway2'. This task is responsible for conducting a thorough investigation into the potential regression.
+
+Once the 'ExclusiveGateway2' event is completed, the system proceeds to the 'Process closed' event, which signifies the end of the examination process. This event is linked to both the 'Regress possible?' and 'Possible\nRegression' events.
+
+If the examination concludes that the regression is justified, the 'Objection justified?' task is activated, leading to the 'Process closed' event and the 'ExclusiveGateway3' event.
+
+In the case of a successful resolution of the regression, the 'Debt collection passed' event is triggered, which is connected to the 'Date of expiry' event. This event signifies the completion of the debt collection process.
+
+Overall, the system follows a structured flow to address potential regressions, ensuring that all necessary tasks and events are executed in a logical and efficient manner.

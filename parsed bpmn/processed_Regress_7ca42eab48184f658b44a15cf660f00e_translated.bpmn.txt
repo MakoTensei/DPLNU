@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-30F532E0-8C89-467C-84E1-082A3CEAE9E3', 'name': 'Examination for regression', 'incoming': ['Notification of possible regression'], 'outgoing': ['Regress possible?']}
+{'id': 'sid-A6BDF75B-D5BD-4644-A5B1-3D1767E7F2D8', 'name': 'Book money', 'incoming': ['Money received'], 'outgoing': ['Closed']}
+{'id': 'sid-F3A0F727-BA3B-4598-9C2C-EECC90AD5BBE', 'name': 'Proceedings', 'incoming': ['Opposition'], 'outgoing': ['Transfer to the debt collection service provider']}
+{'id': 'sid-6F2439FB-7EED-42A4-9BFF-0CC6650DCF0D', 'name': 'Sitting on re-submission', 'incoming': ['sid-78311322-ED96-46D0-8E77-4143186B57AB'], 'outgoing': ['Money received']}
+
+Gateways:
+{'id': 'sid-8CFB0C76-F74C-41A2-839B-F5BA28358CE5', 'name': 'Regress possible?', 'incoming': ['Notification of possible regression'], 'outgoing': ['Closed', 'sid-10CF8915-7F87-4CF1-93ED-783370F54223']}
+{'id': 'sid-20E5B8AD-5CBE-40B0-8D87-D9F951CB9E37', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Process', 'Transfer to the debt collection service provider']}
+{'id': 'sid-0E1A6157-10DB-4F95-ADC6-F5930074027E', 'name': 'EventBasedGateway2', 'incoming': ['Sitting on re-submission'], 'outgoing': ['Objection justified?', 'Closed', 'Transfer to the debt collection service provider']}
+{'id': 'sid-38A14E0E-0633-4867-A21C-0B18D34A9B1F', 'name': 'Money received', 'incoming': ['Sitting on re-submission'], 'outgoing': ['Closed']}
+{'id': 'sid-8993FEEE-226C-4169-BD91-4DAA48133C3D', 'name': 'Opposition', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Process']}
+{'id': 'sid-D014F8EC-9807-4E08-B947-7660D08336B8', 'name': 'Reimbursement period', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Transfer to the debt collection service provider']}
+
+Start Events:
+{'id': 'sid-589579E6-75CE-43C7-8D25-BB2D170BE81A', 'name': 'Notification of possible regression', 'incoming': [], 'outgoing': ['Regress possible?']}
+
+End Events:
+{'id': 'sid-B1F599EB-7EEF-4EE7-82C1-1106AB6D5AAB', 'name': 'Transfer to the debt collection service provider', 'incoming': ['Proceedings', 'EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-A7FC98AF-C3B5-4D69-9AB2-8D51A6B853B3', 'name': 'Closed', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-F035AEE0-089B-4ACD-84A3-FD14D6826CAD', 'name': 'Closed', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-C7FDE04B-FC13-4B8A-9A93-92B5B64291C8', 'name': 'Process', 'incoming': ['Opposition'], 'outgoing': []}

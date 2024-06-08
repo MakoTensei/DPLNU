@@ -1,0 +1,13 @@
+ The process begins with the'ready for dispatch' event, where goods are prepared for shipment. This triggers the 'Packaging goods' task, which involves packing the goods and preparing them for collection. Once the goods are packaged, they are ready to be picked up.
+
+The 'Pick up S1' task is initiated, where the goods are collected from the designated location. This task is connected to the 'ParallelGateway4', which serves as a checkpoint for the goods before they proceed to the next stage.
+
+Following the pickup, the 'Filling the package note' task is executed. This task requires special attention if the shipment is a special shipment, as indicated by the 'Special shipment required?' event. If so, the task is routed to 'ExclusiveGateway3', which handles special shipments differently.
+
+After the package note is filled, the goods are sent to 'ParallelGateway5'. This gateway is responsible for handling multiple pickups, as indicated by its incoming connections from 'ParallelGateway4' and 'ParallelGateway7'.
+
+The 'Select your offer' task is triggered when the goods are ready for dispatch. This task is connected to 'ExclusiveGateway3', which handles the selection of offers for the shipment.
+
+If insurance is required for the shipment, the 'Complete insurance' task is initiated. This task is connected to 'ExclusiveGateway2', which handles insurance-related tasks.
+
+Finally, the 'goods provided for collection' event signifies the completion of the process. The goods, having gone through all the necessary tasks and gateways, are now ready for collection.

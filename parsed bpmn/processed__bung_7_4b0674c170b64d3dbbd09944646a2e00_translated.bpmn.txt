@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-D3539CBA-CF8E-4A9A-A913-93A3AC723AB0', 'name': 'Send inquiry to Schufa', 'incoming': ['Schufa request'], 'outgoing': ['Get Schufa result']}
+{'id': 'sid-F32BA86A-1B48-41CE-A7D2-C41979E1D02C', 'name': 'Send feedback to Frontend', 'incoming': ['Get Schufa result'], 'outgoing': ['Process']}
+{'id': 'sid-19F5EF5F-B925-45B1-B68F-32970827593E', 'name': 'Report Scoring 2 to Frontend', 'incoming': ['Scroring 2'], 'outgoing': ['Process']}
+{'id': 'sid-4B5E85F8-0B6E-476C-B0C7-D1F90D2E48AF', 'name': 'Send feedback (delay)', 'incoming': ['Schufa request'], 'outgoing': ['Process']}
+{'id': 'sid-FF536724-AC22-4190-A982-E3410AF21ABC', 'name': 'Creating scoring (level 1)', 'incoming': ['Requests received'], 'outgoing': ['Delay occurred?']}
+{'id': 'sid-8A3577D3-1DDD-4CD7-86E1-2E5A0F623DEA', 'name': 'Send result to Bank', 'incoming': ['Requests received'], 'outgoing': ['Process']}
+{'id': 'sid-7EC83A82-ED9A-44BC-8BC6-AC9C53934A67', 'name': 'Report delay', 'incoming': ['Delay occurred?'], 'outgoing': ['Create scoring 2']}
+{'id': 'sid-5FDB5B28-4289-4A6A-BC08-D5E248F56393', 'name': 'Create scoring 2', 'incoming': ['Delay occurred?'], 'outgoing': ['Send Scoring 2 to Bank']}
+{'id': 'sid-C8830291-035C-41D5-BAE4-E577EF41C559', 'name': 'Send Scoring 2 to Bank', 'incoming': ['Delay occurred?'], 'outgoing': ['Process']}
+
+Gateways:
+{'id': 'sid-600A959F-21BC-450E-8B2E-276BDBB3F9E1', 'name': 'Delay occurred?', 'incoming': ['Requests received'], 'outgoing': ['Process', 'Process']}
+{'id': 'sid-D547FBF1-14E0-4EE3-9565-7BCC516D3C5A', 'name': 'EventBasedGateway1', 'incoming': ['Schufa request'], 'outgoing': ['Process', 'Process']}
+{'id': 'sid-EC9ECE95-B86B-4C15-9FEC-C1B4BEA7253D', 'name': 'Get Schufa result', 'incoming': ['Send inquiry to Schufa'], 'outgoing': ['Process']}
+{'id': 'sid-9346FAA9-13AA-4741-8880-5336B4DA7BC4', 'name': 'Delay reported', 'incoming': ['Schufa request'], 'outgoing': ['Process']}
+{'id': 'sid-91A97CBD-B7BE-45A7-BC32-51FBAFF4C982', 'name': 'Scroring 2', 'incoming': ['Schufa request'], 'outgoing': ['Process']}
+
+Start Events:
+{'id': 'sid-AB583700-4AEB-4D89-96BB-FBBDAFDC79A1', 'name': 'Schufa request', 'incoming': [], 'outgoing': ['Scroring 2']}
+{'id': 'sid-A37A27B5-0A85-40AC-AEA8-972580129C75', 'name': 'Requests received', 'incoming': [], 'outgoing': ['Send result to Bank']}
+
+End Events:
+{'id': 'sid-10E983F1-53B5-44B4-BF64-FF042C422CD6', 'name': 'Process', 'incoming': ['EventBasedGateway1', 'EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-0C82A621-62F3-4DAA-96D0-79AA0295A99E', 'name': 'Process', 'incoming': ['Delay occurred?', 'Delay occurred?'], 'outgoing': []}

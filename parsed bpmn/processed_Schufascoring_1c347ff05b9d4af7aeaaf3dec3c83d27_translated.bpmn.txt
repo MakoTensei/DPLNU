@@ -1,0 +1,19 @@
+Tasks:
+{'id': 'sid-D2DBDD65-0D12-49CD-A25C-89E889F55C67', 'name': 'Prepare customer data', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring request']}
+{'id': 'sid-B13BC448-44D4-4370-B5FE-96DDDADD63B1', 'name': 'Scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-0AEB7F3D-C8F8-42FD-962C-2573A334A596', 'name': 'Scoring\n(level 1)', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-0D6A24C8-C4D9-4A4D-AE1D-0A58480E1103', 'name': 'final scoringer\ngenerate birth', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-1FC991C6-024A-4B43-BFB9-E4D2F13709D7', 'name': 'Generate delay message', 'incoming': ['StartEvent1'], 'outgoing': ['sid-3F81A6BB-1A86-42F3-85D4-82A55EAD0D77']}
+{'id': 'sid-1F3394FC-6F51-4D0D-9138-A36E20D82B29', 'name': 'Scoring\n(level 2)', 'incoming': ['sid-7920AD1C-E811-4BC0-B54A-72DA0E371C63'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-0ED760C3-3BC1-4503-BBAB-80607CF49014', 'name': 'Result?', 'incoming': ['StartEvent1'], 'outgoing': ['Generate delay message', 'EndEvent1']}
+{'id': 'sid-F7A30BCB-3F26-444A-9704-4D77839A1F8D', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring\n(level 2)', 'Scoring\n(level 1)'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-62CCA754-F0CF-4383-A211-23A2050613BD', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Scoring request']}
+{'id': 'sid-905E2E4A-B791-4441-B46D-F106D80780A7', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Generate delay message']}
+
+End Events:
+{'id': 'sid-10D13AAB-D552-4FED-86E7-F7DBE19E8DDF', 'name': 'EndEvent0', 'incoming': ['Scoring request'], 'outgoing': []}
+{'id': 'sid-9CE78164-F520-4989-A317-3DD2D9CBF628', 'name': 'EndEvent1', 'incoming': ['Result?'], 'outgoing': []}

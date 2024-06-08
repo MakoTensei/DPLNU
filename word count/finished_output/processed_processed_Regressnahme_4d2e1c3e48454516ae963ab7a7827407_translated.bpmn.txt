@@ -1,0 +1,11 @@
+ Let's walk through the process flow for handling a possible regression for VN:
+
+1. A possible regression for VN is identified, triggering the 'possible\nRegression\nfor VN' start event.
+2. The 'Payment on\nsend request to VN' task is initiated to address the potential regression.
+3. The 'Process for recovery\nwand' task is triggered to handle the recovery process.
+4. The 'Time period\nReimbursement\nDate of expiry' task is initiated to determine the reimbursement period and expiry date.
+5. The 'Regression possibility\nis there?' gateway is checked, and if there is a possibility of regression, the 'Case closed' task is triggered.
+6. If the 'Regression possibility\nis there?' gateways determines that there is no justification for opposition, the 'Case closed' task is triggered.
+7. If the 'Regression possibility\nis there?' gateways determines that there is justification for opposition, the 'Objection\nVN arrived' task is triggered, followed by the 'Case closed' task.
+8. If the 'IntermediateCatchEvent2' task is triggered, it can lead to either 'Objection\nVN arrived' or 'Cash receipt from the VN\narrived' tasks, both of which can result in the 'Case closed' task.
+9. Finally, the 'Case closed' task is triggered, marking the end of the process.

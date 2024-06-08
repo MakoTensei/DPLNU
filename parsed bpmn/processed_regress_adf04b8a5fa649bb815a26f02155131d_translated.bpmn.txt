@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-4E98C777-5C9B-4A40-9378-127C181072A9', 'name': 'Check regression case', 'incoming': ['Notification of possible regression'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-7E227327-3A47-4017-AFDE-3F0B293D44E4', 'name': 'Send payment request to VN', 'incoming': ['Notification of possible regression'], 'outgoing': ['Set on re-submission']}
+{'id': 'sid-34EC88EC-2DF6-4509-80DB-5C4D37C86B84', 'name': 'Book the entrance', 'incoming': ['Money received'], 'outgoing': ['Close']}
+{'id': 'sid-F17B70FC-2D98-4573-995A-8CD4DF22AA0D', 'name': 'Proceedings', 'incoming': ['VN contradicts'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-7B529348-DE5B-49B1-9CDC-9F6AF03281F6', 'name': 'donate to debtor', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Case forwarded']}
+{'id': 'sid-60B393CC-BD5D-4A5B-B5DF-04B60D5BB343', 'name': 'Set on re-submission', 'incoming': ['ParallelGateway5'], 'outgoing': ['VN contradicts']}
+{'id': 'sid-0EFB800F-B7D2-4084-BA28-9AA22C1F1462', 'name': 'Close', 'incoming': ['VN contradicts'], 'outgoing': ['Case closed']}
+{'id': 'sid-FDE409D2-FD38-417D-97C3-294FF16F6B35', 'name': 'Close', 'incoming': ['Money received'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-4CD04E3B-6901-483A-8698-622818250D2F', 'name': 'Regress possible?', 'incoming': ['Notification of possible regression'], 'outgoing': ['Case forwarded', 'Case closed']}
+{'id': 'sid-834D82C2-B713-49E1-9EAE-22BA10D75444', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-52D26845-D191-4258-AC34-937B99A41674', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['Case forwarded']}
+{'id': 'sid-0A89455C-7C5A-4FDC-AEAD-466C197D8E4D', 'name': 'ExclusiveGateway3', 'incoming': ['VN contradicts', 'Check regression case'], 'outgoing': ['Case closed']}
+{'id': 'sid-8D678A7E-3054-4016-940E-4404E0E190C1', 'name': 'EventBasedGateway4', 'incoming': ['Regress possible?'], 'outgoing': ['Money received', 'Objection justified?', 'donate to debtor']}
+{'id': 'sid-2D9F9958-81BC-4277-AC5D-9A40491F666B', 'name': 'ParallelGateway5', 'incoming': ['Notification of possible regression'], 'outgoing': ['Money received']}
+{'id': 'sid-3B95914C-F65C-43FF-92ED-830EAD90A9F3', 'name': 'Money received', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-48C1CF48-EC69-492C-B6CD-638F5CA166A4', 'name': 'VN contradicts', 'incoming': ['Set on re-submission'], 'outgoing': ['Close']}
+{'id': 'sid-CE446701-286A-4651-B3D2-7E60BA7D3A71', 'name': 'Reimbursement period expired', 'incoming': ['Regress possible?'], 'outgoing': ['Case forwarded']}
+
+Start Events:
+{'id': 'sid-40243AF8-52A9-4DD7-B256-372B43E2B938', 'name': 'Notification of possible regression', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:
+{'id': 'sid-49A4CA84-DF48-4767-B390-1E8EAC6E4DA3', 'name': 'Case forwarded', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-A3ECF1A6-1E98-40C9-AD67-E02468FB6F34', 'name': 'Case closed', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-2966512C-D5DE-4128-9687-A11E5353D75B', 'name': 'EndEvent2', 'incoming': ['Money received'], 'outgoing': []}

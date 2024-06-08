@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-58BB0A99-536F-4638-ABF2-D11BF4EF272A', 'name': 'Set process for re-submission', 'incoming': ['Payment method\nsend to VN'], 'outgoing': ['Reimbursement period\nexpired?']}
+{'id': 'sid-F115DF46-2DCA-492B-AB10-1F490F316993', 'name': 'Check regression', 'incoming': ['Regression\nsubmitted'], 'outgoing': ['Regression\npossibility?']}
+{'id': 'sid-9BCED4E3-4D22-4880-9B93-A964F072F88A', 'name': 'Process passed on to collection', 'incoming': ['Opposition\njustified?'], 'outgoing': []}
+{'id': 'sid-0EFAE917-6D3B-4D40-AA90-5D5B1BDA990F', 'name': 'Payment method\nsend to VN', 'incoming': ['Regression\nsubmitted'], 'outgoing': ['Payment']}
+
+Gateways:
+{'id': 'sid-861DEC3A-FF67-4ACE-8811-6FB8EDFCAD2E', 'name': 'Regression\npossibility?', 'incoming': ['Regression\nsubmitted'], 'outgoing': ['sid-81D7763B-06F6-47A1-9EE1-BD0C2A48F359', 'Payment method\nsend to VN']}
+{'id': 'sid-7F3FF13B-9C4D-4782-A3FC-476F004272E3', 'name': 'Opposition\njustified?', 'incoming': ['sid-8129180A-D733-4EDC-9743-B17B2832F764'], 'outgoing': ['sid-86D2DBA8-C983-4E41-AAF8-D13F06360D64', 'Process passed on to collection']}
+{'id': 'sid-CC72408A-C64F-429C-8BED-65AB00A56378', 'name': 'EventBasedGateway2', 'incoming': ['Regression\nsubmitted'], 'outgoing': ['Reimbursement period\nexpired?', 'Payment', 'Notification']}
+{'id': 'sid-F96EA3D2-3A43-4562-84D6-27BC14793C61', 'name': 'Reimbursement period\nexpired?', 'incoming': ['Set process for re-submission'], 'outgoing': []}
+{'id': 'sid-E17795DC-A37D-4073-8CCB-5CD9A9452CD2', 'name': 'Payment', 'incoming': ['Payment method\nsend to VN'], 'outgoing': ['sid-E550504A-585E-410B-A5A8-921526D35DA3']}
+{'id': 'sid-8F197C4D-B98E-45A0-8210-AD70BE73C9BF', 'name': 'Notification', 'incoming': ['Regression\nsubmitted'], 'outgoing': ['sid-3A7AB543-43D9-435E-AB1C-F5D3A1234236']}
+
+Start Events:
+{'id': 'sid-ECC32FFD-3C2F-447B-B244-B11531305A66', 'name': 'Regression\nsubmitted', 'incoming': [], 'outgoing': ['Notification']}
+
+End Events:
+{'id': 'sid-B5CF2B0D-41D2-4861-9EA7-AE8B31396B18', 'name': 'Process closed', 'incoming': ['sid-D74072A1-F07C-4C4C-ABB4-0D7D83053A62'], 'outgoing': []}
+{'id': 'sid-9E640594-F9D2-43CE-BA08-760C7BC2AD76', 'name': 'EndEvent1', 'incoming': ['sid-2F811103-A30D-43BB-A8C5-D3A66151C9CF'], 'outgoing': []}

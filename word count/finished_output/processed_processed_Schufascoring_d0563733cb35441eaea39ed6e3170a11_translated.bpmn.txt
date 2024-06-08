@@ -1,0 +1,9 @@
+ In the scoring process, the system starts with the 'Start scoring' event, which triggers the 'perform first scoring' task. This task is directed to 'ExclusiveGateway1', which then sends the 'Scoring completed' event. If there is a delay, the 'Report delay' task is initiated, also directed to 'ExclusiveGateway1'. The 'Report delay' task can be triggered by the 'Start scoring request' event.
+
+Simultaneously, the 'Start scoring request' event can also trigger the 'Send scoring inquiry to Schufa' task, which is directed to 'IntermediateCatchEvent3'. This task sends the 'Scoring ends' event.
+
+The 'IntermediateCatchEvent3' event is also triggered by the 'Report delay' task, which sends the 'Scoring ends' event.
+
+The 'Scoring ends' event can be triggered by the 'Send scoring inquiry to Schufa' task.
+
+In summary, the scoring process starts with the 'Start scoring' event, which triggers the 'perform first scoring' task. This task is directed to 'ExclusiveGateway1', which sends the 'Scoring completed' event. If there is a delay, the 'Report delay' task is initiated, which can be triggered by the 'Start scoring request' event. The 'Report delay' task sends the 'Scoring ends' event, which can be triggered by the 'Send scoring inquiry to Schufa' task. The 'Scoring ends' event can also be triggered by the 'Send scoring inquiry to Schufa' task.

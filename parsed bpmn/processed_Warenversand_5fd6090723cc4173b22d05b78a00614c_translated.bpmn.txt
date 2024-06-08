@@ -1,0 +1,19 @@
+Tasks:
+{'id': 'sid-D99160DC-04D4-4E29-8A34-355861D9A8D6', 'name': 'Filling the package note', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-F6A0D14F-0946-46F5-AD31-D4773CDF946D', 'name': 'Packaging goods', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-DA8DA5B6-6DB7-4A09-A5DA-DE97C1AB2F13', 'name': 'Provision for collection.', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E67E0109-06CB-486A-AA71-377F6BCC3E24', 'name': 'Insurance', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-9059A6F8-EE52-42C4-9383-59D359F74600', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway4'], 'outgoing': ['sid-8CC531CF-AD7F-4992-AD1B-A8B010D96B0F', 'ExclusiveGateway1']}
+{'id': 'sid-A4D3B327-617A-4732-8B88-45E281138A57', 'name': 'ExclusiveGateway1', 'incoming': ['sid-69C0F282-7906-433C-8B72-FD2B35D746FA', 'ParallelGateway4'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-05903CDC-6028-43EE-BE4A-C08086BE600B', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0', 'ExclusiveGateway3']}
+{'id': 'sid-EAC1E469-E1B5-4A26-B811-A089A358E36F', 'name': 'ExclusiveGateway3', 'incoming': ['ParallelGateway4', 'ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-8B653C97-5DF2-406D-B2B5-7AAC7981327A', 'name': 'ParallelGateway4', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway3', 'Packaging goods']}
+{'id': 'sid-DFB8D6E3-FD6E-4242-AD84-461881298840', 'name': 'ParallelGateway5', 'incoming': ['StartEvent0', 'Filling the package note'], 'outgoing': ['Provision for collection.']}
+
+Start Events:
+{'id': 'sid-1BE2BB3E-781F-43C6-86F8-809AF3164782', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Provision for collection.']}
+
+End Events:
+{'id': 'sid-21CF05E4-8604-4E2B-B99B-6F81DB212219', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}

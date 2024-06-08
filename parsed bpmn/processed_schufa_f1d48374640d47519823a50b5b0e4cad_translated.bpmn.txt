@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-5AD1FE30-A133-49EB-8B55-AC0A644A5405', 'name': 'perform scoring request', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring message arrived']}
+{'id': 'sid-D29A1CB2-ACCA-46FA-A25A-79BD24C6E811', 'name': 'Delivering result', 'incoming': ['Scoring message arrived'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F633AE6F-A038-4416-8C48-584F87BD5FFB', 'name': 'Delay display', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring message arrived']}
+{'id': 'sid-EF2E2814-0802-41CF-8763-9C66BCD8E3C5', 'name': 'Determining scoring', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-2254D4C3-713E-4484-8B00-B6F1FC33B730', 'name': 'Send a reply', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-59DEAAAE-61D7-4071-9EAA-184BCF29CD9C', 'name': 'perform scoring', 'incoming': ['Report delay as a result'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-677D3D91-9F29-4FC0-B346-BAD9FED7D8FF', 'name': 'Report delay as a result', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-70D22430-A664-411D-A2E3-55B6DF65D83E', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'Scoring\nRequired'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-D954CDBC-4B99-4AE1-9A74-2E9B4DB43FB5', 'name': 'Scoring is up?', 'incoming': ['StartEvent1'], 'outgoing': ['ExclusiveGateway2', 'Report delay as a result']}
+{'id': 'sid-3D8A9021-F52F-47F0-9C15-4C484992380B', 'name': 'ExclusiveGateway2', 'incoming': ['Determining scoring', 'StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-67CBA681-7A50-4D13-889A-37B3DCFAD026', 'name': 'EventBasedGateway3', 'incoming': ['Scoring\nRequired'], 'outgoing': ['EndEvent0', 'Foreseeable.']}
+{'id': 'sid-992EAD83-1051-42DB-9A5E-12B84615896E', 'name': 'Scoring message arrived', 'incoming': ['perform scoring request'], 'outgoing': ['Delivering result']}
+{'id': 'sid-0ECA6366-1FC6-4726-B579-2FAC42C9E476', 'name': 'Foreseeable.', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Delay display']}
+{'id': 'sid-DCAD7A44-F771-4599-91F6-E4553B3DA8D8', 'name': 'Scoring message arrived', 'incoming': ['Scoring\nRequired'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-6D5F1A83-EB9C-41E5-AA73-AF6E5750103A', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-F023D102-F997-4E96-AAD5-B87051B42EF4', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-B7908301-461A-4C84-918D-322C0901EB7C', 'name': 'EndEvent1', 'incoming': ['perform scoring'], 'outgoing': []}

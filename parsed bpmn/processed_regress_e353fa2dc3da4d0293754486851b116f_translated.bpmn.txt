@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-AE621A09-9878-4B44-AF72-66CAD3609998', 'name': 'Check the case\n(I)', 'incoming': ['Regression report\nReport'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-87DBB199-E3DF-4A58-89CC-5945798E49BE', 'name': 'Payment request\nsend\n(I)', 'incoming': ['Regression report\nReport'], 'outgoing': ['Reimbursement period\nExpired']}
+{'id': 'sid-6E76402C-2E99-4EA1-B532-9EA5DE6E17C0', 'name': 'Entrance\nbook\n(I)', 'incoming': ['Regression report\nReport'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-2E4891CC-41B7-4468-AB13-CA9F14198586', 'name': 'Opposition\nCheck\n(I)', 'incoming': ['Opposition\nReport'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-8499F599-3CA0-4C5B-96AF-1C491CF2F9D3', 'name': 'Collection\nhand over\n(I)', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-F2814204-681B-4EB6-8092-48BF866CB9B0', 'name': 'Regression\npossible?', 'incoming': ['Regression report\nReport'], 'outgoing': ['Reimbursement period\nExpired', 'EndEvent0']}
+{'id': 'sid-8F24D139-6900-4DE7-919B-780329AB12DA', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-B07C9CC4-1403-4A9E-A5FC-1DC7FA4DAB40', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Opposition\nCheck\n(I)'], 'outgoing': ['Collection\nhand over\n(I)']}
+{'id': 'sid-2E6AD1E5-8D43-465F-B23C-D1702EA39621', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'EventBasedGateway4', 'Opposition\nReport', 'Check the case\n(I)'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6F1010A7-EC21-4362-B9F0-4CDB0454F1F2', 'name': 'EventBasedGateway4', 'incoming': ['Regression report\nReport'], 'outgoing': ['ExclusiveGateway3', 'Opposition\njustified?', 'ExclusiveGateway3']}
+{'id': 'sid-DA5C4866-34AC-493A-8F6A-48F0B397C847', 'name': 'Reimbursement period\nExpired', 'incoming': ['Regression\npossible?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-BCF4D08B-BAD2-4578-B9EB-8D4571911814', 'name': 'Money\nReport', 'incoming': ['Regression report\nReport'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-064489E7-6FBD-4189-AA5F-15DB7A332050', 'name': 'Opposition\nReport', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-4FA8B153-E6C3-4629-B320-030FFC9EE587', 'name': 'Regression report\nReport', 'incoming': [], 'outgoing': ['Entrance\nbook\n(I)']}
+
+End Events:
+{'id': 'sid-D51F86BD-1327-43E5-8510-7573E010108A', 'name': 'EndEvent0', 'incoming': ['Regression\npossible?'], 'outgoing': []}

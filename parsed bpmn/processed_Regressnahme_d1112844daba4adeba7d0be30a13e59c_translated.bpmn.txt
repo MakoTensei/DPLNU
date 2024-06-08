@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-F8286193-129B-4357-A0A7-5262E380488F', 'name': 'Check regression', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-ECE9A013-533C-4170-B265-3D7EFA1BC1A1', 'name': 'Send a message', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-B3DC2679-B0BC-4B27-92D8-D24272E4C27A', 'name': 'Payment is made - Book money', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B1DA2ED6-029C-46EA-95F9-07192D9EF53C', 'name': 'VN', 'incoming': ['StartEvent0'], 'outgoing': ['Examination']}
+{'id': 'sid-4497349C-8D5E-4E41-9F75-6451A34D80D2', 'name': 'Examination', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-ACFEF2F2-F3A6-4027-BF3E-84F7E01FACE3', 'name': 'Check whether payment is made or received in opposition', 'incoming': ['Delivery time'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-0C1754E2-A593-4C82-9DB2-44436774EE44', 'name': 'Debt collection', 'incoming': ['EventBasedGateway3', 'Delivery time'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-DFC3AEA9-81D8-4E17-90D1-DA4CF690DDDA', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'EndEvent0']}
+{'id': 'sid-FF397CDC-4AAC-465A-9BE5-471C0C36D83B', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway3'], 'outgoing': ['EndEvent0', 'Debt collection']}
+{'id': 'sid-ADCE8292-1407-40DA-8BAA-FB0A0702C763', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Debt collection', 'EndEvent0']}
+{'id': 'sid-3F0D7E76-3BA6-4AE2-BE0D-E2951BD6CF92', 'name': 'EventBasedGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent4', 'Debt collection', 'ExclusiveGateway2']}
+{'id': 'sid-84558584-0309-4C6E-A03B-CB856E5978A4', 'name': 'IntermediateCatchEvent4', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-92D6DCEE-8ACD-4F34-B511-92254550CC66', 'name': 'IntermediateCatchEvent5', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-920EE3D9-C3FC-4D82-A03E-5A7E8A08B331', 'name': 'Delivery time', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Debt collection']}
+
+Start Events:
+{'id': 'sid-2931EFB1-3611-4114-9A35-FCAABABA1C8E', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['VN']}
+
+End Events:
+{'id': 'sid-3F34C5C7-93A2-474E-9D9D-98D1137A9464', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0', 'ExclusiveGateway0', 'Examination', 'Check whether payment is made or received in opposition'], 'outgoing': []}

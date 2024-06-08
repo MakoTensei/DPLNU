@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-FFE3BC98-CA4D-4E36-8644-E51813E65F81', 'name': 'Check the case', 'incoming': ['VN Regress\ntaken'], 'outgoing': ['Payment required']}
+{'id': 'sid-E06ACABC-AC45-4E1D-8C0C-1A008E07ABDF', 'name': 'Creating payment request', 'incoming': ['VN Regress\ntaken'], 'outgoing': ['sid-009402F7-C98A-447A-8790-8672F7360C63']}
+{'id': 'sid-1166C683-B66F-49CF-9E63-F5AAED999131', 'name': 'Book the entrance', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Regress completed']}
+{'id': 'sid-049C2283-4AA4-4399-BDD3-BB0D11A62536', 'name': 'Proceedings', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Regress completed']}
+{'id': 'sid-BA017C31-2E86-46E2-B5CA-7A12012D1C9B', 'name': 'Creating a report on debt collection', 'incoming': ['VN contradicts'], 'outgoing': ['sid-932A79AB-5580-488E-8B82-C2B4769F8AD6']}
+
+Gateways:
+{'id': 'sid-F2E4698A-97A5-4895-8CA6-46AE5B4AACAB', 'name': 'Payment required', 'incoming': ['VN Regress\ntaken'], 'outgoing': ['Creating payment request', 'Regress completed']}
+{'id': 'sid-4D7CFA30-7BCB-4D63-B982-9460F3FCE1B9', 'name': 'justified?', 'incoming': ['VN contradicts'], 'outgoing': ['Regress completed', 'Creating a report on debt collection']}
+{'id': 'sid-C75ED5A8-7A6B-43C4-8E81-780F7DBE489C', 'name': 'Date of expiry', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['sid-80C0AEA5-706C-4A30-BFD3-826DBA1ACFAF']}
+{'id': 'sid-5D88371F-C279-45C9-818F-830431A7DA25', 'name': 'Money arrived', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Regress completed']}
+{'id': 'sid-394505AB-F93D-4EB1-AB90-EF87B4C416D1', 'name': 'VN contradicts', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Creating a report on debt collection']}
+{'id': 'sid-66383CE5-9E6F-4368-8E03-AF24156223FB', 'name': 'IntermediateCatchEvent5', 'incoming': ['sid-1C140B1C-22D2-4256-96AF-442038AB396B'], 'outgoing': ['Book the entrance', 'Regress completed', 'Date of expiry']}
+
+Start Events:
+{'id': 'sid-E5A82D8D-3C4F-4738-9B73-BD43849DCD2E', 'name': 'VN Regress\ntaken', 'incoming': [], 'outgoing': ['Creating payment request']}
+
+End Events:
+{'id': 'sid-C94C39AA-E7F9-442A-B0C8-37613DB52E12', 'name': 'Regress completed', 'incoming': ['sid-C2E6E2ED-03AB-409F-A4B0-56F32EE638E9', 'Payment required', 'Money arrived', 'IntermediateCatchEvent5'], 'outgoing': []}

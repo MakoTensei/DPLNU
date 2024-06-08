@@ -1,0 +1,11 @@
+ When a special shipment is required, the process begins with the 'Special shipment required?' gateway, which receives the incoming request and directs it to either 'EndEvent0' or 'ExclusiveGateway2'. If the shipment is not required, the process moves to the 'Filling the package note' task, which also receives the 'Special shipment required?' request and sends it to 'EndEvent0'.
+
+If the shipment is required, the process continues to the 'Select your offer' task, which receives the 'Special shipment required?' request and sends it to 'ExclusiveGateway2'. The 'ExclusiveGateway2' then sends the request to 'EndEvent0'.
+
+On the other hand, if the shipment is not required, the process moves to the 'Pick up offers' task, which receives the 'Filling the package note' request and sends it to 'EndEvent0'.
+
+In the case of insurance, the 'Insurance necessary?' request is directed to the 'Insurance' task, which sends the request to 'ExclusiveGateway2'. The 'ExclusiveGateway2' then sends the request to 'EndEvent0'.
+
+For packaging goods, the 'Goods delivered' request is received by the 'Packaging goods' task, which sends the request to 'ParallelGateway3'. The 'ParallelGateway3' then sends the request to 'ParallelGateway4', which in turn sends the request to 'EndEvent0'.
+
+Lastly, the 'Goods delivered' process starts with the 'Goods delivered' start event, which has no incoming requests and sends the request to 'Postal mail'. The 'Postal mail' task then sends the request to 'EndEvent0'.

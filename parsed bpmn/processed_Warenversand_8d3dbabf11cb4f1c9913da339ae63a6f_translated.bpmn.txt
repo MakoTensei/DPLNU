@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-AF7C95F9-6759-4D18-BE8C-862C2915E0A4', 'name': 'Explanation', 'incoming': ['ParallelGateway3'], 'outgoing': ['Big crowd?']}
+{'id': 'sid-A8AC9073-331E-4561-98C1-0076449705B6', 'name': 'Pick up offers', 'incoming': ['New product\nbe sent'], 'outgoing': ['Select your offer']}
+{'id': 'sid-CADD82FD-8F18-427D-8C6D-800769A1B850', 'name': 'Select your offer', 'incoming': ['Big crowd?'], 'outgoing': ['Specialist']}
+{'id': 'sid-722C8853-2CFA-4597-87C0-87A597168070', 'name': 'Specialist', 'incoming': ['Big crowd?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-CFAD8A91-52C1-442C-8200-0F9C708D6D33', 'name': 'Filling the package note', 'incoming': ['Big crowd?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-9011A133-9260-4438-BEE2-413E84364EB0', 'name': 'Complete insurance', 'incoming': ['Insurance necessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-01C87D8E-8E94-4BE3-A54F-A3F5F6D00C60', 'name': 'Spreading goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods are collected']}
+{'id': 'sid-21F8D710-D1EA-4CCD-A5AC-AB389132C461', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['Goods are collected']}
+
+Gateways:
+{'id': 'sid-35E59B17-7524-4E70-A121-C854569D46BD', 'name': 'Big crowd?', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway2', 'ParallelGateway4']}
+{'id': 'sid-1BEBCD24-0ED6-495E-AB5D-164F9759EE9C', 'name': 'Insurance necessary?', 'incoming': ['Big crowd?'], 'outgoing': ['ExclusiveGateway2', 'ParallelGateway4']}
+{'id': 'sid-4ADEF461-0A08-4E2B-AB5D-C1378B0EE4F0', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance necessary?', 'Filling the package note', 'Big crowd?'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-3EE8C01E-C88F-4E51-94FA-3C7133713143', 'name': 'ParallelGateway3', 'incoming': ['New product\nbe sent'], 'outgoing': ['Pick up offers', 'Goods are collected']}
+{'id': 'sid-05FF92AD-C485-400E-8557-00CA51463835', 'name': 'ParallelGateway4', 'incoming': ['Packaging goods', 'Big crowd?'], 'outgoing': ['Goods are collected']}
+
+Start Events:
+{'id': 'sid-82BD6798-3FF3-49E7-988F-CF2E3E1A0872', 'name': 'New product\nbe sent', 'incoming': [], 'outgoing': ['Pick up offers']}
+
+End Events:
+{'id': 'sid-E3578A3B-4F5A-476C-8505-4D203AB59387', 'name': 'Goods are collected', 'incoming': ['ParallelGateway3'], 'outgoing': []}

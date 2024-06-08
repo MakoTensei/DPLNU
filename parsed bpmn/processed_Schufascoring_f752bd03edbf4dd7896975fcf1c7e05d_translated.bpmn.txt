@@ -1,0 +1,18 @@
+Tasks:
+{'id': 'sid-1F4B90E3-CBED-48D0-9FFB-EEFCB583E260', 'name': "Invite the customer's consent", 'incoming': ['Schufascoring request'], 'outgoing': ['Any consent?']}
+{'id': 'sid-A78F76EA-27A3-46A0-807A-C10DF0385098', 'name': 'Schufa request', 'incoming': ['Schufascoring request'], 'outgoing': ['sid-FB576058-AA0D-40A3-9A2A-38D67F6500ED']}
+{'id': 'sid-2DEE9180-A15A-43B4-9B9E-FA3AD0D96073', 'name': 'Scoring Level 1', 'incoming': ['Schufascoring request'], 'outgoing': ['Request result']}
+{'id': 'sid-12ABB8EE-3583-4FA4-9F36-9FFCB412CE90', 'name': 'Scoring Level 2', 'incoming': ['Delay\n(x min)'], 'outgoing': ['Request result']}
+
+Gateways:
+{'id': 'sid-AAF5F2A1-B375-4994-9591-4225993F2370', 'name': 'Any consent?', 'incoming': ['Schufascoring request'], 'outgoing': ['Schufa request', 'sid-93ECB48F-3B0D-469F-A82C-6BCE573F3E0E']}
+{'id': 'sid-473FFC6B-E30C-4FF1-A6BD-9F89B8575DFB', 'name': 'ExclusiveGateway1', 'incoming': ['sid-9B0F9FC7-2ACA-4FA7-AE73-8AA6DF8C96FC', 'sid-DB731F27-F6AA-48F1-BC00-93EB9FCFDF01'], 'outgoing': ['End']}
+{'id': 'sid-ACEDFA99-6798-43EE-B092-F642BEE4BA2B', 'name': 'Schufascoring request', 'incoming': [], 'outgoing': ['Request result', 'Delay\n(x min)']}
+{'id': 'sid-B9E54D08-D5D8-440D-AA1E-47A8A838C554', 'name': 'Delay\n(x min)', 'incoming': ['Schufascoring request'], 'outgoing': ['Request result']}
+
+Start Events:
+{'id': 'sid-E884F38A-49AF-4B96-B366-64EAD375C592', 'name': 'Schufascoring request', 'incoming': [], 'outgoing': ['Schufa request']}
+
+End Events:
+{'id': 'sid-C8A54A07-E514-4ED7-AFD7-24E36255449D', 'name': 'End', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}
+{'id': 'sid-4868CD04-0358-4A76-B331-C0F703BD26E3', 'name': 'Request result', 'incoming': ['Schufascoring request', 'Delay\n(x min)'], 'outgoing': []}

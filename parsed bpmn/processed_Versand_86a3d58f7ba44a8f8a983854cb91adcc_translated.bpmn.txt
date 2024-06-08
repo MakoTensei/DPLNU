@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-0AFFA689-6B2D-4FCF-AB62-8D03ED3FF155', 'name': 'Shipping', 'incoming': ['Receive your order'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-40BA3AD2-3736-48C2-BB42-D35A7243ADDA', 'name': 'Request offers', 'incoming': ['Receive your order'], 'outgoing': ['Adopt a proposal']}
+{'id': 'sid-9F59A5B0-2AC8-4BF6-B50C-8EE26754B68D', 'name': 'Package tickets', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Insurance requirements']}
+{'id': 'sid-FDDB36EE-3C01-408C-B1C3-68D9A0F9558D', 'name': 'Expand and commission freight forwarders', 'incoming': ['Adopt a proposal'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-7303D0C8-3586-4B10-B2A5-AB466B59B2CC', 'name': 'Adopt a proposal', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-BCA9079F-ABE8-42EF-A670-3E2FFB47168D', 'name': 'Insurance requirements', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-8655B4EF-87F4-4AE6-8134-F8BBE114A97A', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-A09F790C-4184-483A-BB65-D59D348B821D', 'name': 'Ordering goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-887E73E8-128D-45B5-836B-79A36F45982E', 'name': 'Complete insurance', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-8A266C01-8454-4F77-8E8D-9AA28ACBE6DB', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-F625F127-935F-4ECE-B047-52D5FED3B95A', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0', 'ExclusiveGateway0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-CF81FA22-5024-4F93-A7DF-6F670F990E13', 'name': 'ExclusiveGateway2', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Complete insurance', 'EndEvent0']}
+{'id': 'sid-C697E83F-49D1-4D9E-B14D-0CDE3FD88397', 'name': 'ExclusiveGateway3', 'incoming': ['Insurance requirements', 'Complete insurance'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-B58D80EF-C9D6-493F-84EF-CC63E5E17E74', 'name': 'ParallelGateway4', 'incoming': ['Receive your order'], 'outgoing': ['Request offers', 'ParallelGateway5']}
+{'id': 'sid-B51E7FDD-E620-44AB-A9E8-CA95D3F8F9E0', 'name': 'ParallelGateway5', 'incoming': ['Insurance requirements', 'ParallelGateway4'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-7B4FD5BB-4904-4733-B5D1-0E4172B63E5E', 'name': 'Receive your order', 'incoming': [], 'outgoing': ['Request offers']}
+
+End Events:
+{'id': 'sid-D84B4D6D-CE39-4A5E-B488-24C2ECDD778D', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}

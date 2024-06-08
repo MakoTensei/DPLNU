@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-1A615197-C4BE-44BD-BB70-777796F6756F', 'name': 'packaging', 'incoming': ['ParallelGateway3'], 'outgoing': ['Delivery for shipping']}
+{'id': 'sid-08EFF4E2-39B0-4CB1-9F59-4D3947ACEB98', 'name': 'Delivery for shipping', 'incoming': ['we should be sending\n\n'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-A97B3608-AEDD-4DF9-821A-FFD6F1F7C306', 'name': 'Merging order rejected and goods\n', 'incoming': ['we should be sending\n\n'], 'outgoing': ['Goods are wide for shipping']}
+{'id': 'sid-663630DD-16C0-4CDD-A7EC-D393FC914A39', 'name': 'who should take delivery\n', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-65475D67-BE42-4D8F-878E-CB2278EA6047', 'name': 'Pick up offers from forwarders\n', 'incoming': ['sid-EF1BAEA7-1AB5-4782-9068-D641B5AAD5DA'], 'outgoing': ['Selection and assignment']}
+{'id': 'sid-61A3FFFF-DD88-4D2D-A32A-6829CB833D35', 'name': 'Selection and assignment', 'incoming': ['Pick up offers from forwarders\n'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-6C9E31FF-8237-4F30-9044-661E4E2509B5', 'name': 'Filling the package note', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-6606733E-7943-41C6-B4D3-8F8C97298C57', 'name': 'Complete insurance', 'incoming': ['Insurance?\n'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-A870C851-1516-4EC3-976D-A247415B98F3', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-402ECA58-2A64-4331-9C60-2F51D1C5F906', 'name': 'Insurance?\n', 'incoming': ['ParallelGateway3'], 'outgoing': ['Complete insurance', 'Goods are wide for shipping']}
+{'id': 'sid-A354B038-EFEF-4B4E-A3C1-FE5398CF94EA', 'name': 'ExclusiveGateway2', 'incoming': ['Selection and assignment', 'Complete insurance', 'ExclusiveGateway0'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-54E95B3C-55F1-42D6-887F-8D68F4AD831A', 'name': 'ParallelGateway3', 'incoming': ['we should be sending\n\n'], 'outgoing': ['Delivery for shipping', 'ParallelGateway4']}
+{'id': 'sid-37465BD2-7F98-405D-8099-DD897716AC96', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway3', 'we should be sending\n\n'], 'outgoing': ['Goods are wide for shipping']}
+
+Start Events:
+{'id': 'sid-61962A84-5DF2-493B-AEB1-24082E512399', 'name': 'we should be sending\n\n', 'incoming': [], 'outgoing': ['Merging order rejected and goods\n']}
+
+End Events:
+{'id': 'sid-C2451C77-7C13-4AAA-8AD2-FAAC9FC4DC76', 'name': 'Goods are wide for shipping', 'incoming': ['Insurance?\n'], 'outgoing': []}

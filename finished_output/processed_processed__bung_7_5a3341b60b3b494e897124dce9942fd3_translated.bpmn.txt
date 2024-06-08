@@ -1,0 +1,9 @@
+ The process begins with a 'Request obtained' event, which triggers a 'Scoring request' task. This task is followed by a 'Scoring 1 obtained' task, which then leads to a 'Follow-up' task. The 'Follow-up' task results in a 'Request Answer' event.
+
+Simultaneously, a 'Scoring request obtained' event triggers a 'Delay - send info' task. This task is followed by a 'Scoring 2 obtained' task, which then leads to an 'ExclusiveGateway 0' task. The 'ExclusiveGateway 0' task results in a 'Request Answer' event.
+
+Meanwhile, the 'Scoring 2 obtained' task also triggers a 'Results available?' event. This event leads to a 'Follow-up' task, which in turn results in a 'Request Answer' event. The 'Results available?' event also triggers an 'ExclusiveGateway 1' task, which results in a 'Request Answer' event.
+
+The 'ExclusiveGateway 1' task is triggered by both 'Results available?' events, leading to a 'Request Answer' event.
+
+Finally, the 'Request Answer' event concludes the process.

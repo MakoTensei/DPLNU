@@ -1,0 +1,7 @@
+ In the process of scoring and reporting, the system initiates with the 'Scoring\nRequirement\nReport' event, which triggers the 'EventBasedGateway2' to handle incoming requests. This event is followed by the 'Scoring\nRequirement\nReport' event, which leads to the 'Report delay' event. The 'forward delay' task then waits for the 'Result' event, which is the output of the 'Report delay' task.
+
+Meanwhile, the 'Conducting First Scoring' event kicks off the scoring process and sends the 'Scoring\nRequirement\nReport' to the 'ExclusiveGateway1'. This event is followed by the 'Second\nScoring\nExecution' event, which also sends the 'Scoring\nRequirement\nReport' to the 'ExclusiveGateway1'. The 'Second\nScoring\nExecution' task then awaits the 'Scoring is fixed' event, which triggers the 'Scoring ends' event.
+
+The 'Scoring is fixed' event sends the 'Second\nScoring\nExecution' task to the 'ExclusiveGateway1' and also triggers the 'Scoring ends' event. The 'EventBasedGateway2' receives the 'Scoring\nRequirement\nReport' and 'Scoring\nRequirement\nReport' events, and sends the 'Request\ncompleted' event to the 'Request\ncompleted' task.
+
+Finally, the 'Request\ncompleted' task is triggered by the 'EventBasedGateway2' and the 'Scoring ends' task is triggered by the 'ExclusiveGateway1'.

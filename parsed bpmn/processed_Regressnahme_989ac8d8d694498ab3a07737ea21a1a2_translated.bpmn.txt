@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-04FCA974-E0A3-4A97-9362-D036540E1684', 'name': 'Examination', 'incoming': ['sid-E440FACC-D3BB-4CCA-AD90-FEE99B0707E2'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-3F5C649A-978A-4D96-AD13-15FA0ED0F654', 'name': 'Payment method', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Payment by:', 'Reimbursement']}
+{'id': 'sid-D473848F-D4B7-4F25-8D69-2FAD5888E5BE', 'name': 'Reimbursement', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['WV deadline expired']}
+{'id': 'sid-D59A5034-61F3-4E34-B61F-889BAFDAD302', 'name': 'Payment\nentry\nbook', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Process']}
+{'id': 'sid-0E4A6CD7-0B7F-40F0-9A2F-E0CA7B0D5D03', 'name': 'Examination objection VN', 'incoming': ['VN'], 'outgoing': ['Process']}
+{'id': 'sid-7ED7D615-351E-411D-B85A-442EF09F003D', 'name': 'Payment by:', 'incoming': ['Payment method'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-6D93B749-18C9-40D5-B53D-3C0056297DD9', 'name': 'VN', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['InclusiveGateway3']}
+{'id': 'sid-82F357FA-7C51-44C6-9790-340D75D399B4', 'name': 'Start collection procedures', 'incoming': ['InclusiveGateway3'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-27CE4A2B-98DE-4BE4-BEBC-8F067026D079', 'name': 'ExclusiveGateway0', 'incoming': ['Examination'], 'outgoing': ['WV deadline expired', 'Process']}
+{'id': 'sid-2534EF42-BDA8-4BE6-94A7-5AA917DD2412', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Process']}
+{'id': 'sid-8133A22B-82D8-42CB-B416-D056E5F3F5EF', 'name': 'ExclusiveGateway2', 'incoming': ['Payment by:'], 'outgoing': ['InclusiveGateway3', 'ExclusiveGateway1']}
+{'id': 'sid-581241DE-4223-484D-811C-3810FAA4CD09', 'name': 'InclusiveGateway3', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Start collection procedures', 'Process']}
+{'id': 'sid-F24C97FC-5976-49A9-9532-A8D1DF40EC4E', 'name': 'WV deadline expired', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+
+Start Events:
+{'id': 'sid-2E1951DE-F64A-4696-81BB-EE7D96E96C03', 'name': 'VN in\nRegress', 'incoming': [], 'outgoing': []}
+
+End Events:
+{'id': 'sid-BE9E06DA-952E-4F74-BCD9-D1305B5E4C4C', 'name': 'Process', 'incoming': ['ExclusiveGateway0', 'Payment\nentry\nbook', 'Examination objection VN'], 'outgoing': []}

@@ -1,0 +1,11 @@
+ In a financial institution's lending process, a series of tasks and gateways work together to handle Schufa inquiries and scoring. When a Schufa inquiry is received, it triggers a sequence of events and tasks:
+
+1. The 'Schufa in question' event is initiated, which sends a request to the 'Scoring' gateway. This gateway then sends a 'Schufa request terminated' event to the 'EventBasedGateway0' and'receive deferred notification' event to itself.
+
+2. The 'StartEvent1' event is triggered, which sends a 'Send Scoring 1 to Bank' event to the 'Scoring' gateway and 'Result Scoring 1 is fixed' event to the 'EventBasedGateway1'.
+
+3. The 'Run scoring level 1' task is executed, which detects a delay and sends a 'Delay detected' event to the 'EventBasedGateway1'. This event triggers the 'Result Scoring 2 is fixed' event, which sends a 'Send Scoring 2 to Bank' event to the 'Scoring' gateway.
+
+4. The 'Run scoring level 2' task is executed, which also detects a delay and sends a 'Delay detected' event to the 'EventBasedGateway1'. This event triggers the 'Scoring query Finished' event, which completes the lending process.
+
+Overall, the system ensures that Schufa inquiries are processed efficiently, with scoring tasks and events coordinating to provide timely and accurate results.

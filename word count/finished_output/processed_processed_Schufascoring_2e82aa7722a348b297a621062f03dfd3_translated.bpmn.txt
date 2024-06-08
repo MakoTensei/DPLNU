@@ -1,0 +1,59 @@
+ In a system designed to process scoring requests and manage scoring events, the following workflow is established:
+
+
+1. **Sufa Information Required**:
+
+   - **Start Event**: A request for Sufa Information is initiated.
+
+   - **Task**: 'Sufa\nInformation\nrequired'
+
+   - **Incoming**: No incoming tasks.
+
+   - **Outgoing**: Directly sends the request to 'ExclusiveGateway0'.
+
+
+2. **Scoring Request Obtained**:
+
+   - **Start Event**: A Scoring Request is received.
+
+   - **Task**: 'Scoring\nRequest\nobtained'
+
+   - **Incoming**: No incoming tasks.
+
+   - **Outgoing**: The request is forwarded to 'Level 1 Scoring'.
+
+
+3. **Level 1 Scoring**:
+
+   - **Task**: 'Level 1 Scoring'
+
+   - **Incoming**: Receives 'Scoring\nRequest\nobtained'.
+
+   - **Outgoing**: Forwards the scoring results to 'Level 1 score\nforward'.
+
+
+4. **Level 1 Score Arrived**:
+
+   - **Task**: 'Level 1 score\narrived'
+
+   - **Incoming**: Receives 'Scoring Send request'.
+
+   - **Outgoing**: Forwards the score to 'ExclusiveGateway0'.
+
+
+5. **Level 1 Scoring Forward**:
+
+   - **Task**: 'Level 1 scoring\nforward'
+
+   - **Incoming**: Receives 'Level 1 score\narrived'.
+
+   - **Outgoing**: Forwards the score to 'EndEvent0'.
+
+
+6. **Level 2 Scoring Obtained**:
+
+   - **Task**: 'Level 2 scoring\nobtained'
+
+   - **Incoming**: Receives 'Sufa\nInformation\nrequired'.
+
+   - **Outgoing**: Forwards the score to 'ExclusiveGateway0'.

@@ -1,0 +1,19 @@
+ The process begins with the 'START\nSchufa show' event, which triggers the preparation of a delay for the Level 2 Scoring Result. This event sends an incoming message to the 'EventBasedGateway2', which in turn sends an intermediate event, 'IntermediateCatchEvent4', to the 'Preparing scoring ad' task.
+
+Simultaneously, the 'Request\nby Bank' event initiates the process by sending an incoming message to the 'Level 1 available?' gateway. This gateway, after processing the request, sends an intermediate event, 'ParallelGateway3', to the 'Send Scoring Level 1 to Bank' task.
+
+The 'Send Scoring Level 1 to Bank' task, upon receiving the intermediate event, sends an outgoing message to the 'END' event, marking the completion of the Level 1 Scoring process.
+
+Meanwhile, the 'Level 1 available?' gateway, after processing the incoming request, sends an intermediate event, 'IntermediateGateway1', to the 'Prepare Scoring L2 MSG' task.
+
+The 'Prepare Scoring L2 MSG' task, upon receiving the intermediate event, sends an outgoing message to the 'ExclusiveGateway1' task.
+
+The 'ExclusiveGateway1' task, after processing the incoming message, sends an intermediate event, 'IntermediateCatchEvent5', to the 'Preparing Delay for Level 2 Scoring Result' task.
+
+The 'Preparing Delay for Level 2 Scoring Result' task, upon receiving the intermediate event, sends an outgoing message to the 'View MSG delay\nPreparing' task.
+
+The 'View MSG delay\nPreparing' task, after processing the incoming message, sends an intermediate event, 'IntermediateCatchEvent4', to the 'Send a message' task.
+
+The 'Send a message' task, upon receiving the intermediate event, sends an outgoing message to the 'END' event, marking the completion of the Level 2 Scoring process.
+
+In summary, the process starts with the 'START\nSchufa show' event, which triggers the preparation of a delay for the Level 2 Scoring

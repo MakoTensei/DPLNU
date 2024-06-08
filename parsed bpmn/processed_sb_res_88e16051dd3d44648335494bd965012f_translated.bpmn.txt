@@ -1,0 +1,34 @@
+Tasks:
+{'id': 'sid-1AB4E3D5-50DC-4C2E-AD01-D3EBBCC42ED4', 'name': 'Select a court', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Wait till\nGuest at\nSeries is.']}
+{'id': 'sid-1BDFD891-C68B-4B06-A213-30BA5B406525', 'name': 'Add to Cart', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Payment']}
+{'id': 'sid-B14B88E4-773F-4CAC-B9F7-373A06D44624', 'name': 'Payment', 'incoming': ['Wait till\nGuest at\nSeries is.'], 'outgoing': ['Reception of the Piepers']}
+{'id': 'sid-8A63D114-0505-4B84-8AA3-0B858A0AE510', 'name': 'Pick up food', 'incoming': ['Notification by the guest'], 'outgoing': ['Food']}
+{'id': 'sid-9FBF9E9C-066E-425A-9C02-A9F9F40C2028', 'name': 'Food', 'incoming': ['Notification by the guest'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9EEA649E-47DA-4FC9-9FBE-5FBB43D39404', 'name': 'Reception of the Piepers', 'incoming': ['Wait till\nGuest at\nSeries is.'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-FB15305C-18FB-4AF2-B07D-903F87A3A9EB', 'name': 'Place of order\n', 'incoming': ['StartEvent1'], 'outgoing': ['Enter your order']}
+{'id': 'sid-EE4CE603-02B5-4A5B-A543-189D5C6D6489', 'name': 'Enter your order', 'incoming': ['StartEvent1'], 'outgoing': ['cassing']}
+{'id': 'sid-11E94306-36AC-470E-8FD0-ECCDF5251C47', 'name': 'cassing', 'incoming': ['StartEvent1'], 'outgoing': ['Adjust Pieper and handover to guest\n']}
+{'id': 'sid-F4E2CEBE-7533-46AA-96D0-0FAB822A2F1A', 'name': 'Adjust Pieper and handover to guest\n', 'incoming': ['StartEvent1'], 'outgoing': ['Info to Koch about the order']}
+{'id': 'sid-B38D53BE-83C2-4079-8126-DD0A9FCD2793', 'name': 'Info to Koch about the order', 'incoming': ['StartEvent1'], 'outgoing': ['Info from Koch,\nthat food is ready']}
+{'id': 'sid-E3DEE070-4ECF-4C64-A151-050F253C68DB', 'name': 'Triggering the Piepers for the guest\n', 'incoming': ['StartEvent1'], 'outgoing': ['5 minutes']}
+{'id': 'sid-B81F1058-F09F-4365-8FCE-36CD9845BE3D', 'name': 'Transfer of food to the guest', 'incoming': ['Info from Koch,\nthat food is ready'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-FA1A636B-1897-4AC6-8D42-327AB28D0A4A', 'name': 'Calling out the guest', 'incoming': ['StartEvent1'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-11466D2B-78A4-4693-B8B9-7816CA4695C8', 'name': 'Preparation of meal', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': ['Providing the food into the rich']}
+{'id': 'sid-885BE8E6-8CFC-4046-9AE3-45F15EEB11A7', 'name': 'Providing the food into the rich', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-6BCEA555-6BDF-4BC2-B69A-014A5C958CA1', 'name': 'EventBasedGateway0', 'incoming': ['Info from Koch,\nthat food is ready', 'EventBasedGateway0'], 'outgoing': ['EndEvent1', 'EventBasedGateway0']}
+{'id': 'sid-D28B0CC8-0824-4B96-A6BF-E236406642B4', 'name': 'Wait till\nGuest at\nSeries is.', 'incoming': ['Hunger\nfelt'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-165958D1-8E6B-46FC-AA49-20CBE3547735', 'name': 'Notification by the guest', 'incoming': ['Reception of the Piepers'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-A9FE1410-77C5-4F0B-A56F-B996F584EC86', 'name': '5 minutes', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-52EDF156-C5CE-4A00-9649-3FDEDA6F6F01', 'name': 'IntermediateCatchEvent4', 'incoming': ['Info from Koch,\nthat food is ready'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-06E94930-2F28-48D4-B3CD-BBB2E90C87AB', 'name': 'Info from Koch,\nthat food is ready', 'incoming': ['StartEvent1'], 'outgoing': ['Transfer of food to the guest']}
+{'id': 'sid-0B5FF500-24B6-479D-A5BB-0C3158780E62', 'name': 'IntermediateCatchEvent6', 'incoming': [], 'outgoing': ['Providing the food into the rich']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Add to Cart']}
+{'id': 'sid-86ED25F7-4EE9-43D1-BA55-6AEAD99BF168', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Calling out the guest']}
+
+End Events:
+{'id': 'sid-176045FC-3108-4970-9435-253444976943', 'name': 'EndEvent0', 'incoming': ['Wait till\nGuest at\nSeries is.'], 'outgoing': []}
+{'id': 'sid-E67CA8C6-9EAF-4995-9CD1-CC4BE930FADC', 'name': 'EndEvent1', 'incoming': ['5 minutes'], 'outgoing': []}

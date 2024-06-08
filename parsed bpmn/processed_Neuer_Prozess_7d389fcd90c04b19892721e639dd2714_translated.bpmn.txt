@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-901A9A92-204E-4666-9961-FBDB980DD1BD', 'name': 'Pick up scoring list', 'incoming': ['Request\nobtained'], 'outgoing': ['Scoring result\nobtained']}
+{'id': 'sid-BDE87036-5FB1-49C9-958B-A6D36B19C0F5', 'name': 'Enter scoring result', 'incoming': ['Scoring result\nobtained'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9F275D6F-2F8E-4437-A15F-DB8DF4C1BCFC', 'name': 'Informing the front', 'incoming': ['Request\nobtained'], 'outgoing': ['EventBasedGateway1']}
+{'id': 'sid-4234B392-BAC8-4B3A-B8D0-533DEE8E16AC', 'name': 'perform scoring level 1', 'incoming': ['Scoring\nOrder\nobtained'], 'outgoing': ['Scoring result sent']}
+{'id': 'sid-805481D2-73AD-4C9D-8E4F-2D7421115F2A', 'name': 'perform scoriing level 2', 'incoming': ['sid-698F9948-073D-4E6F-913A-3B3E728B03E2'], 'outgoing': ['Scoring result sent']}
+
+Gateways:
+{'id': 'sid-FAD68840-229B-48D7-BB52-13F37D63CEF3', 'name': 'successful?', 'incoming': ['Scoring\nOrder\nobtained'], 'outgoing': ['sid-CCF5AE0E-8A63-459B-A928-F404B8AB5CE5', 'Scoring result sent']}
+{'id': 'sid-9596F08D-B4E0-46BA-9FB6-1D32BAA0690F', 'name': 'EventBasedGateway1', 'incoming': ['Request\nobtained', 'EventBasedGateway1'], 'outgoing': ['EventBasedGateway1', 'EndEvent0']}
+{'id': 'sid-A238ABB7-164E-4D27-B6B0-0F07B8EE02A1', 'name': 'Scoring result\nobtained', 'incoming': ['Pick up scoring list'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6546C0F7-E8E0-4066-81B5-3402CEFEB86B', 'name': 'Delay\nReport\nobtained', 'incoming': ['Request\nobtained'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-F36924E1-35E4-4096-8FC7-505D8D652B86', 'name': 'Request\nobtained', 'incoming': [], 'outgoing': ['Informing the front']}
+{'id': 'sid-21708812-FF46-404A-BD3A-7B7A2CEAC631', 'name': 'Scoring\nOrder\nobtained', 'incoming': [], 'outgoing': ['successful?']}
+
+End Events:
+{'id': 'sid-89C1D7D1-B416-471A-9C45-D3171C2DBD54', 'name': 'EndEvent0', 'incoming': ['Delay\nReport\nobtained'], 'outgoing': []}
+{'id': 'sid-7FBD4453-341F-41EE-B8A4-89EDA87F2449', 'name': 'Scoring result sent', 'incoming': ['perform scoring level 1', 'perform scoriing level 2'], 'outgoing': []}

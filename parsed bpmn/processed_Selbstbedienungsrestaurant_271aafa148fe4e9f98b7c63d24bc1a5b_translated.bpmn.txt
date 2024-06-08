@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-5168F0E2-EC8F-43A8-9581-1D0C40BB2E50', 'name': 'Select a court', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Add your order']}
+{'id': 'sid-F7CD29C9-00F1-4578-9597-C059094EA7B2', 'name': 'Add your order', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Order payment']}
+{'id': 'sid-5791F193-B5AB-410D-AF0B-9DC14073ECF7', 'name': 'Order payment', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-D48FAA60-A517-4F70-9567-193C4CFB278B', 'name': 'Pick up Pieper', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Pieper triggered\nor called out']}
+{'id': 'sid-A17A4B6F-E2A6-4AA5-9F13-CFD9D9BCF41F', 'name': 'Pick up your order', 'incoming': ['Return Pieper'], 'outgoing': ['Eat meal']}
+{'id': 'sid-4CAC2ECD-BDD4-4843-9859-25B62E94B062', 'name': 'Eat meal', 'incoming': ['Return Pieper'], 'outgoing': ['Famine']}
+{'id': 'sid-17C5BD9D-4483-498D-86E7-18B42F11E2C9', 'name': 'Return Pieper', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Famine']}
+{'id': 'sid-B6E35873-F810-4950-BCDD-2093C4E7ECCA', 'name': 'Enter your order', 'incoming': ['Order\nReport'], 'outgoing': ['Purchase order']}
+{'id': 'sid-18CFA058-5F8F-4731-8C35-D50055BCFB1B', 'name': 'Purchase order', 'incoming': ['Order\nReport'], 'outgoing': ['Adjust Pieper']}
+{'id': 'sid-E4D99E2D-2757-469A-A0C2-A0D63EF1AC40', 'name': 'Adjust Pieper', 'incoming': ['Order\nReport'], 'outgoing': ['Pieper over']}
+{'id': 'sid-C8AFD6B8-94ED-4F4D-8BAE-87DF1CD5AA3F', 'name': 'Pieper over', 'incoming': ['Order\nReport'], 'outgoing': ['forward order']}
+{'id': 'sid-9D61F3FD-08F6-4D8A-8B17-9C77AA7D4AC1', 'name': 'forward order', 'incoming': ['Order\nReport'], 'outgoing': ['Accept order']}
+{'id': 'sid-79B86471-1DCF-4729-B28D-CBD5A23B94A2', 'name': 'Accept order', 'incoming': ['Order\nReport'], 'outgoing': ['Trigger Pieper']}
+{'id': 'sid-63A6477B-B0A6-4E72-B617-89BE2CF48C6A', 'name': 'Trigger Pieper', 'incoming': ['Order\nReport'], 'outgoing': ['5 minutes']}
+{'id': 'sid-7C0844CF-4625-4918-BC6E-553B87F475BB', 'name': 'Order issued', 'incoming': ['Order\nReport'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-6B1E8E73-8BD5-44D9-9D1A-7F22ADE031C6', 'name': 'Retrieve guest', 'incoming': ['5 minutes'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-20A3B9A2-52D5-4140-9A99-C519B9592E9F', 'name': 'Pick up Pieper', 'incoming': ['Food is picked up'], 'outgoing': ['Order\noutput']}
+{'id': 'sid-983BF6EB-A630-483D-9CB3-9CE8D2BE7ED8', 'name': 'Preparation of meal', 'incoming': ['Order\nReport'], 'outgoing': ['providing meal']}
+{'id': 'sid-40578463-0FB5-4ACC-94CE-F584D0412D17', 'name': 'providing meal', 'incoming': ['Order\nReport'], 'outgoing': ['Prepared meal']}
+
+Gateways:
+{'id': 'sid-F4B5BD38-AD01-4DCC-B3DC-13D9612043F8', 'name': 'EventBasedGateway0', 'incoming': ['Order\nReport', '5 minutes'], 'outgoing': ['EventBasedGateway0', 'Order\noutput']}
+{'id': 'sid-2524CE66-7E42-4B37-8F4D-5EC19835A1AA', 'name': 'Pieper triggered\nor called out', 'incoming': ['Hunger\nNot applicable'], 'outgoing': ['Famine']}
+{'id': 'sid-2C60EFF8-49E1-4381-B222-61291EE2D3F7', 'name': '5 minutes', 'incoming': ['Trigger Pieper'], 'outgoing': ['Order\noutput']}
+{'id': 'sid-ACF77A33-E262-45D6-A764-3669CBE89D62', 'name': 'Food is picked up', 'incoming': ['Order\nReport'], 'outgoing': ['Order\noutput']}
+
+Start Events:
+{'id': 'sid-755EC7FE-66F0-438F-ADB8-3382B388652D', 'name': 'Hunger\nNot applicable', 'incoming': [], 'outgoing': ['Return Pieper']}
+{'id': 'sid-FEDC0B79-C1C4-4B51-AB49-E3C58FE76C99', 'name': 'Order\nReport', 'incoming': [], 'outgoing': ['Order issued']}
+{'id': 'sid-781C726C-CC5F-4C74-9A22-D69006B4981A', 'name': 'Order\nReport', 'incoming': [], 'outgoing': ['providing meal']}
+
+End Events:
+{'id': 'sid-95599348-3A07-462C-B8FC-C7EABADD86B5', 'name': 'Famine', 'incoming': ['Pieper triggered\nor called out'], 'outgoing': []}
+{'id': 'sid-F7E431D4-FFD5-4DD9-AB21-5FDC7D76C922', 'name': 'Order\noutput', 'incoming': ['5 minutes'], 'outgoing': []}
+{'id': 'sid-4BFDFC46-CF46-4974-81BD-EF045BEC79A3', 'name': 'Prepared meal', 'incoming': ['providing meal'], 'outgoing': []}

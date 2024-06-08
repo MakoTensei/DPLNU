@@ -1,0 +1,7 @@
+ In the scoring process, a request for scoring is obtained, which triggers the Level 1 Scoring task. This task, identified by the ID'sid-1E76D075-38EF-489A-98F8-F05869EE712A', is initiated when the 'Scoring request\nobtained' event occurs. The Level 1 Scoring task then proceeds to communicate with the Level 1 result gateway, identified by the ID'sid-2BAFD041-5185-485C-8BC4-EFACCC8659B0'. This gateway checks if the Level 1 scoring was successful by receiving the 'Level 1\nsuccessful?' event. If successful, it forwards the Level 1 scoring to the Level 2 Scoring task, identified by the ID'sid-B071F746-D839-440F-8BE3-376C2793D65B', and also sends an 'End of query' event.
+
+The Level 2 Scoring task, upon receiving the Level 1 scoring, then communicates with the Level 2 scoring gateway, identified by the ID'sid-D0C8C8F3-14C6-4DA7-AF1A-C4ABA3A8D5A0'. This gateway, in turn, sends the Level 2 scoring to the Level-2 scoring task and also sends an 'End of query' event.
+
+If the Level 1 scoring was not successful, the Level 1 result gateway sends the Level 1 scoring to the Level 2 scoring gateway, identified by the ID'sid-5F05CEC7-673A-49AF-B8E5-0A2C2F99DE96'. This gateway then sends the Level 2 scoring to the Level 2 scoring task and also sends an 'End of query' event.
+
+In both cases, the Level 2 scoring task sends the Level 2 scoring to the Level 2 scoring gateway, identified by the ID'sid-89CD16F8-77C7-476

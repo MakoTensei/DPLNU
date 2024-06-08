@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-2D7F945B-BCF6-449F-8097-17A9F4BD2E76', 'name': 'Check the case', 'incoming': ['Possibility of regress'], 'outgoing': ['Regress possible?']}
+{'id': 'sid-FA295DA9-9945-4471-8BDA-70D2FF5771F0', 'name': 'setze Status on Reimbursement', 'incoming': ['sid-44845550-CB02-4F84-8D6F-D89500237D5A'], 'outgoing': ['sid-7130F347-336A-4D42-A52A-A1A548532BBE']}
+{'id': 'sid-51BE8122-B586-4C7D-B314-38C2064C77A3', 'name': 'Close', 'incoming': ['Possibility of regress'], 'outgoing': ['no regression']}
+{'id': 'sid-559F11A8-8A37-49F0-95CD-0EBF592E238F', 'name': 'Book the entrance', 'incoming': ['Money received'], 'outgoing': ['Close']}
+{'id': 'sid-0F7A6C7A-DF21-41BA-AF99-6E6C61151450', 'name': 'Close', 'incoming': ['Money received'], 'outgoing': ['Entrance']}
+{'id': 'sid-526809E9-C973-4A61-A9A5-8615B50FF812', 'name': 'Proceedings', 'incoming': ['VN contradicts'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-BAA3E890-1A11-4454-B77A-44C17AFDF795', 'name': 'Debt collection service provider', 'incoming': ['EventBasedGateway3'], 'outgoing': ['InkassoDL notify']}
+
+Gateways:
+{'id': 'sid-171F563B-3705-4035-B5D5-79E9CC140AC3', 'name': 'Regress possible?', 'incoming': ['Possibility of regress'], 'outgoing': ['sid-29205F79-5B21-4E31-8A9B-3400647D79FB', 'no regression']}
+{'id': 'sid-FA44BC52-E22D-48F0-A5DA-843F7D57CC9D', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Not justified', 'ExclusiveGateway2']}
+{'id': 'sid-1DF4EE59-53BC-4EE4-A480-84359205E734', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'EventBasedGateway3'], 'outgoing': ['InkassoDL notify']}
+{'id': 'sid-D5F664D4-57B4-4236-A05D-797450A78565', 'name': 'EventBasedGateway3', 'incoming': ['sid-510E6CA8-2E0D-4FFA-AC16-8B52C540C688'], 'outgoing': ['Entrance', 'Objection justified?', 'Debt collection service provider']}
+{'id': 'sid-69A97BF6-94E6-42EF-8BE6-2F707D921E65', 'name': 'Money received', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Entrance']}
+{'id': 'sid-6D8A2624-9041-4737-B35D-516E16AF0543', 'name': 'VN contradicts', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Not justified']}
+{'id': 'sid-5268D0B2-85C7-4079-8D1F-22D2670E7B91', 'name': 'Reimbursement period expired', 'incoming': ['EventBasedGateway3'], 'outgoing': ['InkassoDL notify']}
+
+Start Events:
+{'id': 'sid-544DEB34-1286-4FEA-8CD2-ACD743F0EDE8', 'name': 'Possibility of regress', 'incoming': [], 'outgoing': ['Close']}
+
+End Events:
+{'id': 'sid-9DC27392-6E1A-48A6-A2B8-D4C190D15414', 'name': 'InkassoDL notify', 'incoming': ['Reimbursement period expired'], 'outgoing': []}
+{'id': 'sid-0B586051-5FB7-4E52-AB04-5CA11EBC6831', 'name': 'no regression', 'incoming': ['Regress possible?'], 'outgoing': []}
+{'id': 'sid-63C6E4F2-3F89-4444-A9F2-C7B896937F1A', 'name': 'Entrance', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-AE6205C8-7726-4515-8136-EF4D4F57BEC2', 'name': 'Not justified', 'incoming': ['VN contradicts'], 'outgoing': []}

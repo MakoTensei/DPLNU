@@ -1,0 +1,7 @@
+ When a scoring requirement is triggered, the system initiates a sequence of tasks to determine the appropriate scoring level. The process begins with the 'Scoring\nRequired' event, which sends a request to the 'ExclusiveGateway0'. This gateway then directs the request to 'Determine Level 1', which assesses the initial scoring criteria and reports back with 'Level 1 reported'.
+
+Simultaneously, 'Determine Level 2' is also activated by the 'Scoring\nRequired' event, independently evaluating more complex scoring criteria. Upon completion, 'Level 2 reported' is generated and sent to 'ExclusiveGateway0'.
+
+The 'ExclusiveGateway0' then evaluates the results from both 'Level 1' and 'Level 2'. If 'Level 2' is sufficient, the system proceeds to 'Sufficient?' which confirms the adequacy of the scoring and reports back with'sid-78ED63E6-F19E-4BD2-B00A-FE8FFCD93FB7' and 'Level 1 reported'.
+
+Finally, the 'Answer' task is triggered, which consolidates the results and sends a comprehensive report back to the frontend, completing the process with the 'Reported to Frontend' event.

@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-A8E541FE-670F-4FFA-A98A-7328FFEDA3C8', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['sid-3CA05F9E-61E6-43D7-9878-3010C80A4915']}
+{'id': 'sid-10E45E2E-03EA-40A1-A369-48E1F73E1742', 'name': 'Clear delivery route', 'incoming': ['Start'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-313AC2E1-AFDC-4A80-8B91-7F625A37A0A9', 'name': 'Send a request', 'incoming': ['ParallelGateway4'], 'outgoing': ['Compare offers and choose the cheapest offer']}
+{'id': 'sid-4AEBAD3F-C940-4616-9FB9-1FABCC1F31B6', 'name': 'Compare offers and choose the cheapest offer', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Appoint forwarding']}
+{'id': 'sid-27D187DD-0076-4B36-8454-FCAA2FEAFCCF', 'name': 'Appoint forwarding', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-2A971962-5728-4066-BC9A-43F89B2716D9', 'name': 'Filling the package note', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-C10B5D25-6EEF-4F5A-9505-CB58577375F3', 'name': 'Securing transport insurance', 'incoming': ['sid-C63E4AD3-6975-4AC2-9ABF-1E81074257EA'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-4EA37488-87E0-4EAF-9080-28E365B79DA3', 'name': 'Finish goods dispatch papers', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['sid-288B84CA-03A9-4E30-9D37-98500535D6BA']}
+
+Gateways:
+{'id': 'sid-2E352E9B-BED8-4D2B-B18B-733165C90183', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-C603527B-CD48-4864-A9D3-87D9922979D9', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0', 'ExclusiveGateway0'], 'outgoing': ['sid-9FADCA4F-E0B8-4B67-90DE-9AB5327779EE']}
+{'id': 'sid-8FC2286B-F8B0-40D6-8DC8-3CE0000550EF', 'name': 'ExclusiveGateway2', 'incoming': ['Securing transport insurance'], 'outgoing': ['Finish goods dispatch papers', 'sid-413D62D1-507E-41BD-A8CB-5FFDFDCA3FE8']}
+{'id': 'sid-D6ACBC95-237E-4B51-91F7-397DFF28FEDA', 'name': 'InclusiveGateway3', 'incoming': ['sid-6C08A71E-2661-4224-BF7B-4F9CC4A89A71', 'sid-24D5EB61-CE62-4A25-8C42-2AFC734974BB'], 'outgoing': ['Goods ready for collection']}
+{'id': 'sid-845CE086-1908-49C6-9F31-B956576B80D0', 'name': 'ParallelGateway4', 'incoming': ['Start'], 'outgoing': ['Send a request', 'Packaging goods']}
+
+Start Events:
+{'id': 'sid-23C60F9D-072C-4B4D-9E86-890B1E0681D7', 'name': 'Start', 'incoming': [], 'outgoing': ['Clear delivery route']}
+
+End Events:
+{'id': 'sid-DEA359F6-C5D9-49DE-9DE7-1F11AC994777', 'name': 'Goods ready for collection', 'incoming': ['InclusiveGateway3'], 'outgoing': []}

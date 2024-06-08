@@ -1,0 +1,41 @@
+Tasks:
+{'id': 'sid-028B226F-A5ED-493B-BBB7-08CC90A510BD', 'name': 'Search court', 'incoming': ['Guest enters\nReastaurant'], 'outgoing': ['Guest\nservice']}
+{'id': 'sid-C4427569-CCD8-4F55-99C3-A76A1542CF7D', 'name': 'Add your order', 'incoming': ['Guest enters\nReastaurant'], 'outgoing': ['sid-6CC19D37-E4D0-41E5-A414-059112143D59']}
+{'id': 'sid-77979D8D-C3F6-4810-8018-1B991682665C', 'name': 'Payment', 'incoming': ['sid-EFD1592F-DB7C-4A69-97B0-79F0B5912FDF'], 'outgoing': ['sid-31643D30-64CF-4253-B04A-C70A2AE177EC']}
+{'id': 'sid-C2F20B2F-2837-4210-9720-EC253F2C9062', 'name': 'Pick up Pieper', 'incoming': ['sid-3D050D57-55A0-48F8-8EDF-7E53F0C71440'], 'outgoing': ['Piepser\nReport\nand']}
+{'id': 'sid-24A5B265-9A70-4AF1-8107-C7FD0B5D6FBA', 'name': 'Go to Essen', 'incoming': ['Piepser\nReport\nand'], 'outgoing': ['sid-BD4A426C-E5AC-4497-8FF1-F37EE24EDD55']}
+{'id': 'sid-A85F3AF2-154B-42E3-822E-A5930BA02844', 'name': 'Take food', 'incoming': ['sid-99D2869A-9BAB-4C15-9BFC-4BFC2A4509E3'], 'outgoing': ['Go back to Essenplatz']}
+{'id': 'sid-F08E1F94-E4FD-4D55-B321-ABC66A8EA6F3', 'name': 'Go back to Essenplatz', 'incoming': ['Take food'], 'outgoing': ['Eat food']}
+{'id': 'sid-9DCF76D6-9B5F-487C-BE31-97B82A47F995', 'name': 'Eat food', 'incoming': ['Go back to Essenplatz'], 'outgoing': ['Famine']}
+{'id': 'sid-86A8DCBD-DB8F-4651-B108-BE9B5FA54182', 'name': 'Input in cash', 'incoming': ['Order\nobtained'], 'outgoing': ['Order\ncompleted']}
+{'id': 'sid-CBB99B5F-0043-435E-8E52-61918E1A0C0C', 'name': 'Cash in', 'incoming': ['Order\nobtained'], 'outgoing': ['sid-D5B1768F-DD5D-407A-A80B-1E13FE38E54C']}
+{'id': 'sid-8961009A-EE5D-4E43-ADCE-CE4B3FDCDE4D', 'name': 'Adjust Pieper', 'incoming': ['sid-CD84C4CA-7438-4654-AA72-5DC11D529478'], 'outgoing': ['ParallelGateway1']}
+{'id': 'sid-D4CE622C-6582-4F1C-86C0-A744FAE53E7E', 'name': 'Pieper transferred to customer', 'incoming': ['ParallelGateway1'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-040B95AB-8D01-4789-A65F-AB5B5FB97955', 'name': 'instructing customers', 'incoming': ['ParallelGateway1'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-9C96F21E-A23A-4AD1-9037-4E2FB70F9411', 'name': 'inform Koch about ordered meal', 'incoming': ['ParallelGateway2'], 'outgoing': ['Inormative\nCook preserved']}
+{'id': 'sid-B81AF2C9-D84F-449F-B42E-2F5D296B72A1', 'name': 'Trigger beeps', 'incoming': ['Inormative\nCook preserved'], 'outgoing': ['5 min.']}
+{'id': 'sid-C9803E9E-7785-4EF7-881A-158CD5741CAB', 'name': 'Deliver food to guest', 'incoming': ['sid-6705B36D-E4B7-4E29-949B-B3455049A830'], 'outgoing': ['Order\ncompleted']}
+{'id': 'sid-6303890E-A5F2-4F75-94AC-EC28EB8EED92', 'name': 'Calling out the guest', 'incoming': ['5 min.'], 'outgoing': ['sid-40AF215A-FF95-4BF2-951E-7BFFE4A48F7E']}
+{'id': 'sid-8F4DE6AD-9538-4A55-BA8F-087DE07C6589', 'name': 'Preparation\nMeals', 'incoming': ['Meals\nOrder'], 'outgoing': ['sid-B543F5BE-1A2C-4194-854D-5075253F883F']}
+{'id': 'sid-C3711F8D-C90E-4A0E-AE1F-915606309CA3', 'name': 'Putting meal in vain', 'incoming': ['sid-DEC85B0A-7A46-45BD-8D7F-1885604E741B'], 'outgoing': ['sid-401BA4E2-A960-4E47-BC31-487B5D14EA05']}
+{'id': 'sid-117A88D0-D5D5-4B16-9644-C57B88BF455D', 'name': 'Information on frames', 'incoming': ['sid-D2479234-45B5-4AC9-BA16-7FD4862C5513'], 'outgoing': ['Meals\nPrepared']}
+
+Gateways:
+{'id': 'sid-6BDDD657-B6B1-4BE8-A8CE-7DFB32D40522', 'name': 'EventBasedGateway0', 'incoming': ['ParallelGateway1'], 'outgoing': ['sid-418BBCAE-4806-45AD-9D25-B347DB7A229E', '5 min.']}
+{'id': 'sid-69F0EAF9-CECA-41FE-A1A1-9852B9AEB9EA', 'name': 'ParallelGateway1', 'incoming': ['Adjust Pieper'], 'outgoing': ['Inormative\nCook preserved', 'EventBasedGateway0']}
+{'id': 'sid-559D3AD4-3593-460C-9186-2DE673E65634', 'name': 'ParallelGateway2', 'incoming': ['ParallelGateway1', 'ParallelGateway1'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-A7B2D72C-1669-46E8-BDF3-88CD39DB5E76', 'name': 'Guest\nservice', 'incoming': ['Guest enters\nReastaurant'], 'outgoing': ['Add your order']}
+{'id': 'sid-8E825701-D51D-4B39-AB31-5E5F1DAC0EA7', 'name': 'Piepser\nReport\nand', 'incoming': ['Pick up Pieper'], 'outgoing': ['Go to Essen']}
+{'id': 'sid-D0E519D3-EF23-4085-8A1A-4C1315AF2523', 'name': '5 min.', 'incoming': ['Trigger beeps'], 'outgoing': ['Calling out the guest']}
+{'id': 'sid-778A256D-77E5-4D98-A252-7EF73D7CFD29', 'name': 'Inormative\nCook preserved', 'incoming': ['ParallelGateway1'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-65AF6379-3B14-4812-A700-F1B70CFCF533', 'name': 'Order\ncompleted', 'incoming': ['Order\nobtained'], 'outgoing': ['Cash in']}
+
+Start Events:
+{'id': 'sid-C8193BD1-06EA-4AF1-99C6-6A5CD4091E36', 'name': 'Guest enters\nReastaurant', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-907E3306-DD82-492C-9BC7-C293870F5B13', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['Cash in']}
+{'id': 'sid-033B6EB9-2448-417E-AB37-72CF75EAD36F', 'name': 'Meals\nOrder', 'incoming': [], 'outgoing': ['Preparation\nMeals']}
+
+End Events:
+{'id': 'sid-FD7A1CBB-34C8-4159-8290-35D3AB60CFD1', 'name': 'Famine', 'incoming': ['Eat food'], 'outgoing': []}
+{'id': 'sid-BABADB6B-A193-44D5-8D6F-E7709F55D8B6', 'name': 'Order\ncompleted', 'incoming': ['Deliver food to guest'], 'outgoing': []}
+{'id': 'sid-7168C8F8-D868-4808-B77C-7B935BAB321A', 'name': 'Meals\nPrepared', 'incoming': ['Information on frames'], 'outgoing': []}

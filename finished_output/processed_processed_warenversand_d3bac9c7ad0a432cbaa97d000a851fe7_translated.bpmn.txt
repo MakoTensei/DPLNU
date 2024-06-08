@@ -1,0 +1,18 @@
+ To clarify the transport process and ensure the correct transfer of goods without involving the specified expedition, we have the following flow of events:
+
+1. An order of goods is sent, initiating the process.
+
+2. The 'Order of goods sent' event triggers the 'Selection' event, where the goods are selected for shipping.
+
+3. The 'Selection' event leads to the 'Filling the postcard' event, which determines if insurance is required for the shipment.
+
+4. If insurance is required, the 'Is insurance required?' event is triggered, and the goods are sent via post.
+
+5. The 'Send goods via post' event connects to the 'ExclusiveGateway3', which is responsible for handling the goods' insurance and shipping details.
+
+6. The 'ExclusiveGateway3' then forwards the goods to the 'ParallelGateway7', which is the final destination for the delivery.
+
+7. Upon arrival at the destination, the 'Delivery to the premises' event occurs, marking the end of the transport process.
+
+
+In this scenario, the 'ParallelGateway4' is not involved in the transfer of goods, as it is not directly connected to the 'Sopediteuer 1' expedition. Instead, the goods are routed through the 'ExclusiveGateway3' to ensure proper handling and delivery.

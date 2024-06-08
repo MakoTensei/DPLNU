@@ -1,0 +1,33 @@
+Tasks:
+{'id': 'sid-B1356D5E-58B1-4ACD-866C-DDCFFCFDF37E', 'name': 'Goods are to be shipped', 'incoming': ['ParallelGateway8'], 'outgoing': ['ParallelGateway9']}
+{'id': 'sid-6B3A2DF4-6A87-4224-9F7E-E0F598E69011', 'name': 'Postal mail', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-771AD823-2D58-40A6-B3E0-E26756A76992', 'name': 'Filling the package note', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-51109F1B-1BF3-4AB4-AD76-096497A27933', 'name': 'Insurance necessary?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-C614F117-33C7-45F7-AA93-7447FE679D43', 'name': 'Complete insurance', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-12626943-1837-4158-8AC9-809855047FE4', 'name': 'Spediteur 3', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-F0496FB6-66A3-4517-84AD-179AE37C55AF', 'name': 'Check shipping mode', 'incoming': ['Goods should be shipped'], 'outgoing': ['ParallelGateway9']}
+{'id': 'sid-A56A622B-546A-4BF2-B80F-83E28351A1FE', 'name': 'Pick up offers', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-A0AD4674-1674-44CA-AF11-2F5D004A08A8', 'name': 'Spediteur 1', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-7D48039F-95BA-4B9B-9CD6-26F5C19230FE', 'name': 'Spediteur 2', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-47E9D72A-1292-4704-A08A-31827626320A', 'name': 'Choose the cheapest offer', 'incoming': ['ParallelGateway7'], 'outgoing': ['Specialist']}
+{'id': 'sid-64DFC018-778E-4334-B46F-66F242689E11', 'name': 'Specialist', 'incoming': ['ParallelGateway7'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-670629C8-97DE-4A72-8CE2-823E28AB1824', 'name': 'Check quantity', 'incoming': ['Goods should be shipped'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-14CEC481-4AF6-4810-AC90-E437625BBE86', 'name': 'Delivering goods', 'incoming': ['ParallelGateway9'], 'outgoing': ['ready for shipment']}
+
+Gateways:
+{'id': 'sid-0E61EB3B-047D-4A96-AB72-5032EF5908AC', 'name': 'ExclusiveGateway0', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['ParallelGateway9', 'ExclusiveGateway1']}
+{'id': 'sid-1DF8088C-460F-412B-B89B-EDDF3522C186', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0', 'Insurance necessary?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-97B591AC-9F27-4748-8595-C9173E2ABEE1', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway8'], 'outgoing': ['ExclusiveGateway3', 'ParallelGateway9']}
+{'id': 'sid-C702F3DF-99D4-4F1B-8E1B-FD9252243158', 'name': 'ExclusiveGateway3', 'incoming': ['Goods should be shipped', 'Insurance necessary?'], 'outgoing': ['ParallelGateway9']}
+{'id': 'sid-EA298978-74FD-4241-8A47-9E7EDB333BA8', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway8'], 'outgoing': ['ParallelGateway5', 'ParallelGateway5']}
+{'id': 'sid-A4BD6088-9A18-4F37-AF34-191FEC164DFB', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway8', 'ParallelGateway4'], 'outgoing': ['ParallelGateway9']}
+{'id': 'sid-96E935EE-AA96-4FA0-985F-665B009CCC3F', 'name': 'ParallelGateway6', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['ParallelGateway7', 'ParallelGateway7', 'ParallelGateway7']}
+{'id': 'sid-069A4490-72FD-4D02-88D1-B158188D0C7E', 'name': 'ParallelGateway7', 'incoming': ['ExclusiveGateway2', 'ParallelGateway6', 'Pick up offers'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-55165804-2E8A-4E66-973B-9FC49EDEA1C8', 'name': 'ParallelGateway8', 'incoming': ['Goods should be shipped'], 'outgoing': ['ParallelGateway5', 'ParallelGateway9']}
+{'id': 'sid-3A0169A7-CF01-44D7-9ACE-CE02AF1AA175', 'name': 'ParallelGateway9', 'incoming': ['ExclusiveGateway2', 'Check shipping mode'], 'outgoing': ['ready for shipment']}
+
+Start Events:
+{'id': 'sid-5BB439B7-F845-4E6E-A655-48EE5DDD7B35', 'name': 'Goods should be shipped', 'incoming': [], 'outgoing': ['ExclusiveGateway3']}
+
+End Events:
+{'id': 'sid-C4EC2C42-8DA6-48F8-A258-261C41A2AA59', 'name': 'ready for shipment', 'incoming': ['ParallelGateway9'], 'outgoing': []}

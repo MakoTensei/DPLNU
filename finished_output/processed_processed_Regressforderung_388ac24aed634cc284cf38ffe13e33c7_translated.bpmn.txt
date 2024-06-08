@@ -1,0 +1,17 @@
+ In the process of handling VN regress possibilities, the following sequence of tasks and gateways are involved:
+
+1. When 'VN regress possible' is triggered, it initiates the 'Check the receipt of funds' task. This task is connected to the 'Regress is entitled' gateway, which has outgoing connections to 'Money received' and 'Closed'.
+
+2. If the 'Check the receipt of funds' task is successful, it proceeds to the 'Book money receipt' task. This task is connected to the 'InclusiveGateway4' gateway, which has outgoing connections to 'Close' and 'VN contradicts'.
+
+3. The 'Book money receipt' task, upon completion, triggers the 'Close' task. This task is connected to the 'Proceedings' gateway, which has outgoing connections to 'Closed'.
+
+4. The 'Regress is entitled' gateway, when triggered, can lead to two outcomes: 'Money received' and 'Closed'. The 'Money received' task is connected to the 'VN payment request' gateway, which has outgoing connections to 'Payment on request to VN'.
+
+5. The 'VN payment request' task, upon completion, triggers the 'VN contradicts' task. This task is connected to the 'InclusiveGateway4' gateway, which has outgoing connections to 'Default period expired' and 'Payment on request to VN'.
+
+6. The 'Default period expired' task, when triggered, leads to the 'Money received' task. This task is connected to the 'VN regress possible' gateway, which has outgoing connections to 'Check the receipt of funds'.
+
+7. The 'Closed' task, when triggered, is connected to the 'Proceedings' gateway, which has outgoing connections to 'Close'.
+
+In summary, the process starts with the 'VN regress possible' event, which triggers the 'Check the receipt of funds' task. This task is connected to the 'Regress is entitled' gateway, which can lead to 'Money received' or 'Closed'. The 'Book money receipt' task is triggered after the 'Check the receipt of funds' task and is connected to the 'In

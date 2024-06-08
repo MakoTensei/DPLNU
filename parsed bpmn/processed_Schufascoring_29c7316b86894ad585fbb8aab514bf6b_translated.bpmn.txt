@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-F41FE959-0712-478E-808D-5AB987D9EB72', 'name': 'Scoring request', 'incoming': ['Schufascoring\nrequired'], 'outgoing': ['Result']}
+{'id': 'sid-A0C08DA4-6B94-4DF6-A224-B2C44626E2D1', 'name': 'Follow-up', 'incoming': ['Result'], 'outgoing': ['Scoring\ndispatched']}
+{'id': 'sid-505A0EA4-E1C2-494B-A0E6-B2A8895B8926', 'name': 'Share delay', 'incoming': ['Schufascoring\nrequired'], 'outgoing': ['Result']}
+{'id': 'sid-6D9E3B13-DCAE-4F73-AA5F-578E90F45489', 'name': 'perform scoring (level 1)', 'incoming': ['Scoring\nrequired'], 'outgoing': ['Result\nfound?']}
+{'id': 'sid-E3FDEA58-384F-4236-9BCA-5D0321407B9C', 'name': 'Follow-up', 'incoming': ['Scoring\nrequired'], 'outgoing': ['Scoring\ndispatched']}
+{'id': 'sid-C484206F-68E4-4DC7-B7FE-1E1F15C3CD59', 'name': 'Further scoring (level 2)', 'incoming': ['Result\nfound?'], 'outgoing': ['Follow-up']}
+{'id': 'sid-73BDD319-CBC0-4C3E-B156-C00C0286A876', 'name': 'Follow-up', 'incoming': ['Result\nfound?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-1E9E8C76-0EA6-4B4F-BE90-2C92376F7C3C', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'Schufascoring\nrequired'], 'outgoing': ['Scoring\ndispatched']}
+{'id': 'sid-3AAB3720-A225-4C27-A3BC-0EB16CC4AA11', 'name': 'Result\nfound?', 'incoming': ['Scoring\nrequired'], 'outgoing': ['Scoring\ndispatched', 'Follow-up']}
+{'id': 'sid-3F5355D8-B5FD-48A0-B4E3-259AAD9F2885', 'name': 'ExclusiveGateway2', 'incoming': ['Result', 'Scoring\nrequired'], 'outgoing': ['Scoring\ndispatched']}
+{'id': 'sid-1A9AB893-B191-49C2-B445-010170607690', 'name': 'EventBasedGateway3', 'incoming': ['Schufascoring\nrequired'], 'outgoing': ['Delay', 'Scoring\ndispatched']}
+{'id': 'sid-9D7E5E1D-54A4-42E0-A3A2-CCB1401D459D', 'name': 'Result', 'incoming': ['Scoring request'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-27E73A9E-B9EB-4B2B-AC92-4B0099830141', 'name': 'Delay', 'incoming': ['Schufascoring\nrequired'], 'outgoing': ['Share delay']}
+{'id': 'sid-074EB897-E28C-4854-80D6-674AD02C7BA5', 'name': 'Result', 'incoming': ['Schufascoring\nrequired'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-F12A5B6E-E735-457D-8D45-66063F170841', 'name': 'Schufascoring\nrequired', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-DC10ED89-50AE-46B7-A668-01B4946B0575', 'name': 'Scoring\nrequired', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-7DBE6CFF-88E9-4D8F-A01D-313F385C2D71', 'name': 'Scoring\ndispatched', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-603F7721-1531-4736-B645-0E5E38946552', 'name': 'Scoring\ndispatched', 'incoming': ['Result\nfound?'], 'outgoing': []}

@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-517C81DD-9665-4AB6-BE67-C18B971D5C1B', 'name': 'Check order quantity', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-8524FFCA-4BE6-4158-9277-8E6F9F937BB1', 'name': 'Pick up offers', 'incoming': ['StartEvent0'], 'outgoing': ['Select your offer']}
+{'id': 'sid-CC72E6C9-C3FD-4126-A09F-6D64D5AA0446', 'name': 'Filling the package note', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-67EEF0D4-DE18-4DF7-AD62-84B866DA1AFA', 'name': 'Create a special shipping order', 'incoming': ['Select your offer'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C5398BA9-C09F-402B-B3CE-7A5CA0F09FF4', 'name': 'Select your offer', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-D1BEB35E-4DF8-40BA-99BC-6471452E08A3', 'name': 'Insurance close\n', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-775FFF4E-09C7-4330-8BF9-6E2E85D2B3E1', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-32C1D70D-731A-4FD4-B70B-DF3E9A819C5E', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-2CC3190B-B328-41BE-86F3-13C94132E655', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4', 'ExclusiveGateway2']}
+{'id': 'sid-CE02FB1F-7037-464C-B3BD-F005934DA871', 'name': 'Insurance\nnecessary?', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2', 'ParallelGateway4']}
+{'id': 'sid-E3EECA38-9181-4AD3-A619-DBF85F7CF72C', 'name': 'ExclusiveGateway2', 'incoming': ['Filling the package note', 'ExclusiveGateway0', 'Insurance\nnecessary?'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-74502564-86B9-4A1D-BEEA-D827BCC40756', 'name': 'ParallelGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['Pick up offers', 'ParallelGateway4']}
+{'id': 'sid-3852877C-3640-4473-8994-E7BFFE5C05E5', 'name': 'ParallelGateway4', 'incoming': ['ExclusiveGateway0', 'ParallelGateway3'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-94428EB3-5524-450F-8640-9927D86053D6', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Pick up offers']}
+
+End Events:
+{'id': 'sid-D5BD58DF-A7F2-4F87-BC33-86C654B375FA', 'name': 'EndEvent0', 'incoming': ['ParallelGateway4'], 'outgoing': []}

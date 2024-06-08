@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-738C9C77-3CB1-4FFA-876D-6FCFBD5631B7', 'name': 'Start the process', 'incoming': ['StartEvent0'], 'outgoing': ['Create a scoring request']}
+{'id': 'sid-417411A5-E227-49B1-820D-772128C6378D', 'name': 'Create a scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['Information\nobtained']}
+{'id': 'sid-AE467D3B-1DD6-456D-8163-74E0FE69FD06', 'name': 'forward scoring information', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring result available']}
+{'id': 'sid-3417A5B6-EF63-4D46-81E4-3232DD6ACFBD', 'name': 'Report delay', 'incoming': ['Result or\nDelay?'], 'outgoing': ['Scoring result available']}
+{'id': 'sid-A15362A2-BB8B-4F58-BB9D-6FE22096F3B6', 'name': 'Editing scoring request', 'incoming': ['StartEvent1'], 'outgoing': ['Conduct scoring (level 1)']}
+{'id': 'sid-2823CEFA-CD1C-4998-831B-25D4263C8C4F', 'name': 'Conduct scoring (level 1)', 'incoming': ['StartEvent1'], 'outgoing': ['Result\nimmediately available?']}
+{'id': 'sid-A6443CD0-1DA7-4BA6-8F9F-CEAC12BB1C7D', 'name': 'Scoring', 'incoming': ['StartEvent1'], 'outgoing': []}
+{'id': 'sid-640492AF-F94A-42E9-B573-91A85626BDE0', 'name': 'Report delay', 'incoming': ['Result\nimmediately available?'], 'outgoing': ['Conduct scoring (level 2)']}
+{'id': 'sid-D739F06B-B40C-4F67-89C2-CA64E5AB8B50', 'name': 'Conduct scoring (level 2)', 'incoming': ['Report delay'], 'outgoing': ['Request ready\nFinished']}
+
+Gateways:
+{'id': 'sid-32B92827-5462-4D75-88D7-A0EF00A59854', 'name': 'Result or\nDelay?', 'incoming': ['Information\nobtained'], 'outgoing': ['Scoring result available', 'ExclusiveGateway1']}
+{'id': 'sid-63B3E993-4254-4870-886C-45E8FFA555AA', 'name': 'ExclusiveGateway1', 'incoming': ['Result\nimmediately available?', 'Information\nobtained'], 'outgoing': ['Scoring result available']}
+{'id': 'sid-C6D8C8C9-2007-484E-84C3-BBDEF08C1CF6', 'name': 'Result\nimmediately available?', 'incoming': ['StartEvent1'], 'outgoing': ['Scoring', 'ExclusiveGateway1']}
+{'id': 'sid-DDF5BC61-E7A9-4C90-87B7-B3678FD62835', 'name': 'Information\nobtained', 'incoming': ['StartEvent0'], 'outgoing': ['forward scoring information']}
+
+Start Events:
+{'id': 'sid-A9768D21-B569-4713-9E1A-C6644EF96A04', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['forward scoring information']}
+{'id': 'sid-B6706AF0-0182-4959-9285-6996867201CC', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Scoring']}
+
+End Events:
+{'id': 'sid-66B4ECA1-4DAA-4CCF-80D2-75159B4DB87D', 'name': 'Scoring result available', 'incoming': ['Result or\nDelay?'], 'outgoing': []}
+{'id': 'sid-9A6EB64E-CBD1-45F8-8EE7-59ABA918EAB8', 'name': 'Request ready\nFinished', 'incoming': ['Conduct scoring (level 2)'], 'outgoing': []}

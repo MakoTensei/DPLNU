@@ -1,0 +1,37 @@
+Tasks:
+{'id': 'sid-55FEC226-DFEC-40A0-944E-89CBC3764403', 'name': 'Search court', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Employee is ready']}
+{'id': 'sid-A78B2A4F-AEA1-4623-A9BF-FCDBA030BB37', 'name': 'Order the Court', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Court of Justice']}
+{'id': 'sid-9BF42169-57C0-484C-93A9-386F8974F148', 'name': 'Court of Justice', 'incoming': ['Employee is ready'], 'outgoing': ['Accept Pieper']}
+{'id': 'sid-A6EB92BD-FB18-4FFC-8E59-BD1E0E2F1E27', 'name': 'Ask for food edition', 'incoming': ['Pieper piept'], 'outgoing': ['Get food']}
+{'id': 'sid-63B394C5-BF78-46F9-8D45-DAADAC484A81', 'name': 'Eat food', 'incoming': ['Get food'], 'outgoing': ['Hunger']}
+{'id': 'sid-73713365-B3F5-4F99-BE2E-7468E4A0CE01', 'name': 'Accept Pieper', 'incoming': ['Employee is ready'], 'outgoing': ['Hunger']}
+{'id': 'sid-77DCA33F-CCE1-4645-BF59-1FB411484ED6', 'name': 'Orders', 'incoming': ['Order\nobtained'], 'outgoing': ['Cash']}
+{'id': 'sid-605B514D-5840-490C-8409-B1EED070B493', 'name': 'Cash', 'incoming': ['Order\nobtained'], 'outgoing': ['Set up Pieper']}
+{'id': 'sid-D55EA2CC-E582-4EDD-B94E-73559C062D81', 'name': 'Set up Pieper', 'incoming': ['Order\nobtained'], 'outgoing': ['Add Pieper']}
+{'id': 'sid-46C72FFB-A8CC-4A37-B36B-D82A43F889F5', 'name': 'Add Pieper', 'incoming': ['Order\nobtained'], 'outgoing': ['Koch inform']}
+{'id': 'sid-28526249-BB8E-4E72-A63B-E6342BFEE56F', 'name': 'Koch inform', 'incoming': ['Order\nobtained'], 'outgoing': ['Food ready']}
+{'id': 'sid-5F2B7CF3-A6D0-435D-B507-E276AFD5D9EB', 'name': 'Trigger Pieper', 'incoming': ['Order\nobtained'], 'outgoing': ['Customer will appear']}
+{'id': 'sid-8AF52E8C-D681-4A87-B54B-D2C2565A2977', 'name': 'Leave food', 'incoming': ['Order\nobtained'], 'outgoing': ['Order completed']}
+{'id': 'sid-55E4BCCF-EA61-40DC-B93F-F205830D2099', 'name': 'Retrieve customers', 'incoming': ['5 minutes'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-85CDEED7-BA92-4AF4-85AD-F5F3A5712B36', 'name': 'Prepare food', 'incoming': ['Order\nobtained'], 'outgoing': ['Provide food']}
+{'id': 'sid-DA687F6A-5F44-40FB-9389-8127FFF04402', 'name': 'Provide food', 'incoming': ['Order\nobtained'], 'outgoing': ['inform employees']}
+{'id': 'sid-F54127C5-8C12-4F2A-9CED-3086AB761CB1', 'name': 'inform employees', 'incoming': ['Order\nobtained'], 'outgoing': ['Order completed']}
+
+Gateways:
+{'id': 'sid-7A9FA6BE-E912-4376-946F-39F0D7732A9D', 'name': 'EventBasedGateway0', 'incoming': ['Food ready', 'EventBasedGateway0'], 'outgoing': ['EventBasedGateway0', 'Order completed']}
+{'id': 'sid-064F947B-BF97-4C90-85BD-07CB80A0EC18', 'name': 'Employee is ready', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Hunger']}
+{'id': 'sid-5BFF4767-4319-40A7-8A49-D1BFC8D67281', 'name': 'Pieper piept', 'incoming': ['Accept Pieper'], 'outgoing': ['Get food']}
+{'id': 'sid-7ECA5104-6EFC-4B52-9F1B-CD1D0FEFFE8A', 'name': 'Get food', 'incoming': ['Accept Pieper'], 'outgoing': ['Hunger']}
+{'id': 'sid-AABBEB91-2BFF-4090-9975-96EB0682CBEC', 'name': 'Food ready', 'incoming': ['Order\nobtained'], 'outgoing': ['Order completed']}
+{'id': 'sid-8C532B7B-20E0-469D-9339-949926B382E0', 'name': '5 minutes', 'incoming': ['Food ready'], 'outgoing': ['Order completed']}
+{'id': 'sid-D2F717D5-41C2-4D21-B2FB-43177CF25627', 'name': 'Customer will appear', 'incoming': ['Order\nobtained'], 'outgoing': ['Order completed']}
+
+Start Events:
+{'id': 'sid-BC04656A-9168-4A4D-A449-5911AFA8DBB3', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Order the Court']}
+{'id': 'sid-3C1E252D-8229-4240-90BE-7D61AEB739CB', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['Leave food']}
+{'id': 'sid-2ACAD879-4470-4B60-96DC-520B5CDD4709', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['inform employees']}
+
+End Events:
+{'id': 'sid-75B397D4-7729-47A7-961A-16596AA0B28D', 'name': 'Hunger', 'incoming': ['Employee is ready'], 'outgoing': []}
+{'id': 'sid-06B63CE6-6197-4EAF-8B89-B482208D0B88', 'name': 'Order completed', 'incoming': ['Food ready'], 'outgoing': []}
+{'id': 'sid-C9073F1E-EC2B-49F2-ACF4-D5C7B971031D', 'name': 'Order completed', 'incoming': ['inform employees'], 'outgoing': []}

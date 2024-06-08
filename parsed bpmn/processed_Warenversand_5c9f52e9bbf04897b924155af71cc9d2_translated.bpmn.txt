@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-40BF3463-5927-48F6-8780-719E301BD200', 'name': 'three offers', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Select offer']}
+{'id': 'sid-8D334A46-0089-4C11-99B0-9381F8087145', 'name': 'Select offer', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['commissioning spediteur']}
+{'id': 'sid-5413BB8C-3704-42A8-B9A9-71D8B5EFD5A6', 'name': 'commissioning spediteur', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-144B96C9-6BE0-46BC-81EF-E21E737FA6E6', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-99B4A46F-0C7B-4CE1-A4D9-97486A516356', 'name': 'provide for collection', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-8ABFE7CF-82FF-487E-8287-09E402FD28F0', 'name': 'Fill in standard package', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-4B22BF4C-0854-4618-80D6-295B8276AEC2', 'name': 'Insurance', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ParallelGateway6']}
+
+Gateways:
+{'id': 'sid-1D875BD6-1463-4FF9-BC29-A624D8D30AE8', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0', 'ExclusiveGateway2']}
+{'id': 'sid-90B44F90-E2A9-4BF0-9D21-EA4C32065FC5', 'name': 'ExclusiveGateway1', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Insurance', 'ExclusiveGateway2']}
+{'id': 'sid-E947076F-9051-4288-94F1-DE8CBA8EB554', 'name': 'ExclusiveGateway2', 'incoming': ['ExclusiveGateway0', 'ExclusiveGateway0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-13C6AF78-86CE-4B4E-89AC-4BCEF685C920', 'name': 'ParallelGateway3', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway6', 'ParallelGateway5']}
+{'id': 'sid-0AE8DB54-80C8-4CE0-AE5E-EE01DF16C7F0', 'name': 'ParallelGateway4', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway6', 'ParallelGateway5']}
+{'id': 'sid-0A7260FA-0E94-4C3B-BD17-283CD3203B2C', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'ParallelGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-40B47DB2-ED79-4686-9AC9-EA3BA2622D36', 'name': 'ParallelGateway6', 'incoming': ['StartEvent0', 'Insurance', 'ParallelGateway3'], 'outgoing': ['provide for collection']}
+
+Start Events:
+{'id': 'sid-EFE1E49B-C8E3-4AA7-878E-7A4242AE9E39', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['provide for collection']}
+
+End Events:
+{'id': 'sid-CA794847-D335-4B3A-831F-3E3A6EE59EE3', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

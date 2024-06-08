@@ -1,0 +1,30 @@
+Tasks:
+{'id': 'sid-EAF7E8A1-E7EC-41A9-B483-0F10D8BF5D55', 'name': 'Food is selected', 'incoming': ['Guest enters\nRestaurant'], 'outgoing': ['Guest is in line']}
+{'id': 'sid-891672A5-BB3F-4990-A872-CACBA715C8A1', 'name': 'Add to Cart', 'incoming': ['Guest enters\nRestaurant'], 'outgoing': ['Food is ready']}
+{'id': 'sid-EB7D073F-1587-46A1-B913-FE77B8EDF9A1', 'name': 'Pick up food', 'incoming': ['Guest enters\nRestaurant'], 'outgoing': ['Guest has his food']}
+{'id': 'sid-E69287BA-090C-4269-B5CF-8349869B89AD', 'name': 'Enter your order into the cash register system and cash', 'incoming': ['Takes order\nagainst'], 'outgoing': ['Pieper handed out']}
+{'id': 'sid-224187F1-1FB4-4609-9865-4FDBB7BECE53', 'name': 'Pieper handed out', 'incoming': ['Takes order\nagainst'], 'outgoing': ['Send order to Koch']}
+{'id': 'sid-D320CE14-9AC5-43BF-B18E-A932B51CB6DD', 'name': 'Send order to Koch', 'incoming': ['Takes order\nagainst'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-8FAAC9B2-34B7-4352-98F6-73A4A869B6F7', 'name': 'Trigger Pieper', 'incoming': ['Takes order\nagainst'], 'outgoing': ['5 minutes waiting']}
+{'id': 'sid-D30DB5C8-2331-4F97-B668-54530812C468', 'name': 'Leave food', 'incoming': ['Guest published'], 'outgoing': ['Issued']}
+{'id': 'sid-CA714F49-6A90-4490-9CB3-E45FEAB55DF7', 'name': 'Retrieve guest', 'incoming': ['Takes order\nagainst'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-05CC3F3B-757E-46EC-9E02-6A1BFFC9C4D8', 'name': 'Prepare food', 'incoming': ['Accept order'], 'outgoing': ['Put food into the empires']}
+{'id': 'sid-F7811868-CA67-479A-93F2-8CD9DD1A978D', 'name': 'Put food into the empires', 'incoming': ['Accept order'], 'outgoing': ['sid-7C17807B-3BD9-4B8A-B980-30B395885955']}
+
+Gateways:
+{'id': 'sid-C2B43FA1-EE9B-4B96-8294-F0540BB88744', 'name': 'EventBasedGateway0', 'incoming': ['IntermediateCatchEvent3', 'EventBasedGateway0'], 'outgoing': ['Issued', 'EventBasedGateway0']}
+{'id': 'sid-7B37C293-6805-4375-A916-DAE8C501CCCA', 'name': 'Guest is in line', 'incoming': ['Guest enters\nRestaurant'], 'outgoing': ['Add to Cart']}
+{'id': 'sid-AE2B03CA-37F8-472B-AD9E-BA3040131E58', 'name': 'Food is ready', 'incoming': ['Guest enters\nRestaurant'], 'outgoing': ['Guest has his food']}
+{'id': 'sid-A56F2332-E9FC-4D24-8896-707D032186EE', 'name': 'IntermediateCatchEvent3', 'incoming': ['Takes order\nagainst'], 'outgoing': ['Guest published']}
+{'id': 'sid-6AFD35EC-AAF5-4567-BF18-A77C5DD38D59', 'name': 'Guest published', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['Issued']}
+{'id': 'sid-BBEF6CA9-A05C-4D86-A93E-7062808B4946', 'name': '5 minutes waiting', 'incoming': ['Takes order\nagainst'], 'outgoing': ['Issued']}
+
+Start Events:
+{'id': 'sid-B94C78D5-6DF3-4BB0-B78D-1DEC149E89C9', 'name': 'Guest enters\nRestaurant', 'incoming': [], 'outgoing': ['Pick up food']}
+{'id': 'sid-1F6C6DDE-1AB6-4C59-9F6E-A4C8DA2585DC', 'name': 'Takes order\nagainst', 'incoming': [], 'outgoing': ['Retrieve guest']}
+{'id': 'sid-A055F758-0FF4-46FF-B418-41445657BDA5', 'name': 'Accept order', 'incoming': [], 'outgoing': ['Put food into the empires']}
+
+End Events:
+{'id': 'sid-95C36795-19D2-4E7D-983B-87B0E33A2A63', 'name': 'Guest has his food', 'incoming': ['Food is ready'], 'outgoing': []}
+{'id': 'sid-090B8BCF-D5ED-42FE-86BE-9519509DDCE8', 'name': 'Issued', 'incoming': ['5 minutes waiting'], 'outgoing': []}
+{'id': 'sid-196A6D9D-09FF-43C2-B2E7-01FA0EDF77A9', 'name': 'Prepared food', 'incoming': ['sid-58C78A5A-023E-4247-9DC5-5978A21CC126'], 'outgoing': []}

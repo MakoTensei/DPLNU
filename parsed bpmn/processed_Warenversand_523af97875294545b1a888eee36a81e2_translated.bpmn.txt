@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-3535962B-EB13-4655-80A0-38502BA2C4FC', 'name': 'Select shipping mode', 'incoming': ['ParallelGateway4'], 'outgoing': ['selected\nType of shipping?']}
+{'id': 'sid-634A5BFE-AAC2-4670-8E56-9B3C45D9A8FF', 'name': 'Recreational services', 'incoming': ['Goods\nready for dispatch'], 'outgoing': ['recovered\nSpediteur offer?']}
+{'id': 'sid-C0410A54-1646-4784-9D05-9E44DD94A2DE', 'name': 'Fill in the Pact', 'incoming': ['selected\nType of shipping?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-1521C676-4BB6-4674-8B0A-D50AD36CABE2', 'name': 'Spediteur 1\ncommission', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-AFC3B112-BB7A-4F37-A13D-784187B388E9', 'name': 'Spediteur 2', 'incoming': ['recovered\nSpediteur offer?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-5F8B9D3B-8950-483F-B712-6FDDD1AF2B3B', 'name': 'Spediteur 3', 'incoming': ['recovered\nSpediteur offer?'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-AEA9D932-2088-4594-8609-BF517D83480F', 'name': 'Shipment', 'incoming': ['ParallelGateway5'], 'outgoing': ['Goods\ndispatched']}
+{'id': 'sid-A17AD123-99F5-46B6-98F1-B01A07ADBB33', 'name': 'Complete insurance\n', 'incoming': ['Insurance\nnecessary?'], 'outgoing': ['sid-82068D94-6C88-420B-B5F9-33E3D8AE04FE']}
+{'id': 'sid-07873951-5A5C-44D4-98CC-C76BB511EAE5', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['sid-CA0F2DD7-7318-4926-835C-E2B06D0A958B']}
+
+Gateways:
+{'id': 'sid-9B88D949-EA57-46AD-AA4B-3A69EE0040BE', 'name': 'selected\nType of shipping?', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods\ndispatched', 'Recreational services']}
+{'id': 'sid-390076F6-FF12-474D-997C-F4936C07C4F3', 'name': 'recovered\nSpediteur offer?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway3', 'Spediteur 1\ncommission']}
+{'id': 'sid-4D94E660-71F0-4796-AD90-255438DC93B8', 'name': 'Insurance\nnecessary?', 'incoming': ['selected\nType of shipping?'], 'outgoing': ['Goods\ndispatched', 'Complete insurance\n']}
+{'id': 'sid-B0E18AAF-B815-4DBC-9DFC-878D7EFD585A', 'name': 'ExclusiveGateway3', 'incoming': ['ParallelGateway4', 'recovered\nSpediteur offer?', 'recovered\nSpediteur offer?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-4844F13B-ED6A-4164-8820-6EA46F899359', 'name': 'ParallelGateway4', 'incoming': ['Goods\nready for dispatch'], 'outgoing': ['Packaging goods', 'ParallelGateway5']}
+{'id': 'sid-DD609071-12EF-40A6-8D5B-517C7C2BDA6C', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'Fill in the Pact'], 'outgoing': ['Goods\ndispatched']}
+
+Start Events:
+{'id': 'sid-9CE4CB79-E637-479E-A48B-95A1EDDAA0CE', 'name': 'Goods\nready for dispatch', 'incoming': [], 'outgoing': ['Recreational services']}
+
+End Events:
+{'id': 'sid-A6D1DC13-E4E0-4456-A3E6-8992D345B3ED', 'name': 'Goods\ndispatched', 'incoming': ['selected\nType of shipping?'], 'outgoing': []}

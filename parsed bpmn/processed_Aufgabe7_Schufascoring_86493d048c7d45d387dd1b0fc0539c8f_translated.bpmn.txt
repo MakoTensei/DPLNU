@@ -1,0 +1,26 @@
+Tasks:
+{'id': 'sid-EF7C2824-0285-46FA-BBC1-E850C3F81929', 'name': 'Scoring request\nsend', 'incoming': ['Scoring\nis needed'], 'outgoing': ['Level 1 Information\nobtained']}
+{'id': 'sid-8D371AA6-231E-4CEB-A786-76DE751B4E61', 'name': 'Send notice of delay to Frontend', 'incoming': ['Scoring\nis needed'], 'outgoing': ['Finals\nScoring result\nobtained']}
+{'id': 'sid-F047F14E-E11A-4B90-B667-44E81DD42172', 'name': 'Send scoring result to Frontend', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Scoring\ncompleted']}
+{'id': 'sid-7A0A6DF5-D9F1-494C-9359-F55A4958F5D1', 'name': 'perform scoring level 1', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Delay?']}
+{'id': 'sid-D244B38F-C754-4D54-A30D-F036899CF273', 'name': 'Share the result of the bank', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Scoring\ncompleted']}
+{'id': 'sid-2481C52C-95D5-42DB-8C95-15FEE68E841D', 'name': 'Information about delay', 'incoming': ['Delay?'], 'outgoing': ['Determining scoring level 2']}
+{'id': 'sid-8724B92A-6ABF-491F-AF1F-80B8619DF7A2', 'name': 'Determining scoring level 2', 'incoming': ['Delay?'], 'outgoing': ['Share the result of the bank']}
+{'id': 'sid-6B38A61F-35AB-46ED-B0C4-297BC0EE8058', 'name': 'Share the result of the bank', 'incoming': ['Delay?'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-3D566DFA-0D4E-43ED-A62C-D951EF3B76FB', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway3', 'Scoring\nis needed'], 'outgoing': ['Scoring\ncompleted']}
+{'id': 'sid-07E71280-8B0E-4CE1-9096-820E4CAED340', 'name': 'Delay?', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Scoring\ncompleted', 'Share the result of the bank']}
+{'id': 'sid-5C9F69BB-C2BD-416C-A045-290D1BA9B215', 'name': 'ExclusiveGateway2', 'incoming': ['Share the result of the bank', 'Scoring request\nobtained'], 'outgoing': ['Scoring\ncompleted']}
+{'id': 'sid-960161D8-B70E-4E29-9DCC-F1CC607EB95B', 'name': 'EventBasedGateway3', 'incoming': ['Scoring\nis needed'], 'outgoing': ['Send scoring result to Frontend', 'Scoring\ndelays']}
+{'id': 'sid-3550A9B6-63D2-4661-B9C6-C4E97611D408', 'name': 'Level 1 Information\nobtained', 'incoming': ['Scoring request\nsend'], 'outgoing': ['Scoring\ncompleted']}
+{'id': 'sid-53873262-6A7F-416A-82CC-6A93615D3749', 'name': 'Scoring\ndelays', 'incoming': ['Scoring\nis needed'], 'outgoing': ['Send notice of delay to Frontend']}
+{'id': 'sid-99A20440-8963-4ED0-9F54-612D0198091A', 'name': 'Finals\nScoring result\nobtained', 'incoming': ['Scoring\nis needed'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-E2427E5F-8F9E-4E6A-B642-090BC8B1756B', 'name': 'Scoring\nis needed', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-66C12997-5D27-4DAC-A78C-27071625FF3C', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-9764992D-CE7F-4241-8898-62F77BC790DF', 'name': 'Scoring\ncompleted', 'incoming': ['Level 1 Information\nobtained'], 'outgoing': []}
+{'id': 'sid-453DCCD5-FC8C-4C91-B7AA-9BEFBD88E0FB', 'name': 'Scoring\ncompleted', 'incoming': ['Delay?'], 'outgoing': []}

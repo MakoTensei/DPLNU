@@ -1,0 +1,29 @@
+Tasks:
+{'id': 'sid-E1D161FD-CF16-4670-9B8B-D4BDEC82AACA', 'name': 'Start your business request', 'incoming': ['StartEvent0'], 'outgoing': ['Delay']}
+{'id': 'sid-4FE0CD4F-848B-4ED7-A4EE-73A67622A6BB', 'name': 'Response to delay', 'incoming': ['Delay'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-484EC0B6-48B8-4F4B-B993-CBF23D7687D1', 'name': 'Request Schufaservice', 'incoming': ['StartEvent1'], 'outgoing': ['IntermediateCatchEvent6']}
+{'id': 'sid-A28CE1F6-1466-49D1-84E6-A9C4347D8EC8', 'name': 'Report delay', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-52508731-FF04-4ECE-9A02-B2DF8A3F6072', 'name': 'Determining scoring (level 1)', 'incoming': ['StartEvent2'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-622C42AD-1AC1-472B-9BCB-F1EFCD496771', 'name': 'Determining scoring (level 2)', 'incoming': ['Report delay'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-E7CF04F8-8250-4FA7-B7E7-6180998F43A8', 'name': 'Report delay', 'incoming': ['StartEvent2'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-18C8D1C6-E96B-4C75-88BB-D00C74871D9D', 'name': 'Direct scoring possible?', 'incoming': ['StartEvent2'], 'outgoing': ['EndEvent2', 'EndEvent2']}
+{'id': 'sid-7A97588F-7672-4EC2-B078-2DB5FF3D44E1', 'name': 'EventBasedGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['Scoring result arrived', 'EndEvent0']}
+{'id': 'sid-B86EC156-0966-4216-BCDF-1ED3DA13CA35', 'name': 'EventBasedGateway2', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1', 'EndEvent1']}
+{'id': 'sid-43BC9B29-C0E9-43BB-8A7A-39EF02FF6E2A', 'name': 'Scoring result arrived', 'incoming': ['EventBasedGateway1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-99B475E4-A3E3-4C8B-AB0E-D059F37CDC17', 'name': 'Delay', 'incoming': ['Start your business request'], 'outgoing': ['Scoring result arrived']}
+{'id': 'sid-472E522F-118C-4993-82AE-95EEA88C46DD', 'name': 'IntermediateCatchEvent5', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-A7967E77-0C2F-47C7-B57A-18D7F3F9180B', 'name': 'IntermediateCatchEvent6', 'incoming': ['Request Schufaservice'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-FAF4FDE5-F3F6-4E16-930F-572BD7412328', 'name': 'IntermediateCatchEvent7', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-AB9CF3CC-793B-46ED-B246-5E7FFE61641F', 'name': 'IntermediateCatchEvent8', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-45BD832E-E751-4714-8F7D-6FBB24170816', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['IntermediateCatchEvent5']}
+{'id': 'sid-67D54DEA-C6C5-4403-AEEC-013F3B2FC5BC', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['IntermediateCatchEvent8']}
+{'id': 'sid-1FCBB8CE-4B41-4AE0-83A9-0F80C1BC2667', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['Report delay']}
+
+End Events:
+{'id': 'sid-F125764E-65FC-403E-9EF0-89F1F8E3BFE7', 'name': 'EndEvent0', 'incoming': ['Response to delay', 'EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-8B4FFEEE-EA77-499A-B080-C9DF37380AE2', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway2', 'EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-FD509C75-5B82-4DD5-96D0-16E9E9F37FD7', 'name': 'EndEvent2', 'incoming': ['Direct scoring possible?', 'Determining scoring (level 1)'], 'outgoing': []}

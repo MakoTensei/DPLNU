@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-AB18B3B6-A03F-4E3F-B052-0B1D8BC47825', 'name': 'Examination Regression', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-379773EC-3C54-40F8-B94F-23FECD216716', 'name': 'Payment\nSend a message', 'incoming': ['StartEvent0'], 'outgoing': ['Opposition']}
+{'id': 'sid-EDA3413D-1F58-4737-95DF-BAA8CC829087', 'name': 'Proceedings', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-2C852FB7-B126-489B-9729-8FFE26F13327', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent0'], 'outgoing': ['Process', 'Opposition']}
+{'id': 'sid-4D6FAC7A-29C3-45D4-A086-801201AE4F6D', 'name': 'justified?', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway2', 'Process']}
+{'id': 'sid-9E30C912-C9DA-485B-83DF-28A863CB150F', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3', 'Proceedings'], 'outgoing': ['Transfer Inkasso']}
+{'id': 'sid-0D2410C5-9755-45C9-8EDC-4A7101876E19', 'name': 'EventBasedGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['Opposition', 'ExclusiveGateway2', 'Process']}
+{'id': 'sid-22608A70-D1D6-4551-A41F-D7B9CE3869A2', 'name': 'Opposition', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Process']}
+{'id': 'sid-10436B06-9363-4527-80F1-1BA65A879C12', 'name': 'Rejection\nDate of expiry', 'incoming': ['StartEvent0'], 'outgoing': ['Transfer Inkasso']}
+{'id': 'sid-C76FAAB5-88F1-42DF-893B-5363CFF63467', 'name': 'Incoming payment', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Process']}
+
+Start Events:
+{'id': 'sid-F6AC2103-C801-48CE-823B-F55BB793B0A5', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Rejection\nDate of expiry']}
+
+End Events:
+{'id': 'sid-9F8547DA-5178-4558-9399-06094064E42B', 'name': 'Process', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-47F62EE7-23DC-4FAF-9793-5A2F13DC3B42', 'name': 'Process', 'incoming': ['EventBasedGateway3'], 'outgoing': []}
+{'id': 'sid-AF6775A3-C480-4914-9873-9306CBF0F3BB', 'name': 'Process', 'incoming': ['Opposition'], 'outgoing': []}
+{'id': 'sid-FA62B240-2E3A-49A1-B5DC-D7D1C89DB999', 'name': 'Transfer Inkasso', 'incoming': ['Rejection\nDate of expiry'], 'outgoing': []}

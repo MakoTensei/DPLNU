@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-85368C01-6F4C-4ACD-ACBB-5B23BB0EB8F9', 'name': 'Scoring request', 'incoming': ['Scoring required'], 'outgoing': ['Message delayed']}
+{'id': 'sid-53F1F5D2-739D-4C3D-A084-771AD6071D3D', 'name': 'Send message to sales staff', 'incoming': ['Message delayed'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F29CB9DD-87A0-4A76-9389-E54A68937543', 'name': 'Scoring result is passed', 'incoming': ['Scoring required'], 'outgoing': []}
+{'id': 'sid-B86912AC-48AC-4910-B2FA-7AE6CE58BD4F', 'name': '1. perform scoring', 'incoming': ['StartEvent1'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-1339FBD2-9431-4264-83D7-D162558ACD85', 'name': 'Two. perform scoring', 'incoming': ['ParallelGateway2'], 'outgoing': ['Reporting to Bank\nperform']}
+
+Gateways:
+{'id': 'sid-AD13332B-8948-4003-A0FA-0C1263FECB5B', 'name': 'Scoring results', 'incoming': ['StartEvent1'], 'outgoing': ['Final result reported', 'ParallelGateway2']}
+{'id': 'sid-D3FC0A00-C61D-4A9C-A03A-D7005EDEAD5A', 'name': 'Duration of scoring query', 'incoming': ['Scoring required'], 'outgoing': ['Message received', 'EndEvent0']}
+{'id': 'sid-383B1916-1A4A-42E9-84F7-2D7D2D6F9A43', 'name': 'ParallelGateway2', 'incoming': ['1. perform scoring'], 'outgoing': ['sid-C074ECD4-A3C1-43BE-B6CD-FDDBDDD5A6F3', 'Reporting to Bank\nperform']}
+{'id': 'sid-9099C72D-4FED-4F91-9D02-9E392A399B1B', 'name': 'Message delayed', 'incoming': ['Scoring request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F0C54550-0C72-4FFA-B127-6D48D97E4305', 'name': 'Message received', 'incoming': ['Scoring required'], 'outgoing': ['Scoring result is passed']}
+
+Start Events:
+{'id': 'sid-2E75682B-C8C4-4B6A-AE0A-7F898BC5C6A7', 'name': 'Scoring required', 'incoming': [], 'outgoing': ['Scoring result is passed']}
+{'id': 'sid-C5095542-B926-4924-B7DF-79BC8D9BB455', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Scoring results']}
+
+End Events:
+{'id': 'sid-86656AB6-9727-41A2-A25B-7ADA487C5532', 'name': 'EndEvent0', 'incoming': ['Duration of scoring query'], 'outgoing': []}
+{'id': 'sid-23CD43CF-576C-4167-BEFC-D2A25BF9112F', 'name': 'Final result reported', 'incoming': ['Scoring results'], 'outgoing': []}
+{'id': 'sid-650F968F-BAC5-4EE2-80C6-5106D8023956', 'name': 'Reporting to Bank\nperform', 'incoming': ['ParallelGateway2'], 'outgoing': []}

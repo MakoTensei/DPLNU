@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-C11899DF-B047-44CC-AE66-5ACB40CF0A8B', 'name': 'Ordering', 'incoming': ['Selection of offers'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-B4DA735C-29D6-41E3-9B2F-07DCCC19A8EE', 'name': 'Review Size of the product', 'incoming': ['StartEvent0'], 'outgoing': ['Lot?']}
+{'id': 'sid-F459A6D7-E7F7-487A-80EE-02990E1A7234', 'name': 'Recreation', 'incoming': ['ParallelGateway4'], 'outgoing': ['Selection of offers']}
+{'id': 'sid-77658CEC-BC25-4861-8935-62145E2C3F41', 'name': 'Examination Insurance', 'incoming': ['Filling the package note'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-020D15C7-B8E1-488F-92DC-D6B78A70009D', 'name': 'Selection of offers', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-ED88AA87-77C5-4424-8BDE-49343A32FBEB', 'name': 'Filling the package note', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-4ACF9C12-349A-41DC-B0D7-49046B92D42B', 'name': 'Fill in insurance card', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Adhesive insurance cover']}
+{'id': 'sid-C2B7C93A-C700-4E12-A99A-B2EA0E453BFA', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-1E282E21-5452-4371-9E6C-78760784FEAB', 'name': 'provide packaged goods', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-57E5702D-F71F-47A3-83DB-74C949E6D476', 'name': 'Adhesive insurance cover', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-05C638A5-9E59-4155-9647-025C67F0F38B', 'name': 'Lot?', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-DC0430DA-8FE5-4203-B4F7-A25F945C5AA9', 'name': 'ExclusiveGateway1', 'incoming': ['Lot?', 'Lot?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-974FF9C6-15B8-44FF-9B09-62AD25CFE57D', 'name': 'ExclusiveGateway2', 'incoming': ['Lot?'], 'outgoing': ['Adhesive insurance cover', 'ParallelGateway5']}
+{'id': 'sid-6D07D6BF-F73B-4012-AC4C-84E227362E98', 'name': 'ExclusiveGateway3', 'incoming': ['sid-3F452733-1EB0-4A26-84B1-F3211D61E3FB'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-D01FDF4F-693D-4ED8-97BB-FBE0C918431A', 'name': 'ParallelGateway4', 'incoming': ['StartEvent0'], 'outgoing': ['ParallelGateway5', 'Recreation']}
+{'id': 'sid-3171D684-7A17-4CE6-BA0E-E308ED664E2B', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'ExclusiveGateway3', 'Examination Insurance'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-F88E7535-CEE9-41A8-9958-62E0C3F67F6E', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Review Size of the product']}
+
+End Events:
+{'id': 'sid-7D6C42C4-2B7B-4004-B6F4-059D805CB363', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}

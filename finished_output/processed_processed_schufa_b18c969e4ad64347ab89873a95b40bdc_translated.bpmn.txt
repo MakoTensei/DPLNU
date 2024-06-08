@@ -1,0 +1,13 @@
+ When a 'Scoring triggered' event occurs, the system initiates a sequence of tasks to process the scoring results. The first task, 'Send inquiry to Schufa', is triggered by the incoming 'Scoring triggered' event and awaits a 'Result?' response. Upon receiving the 'Result?', the task 'Result forward' is executed, which then sends the result to 'ParallelGateway3'.
+
+Simultaneously, the 'Adding result' task is triggered by the 'Scoring triggered' event and awaits a 'Result obtained' event. Once the result is obtained, the task 'Adding result' sends the result to 'ParallelGateway3'.
+
+If the 'Result?' is not obtained, the 'Other tasks do not do so' task is executed, which does not interact with any other tasks.
+
+When a 'Scoring requested' event occurs, the system initiates a sequence of tasks to report the results. The first task, 'Report the result', is triggered by the incoming 'Scoring requested' event and awaits a 'Result obtained' event. Upon receiving the 'Result obtained', the task 'Report the result' sends the result to 'ParallelGateway3'.
+
+The second task, 'Report delay', is triggered by the incoming 'Result obtained' event and awaits a 'Report the result' event. Once the report is completed, the task 'Report delay' sends the result to 'Scoring Level 2'.
+
+Upon completion of the 'Result obtained' event, the 'Report the result' task sends the result to 'Request finished'.
+
+In summary, the system processes scoring results by sending inquiries, adding results, and reporting results through a series of interconnected tasks and gateways.

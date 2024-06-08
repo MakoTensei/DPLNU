@@ -1,0 +1,11 @@
+ The process begins with the 'Regression Report' event, which triggers the 'Regress possible?' gateway. This gateway checks the report and, if necessary, sends a 'Payment received' message to the 'ExclusiveGateway2'. Concurrently, the 'Regression Report' also triggers the 'Opposition Obtained' event, which sends a message to the 'ExclusiveGateway3'.
+
+If the 'Regress possible?' gateway determines that a regression is possible, the process continues to the 'Check regression case' task. This task sends a message to 'ExclusiveGateway2', which then leads to the 'Regression completed' event.
+
+If the 'Regress possible?' gateway determines that a regression is not necessary, the 'Payment received' message is sent to the 'Book payment receipt' task, which also sends a message to 'ExclusiveGateway2'.
+
+The 'Opposition Obtained' event sends a message to the 'Proceedings' task, which in turn sends a message to 'ExclusiveGateway2'.
+
+The 'Regression Report' also triggers the 'Dispense process to Inkasso-DL' task, which sends a message to 'ExclusiveGateway2', leading to the 'Regression completed' event.
+
+Finally, the 'Regression completed' event sends a message to 'ExclusiveGateway2', completing the process.

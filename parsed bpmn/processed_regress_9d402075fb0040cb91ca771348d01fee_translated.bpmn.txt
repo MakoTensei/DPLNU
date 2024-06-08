@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-926BFBEC-E3BA-46F6-9CD3-CB051904149E', 'name': 'Check payment refusal\n', 'incoming': ['Denial of payment\narrived\n'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-9F8D03EF-3F31-4A48-82E7-2AD92B96C14A', 'name': 'Check in case of regression', 'incoming': ['Insurance\ntaken in Regress\n'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-A93B8EB6-F1BD-48D3-B1D3-285528FAAB7D', 'name': 'Send payment request to VN', 'incoming': ['Insurance\ntaken in Regress\n'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-139A9417-063B-455B-816D-7DAC977D5E64', 'name': 'Book payment receipt', 'incoming': ['Payment received\n'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-4AABB738-AFC6-4540-AA1C-7D7FEF921B29', 'name': 'Set process for resubmission', 'incoming': ['Regress possible?'], 'outgoing': ['Denial of payment\narrived\n']}
+{'id': 'sid-FF6D2CEC-E808-49EA-8AC1-F2A6B4ED635D', 'name': 'Close the process', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C28C5FE0-FCAB-4BF7-82A7-1F38EE9ACC74', 'name': 'Share regression on debt collection office', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-8BDDF174-690A-4E4A-8337-4C46EED8CD0C', 'name': 'justified?\n', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-E27CD4D8-2093-4831-BACF-8AA95CF76CA0', 'name': 'Regress possible?', 'incoming': ['Insurance\ntaken in Regress\n'], 'outgoing': ['EndEvent0', 'ExclusiveGateway2']}
+{'id': 'sid-48A13325-CFCC-47C4-949E-FFFCC8055DDA', 'name': 'ExclusiveGateway2', 'incoming': ['Check payment refusal\n', 'Check in case of regression', 'EventBasedGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-31C64CC7-09A7-4445-A4C9-68086253C4DC', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Denial of payment\narrived\n'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-EC124F16-D0A7-4CA3-99C5-DA43AD291A5B', 'name': 'EventBasedGateway4', 'incoming': ['Regress possible?'], 'outgoing': ['Share regression on debt collection office', 'Close the process', 'justified?\n']}
+{'id': 'sid-0BE7BFB1-5096-497F-A9F3-0F3BFDCABE58', 'name': 'Denial of payment\narrived\n', 'incoming': ['Set process for resubmission'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-1C66CC06-AC02-4FB7-B88D-10C10402B0AE', 'name': 'Payment received\n', 'incoming': ['Regress possible?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-3655AEC5-0B78-4354-9C8C-ED215DA954DB', 'name': 'Reimbursement period\nExpired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-5BB72EB7-0340-4064-B88F-9039A09B68C6', 'name': 'Insurance\ntaken in Regress\n', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:
+{'id': 'sid-41FFC885-0401-4E50-89C7-302EDE0CCB47', 'name': 'EndEvent0', 'incoming': ['Regress possible?', 'Denial of payment\narrived\n'], 'outgoing': []}

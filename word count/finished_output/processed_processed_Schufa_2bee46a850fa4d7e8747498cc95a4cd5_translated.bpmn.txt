@@ -1,0 +1,7 @@
+ In the scoring process, a scoring request initiates the workflow, triggering StartEvent1. This event then passes through EventBasedGateway1, which sends the request to IntermediateCatchEvent2. This event is responsible for reporting any delays to the frontend. Simultaneously, the scoring request is also sent to IntermediateCatchEvent3, which eventually leads to EndEvent0.
+
+Meanwhile, the scoring request also triggers EndEvent1, which checks if the scoring request has been calculated. If it has, the event passes through Gateway sid-1CD89BE5-C20B-439A-B530-80A5A32D61C3, and the scoring request is forwarded to EndEvent0.
+
+Once the scoring request has been processed, the scoring result is reported to the frontend through EndEvent0. This event is also linked to Report Scoring result to the Fronted, which is triggered by StartEvent1.
+
+In summary, the scoring process starts with a scoring request, which is checked for calculation at StartEvent1. The request is then sent to IntermediateCatchEvent2 and IntermediateCatchEvent3, which handle any delays and report the result to the frontend, respectively. The scoring request is also checked for calculation at EndEvent1, and the result is reported to the frontend through EndEvent0.

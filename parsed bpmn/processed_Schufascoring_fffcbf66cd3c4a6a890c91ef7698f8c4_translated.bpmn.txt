@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-43CE373A-5CE0-4832-AE4D-472EEC25E5B5', 'name': 'Scoring request', 'incoming': ['Scoring\nRequired'], 'outgoing': ['IntermediateCatchEvent3']}
+{'id': 'sid-0C5E4C50-743B-45F0-BD1A-A0107421F066', 'name': 'Check the feedback', 'incoming': ['Scoring\nRequired'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-7E5B78CD-11D6-4A8F-AFE5-B4310E64A455', 'name': 'Share scoring on frontend', 'incoming': ['IntermediateCatchEvent4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-AEB5D59D-2368-4089-93E4-16FAB7D4859B', 'name': 'Interim message to Frontend', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-73A29FEA-01DE-405A-A9E0-E3A0A4B2E4AB', 'name': 'Conducting First Scoring', 'incoming': ['StartEvent1'], 'outgoing': ['Level 1 successful?']}
+{'id': 'sid-237401BB-E490-4C09-AB00-2532932C99B9', 'name': 'Conduct Level 2', 'incoming': ['Send a message\n'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-2FC866F0-8C82-4615-BD65-EE062DC1E2C2', 'name': 'Report Scoring to Bank', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-BBAE6DD8-5ABC-4CC8-A763-179EB4F153B1', 'name': 'Send a message\n', 'incoming': ['Level 1 successful?'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-6E24F29C-4D7D-4EB5-8DF1-8FFA7FB54BC8', 'name': 'Is there scoring?', 'incoming': ['IntermediateCatchEvent3'], 'outgoing': ['EndEvent0', 'ExclusiveGateway1']}
+{'id': 'sid-ABFDB8FC-5964-44DA-93DB-79676539B990', 'name': 'ExclusiveGateway1', 'incoming': ['Is there scoring?', 'Scoring\nRequired'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C1468989-B935-4281-8055-43D6176BDA2D', 'name': 'Level 1 successful?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2', 'EndEvent1']}
+{'id': 'sid-326F0F14-8E82-42E4-99F6-1170667598CE', 'name': 'IntermediateCatchEvent3', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Interim message to Frontend']}
+{'id': 'sid-B2CFC7FE-9A00-43F7-BD4D-787A3AAD9121', 'name': 'IntermediateCatchEvent4', 'incoming': ['Is there scoring?'], 'outgoing': ['Share scoring on frontend']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-ABD81E58-60F4-432A-A19E-F4A5F2077AB8', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Report Scoring to Bank']}
+
+End Events:
+{'id': 'sid-A2815735-F9AF-4B16-9102-1630356747FA', 'name': 'EndEvent0', 'incoming': ['Is there scoring?'], 'outgoing': []}
+{'id': 'sid-47066ECE-9715-4536-9D28-F970F160A1B7', 'name': 'EndEvent1', 'incoming': ['Level 1 successful?'], 'outgoing': []}
+{'id': 'sid-3393CE5F-0DEA-4127-8AD1-9E16BF90116C', 'name': 'EndEvent2', 'incoming': ['Level 1 successful?'], 'outgoing': []}

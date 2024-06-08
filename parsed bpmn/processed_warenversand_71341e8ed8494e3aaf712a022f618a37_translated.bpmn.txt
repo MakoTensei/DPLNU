@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-9FB4F2C9-98FA-425B-B800-8B68E0935AAF', 'name': 'Secretariat clears shipping', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-48FB9564-0E92-4E11-A801-D762D23E7B97', 'name': 'Filling the package note', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-61A5D49E-9B49-4A5D-BFDE-F359EB88FB61', 'name': 'Pick up offers', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Select your offer']}
+{'id': 'sid-4AF4EC65-181A-441E-865C-95F505C655AB', 'name': 'Logistics manager completes insurance', 'incoming': ['Insurance necessary'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-CBF172F7-CE98-405B-8A27-2C682A8266D7', 'name': 'Warehouse workers', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-EDC31490-194A-4849-84C2-0D02F883CB34', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-BC74F5FE-9B66-4E09-833D-38768AFF91E3', 'name': 'Select your offer', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Specialist']}
+{'id': 'sid-F2673E4A-1CE8-442F-8A0A-4AAD968F657D', 'name': 'Specialist', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-B6371733-780C-4B2A-9E0A-1CE498782813', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway4'], 'outgoing': ['Filling the package note', 'Specialist']}
+{'id': 'sid-EECEF3B2-5DF0-472C-8E03-349B6A0031EE', 'name': 'Insurance necessary', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway2', 'ParallelGateway3']}
+{'id': 'sid-4CA5ADC8-DFA3-46EA-BC57-76E819FAF49A', 'name': 'ExclusiveGateway2', 'incoming': ['Insurance necessary', 'StartEvent0', 'Specialist'], 'outgoing': ['ParallelGateway3']}
+{'id': 'sid-FD990071-3A24-48CF-A5C4-1B48BFE5209C', 'name': 'ParallelGateway3', 'incoming': ['ParallelGateway4', 'ParallelGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-0EC8D226-EDB5-4AC9-B82C-B3908F73539D', 'name': 'ParallelGateway4', 'incoming': ['StartEvent0'], 'outgoing': ['Warehouse workers', 'ParallelGateway3']}
+
+Start Events:
+{'id': 'sid-8F47044D-0522-4195-9966-0F673A3318FE', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-C0C9FB3C-D965-446B-AD69-FC7D8E901C19', 'name': 'EndEvent0', 'incoming': ['Packaging goods'], 'outgoing': []}

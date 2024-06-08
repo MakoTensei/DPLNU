@@ -1,0 +1,15 @@
+ In the logistics process, a shipment is required, which triggers a series of tasks and interactions between various gateways. The process begins with the 'Shipment Required' start event, which sends the shipment information to ExclusiveGateway2.
+
+ParallelGateway6 receives the shipment information and initiates the 'Quantity Clarification' task, which is then passed to ParallelGateway4. Concurrently, ParallelGateway5 is also tasked with 'Request a Quote' upon receiving the shipment information.
+
+ParallelGateway4, after clarifying the quantity, sends the 'Request a Quote' task to ParallelGateway5. Meanwhile, ParallelGateway5, after receiving the shipment information, also sends the 'Insurance Necessary?' task to InsuranceGateway2.
+
+InsuranceGateway2, upon receiving the insurance inquiry, sends the 'Insurance Necessary?' task to ParallelGateway7, which is responsible for packaging goods. Simultaneously, ParallelGateway6 sends the 'Filling the Package Note' task to ExclusiveGateway2.
+
+ExclusiveGateway2, upon receiving the 'Shipment Required' and 'Insurance Necessary?' tasks, sends the 'Shipment Required' task to ParallelGateway4 and the 'Insurance Necessary?' task to ParallelGateway7.
+
+ParallelGateway4, after receiving the 'Request a Quote' task, sends it to ParallelGateway5. ParallelGateway5, after receiving the 'Request a Quote' task, sends it to ParallelGateway4 and also sends the 'ParallelGateway5' task to ExclusiveGateway3.
+
+ParallelGateway5, upon receiving the 'ParallelGateway5' task, sends the 'ParallelGateway5' task to ExclusiveGateway3. ExclusiveGateway3, upon receiving the 'ParallelGateway5' task, sends the 'ParallelGateway5' task to ParallelGateway7.
+
+Parallel

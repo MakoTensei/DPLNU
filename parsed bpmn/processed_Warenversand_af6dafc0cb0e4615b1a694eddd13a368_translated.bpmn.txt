@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-34BE2B5C-B437-40FA-A0F1-96E438B430A3', 'name': 'Pick up offers', 'incoming': ['large quantity?'], 'outgoing': ['Select your offer']}
+{'id': 'sid-9EB1F112-315E-42CA-9482-FEF306155771', 'name': 'Select your offer', 'incoming': ['large quantity?'], 'outgoing': ['Ordering']}
+{'id': 'sid-ABE37FE3-BD24-4B0F-A9E3-EFC4A330B97B', 'name': 'Filling the package note', 'incoming': ['ParallelGateway3'], 'outgoing': ['Goods ready for dispatch']}
+{'id': 'sid-964C0B9E-12A4-4D1E-B2EC-5F699AF721D3', 'name': 'Ordering', 'incoming': ['Shipping goods'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-F68769CF-34F3-4226-8C4B-EA605475AFAB', 'name': 'Ordering', 'incoming': ['ParallelGateway2'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-CDF330FA-5B0D-40F6-B2ED-01D45048CE84', 'name': 'Insurance close', 'incoming': ['Insurance?'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-2B858ADD-0CE1-4C64-BA20-27EDB033D479', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+
+Gateways:
+{'id': 'sid-8832A3D6-9834-4E1E-89D0-C1AFA77217B3', 'name': 'large quantity?', 'incoming': ['Shipping goods'], 'outgoing': ['ParallelGateway4', 'Insurance?']}
+{'id': 'sid-091CAB99-24CC-426F-9723-E6E5C8176A8A', 'name': 'Insurance?', 'incoming': ['large quantity?'], 'outgoing': ['ParallelGateway4', 'Goods ready for dispatch']}
+{'id': 'sid-E2D5AEEF-EC92-4040-9559-BD7B541778D2', 'name': 'ParallelGateway2', 'incoming': ['ParallelGateway3'], 'outgoing': ['Ordering', 'ParallelGateway4']}
+{'id': 'sid-04F5C7DA-B8C0-4416-804E-FA8D6CA4FAD9', 'name': 'ParallelGateway3', 'incoming': ['Shipping goods'], 'outgoing': ['Goods ready for dispatch', 'Packaging goods']}
+{'id': 'sid-78D3A079-1950-4AE4-B9D3-0C5DD18D6373', 'name': 'ParallelGateway4', 'incoming': ['Packaging goods', 'Insurance?', 'Shipping goods', 'large quantity?', 'ParallelGateway2'], 'outgoing': ['Goods ready for dispatch']}
+
+Start Events:
+{'id': 'sid-6B3C3EA4-B837-46CF-BDA5-A507FAB8B5FD', 'name': 'Shipping goods', 'incoming': [], 'outgoing': ['ParallelGateway4']}
+
+End Events:
+{'id': 'sid-E9C1E51A-1D55-4331-A460-62D5F70293EE', 'name': 'Goods ready for dispatch', 'incoming': ['ParallelGateway3'], 'outgoing': []}

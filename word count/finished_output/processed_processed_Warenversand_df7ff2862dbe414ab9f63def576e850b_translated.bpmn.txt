@@ -1,0 +1,13 @@
+ When a user initiates a shipping desire, the process begins with the 'Shipping desired' event, which triggers the 'Pick up offers from three freight forwarders' task. This task then connects to 'ParallelGateway5', which in turn leads to the 'Explanation' task. The 'Explanation' task, upon receiving a query about special delivery, connects to 'Special delivery\nnecessary?\n' gateway. This gateway determines if special delivery is necessary and subsequently connects to 'ExclusiveGateway4'.
+
+If special delivery is deemed necessary, the process continues to 'Complete insurance', which is triggered by the 'Insurance\nnecessary?' query. This task connects to 'ExclusiveGateway2', which then leads to 'Determining insurance requirements' task. The 'Determining insurance requirements' task, upon receiving the insurance query, connects back to 'ExclusiveGateway2' to complete the insurance process.
+
+Once the insurance is complete, the process moves to 'Specialist' gateway, which is triggered by the 'Special delivery\nnecessary?' query. The 'Specialist' gateway connects to 'ExclusiveGateway4', which then leads to 'ParallelGateway6'.
+
+In parallel, the 'Pick up offers from three freight forwarders' task connects to 'ParallelGateway6', which then leads to 'Filling the package note' task. This task, upon receiving the special delivery query, connects to 'Determining insurance requirements' task to determine the insurance requirements.
+
+After determining the insurance requirements, the process moves to 'Complete insurance' task, which connects to 'ExclusiveGateway2' to finalize the insurance process.
+
+Once the insurance is complete, the process moves to 'Specialist' gateway, which connects to 'ExclusiveGateway4' to finalize the special delivery process.
+
+Finally, the 'Pick up offers from three freight forwarders' task connects to 'ParallelGateway6', which leads to 'Provide goods for collection' task. This task, upon receiving the offer from the freight forwarders, connects

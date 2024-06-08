@@ -1,0 +1,9 @@
+ The process begins with the 'Regression report' event, which triggers the 'Send payment request to VN' task. This task is connected to the 'Regression requirement\nRight?' gateway, which upon receiving the 'Regression report', directs the flow to either 'Process\ncompleted' or 'Opposition\nUntitled\nor deadline\nexpired?' tasks.
+
+If the 'Regression requirement\nRight?' task leads to 'Process\ncompleted', the process then moves to the 'Book payment receipt' task, which is connected to the 'ExclusiveGateway1'. This task is responsible for recording the payment receipt.
+
+On the other hand, if the 'Regression requirement\nRight?' task leads to 'Opposition\nUntitled\nor deadline\nexpired?', the process moves to the 'Debt collection service providers' task, which is also connected to the 'ExclusiveGateway1'. This task is responsible for notifying the debt collection service providers.
+
+In the case of the 'Reimbursement period\nExpired' event, it triggers the 'Close' task, which is connected to the 'EventBasedGateway3'. This task marks the end of the process.
+
+In summary, the process starts with a 'Regression report', which leads to either 'Process\ncompleted' or 'Opposition\nUntitled\nor deadline\nexpired?' tasks, depending on the outcome of the 'Regression requirement\nRight?' gateway. The 'Book payment receipt' task is triggered if 'Process\ncompleted' is the outcome, while the 'Debt collection service providers' task is triggered if 'Opposition\nUntitled\nor deadline\nexpired?' is the outcome. The process ends with the 'Close' task, triggered by the 'Reimbursement period\nExpired' event.

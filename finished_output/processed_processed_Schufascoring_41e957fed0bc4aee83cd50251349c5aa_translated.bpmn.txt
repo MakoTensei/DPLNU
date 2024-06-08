@@ -1,0 +1,19 @@
+ In a system designed to handle financial requests and responses, various tasks and gateways work together to ensure a smooth process. Let's dive into the flow of this system:
+
+1. The process begins with the 'Start your search' event, which triggers the 'Schufa request\ndemand' task. This task sends a request to the Frontend, and the 'Schufa request\nFrontend answered' event is generated as a result.
+
+2. The 'Schufa request\nFrontend answered' event is then passed to the 'EventBasedGateway2', which sends a reply to the Frontend.
+
+3. Concurrently, the 'Schufa request\nDemand' task also sends a delay message to the 'ExclusiveGateway0'. This gateway receives the delay message and sends a reply to the Frontend, resulting in the 'Schufa request\nFrontend answered' event.
+
+4. The 'StartEvent1' event initiates the process of returning to the bank. The 'Schufa request\nDemand' task sends a delay message to the 'Delay message\nobtained' gateway, which then sends a message to the 'ExclusiveGateway0'.
+
+5. The 'ExclusiveGateway0' receives the delay message and sends a reply to the Frontend, resulting in the 'Schufa request\nFrontend answered' event.
+
+6. The 'Result\npresent?' event is triggered, and the 'Schufa request\nDemand' task sends a delay message to the 'Delay message\nobtained' gateway.
+
+7. The 'Delay message\nobtained' gateway sends a message to the 'ExclusiveGateway0', which then sends a reply to the Frontend, resulting in the 'Schufa request\nFrontend answered' event.
+
+8. The 'Schufa request\nDemand' task sends a delay message to the 'Result\npresent?' event, which triggers the 'Schufa request\nDelivery to bank' task.
+
+9. The 'Schufa request\nDelivery to bank' task sends a reply to the 'Result\npresent?' event, resulting in the '

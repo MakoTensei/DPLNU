@@ -1,0 +1,41 @@
+Tasks:
+{'id': 'sid-38C39072-9CB0-4AFA-9D21-58821D15DE07', 'name': 'Visit restaurant', 'incoming': ['Feeling hungry'], 'outgoing': ['Select a court']}
+{'id': 'sid-606F09AB-9101-4023-A989-3DF3B05039DD', 'name': 'Select a court', 'incoming': ['Feeling hungry'], 'outgoing': ['Staff ready']}
+{'id': 'sid-399F21D3-B86E-408B-A233-F02D6C6A65CE', 'name': 'Food\nPay', 'incoming': ['sid-A98AD946-DBF9-47C5-A9C7-63395D23123B'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-DD9E1143-00FA-479C-9CA5-1DE9AD99829B', 'name': 'Pick up food', 'incoming': ['Pieper piept'], 'outgoing': ['Eat food']}
+{'id': 'sid-78D48432-E393-412B-B6A3-C5491776FD60', 'name': 'Eat food', 'incoming': ['Pieper belongs'], 'outgoing': ['Food consumed']}
+{'id': 'sid-C3D3626C-A752-4150-BE16-DEC2EBB337F6', 'name': 'Accept order', 'incoming': ['Time for\nnew customers\navailable'], 'outgoing': ['Enter your order']}
+{'id': 'sid-11CD0884-8B55-4972-8B31-B855C909ACD5', 'name': 'Enter your order', 'incoming': ['Time for\nnew customers\navailable'], 'outgoing': ['Cash']}
+{'id': 'sid-2029BBB9-A51B-4186-AB51-FB2B9A34124B', 'name': 'Cash', 'incoming': ['Time for\nnew customers\navailable'], 'outgoing': ['Set Piper']}
+{'id': 'sid-84786EC5-AC53-480E-920E-E3CF55A959FE', 'name': 'Set Piper', 'incoming': ['Time for\nnew customers\navailable'], 'outgoing': ['sid-13820687-29A4-4081-9356-05C4EAEF91D9']}
+{'id': 'sid-D04336CB-D137-41D6-82EE-E087B7908243', 'name': 'eating out', 'incoming': ['ikea'], 'outgoing': ['Food handed out']}
+{'id': 'sid-24D5F80D-533D-4F91-B6DE-C718CF3A67D1', 'name': 'Preparation of meal', 'incoming': ['StartEvent5'], 'outgoing': ['Putting the meal into the reach']}
+{'id': 'sid-85F750D7-26BE-437B-9FAD-1E5B1CF1C1A1', 'name': 'Putting the meal into the reach', 'incoming': ['StartEvent5'], 'outgoing': ['EndEvent5']}
+
+Gateways:
+{'id': 'sid-CC7FA8AA-EC01-4C3D-A180-C7E24D94FBF3', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway1', 'Food provided'], 'outgoing': ['sid-848D5ED7-1502-43D3-9FCF-31BF5EFA6B8C']}
+{'id': 'sid-BBAEA46E-40BC-49AC-8576-E5C2B9DB9C5D', 'name': 'EventBasedGateway1', 'incoming': ['Pieper piept'], 'outgoing': ['Food consumed', 'ExclusiveGateway0']}
+{'id': 'sid-5A1D84C1-0BA0-4E32-9E0A-86628DC55512', 'name': 'EventBasedGateway2', 'incoming': ['sid-08AC65E7-4E05-468B-B716-4A9CA7C5FA0B'], 'outgoing': ['Food handed out', 'Timeout']}
+{'id': 'sid-E056C4DD-9A33-4639-9D90-5EABDACB8447', 'name': 'Staff ready', 'incoming': ['Feeling hungry'], 'outgoing': ['sid-FA2A34A1-AF07-4258-B7D0-D69E9254EC80']}
+{'id': 'sid-7B23680E-29E3-4096-8868-3911763E59A0', 'name': 'Get Pieper', 'incoming': ['Food\nPay'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-5F55BDAA-71AC-4D6D-A184-B4A7FDF1B4B4', 'name': 'Pieper belongs', 'incoming': ['Pieper piept'], 'outgoing': ['Food consumed']}
+{'id': 'sid-755652F7-AB96-4D15-8F10-F9845ECF5259', 'name': '5 min', 'incoming': ['EventBasedGateway1'], 'outgoing': ['Timeout']}
+{'id': 'sid-ECDAC0BB-ECD9-4F68-BA0F-E9AA7A0EA283', 'name': 'ikea', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Food handed out']}
+{'id': 'sid-859A2A66-EB20-4A95-A4C0-D681AA9E27B5', 'name': '5 min', 'incoming': ['EventBasedGateway2'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-AB753601-A111-40DE-8B16-2521AC368C1A', 'name': 'Feeling hungry', 'incoming': [], 'outgoing': ['Staff ready']}
+{'id': 'sid-91F72B0B-13A3-4AFC-86AB-3BCC9CC175C5', 'name': 'Pieper piept', 'incoming': [], 'outgoing': ['Pick up food']}
+{'id': 'sid-BEB804F7-39B2-46E6-B111-67A48C9F9B74', 'name': 'Time for\nnew customers\navailable', 'incoming': [], 'outgoing': ['Set Piper']}
+{'id': 'sid-5372B4BE-9C49-424D-ADD8-C48A1EE23790', 'name': 'Food provided', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-38430B8B-1210-4826-BEC2-69E9BD2D8534', 'name': 'Order to receive', 'incoming': [], 'outgoing': ['sid-A25D864B-DCB3-4D0C-BF5F-35ED7A9882F6']}
+{'id': 'sid-6F7097CC-C61A-45B1-AFED-42CC36C2DB9A', 'name': 'StartEvent5', 'incoming': [], 'outgoing': ['Putting the meal into the reach']}
+
+End Events:
+{'id': 'sid-0D7204D3-69C3-47A4-9375-E6560A5B5394', 'name': 'Food consumed', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-68FBBEA7-0881-4E75-A7BF-A0A0B98B5526', 'name': 'EndEvent1', 'incoming': ['Food\nPay'], 'outgoing': []}
+{'id': 'sid-A76DE228-4422-4E86-929B-700D7EA01842', 'name': 'Timeout', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-CD99AD03-13AF-478C-9023-B5597D3806B0', 'name': 'Food handed out', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-6F221AE9-6985-4183-B09D-316FEE6B4256', 'name': 'EndEvent4', 'incoming': ['sid-AB581DD6-AEA2-4C72-AE1F-A3DDE2E50F53'], 'outgoing': []}
+{'id': 'sid-5211CA62-2225-4F20-BA31-A188DD450837', 'name': 'EndEvent5', 'incoming': ['Putting the meal into the reach'], 'outgoing': []}
+{'id': 'sid-EF19B263-6D7A-4FA0-8383-0B116C304011', 'name': 'Prepared food', 'incoming': ['sid-FAC69358-A862-4014-8853-081BF8ECBAD2'], 'outgoing': []}

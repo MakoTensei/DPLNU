@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-0A95DD70-BAD6-479D-8F97-12DF1F0C0076', 'name': 'Set process for resubmission', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-49B97E01-276B-4E95-A392-D523553DA92C', 'name': 'Check regression\n', 'incoming': ['Regression report\n'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-3AB265AC-9E87-4A87-8A28-6118B014E9AC', 'name': 'VN receives payment request', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-8A93C9E5-702D-4DA8-92A1-8CF6D9660BD7', 'name': 'Book money', 'incoming': ['ParallelGateway4'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-66AA3A48-5D14-4B87-9F52-E4B5D14325BE', 'name': 'Proceedings', 'incoming': ['ParallelGateway5'], 'outgoing': ['Close\n']}
+
+Gateways:
+{'id': 'sid-92ADA4E4-DEED-4C9B-BA98-B930B75FD828', 'name': 'Possibility available?', 'incoming': ['Regression report\n'], 'outgoing': ['Money received?', 'Close']}
+{'id': 'sid-E7049F91-0FD6-4C6F-86CA-1A50B893B0ED', 'name': 'Money received?', 'incoming': ['Regression report\n'], 'outgoing': ['Book money', 'Close\n']}
+{'id': 'sid-F16788C1-E782-4C02-9216-C5D5B6EFDCBB', 'name': 'justified?', 'incoming': ['ParallelGateway5'], 'outgoing': ['Close\n', 'sid-193C52C1-21A7-4A73-9F15-E87D64848EEA']}
+{'id': 'sid-4BD5860C-FDA1-4F7C-A4C8-EDCC6562E735', 'name': 'ExclusiveGateway3', 'incoming': ['sid-06519F0E-D7CD-4682-879E-2E72E3A70CB4', 'ParallelGateway4'], 'outgoing': ['sid-38ED6201-45C3-41EA-8996-19AEB05E6FDC']}
+{'id': 'sid-47AD5544-0537-48D0-BFFC-2F5E2B2D58EB', 'name': 'ParallelGateway4', 'incoming': ['Check regression\n'], 'outgoing': ['ParallelGateway5', 'ExclusiveGateway3']}
+{'id': 'sid-71C38A95-7707-4263-B669-67C1D019103A', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'Check regression\n'], 'outgoing': ['justified?']}
+
+Start Events:
+{'id': 'sid-C7DA673A-973A-4C36-B8F8-16DF239DE195', 'name': 'Regression report\n', 'incoming': [], 'outgoing': ['Money received?']}
+
+End Events:
+{'id': 'sid-DA2D2BF6-3876-4219-BAEE-7DE91C96A4E5', 'name': 'Close\n', 'incoming': ['Money received?'], 'outgoing': []}
+{'id': 'sid-8371A5AD-FD31-495C-97F5-98B6083561D3', 'name': 'Close', 'incoming': ['Possibility available?'], 'outgoing': []}
+{'id': 'sid-7BC8750D-CC6A-4D9B-8635-E468C6FCA3A4', 'name': 'Close', 'incoming': [], 'outgoing': []}

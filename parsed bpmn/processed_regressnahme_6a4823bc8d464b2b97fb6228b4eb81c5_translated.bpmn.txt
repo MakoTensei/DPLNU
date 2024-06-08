@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-095CE43F-A7B9-4F09-A330-AC929F8CA1A2', 'name': 'Check the case', 'incoming': ['Regression'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-25737EB7-D397-4721-A6E2-B98251E85A8E', 'name': 'Send payment request to VN', 'incoming': ['Regression'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-499964E6-177B-4FF9-8D8B-DA413451C0ED', 'name': 'Set process for resubmission', 'incoming': ['justified?'], 'outgoing': ['Payment confirmed']}
+{'id': 'sid-0C044E41-ED4C-4363-9514-F8F30BA716C4', 'name': 'Close', 'incoming': ['ExclusiveGateway2'], 'outgoing': ['Process']}
+{'id': 'sid-EE50B65D-F2C5-44FB-A2EB-756820ECBEBF', 'name': 'Proceedings', 'incoming': ['Opposition\nReport'], 'outgoing': ['Process']}
+{'id': 'sid-EC12184B-1029-4ADF-8218-3B8A712D6626', 'name': 'forwarding to debt collection service providers', 'incoming': ['EventBasedGateway4'], 'outgoing': ['forwarded']}
+{'id': 'sid-520CDDDF-57CE-4793-9FB3-381CF2CC9D47', 'name': 'Book payment receipt', 'incoming': ['Payment confirmed'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-1BE213AE-BA81-4E03-AEA6-7DE36572D8E8', 'name': 'justified?', 'incoming': ['Regression'], 'outgoing': ['forwarded', 'ExclusiveGateway2']}
+{'id': 'sid-5BDDEF90-9CB3-4BA7-9E5D-4C99B68E5E8D', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-96E6509C-A8F0-43EB-ACAB-9B2A45876040', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'Payment confirmed', 'Check the case'], 'outgoing': ['Process']}
+{'id': 'sid-D01A5591-0ECC-4463-9DE4-4E9BF6D774A2', 'name': 'ExclusiveGateway3', 'incoming': ['Opposition\nReport', 'EventBasedGateway4'], 'outgoing': ['forwarded']}
+{'id': 'sid-B4612BD6-A7E8-4B77-BC35-CAE3E00987FB', 'name': 'EventBasedGateway4', 'incoming': ['justified?'], 'outgoing': ['Payment confirmed', 'Objection justified?', 'forwarding to debt collection service providers']}
+{'id': 'sid-1D054944-7FD8-4EF2-8696-45B34845080B', 'name': 'Payment confirmed', 'incoming': ['Set process for resubmission'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-79ACDB6C-28D1-424D-A919-3A52990E6B1E', 'name': 'Reimbursement period expired', 'incoming': ['justified?'], 'outgoing': ['forwarded']}
+{'id': 'sid-E8A3F5D1-A3DD-4B97-A550-CB29AFB80497', 'name': 'Opposition\nReport', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-5EC7310C-90AA-4A3D-91FC-268F5DAE2B7B', 'name': 'Regression', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:
+{'id': 'sid-A999AB28-A484-44AC-ADE8-C507B0A01571', 'name': 'Process', 'incoming': ['Proceedings'], 'outgoing': []}
+{'id': 'sid-7D3796AE-223D-4329-BE20-FD0786F63AB4', 'name': 'forwarded', 'incoming': ['justified?'], 'outgoing': []}

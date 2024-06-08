@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-BB350610-52C5-433A-8304-B7AFFC92BEE5', 'name': 'Start scoring process', 'incoming': ['StartEvent0'], 'outgoing': ['Send a request']}
+{'id': 'sid-4AE4ECEF-5092-4D30-8DAC-EF9F15F9EE81', 'name': 'Send a request', 'incoming': ['StartEvent0'], 'outgoing': ['Results Level 1']}
+{'id': 'sid-AAF1388B-82C0-4713-A3BC-DA552490D83F', 'name': 'Send result to the frontend', 'incoming': ['Results Level 1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-5B9AE8A7-173B-4927-AAEF-2A654E85EAED', 'name': 'Send Intermediate Info to Frontend', 'incoming': ['StartEvent0'], 'outgoing': ['Results Level 2']}
+{'id': 'sid-3BD85A8A-7E17-47E9-8D0C-8E68FDFFB77B', 'name': 'Result Level 2 send to Frotend', 'incoming': ['Intermediate information'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-912DD5CE-B786-4AF6-B6A8-2A9A81BD9E68', 'name': 'Scoring level 1', 'incoming': ['StartEvent1'], 'outgoing': ['Results determined?']}
+{'id': 'sid-318D9357-3F15-4FBF-A2D5-E25520E5D958', 'name': 'Transfer of results', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-D530C4C3-520D-4D1F-AC94-62A1C61C565B', 'name': 'Send a message', 'incoming': ['Results determined?'], 'outgoing': ['Start Level 2']}
+{'id': 'sid-1563C6C7-772C-4ACE-BE36-461639075677', 'name': 'Start Level 2', 'incoming': ['Results determined?'], 'outgoing': ['Transfer of results']}
+{'id': 'sid-3AA6BD9E-3601-49E8-838F-C31053563C68', 'name': 'Transfer of results', 'incoming': ['Results determined?'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-7AD74390-12EB-46A6-929C-C4E2BE312BAA', 'name': 'Results determined?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2', 'EndEvent3']}
+{'id': 'sid-7124692C-E5CD-49DB-8A83-ECABFAD4F88F', 'name': 'EventBasedGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-F5201565-6EBF-4B25-AF17-D885359E84FC', 'name': 'Results Level 1', 'incoming': ['Send a request'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-EB28F2C2-8965-4AA2-AC0D-393C5C5901E6', 'name': 'Results Level 2', 'incoming': ['EventBasedGateway1'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-1CC51B66-8B0B-4F3E-8996-3FDFF2BA7BB3', 'name': 'Intermediate information', 'incoming': ['StartEvent0'], 'outgoing': ['Result Level 2 send to Frotend']}
+
+Start Events:
+{'id': 'sid-68780EF0-27D8-4401-91AB-1A8177BE4CC7', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Send Intermediate Info to Frontend']}
+{'id': 'sid-0D7ADD8F-311F-4F20-9EC5-AF73D57DA444', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Transfer of results']}
+
+End Events:
+{'id': 'sid-CD204A20-9CED-4A57-AB26-B3E1FFC6EA2F', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-9A55CCF5-8344-4473-9252-136F66FF9C75', 'name': 'EndEvent1', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-A64D96CD-1224-4171-8E70-0F3B876376A6', 'name': 'EndEvent2', 'incoming': ['Results determined?'], 'outgoing': []}
+{'id': 'sid-10E1AE50-AE40-42ED-A571-0077A5E8D558', 'name': 'EndEvent3', 'incoming': ['Results determined?'], 'outgoing': []}

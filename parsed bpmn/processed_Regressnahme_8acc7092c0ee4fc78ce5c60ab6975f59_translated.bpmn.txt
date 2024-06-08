@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-A9C90CF2-D19F-4B09-BF1B-3B836F48D961', 'name': 'Check the case', 'incoming': ['possible\nRegression'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-D8A412D2-8872-45CE-BB1B-E13A07D4FD38', 'name': 'On re-\nikea', 'incoming': ['sid-9AE1C4E0-038A-4900-BC87-87B458308FB1'], 'outgoing': ['Money received']}
+{'id': 'sid-0C1498E0-B248-4874-B242-42136F6B6586', 'name': 'Book money', 'incoming': ['Money received'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-38247B19-B319-445B-ABEB-8D4B5DDE4D91', 'name': 'Proceedings', 'incoming': ['VN contradicts'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-84F99549-FCCB-4D0D-ABA8-A776E3F1461D', 'name': 'Close', 'incoming': ['VN contradicts'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-BD84D7E1-9554-44EE-B47B-2D8D2E5EB9F7', 'name': 'Existence\nRegress\nclaim?', 'incoming': ['possible\nRegression'], 'outgoing': ['ExclusiveGateway1', 'sid-8DFFC8A0-8AEA-4228-BE41-C8A07AF52E02']}
+{'id': 'sid-E99010A8-51E0-4BA5-A38E-934FD6C0FCC5', 'name': 'ExclusiveGateway1', 'incoming': ['EventBasedGateway4', 'Check the case', 'ExclusiveGateway2'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-55111303-71BB-4EC7-940F-DFF05927629F', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3', 'Close']}
+{'id': 'sid-AB1E95A1-01D8-4FD0-AEAE-144572BE4FAA', 'name': 'ExclusiveGateway3', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['Giving debt service providers']}
+{'id': 'sid-FDE23DC0-5CC4-49CA-A04E-17A194A4B09F', 'name': 'EventBasedGateway4', 'incoming': ['On re-\nikea'], 'outgoing': ['EndEvent0', 'ExclusiveGateway2', 'ExclusiveGateway3']}
+{'id': 'sid-BC6D9B40-6A1B-41EB-9574-208043DDBEAD', 'name': 'Money received', 'incoming': ['On re-\nikea'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-3B79C431-23A4-47F3-9045-0EAA5C9BC30B', 'name': 'VN contradicts', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Close']}
+{'id': 'sid-37EB7101-09D1-4BCF-8D83-1374EE6758EF', 'name': 'Objection\ndeadline expired', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Giving debt service providers']}
+
+Start Events:
+{'id': 'sid-348A92F6-1B95-4C32-90FA-F81E3513249B', 'name': 'possible\nRegression', 'incoming': [], 'outgoing': ['Existence\nRegress\nclaim?']}
+
+End Events:
+{'id': 'sid-814FCBB5-D224-43CF-BB9D-9A5A3C2DB8BB', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-8544AC08-3149-4B61-9E22-33A8FC256D85', 'name': 'Giving debt service providers', 'incoming': ['Objection\ndeadline expired'], 'outgoing': []}

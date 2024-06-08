@@ -1,0 +1,34 @@
+Tasks:
+{'id': 'sid-49CE3FDC-7D0B-412B-AF70-0458CBD58983', 'name': 'Pick up Schufascoring', 'incoming': ['Review'], 'outgoing': ['Scoring result']}
+{'id': 'sid-74063C90-2421-4AA9-BEC4-A3AB6D87D06A', 'name': 'View result', 'incoming': ['Scoring result'], 'outgoing': ['End']}
+{'id': 'sid-7B619521-3216-4886-9056-7810CC852AD7', 'name': 'Display delay message', 'incoming': ['Review'], 'outgoing': ['EventBasedGateway3']}
+{'id': 'sid-6AB8AD54-8A89-49BE-9DC7-B547CA275640', 'name': 'Scoring request', 'incoming': ['Picking up Schufascoring'], 'outgoing': ['Scoring']}
+{'id': 'sid-D16A5937-2D62-4DFF-8DAE-3EBF4E67E4FE', 'name': 'Report the scoring result of Kreiditvergabe', 'incoming': ['EventBasedGateway4'], 'outgoing': ['End']}
+{'id': 'sid-38A4E915-01DA-4668-A20A-955F34D94FE9', 'name': 'Report delay to employees', 'incoming': ['Picking up Schufascoring'], 'outgoing': ['Scoring Level 2']}
+{'id': 'sid-20DDF41F-5CC9-4ED3-864D-5E065F45BED9', 'name': 'perform scoring level 1', 'incoming': ['Scoring request'], 'outgoing': ['Scoring Level 1']}
+{'id': 'sid-27A94BFF-FD39-4F73-9FAB-5D252A560B12', 'name': 'Scoring Report result', 'incoming': ['Scoring request'], 'outgoing': ['End']}
+{'id': 'sid-42F59588-2210-489A-8618-063E446C5151', 'name': 'Report the Bank’s Result Delay', 'incoming': ['Scoring Level 1'], 'outgoing': ['perform scoring level 2']}
+{'id': 'sid-23EA4645-27D1-40C4-9453-ABF709DC6F55', 'name': 'perform scoring level 2', 'incoming': ['Scoring Level 1'], 'outgoing': ['Report Scoring Level 2 to Bank']}
+{'id': 'sid-28A8C2E6-3FC6-422B-9FE3-D6E24473DA5B', 'name': 'Report Scoring Level 2 to Bank', 'incoming': ['Scoring Level 1'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-4B9FB69D-C95D-46E3-8925-1C7D691C3B48', 'name': 'ExclusiveGateway0', 'incoming': ['Picking up Schufascoring', 'EventBasedGateway4'], 'outgoing': ['End']}
+{'id': 'sid-DB01DCCA-9393-4753-8D5D-E1BFD2197A10', 'name': 'Scoring Level 1', 'incoming': ['Scoring request'], 'outgoing': ['End', 'Report Scoring Level 2 to Bank']}
+{'id': 'sid-2E4B78E0-C935-46BE-AE8F-FE97C81802ED', 'name': 'ExclusiveGateway2', 'incoming': ['Scoring request', 'Report Scoring Level 2 to Bank'], 'outgoing': ['End']}
+{'id': 'sid-368EB1FA-19B8-4FE9-99C0-5D2C9EC30114', 'name': 'EventBasedGateway3', 'incoming': ['Review', 'EventBasedGateway3'], 'outgoing': ['End', 'EventBasedGateway3']}
+{'id': 'sid-2DBEE5A4-8392-4B1B-871E-118CD667C6BA', 'name': 'EventBasedGateway4', 'incoming': ['Picking up Schufascoring'], 'outgoing': ['Report the scoring result of Kreiditvergabe', 'End']}
+{'id': 'sid-23F63132-B267-40F5-AEA1-C2924576FCEF', 'name': 'Scoring result', 'incoming': ['Pick up Schufascoring'], 'outgoing': ['End']}
+{'id': 'sid-4C8B52F1-85DB-4074-805B-752276EFD349', 'name': 'delay message is available', 'incoming': ['Review'], 'outgoing': ['End']}
+{'id': 'sid-6F7F797D-3C3D-45A4-960A-DCE94714BD4E', 'name': 'Scoring', 'incoming': ['Scoring request'], 'outgoing': ['End']}
+{'id': 'sid-A0BE670A-6535-4E5A-9711-22359E47F800', 'name': 'delay message is available', 'incoming': ['Picking up Schufascoring'], 'outgoing': ['Report delay to employees']}
+{'id': 'sid-D95F1320-0237-4527-9F1D-F6374442679D', 'name': 'Scoring Level 2', 'incoming': ['Picking up Schufascoring'], 'outgoing': ['ExclusiveGateway0']}
+
+Start Events:
+{'id': 'sid-A4006E7D-E72A-4183-9986-DC61C78C2507', 'name': 'Review', 'incoming': [], 'outgoing': ['Display delay message']}
+{'id': 'sid-5825277D-D2C9-47E3-9B3C-3E278B79B964', 'name': 'Picking up Schufascoring', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-C69E9409-49F4-48C7-99E6-9F25D647B01A', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-D8C0256A-D030-44B7-9445-FD0B8B40B572', 'name': 'End', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-A83C2E3C-3A05-499B-B541-66D833BF8910', 'name': 'End', 'incoming': ['Scoring'], 'outgoing': []}
+{'id': 'sid-8518833A-36B7-4B57-8B2F-EEC1755CDA05', 'name': 'End', 'incoming': ['Scoring Level 1'], 'outgoing': []}

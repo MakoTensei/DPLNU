@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-14AAC41E-84C4-49E0-B400-FBB73EF2EBAB', 'name': 'Clearing the shipping mode', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Special shipment required?']}
+{'id': 'sid-13A8E32A-C78E-4176-AA6D-B57CB61919F8', 'name': 'Filling the package note', 'incoming': ['Goods are to be shipped'], 'outgoing': ['InclusiveGateway2']}
+{'id': 'sid-28B54A02-6F6D-4C13-B51B-05FDEEE4D94D', 'name': '3 offers', 'incoming': ['Special shipment required?'], 'outgoing': ['Select your offer']}
+{'id': 'sid-CFEEFAE8-FB3C-4EA9-A7BF-5194EF79E8EB', 'name': 'Select your offer', 'incoming': ['Special shipment required?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-7897EB45-DCE8-43F4-8875-055CC61EFB05', 'name': 'Packaging goods', 'incoming': ['InclusiveGateway2'], 'outgoing': ['InclusiveGateway3']}
+{'id': 'sid-C610F36F-A99D-4343-ACE3-FF816CC87FE3', 'name': 'Provide goods for collection', 'incoming': ['InclusiveGateway3'], 'outgoing': ['End']}
+{'id': 'sid-3BC38B29-6391-43B2-89B8-7D770B937CFC', 'name': 'Complete insurance', 'incoming': ['InclusiveGateway2'], 'outgoing': ['End']}
+
+Gateways:
+{'id': 'sid-E270CE91-23BC-4716-A680-C8F225504AB4', 'name': 'Special shipment required?', 'incoming': ['Goods are to be shipped'], 'outgoing': ['InclusiveGateway3', 'ExclusiveGateway1']}
+{'id': 'sid-261BBBE2-3D8E-4EDD-9BE8-C7432BE7A977', 'name': 'ExclusiveGateway1', 'incoming': ['Goods are to be shipped', 'Special shipment required?'], 'outgoing': ['InclusiveGateway2']}
+{'id': 'sid-C3720836-35FA-4876-9A2D-317D10BF36E3', 'name': 'InclusiveGateway2', 'incoming': ['Special shipment required?'], 'outgoing': ['InclusiveGateway3', 'End']}
+{'id': 'sid-1115A647-6807-43FA-91F8-D3E069CDB905', 'name': 'InclusiveGateway3', 'incoming': ['Special shipment required?', 'Complete insurance'], 'outgoing': ['End']}
+
+Start Events:
+{'id': 'sid-A3CD2BEC-5B5F-4889-95E2-1A10F5421E13', 'name': 'Goods are to be shipped', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-6057EF51-97BC-4F76-8AE1-636073939BDC', 'name': 'End', 'incoming': ['InclusiveGateway2'], 'outgoing': []}

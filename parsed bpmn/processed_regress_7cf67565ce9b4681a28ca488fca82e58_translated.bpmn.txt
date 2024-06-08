@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-D8BFF496-F058-4377-A80D-248F8C216E4A', 'name': 'Check regression', 'incoming': ['VN can be found in Regress\nwe have taken'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-A734D916-E2FB-4BB7-A209-3FD563AD1FC2', 'name': 'Close', 'incoming': ['Opposition\njustified?'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-CEC7C938-65C7-4A2A-9EDB-D484B25AB4D6', 'name': 'Proceedings', 'incoming': ['Objection'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-35B75A09-78E1-47F5-B331-1CC0F29502C2', 'name': 'Specify the process of debt collection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-627677F7-81DB-446F-91D8-5754FC68794C', 'name': 'Reimbursement', 'incoming': ['sid-98A85560-1E28-48EF-A29A-169A1A144D39'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-2294F842-6FC8-4E87-B688-F13C82C5E4DD', 'name': 'Regress possible?', 'incoming': ['VN can be found in Regress\nwe have taken'], 'outgoing': ['ExclusiveGateway1', 'sid-0CC4B68F-8347-4D81-885C-83950D795671']}
+{'id': 'sid-0658637C-5B03-43CF-B4C5-222541E951AD', 'name': 'ExclusiveGateway1', 'incoming': ['Check regression', 'EventBasedGateway4', 'Objection'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-794D9A37-6DC0-49A0-B518-4C21DC32D255', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Close', 'ExclusiveGateway3']}
+{'id': 'sid-7E0FB028-4173-4C3A-890A-7878725203FF', 'name': 'ExclusiveGateway3', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-7F5B2395-15FD-48A8-AD48-28AE3921B137', 'name': 'EventBasedGateway4', 'incoming': ['Reimbursement'], 'outgoing': ['Specify the process of debt collection', 'EndEvent0', 'Opposition\njustified?']}
+{'id': 'sid-15479C46-1495-4437-98DF-792869F455AC', 'name': 'Reimbursement\nentered', 'incoming': ['Reimbursement'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-CF96A94E-31C7-4C55-BBBA-BC8EAD55C625', 'name': 'Money received', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-D08BD47F-9F97-4F1C-AD5A-15191E7395E0', 'name': 'Objection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-E29E105C-4E6A-42C0-AEBE-C7A36F8B4F61', 'name': 'VN can be found in Regress\nwe have taken', 'incoming': [], 'outgoing': ['Regress possible?']}
+
+End Events:
+{'id': 'sid-A671A417-68CA-4EE2-8A43-3F83A7C44C90', 'name': 'EndEvent0', 'incoming': ['EventBasedGateway4'], 'outgoing': []}
+{'id': 'sid-5D3FF988-3DB5-4603-8162-063EA30F636E', 'name': 'EndEvent1', 'incoming': ['Reimbursement'], 'outgoing': []}

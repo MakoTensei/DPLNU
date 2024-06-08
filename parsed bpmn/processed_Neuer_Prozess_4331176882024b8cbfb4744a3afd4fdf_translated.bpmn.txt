@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-8EE0E3D3-8632-41FE-95D8-9D0281509B94', 'name': 'Scoring request\nsend', 'incoming': ['Schufa show\nrequired'], 'outgoing': ['Delay']}
+{'id': 'sid-4D4DBAF4-AF4A-468F-A117-75B4CFE002A9', 'name': 'Result\nReport', 'incoming': ['Schufa show\nrequired'], 'outgoing': []}
+{'id': 'sid-537A7735-A8CB-49AE-9291-5DF5F5376DD1', 'name': 'Scoring\nLevel 1', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-A7C89AB9-7FAB-4F74-893A-42C087463CD3', 'name': 'Result\nLevel 1\nReport', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['EventBasedGateway1']}
+{'id': 'sid-59371934-11C9-4C81-9CE4-6658139450AD', 'name': 'Delay\nReport', 'incoming': ['ParallelGateway2'], 'outgoing': ['EventBasedGateway1']}
+{'id': 'sid-424F17D2-1EF8-45AA-95D5-6B114188E709', 'name': 'Scoring\nLevel 2', 'incoming': ['ParallelGateway2'], 'outgoing': ['Result\nLevel 2\nReport']}
+{'id': 'sid-2AC57AFD-D416-48F1-A849-1BF5FE4FEAC3', 'name': 'Result\nLevel 2\nReport', 'incoming': ['ParallelGateway2'], 'outgoing': ['EventBasedGateway1']}
+
+Gateways:
+{'id': 'sid-0859DF82-9B89-4833-B0AE-D643F19C974F', 'name': 'ExclusiveGateway0', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Result\nLevel 1\nReport', 'EventBasedGateway1']}
+{'id': 'sid-FCE7222F-69D0-42A3-B37C-CE15AA5C26E2', 'name': 'EventBasedGateway1', 'incoming': ['Schufa show\nrequired', 'Scoring request\nobtained', 'ExclusiveGateway0', 'ParallelGateway2'], 'outgoing': ['Delay', 'Result']}
+{'id': 'sid-9EEAFF20-B04A-4F98-A878-9FEFB6830DF3', 'name': 'ParallelGateway2', 'incoming': ['Scoring\nLevel 1'], 'outgoing': ['EventBasedGateway1', 'EventBasedGateway1']}
+{'id': 'sid-37130B4B-AFEA-456D-A0D3-A192CD1DC804', 'name': 'Delay', 'incoming': ['Scoring request\nsend'], 'outgoing': []}
+{'id': 'sid-7C06E7EE-D3CE-4CC4-90F8-7BE16FE4E529', 'name': 'Result', 'incoming': ['Schufa show\nrequired'], 'outgoing': ['Result\nReport']}
+
+Start Events:
+{'id': 'sid-4D496782-7419-41A4-A516-9C84E24C047C', 'name': 'Schufa show\nrequired', 'incoming': [], 'outgoing': ['Result\nReport']}
+{'id': 'sid-4E090988-5F64-495A-BFEE-86C7BC7D3393', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['EventBasedGateway1']}
+
+End Events:

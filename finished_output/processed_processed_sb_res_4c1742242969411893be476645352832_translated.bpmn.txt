@@ -1,0 +1,47 @@
+ A customer enters the restaurant and feels hungry.
+
+1. The customer decides to order food.
+2. The customer selects a court to sit in.
+
+In the meantime, the kitchen prepares the food.
+
+3. The food is ready and served to the customer.
+
+After the customer finishes eating, they leave the restaurant.
+
+
+Gateways:
+
+1. The customer's hunger triggers the EventBasedGateway0, which connects the customer to the "in the row" task.
+2. The customer's order is processed through the EventBasedGateway0, which connects the order to the "Adjust Pieper" task.
+3. The kitchen's readiness to serve food is checked through the EventBasedGateway0, which connects the prepared court to the "Place court in vain" task.
+
+
+Start Events:
+
+1. The customer's hunger initiates the "Hunger" event.
+2. The customer places an order, starting the "Ordered" event.
+3. The kitchen confirms the court's readiness, starting the "Court should be prepared" event.
+
+
+End Events:
+
+1. The customer finishes eating and leaves, ending the "Eat court" event.
+2. The customer waits for Pieper, ending the "waiting for Pieper" event.
+3. The customer's trial concludes, ending the "waiting for trial" event.
+
+
+Additional Tasks:
+
+1. The customer visits the restaurant and decides to eat.
+2. The customer places an order in the cash system.
+3. The customer picks up Pieper from the kitchen.
+4. The customer retrieves a customer who has been waiting for 5 minutes.
+5. The court is prepared for the trial.
+
+
+Additional Gateways:
+
+1. The customer's hunger connects to the "in the row" task through EventBasedGateway0.
+2. The customer's order connects to the "Adjust Pieper" task through EventBasedGateway0.
+3. The kitchen's readiness connects to the "Place court in vain" task through Event

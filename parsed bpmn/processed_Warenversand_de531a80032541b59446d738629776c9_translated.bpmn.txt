@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-2CEA7682-379B-46BE-8EB7-D5E1ED309BD4', 'name': 'large quantities', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway2']}
+{'id': 'sid-203847C7-C32B-432C-A0C2-3C5BC3C33C6D', 'name': 'Spedition 1', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-D7EDEC16-D966-4122-8F0E-F62F0AF3CF49', 'name': 'Spedition 2', 'incoming': ['ParallelGateway2'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-7113245F-19CE-42CF-A433-82BE1D26ABDC', 'name': 'Spedition 3', 'incoming': ['ParallelGateway2'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-2AF85DBA-69F3-43DE-B52C-B6F0261E08F0', 'name': 'Select your offer', 'incoming': ['ParallelGateway2'], 'outgoing': ['order selected forwarding']}
+{'id': 'sid-B13BD1CC-4DBE-4CEF-8AE5-8E689BF8D0F8', 'name': 'order selected forwarding', 'incoming': ['ParallelGateway2'], 'outgoing': []}
+{'id': 'sid-B2A50134-8404-45EC-B3B7-A95C43E00F27', 'name': 'small quantities', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-FC1C345A-488C-491B-A6A2-B478089A6171', 'name': 'Filling it', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-E0840E1E-4051-45ED-AAD1-FD19C8C2121B', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-B836D9F6-9530-49EA-B7B9-9473E540D25D', 'name': 'ExclusiveGateway0', 'incoming': ['ParallelGateway2', 'ParallelGateway2', 'ParallelGateway2'], 'outgoing': ['order selected forwarding']}
+{'id': 'sid-4064DAAE-378B-4FE5-9C31-E61CFAFEF7C1', 'name': 'ExclusiveGateway1', 'incoming': ['ParallelGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-46CD20B9-07E5-462C-94AD-D14D397264B6', 'name': 'ParallelGateway2', 'incoming': ['ParallelGateway3'], 'outgoing': ['Select your offer', 'order selected forwarding', 'ExclusiveGateway0']}
+{'id': 'sid-8A5C70DB-8942-4E01-8EC5-08E0AC62BA28', 'name': 'ParallelGateway3', 'incoming': ['StartEvent0'], 'outgoing': ['Spedition 1', 'ExclusiveGateway1']}
+{'id': 'sid-75BF8A15-2E58-433A-BDFE-AA74BE9A4636', 'name': 'ParallelGateway4', 'incoming': ['ParallelGateway3'], 'outgoing': ['ExclusiveGateway1', 'Packaging goods']}
+
+Start Events:
+{'id': 'sid-7167ADFE-35F4-4471-B6A5-FBBBAC168329', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Spedition 1']}
+
+End Events:
+{'id': 'sid-62CFC922-E74B-4A03-8B94-5CFB47DCF1F6', 'name': 'EndEvent0', 'incoming': ['Filling it'], 'outgoing': []}

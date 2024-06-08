@@ -1,0 +1,39 @@
+Tasks:
+{'id': 'sid-41A7066C-8D5F-402E-9425-639AB17D50FD', 'name': 'Ordering', 'incoming': ['new first customer in the snake'], 'outgoing': ['Request money']}
+{'id': 'sid-F602BDB0-DBE0-424C-8B40-E3CC4628224C', 'name': 'Request money', 'incoming': ['new first customer in the snake'], 'outgoing': ['accepting money']}
+{'id': 'sid-0B2C5375-12D9-4C91-BA8F-951667DBB9A0', 'name': 'Adjust Pieper', 'incoming': ['accepting money'], 'outgoing': ['Guest instruct and pass Pieper to guest']}
+{'id': 'sid-61752B2A-15CF-4B16-BAEC-AD469668AA04', 'name': 'Guest instruct and pass Pieper to guest', 'incoming': ['accepting money'], 'outgoing': ['Koch inform']}
+{'id': 'sid-3B44F2A8-F72D-4B32-B9F7-1DB9B74D607E', 'name': 'accepting money', 'incoming': ['new first customer in the snake'], 'outgoing': ['Koch inform']}
+{'id': 'sid-A9D7B68E-E1D0-4A9B-8CBC-05AEF002720F', 'name': 'Koch inform', 'incoming': ['new first customer in the snake'], 'outgoing': ['Food ready']}
+{'id': 'sid-E2B86CAE-A2A4-416B-B13E-37117CA80DD7', 'name': 'Trigger Pieper', 'incoming': ['new first customer in the snake'], 'outgoing': ['5 minutes']}
+{'id': 'sid-EFE6FD7B-4700-4FAD-8DAC-746633D9A506', 'name': 'Deliver food', 'incoming': ['new first customer in the snake'], 'outgoing': ['Order completed']}
+{'id': 'sid-BF7F4241-60D2-4C88-BB18-3EB2FB44EC1B', 'name': 'Retrieve customer', 'incoming': ['5 minutes'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-23A384D9-DE1B-4208-B05A-D01A0255353D', 'name': 'Prepare food', 'incoming': ['StartEvent1'], 'outgoing': ['Put food into the empires']}
+{'id': 'sid-EC378F8A-FC37-4A4A-9449-33B5E5A320E5', 'name': 'Put food into the empires', 'incoming': ['StartEvent1'], 'outgoing': ['Food ready']}
+{'id': 'sid-5AF04C3E-8661-4954-8C6B-2A428B7A53E0', 'name': 'Select a court', 'incoming': ['feel hunger'], 'outgoing': ['in the cash snake']}
+{'id': 'sid-592E4B45-D82A-44AA-950F-2853FEC93695', 'name': 'Add your order', 'incoming': ['to be in line'], 'outgoing': ['Payment request']}
+{'id': 'sid-6D298DD5-00E2-4869-86BC-891BED462A97', 'name': 'Pay money', 'incoming': ['to be in line'], 'outgoing': ['Pieper insert']}
+{'id': 'sid-28D0CEFA-F441-47EF-B24A-E52A7063496C', 'name': 'in the cash snake', 'incoming': ['feel hunger'], 'outgoing': ['to be in line']}
+{'id': 'sid-1B786B0D-0D8D-4E66-8047-A6D2C6B53DAE', 'name': 'Pieper insert', 'incoming': ['Payment request'], 'outgoing': ['Food is ready']}
+{'id': 'sid-FD4ADEF2-87D8-4EB6-A529-3BF50F096A4E', 'name': 'Go to output', 'incoming': ['Food is ready'], 'outgoing': ['Get food']}
+{'id': 'sid-7C5E645A-FFDE-47BF-9CF9-F3A9EB9E4141', 'name': 'Eat food', 'incoming': ['Get food'], 'outgoing': ['Sat']}
+
+Gateways:
+{'id': 'sid-B8341AD9-7D59-441E-89FE-C2CBE4AAFF4E', 'name': 'Food ready', 'incoming': ['new first customer in the snake'], 'outgoing': ['Customer appears on the issue']}
+{'id': 'sid-6A97299C-06C3-49DF-BE42-F0C4E352153D', 'name': 'Customer appears on the issue', 'incoming': ['Food ready'], 'outgoing': ['Order completed']}
+{'id': 'sid-8356BF44-EF49-4853-B03B-45CEE7263A31', 'name': 'IntermediateCatchEvent2', 'incoming': ['new first customer in the snake', 'Food ready'], 'outgoing': ['Deliver food', 'Customer appears on the issue']}
+{'id': 'sid-803D1745-7787-43A4-BA42-9732B7897817', 'name': '5 minutes', 'incoming': ['Food ready'], 'outgoing': ['Order completed']}
+{'id': 'sid-795B112C-D052-4FA8-9F51-B41150F20E31', 'name': 'Payment request', 'incoming': ['feel hunger'], 'outgoing': ['Food is ready']}
+{'id': 'sid-2B6637CD-1167-42DD-B462-4CBD0C1C58C8', 'name': 'Food is ready', 'incoming': ['feel hunger'], 'outgoing': ['Get food']}
+{'id': 'sid-9C289715-1A50-40B1-88CC-35B5C0F792C1', 'name': 'to be in line', 'incoming': ['feel hunger'], 'outgoing': ['Pay money']}
+{'id': 'sid-C35842F6-E722-4821-88CD-96A4EE25E4D1', 'name': 'Get food', 'incoming': ['feel hunger'], 'outgoing': ['Sat']}
+
+Start Events:
+{'id': 'sid-74370605-A0BE-4421-BB5F-3FC7D580BF14', 'name': 'new first customer in the snake', 'incoming': [], 'outgoing': ['Deliver food']}
+{'id': 'sid-AA61506E-F7C5-46BF-93F9-24F8A80C83D4', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Put food into the empires']}
+{'id': 'sid-F6E2185B-5949-4058-BBE6-DCF59389EE44', 'name': 'feel hunger', 'incoming': [], 'outgoing': ['Get food']}
+
+End Events:
+{'id': 'sid-92C4D145-1956-4546-BD26-C3CEBCC40974', 'name': 'Order completed', 'incoming': ['5 minutes'], 'outgoing': []}
+{'id': 'sid-BF0F7E32-0B39-4726-90D5-E46410C0B4D1', 'name': 'Food ready', 'incoming': ['Put food into the empires'], 'outgoing': []}
+{'id': 'sid-FDECDE89-A197-4ECB-8740-9A1135773A84', 'name': 'Sat', 'incoming': ['Get food'], 'outgoing': []}

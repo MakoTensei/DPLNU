@@ -1,0 +1,7 @@
+ The process begins with the 'Regression case\nReport' event, which triggers the 'Send a message' task, initiating a communication chain. The 'Send a message' task then leads to the 'Set to WV' task, which checks for the possibility of a WV (Warranty Void) situation. If the WV is not expired, the process continues to the 'Payment\nobtained' task, which, upon successful payment, results in the 'Regression case\nsuccessful\nFinished' task.
+
+However, if the WV is expired, the process diverges to the 'WV expired' task, which sends the case to 'ExclusiveGateway2'. This gateway can either lead to the 'Regression case\nhanded over to collection' task if the case is deemed unjustified or to the 'EventBasedGateway4' task, which has multiple outcomes: the case can be marked as 'Regression case\nsuccessful\nFinished' if justified, or 'Regression case\nunsuccessful\nFinished' if not.
+
+In the case of justified outcomes, the process concludes with the 'Regression case\nsuccessful\nFinished' task. For unsuccessful outcomes, the process ends with the 'Regression case\nunsuccessful\nFinished' task.
+
+This flow ensures that the regression case is thoroughly evaluated, with the possibility of WV expiration and justification being key factors in determining the case's final status.

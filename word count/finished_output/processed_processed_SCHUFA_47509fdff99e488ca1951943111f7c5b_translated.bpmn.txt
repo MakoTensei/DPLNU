@@ -1,0 +1,7 @@
+ When a Schufa request is triggered, the system initiates a sequence of tasks to process the request and provide the necessary feedback. First, a request for Schufa feedback is sent, which is then followed by obtaining the feedback. Concurrently, a request for the Schufa result is sent to the Frontend.
+
+Next, the system performs scoring level 1 using the received report, and the result of this level is sent back to the Gateway named 'ExclusiveGateway2'. Following this, the system checks if scoring level 2 is possible and sends the Schufa request and the report to the 'ExclusiveGateway2' for further processing.
+
+The 'Scoring result available?' Gateway then checks if the feedback is available and sends the Schufa result to the Frontend. Additionally, the 'Scoring immediately possible?' Gateway determines if the scoring can be done immediately and sends the Schufa request and the report back to the system.
+
+Finally, the Schufa result is obtained and sent to the Frontend, and the Schufa request is answered, completing the sequence of events.

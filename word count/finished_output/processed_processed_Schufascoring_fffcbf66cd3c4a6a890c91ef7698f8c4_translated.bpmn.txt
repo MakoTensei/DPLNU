@@ -1,0 +1,7 @@
+ In the scoring process, the system initiates with the 'Scoring\nRequired' start event, which triggers the 'ExclusiveGateway1' to check if scoring is necessary. If scoring is required, the 'IntermediateCatchEvent3' captures this information and sends an 'Interim message to Frontend' to share the scoring details. Concurrently, 'IntermediateCatchEvent4' is triggered to share the scoring on the frontend.
+
+Once scoring is confirmed, the 'StartEvent1' event is triggered, which reports the scoring to the bank and sends a message to 'EndEvent1'. The 'Level 1 successful?' event then determines if the first level of scoring was successful. If successful, 'EndEvent2' is triggered to conclude the first level, and 'EndEvent1' is triggered to conclude the overall scoring process.
+
+If the first level of scoring is not successful, the system loops back to the 'Is there scoring?' gateway, which can either send a message to 'EndEvent2' or continue to 'ExclusiveGateway1' for further processing.
+
+In summary, the scoring process involves multiple events and gateways working together to ensure accurate scoring and communication with the frontend and bank.

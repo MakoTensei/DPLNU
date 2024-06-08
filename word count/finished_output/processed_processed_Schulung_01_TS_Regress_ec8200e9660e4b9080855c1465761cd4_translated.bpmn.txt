@@ -1,0 +1,10 @@
+ In the process of managing potential regressions against VN, the system initiates with the 'possible regression against VN' event, which triggers the 'Check regression' task, leading to the 'ExclusiveGateway1'. If the regression is not justified, the 'Close' task is activated, ending the process. Conversely, if the regression is deemed justified, the 'VN payment request' task is triggered, resulting in a 'Cash receipt from the VN' event, which then leads to the 'Book incoming money' task and back to 'ExclusiveGateway1'.
+
+
+When VN contradicts the findings, the 'Proceedings' task is initiated, leading to either 'Disclosure of debt collection' or 'Close' tasks, depending on the incoming events. The 'Regress is entitled' task, upon receiving the 'possible regression against VN' event, diverts to 'EndEvent1' through 'ExclusiveGateway1'. The 'Cash receipt from the VN' event, upon receiving the 'Regress is entitled' task, also leads to 'EndEvent1' through 'ExclusiveGateway1'.
+
+
+The 'EventBasedGateway3' receives the 'possible regression against VN' event and routes it to either 'Cash receipt from the VN' or 'Disclosure of debt collection', depending on the incoming events. The 'Reimbursement period expired' event, triggered by the 'possible regression against VN' event, leads to the 'Disclosure of debt collection' event through 'ExclusiveGateway1'.
+
+
+The 'Disclosure of debt collection' event, upon receiving the 'EventBasedGateway3' and 'Proceedings' events, concludes the process.

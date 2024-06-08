@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-4E6D777F-A314-468F-9AF3-F55450E278D0', 'name': 'Scoring request', 'incoming': ['Start of the request'], 'outgoing': ['Result']}
+{'id': 'sid-296FB51A-71B4-4519-97EB-89DEE4233CAD', 'name': 'Send result to credit award', 'incoming': ['Result'], 'outgoing': ['Final of the request']}
+{'id': 'sid-51BA2655-1CB9-4BDF-81BE-075884C1FA4F', 'name': 'Send delay message', 'incoming': ['Start of the request'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-AB397F4F-203D-4507-842A-AD0C40047037', 'name': 'Level 1 Scoring result', 'incoming': ['Entrance of the request'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-867CADBA-E1F5-4E09-9BB7-A341DB52E2DF', 'name': 'Send scoring result', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Final of the request']}
+{'id': 'sid-7AF6B927-B45E-4FFA-98B6-FDEFE9794122', 'name': 'Report delay of the bank', 'incoming': ['Entrance of the request'], 'outgoing': ['Level 2 Scoring result']}
+{'id': 'sid-4FCCF841-E0B0-4428-A2EB-00836C3AA342', 'name': 'Level 2 Scoring result', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-22017370-E62F-4904-BCC2-7B1C0F08A7AE', 'name': 'ExclusiveGateway0', 'incoming': ['Entrance of the request'], 'outgoing': ['Level 2 Scoring result', 'Final of the request']}
+{'id': 'sid-16FCA1BB-FB35-42C8-9D1B-07960191B494', 'name': 'ExclusiveGateway1', 'incoming': ['Level 2 Scoring result', 'Level 1 Scoring result'], 'outgoing': ['Final of the request']}
+{'id': 'sid-4B20F3C0-4848-4393-8BEB-49BF43BC3947', 'name': 'EventBasedGateway2', 'incoming': ['Start of the request', 'EventBasedGateway2'], 'outgoing': ['EventBasedGateway2', 'Final of the request']}
+{'id': 'sid-CE211179-A248-4EEC-A070-9CBEC1830149', 'name': 'Result', 'incoming': ['Scoring request'], 'outgoing': ['Final of the request']}
+{'id': 'sid-B6989D7F-D92B-4B09-A577-4441A97DB573', 'name': 'Delay message', 'incoming': ['Start of the request'], 'outgoing': ['Final of the request']}
+
+Start Events:
+{'id': 'sid-B570DBCD-8CB6-4967-9FB4-495897D6E4C6', 'name': 'Start of the request', 'incoming': [], 'outgoing': ['Send delay message']}
+{'id': 'sid-37857CAC-B1A6-4DFC-8436-A96DC3542CE6', 'name': 'Entrance of the request', 'incoming': [], 'outgoing': ['Report delay of the bank']}
+
+End Events:
+{'id': 'sid-987164EB-91F9-4FE5-8D70-45012198FB07', 'name': 'Final of the request', 'incoming': ['Delay message'], 'outgoing': []}
+{'id': 'sid-1B37A843-EB84-42A5-8390-5C1C2CF7D199', 'name': 'Final of the request', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-EE1089AC-98F5-4978-B256-7DB9EFEE0052', 'name': 'Check regression case', 'incoming': ['Reported\nRegression'], 'outgoing': ['Regression']}
+{'id': 'sid-D4BE5CBF-08AE-43A2-AB31-B19610633ABB', 'name': 'Payments\nsend request to VN', 'incoming': ['Reported\nRegression'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-727B6502-10EC-4363-A555-42C9F05EF56F', 'name': 'Reimbursement', 'incoming': ['Regression'], 'outgoing': ['Opposition']}
+{'id': 'sid-0F3FAB11-B176-4118-8035-6039B02B11E9', 'name': 'Book money receipt', 'incoming': ['Payment\nentry'], 'outgoing': ['Close']}
+{'id': 'sid-D17E6D48-07A8-4EC3-842F-65F3CD1D56FD', 'name': 'Examination', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-080FB53F-2C45-4CB0-A021-ED3302FD2889', 'name': 'Debt collection office', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Close']}
+
+Gateways:
+{'id': 'sid-C1110BCC-BE80-46AB-A8A9-A502496DB536', 'name': 'Regression', 'incoming': ['Reported\nRegression'], 'outgoing': ['Close', 'Close']}
+{'id': 'sid-0FA437D2-7B89-4ED6-8ADD-302CAF8918AE', 'name': 'Opposition\njustified?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Close', 'ExclusiveGateway2']}
+{'id': 'sid-DAEAD1C6-1AA3-4A62-B6AF-B0C2481335EB', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway3', 'Examination'], 'outgoing': ['Close']}
+{'id': 'sid-0CCD90DB-0807-461C-B803-6E9B423705FE', 'name': 'EventBasedGateway3', 'incoming': ['Regression'], 'outgoing': ['Payment\nentry', 'Opposition\njustified?', 'Debt collection office']}
+{'id': 'sid-DA1337AF-D47F-4ED5-A1B7-D910B82FB5CA', 'name': 'Opposition', 'incoming': ['Reimbursement'], 'outgoing': ['Close']}
+{'id': 'sid-67411554-A68D-4C60-8003-CC8510C529BF', 'name': 'Payment\nentry', 'incoming': ['Regression'], 'outgoing': ['Close']}
+{'id': 'sid-BB71EB7D-2A66-4178-B309-505BC8E88828', 'name': 'Reimbursement\nDate of expiry', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Close']}
+
+Start Events:
+{'id': 'sid-F6EC9EAE-1681-4A6E-B0FF-AF35F11188AA', 'name': 'Reported\nRegression', 'incoming': [], 'outgoing': ['Payments\nsend request to VN']}
+
+End Events:
+{'id': 'sid-9227A874-641D-4364-AF8E-697709FA804F', 'name': 'Close', 'incoming': ['Regression'], 'outgoing': []}
+{'id': 'sid-AF6A15E2-3AD6-4CA5-BD18-775F4200318C', 'name': 'Close', 'incoming': ['Opposition', 'Reimbursement\nDate of expiry', 'Regression'], 'outgoing': []}

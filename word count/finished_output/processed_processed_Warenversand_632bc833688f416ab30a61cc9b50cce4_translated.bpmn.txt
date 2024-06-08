@@ -1,0 +1,7 @@
+ The process begins with the 'Shipping costs' event, which triggers Task1. Task1 then leads to the 'Pick up offers' task, which requires a large quantity of goods. The large quantity is sourced from 'ParallelGateway4'. Following this, the 'Pick up offers' task selects the 'Spediteur' for shipping. This selection is facilitated by the 'Select the Spediteur' task, which also requires a large quantity of goods and connects to 'ExclusiveGateway1'.
+
+The 'Spediteur' selection is then followed by the 'Filling the package note' task, which checks if insurance is necessary for the large quantity of goods. If insurance is required, the 'Insurance necessary?' task is triggered, which also requires a large quantity of goods and connects to 'ParallelGateway5'.
+
+The 'Insurance necessary?' task leads to the 'Insurance closing' task, which finalizes the insurance process and connects to 'ExclusiveGateway3'. Meanwhile, the 'Packaging goods' task, which requires a large quantity of goods, connects to 'ParallelGateway5'.
+
+Finally, the 'Provide goods for collection' task is triggered, which requires the goods to be ready for collection. This task connects to 'ExclusiveGateway2', which also connects to 'Goods ready for collection'. The process concludes with the 'Goods ready for collection' event, marking the end of the process.

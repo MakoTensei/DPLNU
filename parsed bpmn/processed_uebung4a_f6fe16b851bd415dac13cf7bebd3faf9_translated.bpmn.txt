@@ -1,0 +1,32 @@
+Tasks:
+{'id': 'sid-85217660-A96D-4972-9AB0-CE03D6E959DF', 'name': 'Inquiries in Schufscore', 'incoming': ['Credit request'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-368BBC24-B5A4-42EA-A51A-BF8B38E9317B', 'name': 'Further work', 'incoming': ['Credit request'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-6321829A-0002-4F36-8924-D803A2281CCA', 'name': 'Schufascore wins', 'incoming': ['Credit request'], 'outgoing': ['Schufa known']}
+{'id': 'sid-52779EAC-84E9-42DC-9E79-91E4BEA72C1A', 'name': 'Scoring request', 'incoming': ['Scoring request'], 'outgoing': ['delay present']}
+{'id': 'sid-FBE8C30F-B01F-4DF3-AFF3-FA8F1D762384', 'name': 'inform bank due to delay', 'incoming': ['delay present'], 'outgoing': ['Level 2 present']}
+{'id': 'sid-F4C73F25-FE6B-409D-809C-CC1ECCF0274F', 'name': 'Report scoring', 'incoming': ['Scoring level?'], 'outgoing': ['Scoring ends']}
+{'id': 'sid-9413540A-B67E-46FF-9CAA-70F2A81BF4D3', 'name': 'perform scoring level 1', 'incoming': ['Request available'], 'outgoing': ['Level 1 successful?']}
+{'id': 'sid-BB8442FD-346C-4AF9-B4C9-FC00B85A5F75', 'name': 'Level 2 scores', 'incoming': ['sid-3A5A7AB6-4D1B-4B18-9EB9-939BF97DB7D4'], 'outgoing': ['Results Level 2 report']}
+{'id': 'sid-E74847D6-D974-43C7-82A9-C265936D0F85', 'name': 'Results Level 2 report', 'incoming': ['Level 2 scores'], 'outgoing': ['Scoring ends']}
+{'id': 'sid-E3966F57-5E6A-4135-9543-DE463F3E9042', 'name': 'Results Level 1 Report', 'incoming': ['Request available'], 'outgoing': ['ExclusiveGateway4']}
+
+Gateways:
+{'id': 'sid-0D7BEF09-EC32-4861-828E-DAB7DAB8F155', 'name': 'Delay?', 'incoming': ['Credit request'], 'outgoing': ['Schufa known', 'Further work']}
+{'id': 'sid-EF04BF57-98A0-4BFE-B575-5793E4F5D1CE', 'name': 'ExclusiveGateway1', 'incoming': ['Credit request', 'Inquiries in Schufscore'], 'outgoing': ['Schufa known']}
+{'id': 'sid-A70B3C19-F7B6-4575-95C6-18032245D692', 'name': 'ExclusiveGateway2', 'incoming': ['Scoring level?', 'delay present'], 'outgoing': ['Scoring ends']}
+{'id': 'sid-CA33AF79-CFBC-4530-B1C1-3425099D356C', 'name': 'Level 1 successful?', 'incoming': ['Request available'], 'outgoing': ['Results Level 1 Report', 'sid-34D322F7-ECB7-4443-A767-0AF10F297117']}
+{'id': 'sid-8E0B250D-9AC5-4B1C-9BC3-EE4344214E05', 'name': 'ExclusiveGateway4', 'incoming': ['Results Level 2 report', 'Request available'], 'outgoing': ['Scoring ends']}
+{'id': 'sid-B338D237-70A2-4FEA-B0C3-701B1770AAA1', 'name': 'Scoring level?', 'incoming': ['Scoring request'], 'outgoing': ['Level 2 present', 'Report scoring']}
+{'id': 'sid-655A9571-76B1-4516-A514-33893CF5EBF3', 'name': 'delay present', 'incoming': ['Scoring request'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-FBE7CA20-0A87-4159-9EAF-C31DDBFBB28C', 'name': 'Level 1 present', 'incoming': ['Scoring request'], 'outgoing': ['Scoring ends']}
+{'id': 'sid-52D4605F-B5A4-4D32-AF89-C4A307E48B9A', 'name': 'Level 2 present', 'incoming': ['Scoring level?'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-253C0CEB-B7E3-45D7-9D71-DB2CB8916432', 'name': 'Credit request', 'incoming': [], 'outgoing': ['Schufascore wins']}
+{'id': 'sid-7E99111F-161F-491F-A5A6-9EF8AF1F659E', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Level 1 present']}
+{'id': 'sid-F4918F17-2FED-448A-8791-762CCCA53AB6', 'name': 'Request available', 'incoming': [], 'outgoing': ['ExclusiveGateway4']}
+
+End Events:
+{'id': 'sid-B2A76370-EDBF-4EC6-A24E-EC227CD4050D', 'name': 'Schufa known', 'incoming': ['Delay?'], 'outgoing': []}
+{'id': 'sid-FF6B9B67-0509-4DFE-AA5F-910E874786BC', 'name': 'Scoring ends', 'incoming': ['Level 1 present'], 'outgoing': []}
+{'id': 'sid-DE222F7A-5F27-4FC6-B0F6-1E992F3BA392', 'name': 'Scoring ends', 'incoming': ['Results Level 2 report'], 'outgoing': []}

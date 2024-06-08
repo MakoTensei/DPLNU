@@ -1,0 +1,11 @@
+ The process begins with the 'Scoring\nRequired' event, which triggers the 'Evaluate feedback' task. This task assesses the necessity of a second-level scoring process. If the evaluation deems it necessary, the 'Scoring (level 2)\nnecessary?' event is initiated, leading to the 'Scoring (level 2)\nnecessary?' gateway. This gateway then directs the process to either generate a 'Scoring\nReport' or send 'final feedback' to 'ExclusiveGateway1'.
+
+If the second-level scoring is not necessary, the process proceeds to the 'perform scoring (level 1)' event, which sends 'perform scoring (level 1)' to 'ExclusiveGateway1'. The gateway then sends the 'final feedback' to 'ExclusiveGateway3'.
+
+The 'Scoring\nperform' event leads directly to 'ExclusiveGateway1', which can either send a 'Scoring\nReport' or 'final feedback' based on the incoming events.
+
+The 'Scoring (level 2)\nnecessary?' event can also be triggered by the 'perform scoring (level 1)' event, leading to the same outcomes as described above.
+
+The 'Feedback' event, which can be initiated by either the 'Scoring\nperform' or 'Scoring (level 2)\nnecessary?' events, sends the feedback to 'ExclusiveGateway3', which then generates a 'Scoring\ncarried out' report.
+
+Finally, the 'Scoring\nReport' and 'Scoring\ncarried out' events are the endpoints of the process, with no further outgoing events.

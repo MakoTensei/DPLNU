@@ -1,0 +1,29 @@
+Tasks:
+{'id': 'sid-18CA50E9-C211-4811-AC1B-89C160131D10', 'name': 'Scoring request', 'incoming': ['Requested'], 'outgoing': ['Result delayed']}
+{'id': 'sid-8CC35B4A-8450-4FBD-8A27-7002A6A9A683', 'name': 'LVL 1 forward scoring result', 'incoming': ['Requested'], 'outgoing': ['Request with\nLVL1 completed']}
+{'id': 'sid-F5AC2BAD-EE19-48BD-8D37-DE816032AEC5', 'name': 'Report delay', 'incoming': ['Result delayed'], 'outgoing': ['LVL2 Scoring']}
+{'id': 'sid-D69AAD8A-0441-4256-ACBE-3789109C0F5F', 'name': 'LVL 2 forward scoring result', 'incoming': ['LVL2 Scoring'], 'outgoing': ['Request with LVL2 completed']}
+{'id': 'sid-D3D74E38-E63E-48C6-BD89-BEDDE8B69E90', 'name': 'perform first scoring', 'incoming': ['Scoring request'], 'outgoing': ['Delay detected']}
+{'id': 'sid-78D0A07B-1241-454D-8F72-8CFB03F425F9', 'name': 'Report delay', 'incoming': ['Delay detected'], 'outgoing': ['Determining Scoring']}
+{'id': 'sid-612294DA-85F8-4E5B-B86E-BE3D44349BEF', 'name': 'Transfer 1 scoring result', 'incoming': ['Scoring request'], 'outgoing': ['LVL1 Scoring']}
+{'id': 'sid-F6DC41C4-0E2D-450E-AAD0-AA5EB1BAB20D', 'name': 'Determining Scoring', 'incoming': ['Delay detected'], 'outgoing': ['Transfer LVL2 scoring']}
+{'id': 'sid-114E5DA3-BD21-4463-B16E-154B407ECE38', 'name': 'Transfer LVL2 scoring', 'incoming': ['Delay detected'], 'outgoing': ['LVL2 Scoring']}
+
+Gateways:
+{'id': 'sid-FFA5B5D3-42E3-4FFA-BB86-3E1DEB1105EF', 'name': 'EventBasedGateway0', 'incoming': ['Requested'], 'outgoing': ['Request with\nLVL1 completed', 'Request with LVL2 completed']}
+{'id': 'sid-F6DAA1C9-6353-496A-9DF5-2917BF884938', 'name': 'EventBasedGateway1', 'incoming': ['Scoring request'], 'outgoing': ['Delay detected', 'LVL1 Scoring']}
+{'id': 'sid-400F1910-F50D-436E-8BC4-290F054A4E52', 'name': 'Result delayed', 'incoming': ['Scoring request'], 'outgoing': ['LVL2 Scoring']}
+{'id': 'sid-263E9BDF-84F1-446E-BB9C-671E7206C270', 'name': 'Results obtained', 'incoming': ['Requested'], 'outgoing': ['Request with\nLVL1 completed']}
+{'id': 'sid-DB121E8E-12CE-4D97-9DAE-BC47DD920A1F', 'name': 'LVL2 Scoring', 'incoming': ['EventBasedGateway0'], 'outgoing': ['Request with LVL2 completed']}
+{'id': 'sid-0E135442-F633-4238-90B2-ECF0745E56EC', 'name': 'Delay detected', 'incoming': ['perform first scoring'], 'outgoing': ['LVL2 Scoring']}
+{'id': 'sid-2A255F65-492A-44BE-813F-34934ED9CAF4', 'name': 'Results available', 'incoming': ['Scoring request'], 'outgoing': ['LVL1 Scoring']}
+
+Start Events:
+{'id': 'sid-5A712AED-2080-4187-A60B-39D42ECC9D70', 'name': 'Requested', 'incoming': [], 'outgoing': ['LVL 1 forward scoring result']}
+{'id': 'sid-85988E9E-07C8-4742-B7B8-1319789C68E2', 'name': 'Scoring request', 'incoming': [], 'outgoing': ['Transfer 1 scoring result']}
+
+End Events:
+{'id': 'sid-3BD8DF06-C73A-435F-9DDA-9AC6E2810A4D', 'name': 'Request with\nLVL1 completed', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-99427E01-5F28-495F-967C-2978B64F1863', 'name': 'Request with LVL2 completed', 'incoming': ['EventBasedGateway0'], 'outgoing': []}
+{'id': 'sid-FDE4FFF9-E188-48D5-9B0C-8CD9A04048E2', 'name': 'LVL1 Scoring', 'incoming': ['EventBasedGateway1'], 'outgoing': []}
+{'id': 'sid-A52AC30F-3840-412D-A649-91DC084D7A51', 'name': 'LVL2 Scoring', 'incoming': ['Delay detected'], 'outgoing': []}

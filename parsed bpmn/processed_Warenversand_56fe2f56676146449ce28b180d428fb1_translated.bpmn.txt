@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-E3E05EDD-BC2D-4D2E-9967-BFB2FBF0BEBA', 'name': 'Create a package ticket', 'incoming': ['Is a special shipment necessary?'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-334D57BB-A284-4632-A080-398C2CE2D168', 'name': 'Ask and commission forwarding requests', 'incoming': ['Goods are to be shipped'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-F809F828-5D35-4274-B78B-6450AB0B4728', 'name': 'Insurance close', 'incoming': ['Goods are to be shipped'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-707456F5-C43A-41E7-A2C4-33B29F0AE7F2', 'name': 'Providing the goods\n', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B8DCB36B-D6DE-4801-A997-2EE3DF80FB0F', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-3F9B9925-046D-41BD-9263-C2F2003D5101', 'name': 'Is a special shipment necessary?', 'incoming': ['Goods are to be shipped'], 'outgoing': ['Insurance necessary?', 'Ask and commission forwarding requests']}
+{'id': 'sid-F5D39F40-9A03-4FF5-B444-AB6AC2F2D8B6', 'name': 'Insurance necessary?', 'incoming': ['Is a special shipment necessary?'], 'outgoing': ['ExclusiveGateway2', 'Insurance close']}
+{'id': 'sid-7CA2107C-85FC-409A-8389-164BB3B69782', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway4', 'ExclusiveGateway3'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-E405D26A-AEC6-4109-826E-14D6F022DB22', 'name': 'ExclusiveGateway3', 'incoming': ['Is a special shipment necessary?', 'Goods are to be shipped'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-A3518B76-8D4C-487D-BF5A-3A09E2BC4B39', 'name': 'ParallelGateway4', 'incoming': ['Create a package ticket'], 'outgoing': ['ParallelGateway5', 'EndEvent0']}
+{'id': 'sid-C1732155-7795-42F5-BD9C-15DCF08A57FF', 'name': 'ParallelGateway5', 'incoming': ['Create a package ticket', 'Packaging goods'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-2FBF3FB2-2274-4767-A91B-4DDAE5F42B1E', 'name': 'Goods are to be shipped', 'incoming': [], 'outgoing': ['Insurance close']}
+
+End Events:
+{'id': 'sid-AF606ED2-B438-4F6D-81B4-FB4632F732E9', 'name': 'EndEvent0', 'incoming': ['ParallelGateway4'], 'outgoing': []}

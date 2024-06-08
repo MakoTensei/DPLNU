@@ -1,0 +1,21 @@
+ In this system, we have a set of tasks and gateways that work together to process offers and shipments. Here's a natural flow description of the process:
+
+1. The process starts with the 'StartEvent0' which triggers the 'ExclusiveGateway0'. This gateway has two outgoing paths: one to 'InclusiveGateway3' and another to 'ExclusiveGateway2'.
+
+2. 'InclusiveGateway3' is responsible for processing 'Package tickets'. It has an incoming path from 'StartEvent0' and an outgoing path to 'Package tickets'.
+
+3. 'ExclusiveGateway2' has two incoming paths: one from 'StartEvent0' and another from 'ParallelGateway4'. It has an outgoing path to 'Customer's goods'.
+
+4. 'ParallelGateway4' is responsible for processing 'Selection of offers'. It has three incoming paths from 'ParallelGateway4' and two outgoing paths to 'ExclusiveGateway2' and 'Selection of offers'.
+
+5. 'Selection of offers' has two incoming paths from 'ParallelGateway4' and 'ParallelGateway4', and an outgoing path to 'ExclusiveGateway2'.
+
+6. 'ParallelGateway6' is responsible for processing 'Packaging goods'. It has an incoming path from 'ParallelGateway7' and an outgoing path to 'ParallelGateway7'.
+
+7. 'ParallelGateway7' is responsible for shipping 'Customer's goods'. It has an incoming path from 'ParallelGateway6' and an outgoing path to "Customer's goods".
+
+8. 'Insurance cover' is processed by 'ParallelGateway8'. It has an incoming path from 'Insurance cover' and an outgoing path to 'ExclusiveGateway2'.
+
+9. 'Shipping to end user' is the final step in the process. It has an incoming path from 'ParallelGateway7' and an outgoing path to "Customer's goods".
+
+This flow ensures that offers are processed, packaged, and shipped to the end user, with

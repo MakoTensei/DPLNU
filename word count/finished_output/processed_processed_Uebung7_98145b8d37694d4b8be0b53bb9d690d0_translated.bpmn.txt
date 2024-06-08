@@ -1,0 +1,13 @@
+ In the credit lending frontend, the process begins with a request from Schufa, which triggers the Button Pressure in Credit Award task. This task is responsible for presenting the scoring results to the user.
+
+Next, a Scoring Request is made, which initiates the process of sending a scoring request to the Schufa-system. This request is handled by the Send Scoring Request to Schufa-system task.
+
+As the scoring process unfolds, the Scoring Slows Down task is triggered, indicating a delay in the scoring process. This task is linked to the Info Scoring Changes in Credit Lending event, which communicates any changes in the scoring process to the relevant stakeholders.
+
+The Scoring Result in Credit Delivery task is responsible for presenting the scoring results to the user. This task has two outgoing connections: EndEvent0 and Presentation of Scoring in Credit Lending Frontend.
+
+The ExclusiveGateway0 task, triggered by the Scoring Conduct LEVEL 1 event, handles the slower scoring process and communicates with the Info Scoring Changes in Credit Lending event.
+
+The ParallelGateway1 task, triggered by the Scoring Conduct LEVEL 1 event, manages the presentation of scoring results and communicates with the EndEvent3 and Scoring Slows Down events.
+
+In summary, the credit lending frontend involves various tasks and events that handle the presentation of scoring results, communication of changes in the scoring process, and management of slower scoring scenarios.

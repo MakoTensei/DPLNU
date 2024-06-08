@@ -1,0 +1,15 @@
+ In the system, a Schufascoring request initiates a series of tasks and interactions between different gateways and end events. The process begins with the Schufascoring request, which triggers the EventBasedGateway1 to send a reply to EndEvent1 and EndEvent0.
+
+The first task, Send request, sends a Scoring request to the Scoring result obtained gateway, which then sends a Scoring result to EndEvent0.
+
+The second task, Send a reply, sends a reply to the Schufascoring request gateway, which can either send a Scoring Level 1 result to Result present? gateway or a Delay message to EndEvent0, depending on the incoming request.
+
+The third task, Send delay message, sends a Scoring request to the Scoring result obtained gateway, which then sends a Scoring result to EndEvent1.
+
+The fourth task, Scoring Level 1, sends a Scoring request to the Result present? gateway, which then sends a result to EndEvent3 or EndEvent2, depending on the incoming request.
+
+The fifth task, Send Ergenis, sends a result to Result present? gateway, which then sends a result to EndEvent2.
+
+The Result present? gateway receives incoming requests from Scoring request and Scoring Level 1 tasks, and sends results to EndEvent3 and EndEvent2.
+
+In summary, the system processes a Schufascoring request by sending a series of tasks and interactions between gateways and end events, ultimately resulting in the delivery of scoring results to the appropriate end events.

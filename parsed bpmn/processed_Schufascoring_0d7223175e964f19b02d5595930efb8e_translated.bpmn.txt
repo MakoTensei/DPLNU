@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-FF52CDCF-3077-4881-B385-0E0AB2AC990F', 'name': 'Continue reading', 'incoming': ['Message\nDelay received'], 'outgoing': []}
+{'id': 'sid-A174238A-6FF3-4183-9D99-96FC3B4FC237', 'name': 'perform scoring level 1', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Scoring sent']}
+{'id': 'sid-FE3A78E3-1AC1-4124-BA71-C57BABA7ED71', 'name': 'perform scoring level 2', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-BF40913C-23E2-4336-916F-BF348A02D8C2', 'name': 'War Scoring\ndirectly possible?', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Message\ndelay sent', 'ExclusiveGateway1']}
+{'id': 'sid-67E6F7BC-31D2-4C71-90A6-8055F961C507', 'name': 'ExclusiveGateway1', 'incoming': ['ParallelGateway3', 'perform scoring level 1'], 'outgoing': ['Scoring sent']}
+{'id': 'sid-0B5A57DC-2C74-4959-A369-0259F57F371C', 'name': 'EventBasedGateway2', 'incoming': ['sid-514910A3-F1AF-4EFB-B5A4-5BC2CFED6808'], 'outgoing': ['Scoring', 'Message\nDelay received']}
+{'id': 'sid-2AFC81E1-893F-4C36-9787-FED49A6044E9', 'name': 'ParallelGateway3', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['ExclusiveGateway1', 'Message\ndelay sent']}
+{'id': 'sid-C88DDEDA-1CBD-422B-A88F-FFE98413028D', 'name': 'Message\nDelay received', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Continue reading']}
+{'id': 'sid-F77C361F-0DC4-4115-8826-1A19904CB7BD', 'name': 'Scoring', 'incoming': ['EventBasedGateway2'], 'outgoing': ['sid-7640EFBF-F4D9-4CE9-8B00-9A7099639ED4']}
+{'id': 'sid-360A7BD4-870F-4767-AB0B-4BEBDEBF1EF5', 'name': 'Scoring\nobtained', 'incoming': [], 'outgoing': ['sid-61E8E8DF-EEAA-450F-8F34-28D49A802F43']}
+
+Start Events:
+{'id': 'sid-EF24EE5A-171F-4AA5-A99E-AB050639D4F2', 'name': 'Schufa request\nobtained', 'incoming': [], 'outgoing': ['sid-A53332BB-4F53-4DC8-94D1-F6731A54477C']}
+{'id': 'sid-A6F5EE4B-C8F6-455D-8F3A-59264138A043', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['perform scoring level 2']}
+
+End Events:
+{'id': 'sid-6F898090-5AFE-4711-957A-DB219BD1D919', 'name': 'EndEvent0', 'incoming': ['sid-957A504A-E626-455A-AB35-403FFF9D766F'], 'outgoing': []}
+{'id': 'sid-2132388B-820E-4058-9457-49865ADA5A6F', 'name': 'Scoring sent', 'incoming': ['perform scoring level 1'], 'outgoing': []}
+{'id': 'sid-F483BAB0-457E-49CE-BD75-3C407BB9BB1C', 'name': 'Message\ndelay sent', 'incoming': ['War Scoring\ndirectly possible?'], 'outgoing': []}

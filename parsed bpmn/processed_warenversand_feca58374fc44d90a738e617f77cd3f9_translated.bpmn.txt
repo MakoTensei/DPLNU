@@ -1,0 +1,28 @@
+Tasks:
+{'id': 'sid-FC169108-AB72-42B3-8F04-F676075778A3', 'name': 'Check order quantity', 'incoming': ['Order intake'], 'outgoing': ['ParallelGateway6']}
+{'id': 'sid-6824C35A-8082-45D1-8A2E-135CD8C23359', 'name': 'Pick up offers from three freight forwarders', 'incoming': ['Order intake'], 'outgoing': ['Offers go']}
+{'id': 'sid-BA00823B-1655-45AE-B278-E08E74D571D4', 'name': 'Need to check insurance', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-66C82EC4-82F7-4833-871D-7855A07731F8', 'name': 'Offers go', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-9E74653A-D8DD-45B9-B585-C5F6E739599F', 'name': 'at Sped. Order now', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-EA59EF7C-E41E-43C5-A7DF-FA2EDD6B4A78', 'name': 'at Sped. Order 2', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C95E673B-B766-43DE-A0C0-C694682E8C8B', 'name': 'at Sped. Order now', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-AEE9E950-5B9D-4422-9DAF-00645C773627', 'name': 'Delivering goods', 'incoming': ['ParallelGateway7'], 'outgoing': ['Order completed']}
+{'id': 'sid-875B97A4-88AD-41AD-A2F6-AE96472C7DCB', 'name': 'Complete insurance', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-DF5FCBD5-8A71-4F3F-ADAD-165FD70EEA77', 'name': 'Filling the package note', 'incoming': ['ExclusiveGateway4'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-277EF684-E03A-407D-8DFE-5263A3368ECA', 'name': 'Packaging goods', 'incoming': ['ParallelGateway6'], 'outgoing': ['ParallelGateway7']}
+
+Gateways:
+{'id': 'sid-114644F1-2747-4F24-A82D-F6320C4B5366', 'name': 'Lot?', 'incoming': ['ParallelGateway6'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway4']}
+{'id': 'sid-015DE375-95E5-464E-9C05-ED66EB66CC32', 'name': 'ExclusiveGateway1', 'incoming': ['Lot?'], 'outgoing': ['Order completed', 'ExclusiveGateway2', 'ExclusiveGateway5']}
+{'id': 'sid-79762C20-3696-42D1-9711-D7EA1329C052', 'name': 'ExclusiveGateway2', 'incoming': ['Lot?', 'ExclusiveGateway1', 'at Sped. Order now'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-75366C02-4621-4821-90F5-555065BFBF37', 'name': 'ExclusiveGateway3', 'incoming': ['Lot?'], 'outgoing': ['ExclusiveGateway4', 'ExclusiveGateway4']}
+{'id': 'sid-D53F7BB1-567D-4C42-A216-F249C58DB3B3', 'name': 'ExclusiveGateway4', 'incoming': ['Lot?', 'Need to check insurance'], 'outgoing': ['ExclusiveGateway5']}
+{'id': 'sid-5883E321-58AF-48E7-B4AB-909DCADDFD2A', 'name': 'ExclusiveGateway5', 'incoming': ['ExclusiveGateway4', 'ExclusiveGateway1'], 'outgoing': ['ParallelGateway7']}
+{'id': 'sid-BA4D2DA3-7268-41CC-9873-AD1EDA5EE661', 'name': 'ParallelGateway6', 'incoming': ['Order intake'], 'outgoing': ['Pick up offers from three freight forwarders', 'Packaging goods']}
+{'id': 'sid-DD84048F-4E38-48C6-8F57-3F8597B051BB', 'name': 'ParallelGateway7', 'incoming': ['Packaging goods', 'ExclusiveGateway1'], 'outgoing': ['Order completed']}
+
+Start Events:
+{'id': 'sid-48E4B6C4-08D9-4B19-BBCF-DE40E34BF79F', 'name': 'Order intake', 'incoming': [], 'outgoing': ['Pick up offers from three freight forwarders']}
+
+End Events:
+{'id': 'sid-2DD54E34-13B2-402B-8316-0558B3957001', 'name': 'Order completed', 'incoming': ['ExclusiveGateway1'], 'outgoing': []}

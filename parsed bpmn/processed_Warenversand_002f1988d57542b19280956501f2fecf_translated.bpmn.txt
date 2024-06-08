@@ -1,0 +1,29 @@
+Tasks:
+{'id': 'sid-704AF294-8819-414F-A9A8-F7800631C0D0', 'name': 'Task0', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-3BFBC260-5C10-4547-9B7D-9475C1F1B9A6', 'name': 'Task 1', 'incoming': ['Start 1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-B1FD9CF0-0BCA-4729-93D5-3E1BA16A3A63', 'name': 'Task2', 'incoming': ['Start 1'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-0E8C6C74-CE2B-45D4-B2FD-956AF8BB59C4', 'name': 'Goods for shipping', 'incoming': ['StartEvent1'], 'outgoing': ['large\nQuantities', 'Packaging goods']}
+{'id': 'sid-DB399C98-BC8F-455E-8637-3EC1A41F4200', 'name': 'Secretariat:\n3 offers', 'incoming': ['StartEvent1'], 'outgoing': ['Select your offer']}
+{'id': 'sid-8FDBDE8F-E261-44B8-B776-08FD57FDE3A4', 'name': 'Specialist', 'incoming': ['Select your offer'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-AED16FE1-2B81-4645-BABF-637B844C3FDE', 'name': 'Postal mail', 'incoming': ['large\nQuantities'], 'outgoing': ['Filling standard package voucher']}
+{'id': 'sid-F5E6E9E1-F03C-4614-9570-B12F4A21BBBB', 'name': 'Filling standard package voucher', 'incoming': ['large\nQuantities'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-63961890-C38A-4859-92A7-B1AFE9A914A4', 'name': 'Logistics manager: complete insurance', 'incoming': ['Insurance\nnecessary'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-115A8CD0-E8F7-4BE3-962D-AC0C184A9D2B', 'name': 'Packaging goods', 'incoming': ['Goods for shipping'], 'outgoing': ['InclusiveGateway5']}
+{'id': 'sid-B737A165-8536-4A6C-B383-47B02844436C', 'name': 'Delivery of the goods for collection', 'incoming': ['InclusiveGateway5'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-641C366A-EF4F-4980-A123-09BC1B3EFAC9', 'name': 'Select your offer', 'incoming': ['large\nQuantities'], 'outgoing': ['ExclusiveGateway4']}
+
+Gateways:
+{'id': 'sid-401C22C0-27AF-431C-BD4F-4F47FFA84E60', 'name': 'ExclusiveGateway0', 'incoming': ['ExclusiveGateway1', 'ExclusiveGateway1'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-9E2FD2E3-A031-486B-889A-C119FCB27524', 'name': 'ExclusiveGateway1', 'incoming': ['Start 1'], 'outgoing': ['ExclusiveGateway0', 'EndEvent0']}
+{'id': 'sid-95229CF9-8731-4206-9FA6-265DD758C058', 'name': 'large\nQuantities', 'incoming': ['StartEvent1'], 'outgoing': ['Select your offer', 'EndEvent1']}
+{'id': 'sid-20012838-D5B4-4654-8DDB-979BA58BAFAF', 'name': 'Insurance\nnecessary', 'incoming': ['large\nQuantities'], 'outgoing': ['ExclusiveGateway4', 'InclusiveGateway5']}
+{'id': 'sid-64DC65DE-4CCD-44F7-8151-EC323DA45B93', 'name': 'ExclusiveGateway4', 'incoming': ['Select your offer', 'Insurance\nnecessary', 'Filling standard package voucher'], 'outgoing': ['InclusiveGateway5']}
+{'id': 'sid-200E26F2-C2A4-41B2-9E48-8B42732577EA', 'name': 'InclusiveGateway5', 'incoming': ['large\nQuantities', 'Packaging goods'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-B20D4ED2-E850-4749-AFFD-0C3886C6166D', 'name': 'Start 1', 'incoming': [], 'outgoing': ['Task2']}
+{'id': 'sid-B135FA5B-8A3B-4471-A345-7299F983C2C6', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Secretariat:\n3 offers']}
+
+End Events:
+{'id': 'sid-8545F8AB-2A37-4A38-8511-698A150051F3', 'name': 'EndEvent0', 'incoming': ['Task 1'], 'outgoing': []}
+{'id': 'sid-AABB481B-7BBE-4C97-B571-B8B518FDEB94', 'name': 'EndEvent1', 'incoming': ['large\nQuantities'], 'outgoing': []}

@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-8AFE2CAD-947C-49FA-8306-C32E28DDE63F', 'name': 'Create a request for Schufaservice', 'incoming': ['Schufascoring request has been received'], 'outgoing': ['Answer to Frontend']}
+{'id': 'sid-44CEC9EF-0D17-4878-9B23-773830DA7A3C', 'name': 'Answer to Frontend', 'incoming': ['Schufascoring request has been received'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-C6F026E7-3038-4BA0-9536-8AA5F2E45FA6', 'name': 'Return Level 2', 'incoming': ['IntermediateCatchEvent2'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-C3C74164-C89D-49CB-8B01-541E9AD4E587', 'name': 'Schufa Edit request', 'incoming': ['StartEvent1'], 'outgoing': ['Level 2?']}
+{'id': 'sid-7772ECFE-86AE-4EA0-B37E-0FD6643C2933', 'name': 'Response message Level 2 request required', 'incoming': ['StartEvent1'], 'outgoing': ['AntLevel 2 process request']}
+{'id': 'sid-3DEE5460-0DEA-468F-B4BB-4B47796E6126', 'name': 'Schufa answer request', 'incoming': ['Level 2?'], 'outgoing': ['EndEvent3']}
+{'id': 'sid-39C1B899-84BC-4A20-B3EB-AF278DC2EBD8', 'name': 'AntLevel 2 process request', 'incoming': ['Level 2?'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-DFA6FE75-E24E-46B7-857B-FB1CA7F97C96', 'name': 'Level 2 request?', 'incoming': ['Schufascoring request has been received'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-2AA6C42E-D4E4-490D-AF51-A3A509247C2F', 'name': 'Level 2?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent3', 'EndEvent2']}
+{'id': 'sid-7B94E337-D0F3-4CDD-9DFE-4C82D2859A43', 'name': 'IntermediateCatchEvent2', 'incoming': ['Answer to Frontend'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-7AE98C00-29AD-4961-B057-88603FE9AF28', 'name': 'Schufascoring request has been received', 'incoming': [], 'outgoing': ['Level 2 request?']}
+{'id': 'sid-A5025681-3071-4367-8A9C-EBD60ABCF4E8', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Response message Level 2 request required']}
+
+End Events:
+{'id': 'sid-E5FE35AD-5B19-4378-A5AD-F53A769D770D', 'name': 'EndEvent0', 'incoming': ['Level 2 request?'], 'outgoing': []}
+{'id': 'sid-B53AA9B6-24B6-4CE0-8AA4-6C6A637F7B76', 'name': 'EndEvent1', 'incoming': ['Level 2 request?'], 'outgoing': []}
+{'id': 'sid-3BDFC272-7C23-4CD7-BE80-0D7414C6E0F9', 'name': 'EndEvent2', 'incoming': ['Level 2?'], 'outgoing': []}
+{'id': 'sid-3D87929F-FCEE-4921-97B4-D5E51048DBF6', 'name': 'EndEvent3', 'incoming': ['Level 2?'], 'outgoing': []}

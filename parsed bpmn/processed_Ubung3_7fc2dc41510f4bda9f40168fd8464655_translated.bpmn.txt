@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-EE9E5B40-3EF8-4719-B7DB-917BBA48E3AE', 'name': 'Case Regress', 'incoming': ['Regressive request'], 'outgoing': ['Case valid?']}
+{'id': 'sid-5A406D1D-0DE2-41B2-BB1B-95EDE1339135', 'name': 'Close', 'incoming': ['Regressive request'], 'outgoing': []}
+{'id': 'sid-2DBA6688-F5D3-45B4-9F29-8F1CA7A511A1', 'name': 'VN payment request\nsiken', 'incoming': ['Case valid?'], 'outgoing': ['Vorgan on re-submission']}
+{'id': 'sid-28134E6C-0E32-4304-94E9-B9026BA15BA4', 'name': 'Vorgan on re-submission', 'incoming': ['Case valid?'], 'outgoing': ['VN contradicts']}
+{'id': 'sid-87E3A6B1-DE8B-435F-8E76-EE764EFD0995', 'name': 'Book the entrance', 'incoming': ['Money received'], 'outgoing': ['Close']}
+{'id': 'sid-7E06B9BF-F6CC-4C48-96CE-F68C5B8900DE', 'name': 'Close', 'incoming': ['Money received'], 'outgoing': []}
+{'id': 'sid-63601FB4-3DB9-494D-8820-512790AD80F5', 'name': 'Inspection', 'incoming': ['VN contradicts'], 'outgoing': ['Disclaimer Justified?']}
+
+Gateways:
+{'id': 'sid-3A4B8537-C700-443A-A42E-F87B9D4D638C', 'name': 'Case valid?', 'incoming': ['Regressive request'], 'outgoing': ['Close', 'Money received']}
+{'id': 'sid-366D5EE6-10C3-4171-9B57-98C8C1757C3A', 'name': 'Disclaimer Justified?', 'incoming': ['VN contradicts'], 'outgoing': []}
+{'id': 'sid-98F3502B-2A34-44CE-BD8B-A8B04DB97F98', 'name': 'EventBasedGateway2', 'incoming': ['Case valid?'], 'outgoing': ['VN contradicts', 'Money received']}
+{'id': 'sid-8421EE1D-22AB-4762-9E62-AF8152CE65C1', 'name': 'VN contradicts', 'incoming': ['Vorgan on re-submission'], 'outgoing': ['Disclaimer Justified?']}
+{'id': 'sid-9A40329B-01B0-4F0C-B1DE-2C96784AAE1A', 'name': 'Money received', 'incoming': ['Case valid?'], 'outgoing': ['Close']}
+
+Start Events:
+{'id': 'sid-7E83239C-88A7-42F4-904F-A7A01463AA32', 'name': 'Regressive request', 'incoming': [], 'outgoing': ['Close']}
+
+End Events:

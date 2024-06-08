@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-9376BE03-0B73-4E2B-98FC-126DCAC9C673', 'name': 'Scoreing request', 'incoming': ['StartEvent0'], 'outgoing': ['Received']}
+{'id': 'sid-616B16DA-F7C6-44AB-8444-79D004E5FCD0', 'name': 'Scoring 1 result', 'incoming': ['Received'], 'outgoing': []}
+{'id': 'sid-8F275CDF-FDE7-4154-8B65-89990BF0EECA', 'name': 'signal delay', 'incoming': ['StartEvent0'], 'outgoing': ['Received', 'Run Finale result']}
+{'id': 'sid-320231C7-8D2E-45A2-B0FE-BF81D7820557', 'name': 'Run Finale result', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F15A5055-0DF8-4104-8923-4A0E5AA6FE94', 'name': 'perform scoring level 1', 'incoming': ['Scoreing request'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-547CBC2F-F931-4E10-A4DF-5F5CE9E6BAF0', 'name': 'perform scoring level 2', 'incoming': ['Scoreing request'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-BC0BD4FF-4AA4-425A-9DBD-3FD25BBDA724', 'name': 'ExclusiveGateway0', 'incoming': ['Scoreing request'], 'outgoing': ['sid-5D67D7A8-4B8E-40EC-94ED-5FDA1F81D3FC', 'EndEvent1']}
+{'id': 'sid-4FF7499B-4447-4362-AE1E-21E4C13B4773', 'name': 'EventBasedGateway1', 'incoming': ['StartEvent0'], 'outgoing': ['Received', 'Received']}
+{'id': 'sid-224CD5C4-740B-4DCF-BDDE-5AB1F2D34E93', 'name': 'Received', 'incoming': ['Scoreing request', 'EventBasedGateway1'], 'outgoing': ['Scoring 1 result']}
+{'id': 'sid-22462E9C-30D5-4AC2-8209-73E46B70D02F', 'name': 'Delay', 'incoming': ['StartEvent0'], 'outgoing': ['Received']}
+{'id': 'sid-A2A6AD51-B837-4EB4-9F4B-CAA9C142B05B', 'name': 'final result available', 'incoming': ['Scoreing request'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-FD2C2451-049F-4ADF-A031-DD2ED58E89B5', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Run Finale result']}
+{'id': 'sid-EC3979FF-3017-46EE-8577-985B2F391F0E', 'name': 'Scoreing request', 'incoming': [], 'outgoing': ['final result available']}
+
+End Events:
+{'id': 'sid-1D2BAE46-07F3-4469-BA40-4253BBF6B17E', 'name': 'EndEvent0', 'incoming': ['Run Finale result'], 'outgoing': []}
+{'id': 'sid-84AE8667-31CA-42C7-836C-176F4339C6EF', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

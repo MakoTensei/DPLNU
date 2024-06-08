@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-16DB8350-E416-490F-8375-F96B8F0D5B9C', 'name': 'Check insurance case', 'incoming': ['Possible regression'], 'outgoing': ['Regression possible?']}
+{'id': 'sid-B68A6272-F920-432C-A351-3824507C6D3B', 'name': 'Send payment request to VN', 'incoming': ['Possible regression'], 'outgoing': ['Set process for resubmission']}
+{'id': 'sid-F4FCF229-E50B-4786-BBC3-EEC474A39602', 'name': 'Set process for resubmission', 'incoming': ['Regression possible?'], 'outgoing': ['Opposition\nobtained from VN']}
+{'id': 'sid-F0C5E163-8A10-4A5A-AA5F-04BA34A2B936', 'name': 'Proceedings', 'incoming': ['Opposition\nobtained from VN'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-27C55109-F8D1-495D-A708-FF3D54F59ED9', 'name': 'Process transferred to debt collection office', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Process']}
+{'id': 'sid-43AEDA31-6D8C-4D38-83BB-009252194BFC', 'name': '....', 'incoming': ['Cash receipt\nobtained from the VN'], 'outgoing': []}
+
+Gateways:
+{'id': 'sid-1FCD38E9-7D80-4856-98FA-A3CCE4E6CEC3', 'name': 'Regression possible?', 'incoming': ['Possible regression'], 'outgoing': ['Process', 'Process']}
+{'id': 'sid-B884C351-CE14-4B57-A6FD-DC66B0405D8D', 'name': 'Rejection of payment justified?', 'incoming': ['EventBasedGateway3'], 'outgoing': ['ExclusiveGateway2', 'sid-784BA411-46CB-4486-993B-58EA9EC7D15C']}
+{'id': 'sid-4552EC62-C127-46E0-BC3B-80A6C3F60F76', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'EventBasedGateway3'], 'outgoing': ['Process']}
+{'id': 'sid-96EC6988-5F64-4FFD-B48A-2156BC38AA2D', 'name': 'EventBasedGateway3', 'incoming': ['Regression possible?'], 'outgoing': ['Rejection of payment justified?', 'Process transferred to debt collection office', 'Cash receipt\nobtained from the VN']}
+{'id': 'sid-C0465A88-F518-4E25-BE39-8A1E4B21D366', 'name': 'Opposition\nobtained from VN', 'incoming': ['Set process for resubmission'], 'outgoing': ['Rejection of payment justified?']}
+{'id': 'sid-D548EC07-4488-4645-B154-19566DEF1A66', 'name': 'Default period\nExpired', 'incoming': ['Regression possible?'], 'outgoing': ['Process']}
+{'id': 'sid-F128C32F-C38E-4BCC-8517-683A6B35649A', 'name': 'Cash receipt\nobtained from the VN', 'incoming': ['EventBasedGateway3'], 'outgoing': ['....']}
+
+Start Events:
+{'id': 'sid-808C4E35-36DB-4905-8D12-132E7AD7F036', 'name': 'Possible regression', 'incoming': [], 'outgoing': ['Send payment request to VN']}
+
+End Events:
+{'id': 'sid-60FAD5BF-E7D7-4FF5-A70F-47B3BB6F9A24', 'name': 'Process', 'incoming': ['Regression possible?', 'Regression possible?'], 'outgoing': []}

@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-AAFBD8E8-69EA-48EB-B239-BC32FC2AC367', 'name': 'Scoring request', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring']}
+{'id': 'sid-E939062C-2B95-46AF-81EE-36E7401C2432', 'name': 'Scoring', 'incoming': ['Scoring'], 'outgoing': ['Scoring supplied']}
+{'id': 'sid-5D54E946-3CD2-4C56-B81A-041DFD013C25', 'name': 'Delay\n:', 'incoming': ['Scoring\nRequired'], 'outgoing': ['Scoring supplied']}
+{'id': 'sid-27175883-2A4A-430D-810A-88B541387CF9', 'name': 'immediate\nInvestigation', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Scoring immediately\navailable?']}
+{'id': 'sid-09DEC7E2-DF50-4AE4-BFDF-A29D26C37B06', 'name': 'Determining scoring', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Scoring sent']}
+{'id': 'sid-74AB6933-F757-4296-B5C8-DCCE1936091A', 'name': 'Report delay', 'incoming': ['Scoring immediately\navailable?'], 'outgoing': ['Determining scoring']}
+{'id': 'sid-9F1E91DC-0D62-49B1-A2E2-F17B31ABA31E', 'name': 'Determining scoring', 'incoming': ['Scoring immediately\navailable?'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-DC866F62-F7C6-4F24-BBF2-F5227FF3F8E7', 'name': 'Scoring immediately\navailable?', 'incoming': ['Scoring request\nobtained'], 'outgoing': ['Scoring sent', 'Determining scoring']}
+{'id': 'sid-66B174C5-FA77-4483-94FA-A21F4C321840', 'name': 'ExclusiveGateway1', 'incoming': ['Scoring request\nobtained', 'Determining scoring'], 'outgoing': ['Scoring sent']}
+{'id': 'sid-3A4C7116-6A21-4A6B-8F51-C32F49927E13', 'name': 'EventBasedGateway2', 'incoming': ['Scoring\nRequired', 'Delay reported'], 'outgoing': ['Scoring supplied', 'EventBasedGateway2']}
+{'id': 'sid-CAE284C9-88F5-46B7-9D6A-FC4E83E1140A', 'name': 'Scoring', 'incoming': ['Scoring request'], 'outgoing': ['Scoring']}
+{'id': 'sid-58497D29-31F2-4B5A-999C-CF33C32446B8', 'name': 'Delay reported', 'incoming': ['Scoring\nRequired'], 'outgoing': ['EventBasedGateway2']}
+
+Start Events:
+{'id': 'sid-D50ADB69-D129-4051-823F-99D8F4B5F606', 'name': 'Scoring\nRequired', 'incoming': [], 'outgoing': ['Delay\n:']}
+{'id': 'sid-EA512400-D93F-46D3-9AAB-3AE88053B9B9', 'name': 'Scoring request\nobtained', 'incoming': [], 'outgoing': ['ExclusiveGateway1']}
+
+End Events:
+{'id': 'sid-09406E9F-5129-425E-BD35-F088F6AFCE25', 'name': 'Scoring supplied', 'incoming': ['Delay\n:'], 'outgoing': []}
+{'id': 'sid-2CBA6411-7D15-4086-8E23-CD4FB12CCD43', 'name': 'Scoring sent', 'incoming': ['Scoring immediately\navailable?'], 'outgoing': []}

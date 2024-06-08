@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-51ED38B1-140C-4DED-8F83-524A497B9394', 'name': 'Pick food &amp; place your order', 'incoming': ['Wish\nFood intake'], 'outgoing': ['Payment\non request\nobtained']}
+{'id': 'sid-C7293515-2789-4810-9766-F07117DDB420', 'name': 'Pay for', 'incoming': ['Wish\nFood intake'], 'outgoing': ['food ready signal']}
+{'id': 'sid-52BBC442-3208-421B-BD51-CDA229BD863C', 'name': 'Pick up food', 'incoming': ['food ready signal'], 'outgoing': ['Get food']}
+{'id': 'sid-454C04D0-D1B3-4957-98D2-F803E714A6A8', 'name': 'Eat food', 'incoming': ['Get food'], 'outgoing': ['Full']}
+{'id': 'sid-ECAEC802-7839-43FC-AFAC-23098FC30A5C', 'name': 'Enter your order into the system', 'incoming': ['Order'], 'outgoing': ['Invoicing amount']}
+{'id': 'sid-E3438DC7-8B7C-48B9-95A1-BC48FBE5A846', 'name': 'Invoicing amount', 'incoming': ['Order'], 'outgoing': ['Payment received']}
+{'id': 'sid-D1A2A9BF-1CCB-4F32-BC7F-1CC8711AA977', 'name': 'Increasing numbers', 'incoming': ['Order'], 'outgoing': ['Pieper to guest incl. Information "Piept when food is ready"']}
+{'id': 'sid-F6C3EA36-881F-4434-85D2-E37676D3FFCD', 'name': 'Pieper to guest incl. Information "Piept when food is ready"', 'incoming': ['Payment received'], 'outgoing': ['Add your order to Koch']}
+{'id': 'sid-78FB12AC-8AA1-433B-B5A5-7EEDC0D5B03D', 'name': 'Add your order to Koch', 'incoming': ['Payment received'], 'outgoing': ['Meals\nsupplier\nready\n[YELLING]']}
+{'id': 'sid-939BC45B-C4C6-42C7-AD02-D8B3C0399C32', 'name': "'Eat Finish' Pieper", 'incoming': ['Meals\nsupplier\nready\n[YELLING]'], 'outgoing': ['Guest wants to eat']}
+{'id': 'sid-ADF82EBC-0607-4588-B1B9-868392408FE2', 'name': 'Deliver food', 'incoming': ['Guest wants to eat'], 'outgoing': ['Customer satisfied']}
+{'id': 'sid-D3B92BD5-C907-48E5-B827-CCFB51E93BEE', 'name': 'Visit the food is ready', 'incoming': ['Meals\nsupplier\nready\n[YELLING]'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-1761E73A-C4E9-4D9D-924F-382AB74B6C00', 'name': 'Preparation of meal', 'incoming': ['Order'], 'outgoing': ['ready meal in high places & inform employees']}
+{'id': 'sid-7C2251BD-AEA2-4818-9A79-FE894A4BB4CC', 'name': 'ready meal in high places & inform employees', 'incoming': ['Order'], 'outgoing': ['Prepared food']}
+
+Gateways:
+{'id': 'sid-C45E6DB5-936C-4C7C-86C4-50EDCF62BC47', 'name': 'EventBasedGateway0', 'incoming': ['Payment received', '5 minutes no food picked up'], 'outgoing': ['Customer satisfied', 'EventBasedGateway0']}
+{'id': 'sid-10F435E6-A042-4A6E-B51D-84CB71934FB3', 'name': 'Payment\non request\nobtained', 'incoming': ['Wish\nFood intake'], 'outgoing': ['Full']}
+{'id': 'sid-A6B2B42A-0A63-48FB-8BC5-8161FA857CAA', 'name': 'Food\nSignal\ngeber', 'incoming': ['Wish\nFood intake'], 'outgoing': ['food ready signal']}
+{'id': 'sid-AAFF16C4-0750-4AC1-AA8D-9873492C8E9D', 'name': 'food ready signal', 'incoming': ['Payment\non request\nobtained'], 'outgoing': ['Get food']}
+{'id': 'sid-E2E20B83-EE7F-49C9-A5C2-1658A7FF1D21', 'name': 'Get food', 'incoming': ['Payment\non request\nobtained'], 'outgoing': ['Full']}
+{'id': 'sid-F0C16477-9695-4240-B398-E30FF4816E35', 'name': 'Payment received', 'incoming': ['Order'], 'outgoing': ['Customer satisfied']}
+{'id': 'sid-4ADB79C0-73F3-4A74-B0CA-5EEEF0353D67', 'name': 'Guest wants to eat', 'incoming': ["'Eat Finish' Pieper"], 'outgoing': ['Customer satisfied']}
+{'id': 'sid-93E0F461-58CC-4A87-8C8B-2564F8C9C062', 'name': '5 minutes no food picked up', 'incoming': ['Meals\nsupplier\nready\n[YELLING]'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-AFBA401A-530B-44A2-A00B-846C364F5D58', 'name': 'Meals\nsupplier\nready\n[YELLING]', 'incoming': ['Payment received'], 'outgoing': ['Visit the food is ready']}
+
+Start Events:
+{'id': 'sid-33065365-581F-4294-8E1E-D83EA8A9FF6C', 'name': 'Wish\nFood intake', 'incoming': [], 'outgoing': ['Food\nSignal\ngeber']}
+{'id': 'sid-DD964E2B-55FD-45A1-A180-C0AB98E7A600', 'name': 'Order', 'incoming': [], 'outgoing': ['Increasing numbers']}
+{'id': 'sid-894A2151-174F-4D07-B8CB-D94503FFDC7C', 'name': 'Order', 'incoming': [], 'outgoing': ['ready meal in high places & inform employees']}
+
+End Events:
+{'id': 'sid-F209D4BA-778A-4839-89DC-5CCFD4D0D74C', 'name': 'Full', 'incoming': ['Payment\non request\nobtained'], 'outgoing': []}
+{'id': 'sid-AB0EED94-81AD-412E-94FC-D946DEE5B15D', 'name': 'Customer satisfied', 'incoming': ['Payment received'], 'outgoing': []}
+{'id': 'sid-7C19A9FC-F8F7-4EA4-A568-17721F1A35FC', 'name': 'Prepared food', 'incoming': ['ready meal in high places & inform employees'], 'outgoing': []}

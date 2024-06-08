@@ -1,0 +1,11 @@
+ When goods are to be shipped, the process begins with a start event, 'Goods are to be shipped', which triggers a request for a quote. This request is then routed to 'ParallelGateway4', which in turn connects to 'Request a quote'. Upon receiving the request, the quote is generated and sent back to 'ParallelGateway5'.
+
+Simultaneously, 'ParallelGateway4' also connects to 'Special shipment necessary?' which leads to 'ExclusiveGateway3'. This is where the process diverges based on whether a special shipment is required. If a special shipment is needed, 'ExclusiveGateway3' connects to 'Filling the package note', which is then routed to 'Specialist'. The specialist handles the special shipment and sends the package note to 'EndEvent0'.
+
+On the other hand, if no special shipment is required, 'ExclusiveGateway3' connects directly to 'EndEvent0', bypassing the 'Filling the package note' process.
+
+Once the quote is generated, it is sent back to 'ParallelGateway5', which then connects to 'Packaging goods'. The goods are packaged and sent to 'ParallelGateway5' again.
+
+If insurance is required, 'ParallelGateway5' connects to 'Complete insurance', which is then routed to 'ExclusiveGateway2'. The insurance process is completed and the package note is sent to 'EndEvent0'.
+
+Finally, the process concludes at 'EndEvent0', where the goods are shipped and the process is completed.

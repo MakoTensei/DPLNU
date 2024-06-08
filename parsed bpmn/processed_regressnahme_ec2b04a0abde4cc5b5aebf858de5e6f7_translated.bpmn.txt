@@ -1,0 +1,21 @@
+Tasks:
+{'id': 'sid-86C99968-CDC9-4498-AB68-F822CCF8AE00', 'name': 'Regression Front Testing', 'incoming': ['Regress Case Entrance'], 'outgoing': ['Forefront equifertrig']}
+{'id': 'sid-41765B6D-8E48-4CE4-87A6-CF5366D66595', 'name': 'Book money', 'incoming': ['Money received'], 'outgoing': ['Process']}
+{'id': 'sid-BAA9D9B5-5A95-49B9-9B2C-E163E3142A27', 'name': 'Debt collection office', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Process']}
+{'id': 'sid-FE6C96A6-4B29-47BF-BD3C-F4D6196EB2F2', 'name': 'setze process on re-submission', 'incoming': ['sid-5911A99B-ACEA-4ADB-8E9A-028502127309'], 'outgoing': ['Money received']}
+{'id': 'sid-CF2F150B-0EA7-4B98-9FF1-731DC7A63D22', 'name': 'Proceedings', 'incoming': ['Contrary to VN'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-B686FA69-1FDA-4499-9782-4A7BCA86CB25', 'name': 'Forefront equifertrig', 'incoming': ['Regress Case Entrance'], 'outgoing': ['sid-DF35E10F-9E6F-4E10-A538-1223E7308BD7', 'Process']}
+{'id': 'sid-21839202-7363-4187-BEAD-C65F8F5E2FA6', 'name': 'Objection justified?', 'incoming': ['Contrary to VN'], 'outgoing': ['ExclusiveGateway2', 'Process']}
+{'id': 'sid-2661DE3F-674E-4722-91CA-12B8017E0551', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'EventBasedGateway3'], 'outgoing': ['Process']}
+{'id': 'sid-CD7CCAF4-C2C6-4FB6-9EEF-1D9DEF290C10', 'name': 'EventBasedGateway3', 'incoming': ['setze process on re-submission'], 'outgoing': ['Process', 'Debt collection office', 'Contrary to VN']}
+{'id': 'sid-9186A34A-A3F3-41E8-B5F6-F652A4D11279', 'name': 'Money received', 'incoming': ['setze process on re-submission'], 'outgoing': ['Process']}
+{'id': 'sid-FA810E17-4B51-4BA8-93E4-DBC4B2A7A3AA', 'name': 'Payment deadline', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Process']}
+{'id': 'sid-00ED221B-3110-4A23-BA22-7DC2D24E0607', 'name': 'Contrary to VN', 'incoming': ['EventBasedGateway3'], 'outgoing': ['Process']}
+
+Start Events:
+{'id': 'sid-C7D188F0-F8C4-4AA7-92CF-D817CB579D59', 'name': 'Regress Case Entrance', 'incoming': [], 'outgoing': ['Forefront equifertrig']}
+
+End Events:
+{'id': 'sid-6B3F5956-E562-4E06-9A14-47B0AF1826A9', 'name': 'Process', 'incoming': ['EventBasedGateway3', 'Contrary to VN', 'Payment deadline', 'Forefront equifertrig'], 'outgoing': []}

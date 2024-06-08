@@ -1,0 +1,7 @@
+ In a workflow involving scoring requests, the process begins with the 'StartEvent0' which triggers the 'Send delay notice' task, sending a message to the 'EventBasedGateway2'. This task is followed by the 'Scoring Level 1' task, which awaits a 'Scoring\ncompleted?' message to proceed. Upon receiving this message, the 'Answer scoring request' task is initiated, leading to the 'ExclusiveGateway1' where the process can either end or continue based on the incoming messages.
+
+If the process continues, the 'Scoring Level 2' task is triggered, which also awaits a 'Scoring\ncompleted?' message. Upon receiving this message, the 'Answer scoring request' task is initiated again, this time leading to the 'ExclusiveGateway1' where the process can either end or continue based on the incoming messages.
+
+If the process ends, the 'Finished' task is triggered, which can be initiated by either the 'Delay message' or the 'Scoring\ncompleted?' message. The 'Finished' task does not have any outgoing tasks.
+
+In summary, the workflow starts with 'StartEvent0', which triggers a series of tasks related to scoring requests. These tasks are interconnected through incoming and outgoing messages, and the process can either continue or end based on the messages received. The 'ExclusiveGateway1' plays a crucial role in determining the flow of the process.

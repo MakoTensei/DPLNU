@@ -1,0 +1,30 @@
+Tasks:
+{'id': 'sid-810F42D5-A7E4-4010-884F-088627FE4BF5', 'name': 'Remnants enter', 'incoming': ['Hunger'], 'outgoing': ['Select a court']}
+{'id': 'sid-E0EF2CBE-D601-4F3E-81D2-00EE3585019A', 'name': 'Select a court', 'incoming': ['Hunger'], 'outgoing': ['wait']}
+{'id': 'sid-557C0467-1328-41C1-BA3B-C31C48B17ABB', 'name': 'Add your order', 'incoming': ['Hunger'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-AFB96F6A-E018-4A85-8E19-B63850362385', 'name': 'Pick up Pieper', 'incoming': ['wait'], 'outgoing': ['Pieper-\nReport']}
+{'id': 'sid-F2C92464-FDF0-4E5D-B605-AD8A8E39CE38', 'name': 'Court of Justice\nretrieval', 'incoming': ['Pieper-\nReport'], 'outgoing': ['Court of Justice\nbeeping']}
+{'id': 'sid-01C41EF0-0C65-4DDD-A080-A36F3EE30FF8', 'name': 'Court of Justice\nbeeping', 'incoming': ['Pieper-\nReport'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-7FB2DCC1-AC03-4228-BF87-056AF7A2AA1D', 'name': 'Maintaining cash system', 'incoming': ['Order'], 'outgoing': ['Cash']}
+{'id': 'sid-3D5A56B5-3AC5-4965-9E39-7F301E6275A5', 'name': 'Cash', 'incoming': ['Order'], 'outgoing': ['Set/transmit Pieper']}
+{'id': 'sid-06F7D793-0274-44A0-AAF9-76D2A9FD3428', 'name': 'Set/transmit Pieper', 'incoming': ['Order'], 'outgoing': ['sid-19C64538-145D-4473-A8CD-374B52A2AEE0']}
+{'id': 'sid-D7ED85B5-1641-4BD3-B447-1741D70B4D73', 'name': 'Court of First Instance', 'incoming': ['sid-39E39A2F-48F7-416A-A87F-75A1343A9E32'], 'outgoing': ['5 min']}
+{'id': 'sid-3A95EC50-95C5-4F35-9F5B-1CD82D94F5BB', 'name': 'prepare court', 'incoming': ['Order'], 'outgoing': ['Providing courts']}
+{'id': 'sid-4A0B7163-ABD1-4AD5-8BFC-A05EBE07B3BB', 'name': 'Providing courts', 'incoming': ['Order'], 'outgoing': ['Employees\ninformation']}
+
+Gateways:
+{'id': 'sid-0B5AFF44-4D76-4DA2-8F0E-E72F1C182EA3', 'name': 'ExclusiveGateway0', 'incoming': ['Court of First Instance'], 'outgoing': ['End', '5 min']}
+{'id': 'sid-6462328B-3EC2-4345-93A0-F5F6701783F6', 'name': 'wait', 'incoming': ['Hunger'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-D39E92DF-05AC-40CC-A1B4-2986D303ECC6', 'name': 'Pieper-\nReport', 'incoming': ['wait'], 'outgoing': ['Hunger\ndistilled']}
+{'id': 'sid-80F76A8F-4CE0-4686-8440-A2D898BE4583', 'name': 'Court of Justice\nfinished', 'incoming': ['sid-E58BE687-9871-4573-8E3D-133099BF3FA9'], 'outgoing': ['sid-6B0B1194-32C5-4A59-8945-C9800625D48C']}
+{'id': 'sid-FD5FBC8B-ECB2-4153-8E69-D0E85A6277AA', 'name': '5 min', 'incoming': ['Court of First Instance'], 'outgoing': ['sid-CD8614E3-820C-4240-B65A-3BAAA5B4D78B']}
+
+Start Events:
+{'id': 'sid-DB81BBCE-1C29-41C1-BF41-402FB30BFBF5', 'name': 'Hunger', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-47EB0276-816F-43FA-B9BC-6B41F217C5B5', 'name': 'Order', 'incoming': [], 'outgoing': ['Set/transmit Pieper']}
+{'id': 'sid-DFDA23BA-AD74-426F-9E31-C8EE5A7F1079', 'name': 'Order', 'incoming': [], 'outgoing': ['Providing courts']}
+
+End Events:
+{'id': 'sid-4CC6F2E4-286A-4DA4-AA2A-4B0E5141BB00', 'name': 'Hunger\ndistilled', 'incoming': ['wait'], 'outgoing': []}
+{'id': 'sid-C80918C1-B132-4C5D-935D-3F8EE5AEBA15', 'name': 'End', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-8A64CBB2-1CC6-4FD9-978F-80932F7D7D39', 'name': 'Employees\ninformation', 'incoming': ['Providing courts'], 'outgoing': []}

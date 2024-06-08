@@ -1,0 +1,18 @@
+ The process begins with the event 'Shipping goods', which triggers the 'ExclusiveGateway3' to initiate the sequence. This leads to the 'Special shipment necessary?' gateway, which in turn sends a 'Send a message' to inquire about the need for insurance. If insurance is deemed necessary, the 'Insurance\nclose' gateway is activated, which then connects to 'ExclusiveGateway3' to proceed with the process.
+
+Parallelly, the 'Shipping goods' event also triggers 'ParallelGateway4', which sends a 'Special shipment necessary?' message to the same gateway. This message leads to the 'Send a message' gateway, which then connects to 'ExclusiveGateway1'.
+
+The 'ParallelGateway4' also connects to 'ParallelGateway5', which sends a 'Specialist' message to the 'Specialist' gateway. The 'Specialist' gateway then connects to 'ParallelGateway5', which finally leads to the'ready for dispatch' event.
+
+In summary, the process involves the following steps:
+
+1. 'Shipping goods' event triggers 'ExclusiveGateway3'
+2. 'ExclusiveGateway3' sends a 'Send a message' to inquire about insurance
+3. If insurance is necessary, 'Insurance\nclose' gateway is activated and connects to 'ExclusiveGateway3'
+4. Simultaneously, 'Shipping goods' event also triggers 'ParallelGateway4'
+5. 'ParallelGateway4' sends a 'Special shipment necessary?' message to 'Send a message' gateway
+6. 'Send a message' gateway connects to 'ExclusiveGateway1'
+7. 'ParallelGateway4' also connects to 'ParallelGateway5'
+8. 'ParallelGateway5' sends a 'Specialist' message to 'Specialist' gateway
+9. 'Specialist' gateway connects to 'ParallelGateway5'
+10. 'ParallelGateway5' leads to the'ready for dispatch' event.

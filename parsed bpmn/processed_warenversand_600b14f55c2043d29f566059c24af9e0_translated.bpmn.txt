@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-4F6BE004-E6DC-4C2D-B945-A94B5A41D070', 'name': 'Secretariat clears shipping', 'incoming': ['ParallelGateway4'], 'outgoing': ['Small quantity/ Large quantity']}
+{'id': 'sid-088A6EF0-5A19-426C-A7E5-E76F06B6E23A', 'name': 'Filling parcel note for mail delivery', 'incoming': ['Product is ready'], 'outgoing': ['Insurance\nyes/no']}
+{'id': 'sid-D28385B5-9B8D-40B1-8DDF-630823849FA3', 'name': 'three special delivery offers', 'incoming': ['Small quantity/ Large quantity'], 'outgoing': ['Selection Special delivery']}
+{'id': 'sid-D15A9B34-066A-4D8A-AB9B-B69E1F8246EC', 'name': 'Selection Special delivery', 'incoming': ['Small quantity/ Large quantity'], 'outgoing': ['Ordering\nfreight forwarders']}
+{'id': 'sid-A37C5597-A542-426A-9A05-D8F6F92C18E5', 'name': 'Ordering\nfreight forwarders', 'incoming': ['Small quantity/ Large quantity'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-5E62533F-E90B-4931-8529-CBBBF7AEF20A', 'name': 'Insurance is completed by logistics manager', 'incoming': ['Product is ready'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-5E27E124-C526-400F-841C-630A38905AA9', 'name': 'Goods are packed by warehouse workers', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods are provided for collection']}
+{'id': 'sid-A52A929D-B201-4B10-B363-13993018C936', 'name': 'Goods are provided for collection', 'incoming': ['ParallelGateway4'], 'outgoing': ['Goods are ready\nfor collection']}
+{'id': 'sid-5641CDD5-F39D-47F8-BC47-7B0C2CA3FED0', 'name': 'Papers and goods are combined', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+
+Gateways:
+{'id': 'sid-0D3C81C2-7385-4D74-A222-43849C1BFC84', 'name': 'Small quantity/ Large quantity', 'incoming': ['ParallelGateway4'], 'outgoing': ['Filling parcel note for mail delivery', 'ExclusiveGateway1']}
+{'id': 'sid-7310F740-1874-4513-A05D-0823E07CAED6', 'name': 'ExclusiveGateway1', 'incoming': ['ParallelGateway4', 'Small quantity/ Large quantity'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-138475B2-B68B-4125-B378-4B3FD3F55EF3', 'name': 'Insurance\nyes/no', 'incoming': ['Product is ready'], 'outgoing': ['ExclusiveGateway3', 'Insurance is completed by logistics manager']}
+{'id': 'sid-99C7C673-3977-4AAF-81BE-239DBA1AF945', 'name': 'ExclusiveGateway3', 'incoming': ['Product is ready', 'ParallelGateway4'], 'outgoing': ['Papers and goods are combined']}
+{'id': 'sid-A02DAB7B-001D-4835-B1BE-2B9224F2257C', 'name': 'ParallelGateway4', 'incoming': ['Product is ready'], 'outgoing': ['Papers and goods are combined', 'Goods are ready\nfor collection']}
+{'id': 'sid-9BA2425A-A720-4001-82BF-F1F00F1160CE', 'name': 'ParallelGateway5', 'incoming': ['Goods are provided for collection', 'Papers and goods are combined'], 'outgoing': ['Goods are ready\nfor collection']}
+
+Start Events:
+{'id': 'sid-3DCFDC2C-B553-483D-8AF9-390ED5F378AC', 'name': 'Product is ready', 'incoming': [], 'outgoing': ['ExclusiveGateway3']}
+
+End Events:
+{'id': 'sid-7307C455-8CDD-4672-825B-C51D5BCFE640', 'name': 'Goods are ready\nfor collection', 'incoming': ['ParallelGateway4'], 'outgoing': []}

@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-29CE980D-D99A-45C1-85D4-38B99B29C9F0', 'name': 'Check the procedure', 'incoming': ['Regression'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-EC0B61F1-6ABA-4BC3-A073-24DB56A7084E', 'name': 'Send a message', 'incoming': ['Regression'], 'outgoing': ['Cash receipt']}
+{'id': 'sid-91033B24-E713-42BB-8D12-3C05EE426395', 'name': 'Book back payment', 'incoming': ['Cash receipt'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-4AFA6AAE-B1EA-422F-8F03-9BB11C01139B', 'name': 'Proceedings', 'incoming': ['Regression'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-B0DC6123-5AC1-40A2-B716-D0211ACB9C19', 'name': 'Inkasso handed over', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process transferred to collection']}
+{'id': 'sid-13A72B89-FDD0-4914-8EAA-C157FC8E2AA1', 'name': 'Close', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Closed']}
+
+Gateways:
+{'id': 'sid-89DC12C0-1993-4F8C-ADF3-E50073EE08D0', 'name': 'Regress possible?', 'incoming': ['Regression'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-77ADB27B-8CF1-46D0-9069-241D4629465C', 'name': 'ExclusiveGateway1', 'incoming': ['Check the procedure', 'Regress possible?', 'Objection'], 'outgoing': ['Closed']}
+{'id': 'sid-5B6B15A4-E879-4433-A398-EE758F12151F', 'name': 'Objection justified?', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Close', 'ExclusiveGateway3']}
+{'id': 'sid-BEEB1F38-0201-49AF-8A11-4AB9C82F5101', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Regression'], 'outgoing': ['Process transferred to collection']}
+{'id': 'sid-C3AB7ED6-11D7-4251-9512-3696D0B7CB33', 'name': 'EventBasedGateway4', 'incoming': ['Regression'], 'outgoing': ['Cash receipt', 'Close', 'Inkasso handed over']}
+{'id': 'sid-79C15779-C2AB-4383-9A6C-12CE8E98887E', 'name': 'Cash receipt', 'incoming': ['Regress possible?'], 'outgoing': ['Closed']}
+{'id': 'sid-071CE03B-5A85-4498-A860-94A991890E0D', 'name': 'Objection', 'incoming': ['Regression'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-CF1AED91-E124-4C0F-BCBA-12B8527101C3', 'name': 'expiry of the opposition period', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Process transferred to collection']}
+
+Start Events:
+{'id': 'sid-34FA6392-70D1-4E95-881E-F397F3DC201C', 'name': 'Regression', 'incoming': [], 'outgoing': ['ExclusiveGateway3']}
+
+End Events:
+{'id': 'sid-585758F1-8E45-421A-B146-81217ED06FD8', 'name': 'Closed', 'incoming': ['Cash receipt'], 'outgoing': []}
+{'id': 'sid-FDF9DECC-CBF9-4918-9674-DC17BB1D3EF3', 'name': 'Process transferred to collection', 'incoming': ['expiry of the opposition period'], 'outgoing': []}

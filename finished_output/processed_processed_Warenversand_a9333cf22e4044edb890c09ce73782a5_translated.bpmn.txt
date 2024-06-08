@@ -1,0 +1,12 @@
+ The process begins with a 'Shipping order' event, which triggers a series of tasks and interactions between various gateways.
+
+1. The 'Shipping order' event initiates the process and sends the order to 'ExclusiveGateway1'.
+2. 'ExclusiveGateway1' checks if the order is a 'Big amount?' and, if so, sends it to 'ParallelGateway5' and 'ExclusiveGateway1'.
+3. 'ParallelGateway5' sends the order to 'ParallelGateway6' and 'Special offer'.
+4. 'ParallelGateway6' sends the order to 'ExclusiveGateway1'.
+5. 'ExclusiveGateway1' checks if the order requires 'Insurance' and, if so, sends it to 'Insurance required?' and 'ExclusiveGateway3'.
+6. 'Insurance required?' sends the order to 'ExclusiveGateway3' and 'Order ready for dispatch'.
+7. 'ExclusiveGateway3' checks if the order requires 'Insurance' and, if so, sends it to 'ParallelGateway7'.
+8. 'ParallelGateway7' sends the order to 'Order ready for dispatch'.
+
+The process concludes when the 'Order ready for dispatch' event is triggered, indicating that the order has been processed and is ready to be shipped.

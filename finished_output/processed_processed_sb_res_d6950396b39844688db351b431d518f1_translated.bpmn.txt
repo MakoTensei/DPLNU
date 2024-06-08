@@ -1,0 +1,44 @@
+ 1. Task: Select a meal
+   Name: Add your order
+   ParallelGateway: ParallelGateway3
+   Outgoing: Account
+
+2. Task: Pick up food
+   Name: Waiting for pieper
+   ParallelGateway: ParallelGateway4
+   Outgoing: Eat meal
+
+3. Task: Eat meal
+   Name: Eat meal
+   ParallelGateway: ParallelGateway4
+   Outgoing: EndEvent0
+
+4. Task: Recording
+   Name: Recording
+   ParallelGateway: ParallelGateway4
+   Outgoing: Cash
+
+5. Task: Adjust Pieper
+   Name: Adjust Pieper
+   ParallelGateway: ParallelGateway4
+   Outgoing: IntermediateCatchEvent7
+
+6. Task: Trigger Pieper
+   Name: Trigger Pieper
+   ParallelGateway: ParallelGateway4
+   Outgoing: sid-7B8771C0-88F5-4189-B4FC-EF975C577F4E
+
+7. Task: Preparation of meal
+   Name: Providing meal
+   ParallelGateway: ParallelGateway4
+   Outgoing: EndEvent2
+
+Start Events:
+- Hunger felt
+- Order accepted
+- StartEvent2
+
+End Events:
+- EndEvent0
+- EndEvent1
+- EndEvent2

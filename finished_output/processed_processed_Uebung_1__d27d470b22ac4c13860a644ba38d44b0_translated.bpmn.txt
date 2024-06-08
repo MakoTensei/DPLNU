@@ -1,0 +1,11 @@
+ The process begins with the 'Shipping costs obtained' event, which triggers the '3 offers' task. This task is connected to the 'ParallelGateway4', which in turn leads to the 'Check quantity' task. The 'Check quantity' task is linked to the 'Lot?' gateway, which then connects to the 'ExclusiveGateway3'.
+
+Once the 'ExclusiveGateway3' receives the 'Lot?' input, it sends the request to the 'Complete insurance' task. This task is connected to the 'Insurance required?' gateway, which then connects to the 'ExclusiveGateway2'.
+
+The 'ExclusiveGateway2' receives the 'Insurance required?' input and sends it to the 'Check insurance requirements' task. This task is connected to the 'Lot?' gateway, which then connects to the 'ExclusiveGateway3'.
+
+The 'ExclusiveGateway3' receives the 'Check insurance requirements' input and sends it to the 'Complete insurance' task. This task is connected to the 'Insurance required?' gateway, which then connects to the 'ExclusiveGateway2'.
+
+The 'ExclusiveGateway2' receives the 'Insurance required?' input and sends it to the 'ParallelGateway5'. The 'ParallelGateway5' receives the 'Insurance required?' input and sends it to the 'Delivering goods' task.
+
+The 'Delivering goods' task is connected to the 'ParallelGateway5', which then connects to the 'Goods made available' event. This marks the end of the process.

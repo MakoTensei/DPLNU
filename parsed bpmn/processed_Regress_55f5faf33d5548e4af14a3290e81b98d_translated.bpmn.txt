@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-C6112F18-94A6-4035-98D0-EBD18A8ACCB0', 'name': 'Examination\nRegression\n', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway0']}
+{'id': 'sid-0BBCE2B5-BB88-4E74-8E73-2413831AA49B', 'name': 'Send payment request to VN', 'incoming': ['StartEvent0'], 'outgoing': ['Message VN arrived']}
+{'id': 'sid-43EE7A44-81E6-49F0-94E4-BBB42D35CD00', 'name': 'Check the receipt of funds', 'incoming': ['StartEvent0'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-04822785-1F78-4448-BAD4-F4909FF0E1B9', 'name': 'Book now', 'incoming': ['Representation'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-799C2A70-3F18-487A-B5B9-BCA2ABAB0F9C', 'name': 'Debt collection companies', 'incoming': ['ExclusiveGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-35B1705F-4AB0-4363-9F14-0C165ED8E33F', 'name': 'Proceedings', 'incoming': ['Message VN arrived'], 'outgoing': ['EndEvent0']}
+
+Gateways:
+{'id': 'sid-DB308705-E91F-4982-95A8-DA386BFE44BD', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'Message VN arrived']}
+{'id': 'sid-7B67546F-4B36-4676-A5B5-68AFCC01E613', 'name': 'ExclusiveGateway1', 'incoming': ['Representation'], 'outgoing': ['EndEvent0', 'ExclusiveGateway2']}
+{'id': 'sid-791BE5E1-5CB8-477D-A987-959EAD6FF9DB', 'name': 'ExclusiveGateway2', 'incoming': ['IntermediateCatchEvent5', 'ExclusiveGateway3'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-12879E37-4346-4F0F-B1FE-93BF83C8CDDC', 'name': 'ExclusiveGateway3', 'incoming': ['Message VN arrived'], 'outgoing': ['Debt collection companies', 'EndEvent0']}
+{'id': 'sid-212FBCAF-8C1C-4E02-9F4B-128FA3D26D28', 'name': 'Representation', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['Book now']}
+{'id': 'sid-EDB4D0D0-FE0D-431C-B0F1-D69A2D681802', 'name': 'IntermediateCatchEvent5', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0', 'Message VN arrived']}
+{'id': 'sid-C45D46D0-2877-4391-9BA4-23E15A448863', 'name': 'Message VN arrived', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-891B11E8-73D3-4F8E-80AB-F933DDA81823', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Check the receipt of funds']}
+
+End Events:
+{'id': 'sid-5E388C39-AA8E-4A37-B0E5-FF146F988D2C', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0', 'ExclusiveGateway1', 'IntermediateCatchEvent5', 'Proceedings'], 'outgoing': []}

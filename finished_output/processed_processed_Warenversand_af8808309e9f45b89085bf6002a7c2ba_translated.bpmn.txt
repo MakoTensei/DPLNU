@@ -1,0 +1,32 @@
+ 1. Packaging and preparing goods for shipment
+   - ParallelGateway6: Receives goods from Shipment
+   - Goods for collection\nready: Preparation of goods for collection, inbound from ParallelGateway6
+   - EndEvent0: Completion of goods preparation
+
+2. Goods ready for collection
+   - ParallelGateway6: Receives goods from Shipment
+   - Goods for collection\nready: Preparation of goods for collection, inbound from ParallelGateway6
+   - EndEvent1: Completion of goods readiness
+
+3. Standard complete package ticket
+   - Shipment: Initiates the process
+   - ParallelGateway7: Selects an offer, inbound from Shipment
+   - Order to issue S1: Creates a quote, inbound from ParallelGateway7
+   - Order to issue S2\ngrant: Grants permission for S2, inbound from ExclusiveGateway3
+   - Order to issue S3\ngrant: Grants permission for S3, inbound from ExclusiveGateway3
+   - EndEvent2: Completion of standard package ticket
+
+4. Request a quote
+   - Shipping quantity?: Receives shipping quantity information
+   - ParallelGateway5: Processes the quote request, inbound from Shipping quantity?
+   - sid-E6A484F5-51C9-46B2-9E66-EFF6D6FFD67B: Generates the quote, outgoing from ParallelGateway5
+
+5. Complete insurance
+   - Shipment: Initiates the insurance process
+   - ExclusiveGateway2: Determines if insurance is necessary, inbound from Shipment
+   - Complete insurance: Processes insurance, inbound from ExclusiveGateway2
+
+6. Pick up packaged goods
+   - ParallelGateway6: Receives goods from Shipment
+   - packaged\nPick up goods: Arranges for pickup of packaged goods, inbound from ParallelGateway6
+  

@@ -1,0 +1,30 @@
+Tasks:
+{'id': 'sid-575EAA5C-F9B8-4A15-BAAC-9C1241D75D16', 'name': 'Case study', 'incoming': ['Regression'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-0163A14E-DA60-48EE-8DD4-240E7AA85637', 'name': 'Close the case', 'incoming': ['ExclusiveGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-3B937515-5ABB-4230-9FC5-9348A2B57435', 'name': 'Send payment request\n', 'incoming': ['Regression'], 'outgoing': ['Set on re-submission']}
+{'id': 'sid-E779F668-B9C3-4917-AA2F-6B45A779522D', 'name': 'rethink', 'incoming': ['IntermediateCatchEvent8'], 'outgoing': ['IntermediateCatchEvent9']}
+{'id': 'sid-9B5429B7-414B-47DC-935A-ECE45641030A', 'name': 'Message\nCheck', 'incoming': ['IntermediateCatchEvent9'], 'outgoing': ['Objection?\n']}
+{'id': 'sid-FE5ED163-9899-4248-BA4D-06CCA6133419', 'name': 'Accounting\nperform', 'incoming': ['Cash receipt?'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-48BE8657-58AE-4C78-B422-28610584881D', 'name': 'Debt collection office\nforward', 'incoming': ['IntermediateCatchEvent8'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-6C09420A-AA09-4CC8-871A-922252789AC6', 'name': 'Proceedings\n', 'incoming': ['Objection?\n'], 'outgoing': ['ExclusiveGateway4']}
+{'id': 'sid-EEE0E4A4-1FBD-4B9C-9397-85E171BF92B7', 'name': 'Set on re-submission', 'incoming': ['Regression'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-0A08E635-2E7F-46A4-B050-D008B7E571FB', 'name': 'ExclusiveGateway0', 'incoming': ['Regression'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-6A5DFCBF-CF81-42C1-A7CE-59ACF386319C', 'name': 'Cash receipt?', 'incoming': ['EventBasedGateway6'], 'outgoing': ['EndEvent1', 'ExclusiveGateway5']}
+{'id': 'sid-89431F58-9E3D-4D0F-AAC8-53F73CA90B68', 'name': 'Objection?\n', 'incoming': ['Message\nCheck'], 'outgoing': ['ExclusiveGateway5', 'ExclusiveGateway5']}
+{'id': 'sid-C838A22B-2F41-46C6-9250-694EDCF94ABF', 'name': 'justified?', 'incoming': ['Objection?\n'], 'outgoing': ['ExclusiveGateway4', 'ExclusiveGateway5']}
+{'id': 'sid-7A620CDD-7695-4E3E-AAF5-80762F93D105', 'name': 'ExclusiveGateway4', 'incoming': ['Proceedings\n', 'Case study'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-C2AC4019-BC58-4F4B-BDA0-A2A13CAFDB84', 'name': 'ExclusiveGateway5', 'incoming': ['IntermediateCatchEvent8', 'Objection?\n'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-04364F1E-054B-4D86-B94B-0D9F2C481780', 'name': 'EventBasedGateway6', 'incoming': ['EventBasedGateway6', 'Regression'], 'outgoing': ['EndEvent1', 'Cash receipt?']}
+{'id': 'sid-47AF078D-E2CB-4B41-B260-C2345D235D13', 'name': 'Regression', 'incoming': ['Regression'], 'outgoing': ['Send payment request\n']}
+{'id': 'sid-BAEE4578-AC62-4C84-893A-AFA520E5CE10', 'name': 'IntermediateCatchEvent8', 'incoming': ['rethink'], 'outgoing': ['Debt collection office\nforward']}
+{'id': 'sid-0DEE7608-0420-412F-AA66-0DFFEFA4F84A', 'name': 'IntermediateCatchEvent9', 'incoming': ['rethink'], 'outgoing': ['EndEvent2']}
+
+Start Events:
+{'id': 'sid-6D158926-C033-4F21-92AF-3DACCD658E58', 'name': 'Regression', 'incoming': [], 'outgoing': ['EventBasedGateway6']}
+
+End Events:
+{'id': 'sid-5DFDB88C-0341-4EB0-A132-6C3E9B3DEA74', 'name': 'EndEvent0', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-0DAB995A-C6B7-48CE-959F-C4766E4AED85', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-C84C9581-5133-442D-AB4B-FEC47CBA6D34', 'name': 'EndEvent2', 'incoming': ['IntermediateCatchEvent9'], 'outgoing': []}

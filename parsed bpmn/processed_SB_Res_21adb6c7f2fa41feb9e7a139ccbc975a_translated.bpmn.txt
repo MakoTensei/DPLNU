@@ -1,0 +1,36 @@
+Tasks:
+{'id': 'sid-572B5328-ED2A-4040-B520-BBA3992BC1BF', 'name': 'Restaurant\nentering', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Select a court']}
+{'id': 'sid-A6AD95F1-F338-477B-8B23-C5015D938E64', 'name': 'Select a court', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Guest is\nThe series']}
+{'id': 'sid-CAD5A54F-79CE-41E4-A973-5D7B148BE5D6', 'name': 'Add your order', 'incoming': ['Hunger\nfelt'], 'outgoing': ['Order payment']}
+{'id': 'sid-B52A08BC-E412-4AA6-9343-F82276886265', 'name': 'Order payment', 'incoming': ['Guest is\nThe series'], 'outgoing': ['Pick up Pieper']}
+{'id': 'sid-87841813-B306-4A43-8889-A16FCA1FDD7B', 'name': 'Pick up Pieper', 'incoming': ['Guest is\nThe series'], 'outgoing': ['Pieper\nReport\nand\n=\nMeals\nready for collection']}
+{'id': 'sid-3A81D23B-000F-4CF4-A4DF-92EF136066AF', 'name': 'Meals\nretrieval', 'incoming': ['Pieper\nReport\nand\n=\nMeals\nready for collection'], 'outgoing': ['Meals\nbeeping']}
+{'id': 'sid-6CCFDC71-4AC4-44E7-9BE5-869FE511E32B', 'name': 'Meals\nbeeping', 'incoming': ['Pieper\nReport\nand\n=\nMeals\nready for collection'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-FB7787CD-D936-41EC-B002-E09073156948', 'name': 'Order\nin cash\nsystem input', 'incoming': ['Order\nobtained'], 'outgoing': ['Money\ncassing']}
+{'id': 'sid-727CA0D6-10D8-450E-A893-9611D1931AA7', 'name': 'Money\ncassing', 'incoming': ['Order\nobtained'], 'outgoing': ['Pieper\nAdjust']}
+{'id': 'sid-FEA43DD0-B34C-4A58-9E6C-F05FC03E1820', 'name': 'Pieper\nAdjust', 'incoming': ['Order\nobtained'], 'outgoing': ['inform Koch about order']}
+{'id': 'sid-60568043-FD74-4EFD-A7BA-12C5903373E1', 'name': 'inform Koch about order', 'incoming': ['Order\nobtained'], 'outgoing': ['Meals\nPrepared']}
+{'id': 'sid-619F36E4-423C-47ED-8ADA-082159B0EAF5', 'name': 'Pieper\ntrigger', 'incoming': ['Order\nobtained'], 'outgoing': ['5 min']}
+{'id': 'sid-4E46D767-45C5-45B5-A489-62B2E76C9E87', 'name': 'meal\nhanded over', 'incoming': ['Guest\nIssue\narrived'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-7069E53E-80E4-4214-BA8D-8A32F3A39C2C', 'name': 'Retrieve guest', 'incoming': ['Order\nobtained'], 'outgoing': ['EventBasedGateway0']}
+{'id': 'sid-49697BC3-8D84-48BC-823A-089FE1DC5E7E', 'name': 'Preparation of meal', 'incoming': ['Order\nobtained'], 'outgoing': ['Putting meal in vain']}
+{'id': 'sid-EDB034D0-81A0-4061-9E4E-A0EC03A25B81', 'name': 'Putting meal in vain', 'incoming': ['Order\nobtained'], 'outgoing': ['Informing employees about prepared meal']}
+{'id': 'sid-8E377686-70C5-4412-9C93-FC72E64D84B6', 'name': 'Informing employees about prepared meal', 'incoming': ['Order\nobtained'], 'outgoing': ['EndEvent2']}
+
+Gateways:
+{'id': 'sid-1DA10E6D-0934-47BE-8264-DFF2E234D518', 'name': 'EventBasedGateway0', 'incoming': ['Meals\nPrepared', 'EventBasedGateway0'], 'outgoing': ['EndEvent1', 'EventBasedGateway0']}
+{'id': 'sid-486B9D02-9438-4030-A9A7-73B02B181537', 'name': 'Guest is\nThe series', 'incoming': ['Hunger\nfelt'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-3FFFE152-B2AC-42FE-A390-FE175D08679B', 'name': 'Pieper\nReport\nand\n=\nMeals\nready for collection', 'incoming': ['Guest is\nThe series'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-F386D6DE-063B-4CEC-8CD3-142981DACAE9', 'name': 'Meals\nPrepared', 'incoming': ['Order\nobtained'], 'outgoing': ['Guest\nIssue\narrived']}
+{'id': 'sid-473FDC57-568D-4D53-8EE7-670A5886A7B4', 'name': 'Guest\nIssue\narrived', 'incoming': ['Meals\nPrepared'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-5C72B76F-5808-42C1-99F7-05A0F914872C', 'name': '5 min', 'incoming': ['Order\nobtained'], 'outgoing': ['EndEvent1']}
+
+Start Events:
+{'id': 'sid-C3DB4BA3-F59A-4AAD-B194-E82D50480904', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Add your order']}
+{'id': 'sid-7DB7FB3C-63D2-4DBB-94DB-B6F8BDE9362D', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['Retrieve guest']}
+{'id': 'sid-CBEB5B0A-E22E-417C-8198-DB12C9E594C1', 'name': 'Order\nobtained', 'incoming': [], 'outgoing': ['Informing employees about prepared meal']}
+
+End Events:
+{'id': 'sid-144911B3-CC12-46A9-8769-C22802B83E13', 'name': 'EndEvent0', 'incoming': ['Guest is\nThe series'], 'outgoing': []}
+{'id': 'sid-44A7DA1D-5042-4239-9CF2-F088A53F63C1', 'name': 'EndEvent1', 'incoming': ['5 min'], 'outgoing': []}
+{'id': 'sid-4B2E0A94-B7EA-44F4-A957-4F059BA7D89A', 'name': 'EndEvent2', 'incoming': ['Informing employees about prepared meal'], 'outgoing': []}

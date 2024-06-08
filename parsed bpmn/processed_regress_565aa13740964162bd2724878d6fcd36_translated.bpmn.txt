@@ -1,0 +1,25 @@
+Tasks:
+{'id': 'sid-09ADF6B9-37F2-4290-95F3-E13C5BBEED01', 'name': 'Check the case', 'incoming': ['Regress possible'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-96FC9E61-12C5-4B32-BB46-EED7975C3BE9', 'name': 'Book money receipt', 'incoming': ['Check the receipt of funds'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-13DAF2A6-6C0E-48C4-8BC8-301C75776A3F', 'name': 'Proceedings', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-29AAB511-EE97-4205-B74A-60F602997741', 'name': 'Turn on Dekasso D', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-0FCFFED6-61F8-4509-AC16-EE885226FFE3', 'name': 'Check the receipt of funds', 'incoming': ['IntermediateCatchEvent7'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-145D973D-CDB4-4DF7-B726-C59AFB640BD7', 'name': 'Editing objection', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+
+Gateways:
+{'id': 'sid-CA3E3093-365B-4323-BFAA-BAB4988F3F93', 'name': 'ExclusiveGateway0', 'incoming': ['Regress possible'], 'outgoing': ['sid-524626EF-D8A9-4F34-9086-C3D05B39B7A1', 'ExclusiveGateway1']}
+{'id': 'sid-8D40B7A3-27C8-4838-81F8-22C9143A46B2', 'name': 'ExclusiveGateway1', 'incoming': ['Check the case', 'EventBasedGateway4'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-5DD834C1-9A73-4580-BA8E-70D187BE1FF3', 'name': 'Denial of payment', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1', 'ExclusiveGateway3']}
+{'id': 'sid-06CB856A-66AF-4668-9BB4-8755F8EFCF3E', 'name': 'ExclusiveGateway3', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-8DCFE9F7-D233-43AD-9A4E-33E730AD657F', 'name': 'EventBasedGateway4', 'incoming': ['sid-1FD2ED97-DA8A-4CAA-AE89-E863946FE147'], 'outgoing': ['Turn on Dekasso D', 'Editing objection', 'ExclusiveGateway1']}
+{'id': 'sid-4F371589-412E-430B-A0FD-9A27FC6DE752', 'name': 'IntermediateCatchEvent5', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-4DFA4871-0A8A-493E-A01F-18593ADB2CD5', 'name': 'IntermediateCatchEvent6', 'incoming': ['EventBasedGateway4'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-2A261986-FA0F-4A79-ADA4-B80477D78107', 'name': 'IntermediateCatchEvent7', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway1']}
+
+Start Events:
+{'id': 'sid-E1A465D9-EA77-4460-B1DD-D0E79DFF6953', 'name': 'Regress possible', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-2485F8B5-0F33-4A1E-ABFC-A80F03F30D55', 'name': 'EndEvent0', 'incoming': ['Book money receipt'], 'outgoing': []}
+{'id': 'sid-9CA4DF59-A1F2-41A8-A508-94B1CB72A0BC', 'name': 'EndEvent1', 'incoming': ['IntermediateCatchEvent5'], 'outgoing': []}
+{'id': 'sid-DC0E8768-59DC-4131-A79F-018C1DAF78EC', 'name': 'EndEvent2', 'incoming': ['IntermediateCatchEvent6'], 'outgoing': []}

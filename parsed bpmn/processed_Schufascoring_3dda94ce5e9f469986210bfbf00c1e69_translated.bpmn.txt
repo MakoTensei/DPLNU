@@ -1,0 +1,20 @@
+Tasks:
+{'id': 'sid-EE270F38-2CB9-406E-A476-8605C09E9CFF', 'name': 'Trigger scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-897A5009-8C0A-4CD4-97F3-723D105A8E40', 'name': 'Conduct Level 1-Scoring', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2']}
+{'id': 'sid-CA81E48D-A7EA-49FC-9C47-9FC4427A92BC', 'name': 'Conduct Level 2 scoring', 'incoming': ['sid-247702CE-AA1A-45F6-B3E2-214388D6B3DA'], 'outgoing': ['EndEvent3']}
+
+Gateways:
+{'id': 'sid-6683D11B-FB1B-439D-8B87-327D6D3515F2', 'name': 'Def. Result?', 'incoming': ['sid-8910FCC6-2ABF-4CB5-974B-50E4CC3AD5A2'], 'outgoing': ['EndEvent0', 'EndEvent1']}
+{'id': 'sid-1979DC28-B6B3-4AE6-8025-A3CE84825C99', 'name': 'Result immediately available?', 'incoming': ['StartEvent1'], 'outgoing': ['EndEvent2', 'sid-70C249EA-7A8D-4564-B8BB-CB2B170E9EEB']}
+{'id': 'sid-ACC4E427-5AFA-4BB8-8885-0F4543F0C949', 'name': 'IntermediateCatchEvent2', 'incoming': ['StartEvent0'], 'outgoing': []}
+{'id': 'sid-72156F91-1647-47EC-8C15-72888FFAB4C6', 'name': 'IntermediateCatchEvent3', 'incoming': ['Def. Result?'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-88D97366-66B4-4CCD-94C6-C976E35AF95D', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['IntermediateCatchEvent2']}
+{'id': 'sid-F0093C15-49BB-415A-8DD7-B08C4886AEE0', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['Result immediately available?']}
+
+End Events:
+{'id': 'sid-B35FB3E3-F949-47D1-9966-4D26677E1E93', 'name': 'EndEvent0', 'incoming': ['Def. Result?'], 'outgoing': []}
+{'id': 'sid-E8F7DD59-F7E1-43AF-8028-1DD0FFC6E420', 'name': 'EndEvent1', 'incoming': ['Def. Result?'], 'outgoing': []}
+{'id': 'sid-9042DB7D-4B31-4E6A-8773-43BA4648894A', 'name': 'EndEvent2', 'incoming': ['Conduct Level 1-Scoring'], 'outgoing': []}
+{'id': 'sid-30A44D2E-1BE7-4F6E-96B8-4B36821A9CB7', 'name': 'EndEvent3', 'incoming': ['Conduct Level 2 scoring'], 'outgoing': []}

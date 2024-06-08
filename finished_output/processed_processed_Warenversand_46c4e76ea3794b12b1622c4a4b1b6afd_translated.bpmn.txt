@@ -1,0 +1,12 @@
+ The process begins with the 'StartEvent0' which triggers the 'Selection of offers' task, where customers can choose their preferred freight forwarders. This task has two outcomes: 'Pick-up at three freight forwarders' and 'Selection of offers'. The 'Pick-up at three freight forwarders' task is directly linked to 'ParallelGateway8', which in turn connects to 'Pick-up Offer Spediteur 1' and 'ExclusiveGateway4'.
+
+Customers can also opt for insurance through the 'Insurance required?' task, which leads to 'ExclusiveGateway2' and 'EndEvent0'. 'ExclusiveGateway2' is responsible for handling the 'Insurance required?' task and also connects to 'Filling parcel note'.
+
+The 'Filling parcel note' task is triggered by 'ParallelGateway8' and 'Insurance required?' tasks, and it leads to 'ExclusiveGateway5'. 'ExclusiveGateway5' handles the 'Filling parcel note' task and connects to 'EndEvent0' and 'Postal mail\nperform'.
+
+The 'Postal mail\nperform' task is triggered by 'Filling parcel note' and 'ParallelGateway6', and it leads to 'EndEvent0' and 'Postal mail\nnecessary?'.
+
+The 'Pick-up Offer Spediteur 1' task is triggered by 'ParallelGateway8' and connects to 'ParallelGateway7'. The 'Recreation Of Pick-up Offer Spediteur 2' and 'Recreation Of Pick-up Offer Spediteur 3' tasks are also triggered by 'ParallelGateway6' and connect to 'ParallelGateway7'.
+
+The 'Pick-up Offer Spediteur 1' task leads to 'Provide for collection' through 'ExclusiveGateway4'. The 'Provide for collection' task is the final step in the process, which is triggered by 'Pick-up Offer Spediteur 1' and 'ExclusiveGateway4'.
+

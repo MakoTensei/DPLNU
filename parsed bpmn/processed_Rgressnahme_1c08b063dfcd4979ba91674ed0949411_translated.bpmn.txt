@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-13A12427-C3E6-4FF5-A9FB-1F1E987037A9', 'name': 'Check the case', 'incoming': ['Regress possible'], 'outgoing': ['ExclusiveGateway3']}
+{'id': 'sid-CA2BF248-9D57-427E-8847-29F02354D199', 'name': 'Send a message\n', 'incoming': ['Regress possible'], 'outgoing': ['Reimbursement']}
+{'id': 'sid-BC238FFF-256D-4E99-B7D8-A44303B36D2A', 'name': 'Reimbursement', 'incoming': ['Regression\npossible?'], 'outgoing': ['14 days waiting']}
+{'id': 'sid-5346A1E7-DFCD-4C4D-B509-37D11C8BDDE1', 'name': 'Proceedings', 'incoming': ['Opposition'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-C9438727-1367-46B3-B450-F9D85BA5347C', 'name': 'Process\nclose', 'incoming': ['Opposition'], 'outgoing': ['Closed']}
+{'id': 'sid-DB9CAFE0-F100-46FF-8BA6-69D260488F9E', 'name': 'Inkasso handed over', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Closed']}
+{'id': 'sid-7381D3A6-A622-4385-A5D0-83DF5EA1F376', 'name': 'Book the process', 'incoming': ['Cash receipt'], 'outgoing': ['Closed']}
+
+Gateways:
+{'id': 'sid-F0DE222E-F418-498E-B97D-EFAEBBB2A761', 'name': 'Regression\npossible?', 'incoming': ['Regress possible'], 'outgoing': ['Opposition\njustified?', 'ExclusiveGateway3']}
+{'id': 'sid-BA4CB9DF-8513-4C54-A24D-9F1AE82E0ACE', 'name': 'Opposition\njustified?', 'incoming': ['Regression\npossible?'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-3A1B62F2-E085-47D0-97F9-B9FA4CF7C8DA', 'name': 'ExclusiveGateway2', 'incoming': ['Proceedings', 'EventBasedGateway4'], 'outgoing': ['Closed']}
+{'id': 'sid-ED5B3ECB-1E3C-4AFB-BDE2-B489DD324EC1', 'name': 'ExclusiveGateway3', 'incoming': ['EventBasedGateway4', 'Check the case'], 'outgoing': ['Closed']}
+{'id': 'sid-C63C6348-46B3-4BB6-AB39-4E451AF0D1C2', 'name': 'EventBasedGateway4', 'incoming': ['Regression\npossible?'], 'outgoing': ['Closed', 'Inkasso handed over', 'Cash receipt']}
+{'id': 'sid-9CEAFE2A-D4A5-47C9-A3FE-A140DCB16B2C', 'name': '14 days waiting', 'incoming': ['Reimbursement'], 'outgoing': ['Closed']}
+{'id': 'sid-843C6F7D-5D3F-4ADC-B115-CD040E337A1C', 'name': 'Opposition', 'incoming': ['Regression\npossible?'], 'outgoing': ['Process\nclose']}
+{'id': 'sid-C92C5225-8C08-4F9A-AA0F-8EFA4279DE43', 'name': 'Cash receipt', 'incoming': ['EventBasedGateway4'], 'outgoing': ['Closed']}
+
+Start Events:
+{'id': 'sid-68FB5EF3-81C5-4E6E-A1B1-14FB854C47CF', 'name': 'Regress possible', 'incoming': [], 'outgoing': ['Send a message\n']}
+
+End Events:
+{'id': 'sid-067131F5-D8DA-4B14-ABED-898FA38E4960', 'name': 'Closed', 'incoming': ['Cash receipt', 'EventBasedGateway4', '14 days waiting'], 'outgoing': []}

@@ -1,0 +1,24 @@
+Tasks:
+{'id': 'sid-40DECDAF-40CC-445B-9FD7-C95327435C6A', 'name': 'Packaging goods', 'incoming': ['ParallelGateway3'], 'outgoing': []}
+{'id': 'sid-C81FB3C8-AC9F-440C-A5EC-BBEF43381EF4', 'name': 'Provide goods for collection', 'incoming': ['ExclusiveGateway2'], 'outgoing': []}
+{'id': 'sid-EB54A8CB-F371-4436-8A57-738359BE989F', 'name': 'Create a quote request', 'incoming': ['ParallelGateway3'], 'outgoing': ['ParallelGateway4']}
+{'id': 'sid-FFC7408C-95D3-4205-B4D2-A91879B24CDF', 'name': 'Filling the package note', 'incoming': ['Goods must be shipped'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-CF94C781-8EBB-497C-A654-7A4FA7E6DD74', 'name': 'Check the offer', 'incoming': ['ParallelGateway5'], 'outgoing': ['Specialist']}
+{'id': 'sid-02337D3D-9A63-47AC-9AD0-C59C2C0A6A5D', 'name': 'Specialist', 'incoming': ['ParallelGateway5'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-30C4FF3F-3858-4725-8486-44EF23DE8E60', 'name': 'Insurance close', 'incoming': ['Goods must be shipped'], 'outgoing': []}
+{'id': 'sid-94ADCDC8-B75B-4167-B854-F9C907B8C731', 'name': 'Create a quote', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-6289B30B-8F1D-40F6-83C2-1DCDAA5002B4', 'name': 'Create a quote', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-D905EE06-8D96-420E-B43C-0E52ADE8EE6C', 'name': 'Create a quote', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+
+Gateways:
+{'id': 'sid-DA56AFE8-3416-4523-AB87-9DD0B0174629', 'name': 'Type of transport', 'incoming': ['Goods must be shipped'], 'outgoing': ['Filling the package note', 'ParallelGateway5']}
+{'id': 'sid-8FA8E38A-AC67-41F0-9A62-762451C32393', 'name': 'ExclusiveGateway1', 'incoming': ['Goods must be shipped'], 'outgoing': ['Insurance close']}
+{'id': 'sid-7E1AD65A-0DA2-435F-9532-7E1657857437', 'name': 'ExclusiveGateway2', 'incoming': ['ParallelGateway4'], 'outgoing': ['Provide goods for collection']}
+{'id': 'sid-D3377309-EEA5-483D-AB52-618FC63385FD', 'name': 'ParallelGateway3', 'incoming': ['Goods must be shipped'], 'outgoing': ['Create a quote request', 'Packaging goods']}
+{'id': 'sid-8615002A-BB26-4408-9237-74173C62B21C', 'name': 'ParallelGateway4', 'incoming': ['Type of transport'], 'outgoing': ['ExclusiveGateway2', 'ParallelGateway5', 'Create a quote']}
+{'id': 'sid-64074C16-AD7C-409A-8CCB-5CE2390933A3', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'Create a quote', 'Type of transport'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-E927EBD1-8526-4D56-AA9F-65D8A8054A5B', 'name': 'Goods must be shipped', 'incoming': [], 'outgoing': ['Insurance close']}
+
+End Events:

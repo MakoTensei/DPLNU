@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-8134BAF5-4A6B-4AAD-819A-14DC2F8F6179', 'name': 'Determine Level 1', 'incoming': ['StartEvent0'], 'outgoing': ['sid-D088E5E3-CC7D-431A-BBA2-0E7B583CA9E6']}
+{'id': 'sid-7F33A9F2-0917-41EC-9C67-BB56747F334A', 'name': 'Determine Level 2', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-0B46ACB6-C73B-4321-8DB8-907A75EB1E60', 'name': 'Request scoring', 'incoming': ['Start Scoring'], 'outgoing': ['IntermediateCatchEvent4']}
+{'id': 'sid-21EB8E06-4759-4427-8ABA-29D05034D9A4', 'name': 'Distribution\ninformation', 'incoming': ['Level 1 OK?'], 'outgoing': ['Expect Level 2']}
+
+Gateways:
+{'id': 'sid-D2DA0C1B-1BE7-4323-911B-54EDAD6B5838', 'name': 'ExclusiveGateway0', 'incoming': ['sid-23B95C8E-AFC0-47A7-8CE2-824404823A76'], 'outgoing': ['Send level 1', 'EndEvent1']}
+{'id': 'sid-7B8BF7E3-2EBA-4522-AF13-B225E64EA5FF', 'name': 'Level 1 OK?', 'incoming': ['Start Scoring'], 'outgoing': ['ExclusiveGateway2', 'Distribution\ninformation']}
+{'id': 'sid-1A42883A-3183-487B-861B-774D51B81F4E', 'name': 'ExclusiveGateway2', 'incoming': ['Expect Level 2', 'Start Scoring'], 'outgoing': ['Score Redirect']}
+{'id': 'sid-C707EDBE-2B06-4793-B8AA-F83C428D28CD', 'name': 'Score Level\n', 'incoming': ['Start Scoring'], 'outgoing': ['Score Redirect']}
+{'id': 'sid-68BB432B-DED2-46F0-AC28-6B846C88F8EF', 'name': 'IntermediateCatchEvent4', 'incoming': ['Request scoring'], 'outgoing': ['Score Redirect']}
+{'id': 'sid-82690E20-D063-4DFE-ADC0-C30A79326FB2', 'name': 'Expect Level 2', 'incoming': ['Distribution\ninformation'], 'outgoing': ['ExclusiveGateway2']}
+
+Start Events:
+{'id': 'sid-EE1E2FAC-F43D-4325-AA6E-204E07CCA2BB', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Determine Level 1']}
+{'id': 'sid-3506268B-A245-4D63-9375-B71A8B950324', 'name': 'Start Scoring', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-D1CBFA97-F3A8-4E8C-B749-4F0386889A17', 'name': 'Send level 1', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-2D104C86-FCF6-4AB1-AA1A-1B86C9AA2E4F', 'name': 'EndEvent1', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}
+{'id': 'sid-48E865C0-F6F4-4EB3-9AE0-62D1CF697CE7', 'name': 'Score Redirect', 'incoming': ['Score Level\n'], 'outgoing': []}

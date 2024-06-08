@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-0482B47F-AACA-4BBF-A35A-52631C7AEA19', 'name': 'Send scoring inquiry to Schufa', 'incoming': ['Schufascoring desired'], 'outgoing': ['Results arrived']}
+{'id': 'sid-EA3833BB-BD70-47AD-914E-A588BFB43BF0', 'name': 'Follow-up', 'incoming': ['Results arrived'], 'outgoing': ['Schufa request processed']}
+{'id': 'sid-45CB16A7-C827-4306-A438-D4B6237EF517', 'name': 'Information about delay', 'incoming': ['Schufascoring desired'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-99CC6433-E882-4443-990E-DCD31CD39339', 'name': 'Level 1 Scoring', 'incoming': ['Scoring request arrived'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-AB64D1FE-23BD-4142-AAAE-AE4ADF7EFB0C', 'name': 'Report result to Bank', 'incoming': ['ExclusiveGateway1'], 'outgoing': ['Scoring request']}
+{'id': 'sid-114A1281-85F2-40A3-BF8C-62B904830479', 'name': 'Report delay of the bank', 'incoming': ['Scoring request arrived'], 'outgoing': ['Level 2 (final) Scoring']}
+{'id': 'sid-B2D37F62-AD0C-4097-BD65-C84CA9201913', 'name': 'Level 2 (final) Scoring', 'incoming': ['Results available'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-5DE7F92D-0CEF-4E63-9150-C344A13B5415', 'name': 'Results available', 'incoming': ['Scoring request arrived'], 'outgoing': ['Level 2 (final) Scoring', 'Scoring request']}
+{'id': 'sid-8BE51DDF-086C-44A2-8C83-62FE7ECDF8B7', 'name': 'ExclusiveGateway1', 'incoming': ['Level 2 (final) Scoring', 'Level 1 Scoring'], 'outgoing': ['Scoring request']}
+{'id': 'sid-E48026E4-38D5-461E-9B1A-534A6AC2C03E', 'name': 'EventBasedGateway2', 'incoming': ['Schufascoring desired', 'EventBasedGateway2'], 'outgoing': ['Schufa request processed', 'EventBasedGateway2']}
+{'id': 'sid-384B3668-16A0-48FE-A85F-A68A220C6F91', 'name': 'Results arrived', 'incoming': ['Send scoring inquiry to Schufa'], 'outgoing': ['Schufa request processed']}
+{'id': 'sid-05DC3AD5-B19E-47C5-995B-51CB52583A51', 'name': 'Delay reported', 'incoming': ['Schufascoring desired'], 'outgoing': ['Schufa request processed']}
+
+Start Events:
+{'id': 'sid-43CEDBE8-3EE6-45BF-8FA1-18C9AF25C15B', 'name': 'Schufascoring desired', 'incoming': [], 'outgoing': ['Information about delay']}
+{'id': 'sid-0378E220-E0A4-4BD4-82F6-8B4BB2D9D018', 'name': 'Scoring request arrived', 'incoming': [], 'outgoing': ['Report delay of the bank']}
+
+End Events:
+{'id': 'sid-7613DC66-D3AF-43E1-9E1D-B9C6A56283B8', 'name': 'Schufa request processed', 'incoming': ['Delay reported'], 'outgoing': []}
+{'id': 'sid-4DBDE281-E983-4F0E-808D-11A2CFD629BA', 'name': 'Scoring request', 'incoming': ['Results available'], 'outgoing': []}

@@ -1,0 +1,7 @@
+ In the scoring process, a request for scoring (Schufascoring request started) initiates a series of events and interactions between different components. The request starts with the 'Schufascoring request started' event, which triggers the 'EventBasedGateway1' to send an 'IntermediateCatchEvent3' and 'IntermediateCatchEvent2' to the 'Message to Frontend'. The 'IntermediateCatchEvent2' waits for the 'Egebnis' (results) to be received.
+
+Once the 'Egebnis' arrives, the 'Message to Frontend' is sent to the frontend, and the 'Scoring successfully' event is triggered. This event leads to the 'StartEvent1' being completed, and the 'Results available' event is generated.
+
+The 'Results available' event then triggers the 'EndEvent0' and 'EndEvent1' events, marking the successful completion of the scoring process. If the scoring is not successful, the 'Start scoring level 2' event is triggered, and the process continues with the 'Results available' event for level 2.
+
+Overall, the scoring process involves a series of events and interactions between different components, including the 'Schufascoring request started', 'EventBasedGateway1', 'IntermediateCatchEvent2', 'Egebnis', 'Message to Frontend', 'Scoring successfully', 'StartEvent1', 'Results available', and 'EndEvent0' and 'EndEvent1'.

@@ -1,0 +1,59 @@
+ 1. Visit the restaurant and wait in line:
+   - Incoming: []
+   - Outgoing: ['Wait till in the row']
+
+2. Select your offer at the restaurant:
+   - Incoming: []
+   - Outgoing: ['Wait till in the row']
+
+3. Make your order and pay:
+   - Incoming: []
+   - Outgoing: ['Payment']
+
+4. Receive your order:
+   - Incoming: ['Customer orders']
+   - Outgoing: ['Pieper piept']
+
+5. Pick up your food:
+   - Incoming: ['Wait till in the row']
+   - Outgoing: ['Eat food']
+
+6. Enjoy your meal:
+   - Incoming: ['Eat food']
+   - Outgoing: []
+
+7. Trigger Pieper to serve your food:
+   - Incoming: ['Customer orders']
+   - Outgoing: ['Guest does not react (5min)']
+
+8. Notify employees about the prepared meals:
+   - Incoming: ['Notifying employees']
+   - Outgoing: ['Prepared meals']
+
+Start Events:
+
+9. Customer enters the restaurant and expresses hunger:
+   - Incoming: []
+   - Outgoing: ['Hunger entered']
+
+10. Customer places an order:
+    - Incoming: []
+    - Outgoing: ['Retrieve guest']
+
+11. Court of First Instance processes the order:
+    - Incoming: []
+    - Outgoing: ['Notifying employees']
+
+End Events:
+
+12. Customer does not react to the food after 5 minutes:
+    - Incoming: ['Guest does not react (5min)']
+    - Outgoing: []
+
+13. Customer service handles the situation:
+    - Incoming: ['Guest does not react (5min)']
+    - Outgoing: []
+
+14. Employees serve the prepared meals:
+    - Incoming: ['Notifying employees']
+    - Outgoing: ['Prepared meals']

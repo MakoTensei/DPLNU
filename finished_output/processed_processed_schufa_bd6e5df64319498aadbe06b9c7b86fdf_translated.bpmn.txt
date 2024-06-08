@@ -1,0 +1,15 @@
+ The process begins with the 'StartEvent0' which triggers the 'Send scoring request to Schufa' task. This task then sends an intermediate catch event to 'IntermediateCatchEvent2'. The 'IntermediateCatchEvent2' task forwards the scoring request to the front end.
+
+Simultaneously, 'StartEvent0' also triggers 'EventBasedGateway1' which leads to 'Share delay on frontend' task. This task shares the delay with the front end.
+
+The 'Scoring Lvl 1' task is initiated by 'StartEvent1' and it determines whether to proceed with the scoring or not. If it decides to proceed, it sends an intermediate catch event to 'IntermediateCatchEvent3'. The 'IntermediateCatchEvent3' task then shares the delay with the front end.
+
+The 'Waiting for final scoring' task is triggered by 'StartEvent0' and it waits for the final scoring. Once the final scoring is done, it triggers 'EndEvent1'.
+
+The 'Delay?' gateway receives the 'StartEvent1' and sends the intermediate catch events to 'EndEvent2' and 'EndEvent3'.
+
+The 'Scoring Lvl 1 back' task is initiated by 'StartEvent1' and it performs the scoring at level 1.
+
+The 'Scoring Lvl 2' task is initiated by 'StartEvent1' and it performs the scoring at level 2.
+
+Finally, 'EndEvent0', 'EndEvent1', 'EndEvent2', and 'EndEvent3' are triggered by their respective incoming events and they mark the end of their respective processes.

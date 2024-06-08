@@ -1,0 +1,37 @@
+Tasks:
+{'id': 'sid-C1D460FD-74B2-4723-B6A5-462C1A8F36A8', 'name': 'Select a court', 'incoming': ['Hunger\nfelt'], 'outgoing': ['sid-AC114E20-35D1-41F6-BCE7-CC0A1455C1C2']}
+{'id': 'sid-7D9109AB-6C91-403F-BD0A-4BBA9A9625CA', 'name': 'Order\ngive up', 'incoming': ['sid-D850AF19-A080-4326-AFC1-022CEC4DD00C'], 'outgoing': ['Payment']}
+{'id': 'sid-FF22EEC2-CF1A-4F08-B817-3CFFC1BAEDC6', 'name': 'Payment', 'incoming': ['Order\ngive up'], 'outgoing': ['Pieper in\nWelcome']}
+{'id': 'sid-84E60255-9657-46A7-94A6-1E6347255B27', 'name': 'Pieper in\nWelcome', 'incoming': ['Payment'], 'outgoing': ['Pieper\ntriggered']}
+{'id': 'sid-49C1630E-1196-47EB-8E6F-E44F3D78F3CA', 'name': 'On\nPieper\nreacting', 'incoming': ['Pieper\ntriggered'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-E0998E91-1DBF-45D8-B8E4-E41A6EA5FA35', 'name': 'Food\nreceived', 'incoming': ['Pieper\ntriggered'], 'outgoing': ['Meals\nreceived']}
+{'id': 'sid-6D8B1714-3112-4A8D-89ED-D1FDA5BCAD79', 'name': 'Order in\nCash system\nentry', 'incoming': ['Order\nreceived'], 'outgoing': ['Money\ncassing']}
+{'id': 'sid-12D5082D-6DC4-44AF-A069-D215523D00DE', 'name': 'Money\ncassing', 'incoming': ['Order\nreceived'], 'outgoing': ['Pieper pass and insert']}
+{'id': 'sid-6040DF4A-00F7-4287-A3D4-B01C39F01379', 'name': 'Pieper pass and insert', 'incoming': ['Order\nreceived'], 'outgoing': ['Cook\ninformation']}
+{'id': 'sid-71DD192A-8C90-4C98-B2B3-9FDFA5FC5173', 'name': 'Cook\ninformation', 'incoming': ['Order\nreceived'], 'outgoing': ['Info\nabout meal\nobtained']}
+{'id': 'sid-89E4E0DD-1A84-4AB8-9346-49A4D291C6BC', 'name': 'Pieper of\nInitiate guest', 'incoming': ['Order\nreceived'], 'outgoing': ['5 min running']}
+{'id': 'sid-8954BEC2-C556-415B-BDFF-F6B2C97C91BF', 'name': 'Customer\nexcl.', 'incoming': ['Order\nreceived'], 'outgoing': ['EventBasedGateway2']}
+{'id': 'sid-1CEDC45C-AC6B-4C72-9CA9-9F7075541A09', 'name': 'Deliver food', 'incoming': ['Info\nabout meal\nobtained'], 'outgoing': ['Kund serves']}
+{'id': 'sid-6DE23E46-5029-4EF6-AA52-88B5B14A5E6A', 'name': 'Meals\nto prepare', 'incoming': ['Order of checkout'], 'outgoing': ['meal in\nEnriched\nthe']}
+{'id': 'sid-5F1BE803-8A1B-4075-A165-05497DBDCABB', 'name': 'meal in\nEnriched\nthe', 'incoming': ['Order of checkout'], 'outgoing': ['Employees\nabout meal\ninformation']}
+{'id': 'sid-C05DF318-6C1F-4324-BB41-6E2E2A6F1D6C', 'name': 'Employees\nabout meal\ninformation', 'incoming': ['Order of checkout'], 'outgoing': ['Meals\nPrepared']}
+
+Gateways:
+{'id': 'sid-9DE5CE7F-7803-4C83-BA56-F62950F8C95F', 'name': 'ExclusiveGateway0', 'incoming': ['Pieper\ntriggered'], 'outgoing': ['ExclusiveGateway1', 'ExclusiveGateway1']}
+{'id': 'sid-F9ED91B9-3C43-4410-92A9-D03F88A9A667', 'name': 'ExclusiveGateway1', 'incoming': ['On\nPieper\nreacting', 'Pieper\ntriggered'], 'outgoing': ['Meals\nreceived']}
+{'id': 'sid-9AD8D39A-4A49-41AC-9C9D-094F13C9830E', 'name': 'EventBasedGateway2', 'incoming': ['Info\nabout meal\nobtained', '5 min running'], 'outgoing': ['EventBasedGateway2', 'Kund serves']}
+{'id': 'sid-CEFBA59A-9EED-4A77-B634-606A6D9D0B1A', 'name': 'Pieper\ntriggered', 'incoming': ['Pieper in\nWelcome'], 'outgoing': ['Food\nreceived']}
+{'id': 'sid-63731112-3B89-419D-8770-96F0F56FD64A', 'name': 'Call\nS', 'incoming': ['ExclusiveGateway0'], 'outgoing': ['Meals\nreceived']}
+{'id': 'sid-F578D40D-2C32-4FB5-A00F-569FF128AD32', 'name': '5 min running', 'incoming': ['Order\nreceived'], 'outgoing': ['Kund serves']}
+{'id': 'sid-60CAC0A6-E891-4B52-A74F-552260D92DAF', 'name': 'Customer will appear', 'incoming': ['Info\nabout meal\nobtained'], 'outgoing': ['Kund serves']}
+{'id': 'sid-C575C786-1675-4F1E-BE38-AD6499C84F6A', 'name': 'Info\nabout meal\nobtained', 'incoming': ['Order\nreceived'], 'outgoing': ['Deliver food']}
+
+Start Events:
+{'id': 'sid-2F7E3AAB-C1F9-43D3-AF17-F5301D66F19E', 'name': 'Hunger\nfelt', 'incoming': [], 'outgoing': ['Select a court']}
+{'id': 'sid-683E74EB-15D7-486A-B9C0-A2D2A3460281', 'name': 'Order\nreceived', 'incoming': [], 'outgoing': ['Customer\nexcl.']}
+{'id': 'sid-2D5FA91F-BDEE-422B-A27D-9C6A6EFE4F1B', 'name': 'Order of checkout', 'incoming': [], 'outgoing': ['Employees\nabout meal\ninformation']}
+
+End Events:
+{'id': 'sid-1517DD04-ED2C-42FE-AC11-F240C2DA7A4F', 'name': 'Meals\nreceived', 'incoming': ['Call\nS'], 'outgoing': []}
+{'id': 'sid-C7710212-8D5C-4731-B76C-7B5996034D55', 'name': 'Kund serves', 'incoming': ['5 min running'], 'outgoing': []}
+{'id': 'sid-C4F5348F-51C9-449D-B77A-D5B5A8334784', 'name': 'Meals\nPrepared', 'incoming': ['Employees\nabout meal\ninformation'], 'outgoing': []}

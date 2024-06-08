@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-A18CA788-715F-41C3-BA52-AA980FB1D647', 'name': 'Book the entrance', 'incoming': ['Incoming payment'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-E829F058-D3B2-4DC6-86B3-50212B4E81BE', 'name': 'Proceedings', 'incoming': ['VN'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-62C47C93-7F6E-4C2D-B002-BBC4C92455E4', 'name': 'Check the case', 'incoming': ['Regressive thought'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-DD62F643-D06E-46E8-AD7F-6DAE3060B351', 'name': 'Send payment request', 'incoming': ['Regressive thought'], 'outgoing': ['Process']}
+{'id': 'sid-226FB705-AC0F-4565-A7AC-7F21D23DA8C9', 'name': 'Debt collection agency', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2']}
+
+Gateways:
+{'id': 'sid-74CFB128-6516-4193-8C60-F1CDFC9AA213', 'name': 'ExclusiveGateway0', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3', 'ExclusiveGateway2']}
+{'id': 'sid-F522C401-2604-4908-8AC9-693B3A2CEA55', 'name': 'Suspicion?', 'incoming': ['Regressive thought'], 'outgoing': ['Process', 'ExclusiveGateway2']}
+{'id': 'sid-C2E60CD5-3973-4337-B990-A582A8B096F7', 'name': 'ExclusiveGateway2', 'incoming': ['EventBasedGateway4', 'Regressive thought', 'Proceedings', 'Check the case'], 'outgoing': ['Process']}
+{'id': 'sid-3FF05866-B172-4A1C-A332-94CB532BAFE7', 'name': 'ExclusiveGateway3', 'incoming': ['VN', 'EventBasedGateway4'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-FE5D0980-61CF-42E2-A7DA-2B7C812DEEDD', 'name': 'EventBasedGateway4', 'incoming': ['Regressive thought'], 'outgoing': ['ExclusiveGateway2', 'ExclusiveGateway0', 'Debt collection agency']}
+{'id': 'sid-F55388B9-0106-4C53-8FF9-4D750EAA5010', 'name': 'Incoming payment', 'incoming': ['Send payment request'], 'outgoing': ['Process']}
+{'id': 'sid-89D4D84A-EACF-4D52-A7AF-771C979EF552', 'name': 'VN', 'incoming': ['Regressive thought'], 'outgoing': ['ExclusiveGateway2']}
+{'id': 'sid-A4B7EEF9-8C09-4EEA-8DB6-FD0B14A85E3B', 'name': 'Reimbursement', 'incoming': ['EventBasedGateway4'], 'outgoing': ['ExclusiveGateway3']}
+
+Start Events:
+{'id': 'sid-F15B6C14-FBB1-416B-AFBC-6E4D43AA4363', 'name': 'Regressive thought', 'incoming': [], 'outgoing': ['ExclusiveGateway2']}
+
+End Events:
+{'id': 'sid-066EF800-B4AE-48A1-8950-7A2E92131E78', 'name': 'Process', 'incoming': ['Suspicion?'], 'outgoing': []}

@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-DB186475-4D77-49B1-BBA5-3CDF4AFBABFA', 'name': 'Start scoring request', 'incoming': ['StartEvent0'], 'outgoing': ['Display delay message']}
+{'id': 'sid-5ACE5A58-6EE6-4ACF-B272-5944CDD7FDC3', 'name': 'Scoring result', 'incoming': ['Display delay message'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-76A4E2A1-8C4F-4104-81B8-C997D138AD03', 'name': 'Display delay message', 'incoming': ['StartEvent0'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-6986BEF2-7D00-4A26-AA37-FECF83E2790D', 'name': 'Two. perform scoring', 'incoming': ['sid-CE800482-F0B9-4E88-9438-14A2109324BD'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-97E75CE1-86FC-4FE4-A690-B2A7B478E72F', 'name': '1. perform scoring', 'incoming': ['StartEvent2'], 'outgoing': ['ExclusiveGateway1']}
+
+Gateways:
+{'id': 'sid-41674230-295B-4A63-8B92-BFE2E8E356DC', 'name': 'ExclusiveGateway0', 'incoming': ['StartEvent2'], 'outgoing': ['sid-79CB6D49-B708-4191-BCD1-322470179746', 'Scoring result\nsent']}
+{'id': 'sid-B57E7B11-E2DE-4308-B402-9E82B8E51D1E', 'name': 'ExclusiveGateway1', 'incoming': ['Two. perform scoring', '1. perform scoring'], 'outgoing': ['Scoring result\nsent']}
+{'id': 'sid-5D433C5C-FE4E-49F8-8634-0FEE6A39FB9D', 'name': 'EventBasedGateway2', 'incoming': ['sid-567265D8-40C7-4680-892A-7153662326CB', 'sid-A75D37F9-B83F-4386-A04F-FC45671BCC23'], 'outgoing': ['IntermediateCatchEvent4', 'Scoring result\nsent']}
+{'id': 'sid-D4ABBA9A-2C02-4EE1-8694-04BAC53EC039', 'name': 'IntermediateCatchEvent3', 'incoming': ['EventBasedGateway2'], 'outgoing': ['Scoring result\nsent']}
+{'id': 'sid-81C5D596-5DC3-4C08-855E-395840FF311E', 'name': 'IntermediateCatchEvent4', 'incoming': ['EventBasedGateway2'], 'outgoing': ['sid-F2003BED-0DE7-4318-BC7C-989B30E77C29']}
+
+Start Events:
+{'id': 'sid-9A224435-2EDA-4683-B43C-41BAAF9FDBE0', 'name': 'StartEvent0', 'incoming': [], 'outgoing': ['Display delay message']}
+{'id': 'sid-189EE432-8289-40C7-8CF6-0FE828E0A31C', 'name': 'StartEvent1', 'incoming': [], 'outgoing': ['sid-D81553A3-06B4-4E9A-B2A5-74D3DA8DB525']}
+{'id': 'sid-578F5C5A-2246-428B-91B8-654333401099', 'name': 'StartEvent2', 'incoming': [], 'outgoing': ['ExclusiveGateway0']}
+
+End Events:
+{'id': 'sid-39112CEC-0B38-4566-9F12-310FB1761740', 'name': 'EndEvent0', 'incoming': ['Display delay message'], 'outgoing': []}
+{'id': 'sid-1379E108-B132-438A-8086-D9502C778CDD', 'name': 'Scoring result\nsent', 'incoming': ['EventBasedGateway2'], 'outgoing': []}
+{'id': 'sid-AA04E465-D5A2-4DB0-BD79-62AAFC1093A1', 'name': 'Scoring result\nsent', 'incoming': ['ExclusiveGateway0'], 'outgoing': []}

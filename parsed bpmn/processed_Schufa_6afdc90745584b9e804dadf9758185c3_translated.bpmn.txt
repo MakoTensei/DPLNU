@@ -1,0 +1,23 @@
+Tasks:
+{'id': 'sid-D2EAAB82-9B4D-4DFF-B922-ED71FA317BA5', 'name': 'Create scoring request', 'incoming': ['Scoring request arrived'], 'outgoing': ['forward']}
+{'id': 'sid-00C2AB8B-1399-4193-B3A0-D04A45228CA8', 'name': 'forward scoring results', 'incoming': ['Results Level 2 arrived'], 'outgoing': ['Scoring is available at FE']}
+{'id': 'sid-36E4F6D5-FA14-4D02-AA39-0E5BF9242A49', 'name': 'Information about delay', 'incoming': ['Scoring request arrived'], 'outgoing': ['Results Level 2 arrived']}
+{'id': 'sid-29BDF332-182C-439B-9F36-4888FCEF047F', 'name': 'Create scoring level 1', 'incoming': ['Scoring request arrived'], 'outgoing': ['Is the result fixed?']}
+{'id': 'sid-CA7762AB-4250-4938-8B43-ED940FFFF1D0', 'name': 'Send result to Bank', 'incoming': ['Scoring request arrived'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-ED25CDA6-19DB-467E-810E-C4CF107793D2', 'name': 'Report delay to bank', 'incoming': ['Is the result fixed?'], 'outgoing': ['Create scoring level 2']}
+{'id': 'sid-38C2F284-8817-4FE4-A500-F28A93BA4AB4', 'name': 'Create scoring level 2', 'incoming': ['Is the result fixed?'], 'outgoing': ['Scoring result delivered']}
+
+Gateways:
+{'id': 'sid-69E6EDD6-CAD5-4872-A1C1-3CEED022A9E4', 'name': 'Level 1 successful?', 'incoming': ['Scoring request arrived'], 'outgoing': ['Information about delay', 'Scoring is available at FE']}
+{'id': 'sid-46E340A3-60FF-4CFB-847F-F917AFF6B580', 'name': 'forward', 'incoming': ['Create scoring request', 'Scoring request arrived'], 'outgoing': ['Scoring is available at FE']}
+{'id': 'sid-F8C6FA06-F98D-4C47-BD15-A0E87161851A', 'name': 'Is the result fixed?', 'incoming': ['Scoring request arrived'], 'outgoing': ['EndEvent1', 'Create scoring level 2']}
+{'id': 'sid-CC16EE5D-2F0F-4E2D-BCDE-3848B0EA22C5', 'name': 'Scoring result delivered', 'incoming': ['Scoring request arrived', 'Create scoring level 2'], 'outgoing': ['EndEvent1']}
+{'id': 'sid-0AFEE63A-53D6-4007-AA26-357F00E9E4E6', 'name': 'Results Level 2 arrived', 'incoming': ['Scoring request arrived'], 'outgoing': ['forward scoring results']}
+
+Start Events:
+{'id': 'sid-182DD5A6-E158-496B-B485-E23FF112D51F', 'name': 'Scoring request arrived', 'incoming': [], 'outgoing': ['forward']}
+{'id': 'sid-2FB9B01A-533C-4883-BC3C-19035A82096B', 'name': 'Scoring request arrived', 'incoming': [], 'outgoing': ['Scoring result delivered']}
+
+End Events:
+{'id': 'sid-ABCBFE48-B456-44D0-BB51-37DD4B898BF1', 'name': 'Scoring is available at FE', 'incoming': ['Level 1 successful?'], 'outgoing': []}
+{'id': 'sid-816FF051-48E1-4B4C-A49D-AE9100F4506B', 'name': 'EndEvent1', 'incoming': ['Is the result fixed?'], 'outgoing': []}

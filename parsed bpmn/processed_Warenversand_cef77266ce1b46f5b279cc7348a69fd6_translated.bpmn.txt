@@ -1,0 +1,22 @@
+Tasks:
+{'id': 'sid-B9DA55F7-7185-424A-8888-1D279DC44760', 'name': '3 offers', 'incoming': ['Big crowd?'], 'outgoing': ['Filling forwarding documents']}
+{'id': 'sid-0373453E-450E-40D8-A3CD-1C8C2384A71D', 'name': 'Filling forwarding documents', 'incoming': ['There is something to ship'], 'outgoing': ['Insurance required?']}
+{'id': 'sid-67DC5788-7E1D-4A69-9178-461173AA73EB', 'name': 'fill in the mail parcel note', 'incoming': ['Big crowd?'], 'outgoing': ['ExclusiveGateway1']}
+{'id': 'sid-87E4752C-FF52-45AD-9F8F-07BD4D4FCA02', 'name': 'Dedicate logistics', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-67D48B52-C8C2-43C4-BDE2-AE5E3838F4C0', 'name': 'Packaging goods', 'incoming': ['ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-6A9CC99D-C964-4DFF-AC6C-EE4739F1C26F', 'name': 'Provide goods for collection', 'incoming': ['ParallelGateway5'], 'outgoing': ['EndEvent0']}
+{'id': 'sid-738C7019-DF41-41DB-8A9D-E7217BBE754B', 'name': 'Insurance close', 'incoming': ['There is something to ship'], 'outgoing': ['ExclusiveGateway3']}
+
+Gateways:
+{'id': 'sid-CBDE6324-D973-4916-BBF7-4D75B3D90F4C', 'name': 'Big crowd?', 'incoming': ['ParallelGateway4'], 'outgoing': ['Filling forwarding documents', 'EndEvent0']}
+{'id': 'sid-F375C000-7A1F-427B-88FB-480A91815809', 'name': 'ExclusiveGateway1', 'incoming': ['Big crowd?', 'ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-2117A515-21C6-4F9A-8704-0734E33731CC', 'name': 'Insurance required?', 'incoming': ['There is something to ship'], 'outgoing': ['Insurance close', 'ExclusiveGateway3']}
+{'id': 'sid-86B5CFF0-A871-4A95-863C-94DF721BA8A4', 'name': 'ExclusiveGateway3', 'incoming': ['There is something to ship', 'ParallelGateway4'], 'outgoing': ['ParallelGateway5']}
+{'id': 'sid-B88FE68A-1CF0-40B7-A45C-8C44B9BB3314', 'name': 'ParallelGateway4', 'incoming': ['There is something to ship'], 'outgoing': ['Dedicate logistics', 'ParallelGateway5']}
+{'id': 'sid-4C9869EE-59BF-41F1-9644-D3FF5C10EF84', 'name': 'ParallelGateway5', 'incoming': ['ParallelGateway4', 'Big crowd?'], 'outgoing': ['EndEvent0']}
+
+Start Events:
+{'id': 'sid-43C6DCC2-4ED4-4ECF-9AFB-A9AC1E7F7AC3', 'name': 'There is something to ship', 'incoming': [], 'outgoing': ['ExclusiveGateway3']}
+
+End Events:
+{'id': 'sid-74D1807F-956D-4127-AD50-B7D6E730FA5F', 'name': 'EndEvent0', 'incoming': ['Big crowd?'], 'outgoing': []}

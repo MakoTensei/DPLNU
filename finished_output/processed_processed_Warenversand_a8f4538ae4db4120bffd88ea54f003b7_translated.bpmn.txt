@@ -1,0 +1,13 @@
+ The process begins when a product is to be shipped, triggering the 'Product is to be shipped' event. This event initiates the 'Check shipping quantity' task, which informs the warehouse and sends a request to 'ParallelGateway3'.
+
+'ParallelGateway3' then sends a request for quotes, which is handled by 'Select your offer'. The 'Select your offer' task communicates with 'ExclusiveGateway0', which in turn sends a notification to 'Specialist'.
+
+The 'Specialist' task, upon receiving the notification, sends a message to 'ParallelGateway4'. Meanwhile, 'Filling the package note' task is triggered, which sends a request to 'Check insurance cover' through 'ExclusiveGateway0'.
+
+The 'Check insurance cover' task, after receiving the request, sends a message to 'ExclusiveGateway2'. Simultaneously, 'Informing logistics managers' task is triggered, which sends a notification to 'Insurance close' through 'ExclusiveGateway1'.
+
+The 'Insurance close' task, upon receiving the notification, sends a message to 'Feedback from the Secretariat'. The 'Feedback from the Secretariat' task, in turn, sends a message to 'ExclusiveGateway2'.
+
+The 'Packaging goods' task is triggered, which sends a request to 'Delivering goods' through 'ParallelGateway3'. The 'Delivering goods' task, upon receiving the request, sends a message to 'ParallelGateway4'.
+
+Finally, the 'Goods are ready for dispatch' event is triggered, which receives a notification from 'ExclusiveGateway1'. This event signifies the completion of the shipping process.

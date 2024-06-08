@@ -1,0 +1,15 @@
+ 1. Visitor experiences hunger and requests to visit a restaurant.
+2. The system triggers the Gateway 'EventBasedGateway0' to select a restaurant based on the visitor's hunger.
+3. The selected restaurant is 'Visit restaurant' and the system sends a 'Get Pieper' event to retrieve the chef.
+4. The chef (Pieper) reports that the meal is ready, triggering the Gateway 'ParallelGateway2'.
+5. The system orders the meal to be eaten and sends a 'Eat meal' event.
+6. After eating, the visitor experiences hunger again, triggering the Gateway 'ParallelGateway1'.
+7. The system selects the 'Court of Justice' as the next destination and sends a 'Order the Court' event.
+8. The system informs the staff about the order and sends a 'Staff available' event.
+9. The staff prepares the court and sends an 'inform employees' event.
+10. The court is ready, and the chef (Pieper) reports that the meal is ready again, triggering the 'Pieper reports "Essen is ready"' event.
+11. The system informs the guest about the court's readiness and sends a 'Retrieve guest' event.
+12. The guest arrives at the court, and the system triggers the 'Arrival of the guest' event.
+13. The court session is finished, and the system sends a 'Finished' event.
+
+This flow of events ensures that the visitor's hunger is addressed by visiting a restaurant, and then proceeds to the court of justice, with the chef (Pieper) playing a crucial role in preparing the meal and reporting its readiness.

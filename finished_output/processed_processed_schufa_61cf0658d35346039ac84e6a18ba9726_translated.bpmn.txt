@@ -1,0 +1,15 @@
+ In the world of financial scoring, a series of tasks and gateways work together to process and deliver scoring results. Let's dive into the flow of events and tasks:
+
+1. The process begins with a 'Scoring\nRequired' event, which triggers the 'Message to Frontend' task. This task is responsible for communicating the need for scoring to the frontend.
+
+2. A 'Scoring request\nmade available' event is then generated, which leads to the 'ExclusiveGateway1' task. This task checks if the results for Level 1 are available and, if so, sends a 'Result Level 2 Report to Bank' message and marks the 'Scoring request\nFinished' event.
+
+3. The 'EventBasedGateway2' task is triggered by the 'Scoring\nRequired' event. It sends a 'Scoring message\n:' message to the 'Scoring result\nthe' task and also forwards the 'Schufa delays' event to the 'InclusiveGateway3' task.
+
+4. The 'InclusiveGateway3' task receives the 'Schufa delays' event and sends a 'Scoring result\nthe' message to the 'Scoring result\nthe' task.
+
+5. The 'Scoring result\nthe' task, triggered by the 'EventBasedGateway2' task, sends the final scoring result to the frontend.
+
+6. The 'Scoring request\nFinished' event is generated when the 'Results Level 1\nis there?' event is received by the 'ExclusiveGateway1' task. This event signifies the completion of the scoring process.
+
+In summary, the flow of events and tasks in this financial scoring process ensures that scoring requests are processed, results are generated, and the final scoring result is delivered to the frontend.

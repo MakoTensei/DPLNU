@@ -1,0 +1,17 @@
+ In a scoring system, a series of events and gateways work together to process and forward scoring results. The process begins when a scoring question is started, triggering the following sequence of events and interactions:
+
+1. When a scoring question is started, two events are triggered:
+   - 'Scoring\nQuestion\nstarted'
+   - 'forward scoring result'
+
+2. The 'Scoring\nQuestion\nstarted' event can be routed to either the 'Delay?' gateway or the 'EventBasedGateway1'. If it goes to the 'Delay?' gateway, it will send a 'Delay?' message, which can be answered by the 'Scoring result\nobtained' event. This event will then forward the 'Scoring\nFinished' message to the 'Scoring\nFinished' event.
+
+3. If the 'Scoring\nQuestion\nstarted' event is routed to the 'EventBasedGateway1', it will forward the event to the 'Scoring\ncompleted' event.
+
+4. The 'Scoring result\nobtained' event, which is a response to the 'Delay?' message, will forward the 'Scoring\nFinished' message to the 'Scoring\nFinished' event.
+
+5. The 'Scoring\ncompleted' event, which can be triggered by either the 'EventBasedGateway1' or the 'Scoring\n(level 2)' event, will forward the 'Scoring\ncompleted' message to the 'Scoring\ncompleted' event.
+
+6. The 'Scoring\n(level 2)' event, which is triggered when the 'Scoring\nQuestion\nstarted' event is routed to the 'EventBasedGateway1', will forward the 'Scoring\ncompleted' message to the 'Scoring\ncompleted' event.
+
+7. Finally, the 'Scoring\nFinished' event can be triggered by either the 'Delay?' gateway or the 'EventBasedGateway1'. If it is triggered by the 'Delay?' gateway, it will send a 'Scoring\
